@@ -1,8 +1,8 @@
 # Goal and Sprint Questions
 
-## Long-Term Goal
+## 30-Day Goal
 
-**In 2 years, workshop clients will arrive at Day 1 with a complete, high-quality market narrative already built — by submitting their raw materials through a guided intake system that automatically collects, organizes, and synthesizes business context into the structured framework the workshop requires.**
+**In 30 days, workshop clients will arrive at Day 1 with a complete, high-quality market narrative already built — by submitting their raw materials through a guided intake system that automatically collects, organizes, and synthesizes business context into the structured framework the workshop requires.**
 
 This goal reframes the problem from "make the facilitator's prep work faster" to "make the client's contribution seamless and the narrative generation automatic." The facilitator should spend zero hours chasing materials and manually assembling prompts. The system handles intake, the AI handles synthesis, and the facilitator reviews and refines.
 

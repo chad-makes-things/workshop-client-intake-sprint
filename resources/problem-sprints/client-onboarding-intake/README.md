@@ -29,7 +29,7 @@ A TurboTax-style conversational guided intake flow that walks each client throug
 
 | Phase | Folder | Files | Summary |
 |-------|--------|-------|---------|
-| Frame | [01-frame/](01-frame/) | [goal-and-questions.md](01-frame/goal-and-questions.md), [problem-map.md](01-frame/problem-map.md), [expert-notes.md](01-frame/expert-notes.md), [target.md](01-frame/target.md) | 2-year goal, 5 sprint questions, 15-step problem map with 4 actors, 25 HMW notes in 6 themes, 3 target candidates |
+| Frame | [01-frame/](01-frame/) | [goal-and-questions.md](01-frame/goal-and-questions.md), [problem-map.md](01-frame/problem-map.md), [expert-notes.md](01-frame/expert-notes.md), [target.md](01-frame/target.md) | 30-day goal, 5 sprint questions, 15-step problem map with 4 actors, 25 HMW notes in 6 themes, 3 target candidates |
 | Sketch | [02-sketch/](02-sketch/) | [inspiration.md](02-sketch/inspiration.md), [solution-sketches.md](02-sketch/solution-sketches.md) | 9 research inspirations, 5 distinct solution approaches |
 | Decide | [03-decide/](03-decide/) | [decision.md](03-decide/decision.md), [storyboard.md](03-decide/storyboard.md) | Weighted evaluation matrix, 10-step storyboard from welcome email to framework-ready output |
 | Architect | [04-architect/](04-architect/) | [product-architecture.md](04-architect/product-architecture.md), [index.html](04-architect/index.html) | 8 components, 12 entities, 5 ADRs, interactive HTML visualization |
