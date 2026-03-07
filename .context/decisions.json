@@ -1,0 +1,24 @@
+{
+  "decisions": [
+    {
+      "sprint": "client-onboarding-intake",
+      "phase": "target-confirmation",
+      "decision": "Target A: Guided Intake and Collection (Steps 2-6)",
+      "reasoning": "User confirmed recommended target. Highest score (23/25). Tests the hardest behavioral assumption first — will clients submit through a structured system?",
+      "date": "2026-03-07",
+      "decided_by": "user"
+    },
+    {
+      "sprint": "client-onboarding-intake",
+      "phase": "solution-selection",
+      "decision": "Solution 1: The Interview — Conversational Guided Intake Flow, with Solution 3 (The Head Start) web-scraping pre-population integrated",
+      "reasoning": "User accepted recommendation. Highest-scoring scalable solution (53/65). Structured guidance solves root cause of client non-submission. Web scraping pre-population from Head Start reduces client burden and adds 'we did our homework' delight.",
+      "date": "2026-03-07",
+      "decided_by": "user"
+    }
+  ],
+  "metadata": {
+    "workspace": "Sprint Workspace",
+    "created": "2026-03-07T00:00:00+00:00"
+  }
+}

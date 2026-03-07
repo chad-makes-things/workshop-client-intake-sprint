@@ -1,0 +1,18 @@
+{
+  "missions": {
+    "client-onboarding-intake": {
+      "type": "problem-sprint",
+      "status": "complete",
+      "phase": "validated",
+      "started": "2026-03-07",
+      "completed": "2026-03-07",
+      "problem": "Pre-workshop client material collection is manual, fragmented, and unscalable",
+      "solution": "The Interview + The Head Start — Guided intake flow with web-scraping pre-population",
+      "output": "resources/problem-sprints/client-onboarding-intake/"
+    }
+  },
+  "metadata": {
+    "workspace": "Sprint Workspace",
+    "created": "2026-03-07T00:00:00+00:00"
+  }
+}
