@@ -460,6 +460,422 @@ section:nth-child(even) { background: var(--gray-50); }
 }
 .detail-full h4 { color: var(--primary); }
 
+/* ─── SPRINT PROCESS ─── */
+.sprint-phases {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 48px;
+  position: relative;
+}
+.sprint-phase-item {
+  flex: 1;
+  text-align: center;
+  padding: 16px 8px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  position: relative;
+  transition: all .25s;
+}
+.sprint-phase-item.active-phase {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(37,99,235,.1);
+}
+.sprint-phase-item .phase-icon {
+  font-size: 20px;
+  margin-bottom: 6px;
+  display: block;
+}
+.sprint-phase-item .phase-name {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--dark);
+  display: block;
+}
+.sprint-phase-item .phase-detail {
+  font-size: 11px;
+  color: var(--gray-500);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+.sprint-phase-item.active-phase .phase-name { color: var(--primary); }
+
+.sprint-goal {
+  background: linear-gradient(135deg, var(--dark) 0%, #1a2744 100%);
+  border-radius: var(--radius);
+  padding: 32px 36px;
+  margin-bottom: 48px;
+  color: var(--white);
+}
+.sprint-goal h3 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--primary);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+.sprint-goal blockquote {
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(255,255,255,.88);
+  border-left: 3px solid var(--primary);
+  padding-left: 20px;
+  margin: 0;
+  font-style: italic;
+}
+
+.sprint-questions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+.sq-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  transition: all .25s;
+}
+.sq-card:hover { border-color: var(--gray-300); box-shadow: var(--shadow); }
+.sq-card.sq-full { grid-column: 1 / -1; }
+.sq-risk {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.sq-risk.high { background: #fef2f2; color: #dc2626; }
+.sq-risk.medium { background: #fff7ed; color: #ea580c; }
+.sq-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.sq-card p {
+  font-size: 13px;
+  color: var(--gray-600);
+  line-height: 1.55;
+}
+
+.target-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.target-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: all .25s;
+  position: relative;
+}
+.target-card:hover { border-color: var(--gray-300); box-shadow: var(--shadow-md); }
+.target-card.target-selected {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(37,99,235,.12);
+}
+.target-card .target-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 10px;
+}
+.target-selected .target-badge { color: var(--primary); }
+.target-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+.target-card p {
+  font-size: 13px;
+  color: var(--gray-600);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+.target-score {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+}
+.target-score-bar {
+  flex: 1;
+  height: 8px;
+  background: var(--gray-100);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.target-score-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--primary);
+  transition: width .6s ease;
+}
+.target-score-val {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark);
+  white-space: nowrap;
+}
+.target-selected-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  background: var(--primary);
+  color: var(--white);
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+.solutions-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+.sol-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 20px;
+  align-items: start;
+  transition: all .25s;
+}
+.sol-card:hover { border-color: var(--gray-300); box-shadow: var(--shadow); }
+.sol-card.sol-selected {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(37,99,235,.1);
+  background: #fafbff;
+}
+.sol-num {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 800;
+  flex-shrink: 0;
+  background: var(--gray-100);
+  color: var(--gray-600);
+}
+.sol-selected .sol-num { background: var(--primary-light); color: var(--primary); }
+.sol-body h4 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 2px;
+}
+.sol-body .sol-subtitle {
+  font-size: 13px;
+  color: var(--gray-500);
+  margin-bottom: 10px;
+  font-style: italic;
+}
+.sol-body .sol-insight {
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.sol-body .sol-strengths {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.sol-strength-tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+.sol-strength-tag.pro { background: var(--success-light); color: #15803d; }
+.sol-strength-tag.con { background: #fef2f2; color: #dc2626; }
+.sol-meta {
+  text-align: right;
+  min-width: 90px;
+}
+.sol-score-big {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--dark);
+  letter-spacing: -.02em;
+  line-height: 1;
+}
+.sol-score-max {
+  font-size: 13px;
+  color: var(--gray-400);
+  font-weight: 500;
+}
+.sol-verdict {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+.sol-verdict.recommended { background: var(--primary-light); color: var(--primary-dark); }
+.sol-verdict.complement { background: var(--success-light); color: #15803d; }
+.sol-verdict.not-rec { background: var(--gray-100); color: var(--gray-500); }
+.sol-verdict.top-score { background: #fff7ed; color: #c2410c; }
+
+.decision-callout {
+  background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 32px 36px;
+  margin-bottom: 48px;
+}
+.decision-callout h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+.decision-callout .decision-subtitle {
+  font-size: 14px;
+  color: var(--gray-500);
+  margin-bottom: 16px;
+  font-style: italic;
+}
+.decision-callout p {
+  font-size: 15px;
+  color: var(--gray-700);
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+.decision-callout strong { color: var(--dark); }
+.decision-paradox {
+  background: rgba(255,255,255,.7);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  margin-top: 16px;
+  border-left: 3px solid var(--warning);
+}
+.decision-paradox h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--warning);
+  margin-bottom: 6px;
+}
+.decision-paradox p {
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
+.learnings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.learning-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  transition: all .25s;
+}
+.learning-card:hover { border-color: var(--gray-300); box-shadow: var(--shadow); }
+.learning-card.learning-full { grid-column: 1 / -1; }
+.learning-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.learning-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+.learning-card p {
+  font-size: 13px;
+  color: var(--gray-600);
+  line-height: 1.55;
+}
+
+.not-resolved {
+  background: var(--warning-light);
+  border: 1px solid #fed7aa;
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-top: 32px;
+}
+.not-resolved h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--warning);
+  margin-bottom: 8px;
+}
+.not-resolved ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.not-resolved li {
+  font-size: 13px;
+  color: var(--gray-700);
+  padding: 4px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+.not-resolved li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--warning);
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .sprint-phases { flex-direction: column; }
+  .sprint-questions-grid { grid-template-columns: 1fr; }
+  .target-grid { grid-template-columns: 1fr; }
+  .sol-card { grid-template-columns: 40px 1fr; }
+  .sol-meta { grid-column: 1 / -1; text-align: left; display: flex; align-items: center; gap: 12px; }
+  .learnings-grid { grid-template-columns: 1fr; }
+}
+
 /* ─── ARCHITECTURE DIAGRAM ─── */
 .arch-diagram {
   background: var(--white);
@@ -758,6 +1174,7 @@ footer strong { color: var(--white); }
     <ul class="nav-links">
       <li><a href="#overview">Overview</a></li>
       <li><a href="#problem">Problem</a></li>
+      <li><a href="#sprint-process">Sprint Process</a></li>
       <li><a href="#journey">Journey</a></li>
       <li><a href="#architecture">Architecture</a></li>
       <li><a href="#roadmap">Roadmap</a></li>
@@ -845,6 +1262,278 @@ footer strong { color: var(--white); }
         </ul>
         <div class="ba-bottom-stat">~15 minutes of facilitator review</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━ SPRINT PROCESS ━━━ -->
+<section id="sprint-process">
+  <div class="section-inner">
+    <div class="section-label">How We Got Here</div>
+    <h2 class="section-title">Sprint Process</h2>
+    <p class="section-desc">This solution was not chosen arbitrarily. It emerged from a structured design sprint -- five phases of framing, exploration, evaluation, and architecture. Here is how the thinking unfolded.</p>
+
+    <!-- Sprint Methodology -->
+    <div class="sprint-phases reveal">
+      <div class="sprint-phase-item">
+        <span class="phase-icon">&#9632;</span>
+        <span class="phase-name">Frame</span>
+        <span class="phase-detail">Goal, map, questions, target</span>
+      </div>
+      <div class="sprint-phase-item">
+        <span class="phase-icon">&#9998;</span>
+        <span class="phase-name">Sketch</span>
+        <span class="phase-detail">5 distinct solutions</span>
+      </div>
+      <div class="sprint-phase-item active-phase">
+        <span class="phase-icon">&#9878;</span>
+        <span class="phase-name">Decide</span>
+        <span class="phase-detail">Weighted evaluation</span>
+      </div>
+      <div class="sprint-phase-item">
+        <span class="phase-icon">&#9881;</span>
+        <span class="phase-name">Architect</span>
+        <span class="phase-detail">Components, entities, ADRs</span>
+      </div>
+      <div class="sprint-phase-item">
+        <span class="phase-icon">&#10003;</span>
+        <span class="phase-name">Validate</span>
+        <span class="phase-detail">Learnings, risks, next steps</span>
+      </div>
+    </div>
+
+    <!-- 2-Year Goal -->
+    <div class="sprint-goal reveal">
+      <h3>The 2-Year Goal</h3>
+      <blockquote>In 2 years, workshop clients will arrive at Day 1 with a complete, high-quality market narrative already built -- by submitting their raw materials through a guided intake system that automatically collects, organizes, and synthesizes business context into the structured framework the workshop requires.</blockquote>
+    </div>
+
+    <!-- Sprint Questions -->
+    <h3 style="font-size:20px;font-weight:700;margin-bottom:6px;color:var(--dark)">5 Sprint Questions</h3>
+    <p style="font-size:14px;color:var(--gray-500);margin-bottom:20px;line-height:1.6">The sprint identified five critical questions whose answers determine whether the system succeeds or fails. Weights reflect risk level -- HIGH-risk questions received a weight of 3 in scoring, MEDIUM-risk received 2.</p>
+
+    <div class="sprint-questions-grid reveal">
+      <div class="sq-card">
+        <span class="sq-risk high">HIGH RISK</span>
+        <h4>Q1: Will clients actually use a structured system?</h4>
+        <p>Clients currently text, email, and drop files ad hoc. Any solution requires behavioral change -- or must meet them where they are. If they won't use the intake system, nothing downstream matters.</p>
+      </div>
+      <div class="sq-card">
+        <span class="sq-risk high">HIGH RISK</span>
+        <h4>Q2: Will the output match manual narrative quality?</h4>
+        <p>The market narrative is the foundation of the workshop. If automated synthesis produces something generic or structurally wrong, the facilitator loses trust and reverts to manual work.</p>
+      </div>
+      <div class="sq-card">
+        <span class="sq-risk high">HIGH RISK</span>
+        <h4>Q3: Can it handle the full sophistication spectrum?</h4>
+        <p>Clients range from polished brand decks to "we just have our website and some stories." The system must serve both without making either feel inadequate.</p>
+      </div>
+      <div class="sq-card">
+        <span class="sq-risk medium">MEDIUM RISK</span>
+        <h4>Q4: Can it preserve the personal touch?</h4>
+        <p>The workshop brand is "streamlined and loved." If intake feels like enterprise software -- transactional, cold -- it undermines the trust that makes the workshop succeed.</p>
+      </div>
+      <div class="sq-card sq-full">
+        <span class="sq-risk medium">MEDIUM RISK</span>
+        <h4>Q5: Will the facilitator trust and adopt the system?</h4>
+        <p>Even with a working system, the facilitator may insist on manually reviewing every output -- effectively doing the same work with an extra step. The system must earn confidence quickly, or adoption stalls.</p>
+      </div>
+    </div>
+
+    <!-- Target Selection -->
+    <h3 style="font-size:20px;font-weight:700;margin-bottom:6px;color:var(--dark)">Target Selection</h3>
+    <p style="font-size:14px;color:var(--gray-500);margin-bottom:20px;line-height:1.6">The problem map revealed a 15-step journey with risk concentrated in Steps 4-10 -- the "messy middle" between client gathering materials and the facilitator organizing them. Three candidate targets were evaluated.</p>
+
+    <div class="target-grid reveal">
+      <div class="target-card target-selected">
+        <span class="target-selected-tag">Selected</span>
+        <span class="target-badge">Target A</span>
+        <h4>Guided Intake &amp; Collection</h4>
+        <p>Replace scattered multi-channel collection with a guided, flexible intake experience. Tests the hardest behavioral question first: will clients use a structured system?</p>
+        <div class="target-score">
+          <div class="target-score-bar"><div class="target-score-fill" style="width:92%"></div></div>
+          <span class="target-score-val">23/25</span>
+        </div>
+      </div>
+      <div class="target-card">
+        <span class="target-badge" style="color:var(--gray-500)">Target B</span>
+        <h4>Framework Mapping</h4>
+        <p>Automate the organization of collected materials into the prompt framework. High impact but requires the facilitator to first articulate tacit categorization logic.</p>
+        <div class="target-score">
+          <div class="target-score-bar"><div class="target-score-fill" style="width:76%"></div></div>
+          <span class="target-score-val">19/25</span>
+        </div>
+      </div>
+      <div class="target-card">
+        <span class="target-badge" style="color:var(--gray-500)">Target C</span>
+        <h4>End-to-End Pipeline</h4>
+        <p>Full intake-to-narrative system. Maximum impact if it works, but too broad for a single sprint -- breadth over depth risks shallow solutions everywhere.</p>
+        <div class="target-score">
+          <div class="target-score-bar"><div class="target-score-fill" style="width:68%"></div></div>
+          <span class="target-score-val">17/25</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 Solutions Explored -->
+    <h3 style="font-size:20px;font-weight:700;margin-bottom:6px;color:var(--dark)">5 Solutions Explored</h3>
+    <p style="font-size:14px;color:var(--gray-500);margin-bottom:20px;line-height:1.6">Five genuinely different approaches were designed, each making a different bet about what matters most. All were scored against the 5 sprint questions using risk-weighted criteria (max 65 points).</p>
+
+    <div class="solutions-grid reveal">
+      <div class="sol-card sol-selected">
+        <div class="sol-num">1</div>
+        <div class="sol-body">
+          <h4>The Interview</h4>
+          <div class="sol-subtitle">Bets that structure and guidance will change client behavior</div>
+          <p class="sol-insight">A TurboTax-style conversational guided intake that walks clients through branching questions mapped to the workshop's prompt framework. One question at a time, Typeform-style. Clients never see the framework -- they just answer questions. The system maps answers to slots behind the scenes.</p>
+          <div class="sol-strengths">
+            <span class="sol-strength-tag pro">Eliminates ambiguity</span>
+            <span class="sol-strength-tag pro">Scales to 50+ clients</span>
+            <span class="sol-strength-tag pro">Branching adapts to sophistication</span>
+            <span class="sol-strength-tag con">Still a web form at its core</span>
+          </div>
+        </div>
+        <div class="sol-meta">
+          <div class="sol-score-big">53<span class="sol-score-max">/65</span></div>
+          <span class="sol-verdict recommended">Recommended</span>
+        </div>
+      </div>
+
+      <div class="sol-card">
+        <div class="sol-num">2</div>
+        <div class="sol-body">
+          <h4>The Inbox</h4>
+          <div class="sol-subtitle">Bets that you should never ask clients to change behavior</div>
+          <p class="sol-insight">An intelligent backend that accepts materials from any channel -- text, email, Dropbox, voice memo -- and auto-routes, categorizes, and organizes everything. The client's experience doesn't change. The facilitator's experience transforms.</p>
+          <div class="sol-strengths">
+            <span class="sol-strength-tag pro">Zero behavior change</span>
+            <span class="sol-strength-tag pro">Preserves relationship feel</span>
+            <span class="sol-strength-tag con">No structure = current problem</span>
+            <span class="sol-strength-tag con">AI categorization fragile</span>
+          </div>
+        </div>
+        <div class="sol-meta">
+          <div class="sol-score-big">39<span class="sol-score-max">/65</span></div>
+          <span class="sol-verdict not-rec">Not Recommended</span>
+        </div>
+      </div>
+
+      <div class="sol-card sol-selected">
+        <div class="sol-num">3</div>
+        <div class="sol-body">
+          <h4>The Head Start</h4>
+          <div class="sol-subtitle">Bets that doing the work for the client is better than asking them</div>
+          <p class="sol-insight">Before asking the client for anything, scrape their website and public presence to pre-build 40-60% of the framework. The client reviews, corrects, and supplements -- turning intake from "build from scratch" into "review and refine."</p>
+          <div class="sol-strengths">
+            <span class="sol-strength-tag pro">"We did our homework" moment</span>
+            <span class="sol-strength-tag pro">Review is easier than create</span>
+            <span class="sol-strength-tag con">Thin web presence = weak draft</span>
+            <span class="sol-strength-tag con">Depends on client initiative</span>
+          </div>
+        </div>
+        <div class="sol-meta">
+          <div class="sol-score-big">46<span class="sol-score-max">/65</span></div>
+          <span class="sol-verdict complement">Strong Complement</span>
+        </div>
+      </div>
+
+      <div class="sol-card">
+        <div class="sol-num">4</div>
+        <div class="sol-body">
+          <h4>The Kickoff Call</h4>
+          <div class="sol-subtitle">Bets that human conversation is irreplaceable</div>
+          <p class="sol-insight">A focused 45-minute video call where the facilitator walks the client through the framework live, capturing everything through conversation, screen sharing, and live document review. AI records, transcribes, and structures the output.</p>
+          <div class="sol-strengths">
+            <span class="sol-strength-tag pro">Highest fidelity capture</span>
+            <span class="sol-strength-tag pro">Zero client prep burden</span>
+            <span class="sol-strength-tag pro">Most personal experience</span>
+            <span class="sol-strength-tag con">Does not scale</span>
+          </div>
+        </div>
+        <div class="sol-meta">
+          <div class="sol-score-big">65<span class="sol-score-max">/65</span></div>
+          <span class="sol-verdict top-score">Perfect Score</span>
+        </div>
+      </div>
+
+      <div class="sol-card">
+        <div class="sol-num">5</div>
+        <div class="sol-body">
+          <h4>The Shared Canvas</h4>
+          <div class="sol-subtitle">Bets that collaboration is the highest-trust way to collect information</div>
+          <p class="sol-insight">A shared digital workspace (Notion-style) where both facilitator and client can see and edit. The facilitator seeds it with the framework structure and scraped content. The client fills it in over 1-2 weeks at their own pace.</p>
+          <div class="sol-strengths">
+            <span class="sol-strength-tag pro">Collaborative frame feels premium</span>
+            <span class="sol-strength-tag pro">Real-time facilitator visibility</span>
+            <span class="sol-strength-tag con">Requires sustained self-direction</span>
+            <span class="sol-strength-tag con">Procrastination risk</span>
+          </div>
+        </div>
+        <div class="sol-meta">
+          <div class="sol-score-big">40<span class="sol-score-max">/65</span></div>
+          <span class="sol-verdict not-rec">Not Recommended</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Decision -->
+    <div class="decision-callout reveal">
+      <h3>The Decision: Interview + Head Start Hybrid</h3>
+      <div class="decision-subtitle">Solution 1 as the engine, Solution 3 as the differentiator</div>
+      <p><strong>The Interview</strong> is the only solution that simultaneously (a) changes client behavior through structure rather than hoping they self-direct, (b) scales without adding facilitator labor, and (c) produces framework-mapped outputs by design rather than through post-hoc AI categorization.</p>
+      <p><strong>The Head Start's</strong> web-scraping pre-population is integrated as a core feature: before the client begins the guided flow, the system scrapes their web presence and pre-fills answers. The client reviews pre-populated content and fills gaps. This hybrid captures The Head Start's "we did our homework" delight while retaining The Interview's structural guidance.</p>
+
+      <div class="decision-paradox">
+        <h4>The Scaling Paradox</h4>
+        <p>The Kickoff Call scored a perfect 65/65 -- the best answer to every sprint question in isolation. Live conversation produces the richest input, adapts to any client, and feels the most personal. But it requires 45 minutes of facilitator time per client. At 10 concurrent clients, that's 7.5 hours of calls before any synthesis begins. <strong>The highest-quality solution does not scale -- and scaling is the reason this sprint exists.</strong></p>
+      </div>
+    </div>
+
+    <!-- Key Learnings -->
+    <h3 style="font-size:20px;font-weight:700;margin-bottom:6px;color:var(--dark)">Key Learnings</h3>
+    <p style="font-size:14px;color:var(--gray-500);margin-bottom:20px;line-height:1.6">Six insights emerged from the sprint that shaped the final architecture and will guide implementation.</p>
+
+    <div class="learnings-grid reveal">
+      <div class="learning-card">
+        <div class="learning-num">1</div>
+        <h4>The problem is behavioral, not technical</h4>
+        <p>The root cause isn't bad tools or missing channels -- it's that clients don't know what to send, feel overwhelmed, and procrastinate. The solution must replace ambiguity with structure, not just build a better inbox.</p>
+      </div>
+      <div class="learning-card">
+        <div class="learning-num">2</div>
+        <h4>Pre-population is a force multiplier, not a standalone</h4>
+        <p>Web scraping works brilliantly as a feature within a guided flow. As a standalone solution, it has a floor problem -- thin-web-presence clients get an embarrassingly empty draft.</p>
+      </div>
+      <div class="learning-card">
+        <div class="learning-num">3</div>
+        <h4>Voice input bridges the quality gap</h4>
+        <p>Adding voice recording partially bridges the gap between typed form responses and live conversation. Clients who are "talkers, not writers" capture narrative richness that typing rarely achieves.</p>
+      </div>
+      <div class="learning-card">
+        <div class="learning-num">4</div>
+        <h4>The facilitator's expertise lives in the question tree</h4>
+        <p>The facilitator isn't replaced -- they're embedded. Their expertise is encoded in branching logic and framework mapping. This reframe from "automate the facilitator" to "leverage the facilitator's architecture" is critical for adoption.</p>
+      </div>
+      <div class="learning-card">
+        <div class="learning-num">5</div>
+        <h4>Self-segmentation solves the spectrum</h4>
+        <p>Rather than one path that works poorly for everyone, self-segmentation at the start routes clients to appropriate depth and question styles. Cleaner than trying to detect sophistication automatically.</p>
+      </div>
+      <div class="learning-card">
+        <div class="learning-num">6</div>
+        <h4>Quality vs. scale is the central tradeoff</h4>
+        <p>The highest-quality solution (live calls) doesn't scale. The most scalable solution (guided forms) loses conversational richness. The hybrid (guided flow + voice + pre-population) is the best available compromise.</p>
+      </div>
+    </div>
+
+    <!-- What's NOT Resolved -->
+    <div class="not-resolved reveal">
+      <h4>What the Sprint Did NOT Resolve</h4>
+      <ul>
+        <li><strong>Framework mapping automation</strong> -- the downstream challenge of auto-organizing collected materials into the prompt framework (Steps 7-10 on the problem map) needs its own sprint</li>
+        <li><strong>AI narrative generation quality</strong> -- whether AI-generated narratives from structured inputs match the facilitator's manual quality is untested</li>
+        <li><strong>Facilitator adoption in practice</strong> -- addressed architecturally, but real adoption requires building, using with actual clients, and iterating on gaps</li>
+      </ul>
     </div>
   </div>
 </section>
