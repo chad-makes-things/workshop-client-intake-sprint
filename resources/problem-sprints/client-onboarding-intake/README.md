@@ -2,7 +2,7 @@
 
 **Date**: 2026-03-07
 **Slug**: client-onboarding-intake
-**Status**: complete
+**Status**: development-ready
 
 ## Problem Statement
 Pre-workshop client material collection and organization is manual, fragmented, and unscalable. The business runs AI-enabled multi-day workshops that produce dashboards and deliverables based on client insights. While the workshop experience itself is streamlined and loved by clients, the onboarding process prior to the workshop is a bottleneck: materials arrive via text, email, Dropbox, and secure file services in the form of PDFs, anecdotes, website snapshots, and ad-hoc conversations. All of this must be manually collected, organized, and structured into a framework of prompts that generate a market narrative — the foundation of the first workshop session. As client volume scales, this manual process cannot keep up.
@@ -34,12 +34,29 @@ A TurboTax-style conversational guided intake flow that walks each client throug
 | Decide | [03-decide/](03-decide/) | [decision.md](03-decide/decision.md), [storyboard.md](03-decide/storyboard.md) | Weighted evaluation matrix, 10-step storyboard from welcome email to framework-ready output |
 | Architect | [04-architect/](04-architect/) | [product-architecture.md](04-architect/product-architecture.md), [index.html](04-architect/index.html) | 8 components, 12 entities, 5 ADRs, interactive HTML visualization |
 | Validate | [05-validate/](05-validate/) | [learnings.md](05-validate/learnings.md) | 6 key learnings, unresolved risks, recommended next steps |
+| **Development** | [06-development/](06-development/) | See below | Full dev-ready package |
+
+## Development Package (06-development/)
+
+| Role | File | Summary |
+|------|------|---------|
+| Product Manager | [requirements/epic.md](06-development/requirements/epic.md) | 27 user stories across 5 phases, acceptance criteria (Given/When/Then), 4 technical spikes, dependency map |
+| UX Designer | [design/design-specs.md](06-development/design/design-specs.md) | 10 screen wireframes, interaction patterns, design system (colors, type, spacing, 28 components), accessibility spec, 5 design decisions |
+| Tech Lead | [technical/implementation-plan.md](06-development/technical/implementation-plan.md) | Stack validation, full DB schema (14 tables), 25+ API endpoints, 48 engineering tasks, infrastructure plan, 10-risk register |
+| Backend Engineer | [backend/phase1-backend-spec.md](06-development/backend/phase1-backend-spec.md) | 12 API endpoints with TypeScript types, Drizzle ORM schema, question tree JSON spec, magic link auth flow, service layer design |
+| Frontend Engineer | [frontend/phase1-frontend-spec.md](06-development/frontend/phase1-frontend-spec.md) | 30+ component tree, 4 routes, state machine, React Query strategy, 14 detailed component specs, testing strategy |
+
+### Development Handoff
+- [handoff-to-dev.md](handoff-to-dev.md) — Role-specific artifact mapping and recommended build sequence
 
 ## Quick Links
 
 - **Visual prototype**: Open [04-architect/index.html](04-architect/index.html) in any browser
 - **Architecture**: [04-architect/product-architecture.md](04-architect/product-architecture.md)
 - **Storyboard**: [03-decide/storyboard.md](03-decide/storyboard.md)
+- **Epic & stories**: [06-development/requirements/epic.md](06-development/requirements/epic.md)
+- **Phase 1 backend spec**: [06-development/backend/phase1-backend-spec.md](06-development/backend/phase1-backend-spec.md)
+- **Phase 1 frontend spec**: [06-development/frontend/phase1-frontend-spec.md](06-development/frontend/phase1-frontend-spec.md)
 - **All 5 solutions**: [02-sketch/solution-sketches.md](02-sketch/solution-sketches.md)
 - **Learnings & next steps**: [05-validate/learnings.md](05-validate/learnings.md)
 
