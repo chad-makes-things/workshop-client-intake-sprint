@@ -53,6 +53,9 @@ This workspace uses the shared skills library at `../skills-library/`.
 7. **Architect (Thursday)** — Prototype Builder designs architecture + HTML
 8. **Validate (Friday)** — Facilitator assembles and validates output
 9. **Approval & Push** — You approve; optional push to GitHub
+10. **Development Handoff** (optional) — Facilitator writes handoff manifest mapping sprint artifacts to dev roles
+11. **Development Package** (optional) — PM, UX Designer, Tech Lead, Backend & Frontend Engineers create full spec package
+12. **Website Enhancement & Deployment** (optional) — Enhanced HTML with Sprint Process section deployed to GitHub Pages
 
 ### Critical Decision Points
 
