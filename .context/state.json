@@ -53,7 +53,7 @@
     "hospitality-playbook-operationalization": {
       "type": "problem-sprint",
       "status": "complete",
-      "phase": "validated",
+      "phase": "development-ready",
       "started": "2026-03-10",
       "completed": "2026-03-10",
       "problem": "SGA has developed a 'hospitality playbook' concept built around a culture of 5-star patient experiences — but cannot operationalize it at scale. They cannot train staff on hospitality behaviors, measure adoption, or reinforce the culture systematically across a distributed network of 260+ practices.",

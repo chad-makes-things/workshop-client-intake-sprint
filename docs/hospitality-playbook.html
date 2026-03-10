@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hospitality Playbook Platform — SGA Dental Partners</title>
+<style>
+:root {
+  --bg: #0f0f0f;
+  --surface: #171717;
+  --surface2: #1e1e1e;
+  --surface3: #252525;
+  --border: #2a2825;
+  --border-gold: #3a3020;
+  --gold: #c9a84c;
+  --gold-light: #e8c96a;
+  --gold-dim: #8a6f30;
+  --gold-glow: rgba(201,168,76,0.1);
+  --text: #f0ece4;
+  --text-sec: #8a857c;
+  --text-muted: #5a5550;
+  --green: #4a9e6e;
+  --orange: #c47a35;
+  --red: #c05a4a;
+  --yellow: #c9b94c;
+  --blue: #4a7ac0;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Georgia,serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(15,15,15,0.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;gap:1.5rem;height:52px;}
+.nav-back{color:var(--text-sec);text-decoration:none;font-size:0.78rem;white-space:nowrap;margin-right:auto;transition:color 0.2s;}
+.nav-back:hover{color:var(--gold);}
+.nav-logo{font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);white-space:nowrap;}
+.nav-links{display:flex;gap:1.25rem;flex-wrap:wrap;}
+nav a.nl{color:var(--text-muted);text-decoration:none;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;font-weight:600;}
+nav a.nl:hover{color:var(--gold);}
+
+/* SECTIONS */
+.section{padding:5rem 2rem;max-width:1100px;margin:0 auto;}
+.section-label{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-weight:700;}
+h1{font-size:clamp(2.2rem,5vw,4rem);line-height:1.05;font-weight:300;letter-spacing:-0.025em;}
+h2{font-size:clamp(1.6rem,3.5vw,2.6rem);line-height:1.15;font-weight:300;letter-spacing:-0.015em;}
+h3{font-size:1.25rem;font-weight:500;}
+h4{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);}
+p{color:var(--text-sec);line-height:1.75;}
+.divider{height:1px;background:var(--border);margin:3rem 0;}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;background:radial-gradient(ellipse at 60% 35%,rgba(201,168,76,0.07) 0%,transparent 55%),radial-gradient(ellipse at 15% 75%,rgba(201,168,76,0.03) 0%,transparent 45%),var(--bg);}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.hero-eyebrow{font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem;}
+.hero-eyebrow::before{content:'';display:block;width:2rem;height:1px;background:var(--gold);}
+.hero-title em{font-style:italic;color:var(--gold);}
+.hero-sub{font-size:1.05rem;color:var(--text-sec);line-height:1.75;margin:1.5rem 0 2.5rem;max-width:480px;}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:12px;overflow:hidden;}
+.hero-stat{background:var(--surface);padding:1.5rem 1rem;text-align:center;}
+.hero-stat-num{font-size:2rem;font-weight:300;color:var(--gold);letter-spacing:-0.02em;line-height:1;}
+.hero-stat-label{font-size:0.62rem;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:0.35rem;}
+
+/* CARDS */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;}
+.card-sm{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+.grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;}
+
+/* PROBLEM SECTION */
+#problem{background:var(--surface);}
+.before-after{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem;}
+.before-card{background:var(--bg);border:1px solid rgba(192,90,74,0.3);border-radius:12px;padding:1.75rem;}
+.after-card{background:var(--bg);border:1px solid rgba(74,158,110,0.3);border-radius:12px;padding:1.75rem;}
+.state-label{font-size:0.62rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;}
+.before-label{color:var(--red);}
+.after-label{color:var(--green);}
+.gap-item{display:flex;align-items:flex-start;gap:0.6rem;padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.85rem;color:var(--text-sec);}
+.gap-item:last-child{border-bottom:none;}
+.gap-item::before{content:'→';color:var(--gold);flex-shrink:0;font-size:0.75rem;margin-top:2px;}
+
+/* PILLARS */
+.pillars-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:2.5rem;}
+.pillar{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem 1.25rem;text-align:center;position:relative;overflow:hidden;transition:border-color 0.2s;}
+.pillar::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);opacity:0.25;transition:opacity 0.2s;}
+.pillar:hover{border-color:var(--border-gold);}
+.pillar:hover::before{opacity:1;}
+.pillar-num{font-size:1.75rem;font-weight:300;color:var(--gold);opacity:0.4;line-height:1;margin-bottom:0.6rem;}
+.pillar-name{font-size:0.8rem;font-weight:700;color:var(--text);margin-bottom:0.4rem;letter-spacing:0.03em;}
+.pillar-desc{font-size:0.75rem;color:var(--text-muted);line-height:1.5;}
+
+/* SPRINT PROCESS */
+#sprint{background:var(--bg);}
+.sprint-phases{display:grid;grid-template-columns:repeat(5,1fr);gap:0.75rem;margin:2rem 0;}
+.phase-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;}
+.phase-num{font-size:0.62rem;color:var(--gold);font-weight:700;letter-spacing:0.1em;margin-bottom:0.4rem;}
+.phase-name{font-size:0.78rem;font-weight:600;color:var(--text);}
+.sq-grid{display:grid;gap:0.75rem;margin:1.5rem 0;}
+.sq-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:start;}
+.sq-id{font-size:0.68rem;font-weight:700;color:var(--gold);letter-spacing:0.08em;white-space:nowrap;margin-top:2px;}
+.sq-text{font-size:0.88rem;color:var(--text);font-weight:500;}
+.sq-sub{font-size:0.78rem;color:var(--text-sec);margin-top:0.25rem;}
+.risk-badge{font-size:0.62rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:20px;white-space:nowrap;}
+.risk-high{background:rgba(192,90,74,0.15);color:var(--red);}
+.risk-med{background:rgba(196,122,53,0.15);color:var(--orange);}
+.risk-low{background:rgba(74,158,110,0.15);color:var(--green);}
+.solution-scores{display:grid;gap:0.75rem;margin:1.5rem 0;}
+.score-row{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem;display:grid;grid-template-columns:1fr auto auto;gap:1rem;align-items:center;}
+.score-name{font-size:0.88rem;font-weight:500;color:var(--text);}
+.score-pitch{font-size:0.75rem;color:var(--text-sec);margin-top:0.2rem;}
+.score-num{font-size:1.5rem;font-weight:300;color:var(--gold);white-space:nowrap;}
+.score-denom{font-size:0.75rem;color:var(--text-muted);}
+.verdict-badge{font-size:0.62rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.25rem 0.75rem;border-radius:20px;white-space:nowrap;}
+.v-rec{background:rgba(201,168,76,0.15);color:var(--gold);border:1px solid rgba(201,168,76,0.3);}
+.v-alt{background:rgba(74,122,192,0.12);color:var(--blue);}
+.v-exp{background:rgba(74,158,110,0.1);color:var(--green);}
+.insights-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;}
+.insight-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
+.insight-num{font-size:1.5rem;font-weight:300;color:var(--gold);opacity:0.5;margin-bottom:0.5rem;}
+.insight-title{font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:0.4rem;}
+.insight-body{font-size:0.78rem;color:var(--text-sec);line-height:1.6;}
+.decision-box{background:linear-gradient(135deg,rgba(201,168,76,0.08) 0%,var(--surface) 100%);border:1px solid var(--border-gold);border-radius:14px;padding:2rem;margin-top:2rem;}
+
+/* ARCHITECTURE */
+#architecture{background:var(--surface);}
+.arch-wrap{margin-top:2.5rem;background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:2.5rem;overflow-x:auto;}
+.comp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2.5rem;}
+.comp-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
+.comp-num{font-size:0.62rem;color:var(--gold);font-weight:700;letter-spacing:0.1em;margin-bottom:0.5rem;}
+.comp-name{font-size:0.9rem;font-weight:600;color:var(--text);margin-bottom:0.4rem;}
+.comp-desc{font-size:0.78rem;color:var(--text-sec);line-height:1.55;}
+.comp-tag{display:inline-block;font-size:0.6rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:0.15rem 0.5rem;color:var(--text-muted);margin-top:0.5rem;margin-right:0.25rem;}
+
+/* DAILY RITUAL */
+#ritual{background:var(--bg);}
+.timeline{position:relative;margin-top:2.5rem;}
+.timeline::before{content:'';position:absolute;left:64px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--border-gold) 8%,var(--border-gold) 92%,transparent);}
+.tl-step{display:flex;gap:2.5rem;margin-bottom:1.75rem;position:relative;}
+.tl-time{width:64px;flex-shrink:0;text-align:right;padding-top:1.1rem;font-size:0.72rem;color:var(--gold);font-weight:700;letter-spacing:0.05em;}
+.tl-dot{position:absolute;left:60px;top:14px;width:9px;height:9px;border-radius:50%;background:var(--gold);border:2px solid var(--bg);z-index:1;}
+.tl-content{flex:1;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem;}
+.tl-content h4{margin-bottom:0.2rem;}
+.tl-content p{font-size:0.83rem;margin-top:0.3rem;}
+
+/* CERTIFICATION */
+#certification{background:var(--surface);}
+.cert-grid{display:grid;grid-template-columns:1fr 36px 1fr 36px 1fr;gap:0;align-items:start;margin-top:2.5rem;}
+.cert-tier{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:2rem 1.5rem;}
+.cert-tier.gold{border-color:var(--border-gold);background:linear-gradient(135deg,rgba(201,168,76,0.06) 0%,var(--bg) 100%);}
+.cert-badge{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.25rem 0.75rem;border-radius:20px;margin-bottom:1rem;}
+.cb-bronze{color:#cd7f32;background:rgba(205,127,50,0.1);border:1px solid rgba(205,127,50,0.25);}
+.cb-silver{color:#a8a9ad;background:rgba(168,169,173,0.1);border:1px solid rgba(168,169,173,0.25);}
+.cb-gold{color:var(--gold);background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);}
+.cert-tier h3{font-size:1.2rem;font-weight:400;margin-bottom:0.3rem;}
+.cert-time{font-size:0.72rem;color:var(--text-muted);margin-bottom:1.25rem;}
+.cert-reqs{list-style:none;}
+.cert-reqs li{font-size:0.78rem;color:var(--text-sec);padding:0.4rem 0;border-bottom:1px solid var(--border);display:flex;gap:0.5rem;align-items:flex-start;}
+.cert-reqs li:last-child{border-bottom:none;}
+.cert-reqs li::before{content:'→';color:var(--gold);flex-shrink:0;font-size:0.7rem;margin-top:2px;}
+.cert-reward{margin-top:1.25rem;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:0.75rem 1rem;font-size:0.78rem;color:var(--gold);}
+.cert-arrow{display:flex;align-items:center;justify-content:center;padding-top:2.5rem;}
+.modules-wrap{margin-top:2.5rem;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:2rem;}
+
+/* H-SCORE */
+#hscore{background:var(--bg);}
+.hscore-layout{display:grid;grid-template-columns:280px 1fr;gap:2rem;margin-top:2.5rem;}
+.hscore-dial{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:2rem;text-align:center;}
+.hscore-num{font-size:4rem;font-weight:300;color:var(--gold);line-height:1;letter-spacing:-0.03em;margin:1rem 0 0.4rem;}
+.hscore-level-label{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin-bottom:1.25rem;}
+.comp-row{display:flex;align-items:center;justify-content:space-between;gap:0.75rem;padding:0.5rem 0;border-bottom:1px solid var(--border);}
+.comp-row:last-child{border-bottom:none;}
+.comp-row-label{font-size:0.78rem;color:var(--text-sec);}
+.comp-bar-wrap{flex:1;height:3px;background:var(--border);border-radius:2px;overflow:hidden;}
+.comp-bar{height:100%;border-radius:2px;}
+.comp-val{font-size:0.78rem;color:var(--text);font-weight:600;width:28px;text-align:right;}
+.hscore-right{display:grid;grid-template-rows:auto 1fr;gap:1.5rem;}
+.level-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:0.5rem;}
+.level-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:0.85rem 0.6rem;text-align:center;}
+.level-dot{width:8px;height:8px;border-radius:50%;margin:0 auto 0.5rem;}
+.level-name{font-size:0.62rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.15rem;}
+.level-range{font-size:0.62rem;color:var(--text-muted);}
+.feed-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.feed-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
+.feed-card h4{margin-bottom:0.75rem;}
+.feed-sig{display:flex;justify-content:space-between;align-items:center;padding:0.4rem 0;border-bottom:1px solid var(--border);font-size:0.75rem;}
+.feed-sig:last-of-type{border-bottom:none;}
+.feed-sig-l{color:var(--text-sec);}
+.feed-sig-v{color:var(--text);font-weight:600;}
+.feed-wt{font-size:1.35rem;font-weight:300;color:var(--gold);margin-top:0.75rem;}
+
+/* STORYBOARD */
+#storyboard{background:var(--surface);}
+.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem;}
+.story-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:1.5rem;}
+.story-scene-num{font-size:0.62rem;color:var(--gold);font-weight:700;letter-spacing:0.1em;margin-bottom:0.6rem;}
+.story-tag{display:inline-block;font-size:0.6rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:0.15rem 0.5rem;color:var(--text-muted);margin-bottom:0.75rem;}
+.story-scene{font-size:0.92rem;font-weight:600;color:var(--text);margin-bottom:0.6rem;line-height:1.35;}
+.story-body{font-size:0.78rem;color:var(--text-sec);line-height:1.65;margin-bottom:0.75rem;}
+.story-detail{background:var(--surface2);border-left:2px solid var(--gold);padding:0.6rem 0.75rem;font-size:0.72rem;color:var(--text-sec);border-radius:0 6px 6px 0;font-style:italic;}
+
+/* ADRs */
+#decisions{background:var(--bg);}
+details{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:0.75rem;overflow:hidden;}
+details[open]{border-color:var(--border-gold);}
+summary{padding:1.25rem 1.5rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;list-style:none;gap:1rem;}
+summary::-webkit-details-marker{display:none;}
+.adr-summary-left{display:flex;align-items:center;gap:1rem;}
+.adr-id{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;color:var(--gold);white-space:nowrap;}
+.adr-title{font-size:0.92rem;font-weight:500;color:var(--text);}
+.adr-chevron{color:var(--text-muted);font-size:0.8rem;transition:transform 0.2s;flex-shrink:0;}
+details[open] .adr-chevron{transform:rotate(180deg);}
+.adr-body{padding:0 1.5rem 1.5rem;}
+.adr-decision-text{font-size:0.88rem;font-weight:600;color:var(--text);margin-bottom:0.75rem;}
+.adr-rationale{font-size:0.82rem;color:var(--text-sec);line-height:1.7;margin-bottom:0.75rem;}
+.adr-consequence{background:var(--surface2);border-radius:8px;padding:0.75rem 1rem;font-size:0.78rem;color:var(--text-sec);}
+.adr-consequence strong{display:block;font-size:0.62rem;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.25rem;}
+
+/* BUILD SEQUENCE */
+#roadmap{background:var(--surface);}
+.phases-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
+.phase-block{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:1.75rem;}
+.phase-block.active{border-color:var(--border-gold);}
+.phase-period{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;}
+.phase-title{font-size:1.1rem;font-weight:500;color:var(--text);margin-bottom:1rem;}
+.phase-items{list-style:none;}
+.phase-items li{font-size:0.8rem;color:var(--text-sec);padding:0.35rem 0;border-bottom:1px solid var(--border);display:flex;gap:0.5rem;}
+.phase-items li:last-child{border-bottom:none;}
+.phase-items li::before{content:'→';color:var(--gold);flex-shrink:0;font-size:0.7rem;margin-top:2px;}
+.phase-goal{margin-top:1rem;background:var(--surface2);border-radius:8px;padding:0.75rem;font-size:0.75rem;color:var(--text-sec);font-style:italic;}
+
+/* FOOTER */
+footer{background:var(--surface);border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;}
+footer .fb{font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
+footer p{font-size:0.72rem;color:var(--text-muted);}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-grid,.before-after,.cert-grid,.hscore-layout,.grid-2{grid-template-columns:1fr;}
+  .pillars-grid,.grid-5,.sprint-phases,.phases-row,.level-cards,.feed-cards,.story-grid{grid-template-columns:1fr 1fr;}
+  .cert-arrow{display:none;}
+  nav .nav-links{display:none;}
+  .comp-grid{grid-template-columns:1fr;}
+  .sq-card{grid-template-columns:auto 1fr;grid-template-rows:auto auto;}
+  .risk-badge{grid-column:2;}
+}
+@media(max-width:480px){
+  .pillars-grid,.sprint-phases,.grid-5,.level-cards,.feed-cards,.story-grid,.phases-row{grid-template-columns:1fr;}
+  .hero-stats{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-back">← All Sprints</a>
+  <span class="nav-logo">Caring with Charisma</span>
+  <div class="nav-links">
+    <a href="#problem" class="nl">Problem</a>
+    <a href="#sprint" class="nl">Sprint</a>
+    <a href="#architecture" class="nl">Platform</a>
+    <a href="#ritual" class="nl">Ritual</a>
+    <a href="#certification" class="nl">Academy</a>
+    <a href="#hscore" class="nl">H-Score</a>
+    <a href="#storyboard" class="nl">Journey</a>
+    <a href="#decisions" class="nl">Decisions</a>
+    <a href="#roadmap" class="nl">Roadmap</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+<div class="section">
+<div class="hero-grid">
+<div>
+  <div class="hero-eyebrow">Problem Sprint — SGA Dental Partners</div>
+  <h1>The <em>Hospitality</em><br>Playbook Platform</h1>
+  <p class="hero-sub">Operationalizing "Caring with Charisma" at scale. A unified culture OS that trains staff, measures behavior, rewards performance, and sustains hospitality across 260+ practices — every morning, one 5-minute ritual at a time.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-num">260+</div><div class="hero-stat-label">Practices</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">Systems</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">1</div><div class="hero-stat-label">Daily Ritual</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">H</div><div class="hero-stat-label">Unified Score</div></div>
+  </div>
+</div>
+<div style="display:flex;justify-content:center;align-items:center;">
+<svg width="380" height="380" viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="190" cy="190" r="170" stroke="#2a2825" stroke-width="1"/>
+  <circle cx="190" cy="190" r="170" stroke="url(#hg)" stroke-width="1.5" stroke-dasharray="8 4"/>
+  <circle cx="190" cy="190" r="120" stroke="#2a2825" stroke-width="1"/>
+  <circle cx="190" cy="190" r="62" fill="rgba(201,168,76,0.06)" stroke="rgba(201,168,76,0.3)" stroke-width="1.5"/>
+  <text x="190" y="185" text-anchor="middle" fill="#c9a84c" font-size="10" font-family="-apple-system,sans-serif" font-weight="700" letter-spacing="2">CARING WITH</text>
+  <text x="190" y="200" text-anchor="middle" fill="#c9a84c" font-size="10" font-family="-apple-system,sans-serif" font-weight="700" letter-spacing="2">CHARISMA</text>
+  <!-- Nodes -->
+  <circle cx="190" cy="20" r="18" fill="#171717" stroke="#3a3020" stroke-width="1.5"/>
+  <text x="190" y="16" text-anchor="middle" fill="#c9a84c" font-size="8" font-family="-apple-system,sans-serif" font-weight="700">HUDDLE</text>
+  <text x="190" y="27" text-anchor="middle" fill="#5a5550" font-size="7" font-family="-apple-system,sans-serif">OS</text>
+  <line x1="190" y1="38" x2="190" y2="128" stroke="#2a2825" stroke-width="1"/>
+  <circle cx="330" cy="82" r="18" fill="#171717" stroke="#3a3020" stroke-width="1.5"/>
+  <text x="330" y="79" text-anchor="middle" fill="#c9a84c" font-size="8" font-family="-apple-system,sans-serif" font-weight="700">CCA</text>
+  <text x="330" y="89" text-anchor="middle" fill="#5a5550" font-size="7">ACADEMY</text>
+  <line x1="315" y1="96" x2="238" y2="152" stroke="#2a2825" stroke-width="1"/>
+  <circle cx="360" cy="190" r="18" fill="#171717" stroke="#3a3020" stroke-width="1.5"/>
+  <text x="360" y="186" text-anchor="middle" fill="#c9a84c" font-size="7.5" font-family="-apple-system,sans-serif" font-weight="700">H-SCORE</text>
+  <text x="360" y="197" text-anchor="middle" fill="#5a5550" font-size="7">ENGINE</text>
+  <line x1="342" y1="190" x2="252" y2="190" stroke="#2a2825" stroke-width="1"/>
+  <circle cx="330" cy="298" r="18" fill="#171717" stroke="#3a3020" stroke-width="1.5"/>
+  <text x="330" y="295" text-anchor="middle" fill="#c9a84c" font-size="7.5" font-family="-apple-system,sans-serif" font-weight="700">REWARDS</text>
+  <text x="330" y="306" text-anchor="middle" fill="#5a5550" font-size="7">ENGINE</text>
+  <line x1="315" y1="284" x2="238" y2="228" stroke="#2a2825" stroke-width="1"/>
+  <circle cx="190" cy="360" r="18" fill="#171717" stroke="#3a3020" stroke-width="1.5"/>
+  <text x="190" y="356" text-anchor="middle" fill="#c9a84c" font-size="7.5" font-family="-apple-system,sans-serif" font-weight="700">TRUST</text>
+  <text x="190" y="367" text-anchor="middle" fill="#5a5550" font-size="7">TRANSFER</text>
+  <line x1="190" y1="342" x2="190" y2="252" stroke="#2a2825" stroke-width="1"/>
+  <circle cx="50" cy="298" r="18" fill="#171717" stroke="#3a3020" stroke-width="1.5"/>
+  <text x="50" y="294" text-anchor="middle" fill="#c9a84c" font-size="7.5" font-family="-apple-system,sans-serif" font-weight="700">CULTURE</text>
+  <text x="50" y="305" text-anchor="middle" fill="#5a5550" font-size="7">OS</text>
+  <line x1="65" y1="284" x2="142" y2="228" stroke="#2a2825" stroke-width="1"/>
+  <circle cx="20" cy="190" r="18" fill="#171717" stroke="#3a3020" stroke-width="1.5"/>
+  <text x="20" y="187" text-anchor="middle" fill="#c9a84c" font-size="7" font-family="-apple-system,sans-serif" font-weight="700">NETWORK</text>
+  <text x="20" y="197" text-anchor="middle" fill="#5a5550" font-size="7">INTEL</text>
+  <line x1="38" y1="190" x2="128" y2="190" stroke="#2a2825" stroke-width="1"/>
+  <circle cx="50" cy="82" r="18" fill="#171717" stroke="#3a3020" stroke-width="1.5"/>
+  <text x="50" y="79" text-anchor="middle" fill="#c9a84c" font-size="7.5" font-family="-apple-system,sans-serif" font-weight="700">CONTENT</text>
+  <text x="50" y="89" text-anchor="middle" fill="#5a5550" font-size="7">ENGINE</text>
+  <line x1="65" y1="96" x2="142" y2="152" stroke="#2a2825" stroke-width="1"/>
+  <defs>
+    <linearGradient id="hg" x1="0" y1="0" x2="380" y2="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#c9a84c" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#c9a84c" stop-opacity="0.7"/>
+    </linearGradient>
+  </defs>
+</svg>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+<div class="section">
+  <div class="section-label">The Problem</div>
+  <h2>The Playbook Existed. The System Didn't.</h2>
+  <p style="margin-top:1rem;max-width:680px;">SGA had already done the hard philosophical work: "Caring with Charisma" was a real, specific, behavior-based hospitality standard — modeled after the Ritz Carlton, Chick-fil-A, and Disney University. The failure was not vision. It was infrastructure.</p>
+  <div class="before-after">
+    <div class="before-card">
+      <div class="state-label before-label">Before — The Reality</div>
+      <div class="gap-item">No structured hospitality onboarding for new hires</div>
+      <div class="gap-item">Morning huddles inconsistent — only when Grant was present</div>
+      <div class="gap-item">No training system beyond ad hoc conversations</div>
+      <div class="gap-item">No measurement of whether behaviors were adopted</div>
+      <div class="gap-item">Trust transfer protocol defined, never tracked</div>
+      <div class="gap-item">Data in 3 silos (Cinnamon, Swell, Dental Intel) — never synthesized</div>
+      <div class="gap-item">No connection between staff behavior and patient review outcomes</div>
+      <div class="gap-item">No career incentive for staff to invest in the culture</div>
+    </div>
+    <div class="after-card">
+      <div class="state-label after-label">After — The Platform</div>
+      <div class="gap-item">Every new hire certified on day 1 before patient contact</div>
+      <div class="gap-item">5-minute turnkey huddle delivered to every practice, every morning</div>
+      <div class="gap-item">10-module Bronze track — completable on phone in 2–4 weeks</div>
+      <div class="gap-item">Daily H-Score from 3 existing data sources, updated automatically</div>
+      <div class="gap-item">Trust transfer tracked via review NLP + daily commitment</div>
+      <div class="gap-item">Cinnamon 35% + Swell 45% + Dental Intel 20% = one visible score</div>
+      <div class="gap-item">Behavior → outcome attribution visible in 24–72 hours</div>
+      <div class="gap-item">Bronze, Silver, Gold — LinkedIn badge, physical jacket, bonus pool</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PLAYBOOK -->
+<section id="playbook" style="background:var(--bg);">
+<div class="section">
+  <div class="section-label">The Playbook</div>
+  <h2>Caring with Charisma — Five Pillars of Hospitality in Dentistry</h2>
+  <p style="margin-top:1rem;max-width:680px;">A dental visit can be one of the most anxious experiences in a person's life — or one of the most affirming. The difference is not clinical skill. It is the quality of every human interaction before, during, and after the chair. "Caring with Charisma" is SGA's system for designing that difference at scale — specific, observable, teachable behaviors.</p>
+  <div class="pillars-grid">
+    <div class="pillar"><div class="pillar-num">01</div><div class="pillar-name">Huddle OS</div><div class="pillar-desc">Daily 5-minute ritual delivering turnkey hospitality content inside Dental Intel</div></div>
+    <div class="pillar"><div class="pillar-num">02</div><div class="pillar-name">CCA Academy</div><div class="pillar-desc">Tiered Bronze → Silver → Gold certification with portable credential and the jacket</div></div>
+    <div class="pillar"><div class="pillar-num">03</div><div class="pillar-name">H-Score Engine</div><div class="pillar-desc">Unified daily hospitality score from Cinnamon, Swell, and Dental Intel signals</div></div>
+    <div class="pillar"><div class="pillar-num">04</div><div class="pillar-name">Trust Transfer OS</div><div class="pillar-desc">Verification of the clinical handoff protocol via review NLP and daily commitment</div></div>
+    <div class="pillar"><div class="pillar-num">05</div><div class="pillar-name">Culture OS</div><div class="pillar-desc">260 Champions, peer community, Regional Calls, and the annual Champion Summit</div></div>
+  </div>
+  <div class="divider"></div>
+  <div class="grid-2" style="gap:3rem;align-items:start;">
+    <div>
+      <h4 style="margin-bottom:1rem;">The 12 Core Behaviors</h4>
+      <div style="display:grid;gap:0.4rem;">
+        <div class="gap-item">01. Warm Greeting Protocol — name, eye contact, "welcome back"</div>
+        <div class="gap-item">02. The Phone Standard — answered in 3 rings, scripted opener</div>
+        <div class="gap-item">03. The Escort — walk guests, never point</div>
+        <div class="gap-item">04. Trust Transfer — hygienist → DA → doctor handoff</div>
+        <div class="gap-item">05. The Name Rule — use guest name 3× minimum per visit</div>
+        <div class="gap-item">06. Anxiety Acknowledgment — before any procedure discussion</div>
+        <div class="gap-item">07. Treatment Translation — clinical to human language</div>
+        <div class="gap-item">08. Environmental Standards — welcome space daily checklist</div>
+        <div class="gap-item">09. The Exit Circle — warm close + next appointment confirmation</div>
+        <div class="gap-item">10. The Wow Story — capture one great moment per week</div>
+        <div class="gap-item">11. The Morning Intention — team commitment before first guest</div>
+        <div class="gap-item">12. The Five-Star Ask — how and when to invite a review</div>
+      </div>
+    </div>
+    <div>
+      <h4 style="margin-bottom:1rem;">The Language System</h4>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem;">
+        <div class="feed-sig"><span class="feed-sig-l">Patients</span><span class="feed-sig-v" style="color:var(--gold);">Guests</span></div>
+        <div class="feed-sig"><span class="feed-sig-l">Waiting Room</span><span class="feed-sig-v" style="color:var(--gold);">Welcome Space</span></div>
+        <div class="feed-sig"><span class="feed-sig-l">Dental Office</span><span class="feed-sig-v" style="color:var(--gold);">Wellness Destination</span></div>
+        <div class="feed-sig"><span class="feed-sig-l">Procedure</span><span class="feed-sig-v" style="color:var(--gold);">Treatment Journey</span></div>
+        <div class="feed-sig" style="border:none;"><span class="feed-sig-l">Uniform</span><span class="feed-sig-v" style="color:var(--gold);">Professional Attire</span></div>
+      </div>
+      <h4 style="margin:1.5rem 0 0.75rem;">North Star</h4>
+      <div class="card-sm">
+        <p style="font-size:0.83rem;">Dental schools adopt "Caring with Charisma" as curriculum — making SGA-trained staff the recognized gold standard for patient experience in dentistry, anywhere in the country. The CCA credential and H-Score correlation data are the two artifacts that make this pathway credible.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SPRINT PROCESS -->
+<section id="sprint">
+<div class="section">
+  <div class="section-label">Sprint Process</div>
+  <h2>How We Got Here</h2>
+  <p style="margin-top:1rem;max-width:680px;">This solution was developed through a structured Problem Sprint — five phases from problem framing through solution architecture. Every decision is traceable to a sprint question, a target selection, or a scored evaluation.</p>
+
+  <div style="margin-top:2rem;">
+    <h4 style="margin-bottom:1rem;">Sprint Phases</h4>
+    <div class="sprint-phases">
+      <div class="phase-card"><div class="phase-num">PHASE 1</div><div class="phase-name">Frame</div></div>
+      <div class="phase-card"><div class="phase-num">PHASE 2</div><div class="phase-name">Sketch</div></div>
+      <div class="phase-card" style="border-color:var(--border-gold);"><div class="phase-num">PHASE 3</div><div class="phase-name">Decide</div></div>
+      <div class="phase-card"><div class="phase-num">PHASE 4</div><div class="phase-name">Architect</div></div>
+      <div class="phase-card"><div class="phase-num">PHASE 5</div><div class="phase-name">Validate</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h4 style="margin-bottom:1rem;">Long-Term Goal</h4>
+  <div class="card-sm" style="margin-bottom:1.5rem;">
+    <p style="font-size:0.85rem;"><strong style="color:var(--text);">In 5 years:</strong> Every SGA team member is a certified "Caring with Charisma" practitioner. Every morning huddle begins with a structured hospitality ritual. Every practice has a visible H-Score. The C&C credential is recognized industry-wide, adopted by at least 5 dental schools, and serves as SGA's most powerful recruiting differentiator.</p>
+  </div>
+
+  <h4 style="margin-bottom:1rem;">Sprint Questions</h4>
+  <div class="sq-grid">
+    <div class="sq-card">
+      <div class="sq-id">SQ1</div>
+      <div><div class="sq-text">Can we reliably train and certify staff on specific hospitality behaviors using existing tech infrastructure?</div><div class="sq-sub">Core operationalization bet — the entire platform's credibility depends on this.</div></div>
+      <span class="risk-badge risk-high">High Risk</span>
+    </div>
+    <div class="sq-card">
+      <div class="sq-id">SQ2</div>
+      <div><div class="sq-text">Can we measure hospitality behavior adoption using signals already in Cinnamon, Swell, and Dental Intel?</div><div class="sq-sub">Without measurement, the program is faith-based. The feedback loop requires this.</div></div>
+      <span class="risk-badge risk-high">High Risk</span>
+    </div>
+    <div class="sq-card">
+      <div class="sq-id">SQ3</div>
+      <div><div class="sq-text">Will staff genuinely engage with a career-value certification vs. treating it as mandatory compliance?</div><div class="sq-sub">The jacket, credential, and resume value are the motivation architecture — will it work?</div></div>
+      <span class="risk-badge risk-med">Medium Risk</span>
+    </div>
+    <div class="sq-card">
+      <div class="sq-id">SQ4</div>
+      <div><div class="sq-text">Can morning huddle content be compelling enough to happen daily without direct executive supervision?</div><div class="sq-sub">Grant makes Monday meetings work. Can a platform replicate that energy 5 days/week?</div></div>
+      <span class="risk-badge risk-med">Medium Risk</span>
+    </div>
+    <div class="sq-card">
+      <div class="sq-id">SQ5</div>
+      <div><div class="sq-text">Can we create a lightweight trust transfer tracking mechanism without excessive documentation burden?</div><div class="sq-sub">High leverage, tricky to verify — checklist fatigue is a real failure mode.</div></div>
+      <span class="risk-badge risk-low">Low–Med Risk</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h4 style="margin-bottom:0.5rem;">Target Selection</h4>
+  <p style="font-size:0.85rem;margin-bottom:1.25rem;">Three targets were evaluated — Morning Huddle (22/25), Staff Onboarding/Certification (17/25), Review Signal Attribution (16/25). The Morning Huddle was selected as the sprint target.</p>
+  <div class="decision-box">
+    <h4 style="margin-bottom:0.5rem;">Confirmed Target: Morning Huddle as Culture Flywheel</h4>
+    <p style="font-size:0.85rem;margin-bottom:0.75rem;">The morning huddle is the only moment in the day when the entire practice team is together before patients arrive. It is the highest-frequency intervention point across all 260 practices. Dental Intel already provides the platform. Solving this target solves all others — it serves as the delivery container for certification, H-Score display, trust transfer reminders, and Champion moments.</p>
+    <p style="font-size:0.78rem;color:var(--text-muted);font-style:italic;">Sprint question: Can we design a morning huddle content system so compelling that 80% of SGA practices complete a structured huddle at least 4 days per week within 6 months of launch?</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <h4 style="margin-bottom:1rem;">All 5 Solutions Explored</h4>
+  <div class="solution-scores">
+    <div class="score-row">
+      <div><div class="score-name">Solution 1 — The Huddle OS</div><div class="score-pitch">Netflix-style daily content engine inside Dental Intel. Turnkey, personalized, zero prep.</div></div>
+      <div><div class="score-num">19</div><div class="score-denom">/25</div></div>
+      <span class="verdict-badge v-rec">Recommended</span>
+    </div>
+    <div class="score-row">
+      <div><div class="score-name">Solution 2 — Caring with Charisma Academy</div><div class="score-pitch">Tiered certification with portable LinkedIn credential, jacket, and bonus pool unlock.</div></div>
+      <div><div class="score-num">19</div><div class="score-denom">/25</div></div>
+      <span class="verdict-badge v-alt">Strong Alt</span>
+    </div>
+    <div class="score-row">
+      <div><div class="score-name">Solution 3 — Hospitality Score Engine</div><div class="score-pitch">Unified H-Score from Cinnamon + Swell + Dental Intel. Daily score per practice.</div></div>
+      <div><div class="score-num">17</div><div class="score-denom">/25</div></div>
+      <span class="verdict-badge v-exp">Phase 2</span>
+    </div>
+    <div class="score-row">
+      <div><div class="score-name">Solution 4 — Trust Transfer OS</div><div class="score-pitch">Single-behavior verification — the hygienist-DA-doctor handoff tracked and trained.</div></div>
+      <div><div class="score-num">17</div><div class="score-denom">/25</div></div>
+      <span class="verdict-badge v-exp">Phase 1 Companion</span>
+    </div>
+    <div class="score-row">
+      <div><div class="score-name">Solution 5 — Culture OS</div><div class="score-pitch">260 Champions, peer community, monthly content drops. People carrying culture.</div></div>
+      <div><div class="score-num">15</div><div class="score-denom">/25</div></div>
+      <span class="verdict-badge v-alt">Long-Term</span>
+    </div>
+  </div>
+
+  <div class="decision-box" style="margin-top:1.5rem;">
+    <h4 style="margin-bottom:0.5rem;">User Decision</h4>
+    <p style="font-size:0.88rem;color:var(--text);">All five solutions were selected as components of one unified architecture. "All of these have merit, and the goal of this sprint is to encapsulate all five as part of our playbook. I want the playbook to be something very tangible — and I want you to focus on how we architect something that allows us to further develop our playbook and distribute our playbook at scale."</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <h4 style="margin-bottom:1rem;">Key Insights</h4>
+  <div class="insights-grid">
+    <div class="insight-card"><div class="insight-num">01</div><div class="insight-title">The Morning Huddle is Underutilized Infrastructure</div><div class="insight-body">Every SGA practice already has a morning huddle. Dental Intel already provides a platform. The problem was not the ritual — it was the absence of content worth running. The highest-leverage intervention is a content strategy and production commitment, not new technology.</div></div>
+    <div class="insight-card"><div class="insight-num">02</div><div class="insight-title">Culture and Measurement Require Each Other</div><div class="insight-body">Culture without measurement becomes untestable faith. Measurement without culture becomes hollow surveillance. The H-Score works because it is grounded in real hospitality behaviors — phone greetings, trust transfer language, review velocity. Culture gives the score meaning; the score makes culture sustainable.</div></div>
+    <div class="insight-card"><div class="insight-num">03</div><div class="insight-title">Career Value Is the Difference Between Compliance and Culture</div><div class="insight-body">In high-turnover service roles, training programs perceived as employer-centric generate compliance. Programs perceived as career-valuable generate genuine engagement. The jacket, LinkedIn badge, and resume credential are not perks — they are the entire motivation architecture.</div></div>
+    <div class="insight-card"><div class="insight-num">04</div><div class="insight-title">Champions Are the Durability Layer the Platform Needs</div><div class="insight-body">Every platform eventually stops being new. The Champions — people who have made the culture part of their professional identity — are the human infrastructure that sustains engagement after novelty fades. The platform supports them; it does not replace them.</div></div>
+  </div>
+</div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section id="architecture">
+<div class="section">
+  <div class="section-label">Platform Architecture</div>
+  <h2>Ten Components. One Flywheel.</h2>
+  <p style="margin-top:1rem;max-width:680px;">Content trains behavior. Behavior is measured. Scores drive motivation. Motivation produces reviews. Reviews generate recognition. Recognition reinforces culture. The flywheel compounds over time.</p>
+
+  <div class="arch-wrap">
+    <svg width="100%" viewBox="0 0 960 520" fill="none" xmlns="http://www.w3.org/2000/svg" style="min-width:640px;">
+      <!-- External systems -->
+      <text x="80" y="24" fill="#3a3525" font-size="9" font-family="-apple-system,sans-serif" letter-spacing="2" text-anchor="middle">EXTERNAL INTEGRATIONS</text>
+      <rect x="20" y="32" width="110" height="46" rx="7" fill="#1e1e1e" stroke="#2a2825" stroke-width="1.5"/>
+      <text x="75" y="52" text-anchor="middle" fill="#c9a84c" font-size="10" font-family="-apple-system,sans-serif" font-weight="700">CINNAMON</text>
+      <text x="75" y="66" text-anchor="middle" fill="#5a5550" font-size="8">Voice + Phone</text>
+      <rect x="150" y="32" width="110" height="46" rx="7" fill="#1e1e1e" stroke="#2a2825" stroke-width="1.5"/>
+      <text x="205" y="52" text-anchor="middle" fill="#c9a84c" font-size="10" font-family="-apple-system,sans-serif" font-weight="700">SWELL</text>
+      <text x="205" y="66" text-anchor="middle" fill="#5a5550" font-size="8">Reviews + NPS</text>
+      <rect x="280" y="32" width="120" height="46" rx="7" fill="#1e1e1e" stroke="#2a2825" stroke-width="1.5"/>
+      <text x="340" y="52" text-anchor="middle" fill="#c9a84c" font-size="10" font-family="-apple-system,sans-serif" font-weight="700">DENTAL INTEL</text>
+      <text x="340" y="66" text-anchor="middle" fill="#5a5550" font-size="8">Morning Huddle</text>
+      <rect x="420" y="32" width="120" height="46" rx="7" fill="#1e1e1e" stroke="#2a2825" stroke-width="1.5"/>
+      <text x="480" y="52" text-anchor="middle" fill="#c9a84c" font-size="10" font-family="-apple-system,sans-serif" font-weight="700">VOICE REC.</text>
+      <text x="480" y="66" text-anchor="middle" fill="#5a5550" font-size="8">Common Areas</text>
+      <rect x="560" y="32" width="120" height="46" rx="7" fill="#1e1e1e" stroke="#2a2825" stroke-width="1.5"/>
+      <text x="620" y="52" text-anchor="middle" fill="#c9a84c" font-size="10" font-family="-apple-system,sans-serif" font-weight="700">LINKEDIN</text>
+      <text x="620" y="66" text-anchor="middle" fill="#5a5550" font-size="8">Credly Credentials</text>
+      <rect x="700" y="32" width="120" height="46" rx="7" fill="#1e1e1e" stroke="#2a2825" stroke-width="1.5"/>
+      <text x="760" y="52" text-anchor="middle" fill="#c9a84c" font-size="10" font-family="-apple-system,sans-serif" font-weight="700">DENTAL SCHOOLS</text>
+      <text x="760" y="66" text-anchor="middle" fill="#5a5550" font-size="8">Curriculum</text>
+      <!-- Connection lines -->
+      <line x1="75" y1="78" x2="120" y2="120" stroke="#2a2825" stroke-width="1" stroke-dasharray="3 3"/>
+      <line x1="205" y1="78" x2="200" y2="120" stroke="#2a2825" stroke-width="1" stroke-dasharray="3 3"/>
+      <line x1="340" y1="78" x2="340" y2="120" stroke="#2a2825" stroke-width="1" stroke-dasharray="3 3"/>
+      <line x1="480" y1="78" x2="480" y2="120" stroke="#2a2825" stroke-width="1" stroke-dasharray="3 3"/>
+      <line x1="620" y1="78" x2="600" y2="120" stroke="#2a2825" stroke-width="1" stroke-dasharray="3 3"/>
+      <line x1="760" y1="78" x2="740" y2="120" stroke="#2a2825" stroke-width="1" stroke-dasharray="3 3"/>
+      <!-- Platform boundary -->
+      <rect x="10" y="110" width="940" height="400" rx="14" fill="none" stroke="#2a2825" stroke-width="1.5" stroke-dasharray="5 4"/>
+      <text x="30" y="130" fill="#3a3525" font-size="9" font-family="-apple-system,sans-serif" letter-spacing="2">THE HOSPITALITY PLAYBOOK PLATFORM</text>
+      <!-- H-Score — center hub -->
+      <rect x="40" y="155" width="175" height="70" rx="9" fill="#1a1800" stroke="#c9a84c" stroke-width="1.5"/>
+      <text x="127" y="180" text-anchor="middle" fill="#c9a84c" font-size="11" font-family="-apple-system,sans-serif" font-weight="700" letter-spacing="0.5">HOSPITALITY SCORE ENGINE</text>
+      <text x="127" y="197" text-anchor="middle" fill="#c9a84c" font-size="10">H-SCORE</text>
+      <text x="127" y="213" text-anchor="middle" fill="#8a6f30" font-size="8">Cinnamon 35% · Swell 45% · DI 20%</text>
+      <!-- Huddle OS -->
+      <rect x="265" y="145" width="170" height="58" rx="9" fill="#171717" stroke="#3a3020" stroke-width="1.5"/>
+      <text x="350" y="169" text-anchor="middle" fill="#f0ece4" font-size="11" font-family="-apple-system,sans-serif" font-weight="600">MORNING HUDDLE OS</text>
+      <text x="350" y="184" text-anchor="middle" fill="#5a5550" font-size="8">5-min ritual · Dental Intel · Completion</text>
+      <!-- CCA Academy -->
+      <rect x="485" y="145" width="170" height="58" rx="9" fill="#171717" stroke="#3a3020" stroke-width="1.5"/>
+      <text x="570" y="169" text-anchor="middle" fill="#f0ece4" font-size="11" font-family="-apple-system,sans-serif" font-weight="600">CCA ACADEMY</text>
+      <text x="570" y="184" text-anchor="middle" fill="#5a5550" font-size="8">Bronze / Silver / Gold · Credly</text>
+      <!-- Content Engine -->
+      <rect x="710" y="145" width="175" height="58" rx="9" fill="#171717" stroke="#3a3020" stroke-width="1.5"/>
+      <text x="797" y="169" text-anchor="middle" fill="#f0ece4" font-size="11" font-family="-apple-system,sans-serif" font-weight="600">PLAYBOOK CONTENT</text>
+      <text x="797" y="184" text-anchor="middle" fill="#5a5550" font-size="8">Video library · Topic rotation</text>
+      <!-- Trust Transfer -->
+      <rect x="40" y="290" width="175" height="58" rx="9" fill="#171717" stroke="#3a3020" stroke-width="1.5"/>
+      <text x="127" y="314" text-anchor="middle" fill="#f0ece4" font-size="11" font-family="-apple-system,sans-serif" font-weight="600">TRUST TRANSFER OS</text>
+      <text x="127" y="329" text-anchor="middle" fill="#5a5550" font-size="8">Checklist · Voice NLP · Review tags</text>
+      <!-- Champion Network -->
+      <rect x="265" y="282" width="170" height="70" rx="9" fill="#171717" stroke="#3a3020" stroke-width="1.5"/>
+      <text x="350" y="308" text-anchor="middle" fill="#f0ece4" font-size="11" font-family="-apple-system,sans-serif" font-weight="600">CHAMPION NETWORK</text>
+      <text x="350" y="323" text-anchor="middle" fill="#5a5550" font-size="8">Culture OS · Peer community</text>
+      <text x="350" y="338" text-anchor="middle" fill="#5a5550" font-size="8">Regional Calls · Summit</text>
+      <!-- Rewards Engine -->
+      <rect x="485" y="282" width="170" height="70" rx="9" fill="#171717" stroke="#3a3020" stroke-width="1.5"/>
+      <text x="570" y="308" text-anchor="middle" fill="#f0ece4" font-size="11" font-family="-apple-system,sans-serif" font-weight="600">REWARDS ENGINE</text>
+      <text x="570" y="323" text-anchor="middle" fill="#5a5550" font-size="8">Leaderboard · Bonus pool</text>
+      <text x="570" y="338" text-anchor="middle" fill="#5a5550" font-size="8">Jacket fulfillment · Recognition</text>
+      <!-- Network Dashboard -->
+      <rect x="710" y="290" width="175" height="58" rx="9" fill="#171717" stroke="#3a3020" stroke-width="1.5"/>
+      <text x="797" y="314" text-anchor="middle" fill="#f0ece4" font-size="11" font-family="-apple-system,sans-serif" font-weight="600">NETWORK INTEL</text>
+      <text x="797" y="329" text-anchor="middle" fill="#5a5550" font-size="8">Dashboard · Heatmap · Intervention</text>
+      <!-- Connecting lines -->
+      <line x1="215" y1="190" x2="265" y2="175" stroke="#2a2825" stroke-width="1"/>
+      <line x1="435" y1="174" x2="485" y2="174" stroke="#2a2825" stroke-width="1"/>
+      <line x1="655" y1="174" x2="710" y2="174" stroke="#2a2825" stroke-width="1"/>
+      <line x1="127" y1="225" x2="127" y2="290" stroke="#2a2825" stroke-width="1"/>
+      <line x1="127" y1="225" x2="350" y2="282" stroke="#2a2825" stroke-width="1"/>
+      <line x1="127" y1="225" x2="570" y2="282" stroke="#2a2825" stroke-width="1"/>
+      <line x1="127" y1="225" x2="797" y2="290" stroke="#2a2825" stroke-width="1"/>
+      <line x1="350" y1="203" x2="350" y2="282" stroke="#2a2825" stroke-width="1"/>
+      <line x1="570" y1="203" x2="570" y2="282" stroke="#2a2825" stroke-width="1"/>
+      <line x1="797" y1="203" x2="797" y2="290" stroke="#2a2825" stroke-width="1"/>
+      <!-- Bottom nodes -->
+      <rect x="265" y="405" width="150" height="50" rx="8" fill="#171717" stroke="#2a2825" stroke-width="1"/>
+      <text x="340" y="426" text-anchor="middle" fill="#8a857c" font-size="10" font-family="-apple-system,sans-serif" font-weight="600">PLAYBOOK DIST.</text>
+      <text x="340" y="442" text-anchor="middle" fill="#5a5550" font-size="8">Version control</text>
+      <rect x="485" y="405" width="150" height="50" rx="8" fill="#171717" stroke="#2a2825" stroke-width="1"/>
+      <text x="560" y="426" text-anchor="middle" fill="#8a857c" font-size="10" font-family="-apple-system,sans-serif" font-weight="600">CONTENT PROD.</text>
+      <text x="560" y="442" text-anchor="middle" fill="#5a5550" font-size="8">Grant videos · Pipeline</text>
+      <line x1="340" y1="352" x2="340" y2="405" stroke="#2a2825" stroke-width="1" stroke-dasharray="3 2"/>
+      <line x1="560" y1="352" x2="560" y2="405" stroke="#2a2825" stroke-width="1" stroke-dasharray="3 2"/>
+    </svg>
+  </div>
+
+  <div class="comp-grid" style="margin-top:2rem;">
+    <div class="comp-card"><div class="comp-num">01</div><div class="comp-name">Playbook Content Engine</div><div class="comp-desc">Authoritative repository of all C&C content. Videos, scripts, behavioral exercises, certification modules, and the living playbook. Every piece tagged to a behavior, tier, and practice type.</div><span class="comp-tag">CMS</span><span class="comp-tag">Behavior Taxonomy</span></div>
+    <div class="comp-card"><div class="comp-num">02</div><div class="comp-name">Morning Huddle OS</div><div class="comp-desc">Daily content delivery via Dental Intel integration. Assembles personalized 5-minute packages per practice. Tracks completion, surfaces live Swell data, feeds H-Score.</div><span class="comp-tag">Dental Intel API</span><span class="comp-tag">Daily Cron</span></div>
+    <div class="comp-card"><div class="comp-num">03</div><div class="comp-name">CCA Academy</div><div class="comp-desc">10-module Bronze track + scenario assessment + Credly issuance + LinkedIn integration. Silver and Gold tiers with behavior data criteria. The jacket at Gold.</div><span class="comp-tag">Credly API</span><span class="comp-tag">LinkedIn</span></div>
+    <div class="comp-card"><div class="comp-num">04</div><div class="comp-name">Hospitality Score Engine</div><div class="comp-desc">H-Score = Cinnamon 35% + Swell 45% + Dental Intel 20%. Daily recalculation. Practice-type adjusted. Anomaly detection. Full algorithm transparency (ADR-02).</div><span class="comp-tag">3 API Integrations</span><span class="comp-tag">BullMQ</span></div>
+    <div class="comp-card"><div class="comp-num">05</div><div class="comp-name">Trust Transfer Verification</div><div class="comp-desc">Daily huddle commitment tap + Swell review NLP (trust transfer phrase detection) + voice sentiment where available. Proxy-based, not surveillance-based.</div><span class="comp-tag">NLP Pipeline</span><span class="comp-tag">OpenAI</span></div>
+    <div class="comp-card"><div class="comp-num">06</div><div class="comp-name">Champion Network Layer</div><div class="comp-desc">Champion designation workflow, peer community, regional cohorts, wow story submissions, Regional Calls, Champion Summit. Champions contribute to the playbook, not just receive it.</div><span class="comp-tag">People System</span><span class="comp-tag">Culture OS</span></div>
+    <div class="comp-card"><div class="comp-num">07</div><div class="comp-name">Recognition and Rewards Engine</div><div class="comp-desc">Network leaderboard, bonus pool triggers at Exceptional (75+) status, jacket fulfillment for Gold, staff-level recognition. Three-level system: individual, practice, region.</div><span class="comp-tag">Leaderboard</span><span class="comp-tag">Bonus Pool</span></div>
+    <div class="comp-card"><div class="comp-num">08</div><div class="comp-name">Playbook Distribution System</div><div class="comp-desc">Versioned living document. Minor updates roll automatically. Major updates delivered via "What's Changed" huddle segment. Academic export for dental school curriculum submissions.</div><span class="comp-tag">Version Control</span><span class="comp-tag">Academic Export</span></div>
+    <div class="comp-card"><div class="comp-num">09</div><div class="comp-name">Network Intelligence Dashboard</div><div class="comp-desc">Portfolio view for regional directors. H-Score heatmap, intervention queue, certification rates, huddle streaks. Auto-generated executive reports with academic publication formatting.</div><span class="comp-tag">Regional Directors</span><span class="comp-tag">SGA Exec</span></div>
+    <div class="comp-card"><div class="comp-num">10</div><div class="comp-name">Content Production Pipeline</div><div class="comp-desc">Quarterly Grant batch recording (30-40 segments/session). Champion story ingestion and editing. Playbook revision cycle. Academic content layer for dental school curriculum export.</div><span class="comp-tag">Mux</span><span class="comp-tag">Production Ops</span></div>
+  </div>
+</div>
+</section>
+
+<!-- DAILY RITUAL -->
+<section id="ritual">
+<div class="section">
+  <div class="section-label">The Daily Ritual</div>
+  <h2>Five Minutes That Change Everything</h2>
+  <p style="margin-top:1rem;max-width:680px;">Every morning, before the first patient arrives, the entire practice team gathers. The platform delivers the experience — no preparation required. The morning huddle is the delivery mechanism for the entire playbook. Run it, and everything else follows.</p>
+  <div class="timeline">
+    <div class="tl-step">
+      <div class="tl-time">0:00</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content"><h4>Culture Moment</h4><p>Grant or a Champion tells a hospitality story — 60 seconds, direct to camera. This week's theme. The mythology precedes the mechanics: why this matters before how to do it.</p></div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-time">1:00</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content"><h4>Yesterday's Wins</h4><p>Live Swell data: reviews received in the last 24 hours, staff mentions highlighted, H-Score trend sparkline. A real patient, a real reaction, connected to yesterday's behaviors.</p></div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-time">2:00</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content"><h4>Today's Focus — Team Practice</h4><p>This week's hospitality behavior. 30-second team role-play exercise with the exact scripted phrase. Practice before the first patient. No improvisation required.</p></div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-time">3:30</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content"><h4>Accountability Moment</h4><p>Trust Transfer Commitment tap. Certification spotlight (anyone who earned a badge since last huddle). Environmental checklist: 3 items, 30 seconds.</p></div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-time">4:30</div>
+      <div class="tl-dot" style="background:var(--gold);box-shadow:0 0 10px rgba(201,168,76,0.4);"></div>
+      <div class="tl-content" style="border-color:var(--border-gold);">
+        <h4>The Intention</h4>
+        <p style="font-style:italic;color:var(--text);font-size:0.95rem;">"Today, every guest leaves knowing their name matters here."</p>
+        <p style="margin-top:0.5rem;">Read by the Champion. Repeated by the team. The same structure, every day. The ritual IS the culture delivery system.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CERTIFICATION -->
+<section id="certification">
+<div class="section">
+  <div class="section-label">Caring with Charisma Academy</div>
+  <h2>A Credential Worth Earning</h2>
+  <p style="margin-top:1rem;max-width:680px;">Not a training completion record. A portable, externally verifiable credential that staff earn for themselves — and carry with them throughout their careers. Bronze on day 30. The jacket, someday.</p>
+  <div class="cert-grid">
+    <div class="cert-tier">
+      <div class="cert-badge cb-bronze">◆ Bronze</div>
+      <h3>Certified Hospitality Practitioner</h3>
+      <div class="cert-time">2–4 weeks · Required before patient contact</div>
+      <ul class="cert-reqs">
+        <li>Complete 10 Bronze modules (~50 min total)</li>
+        <li>Pass scenario assessments at 80%+</li>
+        <li>Attend 5 morning huddle sessions</li>
+        <li>Annual renewal: 3 refresher modules</li>
+      </ul>
+      <div class="cert-reward">Digital certificate · LinkedIn badge · Profile green badge</div>
+    </div>
+    <div class="cert-arrow"><svg width="36" height="36" viewBox="0 0 36 36"><path d="M8 18L26 18M20 12L28 18L20 24" stroke="#c9a84c" stroke-width="1.5" stroke-opacity="0.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="cert-tier">
+      <div class="cert-badge cb-silver">◆ Silver</div>
+      <h3>Senior Hospitality Practitioner</h3>
+      <div class="cert-time">6–12 months after Bronze</div>
+      <ul class="cert-reqs">
+        <li>Hold Bronze for 6+ months</li>
+        <li>Complete 8 Silver advanced modules</li>
+        <li>Practice H-Score 60+ for 60 of past 90 days</li>
+        <li>Peer nomination from practice owner</li>
+        <li>Submit one "wow story" to the network</li>
+      </ul>
+      <div class="cert-reward">Enhanced certificate · Network directory · Bonus pool multiplier</div>
+    </div>
+    <div class="cert-arrow"><svg width="36" height="36" viewBox="0 0 36 36"><path d="M8 18L26 18M20 12L28 18L20 24" stroke="#c9a84c" stroke-width="1.5" stroke-opacity="0.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="cert-tier gold">
+      <div class="cert-badge cb-gold">★ Gold — C&C Champion</div>
+      <h3>Elite Hospitality Leader</h3>
+      <div class="cert-time">18–36 months from start · Panel review</div>
+      <ul class="cert-reqs">
+        <li>Hold Silver for 6+ months</li>
+        <li>Complete 6 Gold leadership modules</li>
+        <li>Practice H-Score 75+ for 60 of past 90 days</li>
+        <li>Facilitated morning huddle 100+ times</li>
+        <li>Onboarded 2+ staff through Bronze</li>
+        <li>Panel video interview with SGA culture team</li>
+      </ul>
+      <div class="cert-reward" style="border-color:rgba(201,168,76,0.4);">THE JACKET · Gold certificate · Champion stipend · Summit invitation</div>
+    </div>
+  </div>
+  <div class="modules-wrap">
+    <h4 style="margin-bottom:1.25rem;">Bronze Track — 10 Modules</h4>
+    <div class="grid-5" style="gap:0.75rem;">
+      <div class="card-sm" style="padding:0.875rem;"><div style="font-size:0.6rem;color:var(--gold);font-weight:700;margin-bottom:0.35rem;">01</div><div style="font-size:0.78rem;font-weight:600;color:var(--text);">The Story</div><div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem;">Origin + philosophy</div></div>
+      <div class="card-sm" style="padding:0.875rem;"><div style="font-size:0.6rem;color:var(--gold);font-weight:700;margin-bottom:0.35rem;">02</div><div style="font-size:0.78rem;font-weight:600;color:var(--text);">The Language</div><div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem;">Glossary + framing</div></div>
+      <div class="card-sm" style="padding:0.875rem;"><div style="font-size:0.6rem;color:var(--gold);font-weight:700;margin-bottom:0.35rem;">03</div><div style="font-size:0.78rem;font-weight:600;color:var(--text);">Warm Welcome</div><div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem;">Arrival + first impression</div></div>
+      <div class="card-sm" style="padding:0.875rem;"><div style="font-size:0.6rem;color:var(--gold);font-weight:700;margin-bottom:0.35rem;">04</div><div style="font-size:0.78rem;font-weight:600;color:var(--text);">Phone Standard</div><div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem;">Scripted protocol</div></div>
+      <div class="card-sm" style="padding:0.875rem;"><div style="font-size:0.6rem;color:var(--gold);font-weight:700;margin-bottom:0.35rem;">05</div><div style="font-size:0.78rem;font-weight:600;color:var(--text);">Trust Transfer I</div><div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem;">Front Desk → Hygienist</div></div>
+      <div class="card-sm" style="padding:0.875rem;"><div style="font-size:0.6rem;color:var(--gold);font-weight:700;margin-bottom:0.35rem;">06</div><div style="font-size:0.78rem;font-weight:600;color:var(--text);">Trust Transfer II</div><div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem;">Hygienist → DA → Doctor</div></div>
+      <div class="card-sm" style="padding:0.875rem;"><div style="font-size:0.6rem;color:var(--gold);font-weight:700;margin-bottom:0.35rem;">07</div><div style="font-size:0.78rem;font-weight:600;color:var(--text);">Environment</div><div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem;">Welcome space standards</div></div>
+      <div class="card-sm" style="padding:0.875rem;"><div style="font-size:0.6rem;color:var(--gold);font-weight:700;margin-bottom:0.35rem;">08</div><div style="font-size:0.78rem;font-weight:600;color:var(--text);">Anxiety Protocol</div><div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem;">Handling fear with care</div></div>
+      <div class="card-sm" style="padding:0.875rem;"><div style="font-size:0.6rem;color:var(--gold);font-weight:700;margin-bottom:0.35rem;">09</div><div style="font-size:0.78rem;font-weight:600;color:var(--text);">Exit Circle</div><div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem;">Closing the loop</div></div>
+      <div class="card-sm" style="padding:0.875rem;"><div style="font-size:0.6rem;color:var(--gold);font-weight:700;margin-bottom:0.35rem;">10</div><div style="font-size:0.78rem;font-weight:600;color:var(--text);">The Score</div><div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem;">H-Score + measurement</div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- H-SCORE -->
+<section id="hscore">
+<div class="section">
+  <div class="section-label">Hospitality Score Engine</div>
+  <h2>Culture Made Visible</h2>
+  <p style="margin-top:1rem;max-width:680px;">A single number, updated daily, derived from data already flowing through Cinnamon, Swell, and Dental Intel. Transparent algorithm. Practice-type adjusted. Visible to everyone from the break room screen to the SGA board room.</p>
+  <div class="hscore-layout">
+    <div>
+      <div class="hscore-dial">
+        <div style="font-size:0.62rem;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;">Sample Practice H-Score</div>
+        <div class="hscore-num">74</div>
+        <div class="hscore-level-label">Established ↑</div>
+        <div style="font-size:0.72rem;color:var(--text-muted);margin-bottom:1.25rem;">+7 points this month · 61st percentile</div>
+        <div>
+          <div class="comp-row"><span class="comp-row-label">Swell Reviews</span><div class="comp-bar-wrap"><div class="comp-bar" style="width:78%;background:var(--green);"></div></div><span class="comp-val">78</span></div>
+          <div class="comp-row"><span class="comp-row-label">Cinnamon Phone</span><div class="comp-bar-wrap"><div class="comp-bar" style="width:71%;background:var(--gold);"></div></div><span class="comp-val">71</span></div>
+          <div class="comp-row"><span class="comp-row-label">Dental Intel</span><div class="comp-bar-wrap"><div class="comp-bar" style="width:65%;background:var(--orange);"></div></div><span class="comp-val">65</span></div>
+        </div>
+        <div style="margin-top:1.25rem;padding:0.75rem;background:var(--surface2);border-radius:8px;text-align:left;">
+          <div style="font-size:0.62rem;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.35rem;">This Week's Opportunity</div>
+          <div style="font-size:0.75rem;color:var(--text-sec);">Huddle completion dropped to 60% this week. Running every huddle for 14 days adds ~4 H-Score points.</div>
+        </div>
+      </div>
+    </div>
+    <div class="hscore-right">
+      <div class="level-cards">
+        <div class="level-card"><div class="level-dot" style="background:var(--red);"></div><div class="level-name" style="color:var(--red);">Emerging</div><div class="level-range">0–39</div></div>
+        <div class="level-card"><div class="level-dot" style="background:var(--orange);"></div><div class="level-name" style="color:var(--orange);">Developing</div><div class="level-range">40–59</div></div>
+        <div class="level-card" style="border-color:rgba(201,168,76,0.25);"><div class="level-dot" style="background:var(--yellow);"></div><div class="level-name" style="color:var(--yellow);">Established</div><div class="level-range">60–74</div></div>
+        <div class="level-card"><div class="level-dot" style="background:var(--green);"></div><div class="level-name" style="color:var(--green);">Exceptional</div><div class="level-range">75–89</div></div>
+        <div class="level-card" style="border-color:rgba(201,168,76,0.35);background:rgba(201,168,76,0.04);"><div class="level-dot" style="background:var(--gold);box-shadow:0 0 7px rgba(201,168,76,0.5);"></div><div class="level-name" style="color:var(--gold);">Elite</div><div class="level-range">90–100</div></div>
+      </div>
+      <div class="feed-cards">
+        <div class="feed-card">
+          <h4>Swell — 45%</h4>
+          <div class="feed-sig"><span class="feed-sig-l">Star rating avg (7-day)</span><span class="feed-sig-v">4.6</span></div>
+          <div class="feed-sig"><span class="feed-sig-l">Review velocity</span><span class="feed-sig-v">2.1/100</span></div>
+          <div class="feed-sig" style="border:none;"><span class="feed-sig-l">Hospitality language</span><span class="feed-sig-v">68%</span></div>
+          <div class="feed-wt">45%</div>
+        </div>
+        <div class="feed-card">
+          <h4>Cinnamon — 35%</h4>
+          <div class="feed-sig"><span class="feed-sig-l">Answer rate (3 rings)</span><span class="feed-sig-v">82%</span></div>
+          <div class="feed-sig"><span class="feed-sig-l">Greeting phrase</span><span class="feed-sig-v">74%</span></div>
+          <div class="feed-sig" style="border:none;"><span class="feed-sig-l">Hold compliance</span><span class="feed-sig-v">91%</span></div>
+          <div class="feed-wt">35%</div>
+        </div>
+        <div class="feed-card">
+          <h4>Dental Intel — 20%</h4>
+          <div class="feed-sig"><span class="feed-sig-l">Huddle completion</span><span class="feed-sig-v">60%</span></div>
+          <div class="feed-sig"><span class="feed-sig-l">Staff certified</span><span class="feed-sig-v">73%</span></div>
+          <div class="feed-sig" style="border:none;"><span class="feed-sig-l">Champion active</span><span class="feed-sig-v">Yes</span></div>
+          <div class="feed-wt">20%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- STORYBOARD -->
+<section id="storyboard">
+<div class="section">
+  <div class="section-label">The Journey</div>
+  <h2>How It Feels to Live in the Platform</h2>
+  <p style="margin-top:1rem;max-width:680px;">Three characters. Nine moments. Six months from first login to board-ready impact data.</p>
+  <div class="story-grid">
+    <div class="story-card">
+      <div class="story-scene-num">SCENE 01</div>
+      <div class="story-tag">Practice Owner</div>
+      <div class="story-scene">The Platform Arrives — Baseline H-Score: 54</div>
+      <div class="story-body">Dr. Vasquez opens the dashboard. An H-Score calculated from his existing Swell and Cinnamon data greets him. "54 — lower than I expected." Before doing anything, he's accountable.</div>
+      <div class="story-detail">The baseline H-Score arrives pre-calculated from existing data — no setup required to feel the score.</div>
+    </div>
+    <div class="story-card">
+      <div class="story-scene-num">SCENE 02</div>
+      <div class="story-tag">Practice Team</div>
+      <div class="story-scene">First Huddle — Grant on Screen</div>
+      <div class="story-body">Grant tells the story of a patient who cried at checkout. A real Swell review from yesterday appears — Jim's review, naming the front desk. One staff member says "that's cheesy" and smiles anyway.</div>
+      <div class="story-detail">A real patient review on screen creates an emotional anchor that no manufactured training scenario can replicate.</div>
+    </div>
+    <div class="story-card">
+      <div class="story-scene-num">SCENE 03</div>
+      <div class="story-tag">New Staff — Maya</div>
+      <div class="story-scene">Day 1 — Bronze Onboarding Begins</div>
+      <div class="story-body">Before answering a call, Maya completes Modules 1-3 on a tablet. By Module 3 she understands the trust transfer protocol. She texts her sister: "My new job is weird. In a good way."</div>
+      <div class="story-detail">Grant's authentic voice makes Module 1 feel like being let in on something, not instructed on something.</div>
+    </div>
+    <div class="story-card">
+      <div class="story-scene-num">SCENE 04</div>
+      <div class="story-tag">Practice Team</div>
+      <div class="story-scene">The Huddle Shows the Protocol Working</div>
+      <div class="story-body">Week 3. A Swell review: "Everyone I talked to seemed to know my whole story." The platform flags it "Trust Transfer Signal Detected." The hygienist high-fives Maya. "That's what we practiced Monday."</div>
+      <div class="story-detail">Behavior to outcome in under 72 hours — the feedback loop no manager could engineer manually.</div>
+    </div>
+    <div class="story-card">
+      <div class="story-scene-num">SCENE 05</div>
+      <div class="story-tag">New Staff — Maya</div>
+      <div class="story-scene">Bronze Earned — The LinkedIn Badge</div>
+      <div class="story-body">Week 6, on her phone between patients. Module 10 complete. Certificate generated. Dr. Vasquez notified. Maya adds "CCA Bronze" to LinkedIn. She asks: "What do I need to do to get the jacket?"</div>
+      <div class="story-detail">The LinkedIn integration and jacket aspiration transform completion from administrative act to personal milestone.</div>
+    </div>
+    <div class="story-card">
+      <div class="story-scene-num">SCENE 06</div>
+      <div class="story-tag">Champion Activation</div>
+      <div class="story-scene">The Platform Recommends Maya as Champion</div>
+      <div class="story-body">Week 8. Data-informed recommendation: "We recommend Maya." Dr. Vasquez designates her. She gets access to the Champion hub, an invite to the regional call, and a welcome video from Grant. She calls her mom.</div>
+      <div class="story-detail">An objective recommendation — not the owner's preference alone — identifies the right person at the right time.</div>
+    </div>
+    <div class="story-card">
+      <div class="story-scene-num">SCENE 07</div>
+      <div class="story-tag">SGA — Regional View</div>
+      <div class="story-scene">Jordan's Heatmap — Intervention Triggered</div>
+      <div class="story-body">Jordan opens her 80-practice portfolio. 5 practices in red. One rural New Mexico practice: 0% huddle completion, no Champion. The platform auto-drafts the intervention message. 3 calls scheduled in 4 minutes.</div>
+      <div class="story-detail">The platform tells Jordan who needs help and proposes the action — her role shifts from detective to coach.</div>
+    </div>
+    <div class="story-card">
+      <div class="story-scene-num">SCENE 08</div>
+      <div class="story-tag">Practice Team</div>
+      <div class="story-scene">Leaderboard + Bonus Pool Notification</div>
+      <div class="story-body">Month 3. Dr. Vasquez's practice is #3 in the Southwest. Maya's wow story plays for all 80 practices in the region. Then a push notification to every staff member: "Your practice earned a $200 bonus pool contribution." The team erupts.</div>
+      <div class="story-detail">Bonus notification during the huddle, publicly, while the team is together — exponentially more powerful than a payroll adjustment.</div>
+    </div>
+    <div class="story-card">
+      <div class="story-scene-num">SCENE 09</div>
+      <div class="story-tag">SGA Executive</div>
+      <div class="story-scene">Six-Month Board Review — The North Star</div>
+      <div class="story-body">H-Score: 51 → 69. Huddle completion: 12% → 78%. 5-star velocity: +34%. Correlation: practices with H-Score 70+ generate 2.8× more 5-star reviews. A board member asks: "Can we share this with the dental schools?" Jordan nods.</div>
+      <div class="story-detail">Academic publication formatting built into the report from day one — the dental school pathway stays alive without extra work.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- DECISIONS -->
+<section id="decisions">
+<div class="section">
+  <div class="section-label">Architecture Decisions</div>
+  <h2>Five Decisions That Define This Platform</h2>
+  <p style="margin-top:1rem;max-width:680px;">Each ADR captures a significant architectural choice — what was decided, why, and what it means for every future design decision.</p>
+  <div style="margin-top:2rem;">
+    <details>
+      <summary>
+        <div class="adr-summary-left"><span class="adr-id">ADR-01</span><span class="adr-title">The Morning Huddle is the primary delivery container — not a new app or LMS</span></div>
+        <span class="adr-chevron">▼</span>
+      </summary>
+      <div class="adr-body">
+        <div class="adr-decision-text">All training content, certification prompts, H-Score displays, and cultural rituals are delivered through the morning huddle inside Dental Intel.</div>
+        <div class="adr-rationale">The morning huddle is the only moment in the day when the entire practice team is together and not yet in patient-facing mode. It is a captive attention window that already exists. Building a new app creates an adoption problem: something new to download, log into, remember, and use. Extending the morning huddle — which already happens imperfectly — eliminates the adoption barrier entirely.</div>
+        <div class="adr-consequence"><strong>Consequence</strong>Every platform decision must ask "can this surface in the morning huddle?" before creating a separate interface. The huddle is the UX.</div>
+      </div>
+    </details>
+    <details>
+      <summary>
+        <div class="adr-summary-left"><span class="adr-id">ADR-02</span><span class="adr-title">The H-Score algorithm is fully transparent and documented — no black box</span></div>
+        <span class="adr-chevron">▼</span>
+      </summary>
+      <div class="adr-body">
+        <div class="adr-decision-text">Every component, its weight, and its calculation method is published and readable by any practice owner in plain language.</div>
+        <div class="adr-rationale">In healthcare and high-trust service environments, opaque scoring systems create resentment and distrust. If staff believe the score measures things outside their control, they will game it or ignore it. Transparency about what the score measures and how it is calculated is the only path to the score being trusted as fair — which is the precondition for it being motivating.</div>
+        <div class="adr-consequence"><strong>Consequence</strong>All H-Score documentation is written for a practice owner audience — plain language, not technical documentation. The API exposes the algorithm at a public endpoint.</div>
+      </div>
+    </details>
+    <details>
+      <summary>
+        <div class="adr-summary-left"><span class="adr-id">ADR-03</span><span class="adr-title">H-Score benchmarking is segmented by practice type — rural is never compared to urban</span></div>
+        <span class="adr-chevron">▼</span>
+      </summary>
+      <div class="adr-body">
+        <div class="adr-decision-text">Five practice-type cohorts: rural, suburban, urban, cosmetic, pediatric. All benchmarking, leaderboard rankings, and intervention thresholds are calculated within cohort.</div>
+        <div class="adr-rationale">A rural practice with 12 patients per day generates fundamentally different data volumes than an urban practice with 80. The same hospitality behaviors produce fewer reviews and fewer phone analytics data points. Comparing them on raw metrics is unfair and demoralizing — rural practices would systematically bottom-rank regardless of actual hospitality quality.</div>
+        <div class="adr-consequence"><strong>Consequence</strong>Practice type is a required field in all scoring calculations. A "Most Improved" leaderboard (percent-change, not absolute score) allows any practice type to compete for network recognition.</div>
+      </div>
+    </details>
+    <details>
+      <summary>
+        <div class="adr-summary-left"><span class="adr-id">ADR-04</span><span class="adr-title">The CCA credential is portable and externally verifiable from day one</span></div>
+        <span class="adr-chevron">▼</span>
+      </summary>
+      <div class="adr-body">
+        <div class="adr-decision-text">Every certificate includes a unique verification URL. LinkedIn integration via Credly is built into the Bronze issuance flow at launch. All curriculum is structured to academic standards.</div>
+        <div class="adr-rationale">The difference between a credential and a training completion record is portability. If the credential only lives in SGA's HR system, it has no career value to staff — and career value is the entire motivation architecture for CCA engagement. Building the external credentialing infrastructure at launch (not as a future upgrade) makes the credential genuinely valuable from the first day it is issued.</div>
+        <div class="adr-consequence"><strong>Consequence</strong>All CCA content must meet the documentation standards required for academic submission. This is a positive constraint that creates higher content quality and advances the dental school adoption pathway.</div>
+      </div>
+    </details>
+    <details>
+      <summary>
+        <div class="adr-summary-left"><span class="adr-id">ADR-05</span><span class="adr-title">The playbook is a living, versioned document — never printed as final</span></div>
+        <span class="adr-chevron">▼</span>
+      </summary>
+      <div class="adr-body">
+        <div class="adr-decision-text">The "Caring with Charisma" playbook is versioned like software. Major versions are significant releases. Minor versions are incremental. Every practice knows which version their training is built on.</div>
+        <div class="adr-rationale">The biggest failure mode for culture programs is the "binder on the shelf" problem — written once, out of date, sitting unread. By designing the playbook as a living document with a clear versioning and distribution system, SGA can evolve the culture standard as the network grows, as Champions contribute insights, and as academic research generates new best practices.</div>
+        <div class="adr-consequence"><strong>Consequence</strong>SGA needs a "Playbook Editor" role. Staff who completed Bronze under v1.0 receive a "What's Changed" micro-module when v2.0 launches — not a full recertification. Champion contributions feed the next version cycle.</div>
+      </div>
+    </details>
+  </div>
+</div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+<div class="section">
+  <div class="section-label">Build Sequence</div>
+  <h2>Three Phases. One Platform.</h2>
+  <p style="margin-top:1rem;max-width:680px;">Phase 1 proves the model. Phase 2 activates the motivation architecture. Phase 3 opens the dental school pathway.</p>
+  <div class="phases-row">
+    <div class="phase-block active">
+      <div class="phase-period">Phase 1 — Months 1–3</div>
+      <div class="phase-title">Pilot Foundation (20–30 practices)</div>
+      <ul class="phase-items">
+        <li>Content Production Pipeline — batch recording</li>
+        <li>Morning Huddle OS — Dental Intel integration</li>
+        <li>CCA Bronze Track — 10 modules + Credly</li>
+        <li>H-Score Engine — 3 source integration</li>
+        <li>Trust Transfer Module — NLP + checklist</li>
+        <li>Practice Dashboard — H-Score + huddle + certs</li>
+      </ul>
+      <div class="phase-goal">Target: 70%+ huddle completion, 80%+ Bronze cert rate, H-Score 65+ average</div>
+    </div>
+    <div class="phase-block">
+      <div class="phase-period">Phase 2 — Months 4–9</div>
+      <div class="phase-title">Network Rollout + Motivation Layer</div>
+      <ul class="phase-items">
+        <li>Full 260-practice rollout</li>
+        <li>Rewards Engine — leaderboard + bonus pool</li>
+        <li>Champion Network — designation + cohorts</li>
+        <li>CCA Silver Track</li>
+        <li>Network Intelligence Dashboard</li>
+        <li>Playbook Distribution System</li>
+      </ul>
+      <div class="phase-goal">Target: All practices active, first Silver cohort, network leaderboard live</div>
+    </div>
+    <div class="phase-block">
+      <div class="phase-period">Phase 3 — Months 10–18</div>
+      <div class="phase-title">Credential + Academic Pathway</div>
+      <ul class="phase-items">
+        <li>CCA Gold Track + panel review</li>
+        <li>First academic publication (H-Score correlation data)</li>
+        <li>External credential recognition</li>
+        <li>Dental school outreach package</li>
+        <li>Content Concierge integration</li>
+        <li>Practice Concierge H-Score badge</li>
+      </ul>
+      <div class="phase-goal">Target: First dental school partnership, academic paper submitted, Gold jacket cohort 1</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <h4 style="margin-bottom:1.25rem;">Ecosystem Connections</h4>
+  <div class="grid-2" style="gap:1rem;">
+    <div class="card-sm"><h4 style="margin-bottom:0.5rem;">Practice Concierge</h4><p style="font-size:0.78rem;">H-Score feeds "Certified C&C Practice" badge on digital storefront. Culture becomes a marketing and recruiting differentiator visible on every practice's online presence.</p></div>
+    <div class="card-sm"><h4 style="margin-bottom:0.5rem;">Funnel OS</h4><p style="font-size:0.78rem;">Swell component maps to the Funnel OS reputation layer. Higher H-Score → better reviews → more organic new patient inquiries. Attribution closes the ROI loop.</p></div>
+    <div class="card-sm"><h4 style="margin-bottom:0.5rem;">Comms Engine</h4><p style="font-size:0.78rem;">Trust Transfer positive review signals flag patients for referral outreach. "You had a great experience — here's how to share it" triggered by hospitality data.</p></div>
+    <div class="card-sm"><h4 style="margin-bottom:0.5rem;">Content Concierge</h4><p style="font-size:0.78rem;">Champion wow stories feed the testimonial pipeline. CCA Gold certified staff are the most credible voices for practice video testimonials and brand content.</p></div>
+  </div>
+</div>
+</section>
+
+<footer>
+  <div class="fb">SGA — The Hospitality Playbook Platform</div>
+  <p>Problem Sprint — Hospitality Playbook Operationalization · 2026-03-10</p>
+  <p style="margin-top:0.5rem;">Sprint phases: Frame · Sketch · Decide · Architect · Validate</p>
+  <p style="margin-top:1rem;font-style:italic;color:var(--text-muted);">"Caring with Charisma is not a personality trait. It is a designed, teachable, measurable system."</p>
+</footer>
+
+</body>
+</html>
