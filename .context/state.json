@@ -33,7 +33,7 @@
     "patient-comms-automation": {
       "type": "problem-sprint",
       "status": "complete",
-      "phase": "validated",
+      "phase": "development-ready",
       "started": "2026-03-10",
       "completed": "2026-03-10",
       "problem": "260+ practices have fragmented, manual patient communication across the entire lifecycle — leads unworked, treatment unfollowed, patients lapsing, zero standardized playbook",
@@ -49,6 +49,16 @@
       "problem": "260+ practices never capture content (before/afters, testimonials, video) despite having strategy and channels ready. Broken human behavior starves the entire content-to-patient pipeline. Same gap at SGA brand level for B2B content.",
       "solution": "The Content Concierge — Phased hybrid system (SMS → mobile app → AI pipeline → passive hardware) for practice-level and SGA brand content capture, production, and distribution. PMS-triggered prompts via Sikka ONE API, AI processing (Cloudinary, OpusClip, Claude), 5 playbooks (4 practice types + brand), extends Practice Concierge ecosystem.",
       "output": "resources/problem-sprints/practice-media-strategy/"
+    },
+    "hospitality-playbook-operationalization": {
+      "type": "problem-sprint",
+      "status": "in-progress",
+      "phase": "decide",
+      "started": "2026-03-10",
+      "completed": null,
+      "problem": "SGA has developed a 'hospitality playbook' concept built around a culture of 5-star patient experiences — but cannot operationalize it at scale. They cannot train staff on hospitality behaviors, measure adoption, or reinforce the culture systematically across a distributed network of 260+ practices.",
+      "solution": null,
+      "output": "resources/problem-sprints/hospitality-playbook-operationalization/"
     }
   },
   "metadata": {
