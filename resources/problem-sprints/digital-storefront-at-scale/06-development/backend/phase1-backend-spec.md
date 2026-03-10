@@ -1,576 +1,93 @@
-# Phase 1 Backend Specification
+# Phase 1 Backend Specification — The Practice Concierge
 
-**Role**: Backend Engineer
-**Sprint**: Digital Storefront at Scale
-**Date**: 2026-03-10
-**Phase 1 Scope**: Enrollment flow end-to-end for 20-30 pilot practices
-**Source Artifacts**: `04-architect/product-architecture.md`, `06-development/technical/implementation-plan.md`
+> AI concierge for 260+ dental practices. Phase 1 targets 20-30 pilot practices through a guided enrollment flow.
 
 ---
 
-## 1. API Endpoint Details (Phase 1)
+## 1. API Endpoints (REST)
+
+Base URL: `/api/v1`
 
 ### 1.1 Practice CRUD
 
-#### `GET /api/v1/practices`
+| Method | Path | Description | Auth |
+|--------|------|-------------|------|
+| `GET` | `/practices` | List all practices (paginated, filterable) | HQ session |
+| `GET` | `/practices/:id` | Get practice detail | HQ session |
+| `POST` | `/practices` | Create practice record | HQ session |
+| `PATCH` | `/practices/:id` | Update practice fields | HQ session / practice token |
+| `DELETE` | `/practices/:id` | Soft-delete practice | HQ session |
+| `GET` | `/practices/:id/team` | List team members | HQ session |
+| `POST` | `/practices/:id/team` | Add team member | HQ session |
+| `GET` | `/practices/:id/services` | List services offered | HQ session / practice token |
+| `POST` | `/practices/:id/services` | Add/update services | HQ session / practice token |
 
-List practices with filtering and pagination.
-
-**Query Parameters**:
-| Param | Type | Default | Description |
-|-------|------|---------|-------------|
-| `page` | number | 1 | Page number |
-| `limit` | number | 25 | Items per page (max 100) |
-| `status` | string | — | Filter by enrollment_status |
-| `specialty` | string | — | Filter by specialty enum |
-| `platform` | string | — | Filter by platform enum |
-| `search` | string | — | Full-text search on name, city |
-| `sort` | string | `name` | Sort field |
-| `order` | string | `asc` | Sort direction |
-
-**Response** (`200`):
-```json
-{
-  "data": [
-    {
-      "id": "uuid",
-      "slug": "bright-smile-dental",
-      "name": "Bright Smile Dental",
-      "specialty": "GP",
-      "platform": "SGA",
-      "city": "Austin",
-      "state": "TX",
-      "enrollment_status": "enrolled",
-      "health_overall": 72,
-      "concierge_last_interaction": "2026-03-09T14:30:00Z"
-    }
-  ],
-  "meta": {
-    "page": 1,
-    "limit": 25,
-    "total": 267,
-    "totalPages": 11
-  }
-}
-```
-
-#### `GET /api/v1/practices/:id`
-
-Full practice profile including nested team members, services, and health scores.
-
-**Response** (`200`):
-```json
-{
-  "id": "uuid",
-  "slug": "bright-smile-dental",
-  "name": "Bright Smile Dental",
-  "legal_name": "Bright Smile Dental LLC",
-  "platform": "SGA",
-  "specialty": "GP",
-  "address": {
-    "line1": "123 Main St",
-    "line2": null,
-    "city": "Austin",
-    "state": "TX",
-    "zip": "78701"
-  },
-  "phone": "(512) 555-0100",
-  "email": "info@brightsmile.com",
-  "hours": {
-    "mon": "8:00-17:00",
-    "tue": "8:00-17:00",
-    "wed": "8:00-17:00",
-    "thu": "8:00-17:00",
-    "fri": "8:00-14:00",
-    "sat": null,
-    "sun": null
-  },
-  "brand": {
-    "primary_color": "#2563eb",
-    "secondary_color": "#1e40af",
-    "logo_url": "https://r2.sga.com/bright-smile/logo.png",
-    "photos": ["https://r2.sga.com/bright-smile/exterior.jpg"]
-  },
-  "digital": {
-    "website_url": "https://brightsmile.sgadental.com",
-    "website_template_id": "gp-v1",
-    "website_status": "active",
-    "website_last_deployed": "2026-03-08T10:00:00Z",
-    "gmb_listing_id": null,
-    "gmb_status": "not_setup",
-    "gmb_completeness": 0,
-    "social_instagram": null,
-    "social_facebook_url": null,
-    "social_status": "not_setup"
-  },
-  "enrollment": {
-    "status": "enrolled",
-    "invited_date": "2026-03-01T09:00:00Z",
-    "enrolled_date": "2026-03-05T16:20:00Z",
-    "method": "concierge"
-  },
-  "health": {
-    "overall": 72,
-    "website": 85,
-    "gmb": 0,
-    "social": 0,
-    "reviews": 68,
-    "leads": 45,
-    "updated_at": "2026-03-09T00:00:00Z"
-  },
-  "concierge": {
-    "last_interaction": "2026-03-09T14:30:00Z",
-    "interaction_count": 4,
-    "satisfaction": 4.5
-  },
-  "team": [
-    {
-      "id": "uuid",
-      "name": "Dr. Sarah Chen",
-      "role": "dentist",
-      "title": "Lead Dentist",
-      "bio": "Dr. Chen has been practicing...",
-      "photo_url": "https://r2.sga.com/bright-smile/chen.jpg",
-      "is_active": true
-    }
-  ],
-  "services": [
-    {
-      "id": "uuid",
-      "name": "General Dentistry",
-      "description": "Comprehensive dental care...",
-      "is_primary": true
-    }
-  ]
-}
-```
-
-#### `POST /api/v1/practices`
-
-**Request Body**:
-```json
-{
-  "name": "Bright Smile Dental",
-  "platform": "SGA",
-  "specialty": "GP",
-  "address_line1": "123 Main St",
-  "city": "Austin",
-  "state": "TX",
-  "zip": "78701",
-  "phone": "(512) 555-0100"
-}
-```
-- `name`, `platform`, and `specialty` are required.
-- `slug` is auto-generated from name (kebab-case, unique).
-
-**Response** (`201`): Full practice object.
-
-#### `PATCH /api/v1/practices/:id`
-
-Partial update. Only include fields being changed. Triggers a `change_event` record for each modified field. Invalidates Redis cache.
-
-**Request Body** (example):
-```json
-{
-  "phone": "(512) 555-0200",
-  "hours": { "fri": "8:00-16:00" }
-}
-```
-
-**Response** (`200`): Updated practice object.
-
-**Side effects**:
-1. Insert `change_event` with `{ field: { old, new } }` diff
-2. Invalidate `practice:{id}:profile` in Redis
-3. Emit `practice.updated` event to BullMQ (consumed by sync workers in Phase 2)
-
----
+**Query parameters for `GET /practices`:**
+- `page` (int, default 1)
+- `limit` (int, default 25, max 100)
+- `status` (enum: active, enrolled, pending, inactive)
+- `search` (string, fuzzy match on name/location)
+- `sortBy` (enum: name, enrollmentDate, healthScore)
+- `sortOrder` (enum: asc, desc)
 
 ### 1.2 Enrollment Flow
 
-#### `POST /api/v1/enrollment/invite`
+| Method | Path | Description | Auth |
+|--------|------|-------------|------|
+| `POST` | `/enrollment/invite` | Send enrollment invitation to practice | HQ session |
+| `POST` | `/enrollment/verify/:token` | Practice verifies via invitation token | Public (token-gated) |
+| `GET` | `/enrollment/:id` | Get enrollment status and progress | HQ session / practice token |
+| `PATCH` | `/enrollment/:id` | Update enrollment step data | Practice token |
+| `POST` | `/enrollment/:id/template-select` | Practice selects template | Practice token |
+| `POST` | `/enrollment/:id/approve` | HQ approves storefront for deployment | HQ session |
+| `POST` | `/enrollment/:id/deploy` | Trigger storefront deployment | HQ session |
+| `GET` | `/enrollment/batch` | List all enrollments with status filters | HQ session |
 
-Send enrollment invitation to one or more practices.
-
-**Request Body**:
-```json
-{
-  "practice_ids": ["uuid1", "uuid2"],
-  "message_template": "default"
-}
-```
-
-**Behavior**:
-1. Validate all practice IDs exist and are in `pending` status
-2. Generate unique enrollment link per practice (`/enroll/{practice_slug}/{token}`)
-3. Send email via Resend (practice email address)
-4. Update `enrollment_status` → `invited`, set `enrollment_invited` timestamp
-5. Insert `enrollment_event` (type: `invited`)
-
-**Response** (`200`):
-```json
-{
-  "invited": 2,
-  "skipped": 0,
-  "results": [
-    { "practice_id": "uuid1", "status": "invited", "link": "https://concierge.sga.com/enroll/bright-smile/abc123" },
-    { "practice_id": "uuid2", "status": "invited", "link": "https://concierge.sga.com/enroll/pearl-dental/def456" }
-  ]
-}
-```
-
-#### `GET /api/v1/enrollment/:practiceId/status`
-
-**Response** (`200`):
-```json
-{
-  "practice_id": "uuid",
-  "status": "in_progress",
-  "steps": {
-    "invited": { "completed": true, "at": "2026-03-01T09:00:00Z" },
-    "data_verified": { "completed": true, "at": "2026-03-03T11:15:00Z" },
-    "template_selected": { "completed": false, "at": null },
-    "storefront_approved": { "completed": false, "at": null },
-    "deployed": { "completed": false, "at": null }
-  },
-  "current_step": "template_selected"
-}
-```
-
-#### `POST /api/v1/enrollment/:practiceId/verify`
-
-Submit verified/corrected practice data from the concierge conversation. Called by the Concierge Agent via tool_use when practice confirms their data.
-
-**Request Body**:
-```json
-{
-  "verified_fields": ["name", "address", "phone", "hours"],
-  "corrections": {
-    "team": {
-      "remove": [{ "name": "Dr. Miller", "reason": "left_practice" }],
-      "add": [{ "name": "Sarah Johnson", "role": "hygienist" }]
-    },
-    "services": {
-      "add": [{ "name": "Invisalign", "is_primary": false }]
-    }
-  }
-}
-```
-
-**Behavior**:
-1. Apply corrections to practice record + team_member/service tables
-2. Update data_source → `concierge`, data_confidence → `high` for verified fields
-3. Insert `enrollment_event` (type: `verified_data`)
-4. Update `enrollment_status` → `in_progress`
-5. Invalidate Redis cache
-
-#### `POST /api/v1/enrollment/:practiceId/select-template`
-
-**Request Body**:
-```json
-{
-  "template_id": "gp-v1",
-  "customizations": {
-    "primary_color": "#2563eb",
-    "hero_image": "exterior"
-  }
-}
-```
-
-**Behavior**:
-1. Validate template_id exists and matches practice specialty
-2. Store selection on practice record (`website_template_id`)
-3. Store customizations in `brand` JSONB
-4. Generate preview and return preview URL
-5. Insert `enrollment_event` (type: `selected_template`)
-
-**Response** (`200`):
-```json
-{
-  "template_id": "gp-v1",
-  "preview_url": "https://preview.sga.com/bright-smile-dental/gp-v1",
-  "status": "preview_ready"
-}
-```
-
-#### `POST /api/v1/enrollment/:practiceId/approve`
-
-Practice approves the storefront for deployment.
-
-**Behavior**:
-1. Insert `enrollment_event` (type: `approved`)
-2. Add QC notification to HQ review queue
-3. After QC window (24h or manual approval), trigger deployment
-4. Update `enrollment_status` → `enrolled`, set `enrollment_enrolled`
-
-#### `POST /api/v1/enrollment/:practiceId/deploy`
-
-Trigger site generation and deployment. Called after QC approval.
-
-**Behavior**:
-1. Enqueue site generation job in BullMQ `generate` queue
-2. Job: pull practice data → render Next.js template → build static output → deploy to Cloudflare Pages
-3. On success: update `website_status` → `active`, set `website_last_deployed`
-4. Insert `enrollment_event` (type: `deployed`)
-5. Notify concierge to send "you're live!" message
-
-**Response** (`202`):
-```json
-{
-  "job_id": "uuid",
-  "status": "queued",
-  "estimated_time": "2-3 minutes"
-}
-```
-
----
+**Enrollment states:** `invited` -> `verified` -> `data-gathered` -> `template-selected` -> `review` -> `approved` -> `deployed`
 
 ### 1.3 Harvester Trigger
 
-#### `POST /api/v1/harvester/run`
+| Method | Path | Description | Auth |
+|--------|------|-------------|------|
+| `POST` | `/harvester/trigger` | Trigger scrape for a single practice | API key |
+| `POST` | `/harvester/batch` | Trigger scrape for multiple practices | API key |
+| `GET` | `/harvester/:practiceId/results` | Get harvested data for a practice | HQ session |
+| `POST` | `/harvester/:practiceId/confirm` | Confirm/correct harvested data | HQ session / practice token |
 
-**Request Body**:
-```json
-{
-  "practice_id": "uuid",
-  "sources": ["website", "gmb", "social"],
-  "known_urls": {
-    "website": "https://www.brightsmile.com",
-    "facebook": "https://facebook.com/brightsmile"
-  }
-}
-```
+### 1.4 Concierge Conversation
 
-**Behavior**:
-1. Enqueue harvest job in BullMQ `harvest` queue
-2. Harvest worker (Python) runs Playwright + Claude extraction
-3. Results written to Practice Data Hub with confidence scores
-4. Returns job ID for status polling
+| Method | Path | Description | Auth |
+|--------|------|-------------|------|
+| `POST` | `/concierge/:practiceSlug/messages` | Send message, receive streamed response | Practice token |
+| `GET` | `/concierge/:practiceSlug/history` | Get conversation history | Practice token / HQ session |
+| `GET` | `/concierge/:practiceSlug/session` | Get or create active session | Practice token |
+| `POST` | `/concierge/:practiceSlug/action` | Submit action card response (approve/reject/flag) | Practice token |
+| `DELETE` | `/concierge/:practiceSlug/session` | End active session | Practice token |
 
-**Response** (`202`):
-```json
-{
-  "job_id": "uuid",
-  "status": "queued",
-  "practice_id": "uuid"
-}
-```
+**Streaming:** The `POST /messages` endpoint returns a `text/event-stream` response using Server-Sent Events (SSE). Events include `delta` (text chunk), `tool_use` (action card trigger), and `done`.
 
-#### `GET /api/v1/harvester/:practiceId/results`
+### 1.5 Dashboard Data
 
-**Response** (`200`):
-```json
-{
-  "practice_id": "uuid",
-  "harvested_at": "2026-03-01T12:00:00Z",
-  "status": "complete",
-  "fields": {
-    "name": { "value": "Bright Smile Dental", "confidence": "high", "source": "website" },
-    "phone": { "value": "(512) 555-0100", "confidence": "high", "source": "gmb" },
-    "team": {
-      "value": [
-        { "name": "Dr. Sarah Chen", "role": "dentist", "confidence": "high" },
-        { "name": "Dr. James Miller", "role": "dentist", "confidence": "medium" }
-      ],
-      "source": "website"
-    },
-    "services": {
-      "value": ["General Dentistry", "Cosmetic Dentistry", "Invisalign"],
-      "confidence": "medium",
-      "source": "website"
-    }
-  },
-  "discrepancies": [
-    {
-      "field": "phone",
-      "website_value": "(512) 555-0100",
-      "gmb_value": "(512) 555-0101",
-      "recommended": "(512) 555-0100",
-      "reason": "Website value is more recent"
-    }
-  ]
-}
-```
+| Method | Path | Description | Auth |
+|--------|------|-------------|------|
+| `GET` | `/dashboard/overview` | Aggregate stats (enrollment counts, health averages) | HQ session |
+| `GET` | `/dashboard/enrollment-progress` | Enrollment funnel data | HQ session |
+| `GET` | `/dashboard/alerts` | Active alerts and flags | HQ session |
+| `GET` | `/dashboard/activity` | Recent activity feed | HQ session |
 
----
+### 1.6 Health Scores
 
-### 1.4 Template Generation
-
-#### `GET /api/v1/templates`
-
-**Response** (`200`):
-```json
-{
-  "templates": [
-    {
-      "id": "gp-v1",
-      "name": "General Practice",
-      "specialty": "GP",
-      "description": "Appointment-booking optimized, new patient focused",
-      "version": 1,
-      "preview_url": "https://templates.sga.com/gp-v1/preview",
-      "is_active": true
-    },
-    {
-      "id": "perio-v1",
-      "name": "Periodontics",
-      "specialty": "Perio",
-      "description": "Referral-optimized, specialist credibility",
-      "version": 1,
-      "preview_url": "https://templates.sga.com/perio-v1/preview",
-      "is_active": true
-    }
-  ]
-}
-```
-
-#### `GET /api/v1/templates/:id/preview/:practiceId`
-
-Generates an on-demand preview of the template populated with the practice's data.
-
-**Response** (`200`):
-```json
-{
-  "preview_url": "https://preview.sga.com/bright-smile-dental/gp-v1",
-  "expires_at": "2026-03-10T12:00:00Z",
-  "pages": ["home", "about", "services", "team", "contact"]
-}
-```
-
----
-
-### 1.5 Concierge Conversation
-
-#### `POST /api/v1/concierge/:practiceId/message`
-
-Send a message to the practice's concierge agent. Returns a streaming response (Server-Sent Events).
-
-**Request Body**:
-```json
-{
-  "conversation_id": "uuid-or-null",
-  "message": "Dr. Miller left our practice last month",
-  "channel": "web"
-}
-```
-
-**Behavior**:
-1. If `conversation_id` is null, create new conversation record
-2. Load practice context from Redis cache
-3. Build Claude API request (system prompt + conversation history + new message)
-4. Stream response via SSE
-5. If Claude invokes tools, execute them and continue the conversation loop
-6. Persist all messages to `conversation_message` table
-7. Update `concierge_last_interaction` and `concierge_interaction_count`
-
-**SSE Response Stream**:
-```
-event: message_start
-data: {"conversation_id": "uuid", "message_id": "uuid"}
-
-event: content_delta
-data: {"text": "Got it — I'll "}
-
-event: content_delta
-data: {"text": "remove Dr. Miller from everything. "}
-
-event: tool_use
-data: {"tool": "remove_team_member", "input": {"name": "Dr. Miller"}, "status": "executing"}
-
-event: tool_result
-data: {"tool": "remove_team_member", "result": "success", "details": "Removed from website, marked inactive"}
-
-event: content_delta
-data: {"text": "Done! I've removed Dr. Miller from your website team page. "}
-
-event: action_card
-data: {"type": "confirmation", "title": "Staff Change", "items": ["Website team page updated", "GMB listing queued for update"], "actions": [{"label": "Looks good", "value": "confirm"}, {"label": "Undo", "value": "undo"}]}
-
-event: message_end
-data: {"message_id": "uuid", "tokens": {"input": 1250, "output": 180}}
-```
-
-#### `GET /api/v1/concierge/:practiceId/conversations`
-
-**Response** (`200`):
-```json
-{
-  "conversations": [
-    {
-      "id": "uuid",
-      "started_at": "2026-03-05T16:00:00Z",
-      "ended_at": "2026-03-05T16:22:00Z",
-      "intent": "enrollment",
-      "summary": "Completed enrollment — verified data, selected GP template, approved for deployment",
-      "message_count": 12,
-      "resolved": true
-    }
-  ]
-}
-```
-
----
-
-### 1.6 Basic Dashboard Data
-
-#### `GET /api/v1/dashboard/summary`
-
-**Response** (`200`):
-```json
-{
-  "total_practices": 267,
-  "enrollment": {
-    "pending": 37,
-    "invited": 180,
-    "in_progress": 12,
-    "enrolled": 28,
-    "blitz_deployed": 0,
-    "inactive": 10
-  },
-  "health": {
-    "network_average": 42,
-    "optimized": 8,
-    "baseline": 20,
-    "at_risk": 239
-  },
-  "recent_activity": [
-    {
-      "practice": "Bright Smile Dental",
-      "action": "enrolled",
-      "at": "2026-03-09T14:30:00Z"
-    }
-  ],
-  "alerts_count": 3
-}
-```
-
-#### `GET /api/v1/dashboard/alerts`
-
-**Response** (`200`):
-```json
-{
-  "alerts": [
-    {
-      "id": "uuid",
-      "type": "review_drop",
-      "severity": "warning",
-      "practice_id": "uuid",
-      "practice_name": "Oak Park Dental",
-      "message": "Google review rating dropped from 4.5 to 3.9 in 30 days",
-      "detected_at": "2026-03-09T06:00:00Z",
-      "acknowledged": false
-    }
-  ]
-}
-```
+| Method | Path | Description | Auth |
+|--------|------|-------------|------|
+| `GET` | `/practices/:id/health` | Current health score breakdown | HQ session |
+| `GET` | `/practices/:id/health/history` | Health score over time | HQ session |
+| `POST` | `/health/recalculate` | Trigger recalculation for one or all practices | API key |
 
 ---
 
 ## 2. ORM Schema (Prisma)
 
 ```prisma
-// prisma/schema.prisma
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -580,1069 +97,725 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Platform {
-  SGA
-  Gen4
-  MODIS
+// ─── Practice ───────────────────────────────────────────────────────
+
+model Practice {
+  id              String    @id @default(cuid())
+  name            String
+  slug            String    @unique
+  phone           String?
+  email           String?
+  website         String?
+  addressLine1    String?
+  addressLine2    String?
+  city            String?
+  state           String?
+  zip             String?
+  specialty       String    @default("general") // general, pediatric, orthodontic, periodontic, etc.
+  status          PracticeStatus @default(PENDING)
+  logoUrl         String?
+  brandColors     Json?     // { primary: "#hex", secondary: "#hex", accent: "#hex" }
+  operatingHours  Json?     // { mon: { open: "08:00", close: "17:00" }, ... }
+  metadata        Json?     // Flexible field for additional practice data
+
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  deletedAt       DateTime?
+
+  teamMembers     TeamMember[]
+  services        Service[]
+  enrollment      Enrollment?
+  conversations   ConversationMessage[]
+  healthScores    HealthScore[]
+  harvestedData   HarvestedData[]
+  templates       Template[]
+
+  @@index([status])
+  @@index([slug])
 }
 
-enum Specialty {
-  GP
-  Perio
-  FullArch
-  Pediatric
-  Multi
+enum PracticeStatus {
+  PENDING
+  ENROLLED
+  ACTIVE
+  INACTIVE
+}
+
+// ─── Team Member ────────────────────────────────────────────────────
+
+model TeamMember {
+  id          String   @id @default(cuid())
+  practiceId  String
+  name        String
+  role        String   // dentist, hygienist, office-manager, front-desk
+  email       String?
+  phone       String?
+  isPrimary   Boolean  @default(false) // Primary contact for enrollment
+  bio         String?
+  photoUrl    String?
+  credentials String?  // DDS, DMD, RDH, etc.
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  practice    Practice @relation(fields: [practiceId], references: [id])
+
+  @@index([practiceId])
+}
+
+// ─── Service ────────────────────────────────────────────────────────
+
+model Service {
+  id          String   @id @default(cuid())
+  practiceId  String
+  name        String   // "Teeth Whitening", "Invisalign", "Root Canal"
+  category    String   // preventive, restorative, cosmetic, orthodontic, surgical, emergency
+  description String?
+  isActive    Boolean  @default(true)
+  sortOrder   Int      @default(0)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  practice    Practice @relation(fields: [practiceId], references: [id])
+
+  @@index([practiceId])
+  @@unique([practiceId, name])
+}
+
+// ─── Template ───────────────────────────────────────────────────────
+
+model Template {
+  id            String   @id @default(cuid())
+  practiceId    String?  // null for master templates
+  templateKey   String   // "modern-minimal", "warm-family", "clinical-pro"
+  name          String
+  previewUrl    String?
+  configJson    Json     // Layout + content mapping configuration
+  isGenerated   Boolean  @default(false) // true if AI-generated for this practice
+  deployedUrl   String?
+  deployedAt    DateTime?
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  practice      Practice? @relation(fields: [practiceId], references: [id])
+
+  @@index([practiceId])
+  @@index([templateKey])
+}
+
+// ─── Enrollment ─────────────────────────────────────────────────────
+
+model Enrollment {
+  id              String           @id @default(cuid())
+  practiceId      String           @unique
+  inviteToken     String           @unique @default(cuid())
+  inviteSentAt    DateTime?
+  verifiedAt      DateTime?
+  status          EnrollmentStatus @default(INVITED)
+  currentStep     Int              @default(0)
+  stepData        Json?            // Data collected at each step
+  selectedTemplate String?
+  reviewNotes     String?
+  approvedBy      String?
+  approvedAt      DateTime?
+  deployedAt      DateTime?
+
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+
+  practice        Practice         @relation(fields: [practiceId], references: [id])
+
+  @@index([status])
+  @@index([inviteToken])
 }
 
 enum EnrollmentStatus {
-  pending
-  invited
-  in_progress
-  enrolled
-  blitz_deployed
-  inactive
+  INVITED
+  VERIFIED
+  DATA_GATHERED
+  TEMPLATE_SELECTED
+  REVIEW
+  APPROVED
+  DEPLOYED
+  REJECTED
 }
 
-enum EnrollmentMethod {
-  concierge
-  blitz
-}
+// ─── Conversation Message ───────────────────────────────────────────
 
-enum ChannelStatus {
-  active
-  pending
-  disconnected
-  not_setup
-}
+model ConversationMessage {
+  id          String      @id @default(cuid())
+  practiceId  String
+  sessionId   String
+  role        MessageRole // USER, ASSISTANT, SYSTEM, TOOL
+  content     String
+  toolName    String?     // If role=TOOL, which tool was called
+  toolInput   Json?       // Tool call input
+  toolOutput  Json?       // Tool call result
+  metadata    Json?       // Action card state, attachments, etc.
 
-enum TeamRole {
-  dentist
-  hygienist
-  assistant
-  office_manager
-  specialist
-  admin
-  other
-}
+  createdAt   DateTime    @default(now())
 
-enum ConfidenceLevel {
-  high
-  medium
-  low
-}
+  practice    Practice    @relation(fields: [practiceId], references: [id])
 
-enum DataSource {
-  harvested
-  concierge
-  manual
-  isolved
-  api_sync
-}
-
-enum ConversationChannel {
-  web
-  sms
-  email
+  @@index([practiceId, sessionId])
+  @@index([createdAt])
 }
 
 enum MessageRole {
-  user
-  assistant
-  system
-  tool
+  USER
+  ASSISTANT
+  SYSTEM
+  TOOL
 }
 
-model Practice {
-  id        String   @id @default(uuid())
-  slug      String   @unique
-  name      String
-  legalName String?  @map("legal_name")
-  platform  Platform @default(SGA)
-  specialty Specialty @default(GP)
+// ─── Health Score ───────────────────────────────────────────────────
 
-  // Location
-  addressLine1 String?  @map("address_line1")
-  addressLine2 String?  @map("address_line2")
-  city         String?
-  state        String?
-  zip          String?
-  phone        String?
-  email        String?
-  hours        Json?
-  timezone     String   @default("America/Chicago")
+model HealthScore {
+  id              String   @id @default(cuid())
+  practiceId      String
+  overallScore    Float    // 0-100
+  dataCompleteness Float   // 0-100 — how much practice data is filled in
+  contentFreshness Float   // 0-100 — how recently content was updated
+  templateFit     Float    // 0-100 — how well template matches practice data
+  engagementScore Float    // 0-100 — concierge interaction frequency
+  calculatedAt    DateTime @default(now())
 
-  // Brand
-  brand Json @default("{}")
+  practice        Practice @relation(fields: [practiceId], references: [id])
 
-  // Digital Presence
-  websiteUrl          String?       @map("website_url")
-  websiteTemplateId   String?       @map("website_template_id")
-  websiteStatus       ChannelStatus @default(not_setup) @map("website_status")
-  websiteLastDeployed DateTime?     @map("website_last_deployed")
-  gmbListingId        String?       @map("gmb_listing_id")
-  gmbStatus           ChannelStatus @default(not_setup) @map("gmb_status")
-  gmbCompleteness     Int           @default(0) @map("gmb_completeness")
-  socialInstagram     String?       @map("social_instagram")
-  socialFacebookUrl   String?       @map("social_facebook_url")
-  socialStatus        ChannelStatus @default(not_setup) @map("social_status")
-  crmSystem           String?       @map("crm_system")
-  crmStatus           ChannelStatus @default(not_setup) @map("crm_status")
-
-  // Enrollment
-  enrollmentStatus   EnrollmentStatus @default(pending) @map("enrollment_status")
-  enrollmentInvited  DateTime?        @map("enrollment_invited")
-  enrollmentEnrolled DateTime?        @map("enrollment_enrolled")
-  enrollmentMethod   EnrollmentMethod? @map("enrollment_method")
-
-  // Health Scores
-  healthOverall   Int       @default(0) @map("health_overall")
-  healthWebsite   Int       @default(0) @map("health_website")
-  healthGmb       Int       @default(0) @map("health_gmb")
-  healthSocial    Int       @default(0) @map("health_social")
-  healthReviews   Int       @default(0) @map("health_reviews")
-  healthLeads     Int       @default(0) @map("health_leads")
-  healthUpdatedAt DateTime? @map("health_updated_at")
-
-  // Concierge
-  conciergeLastInteraction  DateTime? @map("concierge_last_interaction")
-  conciergeInteractionCount Int       @default(0) @map("concierge_interaction_count")
-  conciergeSatisfaction     Decimal?  @map("concierge_satisfaction") @db.Decimal(3, 2)
-
-  // Metadata
-  dataSource     DataSource      @default(manual) @map("data_source")
-  dataConfidence ConfidenceLevel @default(low) @map("data_confidence")
-  createdAt      DateTime        @default(now()) @map("created_at")
-  updatedAt      DateTime        @updatedAt @map("updated_at")
-
-  // Relations
-  teamMembers      TeamMember[]
-  services         Service[]
-  enrollmentEvents EnrollmentEvent[]
-  conversations    Conversation[]
-  healthSnapshots  HealthScoreSnapshot[]
-  syncLogs         SyncLog[]
-  changeEvents     ChangeEvent[]
-
-  @@index([platform])
-  @@index([specialty])
-  @@index([enrollmentStatus])
-  @@index([healthOverall])
-  @@map("practice")
+  @@index([practiceId, calculatedAt])
 }
 
-model TeamMember {
-  id         String          @id @default(uuid())
-  practiceId String          @map("practice_id")
-  name       String
-  role       TeamRole
-  title      String?
-  bio        String?
-  photoUrl   String?         @map("photo_url")
-  startDate  DateTime?       @map("start_date") @db.Date
-  endDate    DateTime?       @map("end_date") @db.Date
-  isActive   Boolean         @default(true) @map("is_active")
-  sortOrder  Int             @default(0) @map("sort_order")
-  source     DataSource      @default(manual)
-  confidence ConfidenceLevel @default(medium)
-  createdAt  DateTime        @default(now()) @map("created_at")
-  updatedAt  DateTime        @updatedAt @map("updated_at")
+// ─── Harvested Data ─────────────────────────────────────────────────
 
-  practice Practice @relation(fields: [practiceId], references: [id], onDelete: Cascade)
+model HarvestedData {
+  id          String          @id @default(cuid())
+  practiceId  String
+  source      String          // "website", "google-business", "yelp", "healthgrades"
+  rawHtml     String?         // Raw scraped content (stored but not indexed)
+  extractedData Json          // LLM-structured extraction
+  confidence  Float           // 0-1 confidence score from LLM
+  status      HarvestStatus   @default(PENDING_REVIEW)
+  reviewedBy  String?
+  reviewedAt  DateTime?
 
-  @@index([practiceId])
-  @@index([practiceId, isActive])
-  @@map("team_member")
-}
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
 
-model Service {
-  id         String     @id @default(uuid())
-  practiceId String     @map("practice_id")
-  name       String
-  description String?
-  isPrimary  Boolean    @default(false) @map("is_primary")
-  sortOrder  Int        @default(0) @map("sort_order")
-  source     DataSource @default(manual)
-  createdAt  DateTime   @default(now()) @map("created_at")
-  updatedAt  DateTime   @updatedAt @map("updated_at")
+  practice    Practice        @relation(fields: [practiceId], references: [id])
 
-  practice Practice @relation(fields: [practiceId], references: [id], onDelete: Cascade)
-
-  @@index([practiceId])
-  @@map("service")
-}
-
-model Template {
-  id          String    @id
-  name        String
-  specialty   Specialty
-  description String?
-  version     Int       @default(1)
-  isActive    Boolean   @default(true) @map("is_active")
-  config      Json      @default("{}")
-  previewUrl  String?   @map("preview_url")
-  createdAt   DateTime  @default(now()) @map("created_at")
-  updatedAt   DateTime  @updatedAt @map("updated_at")
-
-  @@map("template")
-}
-
-model EnrollmentEvent {
-  id         String   @id @default(uuid())
-  practiceId String   @map("practice_id")
-  eventType  String   @map("event_type")
-  metadata   Json     @default("{}")
-  createdAt  DateTime @default(now()) @map("created_at")
-
-  practice Practice @relation(fields: [practiceId], references: [id], onDelete: Cascade)
-
-  @@index([practiceId])
-  @@index([eventType])
-  @@map("enrollment_event")
-}
-
-model Conversation {
-  id         String              @id @default(uuid())
-  practiceId String              @map("practice_id")
-  channel    ConversationChannel @default(web)
-  startedAt  DateTime            @default(now()) @map("started_at")
-  endedAt    DateTime?           @map("ended_at")
-  summary    String?
-  intent     String?
-  resolved   Boolean             @default(false)
-  metadata   Json                @default("{}")
-
-  practice Practice              @relation(fields: [practiceId], references: [id], onDelete: Cascade)
-  messages ConversationMessage[]
-
-  @@index([practiceId])
-  @@map("conversation")
-}
-
-model ConversationMessage {
-  id             String      @id @default(uuid())
-  conversationId String      @map("conversation_id")
-  role           MessageRole
-  content        String
-  toolCalls      Json?       @map("tool_calls")
-  tokensInput    Int?        @map("tokens_input")
-  tokensOutput   Int?        @map("tokens_output")
-  createdAt      DateTime    @default(now()) @map("created_at")
-
-  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
-
-  @@index([conversationId])
-  @@map("conversation_message")
-}
-
-model HealthScoreSnapshot {
-  id         String   @id @default(uuid())
-  practiceId String   @map("practice_id")
-  overall    Int
-  website    Int
-  gmb        Int
-  social     Int
-  reviews    Int
-  leads      Int
-  capturedAt DateTime @default(now()) @map("captured_at")
-
-  practice Practice @relation(fields: [practiceId], references: [id], onDelete: Cascade)
-
-  @@index([practiceId, capturedAt])
-  @@map("health_score_snapshot")
-}
-
-model SyncLog {
-  id          String    @id @default(uuid())
-  practiceId  String    @map("practice_id")
-  channel     String
-  action      String
-  status      String
-  payload     Json?
-  error       String?
-  attempts    Int       @default(1)
-  createdAt   DateTime  @default(now()) @map("created_at")
-  completedAt DateTime? @map("completed_at")
-
-  practice Practice @relation(fields: [practiceId], references: [id], onDelete: Cascade)
-
-  @@index([practiceId])
+  @@index([practiceId, source])
   @@index([status])
-  @@map("sync_log")
 }
 
-model ChangeEvent {
-  id          String     @id @default(uuid())
-  practiceId  String     @map("practice_id")
-  entityType  String     @map("entity_type")
-  entityId    String?    @map("entity_id")
-  action      String
-  changes     Json
-  triggeredBy DataSource @map("triggered_by")
-  syncStatus  String     @default("pending") @map("sync_status")
-  createdAt   DateTime   @default(now()) @map("created_at")
-
-  practice Practice @relation(fields: [practiceId], references: [id], onDelete: Cascade)
-
-  @@index([practiceId])
-  @@index([syncStatus])
-  @@map("change_event")
+enum HarvestStatus {
+  PENDING_REVIEW
+  CONFIRMED
+  CORRECTED
+  REJECTED
 }
 ```
 
 ---
 
-## 3. Service Layer Design
+## 3. Service Layer
 
-### 3.1 Service Architecture
+### 3.1 HarvesterService
 
-```
-src/
-├── services/
-│   ├── harvester.service.ts      # Data harvesting orchestration
-│   ├── enrollment.service.ts     # Enrollment flow state machine
-│   ├── conversation.service.ts   # Concierge agent conversation management
-│   ├── template.service.ts       # Template rendering and site generation
-│   ├── sync.service.ts           # Change event propagation
-│   ├── practice.service.ts       # Practice CRUD with cache management
-│   └── dashboard.service.ts      # Aggregated dashboard queries
-├── queues/
-│   ├── harvest.queue.ts          # Harvest job definitions
-│   ├── generate.queue.ts         # Site generation job definitions
-│   └── sync.queue.ts             # Channel sync job definitions
-├── lib/
-│   ├── claude.ts                 # Claude API client wrapper
-│   ├── cache.ts                  # Redis cache abstraction
-│   ├── events.ts                 # Change event emitter
-│   └── auth.ts                   # API key + session auth
-└── routes/
-    ├── practices.ts
-    ├── enrollment.ts
-    ├── harvester.ts
-    ├── templates.ts
-    ├── concierge.ts
-    └── dashboard.ts
-```
-
-### 3.2 HarvesterService
-
-Orchestrates data collection from public sources and writes results to Practice Data Hub.
+Scrapes public practice data and uses LLM extraction to structure it.
 
 ```typescript
 class HarvesterService {
-  /**
-   * Trigger a harvest for a single practice. Enqueues a job
-   * that runs the Python harvester subprocess.
-   */
-  async harvest(practiceId: string, options: {
-    sources: ('website' | 'gmb' | 'social')[];
-    knownUrls?: Record<string, string>;
-  }): Promise<{ jobId: string }>;
+  // Scrape a practice's website and public listings
+  async harvestPractice(practiceId: string): Promise<HarvestedData[]>
 
-  /**
-   * Process harvest results from the Python worker.
-   * Writes fields to practice record with confidence scores.
-   * Flags discrepancies between sources.
-   */
-  async processResults(practiceId: string, results: HarvestResult): Promise<void>;
+  // Scrape a single source
+  async scrapeSource(url: string, source: SourceType): Promise<RawScrapeResult>
 
-  /**
-   * Get the latest harvest results for a practice,
-   * including per-field confidence and discrepancies.
-   */
-  async getResults(practiceId: string): Promise<HarvestResult | null>;
+  // Extract structured data from raw HTML using Claude
+  async extractWithLLM(raw: RawScrapeResult, practiceContext: PracticeContext): Promise<ExtractedData>
+
+  // Compare harvested data against existing practice record, flag differences
+  async diffAgainstRecord(practiceId: string, extracted: ExtractedData): Promise<DataDiff[]>
+
+  // Batch harvest for multiple practices
+  async batchHarvest(practiceIds: string[]): Promise<BatchHarvestResult>
 }
 ```
 
-**Python Harvester Worker** (separate process, communicates via BullMQ):
-1. Receives job with practice name, address, known URLs
-2. Launches Playwright browser
-3. Scrapes practice website (team page, services page, about page, contact page)
-4. Sends raw HTML to Claude API with extraction prompt
-5. Queries Google Places API for listing data
-6. Reconciles data from multiple sources
-7. Returns structured `HarvestResult` with confidence scores
+**LLM extraction prompt pattern:**
+1. Pass raw HTML with instructions to extract: practice name, address, phone, hours, services, team members, insurance accepted, specialties, patient reviews summary.
+2. Return structured JSON matching the `Practice`, `TeamMember`, and `Service` schemas.
+3. Include confidence score per field.
 
-### 3.3 EnrollmentService
+**Rate limiting:** Max 5 concurrent scrapes. 2-second delay between requests to same domain. Retry with exponential backoff on 429/503.
 
-Manages the enrollment state machine for each practice.
+### 3.2 EnrollmentService
+
+State machine managing the enrollment lifecycle.
 
 ```typescript
 class EnrollmentService {
-  /**
-   * State machine transitions:
-   * pending → invited → in_progress → enrolled → [deployed]
-   * pending → blitz_deployed (after 30-day timeout)
-   */
+  // Create invitation and send email
+  async createInvite(practiceId: string, contactEmail: string): Promise<Enrollment>
 
-  /** Send invitation email and update status */
-  async invite(practiceIds: string[]): Promise<InviteResult[]>;
+  // Verify practice via token (transitions INVITED -> VERIFIED)
+  async verify(token: string): Promise<{ enrollment: Enrollment; practiceToken: string }>
 
-  /** Get current enrollment status with step completion */
-  async getStatus(practiceId: string): Promise<EnrollmentStatus>;
+  // Update step data (validates against current step requirements)
+  async updateStep(enrollmentId: string, stepData: StepPayload): Promise<Enrollment>
 
-  /** Process verified data from concierge conversation */
-  async verifyData(practiceId: string, verification: DataVerification): Promise<void>;
+  // Advance to next step (validates current step is complete)
+  async advanceStep(enrollmentId: string): Promise<Enrollment>
 
-  /** Record template selection */
-  async selectTemplate(practiceId: string, templateId: string, customizations?: Json): Promise<{
-    previewUrl: string;
-  }>;
+  // Select template (transitions to TEMPLATE_SELECTED)
+  async selectTemplate(enrollmentId: string, templateKey: string): Promise<Enrollment>
 
-  /** Practice approves storefront — enters QC queue */
-  async approve(practiceId: string): Promise<void>;
+  // Submit for review (transitions to REVIEW)
+  async submitForReview(enrollmentId: string): Promise<Enrollment>
 
-  /** Trigger deployment after QC */
-  async deploy(practiceId: string): Promise<{ jobId: string }>;
+  // HQ approves (transitions to APPROVED)
+  async approve(enrollmentId: string, approvedBy: string, notes?: string): Promise<Enrollment>
 
-  /** Blitz deploy for non-engaged practices */
-  async blitzDeploy(practiceIds: string[]): Promise<BlitzResult[]>;
+  // Trigger deployment (transitions to DEPLOYED)
+  async deploy(enrollmentId: string): Promise<Enrollment>
 
-  /** Check for practices past 30-day invitation window */
-  async checkBlitzEligible(): Promise<string[]>;
+  // Reject with reason
+  async reject(enrollmentId: string, reason: string): Promise<Enrollment>
+
+  // Get enrollment progress summary
+  async getProgress(enrollmentId: string): Promise<EnrollmentProgress>
 }
 ```
 
-### 3.4 ConversationService
+**State machine transitions:**
 
-Manages concierge agent conversations, Claude API calls, and tool execution.
+```
+INVITED --[verify]--> VERIFIED
+VERIFIED --[gather data via concierge]--> DATA_GATHERED
+DATA_GATHERED --[select template]--> TEMPLATE_SELECTED
+TEMPLATE_SELECTED --[submit]--> REVIEW
+REVIEW --[approve]--> APPROVED
+REVIEW --[reject]--> REJECTED
+APPROVED --[deploy]--> DEPLOYED
+```
+
+Each transition validates preconditions. Invalid transitions throw `InvalidStateTransitionError`.
+
+**Enrollment steps (within DATA_GATHERED):**
+1. Confirm practice identity (name, address, phone)
+2. Review and correct harvested data
+3. Add/verify team members
+4. Confirm services offered
+5. Upload logo and select brand colors
+6. Review operating hours
+
+### 3.3 ConversationService
+
+Manages Claude API integration for the concierge chat.
 
 ```typescript
 class ConversationService {
-  /**
-   * Process a user message and stream the agent response.
-   * Handles tool execution loop internally.
-   */
-  async processMessage(
-    practiceId: string,
-    conversationId: string | null,
-    message: string,
-    channel: ConversationChannel
-  ): AsyncGenerator<ConversationEvent>;
+  // Start or resume a conversation session
+  async getOrCreateSession(practiceSlug: string): Promise<ConversationSession>
 
-  /** Build the full Claude API request with context */
-  private buildRequest(
-    practice: PracticeWithRelations,
-    conversationHistory: ConversationMessage[],
-    newMessage: string
-  ): ClaudeRequest;
+  // Send a message and stream the response
+  async sendMessage(
+    sessionId: string,
+    userMessage: string
+  ): AsyncGenerator<StreamEvent>
 
-  /** Execute a tool call from Claude and return the result */
-  private executeTool(
-    practiceId: string,
-    toolName: string,
-    toolInput: Record<string, unknown>
-  ): Promise<ToolResult>;
+  // Process action card response (approve/reject/flag)
+  async handleAction(
+    sessionId: string,
+    actionId: string,
+    response: ActionResponse
+  ): AsyncGenerator<StreamEvent>
 
-  /** List conversations for a practice */
-  async listConversations(practiceId: string): Promise<ConversationSummary[]>;
+  // Build message history for Claude API (with context window management)
+  async buildMessages(sessionId: string): Promise<ClaudeMessage[]>
 
-  /** Get full conversation with messages */
-  async getConversation(conversationId: string): Promise<ConversationWithMessages>;
+  // Get conversation history for HQ review
+  async getHistory(practiceSlug: string, options?: PaginationOptions): Promise<ConversationMessage[]>
+
+  // End session
+  async endSession(sessionId: string): Promise<void>
 }
 ```
 
-**Conversation event types** (yielded by the async generator):
+**Context window management:**
+- Keep system prompt + last 20 messages in context
+- Summarize older messages if conversation exceeds 50 turns
+- Always include the full practice context in system prompt
 
-```typescript
-type ConversationEvent =
-  | { type: 'message_start'; conversationId: string; messageId: string }
-  | { type: 'content_delta'; text: string }
-  | { type: 'tool_use'; tool: string; input: Record<string, unknown>; status: string }
-  | { type: 'tool_result'; tool: string; result: unknown }
-  | { type: 'action_card'; card: ActionCard }
-  | { type: 'message_end'; messageId: string; tokens: { input: number; output: number } };
-```
+### 3.4 TemplateService
 
-### 3.5 TemplateService
-
-Handles template management, preview generation, and site builds.
+Generates and deploys practice storefronts from templates.
 
 ```typescript
 class TemplateService {
-  /** List available templates, optionally filtered by specialty */
-  async listTemplates(specialty?: Specialty): Promise<Template[]>;
+  // List available master templates
+  async listTemplates(): Promise<Template[]>
 
-  /** Generate a preview site with practice data */
-  async generatePreview(practiceId: string, templateId: string): Promise<{
-    previewUrl: string;
-    expiresAt: Date;
-  }>;
+  // Generate a practice-specific template preview
+  async generatePreview(practiceId: string, templateKey: string): Promise<PreviewResult>
 
-  /** Build and deploy a practice site */
-  async buildAndDeploy(practiceId: string): Promise<{
-    jobId: string;
-    estimatedTime: number;
-  }>;
+  // Get AI-recommended template based on practice data
+  async recommendTemplate(practiceId: string): Promise<TemplateRecommendation>
 
-  /** Batch regenerate all sites using a given template */
-  async batchRegenerate(templateId: string): Promise<{
-    jobId: string;
-    practiceCount: number;
-  }>;
+  // Deploy storefront (generates static site, uploads to CDN)
+  async deploy(practiceId: string, templateKey: string): Promise<DeployResult>
 
-  /** Get deployment status for a practice site */
-  async getDeploymentStatus(practiceId: string): Promise<DeploymentStatus>;
+  // Update deployed storefront with new practice data
+  async updateDeployment(practiceId: string): Promise<DeployResult>
 }
 ```
 
-### 3.6 SyncService
+### 3.5 DashboardService
 
-Processes change events and propagates updates to external channels. Phase 1 handles website regeneration only; GMB and social sync come in Phase 2.
+Aggregates data for HQ and executive dashboards.
 
 ```typescript
-class SyncService {
-  /** Record a change event and queue sync jobs */
-  async recordChange(change: {
-    practiceId: string;
-    entityType: string;
-    entityId?: string;
-    action: 'created' | 'updated' | 'deleted';
-    changes: Record<string, { old: unknown; new: unknown }>;
-    triggeredBy: DataSource;
-  }): Promise<void>;
+class DashboardService {
+  // Overview stats
+  async getOverview(): Promise<DashboardOverview>
+  // { totalPractices, enrolled, deployed, avgHealthScore, activeConversations }
 
-  /** Get impact analysis for a pending change */
-  async analyzeImpact(changeId: string): Promise<ImpactAnalysis>;
+  // Enrollment funnel
+  async getEnrollmentProgress(): Promise<EnrollmentFunnel>
+  // { invited: 30, verified: 25, dataGathered: 20, templateSelected: 18, deployed: 12 }
 
-  /** Process a sync job (called by BullMQ worker) */
-  async processSync(job: SyncJob): Promise<SyncResult>;
+  // Active alerts (low health scores, stale data, enrollment stalls)
+  async getAlerts(): Promise<Alert[]>
 
-  /** Run nightly reconciliation */
-  async reconcile(): Promise<ReconciliationReport>;
+  // Recent activity feed
+  async getActivity(options?: PaginationOptions): Promise<ActivityEvent[]>
+
+  // Practice-level analytics
+  async getPracticeAnalytics(practiceId: string): Promise<PracticeAnalytics>
 }
 ```
 
 ---
 
-## 4. Claude API Integration Pattern
+## 4. Claude API Integration
 
 ### 4.1 System Prompt Structure
 
-The concierge system prompt is composed of three layers, assembled per-practice on each conversation.
-
-```typescript
-function buildSystemPrompt(practice: PracticeWithRelations): string {
-  return [
-    BASE_PROMPT,
-    getSpecialtyContext(practice.specialty),
-    getPracticeContext(practice),
-  ].join('\n\n---\n\n');
-}
-```
-
-**Layer 1 — BASE_PROMPT** (shared across all practices):
+The concierge system prompt is assembled dynamically per practice:
 
 ```
-You are the SGA Marketing Concierge — a knowledgeable, warm, and opinionated AI assistant
-for dental practices in the SGA Dental Partners network.
+[IDENTITY]
+You are the Practice Concierge for {practice.name}, an AI assistant helping
+dental practices set up and maintain their digital storefront. You represent
+SGA (Smile Generation Associates) and follow SGA brand standards.
 
-## Personality
-- Sage: You provide expert guidance backed by data and dental marketing best practices
-- Caregiver: You are warm, protective, and genuinely invested in each practice's success
-- Opinionated: You always make a recommendation with clear reasoning. Never present options
-  without a recommendation.
-- Efficient: Practice staff have 5-minute windows between patients. Be concise.
-- Never bureaucratic: You handle things. You don't create tickets or redirect to other teams.
+[SGA BRAND STANDARDS]
+- Voice: Professional, warm, efficient. Never salesy.
+- Tone: Helpful guide, not a chatbot. Speak as a knowledgeable colleague.
+- Language: Use dental industry terminology appropriately.
+- Never make clinical claims. Never provide medical advice.
+- Always confirm before making changes to practice data.
 
-## Capabilities
-You can help practices with:
-- Enrollment: verify practice data, select website template, approve storefront
-- Change management: update team members, services, hours, contact info
-- Questions: answer questions about SGA programs, marketing best practices, digital presence
-- Status: report on website performance, review scores, digital health
+[PRACTICE CONTEXT]
+Name: {practice.name}
+Specialty: {practice.specialty}
+Location: {practice.city}, {practice.state}
+Current enrollment status: {enrollment.status}
+Current enrollment step: {enrollment.currentStep}
+Services: {services as comma-separated list}
+Team: {team members with roles}
+Health score: {healthScore.overallScore}/100
 
-## Guardrails
-- All template and color options are SGA-approved. Present them as choices, not limitations.
-- Never make up data. If you don't know something, say so and offer to find out.
-- When suggesting changes, always explain what will be updated and where.
-- For staff removals, always confirm the effective date before processing.
-```
+[ENROLLMENT CONTEXT — if in enrollment]
+You are guiding this practice through enrollment step {currentStep}.
+Step objective: {stepObjective}
+Data collected so far: {stepData summary}
+Data still needed: {remaining fields}
 
-**Layer 2 — SPECIALTY_CONTEXT** (one per specialty):
+[SPECIALTY BEST PRACTICES]
+{Loaded from specialty-specific prompt fragments}
+- General: Focus on family-friendly messaging, preventive care emphasis
+- Pediatric: Child-friendly language, parent-focused features, fun visual themes
+- Orthodontic: Before/after focus, treatment timeline, financing options
+- Periodontic: Clinical credibility, referral-friendly, procedure education
+- Cosmetic: Visual portfolio, smile gallery, luxury positioning
 
-```typescript
-const SPECIALTY_CONTEXTS: Record<Specialty, string> = {
-  GP: `
-## Specialty Context: General Practice
-- Focus: new patient acquisition, appointment booking optimization
-- Key metrics: new patient calls, website form submissions, Google review volume
-- Template recommendation: GP template (appointment-booking optimized)
-- Common services: cleanings, fillings, crowns, root canals, cosmetic, Invisalign
-- Marketing priorities: local SEO, Google Business Profile completeness, review generation
-  `,
-  Perio: `
-## Specialty Context: Periodontics
-- Focus: referral optimization, specialist credibility
-- Key metrics: referral source tracking, case acceptance rate
-- Template recommendation: Perio template (referral-optimized)
-- Referring GP practices in network: consider cross-promotion opportunities
-- Marketing priorities: referring doctor relationships, clinical credibility content
-  `,
-  // ... FullArch, Pediatric, Multi
-};
-```
-
-**Layer 3 — PRACTICE_CONTEXT** (unique per practice, loaded from Redis):
-
-```typescript
-function getPracticeContext(practice: PracticeWithRelations): string {
-  return `
-## Your Practice: ${practice.name}
-- Location: ${practice.city}, ${practice.state}
-- Platform: ${practice.platform}
-- Specialty: ${practice.specialty}
-- Enrollment Status: ${practice.enrollmentStatus}
-
-## Team (${practice.teamMembers.filter(t => t.isActive).length} active)
-${practice.teamMembers.filter(t => t.isActive).map(t =>
-  `- ${t.name} (${t.role}${t.title ? ', ' + t.title : ''})`
-).join('\n')}
-
-## Services (${practice.services.length} listed)
-${practice.services.map(s =>
-  `- ${s.name}${s.isPrimary ? ' [PRIMARY]' : ''}`
-).join('\n')}
-
-## Digital Presence
-- Website: ${practice.websiteUrl || 'Not set up'} (${practice.websiteStatus})
-- GMB: ${practice.gmbStatus} (completeness: ${practice.gmbCompleteness}%)
-- Social: ${practice.socialStatus}
-
-## Health Scores
-- Overall: ${practice.healthOverall}/100
-- Website: ${practice.healthWebsite} | GMB: ${practice.healthGmb} | Social: ${practice.healthSocial}
-- Reviews: ${practice.healthReviews} | Leads: ${practice.healthLeads}
-
-## Recent Interactions
-- Last interaction: ${practice.conciergeLastInteraction || 'Never'}
-- Total interactions: ${practice.conciergeInteractionCount}
-  `;
-}
+[BEHAVIORAL RULES]
+1. Guide conversation toward completing the current enrollment step
+2. Present data for verification using action cards, not plain text
+3. When practice confirms data, call updatePracticeData immediately
+4. Never skip steps — complete current step before moving on
+5. If practice asks off-topic questions, answer briefly then redirect
+6. Celebrate progress — acknowledge completed steps
+7. If you detect inconsistencies in data, flag them with reportChange
 ```
 
 ### 4.2 Tool Definitions
 
-Tools the concierge can invoke during conversations. Defined using Claude's tool_use format.
+Tools provided to Claude for the concierge:
 
 ```typescript
-const CONCIERGE_TOOLS: Tool[] = [
+const conciergeTools = [
   {
-    name: "verify_practice_data",
-    description: "Mark practice data fields as verified by the practice. Call this when the practice confirms their information is correct.",
+    name: "updatePracticeData",
+    description: "Update verified practice information. Call after practice confirms data.",
     input_schema: {
       type: "object",
       properties: {
-        verified_fields: {
-          type: "array",
-          items: { type: "string" },
-          description: "List of field names confirmed correct (e.g., 'name', 'phone', 'address', 'hours')"
-        }
+        practiceId: { type: "string" },
+        field: {
+          type: "string",
+          enum: [
+            "name", "phone", "email", "address",
+            "hours", "services", "team", "brandColors", "logo"
+          ]
+        },
+        value: { type: "any" },
+        confirmedBy: { type: "string", description: "Who confirmed this data" }
       },
-      required: ["verified_fields"]
+      required: ["practiceId", "field", "value"]
     }
   },
   {
-    name: "update_team_member",
-    description: "Add, update, or remove a team member. Use 'remove' action to mark someone as no longer active.",
+    name: "selectTemplate",
+    description: "Record the practice's template selection. Show preview first.",
     input_schema: {
       type: "object",
       properties: {
-        action: { type: "string", enum: ["add", "update", "remove"] },
-        name: { type: "string" },
-        role: { type: "string", enum: ["dentist", "hygienist", "assistant", "office_manager", "specialist", "admin", "other"] },
-        title: { type: "string" },
-        effective_date: { type: "string", description: "ISO date for when the change takes effect" }
+        practiceId: { type: "string" },
+        templateKey: { type: "string" },
+        reason: { type: "string", description: "Why this template fits the practice" }
       },
-      required: ["action", "name"]
+      required: ["practiceId", "templateKey"]
     }
   },
   {
-    name: "update_service",
-    description: "Add or remove a service from the practice listing.",
+    name: "approveStorefront",
+    description: "Mark storefront as ready for HQ review after practice approves preview.",
     input_schema: {
       type: "object",
       properties: {
-        action: { type: "string", enum: ["add", "remove"] },
-        name: { type: "string" },
-        description: { type: "string" },
-        is_primary: { type: "boolean" }
-      },
-      required: ["action", "name"]
-    }
-  },
-  {
-    name: "select_template",
-    description: "Record the practice's template selection. Always recommend a template first with reasoning before calling this.",
-    input_schema: {
-      type: "object",
-      properties: {
-        template_id: { type: "string" },
-        customizations: {
-          type: "object",
-          properties: {
-            primary_color: { type: "string" },
-            hero_image: { type: "string" }
-          }
-        }
-      },
-      required: ["template_id"]
-    }
-  },
-  {
-    name: "approve_storefront",
-    description: "Record that the practice has approved their storefront for deployment. Only call this after showing them the preview and getting explicit approval.",
-    input_schema: {
-      type: "object",
-      properties: {
-        confirmation: { type: "boolean" },
+        practiceId: { type: "string" },
+        practiceApproverName: { type: "string" },
         notes: { type: "string" }
       },
-      required: ["confirmation"]
+      required: ["practiceId", "practiceApproverName"]
     }
   },
   {
-    name: "get_practice_health",
-    description: "Retrieve current health scores and key metrics for the practice.",
-    input_schema: {
-      type: "object",
-      properties: {}
-    }
-  },
-  {
-    name: "show_template_preview",
-    description: "Generate and display a template preview populated with the practice's data.",
+    name: "reportChange",
+    description: "Flag a data inconsistency or change detected during conversation.",
     input_schema: {
       type: "object",
       properties: {
-        template_id: { type: "string" }
+        practiceId: { type: "string" },
+        changeType: {
+          type: "string",
+          enum: ["inconsistency", "update-request", "concern", "compliment"]
+        },
+        description: { type: "string" },
+        severity: { type: "string", enum: ["low", "medium", "high"] }
       },
-      required: ["template_id"]
+      required: ["practiceId", "changeType", "description"]
+    }
+  },
+  {
+    name: "getHealthScore",
+    description: "Retrieve the current health score breakdown for the practice.",
+    input_schema: {
+      type: "object",
+      properties: {
+        practiceId: { type: "string" }
+      },
+      required: ["practiceId"]
     }
   }
-];
+]
 ```
 
-### 4.3 Conversation Management
+### 4.3 Conversation Session Management
 
 ```typescript
-async function* processMessage(
-  practiceId: string,
-  conversationId: string | null,
-  userMessage: string
-): AsyncGenerator<ConversationEvent> {
-  // 1. Load or create conversation
-  const conversation = conversationId
-    ? await db.conversation.findUnique({ where: { id: conversationId }, include: { messages: true } })
-    : await db.conversation.create({ data: { practiceId, channel: 'web' } });
-
-  // 2. Load practice context from Redis (fallback to Postgres)
-  const practice = await cache.getPracticeProfile(practiceId);
-
-  // 3. Persist user message
-  await db.conversationMessage.create({
-    data: { conversationId: conversation.id, role: 'user', content: userMessage }
-  });
-
-  yield { type: 'message_start', conversationId: conversation.id, messageId: '' };
-
-  // 4. Build Claude request
-  const systemPrompt = buildSystemPrompt(practice);
-  const messages = buildMessageHistory(conversation.messages, userMessage);
-
-  // 5. Tool execution loop
-  let continueLoop = true;
-  while (continueLoop) {
-    const stream = await claude.messages.stream({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 1024,
-      system: systemPrompt,
-      messages,
-      tools: CONCIERGE_TOOLS,
-    });
-
-    let fullResponse = '';
-    let toolUses: ToolUseBlock[] = [];
-
-    for await (const event of stream) {
-      if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
-        fullResponse += event.delta.text;
-        yield { type: 'content_delta', text: event.delta.text };
-      }
-      if (event.type === 'content_block_start' && event.content_block.type === 'tool_use') {
-        toolUses.push(event.content_block);
-      }
-    }
-
-    // 6. If no tool calls, we are done
-    if (toolUses.length === 0) {
-      continueLoop = false;
-    } else {
-      // 7. Execute each tool and feed results back
-      for (const toolUse of toolUses) {
-        yield { type: 'tool_use', tool: toolUse.name, input: toolUse.input, status: 'executing' };
-        const result = await executeTool(practiceId, toolUse.name, toolUse.input);
-        yield { type: 'tool_result', tool: toolUse.name, result };
-
-        // Add tool use and result to messages for next iteration
-        messages.push({ role: 'assistant', content: [{ type: 'tool_use', id: toolUse.id, name: toolUse.name, input: toolUse.input }] });
-        messages.push({ role: 'user', content: [{ type: 'tool_result', tool_use_id: toolUse.id, content: JSON.stringify(result) }] });
-      }
-    }
-  }
-
-  // 8. Persist assistant response
-  await db.conversationMessage.create({
-    data: { conversationId: conversation.id, role: 'assistant', content: fullResponse }
-  });
-
-  // 9. Update practice interaction metadata
-  await db.practice.update({
-    where: { id: practiceId },
-    data: {
-      conciergeLastInteraction: new Date(),
-      conciergeInteractionCount: { increment: 1 }
-    }
-  });
-
-  yield { type: 'message_end', messageId: '', tokens: { input: 0, output: 0 } };
+interface ConversationSession {
+  id: string
+  practiceSlug: string
+  practiceId: string
+  startedAt: Date
+  lastMessageAt: Date
+  messageCount: number
+  enrollmentStepAtStart: number
+  isActive: boolean
 }
+```
+
+**Session lifecycle:**
+1. `getOrCreateSession` checks for an active session (last message < 30 min). If none, creates a new one.
+2. Each message updates `lastMessageAt` and increments `messageCount`.
+3. Sessions auto-expire after 30 minutes of inactivity.
+4. On new session creation, the full practice context is refreshed from the database.
+5. Claude API calls use `max_tokens: 1024` for responses, `temperature: 0.3` for consistency.
+
+**API call pattern:**
+```typescript
+const response = await anthropic.messages.create({
+  model: "claude-sonnet-4-20250514",
+  max_tokens: 1024,
+  temperature: 0.3,
+  system: buildSystemPrompt(practice, enrollment),
+  tools: conciergeTools,
+  messages: await buildMessages(sessionId),
+  stream: true
+})
 ```
 
 ---
 
-## 5. Authentication
+## 5. Authentication & Authorization
 
-### 5.1 API Key Authentication (Internal Services)
+### 5.1 API Keys (Internal Services)
 
-For service-to-service communication (harvester worker → API, sync worker → API, dashboard backend → API).
+- Used by: Harvester triggers, health score recalculation, inter-service calls
+- Format: `sga_sk_{random_32_chars}`
+- Stored in environment variables
+- Validated via middleware: `x-api-key` header
+- Rate limit: 1000 requests/minute per key
 
-```typescript
-// Middleware
-async function apiKeyAuth(req: Request, res: Response, next: NextFunction) {
-  const apiKey = req.headers['x-api-key'];
-  if (!apiKey) return res.status(401).json({ error: 'API key required' });
+### 5.2 Session-Based Auth (HQ Dashboard)
 
-  const hashedKey = hashApiKey(apiKey as string);
-  const validKey = await db.apiKey.findUnique({ where: { hash: hashedKey } });
+- Used by: HQ staff accessing the admin dashboard
+- Flow: Email/password login -> JWT stored in httpOnly cookie
+- JWT payload: `{ userId, email, role, iat, exp }`
+- Roles: `admin`, `manager`, `viewer`
+- Session expiry: 8 hours
+- Refresh token rotation on each request within the last hour
 
-  if (!validKey || !validKey.isActive) {
-    return res.status(401).json({ error: 'Invalid API key' });
-  }
+### 5.3 Practice Tokens (Concierge Chat)
 
-  req.context = { type: 'service', keyId: validKey.id, scopes: validKey.scopes };
-  next();
-}
-```
+- Used by: Practice staff accessing the concierge chat
+- Flow: Practice receives enrollment invite link with token -> token exchanged for short-lived practice JWT
+- JWT payload: `{ practiceId, practiceSlug, enrollmentId, role: "practice", iat, exp }`
+- Session expiry: 2 hours (auto-refresh while active)
+- No password required — token-gated access scoped to their own practice data
 
-**API key scopes**: `practices:read`, `practices:write`, `enrollment:manage`, `harvest:trigger`, `dashboard:read`, `admin:all`.
+### 5.4 Authorization Matrix
 
-### 5.2 Session-Based Authentication (HQ Dashboard)
-
-For HQ team members accessing the dashboard.
-
-```typescript
-// Using iron-session for encrypted session cookies
-const sessionConfig = {
-  cookieName: 'sga_session',
-  password: process.env.SESSION_SECRET,
-  cookieOptions: {
-    secure: process.env.NODE_ENV === 'production',
-    httpOnly: true,
-    sameSite: 'lax' as const,
-    maxAge: 60 * 60 * 8, // 8 hours
-  },
-};
-```
-
-**Phase 1 auth flow**: Simple email + password login for HQ team (5-10 users). No SSO integration until Phase 2. User records stored in a `hq_user` table with bcrypt-hashed passwords.
-
-### 5.3 Practice Session (Concierge Chat)
-
-Practices access the concierge via a tokenized enrollment link. No username/password.
-
-```typescript
-// Practice access via signed URL
-// https://concierge.sga.com/enroll/{slug}/{token}
-// Token is a JWT with: { practiceId, slug, exp: 90 days }
-
-async function practiceAuth(req: Request, res: Response, next: NextFunction) {
-  const { slug, token } = req.params;
-  try {
-    const payload = jwt.verify(token, process.env.PRACTICE_TOKEN_SECRET);
-    const practice = await cache.getPracticeProfile(payload.practiceId);
-    if (!practice || practice.slug !== slug) throw new Error('Mismatch');
-    req.context = { type: 'practice', practiceId: practice.id };
-    next();
-  } catch {
-    return res.status(401).json({ error: 'Invalid or expired link' });
-  }
-}
-```
+| Resource | Admin | Manager | Viewer | Practice |
+|----------|-------|---------|--------|----------|
+| All practices (list/read) | Yes | Yes | Yes | No |
+| Practice (own data) | Yes | Yes | Yes | Own only |
+| Enrollment (approve/deploy) | Yes | Yes | No | No |
+| Enrollment (update steps) | Yes | Yes | No | Own only |
+| Concierge (conversation) | Yes | Yes | No | Own only |
+| Dashboard (executive) | Yes | Yes | Yes | No |
+| Harvester (trigger) | Yes | No | No | No |
+| Health (recalculate) | Yes | No | No | No |
 
 ---
 
 ## 6. Error Handling Patterns
 
-### 6.1 Application Error Classes
+### 6.1 Error Response Format
 
-```typescript
-class AppError extends Error {
-  constructor(
-    public statusCode: number,
-    public code: string,
-    message: string,
-    public details?: Record<string, unknown>
-  ) {
-    super(message);
-  }
-}
-
-class NotFoundError extends AppError {
-  constructor(entity: string, id: string) {
-    super(404, 'NOT_FOUND', `${entity} not found: ${id}`);
-  }
-}
-
-class ValidationError extends AppError {
-  constructor(message: string, details?: Record<string, unknown>) {
-    super(400, 'VALIDATION_ERROR', message, details);
-  }
-}
-
-class ConflictError extends AppError {
-  constructor(message: string) {
-    super(409, 'CONFLICT', message);
-  }
-}
-
-class ExternalServiceError extends AppError {
-  constructor(service: string, message: string) {
-    super(502, 'EXTERNAL_SERVICE_ERROR', `${service}: ${message}`);
+```json
+{
+  "error": {
+    "code": "ENROLLMENT_INVALID_TRANSITION",
+    "message": "Cannot transition from INVITED to TEMPLATE_SELECTED. Practice must verify first.",
+    "details": {
+      "currentStatus": "INVITED",
+      "attemptedStatus": "TEMPLATE_SELECTED",
+      "allowedTransitions": ["VERIFIED"]
+    },
+    "requestId": "req_abc123"
   }
 }
 ```
 
-### 6.2 Global Error Handler
+### 6.2 Error Categories
 
-```typescript
-function errorHandler(err: Error, req: Request, res: Response, next: NextFunction) {
-  // Log to Sentry
-  if (!(err instanceof AppError) || err.statusCode >= 500) {
-    Sentry.captureException(err);
-  }
+| Code Prefix | HTTP Status | Category |
+|-------------|-------------|----------|
+| `AUTH_*` | 401/403 | Authentication and authorization |
+| `VALIDATION_*` | 400 | Input validation failures |
+| `ENROLLMENT_*` | 400/409 | Enrollment state machine violations |
+| `HARVESTER_*` | 502/504 | External scraping failures |
+| `CONCIERGE_*` | 502/504 | Claude API failures |
+| `NOT_FOUND_*` | 404 | Resource not found |
+| `RATE_LIMIT_*` | 429 | Rate limit exceeded |
+| `INTERNAL_*` | 500 | Unexpected server errors |
 
-  // Structured logging
-  logger.error({
-    error: err.message,
-    code: err instanceof AppError ? err.code : 'INTERNAL_ERROR',
-    path: req.path,
-    method: req.method,
-    practiceId: req.context?.practiceId,
-  });
+### 6.3 Retry Strategy
 
-  if (err instanceof AppError) {
-    return res.status(err.statusCode).json({
-      error: { code: err.code, message: err.message, details: err.details }
-    });
-  }
+| Service | Retries | Backoff | Circuit Breaker |
+|---------|---------|---------|-----------------|
+| Claude API | 3 | Exponential (1s, 2s, 4s) | Open after 5 consecutive failures, half-open after 30s |
+| Harvester (scrape) | 2 | Exponential (2s, 4s) | Open after 10 failures per domain |
+| Database | 2 | Fixed (100ms) | None (fail fast) |
+| Template deploy | 3 | Exponential (1s, 2s, 4s) | None |
 
-  return res.status(500).json({
-    error: { code: 'INTERNAL_ERROR', message: 'An unexpected error occurred' }
-  });
-}
-```
+### 6.4 Logging
 
-### 6.3 Claude API Error Handling
-
-```typescript
-async function callClaude(request: ClaudeRequest, retries = 3): Promise<ClaudeResponse> {
-  for (let attempt = 1; attempt <= retries; attempt++) {
-    try {
-      return await claude.messages.create(request);
-    } catch (error) {
-      if (error.status === 429) {
-        // Rate limited — exponential backoff
-        const delay = Math.min(1000 * Math.pow(2, attempt), 30000);
-        await sleep(delay);
-        continue;
-      }
-      if (error.status === 529) {
-        // Overloaded — back off more aggressively
-        const delay = Math.min(5000 * Math.pow(2, attempt), 60000);
-        await sleep(delay);
-        continue;
-      }
-      if (error.status >= 500) {
-        // Server error — retry
-        if (attempt < retries) continue;
-      }
-      throw new ExternalServiceError('Claude API', error.message);
-    }
-  }
-  throw new ExternalServiceError('Claude API', 'Max retries exceeded');
-}
-```
-
-### 6.4 Queue Job Error Handling
-
-```typescript
-// BullMQ worker with built-in retry
-const harvestWorker = new Worker('harvest', processHarvestJob, {
-  connection: redis,
-  concurrency: 5,
-  limiter: { max: 10, duration: 60000 }, // 10 jobs per minute
-});
-
-harvestWorker.on('failed', (job, error) => {
-  logger.error({ jobId: job.id, error: error.message, attempts: job.attemptsMade });
-  if (job.attemptsMade >= job.opts.attempts) {
-    // Final failure — mark harvest as failed, alert HQ
-    markHarvestFailed(job.data.practiceId, error.message);
-  }
-});
-
-// Job options for different queues
-const QUEUE_CONFIGS = {
-  harvest: { attempts: 3, backoff: { type: 'exponential', delay: 5000 } },
-  generate: { attempts: 2, backoff: { type: 'fixed', delay: 3000 } },
-  sync: { attempts: 5, backoff: { type: 'exponential', delay: 2000 } },
-};
-```
+All errors are logged with:
+- `requestId` for tracing
+- `practiceId` when available
+- `userId` or `sessionId` for attribution
+- Stack trace for 5xx errors
+- Claude API errors include the full request/response (with PII redacted)
 
 ---
 
-## 7. Phase 1 Scope Summary
+## 7. Phase 1 Scope
 
-### In Scope
+### What's Included
 
-| Feature | Details |
-|---------|---------|
-| Practice CRUD | Full CRUD with Redis caching and change events |
-| Data Harvester | Website scraping + Google Places API for pilot practices |
-| Enrollment flow | invite → verify → select template → approve → deploy |
-| Concierge chat | Web-based chat with streaming responses and tool execution |
-| 2 templates | GP and Perio, static site generation, Cloudflare Pages deploy |
-| HQ Dashboard | Practice list, enrollment progress, basic drill-down |
-| Auth | API keys (internal), session (HQ), token links (practices) |
+- **20-30 pilot practices** enrolled through the concierge flow
+- Full enrollment state machine (invite through deploy)
+- Concierge chat with Claude integration (enrollment guidance only)
+- Harvester for website scraping (single source: practice website)
+- 3 master templates (modern-minimal, warm-family, clinical-pro)
+- HQ dashboard with enrollment tracking and basic health scores
+- Practice token auth for concierge access
+- HQ session auth for dashboard access
 
-### Out of Scope (Phase 2)
+### What's Deferred to Phase 2
 
-| Feature | Reason |
-|---------|--------|
-| GMB write access | Requires business verification setup with Google |
-| Social media sync | Facebook/Instagram API integration |
-| Blitz deploy | Depends on having templates + harvester proven first |
-| Health score engine | Needs channel integrations for metric sources |
-| iSolved integration | HR webhook setup with SGA operations |
-| SMS/voice channels | Web chat proves the pattern first |
-| Review management | Requires review aggregation infrastructure |
-| Batch template operations | Needs more than 2 templates first |
+- Multi-source harvesting (Google Business, Yelp, Healthgrades)
+- Post-enrollment concierge (ongoing content updates, change detection)
+- Advanced health score algorithms (SEO, performance, accessibility)
+- Practice self-service dashboard
+- Custom template builder
+- Automated re-scraping schedules
+- SSO integration for HQ staff
+- Webhook notifications for enrollment events
+- Analytics and reporting beyond basic dashboard
+- Scale testing for 260+ practices
 
-### Phase 1 Milestones
+### Infrastructure (Phase 1)
 
-| Week | Milestone |
-|------|-----------|
-| 1 | Database + API scaffold + practice CRUD operational |
-| 2 | Harvester running on pilot practices + enrollment API complete |
-| 3 | Concierge chat functional + 2 templates rendering + site deploy pipeline |
-| 4 | End-to-end enrollment tested with 5 practices, then open to 20-30 pilot |
+| Component | Choice | Rationale |
+|-----------|--------|-----------|
+| Runtime | Node.js 20 + Express | Team familiarity, streaming support |
+| Database | PostgreSQL 16 | Relational data, JSON support, Prisma compatibility |
+| ORM | Prisma | Type-safe, migration management, schema-first |
+| AI | Claude API (claude-sonnet-4-20250514) | Best balance of quality and speed for conversational use |
+| Hosting | Railway or Render | Simple deploy, managed PostgreSQL, WebSocket support |
+| CDN | Cloudflare Pages | Static site hosting for deployed storefronts |
+| Queue | BullMQ + Redis | Harvester jobs, template generation |
+| Email | Resend | Enrollment invitations |
+
+### Environment Variables
+
+```
+DATABASE_URL=postgresql://...
+ANTHROPIC_API_KEY=sk-ant-...
+SGA_API_KEY=sga_sk_...
+JWT_SECRET=...
+RESEND_API_KEY=re_...
+REDIS_URL=redis://...
+CLOUDFLARE_API_TOKEN=...
+CLOUDFLARE_ACCOUNT_ID=...
+NODE_ENV=production
+LOG_LEVEL=info
+```
