@@ -48,6 +48,22 @@
       "reasoning": "User accepted recommendation. Highest-scoring solution (28/35). Only solution where all three layers (integration, dashboard, nerve center) are native to a single coherent platform. Staged delivery addresses time-to-value weakness: Month 1 BI dashboard, Month 2-3 AI analysis, Month 3-5 Practice Nerve Center, Month 5-8 full automation + network rollout. Long-term convergence with Practice Concierge from Storefront sprint.",
       "date": "2026-03-10",
       "decided_by": "user"
+    },
+    {
+      "sprint": "patient-comms-automation",
+      "phase": "target-confirmation",
+      "decision": "Target C: Full Lifecycle Playbook — all stages from lead response through treatment follow-up, rebooking, and database reactivation",
+      "reasoning": "User chose broadest scope. Robust DevOps team can handle full implementation. The playbook will be comprehensive from the start and expanded during development. Architecture must be modular so each stage can be developed independently while sharing the same automation engine. Connects to Practice Concierge (agent interface) and Funnel OS (data layer) from prior sprints.",
+      "date": "2026-03-10",
+      "decided_by": "user"
+    },
+    {
+      "sprint": "patient-comms-automation",
+      "phase": "solution-selection",
+      "decision": "Solution 1: The Comms Engine — Autonomous Agent Playbook, enhanced with graduated autonomy (from Smart Playbook) and protocol-driven playbook design (from Network Protocol).",
+      "reasoning": "User accepted recommendation. Highest-scoring solution (24/25). Extends Practice Concierge agent pattern for architectural coherence. Matches user's vision of 'agent army, not a dashboard.' Only solution enabling network-wide learning across 260 practices. Eliminates TC resistance by automating sends. Enhancements: graduated rollout (human review first 30 days), SGA Patient Communication Protocol defines standard cadences/triggers/compliance. NexHealth for PMS integration, Twilio for HIPAA-compliant transport.",
+      "date": "2026-03-10",
+      "decided_by": "user"
     }
   ],
   "metadata": {

@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Concierge — SGA Dental Partners</title>
+    <style>
+        :root {
+            --sga-green: #2D8B4E;
+            --sga-dark: #1a1a2e;
+            --sga-navy: #16213e;
+            --sga-accent: #0f3460;
+            --sga-gold: #e2b93b;
+            --surface: #f8f9fa;
+            --surface-2: #ffffff;
+            --text: #1a1a2e;
+            --text-muted: #6c757d;
+            --border: #e0e0e0;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --info: #17a2b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--surface); color: var(--text); }
+
+        /* Navigation */
+        .nav { background: var(--sga-dark); padding: 0; position: sticky; top: 0; z-index: 100; }
+        .nav-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; }
+        .nav-brand { display: flex; align-items: center; gap: 12px; padding: 16px 0; }
+        .nav-brand-icon { width: 36px; height: 36px; background: var(--sga-green); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 14px; }
+        .nav-brand-text { color: white; font-size: 18px; font-weight: 600; }
+        .nav-brand-text span { color: var(--sga-green); }
+        .nav-tabs { display: flex; gap: 0; }
+        .nav-tab { padding: 18px 20px; color: #8892a0; text-decoration: none; font-size: 14px; font-weight: 500; border-bottom: 2px solid transparent; transition: all 0.2s; cursor: pointer; }
+        .nav-tab:hover { color: white; }
+        .nav-tab.active { color: white; border-bottom-color: var(--sga-green); }
+        .nav-user { display: flex; align-items: center; gap: 12px; color: white; }
+        .nav-avatar { width: 32px; height: 32px; background: var(--sga-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; }
+
+        /* Views container */
+        .view { display: none; }
+        .view.active { display: block; }
+
+        /* =================== HQ DASHBOARD =================== */
+        .dashboard { max-width: 1400px; margin: 0 auto; padding: 24px; }
+        .dash-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+        .dash-title { font-size: 24px; font-weight: 700; }
+        .dash-subtitle { color: var(--text-muted); font-size: 14px; margin-top: 4px; }
+        .dash-actions { display: flex; gap: 12px; }
+        .btn { padding: 10px 20px; border-radius: 8px; border: none; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+        .btn-primary { background: var(--sga-green); color: white; }
+        .btn-primary:hover { background: #247040; }
+        .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+        .btn-outline:hover { background: var(--surface); }
+
+        /* Stat cards */
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+        .stat-card { background: var(--surface-2); border-radius: 12px; padding: 20px; border: 1px solid var(--border); }
+        .stat-label { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .stat-value { font-size: 32px; font-weight: 700; }
+        .stat-change { font-size: 13px; margin-top: 4px; }
+        .stat-change.up { color: var(--success); }
+        .stat-change.down { color: var(--danger); }
+        .stat-bar { height: 4px; background: #e9ecef; border-radius: 2px; margin-top: 12px; }
+        .stat-bar-fill { height: 100%; background: var(--sga-green); border-radius: 2px; }
+
+        /* Main content area */
+        .dash-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
+        .panel { background: var(--surface-2); border-radius: 12px; border: 1px solid var(--border); overflow: hidden; }
+        .panel-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        .panel-title { font-size: 16px; font-weight: 600; }
+        .panel-badge { background: var(--sga-green); color: white; font-size: 12px; padding: 2px 10px; border-radius: 12px; font-weight: 600; }
+        .panel-body { padding: 0; }
+
+        /* Review queue items */
+        .review-item { padding: 16px 20px; border-bottom: 1px solid #f0f0f0; display: flex; gap: 16px; align-items: flex-start; transition: background 0.15s; }
+        .review-item:hover { background: #fafafa; }
+        .review-thumb { width: 80px; height: 80px; border-radius: 8px; background: #e9ecef; flex-shrink: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+        .review-thumb.photo { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
+        .review-thumb.video { background: linear-gradient(135deg, #f093fb, #f5576c); color: white; }
+        .review-thumb.brand { background: linear-gradient(135deg, var(--sga-green), #1a6b3a); color: white; }
+        .review-content { flex: 1; min-width: 0; }
+        .review-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+        .review-meta { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
+        .review-caption { font-size: 13px; color: #444; background: #f8f8f8; padding: 8px 12px; border-radius: 6px; line-height: 1.4; }
+        .review-actions { display: flex; gap: 8px; margin-top: 10px; }
+        .review-btn { padding: 6px 14px; border-radius: 6px; border: none; font-size: 12px; font-weight: 600; cursor: pointer; }
+        .review-btn.approve { background: #e8f5e9; color: var(--success); }
+        .review-btn.approve:hover { background: var(--success); color: white; }
+        .review-btn.edit { background: #fff3e0; color: #e65100; }
+        .review-btn.reject { background: #ffebee; color: var(--danger); }
+        .review-btn.star { background: #fff8e1; color: #f9a825; }
+        .review-check { margin-top: 8px; }
+        .review-check input { width: 18px; height: 18px; accent-color: var(--sga-green); }
+
+        /* Practice health grid */
+        .practice-grid { display: grid; grid-template-columns: 1fr; gap: 0; }
+        .practice-row { padding: 12px 20px; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; gap: 12px; }
+        .practice-name { font-size: 13px; font-weight: 600; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .practice-score { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 12px; }
+        .practice-score.green { background: #e8f5e9; color: var(--success); }
+        .practice-score.yellow { background: #fff8e1; color: #f9a825; }
+        .practice-score.red { background: #ffebee; color: var(--danger); }
+        .practice-captures { font-size: 12px; color: var(--text-muted); white-space: nowrap; }
+        .practice-mini-bar { width: 60px; height: 6px; background: #e9ecef; border-radius: 3px; }
+        .practice-mini-fill { height: 100%; border-radius: 3px; }
+
+        /* Alerts section */
+        .alert-list { padding: 12px 20px; }
+        .alert-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+        .alert-item:last-child { border-bottom: none; }
+        .alert-icon { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+        .alert-icon.warn { background: #fff3e0; }
+        .alert-icon.critical { background: #ffebee; }
+        .alert-icon.info { background: #e3f2fd; }
+        .alert-text { font-size: 13px; line-height: 1.4; }
+        .alert-time { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+        /* Brand content sidebar */
+        .brand-item { padding: 14px 20px; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; gap: 12px; }
+        .brand-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--sga-accent); color: white; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0; }
+        .brand-info { flex: 1; }
+        .brand-name { font-size: 13px; font-weight: 600; }
+        .brand-task { font-size: 12px; color: var(--text-muted); }
+        .brand-status { font-size: 20px; }
+
+        /* =================== MOBILE APP VIEW =================== */
+        .mobile-container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+        .mobile-header { text-align: center; margin-bottom: 40px; }
+        .mobile-header h2 { font-size: 24px; margin-bottom: 8px; }
+        .mobile-header p { color: var(--text-muted); }
+
+        .phones-row { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+        .phone-frame { width: 320px; background: #1a1a2e; border-radius: 36px; padding: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+        .phone-screen { background: white; border-radius: 24px; overflow: hidden; min-height: 640px; }
+        .phone-label { text-align: center; margin-top: 16px; font-size: 14px; font-weight: 600; color: var(--text-muted); }
+
+        /* Phone status bar */
+        .phone-status { background: var(--sga-dark); padding: 12px 20px 8px; display: flex; justify-content: space-between; color: white; font-size: 12px; font-weight: 600; }
+
+        /* Phone app header */
+        .app-header { background: var(--sga-dark); padding: 0 20px 16px; color: white; }
+        .app-greeting { font-size: 14px; opacity: 0.7; }
+        .app-name { font-size: 20px; font-weight: 700; margin-top: 2px; }
+        .app-streak { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.1); padding: 4px 12px; border-radius: 12px; font-size: 12px; margin-top: 8px; }
+
+        /* Phone stat row */
+        .phone-stats { display: flex; background: var(--sga-dark); padding: 0 20px 20px; gap: 8px; }
+        .phone-stat { flex: 1; background: rgba(255,255,255,0.08); border-radius: 10px; padding: 12px; text-align: center; }
+        .phone-stat-val { color: white; font-size: 22px; font-weight: 700; }
+        .phone-stat-label { color: rgba(255,255,255,0.5); font-size: 10px; margin-top: 2px; text-transform: uppercase; }
+
+        /* Phone content */
+        .phone-content { padding: 16px; }
+        .phone-section-title { font-size: 14px; font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
+        .phone-section-badge { font-size: 11px; background: var(--sga-green); color: white; padding: 2px 8px; border-radius: 8px; }
+
+        /* Assignment card */
+        .assignment-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin-bottom: 12px; }
+        .assignment-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        .assignment-time { font-size: 12px; color: var(--sga-green); font-weight: 600; }
+        .assignment-type { font-size: 10px; background: #e8f5e9; color: var(--sga-green); padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+        .assignment-patient { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+        .assignment-procedure { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; }
+        .assignment-consent { font-size: 11px; color: var(--success); margin-bottom: 10px; }
+        .assignment-checklist { list-style: none; }
+        .assignment-checklist li { font-size: 13px; padding: 6px 0; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #f5f5f5; }
+        .assignment-checklist li:last-child { border-bottom: none; }
+        .check-circle { width: 20px; height: 20px; border-radius: 50%; border: 2px solid #ccc; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 11px; }
+        .check-circle.done { background: var(--sga-green); border-color: var(--sga-green); color: white; }
+        .assignment-btn { width: 100%; padding: 12px; background: var(--sga-green); color: white; border: none; border-radius: 10px; font-size: 14px; font-weight: 600; margin-top: 12px; cursor: pointer; }
+
+        /* Published feed */
+        .published-card { background: white; border: 1px solid var(--border); border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+        .published-image { height: 140px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: white; font-size: 32px; position: relative; }
+        .published-platform { position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.6); color: white; font-size: 10px; padding: 3px 8px; border-radius: 4px; }
+        .published-body { padding: 12px; }
+        .published-title { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+        .published-metric { font-size: 12px; color: var(--text-muted); }
+        .published-metric span { color: var(--sga-green); font-weight: 600; }
+
+        /* Camera view phone */
+        .camera-view { background: #000; min-height: 640px; position: relative; display: flex; flex-direction: column; }
+        .camera-viewfinder { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; }
+        .camera-overlay { border: 2px dashed rgba(255,255,255,0.4); border-radius: 16px; width: 240px; height: 300px; position: relative; }
+        .camera-guide-text { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.8); font-size: 13px; white-space: nowrap; font-weight: 500; }
+        .camera-top-bar { padding: 12px 20px; display: flex; justify-content: space-between; color: white; font-size: 13px; }
+        .camera-top-bar .back { cursor: pointer; opacity: 0.7; }
+        .camera-patient-info { text-align: center; padding: 8px; color: white; }
+        .camera-patient-info .name { font-weight: 700; font-size: 15px; }
+        .camera-patient-info .step { font-size: 12px; opacity: 0.7; margin-top: 2px; }
+        .camera-controls { padding: 20px; display: flex; justify-content: center; align-items: center; gap: 32px; }
+        .camera-shutter { width: 64px; height: 64px; border-radius: 50%; border: 4px solid white; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .camera-shutter-inner { width: 52px; height: 52px; border-radius: 50%; background: white; }
+        .camera-toggle { color: white; font-size: 12px; opacity: 0.7; text-align: center; cursor: pointer; }
+        .camera-tip { background: rgba(45,139,78,0.9); color: white; margin: 0 16px 12px; padding: 10px 14px; border-radius: 10px; font-size: 12px; line-height: 1.4; }
+
+        /* =================== PIPELINE VIEW =================== */
+        .pipeline-container { max-width: 1400px; margin: 0 auto; padding: 24px; }
+        .pipeline-header { margin-bottom: 24px; }
+        .pipeline-stages { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 16px; }
+        .pipeline-column { min-width: 260px; flex: 1; background: var(--surface-2); border-radius: 12px; border: 1px solid var(--border); }
+        .pipeline-col-header { padding: 14px 16px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        .pipeline-col-title { font-size: 14px; font-weight: 700; }
+        .pipeline-col-count { font-size: 12px; background: #e9ecef; padding: 2px 10px; border-radius: 10px; font-weight: 600; }
+        .pipeline-items { padding: 12px; max-height: 500px; overflow-y: auto; }
+        .pipeline-card { background: white; border: 1px solid #eee; border-radius: 8px; padding: 12px; margin-bottom: 8px; }
+        .pipeline-card-type { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+        .pipeline-card-type.photo { color: #667eea; }
+        .pipeline-card-type.video { color: #f5576c; }
+        .pipeline-card-type.brand { color: var(--sga-green); }
+        .pipeline-card-title { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+        .pipeline-card-meta { font-size: 11px; color: var(--text-muted); }
+        .pipeline-card-practice { font-size: 11px; color: var(--sga-green); margin-top: 6px; font-weight: 500; }
+        .pipeline-arrow { display: flex; align-items: center; color: #ccc; font-size: 20px; flex-shrink: 0; }
+
+        /* =================== RESPONSIVE =================== */
+        @media (max-width: 1200px) {
+            .dash-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .phones-row { flex-direction: column; align-items: center; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .pipeline-stages { flex-direction: column; }
+            .nav-tabs { display: none; }
+        }
+
+        /* Tab indicator animations */
+        .tab-indicator { height: 3px; background: var(--sga-green); transition: all 0.3s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <div class="nav-brand">
+                <div class="nav-brand-icon">CC</div>
+                <div class="nav-brand-text">Content <span>Concierge</span></div>
+            </div>
+            <div class="nav-tabs">
+                <a class="nav-tab active" onclick="switchView('dashboard')">Dashboard</a>
+                <a class="nav-tab" onclick="switchView('mobile')">Mobile App</a>
+                <a class="nav-tab" onclick="switchView('pipeline')">Pipeline</a>
+            </div>
+            <div class="nav-user">
+                <div style="text-align:right">
+                    <div style="font-size:13px;font-weight:600;">Dakota M.</div>
+                    <div style="font-size:11px;opacity:0.6;">HQ Marketing</div>
+                </div>
+                <div class="nav-avatar">DM</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- =================== VIEW 1: HQ DASHBOARD =================== -->
+    <div id="view-dashboard" class="view active">
+        <div class="dashboard">
+            <div class="dash-header">
+                <div>
+                    <div class="dash-title">Content Concierge</div>
+                    <div class="dash-subtitle">Network content pipeline — Week of March 10, 2026</div>
+                </div>
+                <div class="dash-actions">
+                    <button class="btn btn-outline">Export Report</button>
+                    <button class="btn btn-primary">Bulk Approve (18)</button>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Captures This Week</div>
+                    <div class="stat-value">127</div>
+                    <div class="stat-change up">+23% vs last week</div>
+                    <div class="stat-bar"><div class="stat-bar-fill" style="width:78%"></div></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Published Content</div>
+                    <div class="stat-value">75</div>
+                    <div class="stat-change up">+31% vs last week</div>
+                    <div class="stat-bar"><div class="stat-bar-fill" style="width:65%"></div></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Active Champions</div>
+                    <div class="stat-value">43<span style="font-size:16px;color:var(--text-muted)">/65</span></div>
+                    <div class="stat-change up">66% participation</div>
+                    <div class="stat-bar"><div class="stat-bar-fill" style="width:66%"></div></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Avg Approval Rate</div>
+                    <div class="stat-value" style="color:var(--success)">94%</div>
+                    <div class="stat-change up">+2pts vs last month</div>
+                    <div class="stat-bar"><div class="stat-bar-fill" style="width:94%"></div></div>
+                </div>
+            </div>
+
+            <!-- Main grid -->
+            <div class="dash-grid">
+                <!-- Left: Review Queue -->
+                <div>
+                    <div class="panel">
+                        <div class="panel-header">
+                            <div class="panel-title">Review Queue</div>
+                            <div class="panel-badge">18 pending</div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="review-item">
+                                <div class="review-check"><input type="checkbox"></div>
+                                <div class="review-thumb photo">BA</div>
+                                <div class="review-content">
+                                    <div class="review-title">Before/After — Full-Arch Implant Reveal</div>
+                                    <div class="review-meta">Innovative Dental Springfield &middot; Jessica M. &middot; 2 hours ago &middot; Playbook 1</div>
+                                    <div class="review-caption">"Sarah hadn't smiled in 8 years. After full-arch implants at Innovative Dental, everything changed. Swipe to see her incredible transformation. #DentalImplants #SmileTransformation"</div>
+                                    <div class="review-actions">
+                                        <button class="review-btn approve">Approve</button>
+                                        <button class="review-btn edit">Edit Caption</button>
+                                        <button class="review-btn star">Star</button>
+                                        <button class="review-btn reject">Reject</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="review-item">
+                                <div class="review-check"><input type="checkbox"></div>
+                                <div class="review-thumb video">VID</div>
+                                <div class="review-content">
+                                    <div class="review-title">Patient Testimonial — 45s Reaction Video</div>
+                                    <div class="review-meta">Innovative Dental Springfield &middot; Jessica M. &middot; 2 hours ago &middot; Auto-captioned</div>
+                                    <div class="review-caption">"'Is that really me?' Watch Sarah's genuine reaction seeing her new smile for the first time after years of hiding. Full transformation on YouTube. #NewSmile #BeforeAndAfter"</div>
+                                    <div class="review-actions">
+                                        <button class="review-btn approve">Approve</button>
+                                        <button class="review-btn edit">Edit Caption</button>
+                                        <button class="review-btn star">Star</button>
+                                        <button class="review-btn reject">Reject</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="review-item">
+                                <div class="review-check"><input type="checkbox"></div>
+                                <div class="review-thumb brand">LJ</div>
+                                <div class="review-content">
+                                    <div class="review-title">Lamonte Jensen — Weekly Thought Leadership</div>
+                                    <div class="review-meta">SGA Brand &middot; Leadership Playbook &middot; 5 hours ago &middot; 3 clips generated</div>
+                                    <div class="review-caption">"Everyone asks me why successful dentists would join a partnership. They assume it's about cashing out. It's not. Here's the real reason — and the math behind it."</div>
+                                    <div class="review-actions">
+                                        <button class="review-btn approve">Approve</button>
+                                        <button class="review-btn edit">Edit Caption</button>
+                                        <button class="review-btn star">Star</button>
+                                        <button class="review-btn reject">Reject</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="review-item">
+                                <div class="review-check"><input type="checkbox"></div>
+                                <div class="review-thumb photo">BA</div>
+                                <div class="review-content">
+                                    <div class="review-title">Before/After — Veneer Smile Makeover</div>
+                                    <div class="review-meta">Dakota Dental Minneapolis &middot; Rachel K. &middot; 6 hours ago &middot; Playbook 3</div>
+                                    <div class="review-caption">"Another stunning smile makeover at Dakota Dental! Our patient was ready for a change and porcelain veneers delivered. Tap the link in bio to schedule your consultation."</div>
+                                    <div class="review-actions">
+                                        <button class="review-btn approve">Approve</button>
+                                        <button class="review-btn edit">Edit Caption</button>
+                                        <button class="review-btn reject">Reject</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="padding:16px 20px;text-align:center;">
+                                <button class="btn btn-outline" style="width:100%">View All 18 Pending Items</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right sidebar -->
+                <div>
+                    <!-- Practice Health -->
+                    <div class="panel" style="margin-bottom:16px">
+                        <div class="panel-header">
+                            <div class="panel-title">Practice Health</div>
+                            <a style="font-size:12px;color:var(--sga-green);cursor:pointer">View All</a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="practice-row">
+                                <div class="practice-name">Innovative Dental Springfield</div>
+                                <div class="practice-captures">12/wk</div>
+                                <div class="practice-score green">A+</div>
+                            </div>
+                            <div class="practice-row">
+                                <div class="practice-name">Garner Dental Birmingham</div>
+                                <div class="practice-captures">9/wk</div>
+                                <div class="practice-score green">A</div>
+                            </div>
+                            <div class="practice-row">
+                                <div class="practice-name">Dakota Dental Minneapolis</div>
+                                <div class="practice-captures">8/wk</div>
+                                <div class="practice-score green">A</div>
+                            </div>
+                            <div class="practice-row">
+                                <div class="practice-name">Periodontal Assoc. Memphis</div>
+                                <div class="practice-captures">4/wk</div>
+                                <div class="practice-score yellow">B</div>
+                            </div>
+                            <div class="practice-row">
+                                <div class="practice-name">Smile One Grand Haven</div>
+                                <div class="practice-captures">2/wk</div>
+                                <div class="practice-score yellow">C</div>
+                            </div>
+                            <div class="practice-row">
+                                <div class="practice-name">Troy Family Dental</div>
+                                <div class="practice-captures">0/wk</div>
+                                <div class="practice-score red">F</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Needs Attention -->
+                    <div class="panel" style="margin-bottom:16px">
+                        <div class="panel-header">
+                            <div class="panel-title">Needs Attention</div>
+                        </div>
+                        <div class="alert-list">
+                            <div class="alert-item">
+                                <div class="alert-icon critical">!</div>
+                                <div>
+                                    <div class="alert-text"><strong>Troy Family Dental</strong> — 0 captures in 14 days. Champion unresponsive.</div>
+                                    <div class="alert-time">Action needed</div>
+                                </div>
+                            </div>
+                            <div class="alert-item">
+                                <div class="alert-icon warn">!</div>
+                                <div>
+                                    <div class="alert-text"><strong>Pensacola Perio</strong> — Champion declined 3 consecutive prompts.</div>
+                                    <div class="alert-time">3 days ago</div>
+                                </div>
+                            </div>
+                            <div class="alert-item">
+                                <div class="alert-icon warn">!</div>
+                                <div>
+                                    <div class="alert-text"><strong>Wake Dental Care</strong> — 3 patient consents expiring this week.</div>
+                                    <div class="alert-time">Renewal needed by Friday</div>
+                                </div>
+                            </div>
+                            <div class="alert-item">
+                                <div class="alert-icon info">i</div>
+                                <div>
+                                    <div class="alert-text"><strong>Dr. Ellingson</strong> — Weekly video due Thursday. Topic: "Why I protect the profession."</div>
+                                    <div class="alert-time">Prompt sent Monday</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Brand Content Status -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <div class="panel-title">Brand Content</div>
+                            <div style="font-size:12px;color:var(--text-muted)">This Week</div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="brand-item">
+                                <div class="brand-avatar">LJ</div>
+                                <div class="brand-info">
+                                    <div class="brand-name">Lamonte Jensen</div>
+                                    <div class="brand-task">Weekly video: "Why dentists partner"</div>
+                                </div>
+                                <div class="brand-status" title="In Review">&#9989;</div>
+                            </div>
+                            <div class="brand-item">
+                                <div class="brand-avatar">ME</div>
+                                <div class="brand-info">
+                                    <div class="brand-name">Dr. Mitch Ellingson</div>
+                                    <div class="brand-task">Weekly video: Due Thursday</div>
+                                </div>
+                                <div class="brand-status" title="Pending">&#9203;</div>
+                            </div>
+                            <div class="brand-item">
+                                <div class="brand-avatar">PW</div>
+                                <div class="brand-info">
+                                    <div class="brand-name">Pete Wong</div>
+                                    <div class="brand-task">Podcast teaser clip</div>
+                                </div>
+                                <div class="brand-status" title="Published">&#9989;</div>
+                            </div>
+                            <div class="brand-item">
+                                <div class="brand-avatar">GO</div>
+                                <div class="brand-info">
+                                    <div class="brand-name">Dr. Grant Olson</div>
+                                    <div class="brand-task">Auto-synced from YouTube</div>
+                                </div>
+                                <div class="brand-status" title="Auto-synced">&#128260;</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================== VIEW 2: MOBILE APP =================== -->
+    <div id="view-mobile" class="view">
+        <div class="mobile-container">
+            <div class="mobile-header">
+                <h2>Content Champion Mobile Experience</h2>
+                <p>Three core screens: Dashboard, Capture Mode, and Published Feed</p>
+            </div>
+
+            <div class="phones-row">
+                <!-- Phone 1: Dashboard -->
+                <div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="phone-status">
+                                <span>9:41</span>
+                                <span>WiFi &middot; 5G</span>
+                            </div>
+                            <div class="app-header">
+                                <div class="app-greeting">Good morning</div>
+                                <div class="app-name">Jessica</div>
+                                <div class="app-streak">&#128293; 12-day streak</div>
+                            </div>
+                            <div class="phone-stats">
+                                <div class="phone-stat">
+                                    <div class="phone-stat-val">3</div>
+                                    <div class="phone-stat-label">Today</div>
+                                </div>
+                                <div class="phone-stat">
+                                    <div class="phone-stat-val">5/5</div>
+                                    <div class="phone-stat-label">This Week</div>
+                                </div>
+                                <div class="phone-stat">
+                                    <div class="phone-stat-val">#3</div>
+                                    <div class="phone-stat-label">Network Rank</div>
+                                </div>
+                            </div>
+                            <div class="phone-content">
+                                <div class="phone-section-title">
+                                    Today's Assignments
+                                    <span class="phone-section-badge">1 upcoming</span>
+                                </div>
+
+                                <div class="assignment-card">
+                                    <div class="assignment-header">
+                                        <div class="assignment-time">2:00 PM Today</div>
+                                        <div class="assignment-type">IMPLANT</div>
+                                    </div>
+                                    <div class="assignment-patient">Sarah M.</div>
+                                    <div class="assignment-procedure">Full-Arch Implant Procedure</div>
+                                    <div class="assignment-consent">&#10003; Media consent signed 2/18</div>
+                                    <ul class="assignment-checklist">
+                                        <li><span class="check-circle done">&#10003;</span> Before photo (smile)</li>
+                                        <li><span class="check-circle done">&#10003;</span> Before photo (clinical)</li>
+                                        <li><span class="check-circle"></span> Testimonial video (60s)</li>
+                                    </ul>
+                                    <button class="assignment-btn">Open Camera</button>
+                                </div>
+
+                                <div class="assignment-card" style="opacity:0.6">
+                                    <div class="assignment-header">
+                                        <div class="assignment-time">4:30 PM Today</div>
+                                        <div class="assignment-type">COSMETIC</div>
+                                    </div>
+                                    <div class="assignment-patient">Mike R.</div>
+                                    <div class="assignment-procedure">Veneer Delivery — After Photos</div>
+                                    <div class="assignment-consent">&#10003; Media consent signed 3/1</div>
+                                    <ul class="assignment-checklist">
+                                        <li><span class="check-circle"></span> After photo (smile)</li>
+                                        <li><span class="check-circle"></span> After photo (close-up)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-label">Champion Dashboard</div>
+                </div>
+
+                <!-- Phone 2: Camera/Capture -->
+                <div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="camera-view">
+                                <div class="camera-top-bar">
+                                    <span class="back">&larr; Back</span>
+                                    <span>Step 1 of 2</span>
+                                    <span>&#9881;</span>
+                                </div>
+                                <div class="camera-patient-info">
+                                    <div class="name">Sarah M. — Before Photo</div>
+                                    <div class="step">Smile view &middot; Front facing</div>
+                                </div>
+                                <div class="camera-tip">
+                                    Tip: Position patient facing the window for natural lighting. Ask for a natural, relaxed smile.
+                                </div>
+                                <div class="camera-viewfinder">
+                                    <div class="camera-overlay">
+                                        <div class="camera-guide-text">Align smile within frame</div>
+                                    </div>
+                                </div>
+                                <div style="padding:0 16px 8px;">
+                                    <div style="display:flex;justify-content:center;gap:24px;margin-bottom:8px;">
+                                        <div style="text-align:center;color:white;font-size:12px;opacity:0.9;background:var(--sga-green);padding:4px 16px;border-radius:12px;">Photo</div>
+                                        <div style="text-align:center;color:white;font-size:12px;opacity:0.5;padding:4px 16px;">Video</div>
+                                    </div>
+                                </div>
+                                <div class="camera-controls">
+                                    <div class="camera-toggle">Gallery</div>
+                                    <div class="camera-shutter"><div class="camera-shutter-inner"></div></div>
+                                    <div class="camera-toggle">Flip</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-label">Guided Capture Mode</div>
+                </div>
+
+                <!-- Phone 3: Published Feed -->
+                <div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="phone-status">
+                                <span>9:41</span>
+                                <span>WiFi &middot; 5G</span>
+                            </div>
+                            <div style="background:var(--sga-dark);padding:16px 20px;color:white;">
+                                <div style="font-size:18px;font-weight:700;">Your Published Content</div>
+                                <div style="font-size:12px;opacity:0.6;margin-top:4px;">See what your captures became</div>
+                            </div>
+                            <div class="phone-content">
+                                <div class="published-card">
+                                    <div class="published-image" style="background:linear-gradient(135deg,#28a745,#1a6b3a);">
+                                        <span style="font-size:48px">&#128516;</span>
+                                        <div class="published-platform">Instagram Reels</div>
+                                    </div>
+                                    <div class="published-body">
+                                        <div class="published-title">Sarah's Smile Transformation — 15s Reel</div>
+                                        <div class="published-metric"><span>1,247 views</span> &middot; 89 likes &middot; 12 comments &middot; Posted 2h ago</div>
+                                    </div>
+                                </div>
+
+                                <div class="published-card">
+                                    <div class="published-image" style="background:linear-gradient(135deg,#667eea,#764ba2);">
+                                        <span style="font-size:36px">&#128248; B|A</span>
+                                        <div class="published-platform">Practice Website</div>
+                                    </div>
+                                    <div class="published-body">
+                                        <div class="published-title">Before/After — Digital Storefront Gallery</div>
+                                        <div class="published-metric"><span>Live on website</span> &middot; Implant gallery &middot; Published 3h ago</div>
+                                    </div>
+                                </div>
+
+                                <div class="published-card">
+                                    <div class="published-image" style="background:linear-gradient(135deg,#f5576c,#f093fb);">
+                                        <span style="font-size:36px">&#9654;</span>
+                                        <div class="published-platform">Facebook</div>
+                                    </div>
+                                    <div class="published-body">
+                                        <div class="published-title">Patient Testimonial — 45s Video</div>
+                                        <div class="published-metric"><span>Scheduled</span> &middot; Posting Friday 11 AM &middot; Auto-captioned</div>
+                                    </div>
+                                </div>
+
+                                <div style="text-align:center;padding:16px;color:var(--text-muted);font-size:13px;">
+                                    Your captures this month: <strong>23 pieces published</strong> across 4 platforms
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-label">Published Content Feed</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================== VIEW 3: PIPELINE =================== -->
+    <div id="view-pipeline" class="view">
+        <div class="pipeline-container">
+            <div class="pipeline-header">
+                <h2 style="font-size:24px;font-weight:700;">Content Pipeline</h2>
+                <p style="color:var(--text-muted);margin-top:4px;">Real-time view of content flowing through the system</p>
+            </div>
+
+            <div class="pipeline-stages">
+                <!-- Captured -->
+                <div class="pipeline-column">
+                    <div class="pipeline-col-header">
+                        <div class="pipeline-col-title">Captured</div>
+                        <div class="pipeline-col-count">8</div>
+                    </div>
+                    <div class="pipeline-items">
+                        <div class="pipeline-card">
+                            <div class="pipeline-card-type photo">BEFORE/AFTER</div>
+                            <div class="pipeline-card-title">Full-Arch Before Photos (2)</div>
+                            <div class="pipeline-card-meta">Captured 2 hours ago by Jessica M.</div>
+                            <div class="pipeline-card-practice">Innovative Dental Springfield</div>
+                        </div>
+                        <div class="pipeline-card">
+                            <div class="pipeline-card-type video">TESTIMONIAL</div>
+                            <div class="pipeline-card-title">Patient Reaction — 45 sec</div>
+                            <div class="pipeline-card-meta">Captured 2 hours ago by Jessica M.</div>
+                            <div class="pipeline-card-practice">Innovative Dental Springfield</div>
+                        </div>
+                        <div class="pipeline-card">
+                            <div class="pipeline-card-type brand">LEADERSHIP</div>
+                            <div class="pipeline-card-title">Jensen Weekly — 3:40 video</div>
+                            <div class="pipeline-card-meta">Captured 5 hours ago</div>
+                            <div class="pipeline-card-practice">SGA Brand</div>
+                        </div>
+                        <div class="pipeline-card">
+                            <div class="pipeline-card-type photo">BEFORE/AFTER</div>
+                            <div class="pipeline-card-title">Veneer After Photos (2)</div>
+                            <div class="pipeline-card-meta">Captured 4 hours ago by Rachel K.</div>
+                            <div class="pipeline-card-practice">Dakota Dental Minneapolis</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pipeline-arrow">&rarr;</div>
+
+                <!-- Processing -->
+                <div class="pipeline-column">
+                    <div class="pipeline-col-header">
+                        <div class="pipeline-col-title">Processing</div>
+                        <div class="pipeline-col-count">5</div>
+                    </div>
+                    <div class="pipeline-items">
+                        <div class="pipeline-card">
+                            <div class="pipeline-card-type video">VIDEO CUTS</div>
+                            <div class="pipeline-card-title">Testimonial &rarr; 3 clips generating</div>
+                            <div class="pipeline-card-meta">AI cutting: 15s, 30s, 45s versions</div>
+                            <div class="pipeline-card-practice">Innovative Dental Springfield</div>
+                        </div>
+                        <div class="pipeline-card">
+                            <div class="pipeline-card-type photo">PHOTO ENHANCE</div>
+                            <div class="pipeline-card-title">Side-by-side composite building</div>
+                            <div class="pipeline-card-meta">Color correction + brand overlay</div>
+                            <div class="pipeline-card-practice">Dakota Dental Minneapolis</div>
+                        </div>
+                        <div class="pipeline-card">
+                            <div class="pipeline-card-type brand">VIDEO CUTS</div>
+                            <div class="pipeline-card-title">Jensen video &rarr; 4 clips + quote</div>
+                            <div class="pipeline-card-meta">Full + 60s + 45s + quote graphic</div>
+                            <div class="pipeline-card-practice">SGA Brand</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pipeline-arrow">&rarr;</div>
+
+                <!-- In Review -->
+                <div class="pipeline-column">
+                    <div class="pipeline-col-header">
+                        <div class="pipeline-col-title">In Review</div>
+                        <div class="pipeline-col-count" style="background:#fff3e0;color:#e65100;">18</div>
+                    </div>
+                    <div class="pipeline-items">
+                        <div class="pipeline-card">
+                            <div class="pipeline-card-type photo">4 ASSETS</div>
+                            <div class="pipeline-card-title">Garner Dental — Implant B/A set</div>
+                            <div class="pipeline-card-meta">IG square + Story + FB + Storefront</div>
+                            <div class="pipeline-card-practice">Garner Dental Birmingham</div>
+                        </div>
+                        <div class="pipeline-card">
+                            <div class="pipeline-card-type video">3 CLIPS</div>
+                            <div class="pipeline-card-title">Perio Associates — Dr. topic video</div>
+                            <div class="pipeline-card-meta">Full LI + 60s clip + quote graphic</div>
+                            <div class="pipeline-card-practice">Periodontal Assoc. Memphis</div>
+                        </div>
+                        <div class="pipeline-card">
+                            <div class="pipeline-card-type photo">2 ASSETS</div>
+                            <div class="pipeline-card-title">East Sac — Office culture photos</div>
+                            <div class="pipeline-card-meta">IG feed + Facebook post</div>
+                            <div class="pipeline-card-practice">East Sac Dental Sacramento</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pipeline-arrow">&rarr;</div>
+
+                <!-- Scheduled -->
+                <div class="pipeline-column">
+                    <div class="pipeline-col-header">
+                        <div class="pipeline-col-title">Scheduled</div>
+                        <div class="pipeline-col-count" style="background:#e3f2fd;color:#1565c0;">22</div>
+                    </div>
+                    <div class="pipeline-items">
+                        <div class="pipeline-card">
+                            <div class="pipeline-card-type photo">INSTAGRAM</div>
+                            <div class="pipeline-card-title">Before/After — Full-Arch</div>
+                            <div class="pipeline-card-meta">Thursday 11:00 AM CT</div>
+                            <div class="pipeline-card-practice">Innovative Dental Springfield</div>
+                        </div>
+                        <div class="pipeline-card">
+                            <div class="pipeline-card-type brand">LINKEDIN</div>
+                            <div class="pipeline-card-title">Jensen: "Why dentists partner"</div>
+                            <div class="pipeline-card-meta">Tuesday 8:00 AM ET</div>
+                            <div class="pipeline-card-practice">SGA Brand — Personal</div>
+                        </div>
+                        <div class="pipeline-card">
+                            <div class="pipeline-card-type video">REELS</div>
+                            <div class="pipeline-card-title">Testimonial 15s highlight</div>
+                            <div class="pipeline-card-meta">Thursday 7:00 PM CT</div>
+                            <div class="pipeline-card-practice">Innovative Dental Springfield</div>
+                        </div>
+                        <div class="pipeline-card">
+                            <div class="pipeline-card-type photo">STOREFRONT</div>
+                            <div class="pipeline-card-title">Veneer B/A — Gallery update</div>
+                            <div class="pipeline-card-meta">Immediate on approval</div>
+                            <div class="pipeline-card-practice">Dakota Dental Minneapolis</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pipeline-arrow">&rarr;</div>
+
+                <!-- Published -->
+                <div class="pipeline-column">
+                    <div class="pipeline-col-header">
+                        <div class="pipeline-col-title">Published</div>
+                        <div class="pipeline-col-count" style="background:#e8f5e9;color:var(--success);">75</div>
+                    </div>
+                    <div class="pipeline-items">
+                        <div class="pipeline-card">
+                            <div class="pipeline-card-type video">YOUTUBE SHORTS</div>
+                            <div class="pipeline-card-title">Implant reveal — 30s</div>
+                            <div class="pipeline-card-meta">3,421 views &middot; 156 likes</div>
+                            <div class="pipeline-card-practice">Innovative Dental Springfield</div>
+                        </div>
+                        <div class="pipeline-card">
+                            <div class="pipeline-card-type brand">LINKEDIN</div>
+                            <div class="pipeline-card-title">Wong: Podcast teaser clip</div>
+                            <div class="pipeline-card-meta">1,847 impressions &middot; 23 engagements</div>
+                            <div class="pipeline-card-practice">SGA Brand</div>
+                        </div>
+                        <div class="pipeline-card">
+                            <div class="pipeline-card-type photo">GOOGLE BUSINESS</div>
+                            <div class="pipeline-card-title">Office photos — Garner Dental</div>
+                            <div class="pipeline-card-meta">Published Monday &middot; 89 views</div>
+                            <div class="pipeline-card-practice">Garner Dental Birmingham</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchView(viewName) {
+            // Hide all views
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+
+            // Show selected view
+            document.getElementById('view-' + viewName).classList.add('active');
+
+            // Update nav
+            const tabs = document.querySelectorAll('.nav-tab');
+            const tabMap = { dashboard: 0, mobile: 1, pipeline: 2 };
+            tabs[tabMap[viewName]].classList.add('active');
+        }
+
+        // Add hover effects to review buttons
+        document.querySelectorAll('.review-btn.approve').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const item = this.closest('.review-item');
+                item.style.opacity = '0.4';
+                item.style.transition = 'opacity 0.3s';
+                setTimeout(() => { item.style.display = 'none'; }, 300);
+
+                // Update badge count
+                const badge = document.querySelector('.panel-badge');
+                const count = parseInt(badge.textContent) - 1;
+                badge.textContent = count + ' pending';
+            });
+        });
+    </script>
+</body>
+</html>

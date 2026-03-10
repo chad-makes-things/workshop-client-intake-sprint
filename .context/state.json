@@ -29,6 +29,26 @@
       "problem": "75+ disconnected tech systems across 260+ practices create 30-day visibility lag into patient funnel health, preventing proactive intervention",
       "solution": "The Funnel OS — Full-stack unified patient funnel operating system with 3 layers (Data Integration, Intelligence, Experience), staged delivery from BI dashboard to full platform with Practice Nerve Center extending Practice Concierge",
       "output": "resources/problem-sprints/full-funnel-visibility/"
+    },
+    "patient-comms-automation": {
+      "type": "problem-sprint",
+      "status": "complete",
+      "phase": "validated",
+      "started": "2026-03-10",
+      "completed": "2026-03-10",
+      "problem": "260+ practices have fragmented, manual patient communication across the entire lifecycle — leads unworked, treatment unfollowed, patients lapsing, zero standardized playbook",
+      "solution": "The Comms Engine — Autonomous AI agent per practice executing full lifecycle communication playbook (lead response, treatment follow-up, rebooking, reactivation) with graduated autonomy, network learning, and 20 min/week human touchpoint. Extends Practice Concierge, feeds Funnel OS.",
+      "output": "resources/problem-sprints/patient-comms-automation/"
+    },
+    "practice-media-strategy": {
+      "type": "problem-sprint",
+      "status": "complete",
+      "phase": "development-ready",
+      "started": "2026-03-10",
+      "completed": "2026-03-10",
+      "problem": "260+ practices never capture content (before/afters, testimonials, video) despite having strategy and channels ready. Broken human behavior starves the entire content-to-patient pipeline. Same gap at SGA brand level for B2B content.",
+      "solution": "The Content Concierge — Phased hybrid system (SMS → mobile app → AI pipeline → passive hardware) for practice-level and SGA brand content capture, production, and distribution. PMS-triggered prompts via Sikka ONE API, AI processing (Cloudinary, OpusClip, Claude), 5 playbooks (4 practice types + brand), extends Practice Concierge ecosystem.",
+      "output": "resources/problem-sprints/practice-media-strategy/"
     }
   },
   "metadata": {

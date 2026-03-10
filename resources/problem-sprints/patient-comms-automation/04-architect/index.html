@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Comms Engine — Patient Communications Automation | SGA Dental Partners</title>
+<style>
+  :root {
+    --primary: #0F172A;
+    --accent: #3B82F6;
+    --accent-light: #60A5FA;
+    --accent-glow: rgba(59, 130, 246, 0.15);
+    --success: #10B981;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+    --surface: #1E293B;
+    --surface-light: #334155;
+    --text: #F8FAFC;
+    --text-muted: #94A3B8;
+    --border: #475569;
+    --card-bg: rgba(30, 41, 59, 0.8);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--primary);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Navigation */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 2rem;
+  }
+  nav .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav .logo {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--accent);
+  }
+  nav .nav-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  nav .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+  nav .nav-links a:hover { color: var(--accent-light); }
+
+  /* Hero */
+  .hero {
+    padding: 6rem 2rem 4rem;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(59,130,246,0.08) 0%, transparent 60%);
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero .badge {
+    display: inline-block;
+    background: var(--accent-glow);
+    border: 1px solid rgba(59,130,246,0.3);
+    color: var(--accent-light);
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 span { color: var(--accent-light); }
+  .hero .subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 3rem;
+  }
+
+  /* Stats bar */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  .stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .stat-card .stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent-light);
+  }
+  .stat-card .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+  }
+
+  /* Section styles */
+  section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+  section .section-desc {
+    color: var(--text-muted);
+    max-width: 700px;
+    margin-bottom: 3rem;
+    font-size: 1.05rem;
+  }
+
+  /* Before/After */
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  @media (max-width: 768px) {
+    .comparison-grid { grid-template-columns: 1fr; }
+  }
+  .comparison-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+  .comparison-card.before { border-color: var(--danger); }
+  .comparison-card.after { border-color: var(--success); }
+  .comparison-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .comparison-card.before h3 { color: var(--danger); }
+  .comparison-card.after h3 { color: var(--success); }
+  .comparison-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+    font-size: 0.9rem;
+  }
+  .comparison-item:last-child { border-bottom: none; }
+  .comparison-item .metric { color: var(--text-muted); }
+  .comparison-item .value { font-weight: 700; }
+  .comparison-card.before .value { color: var(--danger); }
+  .comparison-card.after .value { color: var(--success); }
+
+  /* Playbook stages */
+  .playbook-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .playbook-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .playbook-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+  }
+  .playbook-card .stage-num {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .playbook-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+  }
+  .playbook-card p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+  }
+  .playbook-card .cadence {
+    background: rgba(59,130,246,0.1);
+    border: 1px solid rgba(59,130,246,0.2);
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--accent-light);
+  }
+  .playbook-card .cadence strong { display: block; margin-bottom: 0.25rem; color: var(--text); }
+
+  /* Journey Timeline */
+  .timeline { position: relative; padding-left: 3rem; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--accent), var(--success));
+  }
+  .timeline-step {
+    position: relative;
+    margin-bottom: 3rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: border-color 0.3s;
+  }
+  .timeline-step:hover { border-color: var(--accent); }
+  .timeline-step::before {
+    content: attr(data-step);
+    position: absolute;
+    left: -2.5rem;
+    top: 2rem;
+    width: 2rem;
+    height: 2rem;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  .timeline-step h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+  .timeline-step .step-meta {
+    font-size: 0.8rem;
+    color: var(--accent-light);
+    margin-bottom: 0.75rem;
+  }
+  .timeline-step p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+  .timeline-step .key-detail {
+    background: rgba(59,130,246,0.08);
+    border-left: 3px solid var(--accent);
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+  }
+
+  /* Architecture Diagram */
+  .arch-container {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    overflow-x: auto;
+  }
+  .arch-container svg {
+    width: 100%;
+    min-width: 800px;
+    height: auto;
+  }
+
+  /* Component cards */
+  .component-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .component-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+  .component-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .component-card .component-desc {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+  }
+  .component-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .component-card li {
+    padding: 0.35rem 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding-left: 1.2rem;
+    position: relative;
+  }
+  .component-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  /* ADR cards */
+  .adr-list { display: flex; flex-direction: column; gap: 1rem; }
+  .adr-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .adr-header {
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+  }
+  .adr-header:hover { background: rgba(59,130,246,0.05); }
+  .adr-header h3 { font-size: 1rem; }
+  .adr-header .arrow {
+    transition: transform 0.3s;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+  .adr-card.open .arrow { transform: rotate(180deg); }
+  .adr-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .adr-card.open .adr-body { max-height: 500px; }
+  .adr-body-inner {
+    padding: 0 1.5rem 1.5rem;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .adr-body-inner strong { color: var(--text); }
+
+  /* Roadmap */
+  .roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+  .roadmap-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .roadmap-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .roadmap-card:nth-child(1)::before { background: var(--accent); }
+  .roadmap-card:nth-child(2)::before { background: var(--accent-light); }
+  .roadmap-card:nth-child(3)::before { background: var(--warning); }
+  .roadmap-card:nth-child(4)::before { background: var(--success); }
+  .roadmap-card:nth-child(5)::before { background: #8B5CF6; }
+  .roadmap-card .phase-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .roadmap-card h3 { font-size: 1rem; margin-bottom: 0.75rem; }
+  .roadmap-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .roadmap-card li {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    padding: 0.25rem 0;
+    padding-left: 1rem;
+    position: relative;
+  }
+  .roadmap-card li::before {
+    content: '\2022';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  /* Tech stack */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  .tech-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .tech-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--accent-glow);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .tech-item h4 { font-size: 0.95rem; margin-bottom: 0.2rem; }
+  .tech-item p { font-size: 0.8rem; color: var(--text-muted); }
+
+  /* Integration section */
+  .integration-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .integration-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+  .integration-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--accent-light); }
+  .integration-card p { color: var(--text-muted); font-size: 0.9rem; }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+  footer .sprint-info { margin-top: 0.5rem; font-size: 0.75rem; }
+
+  /* Print */
+  @media print {
+    nav { position: relative; }
+    .hero { padding: 2rem; }
+    section { padding: 2rem 1rem; }
+    .timeline-step, .comparison-card, .playbook-card, .component-card, .adr-card, .roadmap-card, .tech-item, .integration-card {
+      break-inside: avoid;
+    }
+    .adr-body { max-height: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">The Comms Engine</div>
+    <div class="nav-links">
+      <a href="#problem">Problem</a>
+      <a href="#playbook">Playbook</a>
+      <a href="#journey">Journey</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#components">Components</a>
+      <a href="#decisions">Decisions</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#tech">Tech Stack</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="badge">SPRINT: PATIENT COMMUNICATIONS AUTOMATION</div>
+  <h1>The <span>Comms Engine</span></h1>
+  <p class="subtitle">An autonomous AI agent system that executes the full patient communications playbook across SGA's 260+ dental practices — from lead response to reactivation — with ~20 minutes/week of human involvement.</p>
+  <div class="stats-bar">
+    <div class="stat-card">
+      <div class="stat-value">&lt;60s</div>
+      <div class="stat-label">Lead Response Time</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">50%+</div>
+      <div class="stat-label">More Treatment Closes</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">260+</div>
+      <div class="stat-label">Practices Automated</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">$47</div>
+      <div class="stat-label">Cost / Practice / Month</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">20min</div>
+      <div class="stat-label">Weekly Human Time</div>
+    </div>
+  </div>
+</header>
+
+<!-- Before/After -->
+<section id="problem">
+  <div class="section-label">The Problem</div>
+  <h2>Before vs. After</h2>
+  <p class="section-desc">Patient communications across 260+ practices are fragmented, manual, and inconsistent. The Comms Engine transforms every stage of the patient lifecycle.</p>
+  <div class="comparison-grid">
+    <div class="comparison-card before">
+      <h3>&#x2717; Today (Without Comms Engine)</h3>
+      <div class="comparison-item"><span class="metric">Lead response time</span><span class="value">47 hours avg</span></div>
+      <div class="comparison-item"><span class="metric">Form fills checked</span><span class="value">~1x per week</span></div>
+      <div class="comparison-item"><span class="metric">Treatment follow-up rate</span><span class="value">&lt; 5%</span></div>
+      <div class="comparison-item"><span class="metric">Treatment acceptance</span><span class="value">~31%</span></div>
+      <div class="comparison-item"><span class="metric">Rebook at checkout</span><span class="value">~68%</span></div>
+      <div class="comparison-item"><span class="metric">Lapsed patient outreach</span><span class="value">0%</span></div>
+      <div class="comparison-item"><span class="metric">Standardized playbook</span><span class="value">~5% of practices</span></div>
+      <div class="comparison-item"><span class="metric">Staff comms time</span><span class="value">Unpredictable / varies</span></div>
+      <div class="comparison-item"><span class="metric">Cost (vendor platforms)</span><span class="value">$189-299/practice/mo</span></div>
+    </div>
+    <div class="comparison-card after">
+      <h3>&#x2713; With Comms Engine</h3>
+      <div class="comparison-item"><span class="metric">Lead response time</span><span class="value">&lt; 60 seconds</span></div>
+      <div class="comparison-item"><span class="metric">Form fills responded</span><span class="value">100% within 30 sec</span></div>
+      <div class="comparison-item"><span class="metric">Treatment follow-up rate</span><span class="value">100% automated</span></div>
+      <div class="comparison-item"><span class="metric">Treatment acceptance</span><span class="value">47%+ (projected)</span></div>
+      <div class="comparison-item"><span class="metric">Rebook at checkout</span><span class="value">94%+ recovery</span></div>
+      <div class="comparison-item"><span class="metric">Lapsed patient outreach</span><span class="value">Monthly automated</span></div>
+      <div class="comparison-item"><span class="metric">Standardized playbook</span><span class="value">100% of practices</span></div>
+      <div class="comparison-item"><span class="metric">Staff comms time</span><span class="value">20 min/week structured</span></div>
+      <div class="comparison-item"><span class="metric">Cost (Comms Engine)</span><span class="value">~$47/practice/mo</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Playbook Stages -->
+<section id="playbook">
+  <div class="section-label">The Playbook</div>
+  <h2>Four Automation Stages</h2>
+  <p class="section-desc">The Comms Engine covers the entire patient communication lifecycle — from the moment a lead appears to reactivating patients who've disappeared.</p>
+  <div class="playbook-grid">
+    <div class="playbook-card">
+      <div class="stage-num">Stage 1</div>
+      <h3>Lead Response</h3>
+      <p>Every inbound lead — call, form fill, or missed call — gets an intelligent response within 60 seconds, 24/7. AI voice answers overflow calls. Instant text-back for missed calls. Automated nurture if not immediately booked.</p>
+      <div class="cadence">
+        <strong>Cadence</strong>
+        Immediate response &rarr; 4hr follow-up &rarr; Day 1, 3, 7 nurture sequence
+      </div>
+    </div>
+    <div class="playbook-card">
+      <div class="stage-num">Stage 2</div>
+      <h3>Treatment Follow-Up</h3>
+      <p>When treatment is presented and not accepted, an automated follow-up sequence activates. Messages are personalized, come "from" the provider, and use proven cadences that close 50%+ more treatment.</p>
+      <div class="cadence">
+        <strong>Cadence</strong>
+        Day 3 (check-in) &rarr; Day 7 (education) &rarr; Day 14 (soft close) &rarr; Day 30 (final touch) &rarr; $20K+ cases: 5+ touches with voice
+      </div>
+    </div>
+    <div class="playbook-card">
+      <div class="stage-num">Stage 3</div>
+      <h3>Rebooking</h3>
+      <p>Patients who leave without booking their next appointment get same-day recovery outreach. Hygiene recall sequences activate at 5 months. No patient falls through the cracks.</p>
+      <div class="cadence">
+        <strong>Cadence</strong>
+        30 min post-visit &rarr; Day 1, 3, 7 recovery &rarr; 5mo, 5.5mo, 6mo recall
+      </div>
+    </div>
+    <div class="playbook-card">
+      <div class="stage-num">Stage 4</div>
+      <h3>Database Reactivation</h3>
+      <p>Monthly scans identify dormant patients (12+ months). Tiered outreach by patient value: AI voice calls for high-value, text sequences for standard, email for bulk. 130K+ dormant patients across the network.</p>
+      <div class="cadence">
+        <strong>Cadence</strong>
+        Monthly scan &rarr; Tiered outreach (voice/text/email) &rarr; 3-touch over 30 days &rarr; Quarterly thereafter
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Journey Timeline -->
+<section id="journey">
+  <div class="section-label">User Journey</div>
+  <h2>The Comms Engine in Action</h2>
+  <p class="section-desc">Ten scenes showing how the system transforms patient communications across the network — from a single missed call to network-wide optimization.</p>
+  <div class="timeline">
+    <div class="timeline-step" data-step="1">
+      <h3>The Missed Call — Lead Response in 8 Seconds</h3>
+      <div class="step-meta">Tuesday 10:15 AM &middot; Garner Dental Group, Mississippi</div>
+      <p>A potential new patient calls about Invisalign. Front desk is busy. On the 4th ring, the Comms Engine's voice agent answers, checks real-time PMS availability, and books a consultation for Thursday at 2 PM. Confirmation text sent immediately.</p>
+      <div class="key-detail"><strong>Key metric:</strong> 8-second response vs. 47-hour industry average. The difference between a $5,500 patient and a lost lead.</div>
+    </div>
+    <div class="timeline-step" data-step="2">
+      <h3>The Unchecked Inbox — Form Fill Rescue</h3>
+      <div class="step-meta">Sunday 11:30 PM &middot; Desert Ridge Dental, Arizona</div>
+      <p>A patient fills out a consultation request form at 11:30 PM Sunday. Within 30 seconds, they receive a personalized text with the specialist's name, available times, and a booking link. By Monday morning, the appointment is already booked.</p>
+      <div class="key-detail"><strong>Key metric:</strong> 30-second response at 11:30 PM on a Sunday. Impossible for any human team. Research shows 391% conversion increase with sub-1-minute response.</div>
+    </div>
+    <div class="timeline-step" data-step="3">
+      <h3>The Treatment That Almost Disappeared — Day 3 Follow-Up</h3>
+      <div class="step-meta">Saturday Morning &middot; Garner Dental Group</div>
+      <p>James was presented $18K in veneers and said "let me think about it." Three days later, the Comms Engine sends a text from "Dr. Patterson" — mentioning financing options (flagged by the AI note-taker as a concern). James books the following week. The TC never had to make the uncomfortable call.</p>
+      <div class="key-detail"><strong>Key metric:</strong> 3-day follow-up closes 50% more treatment. This $18K case would have been lost without automation. Cost of the text: $0.01.</div>
+    </div>
+    <div class="timeline-step" data-step="4">
+      <h3>The $20K Case — The 5-Touch Close</h3>
+      <div class="step-meta">Day 21-28 &middot; Practice in Georgia</div>
+      <p>Linda hasn't responded to 3 follow-ups about a $22K full-arch restoration. Touch 4 sends a video testimonial from an SGA patient who had the same procedure. Touch 5: the AI voice agent calls to check in. Linda books the procedure on Day 29.</p>
+      <div class="key-detail"><strong>Key metric:</strong> 90% of $20K+ cases close between touch 4 and 5. Most practices give up after touch 1. The Comms Engine doesn't give up.</div>
+    </div>
+    <div class="timeline-step" data-step="5">
+      <h3>The Checkout That Didn't Rebook — Same-Day Recovery</h3>
+      <div class="step-meta">Thursday 5:15 PM &middot; Practice in Colorado</div>
+      <p>Tom finishes his cleaning, says "I'll call later," and walks out without rebooking. 30 minutes later, the Comms Engine detects no future appointment and texts 3 suggested times. Tom taps to confirm from his car.</p>
+      <div class="key-detail"><strong>Key metric:</strong> Same-day recovery is 4x more effective than next-week outreach. The 30-minute window catches patients while the visit is still fresh.</div>
+    </div>
+    <div class="timeline-step" data-step="6">
+      <h3>The Ghost Database — 500 Dormant Patients Reactivated</h3>
+      <div class="step-meta">First Week of Month &middot; Practice in Texas</div>
+      <p>The monthly reactivation scan identifies 487 dormant patients worth $6.3M in lifetime value. Tiered outreach: AI voice calls for 67 high-value patients, personalized texts for 183 regular patients, email campaigns for 237 low-engagement. Result: 55 patients rebooked, $71,500 in near-term production.</p>
+      <div class="key-detail"><strong>Key metric:</strong> Each reactivated patient worth $12-15K lifetime. No human team can call 487 patients. The AI can — and does, every month.</div>
+    </div>
+    <div class="timeline-step" data-step="7">
+      <h3>The 20-Minute Monday — The Human Touchpoint</h3>
+      <div class="step-meta">Monday 7:30 AM &middot; Garner Dental Group</div>
+      <p>Jennifer gets her weekly summary: 23 automated messages sent, $28,600 in production influenced, 3 items needing human attention (insurance question, medical history flag, address update). She handles all 3 in 12 minutes. Done for the week.</p>
+      <div class="key-detail"><strong>Key metric:</strong> The summary comes TO Jennifer — she doesn't go to a dashboard. 3 specific items, each with context. If 0 items need attention, it says "no action needed."</div>
+    </div>
+    <div class="timeline-step" data-step="8">
+      <h3>The Network Learning Loop — What Works Spreads</h3>
+      <div class="step-meta">End of Month &middot; All 260+ Practices</div>
+      <p>The network learning engine analyzes millions of data points. Discoveries: Saturday morning follow-ups get 2.1x response rates. Patients 55+ respond 3x better to voice than text. Including financing at Day 3 (not Day 14) closes 22% more treatment. All 260 playbooks update automatically.</p>
+      <div class="key-detail"><strong>Key metric:</strong> 260 practices = massive natural experiment. Every message is a data point. Over 12 months, the playbook becomes SGA's most valuable IP.</div>
+    </div>
+    <div class="timeline-step" data-step="9">
+      <h3>Graduated Autonomy — Earning Trust at a New Practice</h3>
+      <div class="step-meta">First 30 Days &middot; Newly Acquired Practice, Alabama</div>
+      <p>Skeptical office manager Brenda starts in Supervised mode — reviewing AI messages before they send. Over 30 days: 47 messages sent, only 3 edited (minor tone adjustments). The system presents its graduation report. Brenda approves autonomous mode. "This thing sends better messages than I would."</p>
+      <div class="key-detail"><strong>Key metric:</strong> The graduated model doesn't ask practices to trust AI blindly. It earns trust through demonstrated quality. Brenda's edits become fine-tuning data.</div>
+    </div>
+    <div class="timeline-step" data-step="10">
+      <h3>The CEO's Monthly View — Comms as a Managed System</h3>
+      <div class="step-meta">End of Quarter &middot; SGA Executive Dashboard</div>
+      <p>The Funnel OS shows: 97.3% lead response rate (up from 40%), 47% treatment acceptance (up from 31%), 1,840 dormant patients reactivated, $24M lifetime pipeline recovered. Cost: $47/practice/month. The system gets smarter every month.</p>
+      <div class="key-detail"><strong>Key metric:</strong> $47/month vs. $189-299/month for vendor platforms. Lower cost AND better results — because the intelligence is proprietary, trained on SGA's patient population.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Architecture Diagram -->
+<section id="architecture">
+  <div class="section-label">Architecture</div>
+  <h2>System Architecture</h2>
+  <p class="section-desc">Five layers: Data Integration, Comms Engine Core, Communication Transport, Monitoring &amp; Learning, and the minimal Human Interface.</p>
+  <div class="arch-container">
+    <svg viewBox="0 0 960 620" xmlns="http://www.w3.org/2000/svg" style="font-family: -apple-system, sans-serif;">
+      <!-- Background layers -->
+      <defs>
+        <linearGradient id="layerGrad1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1E293B"/>
+          <stop offset="100%" stop-color="#0F172A"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Layer 5: Human Interface (top) -->
+      <rect x="20" y="10" width="920" height="80" rx="12" fill="#0F172A" stroke="#475569" stroke-width="1"/>
+      <text x="40" y="35" fill="#3B82F6" font-size="11" font-weight="700" letter-spacing="1.5">LAYER 5: HUMAN INTERFACE</text>
+      <rect x="40" y="45" width="180" height="35" rx="8" fill="rgba(59,130,246,0.1)" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+      <text x="130" y="67" fill="#60A5FA" font-size="11" text-anchor="middle">Weekly Summary</text>
+      <rect x="240" y="45" width="180" height="35" rx="8" fill="rgba(59,130,246,0.1)" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+      <text x="330" y="67" fill="#60A5FA" font-size="11" text-anchor="middle">Approval Interface</text>
+      <rect x="440" y="45" width="200" height="35" rx="8" fill="rgba(59,130,246,0.1)" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+      <text x="540" y="67" fill="#60A5FA" font-size="11" text-anchor="middle">HQ Playbook Manager</text>
+
+      <!-- Layer 4: Monitoring & Learning -->
+      <rect x="20" y="105" width="920" height="90" rx="12" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+      <text x="40" y="130" fill="#10B981" font-size="11" font-weight="700" letter-spacing="1.5">LAYER 4: MONITORING &amp; LEARNING</text>
+      <rect x="40" y="140" width="200" height="40" rx="8" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
+      <text x="140" y="164" fill="#10B981" font-size="11" text-anchor="middle">Outcome Tracker</text>
+      <rect x="260" y="140" width="220" height="40" rx="8" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
+      <text x="370" y="164" fill="#10B981" font-size="11" text-anchor="middle">Network Learning Engine</text>
+      <rect x="500" y="140" width="200" height="40" rx="8" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
+      <text x="600" y="164" fill="#10B981" font-size="11" text-anchor="middle">Compliance Auditor</text>
+      <rect x="720" y="140" width="200" height="40" rx="8" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
+      <text x="820" y="164" fill="#10B981" font-size="11" text-anchor="middle">Graduation Manager</text>
+
+      <!-- Layer 3: Communication Transport -->
+      <rect x="20" y="210" width="920" height="90" rx="12" fill="#0F172A" stroke="#475569" stroke-width="1"/>
+      <text x="40" y="235" fill="#F59E0B" font-size="11" font-weight="700" letter-spacing="1.5">LAYER 3: COMMUNICATION TRANSPORT</text>
+      <rect x="40" y="245" width="270" height="40" rx="8" fill="rgba(245,158,11,0.1)" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
+      <text x="175" y="269" fill="#F59E0B" font-size="11" text-anchor="middle">Twilio SMS/MMS (HIPAA/BAA)</text>
+      <rect x="330" y="245" width="270" height="40" rx="8" fill="rgba(245,158,11,0.1)" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
+      <text x="465" y="269" fill="#F59E0B" font-size="11" text-anchor="middle">Voice AI Engine (Twilio Voice + LLM)</text>
+      <rect x="620" y="245" width="300" height="40" rx="8" fill="rgba(245,158,11,0.1)" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
+      <text x="770" y="269" fill="#F59E0B" font-size="11" text-anchor="middle">Email (SendGrid / SES)</text>
+
+      <!-- Layer 2: Comms Engine Core -->
+      <rect x="20" y="315" width="920" height="120" rx="12" fill="#1E293B" stroke="#3B82F6" stroke-width="2"/>
+      <text x="40" y="340" fill="#3B82F6" font-size="11" font-weight="700" letter-spacing="1.5">LAYER 2: COMMS ENGINE CORE (THIS SPRINT)</text>
+      <rect x="40" y="350" width="170" height="70" rx="8" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
+      <text x="125" y="380" fill="#60A5FA" font-size="11" text-anchor="middle" font-weight="600">Playbook Engine</text>
+      <text x="125" y="400" fill="#94A3B8" font-size="9" text-anchor="middle">Cadences, triggers, rules</text>
+      <rect x="230" y="350" width="170" height="70" rx="8" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
+      <text x="315" y="380" fill="#60A5FA" font-size="11" text-anchor="middle" font-weight="600">Agent Orchestrator</text>
+      <text x="315" y="400" fill="#94A3B8" font-size="9" text-anchor="middle">260+ agent instances</text>
+      <rect x="420" y="350" width="170" height="70" rx="8" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
+      <text x="505" y="380" fill="#60A5FA" font-size="11" text-anchor="middle" font-weight="600">Message Generator</text>
+      <text x="505" y="400" fill="#94A3B8" font-size="9" text-anchor="middle">LLM personalization</text>
+      <rect x="610" y="350" width="150" height="70" rx="8" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
+      <text x="685" y="380" fill="#60A5FA" font-size="11" text-anchor="middle" font-weight="600">Channel Router</text>
+      <text x="685" y="400" fill="#94A3B8" font-size="9" text-anchor="middle">SMS / Voice / Email</text>
+      <rect x="780" y="350" width="140" height="70" rx="8" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
+      <text x="850" y="380" fill="#60A5FA" font-size="11" text-anchor="middle" font-weight="600">Escalation Mgr</text>
+      <text x="850" y="400" fill="#94A3B8" font-size="9" text-anchor="middle">Human routing</text>
+
+      <!-- Layer 1: Data Integration -->
+      <rect x="20" y="450" width="920" height="90" rx="12" fill="#0F172A" stroke="#475569" stroke-width="1"/>
+      <text x="40" y="475" fill="#8B5CF6" font-size="11" font-weight="700" letter-spacing="1.5">LAYER 1: DATA INTEGRATION (SHARED WITH FUNNEL OS)</text>
+      <rect x="40" y="485" width="200" height="40" rx="8" fill="rgba(139,92,246,0.1)" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
+      <text x="140" y="509" fill="#8B5CF6" font-size="11" text-anchor="middle">NexHealth Synchronizer</text>
+      <rect x="260" y="485" width="170" height="40" rx="8" fill="rgba(139,92,246,0.1)" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
+      <text x="345" y="509" fill="#8B5CF6" font-size="11" text-anchor="middle">Event Stream</text>
+      <rect x="450" y="485" width="200" height="40" rx="8" fill="rgba(139,92,246,0.1)" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
+      <text x="550" y="509" fill="#8B5CF6" font-size="11" text-anchor="middle">AI Note-Taker Bridge</text>
+      <rect x="670" y="485" width="250" height="40" rx="8" fill="rgba(139,92,246,0.1)" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
+      <text x="795" y="509" fill="#8B5CF6" font-size="11" text-anchor="middle">Phone System Integration</text>
+
+      <!-- External Sources -->
+      <rect x="40" y="560" width="160" height="40" rx="8" fill="rgba(71,85,105,0.3)" stroke="#475569" stroke-width="1"/>
+      <text x="120" y="584" fill="#94A3B8" font-size="10" text-anchor="middle">75+ PMS Systems</text>
+      <rect x="220" y="560" width="160" height="40" rx="8" fill="rgba(71,85,105,0.3)" stroke="#475569" stroke-width="1"/>
+      <text x="300" y="584" fill="#94A3B8" font-size="10" text-anchor="middle">Phone Systems</text>
+      <rect x="400" y="560" width="160" height="40" rx="8" fill="rgba(71,85,105,0.3)" stroke="#475569" stroke-width="1"/>
+      <text x="480" y="584" fill="#94A3B8" font-size="10" text-anchor="middle">AI Note-Takers</text>
+      <rect x="580" y="560" width="160" height="40" rx="8" fill="rgba(71,85,105,0.3)" stroke="#475569" stroke-width="1"/>
+      <text x="660" y="584" fill="#94A3B8" font-size="10" text-anchor="middle">Web Forms</text>
+      <rect x="760" y="560" width="180" height="40" rx="8" fill="rgba(71,85,105,0.3)" stroke="#475569" stroke-width="1"/>
+      <text x="850" y="584" fill="#94A3B8" font-size="10" text-anchor="middle">Funnel OS Data Lake</text>
+
+      <!-- Connection arrows -->
+      <line x1="120" y1="555" x2="120" y2="540" stroke="#475569" stroke-width="1" marker-end="url(#arrowGray)"/>
+      <line x1="300" y1="555" x2="300" y2="540" stroke="#475569" stroke-width="1"/>
+      <line x1="480" y1="555" x2="480" y2="540" stroke="#475569" stroke-width="1"/>
+      <line x1="660" y1="555" x2="660" y2="540" stroke="#475569" stroke-width="1"/>
+      <line x1="850" y1="555" x2="850" y2="540" stroke="#475569" stroke-width="1"/>
+
+      <!-- Vertical flow arrows between layers -->
+      <line x1="480" y1="445" x2="480" y2="435" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <line x1="480" y1="310" x2="480" y2="300" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <line x1="480" y1="205" x2="480" y2="195" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <line x1="480" y1="100" x2="480" y2="90" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+      <!-- Labels for flow -->
+      <text x="500" y="298" fill="#94A3B8" font-size="8" font-style="italic">sends messages</text>
+      <text x="500" y="193" fill="#94A3B8" font-size="8" font-style="italic">tracks outcomes</text>
+      <text x="500" y="433" fill="#94A3B8" font-size="8" font-style="italic">trigger events</text>
+    </svg>
+  </div>
+</section>
+
+<!-- Components -->
+<section id="components">
+  <div class="section-label">Components</div>
+  <h2>Core Components</h2>
+  <p class="section-desc">Six primary components that power the Comms Engine — from the per-practice agent instances to the network-wide learning engine.</p>
+  <div class="component-grid">
+    <div class="component-card">
+      <h3>Practice Agent Instance</h3>
+      <p class="component-desc">One autonomous agent per practice. Maintains practice context, executes all 4 playbook stages, personalizes using LLM.</p>
+      <ul>
+        <li>Maintains provider roster, specialties, schedule patterns</li>
+        <li>Operates in Supervised, Monitored, or Autonomous mode</li>
+        <li>Escalates to human when confidence is low</li>
+        <li>Extends Practice Concierge agent pattern</li>
+      </ul>
+    </div>
+    <div class="component-card">
+      <h3>Playbook Engine</h3>
+      <p class="component-desc">The rule engine executing the SGA Patient Communication Protocol. Manages cadences, triggers, variants, and compliance.</p>
+      <ul>
+        <li>Configurable cadence definitions per communication type</li>
+        <li>Practice-type variants (cosmetic, family, specialty)</li>
+        <li>HIPAA compliance enforcement (consent, opt-out, quiet hours)</li>
+        <li>A/B testing at network level</li>
+      </ul>
+    </div>
+    <div class="component-card">
+      <h3>Message Generator</h3>
+      <p class="component-desc">LLM-powered message composition with deep personalization — patient context, practice context, and network-optimized templates.</p>
+      <ul>
+        <li>Merges patient, practice, and treatment data</li>
+        <li>Tone guidelines: warm, professional, never salesy</li>
+        <li>PHI validation before output</li>
+        <li>Multi-variant generation for A/B testing</li>
+      </ul>
+    </div>
+    <div class="component-card">
+      <h3>Voice AI Agent</h3>
+      <p class="component-desc">Natural conversational voice for inbound call answering and outbound reactivation calls with real-time PMS integration.</p>
+      <ul>
+        <li>Practice-specific personality and knowledge</li>
+        <li>Real-time PMS schedule lookup during calls</li>
+        <li>Books appointments directly into PMS</li>
+        <li>Graceful handoff to human when out of scope</li>
+      </ul>
+    </div>
+    <div class="component-card">
+      <h3>Network Learning Engine</h3>
+      <p class="component-desc">Continuous optimization across all 260 practices. What works at one practice improves all of them.</p>
+      <ul>
+        <li>Analyzes message performance across demographics and timing</li>
+        <li>Statistical significance requirements before promoting changes</li>
+        <li>Monthly optimization cycles with weekly trend monitoring</li>
+        <li>Practice-level guardrails and opt-outs</li>
+      </ul>
+    </div>
+    <div class="component-card">
+      <h3>Graduation Manager</h3>
+      <p class="component-desc">Manages the trust-building protocol — from Supervised to Monitored to Autonomous — independently per communication type.</p>
+      <ul>
+        <li>3 autonomy levels per communication type per practice</li>
+        <li>Graduation: &lt;5% edit rate, &gt;90% approval, 0 compliance flags</li>
+        <li>30-day supervised period for new practices</li>
+        <li>HQ override capability</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ADRs -->
+<section id="decisions">
+  <div class="section-label">Decisions</div>
+  <h2>Architectural Decision Records</h2>
+  <p class="section-desc">Key architectural choices and the reasoning behind them.</p>
+  <div class="adr-list">
+    <div class="adr-card">
+      <div class="adr-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3>ADR-1: Agent-Per-Practice vs. Shared Agent Pool</h3>
+        <span class="arrow">&#9660;</span>
+      </div>
+      <div class="adr-body"><div class="adr-body-inner">
+        <strong>Decision:</strong> One dedicated agent instance per practice.<br><br>
+        <strong>Rationale:</strong> Dedicated agents maintain practice-specific context (providers, tone, patient history patterns) without context-switching overhead. At 260 practices, the cost is manageable. The agent IS the practice's communication personality — sharing it dilutes that. Aligns with Practice Concierge pattern.<br><br>
+        <strong>Tradeoff:</strong> Higher infrastructure cost vs. better personalization and simpler debugging (one practice's issues don't affect others).
+      </div></div>
+    </div>
+    <div class="adr-card">
+      <div class="adr-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3>ADR-2: NexHealth as PMS Integration Layer</h3>
+        <span class="arrow">&#9660;</span>
+      </div>
+      <div class="adr-body"><div class="adr-body-inner">
+        <strong>Decision:</strong> Use NexHealth Synchronizer API as the universal PMS connector instead of building direct integrations.<br><br>
+        <strong>Rationale:</strong> NexHealth supports 20+ major dental PMS systems, covering ~80%+ of SGA practices. One API instead of 20+. NexHealth handles PMS-specific quirks. For the remaining ~20% on unsupported systems, build lightweight adapters with manual event triggers.<br><br>
+        <strong>Tradeoff:</strong> Vendor dependency + API cost at scale vs. years of custom integration work avoided.
+      </div></div>
+    </div>
+    <div class="adr-card">
+      <div class="adr-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3>ADR-3: Twilio for Communication Transport</h3>
+        <span class="arrow">&#9660;</span>
+      </div>
+      <div class="adr-body"><div class="adr-body-inner">
+        <strong>Decision:</strong> Use Twilio's HIPAA-eligible APIs for SMS, voice, and email instead of dental-specific vendor platforms.<br><br>
+        <strong>Rationale:</strong> At 260 practices, annual savings of $440K-$785K vs. vendor platforms. More importantly, building on Twilio means SGA owns the intelligence layer. The playbook, network learning, and agent behavior are all proprietary IP. Vendor platforms mean renting someone else's intelligence.<br><br>
+        <strong>Tradeoff:</strong> Higher development effort vs. lower ongoing cost + full IP ownership + no vendor lock-in.
+      </div></div>
+    </div>
+    <div class="adr-card">
+      <div class="adr-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3>ADR-4: Graduated Autonomy Protocol</h3>
+        <span class="arrow">&#9660;</span>
+      </div>
+      <div class="adr-body"><div class="adr-body-inner">
+        <strong>Decision:</strong> New practices start in Supervised mode and graduate to Autonomous over 30-60 days, rather than full auto from Day 1.<br><br>
+        <strong>Rationale:</strong> Graduated autonomy solves adoption. Skeptical staff review messages before they send, building trust AND generating fine-tuning data. Once quality is proven (&lt;5% edit rate), the practice graduates. This is how you onboard 260 practices without a training program.<br><br>
+        <strong>Tradeoff:</strong> Slower initial ROI (30-day supervised period) vs. dramatically higher adoption rate and staff trust.
+      </div></div>
+    </div>
+    <div class="adr-card">
+      <div class="adr-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3>ADR-5: Network Learning as Core Architecture</h3>
+        <span class="arrow">&#9660;</span>
+      </div>
+      <div class="adr-body"><div class="adr-body-inner">
+        <strong>Decision:</strong> The playbook is dynamic — updated monthly based on network-wide outcome data, rather than static rules.<br><br>
+        <strong>Rationale:</strong> 260 practices sending thousands of messages daily is a massive natural experiment. The network learning engine turns SGA's scale into a competitive moat. Over 12 months, the optimized playbook becomes SGA's most valuable communication IP — trained on SGA's specific patient population. No vendor can replicate this.<br><br>
+        <strong>Tradeoff:</strong> More complex architecture + regression risk vs. continuous improvement and massive long-term competitive advantage.
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Roadmap -->
+<section id="roadmap">
+  <div class="section-label">Roadmap</div>
+  <h2>Deployment Timeline</h2>
+  <p class="section-desc">Staged rollout: start with highest-ROI automation, expand capabilities, then scale across the full network.</p>
+  <div class="roadmap-grid">
+    <div class="roadmap-card">
+      <div class="phase-label">Month 1-2</div>
+      <h3>Lead Response</h3>
+      <ul>
+        <li>Voice AI for inbound overflow</li>
+        <li>Missed-call text-back</li>
+        <li>Form fill auto-response</li>
+        <li>Lead nurture sequences</li>
+        <li>5 pilot practices (Supervised)</li>
+      </ul>
+    </div>
+    <div class="roadmap-card">
+      <div class="phase-label">Month 2-3</div>
+      <h3>Treatment Follow-Up</h3>
+      <ul>
+        <li>NexHealth PMS integration</li>
+        <li>AI note-taker bridge</li>
+        <li>4-touch follow-up cadence</li>
+        <li>High-value 5-touch extension</li>
+        <li>Expand to 20 practices</li>
+      </ul>
+    </div>
+    <div class="roadmap-card">
+      <div class="phase-label">Month 3-4</div>
+      <h3>Rebooking</h3>
+      <ul>
+        <li>Post-visit rebooking detection</li>
+        <li>Same-day recovery outreach</li>
+        <li>Hygiene recall sequences</li>
+        <li>Expand to 50 practices</li>
+      </ul>
+    </div>
+    <div class="roadmap-card">
+      <div class="phase-label">Month 4-6</div>
+      <h3>Reactivation</h3>
+      <ul>
+        <li>Dormant patient identification</li>
+        <li>Tiered outreach campaigns</li>
+        <li>AI voice outbound calls</li>
+        <li>Network learning engine live</li>
+        <li>Expand to 100+ practices</li>
+      </ul>
+    </div>
+    <div class="roadmap-card">
+      <div class="phase-label">Month 6-12</div>
+      <h3>Full Network</h3>
+      <ul>
+        <li>All 260+ practices live</li>
+        <li>Monthly playbook optimization</li>
+        <li>Auto onboarding for new practices</li>
+        <li>Network learning at full scale</li>
+        <li>Expanded communication types</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Tech Stack -->
+<section id="tech">
+  <div class="section-label">Tech Stack</div>
+  <h2>Technology Foundation</h2>
+  <p class="section-desc">Built on commodity infrastructure with HIPAA compliance — own the intelligence, rent the pipes.</p>
+  <div class="tech-grid">
+    <div class="tech-item">
+      <div class="tech-icon">&#x1F517;</div>
+      <div><h4>NexHealth Synchronizer</h4><p>Universal dental PMS API — 20+ systems, one interface</p></div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">&#x1F4AC;</div>
+      <div><h4>Twilio (HIPAA/BAA)</h4><p>SMS, MMS, Voice — commodity pricing with compliance</p></div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">&#x1F399;</div>
+      <div><h4>Voice AI (LLM + Twilio)</h4><p>Natural conversation for inbound and outbound calls</p></div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">&#x2709;</div>
+      <div><h4>SendGrid / SES</h4><p>HIPAA-eligible email delivery at scale</p></div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">&#x1F9E0;</div>
+      <div><h4>LLM (Claude / GPT)</h4><p>Message personalization and voice conversation intelligence</p></div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">&#x1F5C4;</div>
+      <div><h4>PostgreSQL + Event Log</h4><p>HIPAA audit trail and analytics data store</p></div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">&#x2601;</div>
+      <div><h4>AWS / GCP (HIPAA)</h4><p>Scalable cloud infrastructure with compliance</p></div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">&#x1F4CA;</div>
+      <div><h4>Python ML Pipeline</h4><p>Network learning engine for playbook optimization</p></div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">&#x1F310;</div>
+      <div><h4>React Web App</h4><p>HQ playbook management dashboard</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Integration with Prior Sprints -->
+<section>
+  <div class="section-label">Ecosystem</div>
+  <h2>Integration with SGA Platform</h2>
+  <p class="section-desc">The Comms Engine is the execution layer in a 3-sprint system: Practice Concierge (interface), Funnel OS (data), and Comms Engine (automation).</p>
+  <div class="integration-grid">
+    <div class="integration-card">
+      <h3>Practice Concierge</h3>
+      <p>The Comms Engine agent IS the Practice Concierge agent, extended with communication capabilities. Same agent instance, new skill set. Practices interact with ONE agent — not separate systems for storefront management and patient communications.</p>
+    </div>
+    <div class="integration-card">
+      <h3>Funnel OS</h3>
+      <p>All communication events and outcomes feed the Funnel OS data layer. The executive dashboard shows comms performance alongside funnel metrics. The Practice Nerve Center weekly summary IS the Comms Engine weekly summary — same interface, same 20 minutes.</p>
+    </div>
+    <div class="integration-card">
+      <h3>Convergence Vision</h3>
+      <p>One agent per practice that manages storefront, communications, and operations. One data platform that tracks everything. One interface (20-min weekly summary) for practice staff. The three sprints converge into a single coherent platform.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>The Comms Engine &mdash; Patient Communications Automation for SGA Dental Partners</p>
+  <p class="sprint-info">Sprint completed 2026-03-10 &middot; Sprint Workspace &middot; Problem Sprint Methodology</p>
+</footer>
+
+</body>
+</html>
