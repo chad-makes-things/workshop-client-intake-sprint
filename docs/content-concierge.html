@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Content Concierge — Practice Media Strategy | SGA Dental Partners</title>
+<style>
+  :root {
+    --primary: #0F172A;
+    --accent: #10B981;
+    --accent-light: #34D399;
+    --accent-glow: rgba(16, 185, 129, 0.15);
+    --success: #10B981;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+    --surface: #1E293B;
+    --surface-light: #334155;
+    --text: #F8FAFC;
+    --text-muted: #94A3B8;
+    --border: #475569;
+    --card-bg: rgba(30, 41, 59, 0.8);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--primary);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Navigation */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 2rem;
+  }
+  nav .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav .logo { font-weight: 700; font-size: 1.1rem; color: var(--accent); }
+  nav .nav-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  nav .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+  nav .nav-links a:hover { color: var(--accent-light); }
+
+  /* Hero */
+  .hero {
+    padding: 6rem 2rem 4rem;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(16,185,129,0.08) 0%, transparent 60%);
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero .badge {
+    display: inline-block;
+    background: var(--accent-glow);
+    border: 1px solid rgba(16,185,129,0.3);
+    color: var(--accent-light);
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 span { color: var(--accent-light); }
+  .hero .subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 3rem;
+  }
+
+  /* Stats bar */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  .stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .stat-card .stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent-light);
+  }
+  .stat-card .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+  }
+
+  /* Section styles */
+  section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+  section .section-desc {
+    color: var(--text-muted);
+    max-width: 700px;
+    margin-bottom: 3rem;
+    font-size: 1.05rem;
+  }
+
+  /* Before/After */
+  .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  @media (max-width: 768px) { .comparison-grid { grid-template-columns: 1fr; } }
+  .comparison-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+  .comparison-card.before { border-color: var(--danger); }
+  .comparison-card.after { border-color: var(--success); }
+  .comparison-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .comparison-card.before h3 { color: var(--danger); }
+  .comparison-card.after h3 { color: var(--success); }
+  .comparison-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+    font-size: 0.9rem;
+  }
+  .comparison-item:last-child { border-bottom: none; }
+  .comparison-item .metric { color: var(--text-muted); }
+  .comparison-item .value { font-weight: 700; }
+  .comparison-card.before .value { color: var(--danger); }
+  .comparison-card.after .value { color: var(--success); }
+
+  /* Playbook grid (5 playbooks) */
+  .playbook-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .playbook-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .playbook-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+  }
+  .playbook-card:nth-child(2)::before { background: var(--accent-light); }
+  .playbook-card:nth-child(3)::before { background: var(--warning); }
+  .playbook-card:nth-child(4)::before { background: #60A5FA; }
+  .playbook-card:nth-child(5)::before { background: #A78BFA; }
+  .playbook-card .stage-num {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .playbook-card h3 { font-size: 1.15rem; margin-bottom: 0.75rem; }
+  .playbook-card p { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1rem; }
+  .playbook-card .cadence {
+    background: rgba(16,185,129,0.08);
+    border: 1px solid rgba(16,185,129,0.2);
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--accent-light);
+  }
+  .playbook-card .cadence strong { display: block; margin-bottom: 0.25rem; color: var(--text); }
+
+  /* Journey Timeline */
+  .timeline { position: relative; padding-left: 3rem; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--accent), #60A5FA);
+  }
+  .timeline-step {
+    position: relative;
+    margin-bottom: 3rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: border-color 0.3s;
+  }
+  .timeline-step:hover { border-color: var(--accent); }
+  .timeline-step::before {
+    content: attr(data-step);
+    position: absolute;
+    left: -2.5rem;
+    top: 2rem;
+    width: 2rem;
+    height: 2rem;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  .timeline-step h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+  .timeline-step .step-meta { font-size: 0.8rem; color: var(--accent-light); margin-bottom: 0.75rem; }
+  .timeline-step p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.75rem; }
+  .timeline-step .key-detail {
+    background: rgba(16,185,129,0.08);
+    border-left: 3px solid var(--accent);
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+  }
+
+  /* Component cards */
+  .component-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .component-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+  .component-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .component-card .component-desc { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1rem; }
+  .component-card ul { list-style: none; padding: 0; }
+  .component-card li {
+    padding: 0.35rem 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding-left: 1.2rem;
+    position: relative;
+  }
+  .component-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  /* ADR cards */
+  .adr-list { display: flex; flex-direction: column; gap: 1rem; }
+  .adr-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .adr-header {
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+  }
+  .adr-header:hover { background: rgba(16,185,129,0.05); }
+  .adr-header h3 { font-size: 1rem; }
+  .adr-header .arrow { transition: transform 0.3s; color: var(--text-muted); font-size: 0.85rem; }
+  .adr-card.open .arrow { transform: rotate(180deg); }
+  .adr-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+  .adr-card.open .adr-body { max-height: 600px; }
+  .adr-body-inner {
+    padding: 0 1.5rem 1.5rem;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .adr-body-inner strong { color: var(--text); }
+
+  /* Roadmap */
+  .roadmap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+  .roadmap-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .roadmap-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .roadmap-card:nth-child(1)::before { background: var(--accent); }
+  .roadmap-card:nth-child(2)::before { background: var(--accent-light); }
+  .roadmap-card:nth-child(3)::before { background: var(--warning); }
+  .roadmap-card:nth-child(4)::before { background: #60A5FA; }
+  .roadmap-card .phase-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .roadmap-card h3 { font-size: 1rem; margin-bottom: 0.75rem; }
+  .roadmap-card ul { list-style: none; padding: 0; }
+  .roadmap-card li {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    padding: 0.25rem 0;
+    padding-left: 1rem;
+    position: relative;
+  }
+  .roadmap-card li::before { content: '\2022'; position: absolute; left: 0; color: var(--accent); }
+  .roadmap-card .cost {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent-light);
+  }
+
+  /* Tech stack */
+  .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+  .tech-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .tech-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--accent-glow);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .tech-item h4 { font-size: 0.95rem; margin-bottom: 0.2rem; }
+  .tech-item p { font-size: 0.8rem; color: var(--text-muted); }
+
+  /* Sprint process */
+  .sprint-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+  .sprint-phase {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .sprint-phase .day { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .sprint-phase h3 { font-size: 0.95rem; margin-bottom: 0.5rem; }
+  .sprint-phase p { font-size: 0.8rem; color: var(--text-muted); }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+  footer .sprint-info { margin-top: 0.5rem; font-size: 0.75rem; }
+  footer a { color: var(--accent-light); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media print {
+    nav { position: relative; }
+    .hero { padding: 2rem; }
+    section { padding: 2rem 1rem; }
+    .adr-body { max-height: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">The Content Concierge</div>
+    <div class="nav-links">
+      <a href="#problem">Problem</a>
+      <a href="#playbooks">Playbooks</a>
+      <a href="#journey">Journey</a>
+      <a href="#pipeline">Pipeline</a>
+      <a href="#components">Components</a>
+      <a href="#decisions">Decisions</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#tech">Tech Stack</a>
+      <a href="index.html">← All Sprints</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="badge">SPRINT: PRACTICE MEDIA STRATEGY</div>
+  <h1>The <span>Content Concierge</span></h1>
+  <p class="subtitle">A phased media capture, production, and distribution platform that turns daily dental procedures into a network-wide content engine — from SMS prompts to AI-produced, auto-distributed content across every channel.</p>
+  <div class="stats-bar">
+    <div class="stat-card">
+      <div class="stat-value">1→20</div>
+      <div class="stat-label">Captures to Published Pieces</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">260+</div>
+      <div class="stat-label">Practices in Network</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">5</div>
+      <div class="stat-label">Content Playbooks</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">&lt;2hr</div>
+      <div class="stat-label">Capture to Published (Phase 2)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">6</div>
+      <div class="stat-label">Distribution Channels per Practice</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">$47/mo</div>
+      <div class="stat-label">Phase 2 Infra per Practice</div>
+    </div>
+  </div>
+</header>
+
+<!-- Before/After -->
+<section id="problem">
+  <div class="section-label">The Problem</div>
+  <h2>Before vs. After</h2>
+  <p class="section-desc">260+ practices have strategy, channels, and content-worthy moments every day — but almost nothing gets captured. The Content Concierge closes the gap between what's possible and what actually gets published.</p>
+  <div class="comparison-grid">
+    <div class="comparison-card before">
+      <h3>&#x2717; Today (Without Content Concierge)</h3>
+      <div class="comparison-item"><span class="metric">Practices capturing content weekly</span><span class="value">~5%</span></div>
+      <div class="comparison-item"><span class="metric">Before/afters published per month</span><span class="value">0–2 per practice</span></div>
+      <div class="comparison-item"><span class="metric">Time from capture to publish</span><span class="value">48–72 hours (manual)</span></div>
+      <div class="comparison-item"><span class="metric">Content pieces per capture</span><span class="value">1 (raw post)</span></div>
+      <div class="comparison-item"><span class="metric">Channels receiving content</span><span class="value">1–2</span></div>
+      <div class="comparison-item"><span class="metric">SGA brand content pieces/month</span><span class="value">~2</span></div>
+      <div class="comparison-item"><span class="metric">Paid media asset library</span><span class="value">0 tagged assets</span></div>
+      <div class="comparison-item"><span class="metric">Content attribution to revenue</span><span class="value">0%</span></div>
+    </div>
+    <div class="comparison-card after">
+      <h3>&#x2713; With Content Concierge</h3>
+      <div class="comparison-item"><span class="metric">Practices capturing content weekly</span><span class="value">80%+ (Phase 2)</span></div>
+      <div class="comparison-item"><span class="metric">Before/afters published per month</span><span class="value">15–20 per practice</span></div>
+      <div class="comparison-item"><span class="metric">Time from capture to publish</span><span class="value">&lt;2 hours (AI pipeline)</span></div>
+      <div class="comparison-item"><span class="metric">Content pieces per capture</span><span class="value">4–20 (AI multi-format)</span></div>
+      <div class="comparison-item"><span class="metric">Channels receiving content</span><span class="value">4–6 per practice</span></div>
+      <div class="comparison-item"><span class="metric">SGA brand content pieces/month</span><span class="value">80–100+</span></div>
+      <div class="comparison-item"><span class="metric">Paid media asset library</span><span class="value">500+ tagged assets (Phase 3)</span></div>
+      <div class="comparison-item"><span class="metric">Content attribution to revenue</span><span class="value">5%+ consultations attributed</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 Playbooks -->
+<section id="playbooks">
+  <div class="section-label">The Playbooks</div>
+  <h2>Five Content Playbooks</h2>
+  <p class="section-desc">Every practice in the SGA network has a playbook matched to its patient mix, procedure volume, and content opportunity. One system, five configurations.</p>
+  <div class="playbook-grid">
+    <div class="playbook-card">
+      <div class="stage-num">Playbook 1</div>
+      <h3>Implant / Cosmetic</h3>
+      <p>10–15 high-value practices. Full arch, veneers, smile makeovers. The highest visual impact content in the network — before/afters that close $20K+ cases.</p>
+      <div class="cadence">
+        <strong>Target</strong>
+        5 captures/week &middot; Before/after, testimonials, procedure videos &middot; 6 channels
+      </div>
+    </div>
+    <div class="playbook-card">
+      <div class="stage-num">Playbook 2</div>
+      <h3>Specialty</h3>
+      <p>20–30 ortho, perio, oral surgery, pediatric practices. Case documentation, specialist authority content, treatment journey storytelling.</p>
+      <div class="cadence">
+        <strong>Target</strong>
+        4 captures/week &middot; Case progress, testimonials, specialist education &middot; 5 channels
+      </div>
+    </div>
+    <div class="playbook-card">
+      <div class="stage-num">Playbook 3</div>
+      <h3>Growth GP</h3>
+      <p>40–60 high-volume multi-location general practices. Patient education, team culture content, procedure variety, community presence.</p>
+      <div class="cadence">
+        <strong>Target</strong>
+        3 captures/week &middot; Education, team content, patient highlights &middot; 4 channels
+      </div>
+    </div>
+    <div class="playbook-card">
+      <div class="stage-num">Playbook 4</div>
+      <h3>Standard GP</h3>
+      <p>150–180 practices. Single or dual location, relationship-first model. Community presence, trust-building, hygiene-focused content.</p>
+      <div class="cadence">
+        <strong>Target</strong>
+        2 captures/week &middot; Team, patient relationship, community &middot; 3 channels
+      </div>
+    </div>
+    <div class="playbook-card">
+      <div class="stage-num">Playbook 5</div>
+      <h3>SGA Brand</h3>
+      <p>Leadership content for Jensen, Ellingson, Wong, Olson. LinkedIn authority, B2B thought leadership, recruitment positioning, partnership storytelling.</p>
+      <div class="cadence">
+        <strong>Target</strong>
+        Weekly topic per leader &middot; LinkedIn, YouTube, sales enablement &middot; Weekly cadence
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Journey Timeline -->
+<section id="journey">
+  <div class="section-label">User Journey</div>
+  <h2>The Content Concierge in Action</h2>
+  <p class="section-desc">Seven scenes across a single week — from a morning SMS brief to published content on six channels, all without a marketing team.</p>
+  <div class="timeline">
+    <div class="timeline-step" data-step="1">
+      <h3>7:30 AM — The Daily Brief Arrives</h3>
+      <div class="step-meta">Tuesday Morning &middot; Innovative Dental Springfield &middot; Jessica Martinez, Content Champion</div>
+      <p>Jessica's phone buzzes. "Good morning Jessica! 3 captures today: 1) Before photo — Full Arch Implant at 9:30 AM (💡 Front + 45° angle, fill frame with smile). 2) Testimonial — Smile Makeover finishing today (💡 Ask at checkout). 3) Team photo — no appointment needed."</p>
+      <p>The brief was generated overnight by the Prompt Engine — it pulled tomorrow's appointments from Sikka ONE API, matched procedure codes to the playbook, checked consent records, and composed the guidance. Jessica didn't have to think about any of it.</p>
+      <div class="key-detail"><strong>Key behavior:</strong> The guidance is specific ("front + 45-degree angle, fill frame with smile") not generic ("take a good photo"). Specificity eliminates the most common failure mode.</div>
+    </div>
+    <div class="timeline-step" data-step="2">
+      <h3>9:45 AM — The Before Photo</h3>
+      <div class="step-meta">Operatory 3 &middot; Patient: Michael K. &middot; Procedure: Full Arch Implant Consultation</div>
+      <p>Jessica takes two photos on her phone — front and 45° as instructed — and texts them to the Content Concierge number. 18 seconds later: "Got it! ✅ 2 photos received. Our team will review and publish within 24 hours. This week: 4-day streak 🔥"</p>
+      <p>In the background: photos downloaded from Twilio, uploaded to S3, metadata tagged (practice, champion, procedure, consent ID), Airtable record created for editorial review.</p>
+      <div class="key-detail"><strong>Key metric:</strong> Under 60 seconds total — brief received, photo taken, submitted. Zero login, zero app, zero friction. SMS reply is the right interface for a busy front-desk environment.</div>
+    </div>
+    <div class="timeline-step" data-step="3">
+      <h3>4:30 PM — After Photo + Testimonial</h3>
+      <div class="step-meta">Checkout Desk &middot; Patient: Sarah M. &middot; Procedure: Smile Makeover Complete</div>
+      <p>Sarah is beaming at her result. Jessica follows the playbook guidance: "Would you be willing to share your experience on video? Just 30 seconds." Sarah says yes. Jessica records 45 seconds on her phone and sends via WhatsApp (better quality than MMS for video).</p>
+      <p>Plus the after photo — which triggers the system to automatically pair it with Michael's morning before photo for a side-by-side comparison asset.</p>
+      <div class="key-detail"><strong>Key behavior:</strong> The post-op follow-up scheduler will also fire at 30 and 90 days to capture a longer smile reveal testimonial from Sarah — built-in without any manual scheduling.</div>
+    </div>
+    <div class="timeline-step" data-step="4">
+      <h3>Wednesday 9 AM — Editorial Review</h3>
+      <div class="step-meta">HQ Content Team &middot; Airtable Review Queue</div>
+      <p>Two editors open Airtable and work through the network's 47 captures from yesterday. Michael's before photos are flagged for an upcoming before/after pair. Sarah's testimonial video is pulled from S3 presigned URL and reviewed. Caption drafted: "Sarah came in for her dream smile — and left with it. ✨ Full smile makeover at Innovative Dental Springfield."</p>
+      <p>Status → Approved. Slack notification fires: "✅ Approved: Testimonial Video from Innovative Dental Springfield."</p>
+      <div class="key-detail"><strong>Phase 1 reality:</strong> Human editors handle production and post manually to Sprout Social/Later. Phase 2 replaces this with AI caption generation and automated distribution — same result, no editorial team.</div>
+    </div>
+    <div class="timeline-step" data-step="5">
+      <h3>Phase 2: AI Pipeline Takes Over</h3>
+      <div class="step-meta">Months 2–4 &middot; Same captures, no human editors needed for formatting</div>
+      <p>Sarah's 45-second testimonial enters the AI pipeline: Whisper transcribes the audio, AI generates platform-specific captions (Instagram: short + emoji, LinkedIn: narrative, YouTube: SEO-optimized description), OpusClip detects the strongest 15-second moment, Cloudinary generates 6 format variants (IG Reel vertical, IG feed square, FB landscape, YouTube Shorts, TikTok, Google Business).</p>
+      <p>One 45-second video becomes 10 distinct content pieces, each formatted for its platform, with captions written and hashtags tagged. 90 minutes from upload to publish-ready.</p>
+      <div class="key-detail"><strong>Key metric:</strong> 1 capture → 10 published pieces. At 5 captures/week per practice, that's 50 content pieces/week — equivalent to a full content team's output, without the team.</div>
+    </div>
+    <div class="timeline-step" data-step="6">
+      <h3>Auto-Distribution Across 6 Channels</h3>
+      <div class="step-meta">Wednesday 1 PM, 3 PM &middot; Scheduled per Playbook Rules</div>
+      <p>Sarah's 15-second reel goes to Instagram at the AI-determined optimal time for Innovative Dental Springfield (Tuesday–Thursday, 11 AM–1 PM based on historical engagement). The before/after side-by-side posts to Facebook 2 hours later. The full video goes to Google Business Profile. The before/after automatically updates the practice's Digital Storefront implant gallery via Practice Concierge API.</p>
+      <p>Michael's before/after (with the after photo from a future appointment) gets queued for the Digital Storefront gallery and tagged `paid_media_eligible` for the BD team's ad campaigns.</p>
+      <div class="key-detail"><strong>Network effect:</strong> Every approved capture from every practice flows into a growing tagged asset library available to the paid media team, the BD team for outreach, and the brand content library.</div>
+    </div>
+    <div class="timeline-step" data-step="7">
+      <h3>Monday — Jessica's Weekly Recap</h3>
+      <div class="step-meta">Monday 8 AM SMS &middot; Jessica Martinez</div>
+      <p>"Jessica's week in review 📊 Last week: 5 captures (target: 5) ✅ Published: 18 content pieces. Top piece: Sarah's testimonial reel got 847 views. Streak: 12 days 🔥 This week's focus: before/after pairs for Dr. Patel's implant cases. First prompt tomorrow at 7:30 AM!"</p>
+      <p>Jessica didn't log into a dashboard. She didn't check analytics. She got the number that matters — her streak — and the social proof that her captures are producing real results. That's the feedback loop that sustains the behavior.</p>
+      <div class="key-detail"><strong>Behavior design:</strong> The streak counter is the most important metric in Phase 1. It creates a daily habit without requiring any intrinsic motivation. The weekly recap proves impact without asking champions to measure anything themselves.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Production Pipeline -->
+<section id="pipeline">
+  <div class="section-label">The AI Pipeline</div>
+  <h2>From Raw Capture to 20 Published Pieces</h2>
+  <p class="section-desc">Phase 2 introduces an AI production pipeline that takes every raw capture and generates publish-ready content for every target platform automatically.</p>
+  <div class="component-grid">
+    <div class="component-card">
+      <h3>📥 Ingest</h3>
+      <div class="component-desc">Validate, tag, HIPAA screen, and route every incoming capture to the right processing path.</div>
+      <ul>
+        <li>Metadata validation (practice, champion, consent ID)</li>
+        <li>HIPAA screen via AWS Rekognition (detect visible PHI)</li>
+        <li>Content type classification (before/after, testimonial, topic video)</li>
+        <li>Before/after pairing logic (match today's after to prior before)</li>
+      </ul>
+    </div>
+    <div class="component-card">
+      <h3>🎨 Enhance (Photos)</h3>
+      <div class="component-desc">Dental-specific photo processing: color correction, smart crop centered on smile area, brand overlay.</div>
+      <ul>
+        <li>Auto color correction + exposure adjustment via Cloudinary</li>
+        <li>Smile-area smart crop (mouth landmarks via AWS Rekognition)</li>
+        <li>Before/after side-by-side generation (4 format variants)</li>
+        <li>Practice logo + brand color overlay application</li>
+      </ul>
+    </div>
+    <div class="component-card">
+      <h3>🎬 Enhance (Video)</h3>
+      <div class="component-desc">Video stabilization, auto-captioning, and AI clip extraction for short-form platforms.</div>
+      <ul>
+        <li>Video stabilization + color grade via FFmpeg</li>
+        <li>AI transcription via OpenAI Whisper</li>
+        <li>Burned-in captions (bold, high-contrast for mobile)</li>
+        <li>Highlight moment detection + clip extraction via OpusClip API</li>
+      </ul>
+    </div>
+    <div class="component-card">
+      <h3>✍️ Generate</h3>
+      <div class="component-desc">AI-written captions, hashtags, descriptions, and alt text per platform — with dental context.</div>
+      <ul>
+        <li>Platform-specific captions (Instagram, LinkedIn, YouTube, Facebook, TikTok, GBP)</li>
+        <li>Hashtag sets (practice-branded + procedure-specific + trend)</li>
+        <li>Alt text for accessibility compliance</li>
+        <li>Blog excerpt draft for Doctor Topic videos</li>
+      </ul>
+    </div>
+    <div class="component-card">
+      <h3>🔍 Review</h3>
+      <div class="component-desc">Human quality gate in Phase 1 (Airtable); AI auto-approval for high-confidence content types in Phase 3.</div>
+      <ul>
+        <li>HQ review queue with batch approve/reject</li>
+        <li>Caption editing before approval</li>
+        <li>Rejection feedback → SMS to capturing champion</li>
+        <li>AI confidence score; types with >95% approval rate auto-approved</li>
+      </ul>
+    </div>
+    <div class="component-card">
+      <h3>📡 Distribute</h3>
+      <div class="component-desc">Approved content routed to all target platforms automatically at playbook-defined optimal times.</div>
+      <ul>
+        <li>Instagram, Facebook, YouTube, LinkedIn, TikTok, Google Business Profile</li>
+        <li>Practice Concierge Digital Storefront (gallery auto-update)</li>
+        <li>Tagged library for paid media + BD sales enablement</li>
+        <li>Engagement data feedback into next-cycle scheduling optimization</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Architecture Decisions -->
+<section id="decisions">
+  <div class="section-label">Architecture Decisions</div>
+  <h2>Key Technical Decisions</h2>
+  <p class="section-desc">The architectural choices that define the Content Concierge — and why they were made this way.</p>
+  <div class="adr-list">
+    <div class="adr-card">
+      <div class="adr-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3>SMS First, App Second — Why Phase 1 is Intentionally Low-Tech</h3>
+        <span class="arrow">&#9660;</span>
+      </div>
+      <div class="adr-body">
+        <div class="adr-body-inner">
+          <strong>Decision:</strong> Phase 1 uses SMS/WhatsApp for capture interface — no mobile app, no login, no UI.<br><br>
+          <strong>Why:</strong> The core failure mode is behavior, not technology. Champions don't capture content because it requires effort. SMS removes all friction: receive the brief, take a photo, reply. Under 60 seconds. No app to remember to open, no login, no form. The behavior question must be answered before investing in a native app.<br><br>
+          <strong>Alternatives considered:</strong> Build the app first (Phase 2), which is the "obvious" move. Rejected because it delays the behavior test by 3+ months. If champions don't respond to SMS prompts, they won't open an app either. SMS proves the behavior at minimal cost.<br><br>
+          <strong>Phase 2 transition:</strong> Once Phase 1 demonstrates 50%+ participation, the app is justified. The app adds guided camera overlays, offline capture, and the scorecard — all of which build on an established behavior, not create it.
+        </div>
+      </div>
+    </div>
+    <div class="adr-card">
+      <div class="adr-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3>Sikka ONE API — Why One PMS Integration Covers 90% of the Network</h3>
+        <span class="arrow">&#9660;</span>
+      </div>
+      <div class="adr-body">
+        <div class="adr-body-inner">
+          <strong>Decision:</strong> Integrate with Sikka ONE API as the primary PMS data source.<br><br>
+          <strong>Why:</strong> Sikka ONE aggregates 400+ dental practice management systems (Dentrix, Eaglesoft, Open Dental, Curve, Carestream, and hundreds more) into a single API. One integration covers ~90% of SGA's practice PMS landscape without building 5+ individual connectors.<br><br>
+          <strong>Alternative:</strong> Build direct connectors to each PMS. Dentrix requires a Dentsply partner agreement (4–6 weeks), Eaglesoft requires Patterson agreement, Open Dental is open-source (fastest). Total: 6+ months of connector work. Sikka ONE: 1 integration.<br><br>
+          <strong>Trade-off:</strong> Sikka ONE charges per-connection fees. At 260+ practices, this cost is justified by eliminating 6 months of engineering time. Sikka also handles API version changes and new PMS releases — zero maintenance overhead.
+        </div>
+      </div>
+    </div>
+    <div class="adr-card">
+      <div class="adr-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3>Airtable for Phase 1 Review — Intentionally Not a Dashboard</h3>
+        <span class="arrow">&#9660;</span>
+      </div>
+      <div class="adr-body">
+        <div class="adr-body-inner">
+          <strong>Decision:</strong> Use Airtable Enterprise as the editorial review queue for Phase 1. Build the Next.js HQ dashboard in Phase 2.<br><br>
+          <strong>Why:</strong> Phase 1 has 2 human editors reviewing 30–50 captures/day across 10–15 practices. Airtable's Kanban view, built-in automations (Slack notification, webhook triggers), and filtering cover this use case without 4–6 weeks of dashboard development.<br><br>
+          <strong>Explicit trade-off:</strong> Airtable is Phase 1 ONLY. Editors are informed of this. The investment in Airtable configuration is intentionally minimal — no complex views or automations that will be thrown away. The $240/month Enterprise cost (required for HIPAA BAA) is trivially justified by the time saved.<br><br>
+          <strong>Phase 2:</strong> Next.js HQ dashboard replaces Airtable entirely. Review queue, batch approval, AI caption editing, network pipeline view, and analytics — all in-house.
+        </div>
+      </div>
+    </div>
+    <div class="adr-card">
+      <div class="adr-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3>Cloudinary + OpusClip vs. Custom Processing Pipeline</h3>
+        <span class="arrow">&#9660;</span>
+      </div>
+      <div class="adr-body">
+        <div class="adr-body-inner">
+          <strong>Decision:</strong> Use Cloudinary for photo processing and OpusClip API for video highlight detection in Phase 2. Custom models in Phase 4 only.<br><br>
+          <strong>Why (Cloudinary):</strong> Cloudinary's transformation pipeline handles multi-format resizing, brand overlay application, and color correction without a custom Lambda. AWS Rekognition provides smile-area landmark coordinates that we pass to Cloudinary's crop parameters. No custom photo processing code to maintain.<br><br>
+          <strong>Why (OpusClip):</strong> Building a custom highlight detection model requires labeled dental testimonial video data we don't yet have. At ~30 videos/day Phase 2 volume, OpusClip costs $90–180/month — trivial. Phase 4 builds the custom model when we have 10,000+ labeled dental videos and can outperform OpusClip on dental content specifically.<br><br>
+          <strong>Trade-off:</strong> Vendor dependency risk. Mitigated by modular architecture — replacing either service requires changing one service, not rewriting the pipeline.
+        </div>
+      </div>
+    </div>
+    <div class="adr-card">
+      <div class="adr-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3>Per-Practice Meta Business Accounts — The Hardest Distribution Problem</h3>
+        <span class="arrow">&#9660;</span>
+      </div>
+      <div class="adr-body">
+        <div class="adr-body-inner">
+          <strong>Decision:</strong> Each practice requires its own Meta Business Account + Instagram/Facebook authorization of the SGA Content Concierge app to enable distribution.<br><br>
+          <strong>The problem:</strong> Meta's Graph API requires explicit OAuth authorization per practice page. 260 practices × 2 platforms = 520 authorization flows. This is an onboarding problem as much as an engineering problem.<br><br>
+          <strong>Solution:</strong> Build a "Connect your Instagram" onboarding flow in the Phase 2 mobile app. During practice setup, the app walks the practice through Meta authorization in under 5 minutes. Tokens stored encrypted in RDS, refreshed automatically every 55 days.<br><br>
+          <strong>Priority:</strong> Register the SGA Content Concierge Meta Developer App and submit for advanced access (Pages API, Instagram Content Publishing API) immediately — approval takes 1–4 weeks and must happen before Phase 2 distribution goes live.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Roadmap -->
+<section id="roadmap">
+  <div class="section-label">Phased Delivery</div>
+  <h2>Four Phases to Full Network Coverage</h2>
+  <p class="section-desc">Starting with an SMS pilot in 6 weeks and scaling to AI-driven content production across 260+ practices by month 12.</p>
+  <div class="roadmap-grid">
+    <div class="roadmap-card">
+      <div class="phase-label">Phase 1 · Weeks 1–6</div>
+      <h3>The SMS Coach</h3>
+      <ul>
+        <li>Twilio SMS/WhatsApp capture bot</li>
+        <li>Sikka ONE nightly sync (10–15 practices)</li>
+        <li>S3 media storage + Airtable review queue</li>
+        <li>2 human editors, manual distribution</li>
+        <li>Admin dashboard (Next.js)</li>
+        <li>Daily brief + post-op follow-up scheduler</li>
+      </ul>
+      <div class="cost">$15K setup + $5K/month</div>
+    </div>
+    <div class="roadmap-card">
+      <div class="phase-label">Phase 2 · Months 2–4</div>
+      <h3>Mobile App + AI Pipeline</h3>
+      <ul>
+        <li>React Native app (iOS + Android)</li>
+        <li>AI photo + video processing pipeline</li>
+        <li>Claude API caption generation</li>
+        <li>Next.js HQ dashboard + review queue</li>
+        <li>Automated distribution (6 platform APIs)</li>
+        <li>Champion scorecard in-app</li>
+        <li>40–65 practices + SGA brand playbook</li>
+      </ul>
+      <div class="cost">$80K build + $12K/month</div>
+    </div>
+    <div class="roadmap-card">
+      <div class="phase-label">Phase 3 · Months 4–6</div>
+      <h3>Full Network + Hardware</h3>
+      <ul>
+        <li>Roll to all 260+ practices</li>
+        <li>Testimonial kiosks (top 20 practices)</li>
+        <li>Passive Insta360 cameras (top 10 implant)</li>
+        <li>AI auto-approval (>95% confidence types)</li>
+        <li>Advanced analytics + booking attribution</li>
+        <li>500+ tagged paid media asset library</li>
+      </ul>
+      <div class="cost">$88K build + $18K/month</div>
+    </div>
+    <div class="roadmap-card">
+      <div class="phase-label">Phase 4 · Months 6–12</div>
+      <h3>Content Intelligence</h3>
+      <ul>
+        <li>ML model: content types that drive bookings</li>
+        <li>Predictive prompt optimization per practice</li>
+        <li>Auto-adjusted posting schedules</li>
+        <li>Custom dental video highlight model</li>
+        <li>Self-service practice onboarding</li>
+        <li>Content → revenue attribution dashboard</li>
+      </ul>
+      <div class="cost">$30K build + $20K/month</div>
+    </div>
+  </div>
+</section>
+
+<!-- Tech Stack -->
+<section id="tech">
+  <div class="section-label">Tech Stack</div>
+  <h2>Phase 1 Technology</h2>
+  <p class="section-desc">Phase 1 is intentionally lean — SMS over infrastructure, Airtable over custom dashboards, human editors over AI pipelines. The stack grows with validation.</p>
+  <div class="tech-grid">
+    <div class="tech-item">
+      <div class="tech-icon">📱</div>
+      <div>
+        <h4>Twilio</h4>
+        <p>SMS + WhatsApp Business API for capture interface. HIPAA BAA available. Inbound webhook receives MMS media for S3 upload.</p>
+      </div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">🦷</div>
+      <div>
+        <h4>Sikka ONE API</h4>
+        <p>400+ dental PMS systems via single integration. Nightly appointment sync drives the Prompt Engine. Eliminates 6+ individual PMS connectors.</p>
+      </div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">🗄️</div>
+      <div>
+        <h4>PostgreSQL (AWS RDS)</h4>
+        <p>Practices, champions, assignments, captures, consents. Relational integrity for HIPAA consent chain. AES-256 encryption at rest.</p>
+      </div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">☁️</div>
+      <div>
+        <h4>AWS S3</h4>
+        <p>Raw and processed media storage. 7-year HIPAA retention, SSE-KMS encryption, presigned URLs (no public media). CloudFront CDN for Phase 2.</p>
+      </div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">⚙️</div>
+      <div>
+        <h4>Node.js on AWS ECS</h4>
+        <p>Scheduler Service (nightly sync, daily brief), Capture Service (Twilio webhooks), Admin Service (practice config CRUD). TypeScript monorepo via Turborepo.</p>
+      </div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">🎯</div>
+      <div>
+        <h4>Next.js 14 + Vercel</h4>
+        <p>Internal admin dashboard. Practice configuration, champion management, capture monitoring. Google OAuth via NextAuth.js. Server Components for fast load.</p>
+      </div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">📋</div>
+      <div>
+        <h4>Airtable Enterprise</h4>
+        <p>Phase 1 editorial review queue. Kanban workflow, built-in Slack automation, webhook to champion rejection SMS. HIPAA BAA on Enterprise tier.</p>
+      </div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">🤖</div>
+      <div>
+        <h4>Claude API + Whisper (Phase 2)</h4>
+        <p>Caption, hashtag, and description generation per platform. Whisper transcribes video for auto-captioning and blog excerpts. Dental context prompt tuned per playbook.</p>
+      </div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">🎬</div>
+      <div>
+        <h4>Cloudinary + OpusClip (Phase 2)</h4>
+        <p>Cloudinary: multi-format photo processing, brand overlay, smile-area smart crop. OpusClip: video highlight detection, 15s/30s/60s clip generation from testimonials.</p>
+      </div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon">📡</div>
+      <div>
+        <h4>Platform APIs (Phase 2)</h4>
+        <p>Meta Graph API (Instagram + Facebook), YouTube Data API v3, LinkedIn Marketing API, TikTok Content Posting API, Google Business Profile API.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sprint Process -->
+<section id="sprint-process">
+  <div class="section-label">How This Was Built</div>
+  <h2>The Sprint Process</h2>
+  <p class="section-desc">The Content Concierge was designed using a structured 5-day sprint methodology — from problem framing to architecture, all in one week.</p>
+  <div class="sprint-grid">
+    <div class="sprint-phase">
+      <div class="day">Monday</div>
+      <h3>Frame</h3>
+      <p>Mapped the content pipeline. Found 5 break points. Set the sprint target: the capture gap at implant/cosmetic practices.</p>
+    </div>
+    <div class="sprint-phase">
+      <div class="day">Tuesday</div>
+      <h3>Sketch</h3>
+      <p>5 solution approaches — from content agency to AI-only to hardware-first. Research on SMS behavior, OpusClip, Sikka ONE.</p>
+    </div>
+    <div class="sprint-phase">
+      <div class="day">Wednesday</div>
+      <h3>Decide</h3>
+      <p>Selected the Hybrid Phased approach: test behavior with SMS before investing in the full platform. Built detailed storyboard.</p>
+    </div>
+    <div class="sprint-phase">
+      <div class="day">Thursday</div>
+      <h3>Architect</h3>
+      <p>Full system architecture: 5 components, data model, tech stack, 4-phase delivery plan, cost model. Interactive prototype built.</p>
+    </div>
+    <div class="sprint-phase">
+      <div class="day">Friday</div>
+      <h3>Validate</h3>
+      <p>Risk assessment, cost validation, integration feasibility, Phase 1 go/no-go criteria. Full development package produced.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p><strong>The Content Concierge</strong> — Practice Media Strategy Sprint</p>
+  <p class="sprint-info">SGA Dental Partners &middot; Sprint Date: March 10, 2026 &middot; <a href="index.html">← All Sprints</a></p>
+</footer>
+
+<script>
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const el = document.querySelector(a.getAttribute('href'));
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+
+</body>
+</html>
