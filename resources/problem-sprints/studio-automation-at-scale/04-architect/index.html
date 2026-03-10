@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SGA Studio Automation at Scale — Sprint</title>
+<style>
+  :root {
+    --navy: #1B3A5C;
+    --blue: #2563EB;
+    --blue-light: #DBEAFE;
+    --teal: #0D9488;
+    --teal-light: #CCFBF1;
+    --amber: #D97706;
+    --amber-light: #FEF3C7;
+    --red: #DC2626;
+    --red-light: #FEE2E2;
+    --gray-50: #F8FAFC;
+    --gray-100: #F1F5F9;
+    --gray-200: #E2E8F0;
+    --gray-400: #94A3B8;
+    --gray-600: #475569;
+    --gray-800: #1E293B;
+    --white: #FFFFFF;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--gray-50); color: var(--gray-800); line-height: 1.6; }
+
+  /* NAV */
+  nav { background: var(--navy); position: sticky; top: 0; z-index: 100; padding: 0 2rem; }
+  nav ul { display: flex; list-style: none; gap: 0; max-width: 1100px; margin: 0 auto; }
+  nav a { display: block; padding: 1rem 1.25rem; color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.02em; border-bottom: 2px solid transparent; transition: all 0.2s; }
+  nav a:hover { color: white; border-bottom-color: var(--teal); }
+
+  /* HERO */
+  .hero { background: linear-gradient(135deg, var(--navy) 0%, #0F2744 60%, #0D3D4F 100%); color: white; padding: 5rem 2rem 4rem; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 340px; gap: 4rem; align-items: center; }
+  .hero-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; }
+  .hero h1 { font-size: 2.75rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.25rem; }
+  .hero h1 span { color: #5EEAD4; }
+  .hero-sub { font-size: 1.15rem; color: rgba(255,255,255,0.75); margin-bottom: 2rem; line-height: 1.7; }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .stat { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 1.25rem; }
+  .stat-val { font-size: 2rem; font-weight: 800; color: #5EEAD4; }
+  .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 0.2rem; }
+  .before-after { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.75rem; }
+  .ba-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; }
+  .ba-row { display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.85rem; }
+  .ba-badge { flex-shrink: 0; font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px; letter-spacing: 0.05em; margin-top: 0.15rem; }
+  .ba-badge.before { background: rgba(220,38,38,0.25); color: #FCA5A5; }
+  .ba-badge.after { background: rgba(13,148,136,0.25); color: #5EEAD4; }
+  .ba-text { font-size: 0.85rem; color: rgba(255,255,255,0.8); }
+
+  /* SECTIONS */
+  section { padding: 4rem 2rem; }
+  section:nth-child(even) { background: white; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.5rem; }
+  .section-title { font-size: 1.75rem; font-weight: 800; color: var(--navy); margin-bottom: 0.75rem; }
+  .section-sub { font-size: 1rem; color: var(--gray-600); margin-bottom: 2.5rem; max-width: 680px; }
+
+  /* OVERVIEW CARDS */
+  .cards-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .card { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 12px; padding: 1.5rem; }
+  .card-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+  .card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+  .card p { font-size: 0.875rem; color: var(--gray-600); line-height: 1.6; }
+  .card.highlight { background: var(--blue-light); border-color: #93C5FD; }
+
+  /* ARCHITECTURE SVG */
+  .arch-wrap { background: white; border: 1px solid var(--gray-200); border-radius: 16px; padding: 2rem; overflow-x: auto; }
+  svg text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+
+  /* STORYBOARD */
+  .story-steps { display: flex; flex-direction: column; gap: 0; }
+  .step { display: grid; grid-template-columns: 56px 1fr; gap: 0; position: relative; }
+  .step-num-wrap { display: flex; flex-direction: column; align-items: center; }
+  .step-num { width: 40px; height: 40px; border-radius: 50%; background: var(--navy); color: white; font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-line { width: 2px; background: var(--gray-200); flex: 1; margin: 4px 0; min-height: 24px; }
+  .step:last-child .step-line { display: none; }
+  .step-content { background: white; border: 1px solid var(--gray-200); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; margin-left: 0.75rem; }
+  .step-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
+  .step-title { font-size: 1rem; font-weight: 700; color: var(--navy); }
+  .step-time { font-size: 0.75rem; color: var(--teal); font-weight: 600; background: var(--teal-light); padding: 0.2rem 0.6rem; border-radius: 20px; flex-shrink: 0; }
+  .step-scene { font-size: 0.8rem; color: var(--gray-400); margin-bottom: 0.5rem; font-style: italic; }
+  .step-body { font-size: 0.875rem; color: var(--gray-600); line-height: 1.65; }
+  .step-detail { margin-top: 0.75rem; background: var(--amber-light); border-left: 3px solid var(--amber); padding: 0.6rem 0.75rem; border-radius: 0 6px 6px 0; font-size: 0.8rem; color: var(--gray-800); }
+  .actors { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
+  .actor { font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 4px; }
+  .actor.pm { background: var(--blue-light); color: #1D4ED8; }
+  .actor.agent { background: var(--teal-light); color: #0F766E; }
+  .actor.cd { background: var(--amber-light); color: #92400E; }
+  .actor.vendor { background: #F3E8FF; color: #7E22CE; }
+  .actor.system { background: var(--gray-100); color: var(--gray-600); }
+
+  /* COMPONENTS */
+  .components-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .comp { background: white; border: 1px solid var(--gray-200); border-radius: 12px; padding: 1.5rem; }
+  .comp-num { font-size: 0.7rem; font-weight: 700; color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .comp h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; }
+  .comp p { font-size: 0.85rem; color: var(--gray-600); margin-bottom: 0.75rem; line-height: 1.6; }
+  .comp-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tag { font-size: 0.7rem; background: var(--gray-100); color: var(--gray-600); padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: 500; }
+  .tag.tech { background: var(--blue-light); color: #1D4ED8; }
+
+  /* ADR */
+  .adrs { display: flex; flex-direction: column; gap: 1rem; }
+  .adr { border: 1px solid var(--gray-200); border-radius: 10px; overflow: hidden; }
+  .adr-header { background: var(--gray-100); padding: 0.75rem 1.25rem; display: flex; justify-content: space-between; align-items: center; }
+  .adr-id { font-size: 0.7rem; font-weight: 700; color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase; }
+  .adr-title { font-size: 0.95rem; font-weight: 700; color: var(--navy); }
+  .adr-body { padding: 1rem 1.25rem; font-size: 0.85rem; color: var(--gray-600); line-height: 1.65; }
+
+  /* SPRINT SUMMARY */
+  .summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .sq-card { border-radius: 10px; padding: 1.25rem; border: 1px solid; }
+  .sq-card.green { background: var(--teal-light); border-color: #99F6E4; }
+  .sq-card.blue { background: var(--blue-light); border-color: #93C5FD; }
+  .sq-card.amber { background: var(--amber-light); border-color: #FCD34D; }
+  .sq-num { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .sq-card.green .sq-num { color: var(--teal); }
+  .sq-card.blue .sq-num { color: #1D4ED8; }
+  .sq-card.amber .sq-num { color: var(--amber); }
+  .sq-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+  .sq-card p { font-size: 0.8rem; color: var(--gray-600); line-height: 1.55; }
+
+  /* PILOT */
+  .pilot-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  .pilot-table th { background: var(--navy); color: white; padding: 0.75rem 1rem; text-align: left; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; }
+  .pilot-table td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--gray-200); color: var(--gray-600); }
+  .pilot-table tr:last-child td { border-bottom: none; }
+  .pilot-table tr:hover td { background: var(--gray-50); }
+  .status-pill { font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 20px; display: inline-block; }
+  .status-pill.phase1 { background: var(--teal-light); color: #0F766E; }
+  .status-pill.phase2 { background: var(--amber-light); color: #92400E; }
+
+  /* FOOTER */
+  footer { background: var(--navy); color: rgba(255,255,255,0.5); padding: 2rem; text-align: center; font-size: 0.8rem; }
+  footer strong { color: rgba(255,255,255,0.8); }
+
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .before-after { display: none; }
+    .cards-3, .components-grid, .summary-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.9rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#storyboard">Storyboard</a></li>
+    <li><a href="#components">Components</a></li>
+    <li><a href="#decisions">Decisions</a></li>
+    <li><a href="#pilot">Pilot Plan</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="overview">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-label">SGA Dental Partners · Design Sprint</div>
+      <h1>Studio Automation <span>at Scale</span></h1>
+      <p class="hero-sub">160+ locations. One two-person studio. An AI-powered conversational agent that handles creative intake, challenges the medium, generates on-brand assets, and routes to fulfillment — without a single email to a designer for templated work.</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-val">52 min</div>
+          <div class="stat-label">Average turnaround (vs. 4.2 days today)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">~80%</div>
+          <div class="stat-label">Templated requests fulfilled with zero designer involvement</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">34%</div>
+          <div class="stat-label">Target reduction in print volume vs. baseline</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">160+</div>
+          <div class="stat-label">Locations served by a studio team of 2</div>
+        </div>
+      </div>
+    </div>
+    <div class="before-after">
+      <div class="ba-title">Before → After</div>
+      <div class="ba-row">
+        <div class="ba-badge before">BEFORE</div>
+        <div class="ba-text">Practice manager texts designer. Designer guesses at the brief. Assets don't exist. 4 days pass.</div>
+      </div>
+      <div class="ba-row">
+        <div class="ba-badge after">AFTER</div>
+        <div class="ba-text">Practice manager emails studio@sgadental.com. Agent responds in seconds. Asks 3 questions. Generates 3 assets. CD taps approve. Done in 52 minutes.</div>
+      </div>
+      <div class="ba-row">
+        <div class="ba-badge before">BEFORE</div>
+        <div class="ba-text">Flyer ordered through Staples. Wrong size. Arrives after the promotion ended.</div>
+      </div>
+      <div class="ba-row">
+        <div class="ba-badge after">AFTER</div>
+        <div class="ba-text">Agent submits print-ready file to nominated vendor API. Correct specs. Ships to practice. Studio never touches the order.</div>
+      </div>
+      <div class="ba-row">
+        <div class="ba-badge before">BEFORE</div>
+        <div class="ba-text">Practice prints flyers for every promotion because that's all they know how to do.</div>
+      </div>
+      <div class="ba-row">
+        <div class="ba-badge after">AFTER</div>
+        <div class="ba-text">Agent surfaces patient email + TV slide alternative in the first reply. Practice chooses digital. No print needed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE DIAGRAM -->
+<section id="architecture">
+  <div class="section-inner">
+    <div class="section-label">Thursday · Architecture</div>
+    <div class="section-title">System Architecture</div>
+    <div class="section-sub">The Studio Agent sits between three intake channels and the existing production infrastructure — Canva, print vendors, and digital channels — routing requests without designer involvement for templated work.</div>
+
+    <div class="arch-wrap">
+      <svg viewBox="0 0 960 540" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background -->
+        <rect width="960" height="540" fill="#F8FAFC"/>
+
+        <!-- INTAKE ZONE -->
+        <rect x="20" y="20" width="920" height="110" rx="10" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1.5"/>
+        <text x="40" y="48" font-size="10" font-weight="700" fill="#1D4ED8" letter-spacing="1">INTAKE CHANNELS</text>
+
+        <!-- Teams -->
+        <rect x="80" y="58" width="160" height="56" rx="8" fill="white" stroke="#93C5FD" stroke-width="1.5"/>
+        <text x="160" y="84" font-size="11" font-weight="600" fill="#1B3A5C" text-anchor="middle">💬 Teams Bot</text>
+        <text x="160" y="100" font-size="9" fill="#64748B" text-anchor="middle">@StudioAgent mention / DM</text>
+
+        <!-- Slack -->
+        <rect x="400" y="58" width="160" height="56" rx="8" fill="white" stroke="#93C5FD" stroke-width="1.5"/>
+        <text x="480" y="84" font-size="11" font-weight="600" fill="#1B3A5C" text-anchor="middle">💬 Slack Bot</text>
+        <text x="480" y="100" font-size="9" fill="#64748B" text-anchor="middle">DM or channel mention</text>
+
+        <!-- Email -->
+        <rect x="720" y="58" width="180" height="56" rx="8" fill="white" stroke="#93C5FD" stroke-width="1.5"/>
+        <text x="810" y="80" font-size="11" font-weight="600" fill="#1B3A5C" text-anchor="middle">✉️ Email Inbox</text>
+        <text x="810" y="96" font-size="9" fill="#0D9488" text-anchor="middle" font-weight="600">studio@sgadental.com</text>
+        <text x="810" y="108" font-size="8" fill="#64748B" text-anchor="middle">Universal channel — all 160 locations</text>
+
+        <!-- Arrows down to agent core -->
+        <line x1="160" y1="114" x2="160" y2="158" stroke="#93C5FD" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="480" y1="114" x2="480" y2="158" stroke="#93C5FD" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="810" y1="114" x2="810" y2="158" stroke="#93C5FD" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="160" y1="158" x2="480" y2="190" stroke="#93C5FD" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="480" y1="158" x2="480" y2="190" stroke="#93C5FD" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="810" y1="158" x2="480" y2="190" stroke="#93C5FD" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+        <!-- AGENT CORE -->
+        <rect x="240" y="190" width="480" height="90" rx="10" fill="#1B3A5C" stroke="#0F2744" stroke-width="2"/>
+        <text x="480" y="218" font-size="12" font-weight="700" fill="white" text-anchor="middle">🤖 Studio Agent Core</text>
+        <text x="480" y="234" font-size="9" fill="#94A3B8" text-anchor="middle">(Claude API — claude-sonnet-4-6)</text>
+        <text x="320" y="256" font-size="9" fill="#5EEAD4" text-anchor="middle">Intent Classification</text>
+        <text x="480" y="256" font-size="9" fill="#5EEAD4" text-anchor="middle">Medium Challenge</text>
+        <text x="640" y="256" font-size="9" fill="#5EEAD4" text-anchor="middle">Brief Assembly + Routing</text>
+        <text x="320" y="270" font-size="8" fill="#64748B" text-anchor="middle">Conversational Intake (max 3 Qs)</text>
+        <text x="640" y="270" font-size="8" fill="#64748B" text-anchor="middle">Auto → Design Engine / Escalate → Human</text>
+
+        <!-- Arrows from agent core -->
+        <!-- Down-left to Practice Profile -->
+        <line x1="340" y1="280" x2="180" y2="330" stroke="#0D9488" stroke-width="1.5"/>
+        <polygon points="175,327 185,326 180,335" fill="#0D9488"/>
+        <!-- Down-center to Design Engine -->
+        <line x1="480" y1="280" x2="480" y2="330" stroke="#0D9488" stroke-width="1.5"/>
+        <polygon points="475,327 485,327 480,336" fill="#0D9488"/>
+        <!-- Down-right to Human Queue -->
+        <line x1="620" y1="280" x2="780" y2="330" stroke="#0D9488" stroke-width="1.5"/>
+        <polygon points="775,327 785,326 780,336" fill="#0D9488"/>
+
+        <!-- PRACTICE PROFILE / DAM -->
+        <rect x="60" y="330" width="220" height="70" rx="8" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.5"/>
+        <text x="170" y="354" font-size="10" font-weight="700" fill="#166534" text-anchor="middle">Practice Profile + DAM</text>
+        <text x="170" y="368" font-size="8" fill="#64748B" text-anchor="middle">Canva Enterprise Brand Kits</text>
+        <text x="170" y="380" font-size="8" fill="#64748B" text-anchor="middle">Logo · Colors · Fonts · Photos</text>
+        <text x="170" y="392" font-size="8" fill="#64748B" text-anchor="middle">Brand Health Score per practice</text>
+
+        <!-- DESIGN ENGINE -->
+        <rect x="350" y="330" width="260" height="70" rx="8" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.5"/>
+        <text x="480" y="354" font-size="10" font-weight="700" fill="#1D4ED8" text-anchor="middle">Design Generation Engine</text>
+        <text x="480" y="368" font-size="8" fill="#64748B" text-anchor="middle">Canva API · 12 Locked Templates</text>
+        <text x="480" y="380" font-size="8" fill="#64748B" text-anchor="middle">Brand kit + variable population</text>
+        <text x="480" y="392" font-size="8" fill="#64748B" text-anchor="middle">Preview → Approval → Export</text>
+
+        <!-- HUMAN QUEUE -->
+        <rect x="680" y="330" width="200" height="70" rx="8" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1.5"/>
+        <text x="780" y="354" font-size="10" font-weight="700" fill="#92400E" text-anchor="middle">Human Designer Queue</text>
+        <text x="780" y="368" font-size="8" fill="#64748B" text-anchor="middle">Custom / edge-case requests</text>
+        <text x="780" y="380" font-size="8" fill="#64748B" text-anchor="middle">Event signage · New service launch</text>
+        <text x="780" y="392" font-size="8" fill="#64748B" text-anchor="middle">1-business-day SLA</text>
+
+        <!-- Arrow from Design Engine down to Approval -->
+        <line x1="480" y1="400" x2="480" y2="430" stroke="#2563EB" stroke-width="1.5"/>
+        <polygon points="475,427 485,427 480,436" fill="#2563EB"/>
+
+        <!-- APPROVAL -->
+        <rect x="350" y="430" width="260" height="60" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1.5"/>
+        <text x="480" y="452" font-size="10" font-weight="700" fill="#1B3A5C" text-anchor="middle">Approval Workflow</text>
+        <text x="480" y="466" font-size="8" fill="#64748B" text-anchor="middle">Practice preview → Revision (text only)</text>
+        <text x="480" y="478" font-size="8" fill="#0D9488" text-anchor="middle" font-weight="600">CD mobile tap-to-approve (60 sec)</text>
+
+        <!-- Arrow from Approval to Digital -->
+        <line x1="420" y1="490" x2="220" y2="510" stroke="#0D9488" stroke-width="1.5"/>
+        <polygon points="215,507 225,506 220,515" fill="#0D9488"/>
+        <!-- Arrow from Approval to Print -->
+        <line x1="540" y1="490" x2="740" y2="510" stroke="#7C3AED" stroke-width="1.5"/>
+        <polygon points="735,507 745,506 740,515" fill="#7C3AED"/>
+
+        <!-- DIGITAL DEPLOY -->
+        <rect x="60" y="508" width="220" height="24" rx="6" fill="#CCFBF1" stroke="#5EEAD4" stroke-width="1"/>
+        <text x="170" y="524" font-size="9" font-weight="600" fill="#0F766E" text-anchor="middle">📧 Patient Email · 📺 TV Slide · 📱 Social</text>
+
+        <!-- PRINT VENDOR -->
+        <rect x="680" y="508" width="220" height="24" rx="6" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="1"/>
+        <text x="790" y="524" font-size="9" font-weight="600" fill="#6D28D9" text-anchor="middle">🖨️ Gelato API → Ships to Practice</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- STORYBOARD -->
+<section id="storyboard">
+  <div class="section-inner">
+    <div class="section-label">Wednesday · Storyboard</div>
+    <div class="section-title">User Journey — Ashley at Towne Lake Dental</div>
+    <div class="section-sub">A Gen4 practice office manager runs a teeth whitening special in April. This is the full journey from first email to digital assets live — 52 minutes, 0 minutes of designer time.</div>
+
+    <div class="story-steps">
+
+      <div class="step">
+        <div class="step-num-wrap">
+          <div class="step-num">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-header">
+            <div class="step-title">Ashley Emails the Studio</div>
+            <div class="step-time">T+0 min</div>
+          </div>
+          <div class="step-scene">Front desk, between patients. Ashley opens email.</div>
+          <div class="step-body">Ashley sends a plain-language email to <strong>studio@sgadental.com</strong>: "We're running a teeth whitening special in April, $299 for Zoom whitening. Can you make us some materials?" The agent reads the email within seconds. It identifies: a promotional request, Zoom whitening service, $299 offer. It checks Towne Lake Dental's brand kit: ✅ complete — logo, colors, fonts, 6 approved photos.</div>
+          <div class="step-detail">⚡ Critical: The medium challenge fires in the first reply — before the practice commits to a format. This is where 30%+ of print requests get redirected to digital.</div>
+          <div class="actors"><span class="actor pm">Practice Manager</span><span class="actor agent">Studio Agent</span></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num-wrap">
+          <div class="step-num">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-header">
+            <div class="step-title">Agent Challenges the Medium + Gathers the Brief</div>
+            <div class="step-time">T+2 min</div>
+          </div>
+          <div class="step-scene">Agent reply arrives in Ashley's inbox 15 seconds after her email.</div>
+          <div class="step-body">Agent replies with 3 clarifying questions plus the medium challenge: "Before I put together a flyer, want to see a patient email + TV slide? Same reach, no printing cost, ready today." Ashley replies: existing patients + new, deadline March 28, no specific doctor, yes to digital first — and yes to print too. Brief is complete. No further questions needed.</div>
+          <div class="step-detail">⚡ Critical: Maximum 3 questions. The brief is complete after one exchange. The practice manager isn't doing design work — they're answering operational questions.</div>
+          <div class="actors"><span class="actor pm">Practice Manager</span><span class="actor agent">Studio Agent</span></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num-wrap">
+          <div class="step-num">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-header">
+            <div class="step-title">Canva Generates 3 Assets</div>
+            <div class="step-time">T+5 min</div>
+          </div>
+          <div class="step-scene">Behind the scenes. Agent calls Canva API.</div>
+          <div class="step-body">Agent triggers three parallel generation jobs in Canva with practice brand kit + template IDs + brief variables (offer text, CTA, dates, photo). Canva generates preview images in ~45 seconds. Brand elements are locked — logo placement, color, font stack. Only the offer content is variable. Three formats: patient email header (600px), TV slide (1920×1080), desk flyer (4×6 print).</div>
+          <div class="step-detail">⚡ Critical: Brand guardrails are invisible to Ashley. The locked template system means the CD's review is a quality check, not a redesign session.</div>
+          <div class="actors"><span class="actor agent">Studio Agent</span><span class="actor system">Canva API</span></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num-wrap">
+          <div class="step-num">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-header">
+            <div class="step-title">Practice Reviews + One Text Change</div>
+            <div class="step-time">T+15 min</div>
+          </div>
+          <div class="step-scene">Ashley opens previews on her phone at lunch.</div>
+          <div class="step-body">Agent emails three preview thumbnails. Ashley loves the email header and TV slide. Wants one change on the flyer: CTA from "Call to book" → "Ask us today!" She replies with the change. Agent updates the variable in Canva and sends the revised flyer preview in under 2 minutes. Ashley replies: "Perfect, go ahead."</div>
+          <div class="step-detail">⚡ Critical: Text changes are variable swaps — seconds, not hours. Layout changes escalate to the human designer queue. Practice managers learn this quickly.</div>
+          <div class="actors"><span class="actor pm">Practice Manager</span><span class="actor agent">Studio Agent</span></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num-wrap">
+          <div class="step-num">5</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-header">
+            <div class="step-title">Creative Director Taps Approve in 58 Seconds</div>
+            <div class="step-time">T+35 min</div>
+          </div>
+          <div class="step-scene">CD Marcus gets a push notification on his phone.</div>
+          <div class="step-body">Notification: "Towne Lake Dental · 3 assets for review · Whitening Special April." Three thumbnails. He scans them. All on-brand. Taps "Approve All." Timestamp recorded. All three assets move to deployment.</div>
+          <div class="step-detail">⚡ Critical: Marcus's role is a judgment call on a finished output. This week, his total review time across all pilot practices was 19 minutes. Previously, his review was tangled with production.</div>
+          <div class="actors"><span class="actor cd">Creative Director</span></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num-wrap">
+          <div class="step-num">6</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-header">
+            <div class="step-title">Digital Assets Go Live</div>
+            <div class="step-time">T+45 min</div>
+          </div>
+          <div class="step-scene">45 minutes after Ashley sent her first email.</div>
+          <div class="step-body">On approval: patient email packaged and scheduled for April 1 send to Ashley's active patient list via Weave. TV slide uploaded to Towne Lake Dental's display queue — goes into rotation immediately. Agent emails Ashley: "TV slide is live in your waiting room now. Patient email scheduled April 1. Here's your flyer for print → [Order 50 copies] or [Download PDF]."</div>
+          <div class="step-detail">⚡ Critical: The TV slide going live today — same day as the request — is the moment Ashley realizes this is different from anything she's done before.</div>
+          <div class="actors"><span class="actor agent">Studio Agent</span><span class="actor system">Weave API</span><span class="actor system">Display System</span></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num-wrap">
+          <div class="step-num">7</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-header">
+            <div class="step-title">Print Order Auto-Submitted to Nominated Vendor</div>
+            <div class="step-time">T+47 min</div>
+          </div>
+          <div class="step-scene">Ashley clicks "Order 50 copies." One button.</div>
+          <div class="step-body">Agent submits the print-ready PDF to Gelato API: 4×6 in, full bleed, CMYK, 100lb gloss, quantity 50, ship to Towne Lake Dental. Gelato returns order confirmation + estimated delivery date. Agent forwards to Ashley. Studio never sees the order. No Staples. No wrong-size disaster.</div>
+          <div class="step-detail">⚡ Critical: Ashley doesn't know who the vendor is, what file format to use, or what size to specify. She clicked one button. This is what vendor consolidation looks like.</div>
+          <div class="actors"><span class="actor agent">Studio Agent</span><span class="actor vendor">Gelato API</span><span class="actor pm">Practice Manager</span></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num-wrap">
+          <div class="step-num">8</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-header">
+            <div class="step-title">Studio Reviews Weekly Analytics</div>
+            <div class="step-time">End of week</div>
+          </div>
+          <div class="step-scene">SGA Studio dashboard. The studio's role has shifted.</div>
+          <div class="step-body">Dashboard shows 23 requests this week: 8 Teams, 6 Slack, 9 email. 19 fulfilled automatically. 4 escalated to human designer (event signage, new service launch, photography request). Medium split: 71% digital-only, 22% digital + print, 7% print-only. Print volume down 34% vs. prior month baseline. 6 practices inactive 90+ days — studio admin queues a proactive outreach: "Do you need anything for April?"</div>
+          <div class="step-detail">⚡ Critical: The designer spent this week on 4 custom jobs that require actual design talent. The agent handled everything else. The studio is producing more while consuming less designer time.</div>
+          <div class="actors"><span class="actor cd">Creative Director</span><span class="actor system">Studio Dashboard</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPONENTS -->
+<section id="components">
+  <div class="section-inner">
+    <div class="section-label">Thursday · Architecture</div>
+    <div class="section-title">System Components</div>
+    <div class="section-sub">Eight components, each with a clear responsibility and defined interface. Together they form the complete Studio Automation system.</div>
+
+    <div class="components-grid">
+      <div class="comp">
+        <div class="comp-num">Component 1</div>
+        <h3>Intake Channel Adapters</h3>
+        <p>Normalize inbound messages from Teams, Slack, and email into a standard request object. Practice identified by sender email. Attachments (logos, photos) auto-upload to the practice's Canva brand kit.</p>
+        <div class="comp-tags">
+          <span class="tag tech">Bot Framework SDK</span>
+          <span class="tag tech">Slack Bolt SDK</span>
+          <span class="tag tech">M365 Email API</span>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-num">Component 2</div>
+        <h3>Studio Agent Core</h3>
+        <p>The intelligence layer. Understands intent, runs conversational intake (max 3 questions), fires the medium challenge, assembles the brief, and routes to automated generation or human designer queue.</p>
+        <div class="comp-tags">
+          <span class="tag tech">Claude API</span>
+          <span class="tag">Intent Classification</span>
+          <span class="tag">Medium Challenge Logic</span>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-num">Component 3</div>
+        <h3>Practice Profile + DAM</h3>
+        <p>Per-practice brand kits in Canva Enterprise: logo, colors, fonts, approved photography. Brand health score (0-100) flags practices below 40 for asset lift before automation can serve them.</p>
+        <div class="comp-tags">
+          <span class="tag tech">Canva Enterprise</span>
+          <span class="tag">Brand Health Score</span>
+          <span class="tag">160 Brand Kits</span>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-num">Component 4</div>
+        <h3>Design Generation Engine</h3>
+        <p>12 brand-locked templates covering ~85% of request volume. Canva API populates variable fields (offer text, CTA, dates, photo) from the brief. Preview images generated in ~45 seconds.</p>
+        <div class="comp-tags">
+          <span class="tag tech">Canva API</span>
+          <span class="tag">12 Templates</span>
+          <span class="tag">Variable Population</span>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-num">Component 5</div>
+        <h3>Approval Workflow</h3>
+        <p>Practice preview via original channel. Text-only revision in &lt;2 minutes. CD mobile push notification with one-tap approve/reject. Practice confirms content before CD reviews brand quality — not after.</p>
+        <div class="comp-tags">
+          <span class="tag">60-sec CD Review</span>
+          <span class="tag">Mobile Push</span>
+          <span class="tag">2-Hour SLA</span>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-num">Component 6</div>
+        <h3>Digital Deployment</h3>
+        <p>Routes approved digital assets to patient communication platform (Weave), in-office display system (TV slides), and social scheduling tool. Phase 1: email + TV slide. Social and full TV automation in Phase 2.</p>
+        <div class="comp-tags">
+          <span class="tag tech">Weave API</span>
+          <span class="tag">TV Display Queue</span>
+          <span class="tag">Social Scheduler</span>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-num">Component 7</div>
+        <h3>Print Fulfillment</h3>
+        <p>Nominated vendor API (Gelato) receives approved print-ready files with pre-configured specs. One-click order for practice managers. Studio never touches individual print orders. Tracking goes directly to the practice.</p>
+        <div class="comp-tags">
+          <span class="tag tech">Gelato API</span>
+          <span class="tag">Auto-Spec</span>
+          <span class="tag">Direct-to-Practice</span>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-num">Component 8</div>
+        <h3>Studio Analytics Dashboard</h3>
+        <p>Request volume by channel, medium split trend, turnaround tracking, brand kit health per practice, CD review time, and 90-day inactive practice flag for proactive outreach. Studio's visibility layer.</p>
+        <div class="comp-tags">
+          <span class="tag tech">Posthog / Metabase</span>
+          <span class="tag">Medium Trend</span>
+          <span class="tag">Proactive Outreach</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DECISIONS -->
+<section id="decisions">
+  <div class="section-inner">
+    <div class="section-label">Thursday · Architecture</div>
+    <div class="section-title">Architectural Decision Records</div>
+    <div class="section-sub">Seven decisions that shaped the architecture — with the reasoning that makes them defensible.</div>
+
+    <div class="adrs">
+      <div class="adr">
+        <div class="adr-header">
+          <div class="adr-id">ADR 1</div>
+          <div class="adr-title">Email as the third intake channel (studio@sgadental.com)</div>
+        </div>
+        <div class="adr-body">Teams and Slack reach Gen4 practices well — but legacy SGA and MODIS practices may not be on those platforms. Email is the universal access layer. Every practice manager has it, regardless of which collaboration tool the practice uses. It also creates a searchable audit trail of every request without additional infrastructure. A dedicated studio email address is also legible to practice managers as a "real thing" — more so than a bot mention in a channel they don't regularly use.</div>
+      </div>
+      <div class="adr">
+        <div class="adr-header">
+          <div class="adr-id">ADR 2</div>
+          <div class="adr-title">Claude API for the agent core, not a decision-tree chatbot</div>
+        </div>
+        <div class="adr-body">A decision-tree chatbot would handle "I need a business card" correctly. It breaks on "We're doing a Lunch & Learn at the perio office next week and need some collateral." The dental practice context is complex — the agent needs to understand what a liner special is, what a PRD does, why a doctor referral card is different from a patient-facing flyer. Claude's language understanding handles the edge cases that would require hundreds of decision tree branches to cover manually. The medium-challenge logic is also a nuanced conversation, not a binary yes/no — it requires understanding the practice's specific situation.</div>
+      </div>
+      <div class="adr">
+        <div class="adr-header">
+          <div class="adr-id">ADR 3</div>
+          <div class="adr-title">Canva Enterprise as both DAM and design tool (not separate systems)</div>
+        </div>
+        <div class="adr-body">Using a dedicated DAM (Brandfolder, Bynder) plus a separate design tool (Adobe Creative Cloud, Figma) adds a file-transfer step, two vendor relationships, two pricing models, and a more complex API integration. Canva Enterprise handles both functions with a single API. The Brand Kit feature provides per-practice asset storage with brand locking. The Connect API allows programmatic template variable population and export. The trade-off is that Canva's DAM capabilities are less sophisticated than dedicated DAM tools — but for 160 practices with relatively simple asset sets (logo, colors, photos), Canva's capabilities are sufficient.</div>
+      </div>
+      <div class="adr">
+        <div class="adr-header">
+          <div class="adr-id">ADR 4</div>
+          <div class="adr-title">Template library starts at 12 — studio-admin expandable, not engineering-gated</div>
+        </div>
+        <div class="adr-body">12 templates covering business cards, appointment reminders, flyers, TV slides, social posts, referral cards, review cards, and welcome packets handle approximately 85% of request volume based on the expert conversation. The critical design decision: adding a new template is a studio designer task in Canva — not an engineering sprint. This removes the bottleneck that would otherwise slow template expansion. The studio team can identify gaps from analytics (what's being escalated to human designers?) and add templates without a software release cycle.</div>
+      </div>
+      <div class="adr">
+        <div class="adr-header">
+          <div class="adr-id">ADR 5</div>
+          <div class="adr-title">Practice preview before CD review (not after)</div>
+        </div>
+        <div class="adr-body">The standard workflow in most agencies is: design → client review → revisions → internal sign-off. We reversed the middle two steps. If the CD approves an asset and then the practice requests a content change, the CD must re-review the revised version. By having the practice confirm content accuracy first, the CD's review is exclusively a brand quality judgment on a finalized asset. This reduces the probability of a post-CD change request from approximately 30% to under 5%, and keeps the CD's cognitive load focused on brand — not proofreading offer text.</div>
+      </div>
+      <div class="adr">
+        <div class="adr-header">
+          <div class="adr-id">ADR 6</div>
+          <div class="adr-title">Digital deployment integrations are phased — TV slide manual in Phase 1</div>
+        </div>
+        <div class="adr-body">The variety of in-office display systems across 160 practices (Apple TV + a management app, dental-specific display software, simple HDMI sticks) makes a single-API TV integration impossible in Phase 1. Rather than block the launch, Phase 1 treats TV slides as a file delivery — the agent sends the asset, the practice manager uploads it. Phase 2 maps the most common display systems in the Gen4 network and builds the integration for those. The patient email integration (Weave) is simpler and goes live in Phase 1. This approach ships value in Phase 1 without waiting for perfect automation.</div>
+      </div>
+      <div class="adr">
+        <div class="adr-header">
+          <div class="adr-id">ADR 7</div>
+          <div class="adr-title">Nominated vendor enforced through workflow — not policy</div>
+        </div>
+        <div class="adr-body">Policy-based vendor consolidation ("you should use this vendor") fails because practice managers under time pressure will use whatever is fastest — Staples, a local print shop, the office color printer. Workflow-based enforcement works because the only "Order Print" button in the system routes to Gelato. Practices can download the print-ready PDF and use any vendor they want — but they get no studio support for that path, no correct file specs, and no tracking. The nominated vendor path is so much easier that practices choose it without being told to. Practices that insist on local vendors opt themselves out of the workflow, which is acceptable.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILOT PLAN -->
+<section id="pilot">
+  <div class="section-inner">
+    <div class="section-label">Sprint Output</div>
+    <div class="section-title">Phase 1 Pilot Plan — Gen4, 15 Practices</div>
+    <div class="section-sub">Start where the brand kits are cleanest. Prove the model at Gen4 before extending to legacy SGA and MODIS. 10-14 weeks to pilot launch, 8-week measurement period.</div>
+
+    <table class="pilot-table">
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>Phase 1 State</th>
+          <th>Phase 2 Extension</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Intake channels</strong></td>
+          <td>Email (studio@sgadental.com) + Teams</td>
+          <td>Slack + SMS (optional)</td>
+        </tr>
+        <tr>
+          <td><strong>Template library</strong></td>
+          <td>8 templates: business card, appt reminder, 4×6 flyer, 8.5×11 flyer, email header, TV slide, review card, referral card</td>
+          <td>Add 4 more based on escalation analytics; studio admin adds without engineering</td>
+        </tr>
+        <tr>
+          <td><strong>Practice coverage</strong></td>
+          <td>15 Gen4 pilot practices (brand kits already complete)</td>
+          <td>All 160 practices — after brand kit backfill for legacy SGA/MODIS</td>
+        </tr>
+        <tr>
+          <td><strong>DAM</strong></td>
+          <td>Canva Enterprise brand kits for 15 pilot practices</td>
+          <td>Brand kit backfill project for remaining 145 practices (priority: brand health score &lt;40 first)</td>
+        </tr>
+        <tr>
+          <td><strong>Digital deployment</strong></td>
+          <td>Patient email via Weave; TV slide: asset delivered, manual upload by practice</td>
+          <td>TV slide auto-deployment for top 3 display systems in network; social scheduler integration</td>
+        </tr>
+        <tr>
+          <td><strong>Print vendor</strong></td>
+          <td>Gelato API for all print formats</td>
+          <td>MOO for premium business cards (optional tier)</td>
+        </tr>
+        <tr>
+          <td><strong>CD review</strong></td>
+          <td>Teams push notification with thumbnail preview + tap-to-approve</td>
+          <td>Tiered review: auto-approve standard templates with no edits from known-good practices</td>
+        </tr>
+        <tr>
+          <td><strong>Analytics</strong></td>
+          <td>Request volume, turnaround, medium split, CD review time</td>
+          <td>Full brand kit health scoring, 90-day inactive flagging, proactive content calendar triggers</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: 2rem;">
+      <h3 style="font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 1rem;">Phase 1 Success Criteria (8-week measurement)</h3>
+      <div class="summary-grid">
+        <div class="sq-card green">
+          <div class="sq-num">Automation</div>
+          <h4>≥80% templated requests auto-fulfilled</h4>
+          <p>Zero designer involvement for business cards, flyers, TV slides, review cards from pilot practices.</p>
+        </div>
+        <div class="sq-card blue">
+          <div class="sq-num">Turnaround</div>
+          <h4>Average ≤4 hours</h4>
+          <p>Down from 4.2-day baseline. 52-minute target for smooth requests; 4-hour ceiling for requests with revision loops.</p>
+        </div>
+        <div class="sq-card amber">
+          <div class="sq-num">Medium Shift</div>
+          <h4>≥1 practice chooses digital over print after medium challenge</h4>
+          <p>The behavioral signal that the model is working. Print volume trend downward by week 4.</p>
+        </div>
+        <div class="sq-card green">
+          <div class="sq-num">CD Efficiency</div>
+          <h4>CD total review time ≤20 min/day</h4>
+          <p>Across all pilot practice requests. Currently undefined — any review time is tangled with production time.</p>
+        </div>
+        <div class="sq-card blue">
+          <div class="sq-num">Brand Quality</div>
+          <h4>Zero brand compliance violations</h4>
+          <p>No approved output with wrong logo, off-brand color, or incorrect font. Template locking should make this automatic.</p>
+        </div>
+        <div class="sq-card amber">
+          <div class="sq-num">Satisfaction</div>
+          <h4>Practice manager NPS ≥7/10</h4>
+          <p>Survey at 4 weeks. The bar: better than texting the designer and waiting 4 days. That bar is low.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>SGA Dental Partners · Studio Automation at Scale</strong><br>
+  Design Sprint · 2026-03-10 · Sprint Workspace DOE
+</footer>
+
+</body>
+</html>
