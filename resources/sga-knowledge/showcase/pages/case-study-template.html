@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SGA Dental Partners — Case Study Templates</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sgaBlue: '#2D6FB7',
+            sgaBlueDark: '#1f5190',
+            sgaBlueLight: '#e8f1fb',
+            sgaLime: '#C4D347',
+            sgaOrange: '#F36F21',
+            sgaText: '#333333',
+          },
+          fontFamily: {
+            sans: ['Roboto', 'sans-serif'],
+            slab: ['Roboto Slab', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Roboto', sans-serif; color: #333333; }
+    .font-slab { font-family: 'Roboto Slab', serif; }
+
+    .before-bar { border-left: 4px solid #e74c3c; }
+    .after-bar  { border-left: 4px solid #C4D347; }
+
+    .divider-arrow {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0; margin: 0 auto;
+    }
+    .divider-arrow .line { flex: 1; height: 2px; background: #dee2e6; }
+    .divider-arrow .icon {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: #2D6FB7; color: white; display: flex;
+      align-items: center; justify-content: center; font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .quote-mark { font-size: 80px; line-height: 0.6; color: rgba(255,255,255,0.4); font-family: Georgia, serif; }
+
+    /* Tab active state */
+    .tab-btn.active { background: #2D6FB7; color: white; border-color: #2D6FB7; }
+    .tab-btn { transition: all 0.2s; }
+
+    /* Print styles */
+    @media print {
+      .no-print { display: none !important; }
+      .print-break { page-break-before: always; }
+      body { font-size: 11pt; }
+      .print-header { display: block !important; }
+    }
+    .print-header { display: none; }
+
+    /* Metric card hover */
+    .metric-card { transition: transform 0.2s, box-shadow 0.2s; }
+    .metric-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(45,111,183,0.15); }
+
+    /* Section nav dot */
+    .nav-dot { width: 10px; height: 10px; border-radius: 50%; background: #dee2e6; cursor: pointer; transition: background 0.2s; }
+    .nav-dot.active { background: #2D6FB7; }
+
+    /* Placeholder badge */
+    .placeholder-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: #fff3cd; border: 1px solid #ffc107; border-radius: 4px;
+      font-size: 11px; padding: 1px 6px; color: #856404; font-weight: 500;
+    }
+    .real-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: #d1fae5; border: 1px solid #10b981; border-radius: 4px;
+      font-size: 11px; padding: 1px 6px; color: #065f46; font-weight: 500;
+    }
+
+    .accordion-body { overflow: hidden; transition: max-height 0.3s ease; }
+  </style>
+</head>
+<body class="bg-gray-50" style="padding-top:40px;">
+<div style="position:fixed;top:0;left:0;right:0;height:40px;background:#1e293b;display:flex;align-items:center;padding:0 16px;z-index:9999;">
+  <a href="../index.html" style="color:#93c5fd;text-decoration:none;font-size:14px;font-family:Inter,sans-serif;">&larr; Back to Showcase</a>
+  <span style="color:#64748b;margin-left:auto;font-size:12px;font-family:Inter,sans-serif;">SGA Dental Partners Marketing Showcase</span>
+</div>
+
+  <!-- ============================================================
+       PRINT HEADER (visible only when printing)
+  ============================================================ -->
+  <div class="print-header bg-sgaBlue text-white p-6 mb-8" style="display:none">
+    <div class="flex items-center gap-4">
+      <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+        <span class="text-sgaBlue font-bold text-lg">SGA</span>
+      </div>
+      <div>
+        <div class="font-slab text-xl font-bold">SGA Dental Partners</div>
+        <div class="text-blue-200 text-sm">Case Study Templates — Confidential, March 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       PAGE HEADER
+  ============================================================ -->
+  <header class="bg-sgaBlue text-white no-print">
+    <div class="max-w-7xl mx-auto px-6 py-8">
+      <div class="flex items-center gap-5 mb-4">
+        <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
+          <span class="text-sgaBlue font-bold text-xl font-slab">SGA</span>
+        </div>
+        <div>
+          <div class="text-blue-200 text-sm font-medium uppercase tracking-widest mb-1">SGA Dental Partners</div>
+          <h1 class="font-slab text-3xl font-bold leading-tight">Case Study Templates</h1>
+        </div>
+      </div>
+      <p class="text-blue-100 max-w-3xl text-base leading-relaxed mt-2">
+        Five avatar-specific case study frameworks — one per partner or patient type — built to capture and deploy proof stories. Each follows the long-form structure: Before &rarr; Decision &rarr; Journey &rarr; Results &rarr; Quote.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-5">
+        <span class="bg-white bg-opacity-20 text-white text-xs font-medium px-3 py-1.5 rounded-full">Prepared March 2026</span>
+        <span class="bg-sgaLime text-gray-900 text-xs font-medium px-3 py-1.5 rounded-full">5 Avatar Frameworks</span>
+        <span class="bg-sgaOrange text-white text-xs font-medium px-3 py-1.5 rounded-full">Production Ready</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       FORMAT OVERVIEW BANNER
+  ============================================================ -->
+  <div class="bg-white border-b border-gray-200 no-print">
+    <div class="max-w-7xl mx-auto px-6 py-5">
+      <h2 class="font-slab text-sm text-gray-500 uppercase tracking-widest mb-3">Three Formats. One Interview.</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="border border-sgaBlue border-opacity-30 rounded-lg p-4 bg-sgaBlueLight">
+          <div class="font-slab font-bold text-sgaBlue text-base mb-1">Long-Form</div>
+          <div class="text-xs text-gray-500 mb-2">1,500–2,000 words</div>
+          <p class="text-base text-gray-700">Website case study library, PDF for sales handoffs, partnership deck appendix</p>
+        </div>
+        <div class="border border-sgaLime border-opacity-60 rounded-lg p-4" style="background:#f9fbef">
+          <div class="font-slab font-bold text-gray-800 text-base mb-1">One-Page</div>
+          <div class="text-xs text-gray-500 mb-2">400–500 words</div>
+          <p class="text-base text-gray-700">Printed handout for sales meetings, email attachment, partnership deck insert</p>
+        </div>
+        <div class="border border-sgaOrange border-opacity-40 rounded-lg p-4" style="background:#fff7f3">
+          <div class="font-slab font-bold text-gray-800 text-base mb-1">Video Script</div>
+          <div class="text-xs text-gray-500 mb-2">3–5 min on camera</div>
+          <p class="text-base text-gray-700">Website homepage, landing pages, YouTube, social media, paid pre-roll</p>
+        </div>
+      </div>
+      <p class="text-xs text-gray-500 mt-3 italic">Produce all three from a single interview. See the Interview Question Bank for the question library that generates raw material for all three formats.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MAIN: TABBED CASE STUDIES
+  ============================================================ -->
+  <main class="max-w-7xl mx-auto px-6 py-8" x-data="{ activeTab: 0 }">
+
+    <!-- Tab Nav -->
+    <div class="flex flex-wrap gap-2 mb-8 no-print">
+      <template x-for="(label, i) in [
+        'Practice Owner',
+        'Associate Dentist',
+        'Implant Patient',
+        'Specialist',
+        'Office Manager'
+      ]" :key="i">
+        <button
+          @click="activeTab = i"
+          :class="activeTab === i ? 'bg-sgaBlue text-white border-sgaBlue shadow-md' : 'bg-white text-gray-700 border-gray-200 hover:border-sgaBlue hover:text-sgaBlue'"
+          class="tab-btn border rounded-lg px-4 py-2 text-sm font-medium"
+          x-text="label">
+        </button>
+      </template>
+    </div>
+
+    <!-- ============================================================
+         CASE STUDY 1: PRACTICE OWNER
+    ============================================================ -->
+    <div x-show="activeTab === 0" x-transition>
+      <div class="mb-2 flex items-center gap-2">
+        <span class="bg-sgaBlue text-white text-xs font-bold px-3 py-1 rounded-full">Avatar 1</span>
+        <span class="text-gray-500 text-sm">Gen4 Dental Partners / SGA</span>
+      </div>
+
+      <!-- Headline -->
+      <div class="bg-sgaBlue text-white rounded-2xl p-8 mb-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full transform translate-x-20 -translate-y-20"></div>
+        <h2 class="font-slab text-2xl md:text-3xl font-bold mb-3 relative z-10 leading-tight">
+          "After 20 Years of Running a Practice Alone, He Finally Got Back to Being a Dentist"
+        </h2>
+        <p class="text-blue-200 text-sm relative z-10">
+          <em>Metric-led variant:</em> "Revenue Up 16.5%, Staff Turnover at Zero: What Happened After Dr. [Name] Partnered with SGA"
+        </p>
+      </div>
+
+      <!-- Snapshot Box -->
+      <div class="bg-white border-2 border-sgaBlue rounded-xl p-6 mb-6">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-2 h-6 bg-sgaLime rounded-full"></div>
+          <h3 class="font-slab font-bold text-sgaBlue text-lg uppercase tracking-wide text-sm">Snapshot</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
+          <div><span class="font-semibold text-gray-800">Partner:</span> <span class="placeholder-badge">Fill: Dr. James Holloway, DMD, MAGD</span></div>
+          <div><span class="font-semibold text-gray-800">Practice:</span> <span class="placeholder-badge">Fill: Riverside Family Dentistry</span></div>
+          <div><span class="font-semibold text-gray-800">Location:</span> <span class="placeholder-badge">Fill: City, State</span></div>
+          <div><span class="font-semibold text-gray-800">Type:</span> General dentistry, two locations</div>
+          <div><span class="font-semibold text-gray-800">Years in practice:</span> <span class="placeholder-badge">Fill: e.g. 22 years</span></div>
+          <div><span class="font-semibold text-gray-800">Annual revenue:</span> <span class="placeholder-badge">Fill: e.g. $2.4M combined</span></div>
+          <div><span class="font-semibold text-gray-800">Challenge:</span> Owner-operator carrying full admin burden while clinical passion eroded</div>
+          <div><span class="font-semibold text-gray-800">Platform:</span> Gen4 Dental Partners / SGA</div>
+          <div class="sm:col-span-2"><span class="font-semibold text-gray-800">Key result:</span> <span class="real-badge">Real Source</span> Revenue TTM +16.5% &middot; Staff retention 100% &middot; EBITA beating plan by $45,266</div>
+        </div>
+      </div>
+
+      <!-- Before / After Transformation -->
+      <div class="mb-6">
+        <h3 class="font-slab font-bold text-gray-800 text-xl mb-4">Before &rarr; After Transformation</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div class="before-bar bg-white rounded-xl p-5 shadow-sm">
+            <div class="text-red-500 font-bold text-xs uppercase tracking-widest mb-3">Before</div>
+            <ul class="space-y-2 text-base text-gray-700">
+              <li class="flex gap-2"><span class="text-red-400 mt-0.5">&#10007;</span> Clinic hours 8–5 + 90 min admin nightly</li>
+              <li class="flex gap-2"><span class="text-red-400 mt-0.5">&#10007;</span> Lunch consumed returning insurance calls</li>
+              <li class="flex gap-2"><span class="text-red-400 mt-0.5">&#10007;</span> Billing coordinator quit for 3rd time in 2 years</li>
+              <li class="flex gap-2"><span class="text-red-400 mt-0.5">&#10007;</span> $15K practice consultant, 1/3 implemented</li>
+              <li class="flex gap-2"><span class="text-red-400 mt-0.5">&#10007;</span> Two failed DSO conversations — one wanted immediate rebrand, one vague on ownership</li>
+              <li class="flex gap-2"><span class="text-red-400 mt-0.5">&#10007;</span> Total professional isolation — no peer challenge</li>
+            </ul>
+          </div>
+          <div class="after-bar bg-white rounded-xl p-5 shadow-sm">
+            <div class="text-green-600 font-bold text-xs uppercase tracking-widest mb-3">After — Year 1</div>
+            <ul class="space-y-2 text-base text-gray-700">
+              <li class="flex gap-2"><span class="text-green-500 mt-0.5">&#10003;</span> iSolved payroll — runs without him</li>
+              <li class="flex gap-2"><span class="text-green-500 mt-0.5">&#10003;</span> PeopleOps handles HR &amp; staff questions</li>
+              <li class="flex gap-2"><span class="text-green-500 mt-0.5">&#10003;</span> Billing team caught $47K+ in denied claims</li>
+              <li class="flex gap-2"><span class="text-green-500 mt-0.5">&#10003;</span> Mentor-matched through Individual Growth Engine</li>
+              <li class="flex gap-2"><span class="text-green-500 mt-0.5">&#10003;</span> Practice name, patients, and staff unchanged</li>
+              <li class="flex gap-2"><span class="text-green-500 mt-0.5">&#10003;</span> Peer community — 4Front Symposium, clinical advisory</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Divider arrow -->
+        <div class="divider-arrow my-2 max-w-xs mx-auto">
+          <div class="line"></div>
+          <div class="icon">&#8595;</div>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <!-- Metric Cards -->
+      <div class="mb-6">
+        <h3 class="font-slab font-bold text-gray-800 text-xl mb-4 flex items-center gap-2">
+          Results <span class="real-badge">Real Source: Dr. Matt Cavendish</span>
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+          <div class="metric-card bg-sgaBlue text-white rounded-xl p-4 text-center">
+            <div class="text-3xl font-slab font-bold text-sgaLime">+16.5%</div>
+            <div class="text-xs text-blue-200 mt-1">Revenue TTM</div>
+          </div>
+          <div class="metric-card bg-white border border-gray-200 rounded-xl p-4 text-center">
+            <div class="text-3xl font-slab font-bold text-sgaBlue">$45,266</div>
+            <div class="text-xs text-gray-500 mt-1">EBITA above prior year</div>
+          </div>
+          <div class="metric-card bg-white border border-gray-200 rounded-xl p-4 text-center">
+            <div class="text-3xl font-slab font-bold text-sgaBlue">100%</div>
+            <div class="text-xs text-gray-500 mt-1">Staff retention</div>
+          </div>
+          <div class="metric-card bg-white border border-gray-200 rounded-xl p-4 text-center">
+            <div class="text-3xl font-slab font-bold text-sgaBlue">+2.3 pts</div>
+            <div class="text-xs text-gray-500 mt-1">EBITA above plan</div>
+          </div>
+          <div class="metric-card bg-white border border-gray-200 rounded-xl p-4 text-center">
+            <div class="text-3xl font-slab font-bold text-sgaBlue">-6.4 pts</div>
+            <div class="text-xs text-gray-500 mt-1">Supply cost vs. plan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quote Callout -->
+      <div class="bg-sgaBlue text-white rounded-2xl p-8 mb-6 relative overflow-hidden">
+        <div class="quote-mark absolute top-4 left-6">&ldquo;</div>
+        <blockquote class="relative z-10 pl-8">
+          <p class="text-xl md:text-2xl font-slab font-bold leading-relaxed mb-4">
+            "When you've been in dentistry for 20 years like I have, sometimes it's not as fun as it used to be. So to be able to do a complex case like this, with somebody who is also working at a very high skill level — it is fun."
+          </p>
+          <footer class="text-sgaLime font-semibold text-sm">
+            — Dr. Matt Cavendish &middot; Gen4 Dental Partners
+            <span class="real-badge ml-2">Real Source</span>
+          </footer>
+        </blockquote>
+      </div>
+
+      <!-- Section Breakdown Accordion -->
+      <div x-data="{ open: null }" class="space-y-2 mb-6">
+        <h3 class="font-slab font-bold text-gray-800 text-lg mb-3">Writing Framework — Section by Section</h3>
+
+        <template x-for="(section, idx) in [
+          {
+            title: 'Section 1: Before — The Situation (300–400 words)',
+            note: 'Earns the right to present the solution. The reader must recognize themselves.',
+            guidance: 'Lead with a specific moment — not a category of pain. Write: "At 7 PM on a Tuesday, [Name] was reviewing insurance denials instead of at his daughter\'s soccer game." Not: "Like many dental practice owners, [Name] was feeling the pressure of running a modern practice."',
+            placeholders: ['Specific scene — day/time the problem was undeniable', 'Operational pain detail (e.g. billing coordinator quit for 3rd time)', 'Trigger event — what made him take a new call seriously']
+          },
+          {
+            title: 'Section 2: The Decision — Why SGA (250–350 words)',
+            note: 'Handles objections before the reader can raise them. Name the fear. Then show resolution.',
+            guidance: 'Surface competitive comparison data. "He had taken two other DSO calls before SGA. One wanted to change his brand immediately. The other wouldn\'t let him choose his own lab. SGA was the first conversation where they asked what he wanted his practice to look like in five years."',
+            placeholders: ['How he found SGA (referral, colleague, conference)', 'Specific fear named and resolved (autonomy, staff, name on door)', 'What closed it — the specific moment or detail that pushed him over the line']
+          },
+          {
+            title: 'Section 3: The Journey — First 90 Days to Year One (400–500 words)',
+            note: 'Make the abstract concrete. Operational support means nothing. "$47K in denied claims caught in 90 days" means everything.',
+            guidance: 'Describe specific systems, specific people, and specific moments. Include friction. A case study with zero friction is not believable.',
+            placeholders: ['First 2–3 tangible operational changes (iSolved, billing team, marketing site)', 'First meaningful peer interaction (mentor match, 4Front Symposium)', 'Friction point — what was harder than expected and how it was resolved']
+          },
+          {
+            title: 'Section 4: Results — What Changed (300–400 words)',
+            note: 'Quantitative results first. Qualitative results close. Format: number, then the human meaning behind the number.',
+            guidance: 'Push for the specific figures. "Revenue up 16.5%" is confirmed from the Cavendish case study. Use as framework; replace with actual partner data once interviewed and confirmed in writing.',
+            placeholders: ['Specific financials: Revenue %, EBITA $, staff cost, supply cost', 'What changed off the spreadsheet: leaving earlier, mentoring, enjoying complex cases', 'What would they tell a peer on the fence']
+          }
+        ]" :key="idx">
+          <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+            <button @click="open = open === idx ? null : idx"
+              class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition-colors">
+              <div class="flex items-center gap-3">
+                <div class="w-7 h-7 rounded-full bg-sgaBlue text-white text-xs font-bold flex items-center justify-center flex-shrink-0"
+                  x-text="idx + 1"></div>
+                <span class="font-semibold text-gray-800 text-sm" x-text="section.title"></span>
+              </div>
+              <span class="text-gray-400 ml-4 flex-shrink-0" x-text="open === idx ? '&#9650;' : '&#9660;'"></span>
+            </button>
+            <div class="accordion-body" :style="open === idx ? 'max-height:500px' : 'max-height:0'">
+              <div class="px-4 pb-4 border-t border-gray-100">
+                <p class="text-xs text-sgaBlue font-medium mt-3 mb-2" x-text="section.note"></p>
+                <p class="text-base text-gray-700 mb-3" x-text="section.guidance"></p>
+                <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Required Placeholders</div>
+                <ul class="space-y-1">
+                  <template x-for="p in section.placeholders" :key="p">
+                    <li class="flex items-start gap-2 text-sm text-gray-600">
+                      <span class="text-yellow-500 mt-0.5 flex-shrink-0">&#9651;</span>
+                      <span x-text="p"></span>
+                    </li>
+                  </template>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <!-- CTA Template -->
+      <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Closing + CTA Template</div>
+        <p class="text-sm text-gray-700 italic mb-3">
+          "[Practice name] is still [practice name]. The name on the door has not changed. [Name]'s patients still see his face. His team is still there. What is different: he goes home at [time] most nights. His revenue is up [%]. And for the first time in [years], dentistry is fun again."
+        </p>
+        <div class="mt-3">
+          <button class="bg-sgaOrange text-white font-bold px-6 py-2.5 rounded-lg text-sm hover:bg-orange-600 transition-colors">
+            Schedule a Confidential Conversation
+          </button>
+          <span class="text-gray-400 text-xs ml-3">sgadental.com/partnership</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         CASE STUDY 2: ASSOCIATE DENTIST
+    ============================================================ -->
+    <div x-show="activeTab === 1" x-transition>
+      <div class="mb-2 flex items-center gap-2">
+        <span class="bg-sgaBlue text-white text-xs font-bold px-3 py-1 rounded-full">Avatar 2</span>
+        <span class="text-gray-500 text-sm">Gen4 Dental Partners / SGA — Associate Recruitment</span>
+      </div>
+
+      <div class="bg-sgaBlue text-white rounded-2xl p-8 mb-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full transform translate-x-20 -translate-y-20"></div>
+        <h2 class="font-slab text-2xl md:text-3xl font-bold mb-3 relative z-10 leading-tight">
+          "She Did Not Go Through Four Years of Dental School to Do Nothing But Class IIs"
+        </h2>
+        <p class="text-blue-200 text-sm relative z-10">
+          <em>Alt:</em> "From Production Treadmill to Clinical Mentorship: How One Associate Found a Career, Not Just a Job"
+        </p>
+      </div>
+
+      <!-- Snapshot -->
+      <div class="bg-white border-2 border-sgaBlue rounded-xl p-6 mb-6">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-2 h-6 bg-sgaLime rounded-full"></div>
+          <h3 class="font-slab font-bold text-sgaBlue uppercase tracking-wide text-sm">Snapshot</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
+          <div><span class="font-semibold">Associate:</span> <span class="placeholder-badge">Fill: Dr. Kavita Sharma, DDS</span></div>
+          <div><span class="font-semibold">Location:</span> <span class="placeholder-badge">Fill: City, State</span></div>
+          <div><span class="font-semibold">Years post-residency:</span> <span class="placeholder-badge">Fill: e.g. 3 years</span></div>
+          <div><span class="font-semibold">Previous:</span> High-volume corporate DSO, 25–30 patients/day</div>
+          <div><span class="font-semibold">Student debt:</span> <span class="placeholder-badge">Fill: e.g. $340K</span></div>
+          <div><span class="font-semibold">Challenge:</span> Production treadmill, no mentorship, no equity pathway</div>
+          <div class="sm:col-span-2"><span class="font-semibold">Key results:</span> <span class="placeholder-badge">Fill: Implant cases added &middot; Class A shareholder &middot; Mentor matched &middot; Pikos Institute cohort</span></div>
+        </div>
+      </div>
+
+      <!-- Before / After -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="before-bar bg-white rounded-xl p-5 shadow-sm">
+          <div class="text-red-500 font-bold text-xs uppercase tracking-widest mb-3">Before — Corporate DSO</div>
+          <ul class="space-y-2 text-base text-gray-700">
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> 25–30 patients/day, 15 min each</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> Treatment planned from a template</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> No complex cases, no referral pathways</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> No one to ask on difficult clinical decisions</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> No equity pathway — "partnership" was a recruiting line</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> $340K in loans, no trajectory to ownership</li>
+          </ul>
+        </div>
+        <div class="after-bar bg-white rounded-xl p-5 shadow-sm">
+          <div class="text-green-600 font-bold text-xs uppercase tracking-widest mb-3">After — Gen4 / SGA</div>
+          <ul class="space-y-2 text-base text-gray-700">
+            <li class="flex gap-2"><span class="text-green-500">&#10003;</span> Individual Growth Engine — custom CE track</li>
+            <li class="flex gap-2"><span class="text-green-500">&#10003;</span> Mentor matched based on career goals</li>
+            <li class="flex gap-2"><span class="text-green-500">&#10003;</span> First implant cases with mentor oversight</li>
+            <li class="flex gap-2"><span class="text-green-500">&#10003;</span> Pikos Institute access for advanced training</li>
+            <li class="flex gap-2"><span class="text-green-500">&#10003;</span> Class A shareholder from day one — real equity</li>
+            <li class="flex gap-2"><span class="text-green-500">&#10003;</span> 4Front Symposium — peer community</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Quote callout — Spencer Pierce -->
+      <div class="bg-sgaBlue text-white rounded-2xl p-8 mb-6 relative overflow-hidden">
+        <div class="quote-mark absolute top-4 left-6">&ldquo;</div>
+        <blockquote class="relative z-10 pl-8">
+          <p class="text-xl md:text-2xl font-slab font-bold leading-relaxed mb-4">
+            "Our core focus is on the entire team. We want to take each individual where they want to go so that it's not just a job — it is a career."
+          </p>
+          <footer class="text-sgaLime font-semibold text-sm">
+            — Spencer Pierce, VP of People &amp; Culture, Gen4 Dental Partners
+            <span class="real-badge ml-2">Real Source</span>
+          </footer>
+        </blockquote>
+      </div>
+
+      <!-- Metric Cards -->
+      <div class="mb-6">
+        <h3 class="font-slab font-bold text-gray-800 text-xl mb-3">Key Performance Indicators <span class="placeholder-badge ml-2">Fill with real data post-interview</span></h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div class="metric-card bg-white border-2 border-dashed border-sgaBlue border-opacity-40 rounded-xl p-4 text-center">
+            <div class="text-2xl font-slab font-bold text-sgaBlue">+[X]</div>
+            <div class="text-xs text-gray-500 mt-1">Implant cases, Year 1</div>
+          </div>
+          <div class="metric-card bg-white border-2 border-dashed border-sgaBlue border-opacity-40 rounded-xl p-4 text-center">
+            <div class="text-2xl font-slab font-bold text-sgaBlue">Day 1</div>
+            <div class="text-xs text-gray-500 mt-1">Class A equity eligible</div>
+          </div>
+          <div class="metric-card bg-white border-2 border-dashed border-sgaBlue border-opacity-40 rounded-xl p-4 text-center">
+            <div class="text-2xl font-slab font-bold text-sgaBlue">[X] mo</div>
+            <div class="text-xs text-gray-500 mt-1">To first complex milestone</div>
+          </div>
+          <div class="metric-card bg-white border-2 border-dashed border-sgaBlue border-opacity-40 rounded-xl p-4 text-center">
+            <div class="text-2xl font-slab font-bold text-sgaBlue">1:1</div>
+            <div class="text-xs text-gray-500 mt-1">Mentor relationship</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <p class="text-sm text-gray-700 italic mb-3">
+          "[Name] is three years out of residency. She is placing implants, leading complex full-arch cases, investing as a Class A equity stakeholder. None of that was on the table eighteen months ago. Your career is not a production number."
+        </p>
+        <button class="bg-sgaOrange text-white font-bold px-6 py-2.5 rounded-lg text-sm hover:bg-orange-600 transition-colors">
+          Explore Associate Opportunities
+        </button>
+        <span class="text-gray-400 text-xs ml-3">sgadental.com/careers</span>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         CASE STUDY 3: IMPLANT PATIENT
+    ============================================================ -->
+    <div x-show="activeTab === 2" x-transition>
+      <div class="mb-2 flex items-center gap-2">
+        <span class="bg-sgaBlue text-white text-xs font-bold px-3 py-1 rounded-full">Avatar 3</span>
+        <span class="text-gray-500 text-sm">MODIS Dental Partners / Innovative Dental</span>
+      </div>
+
+      <div class="bg-sgaBlue text-white rounded-2xl p-8 mb-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full transform translate-x-20 -translate-y-20"></div>
+        <h2 class="font-slab text-2xl md:text-3xl font-bold mb-3 relative z-10 leading-tight">
+          "She Stopped Smiling in Photos. Then She Got Her Teeth Back."
+        </h2>
+        <p class="text-blue-200 text-sm relative z-10">
+          <em>Alt:</em> "She Had Been Living With Dentures for 12 Years. One Day Changed Everything."
+        </p>
+      </div>
+
+      <!-- Snapshot -->
+      <div class="bg-white border-2 border-sgaBlue rounded-xl p-6 mb-6">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-2 h-6 bg-sgaLime rounded-full"></div>
+          <h3 class="font-slab font-bold text-sgaBlue uppercase tracking-wide text-sm">Snapshot</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
+          <div><span class="font-semibold">Patient:</span> <span class="placeholder-badge">First name + written consent for last name</span></div>
+          <div><span class="font-semibold">Age:</span> <span class="placeholder-badge">Fill: e.g. 64</span></div>
+          <div><span class="font-semibold">Location:</span> <span class="placeholder-badge">Fill: City, State; note if traveled</span></div>
+          <div><span class="font-semibold">Challenge:</span> Failing teeth / ill-fitting dentures / social withdrawal</div>
+          <div><span class="font-semibold">Procedure:</span> <span class="placeholder-badge">Fill: Full-arch All-on-X / same-day implants</span></div>
+          <div><span class="font-semibold">Provider:</span> Dr. Grant Olson, Innovative Dental — or other MODIS partner</div>
+          <div class="sm:col-span-2"><span class="font-semibold">Key result:</span> <span class="placeholder-badge">Fill: Same-day procedure, full smile restored, eating full diet, first photos w/ grandchildren in 3 years</span></div>
+        </div>
+      </div>
+
+      <!-- The "Steak Moment" Quote — highest-priority asset -->
+      <div class="bg-sgaBlue text-white rounded-2xl p-8 mb-6 relative overflow-hidden">
+        <div class="absolute top-4 left-4 text-6xl text-white opacity-20 font-serif leading-none">&ldquo;</div>
+        <div class="relative z-10">
+          <div class="text-sgaLime text-xs font-bold uppercase tracking-widest mb-3">The Steak Moment — Most Deployable Patient Proof Asset</div>
+          <blockquote>
+            <p class="text-xl md:text-2xl font-slab font-bold leading-relaxed mb-4">
+              "Dr. Olsen grilled a nice New York strip steak for me. Nicely seasoned, cooked perfectly like I ordered, medium rare, and it was so juicy and fresh off the grill. It was awesome."
+            </p>
+            <footer class="text-sgaLime font-semibold text-sm">
+              — Scott, Innovative Dental patient
+              <span class="real-badge ml-2">Real Source</span>
+            </footer>
+          </blockquote>
+          <p class="text-blue-200 text-sm mt-4 italic">Note: Always ask every All-on-X patient what they ate first with their new teeth. These "first meal" stories are the most emotionally resonant proof assets in the library.</p>
+        </div>
+      </div>
+
+      <!-- Before / After social & functional -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="before-bar bg-white rounded-xl p-5 shadow-sm">
+          <div class="text-red-500 font-bold text-xs uppercase tracking-widest mb-3">Before — Life With Failing Teeth</div>
+          <ul class="space-y-2 text-base text-gray-700">
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> Denture adhesive every morning, backup tube in purse</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> Lips-closed smile — stopped looking like herself</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> Avoided corn, steak, apples, crunchy foods</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> Stopped taking photos with grandchildren</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> Called 3+ practices, got quotes $20K–$70K — more confused</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> Felt like "a walking wallet, not a patient"</li>
+          </ul>
+        </div>
+        <div class="after-bar bg-white rounded-xl p-5 shadow-sm">
+          <div class="text-green-600 font-bold text-xs uppercase tracking-widest mb-3">After — Same Day</div>
+          <ul class="space-y-2 text-base text-gray-700">
+            <li class="flex gap-2"><span class="text-green-500">&#10003;</span> 3D CBCT revealed hidden infection — removed same day</li>
+            <li class="flex gap-2"><span class="text-green-500">&#10003;</span> Full arch implants placed, temporaries same day</li>
+            <li class="flex gap-2"><span class="text-green-500">&#10003;</span> First look in the mirror — the emotional peak</li>
+            <li class="flex gap-2"><span class="text-green-500">&#10003;</span> Full diet restored — the steak, the apple, the corn</li>
+            <li class="flex gap-2"><span class="text-green-500">&#10003;</span> Confidence: from 2/10 to 10/10</li>
+            <li class="flex gap-2"><span class="text-green-500">&#10003;</span> First family photos taken in 3 years</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Metric Cards — Patient -->
+      <div class="mb-6">
+        <h3 class="font-slab font-bold text-gray-800 text-xl mb-3">
+          Patient Outcomes — Dr. Grant Olson / Innovative Dental
+          <span class="real-badge ml-2">Real Source</span>
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div class="metric-card bg-sgaBlue text-white rounded-xl p-4 text-center">
+            <div class="text-3xl font-slab font-bold text-sgaLime">3,390+</div>
+            <div class="text-xs text-blue-200 mt-1">Patient reviews</div>
+          </div>
+          <div class="metric-card bg-white border border-gray-200 rounded-xl p-4 text-center">
+            <div class="text-3xl font-slab font-bold text-sgaBlue">138K</div>
+            <div class="text-xs text-gray-500 mt-1">YouTube subscribers</div>
+          </div>
+          <div class="metric-card bg-white border border-gray-200 rounded-xl p-4 text-center">
+            <div class="text-3xl font-slab font-bold text-sgaBlue">23M+</div>
+            <div class="text-xs text-gray-500 mt-1">YouTube views</div>
+          </div>
+          <div class="metric-card bg-white border border-gray-200 rounded-xl p-4 text-center">
+            <div class="text-3xl font-slab font-bold text-sgaBlue">1 Day</div>
+            <div class="text-xs text-gray-500 mt-1">Same-day procedure</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Real patient voice cards -->
+      <div class="mb-6">
+        <h3 class="font-slab font-bold text-gray-800 text-lg mb-3">Real Patient Voices — Tone Models <span class="real-badge ml-2">Confirmed Source</span></h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-white border border-gray-200 rounded-xl p-5">
+            <div class="text-2xl text-sgaBlue font-serif mb-3">&ldquo;</div>
+            <p class="text-sm text-gray-700 italic mb-3">"I love my new teeth because they look and feel totally natural and I can eat whatever I want. They have given me back my confidence!"</p>
+            <div class="text-xs text-gray-500 font-semibold">— Juan, Innovative Dental patient</div>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-xl p-5">
+            <div class="text-2xl text-sgaBlue font-serif mb-3">&ldquo;</div>
+            <p class="text-sm text-gray-700 italic mb-3">"I have a new set of permanent teeth and it all happened in ONE DAY! I can eat whatever I like. No more pain or crooked smile."</p>
+            <div class="text-xs text-gray-500 font-semibold">— Louis, Innovative Dental patient</div>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-xl p-5">
+            <div class="text-2xl text-sgaBlue font-serif mb-3">&ldquo;</div>
+            <p class="text-sm text-gray-700 italic mb-3">"It's life changing — my teeth don't fall out anymore."</p>
+            <div class="text-xs text-gray-500 font-semibold">— Janice, age 87, Innovative Dental patient</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <p class="text-sm text-gray-700 italic mb-3">
+          "As Dr. Olson has said: 'If you have to think about your teeth, those moments aren't there.' [Name] does not think about her teeth anymore."
+        </p>
+        <button class="bg-sgaOrange text-white font-bold px-6 py-2.5 rounded-lg text-sm hover:bg-orange-600 transition-colors">
+          Book Your Free Virtual Consultation
+        </button>
+        <span class="text-gray-400 text-xs ml-3">YourSmileDestination.com</span>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         CASE STUDY 4: SPECIALIST
+    ============================================================ -->
+    <div x-show="activeTab === 3" x-transition>
+      <div class="mb-2 flex items-center gap-2">
+        <span class="bg-sgaBlue text-white text-xs font-bold px-3 py-1 rounded-full">Avatar 4</span>
+        <span class="text-gray-500 text-sm">MODIS Dental Partners / SGA — Specialist Partnership</span>
+      </div>
+
+      <div class="bg-sgaBlue text-white rounded-2xl p-8 mb-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full transform translate-x-20 -translate-y-20"></div>
+        <h2 class="font-slab text-2xl md:text-3xl font-bold mb-3 relative z-10 leading-tight">
+          "He Had the Clinical Skills. He Was Missing Everything Else."
+        </h2>
+        <p class="text-blue-200 text-sm relative z-10">
+          <em>Alt:</em> "From Referral Pad to Full-Arch Platform: A Periodontist's First Year with MODIS"
+        </p>
+      </div>
+
+      <!-- Snapshot -->
+      <div class="bg-white border-2 border-sgaBlue rounded-xl p-6 mb-6">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-2 h-6 bg-sgaLime rounded-full"></div>
+          <h3 class="font-slab font-bold text-sgaBlue uppercase tracking-wide text-sm">Snapshot</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
+          <div><span class="font-semibold">Partner:</span> <span class="placeholder-badge">Fill: Dr. Marcus Reid, DDS, Periodontics</span></div>
+          <div><span class="font-semibold">Practice:</span> <span class="placeholder-badge">Fill: Southeast Periodontics &amp; Implants</span></div>
+          <div><span class="font-semibold">Location:</span> <span class="placeholder-badge">Fill: City, State</span></div>
+          <div><span class="font-semibold">Specialty:</span> Periodontics, implant-focused</div>
+          <div><span class="font-semibold">Years in practice:</span> <span class="placeholder-badge">Fill: e.g. 14 years</span></div>
+          <div><span class="font-semibold">Annual revenue:</span> <span class="placeholder-badge">Fill: e.g. $1.8M at partnership</span></div>
+          <div><span class="font-semibold">Challenge:</span> Capital ceiling on implant volume; 18 months unable to recruit associate</div>
+          <div><span class="font-semibold">Platform:</span> MODIS Dental Partners / SGA</div>
+          <div class="sm:col-span-2"><span class="font-semibold">Key results:</span> <span class="placeholder-badge">Fill: CT scanner upgraded &middot; In-house lab &middot; Associate recruited in 90 days &middot; Full-arch volume +X%</span></div>
+        </div>
+      </div>
+
+      <!-- Infrastructure gap visualization -->
+      <div class="bg-white border border-gray-200 rounded-xl p-6 mb-6">
+        <h3 class="font-slab font-bold text-gray-800 text-lg mb-4">The Infrastructure Gap</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <div class="text-sm font-bold text-red-500 uppercase tracking-wide mb-3">Solo Practice Ceiling</div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3">
+                <div class="h-2 rounded-full bg-red-200 flex-1">
+                  <div class="h-2 rounded-full bg-red-400" style="width:30%"></div>
+                </div>
+                <span class="text-xs text-gray-600 w-28">Implant capacity</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="h-2 rounded-full bg-red-200 flex-1">
+                  <div class="h-2 rounded-full bg-red-400" style="width:20%"></div>
+                </div>
+                <span class="text-xs text-gray-600 w-28">Recruiting power</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="h-2 rounded-full bg-red-200 flex-1">
+                  <div class="h-2 rounded-full bg-red-400" style="width:15%"></div>
+                </div>
+                <span class="text-xs text-gray-600 w-28">Marketing reach</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="h-2 rounded-full bg-red-200 flex-1">
+                  <div class="h-2 rounded-full bg-red-400" style="width:0%"></div>
+                </div>
+                <span class="text-xs text-gray-600 w-28">Succession plan</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="text-sm font-bold text-green-600 uppercase tracking-wide mb-3">MODIS Partnership</div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3">
+                <div class="h-2 rounded-full bg-green-100 flex-1">
+                  <div class="h-2 rounded-full bg-sgaLime" style="width:85%"></div>
+                </div>
+                <span class="text-xs text-gray-600 w-28">Implant capacity</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="h-2 rounded-full bg-green-100 flex-1">
+                  <div class="h-2 rounded-full bg-sgaLime" style="width:90%"></div>
+                </div>
+                <span class="text-xs text-gray-600 w-28">Recruiting power</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="h-2 rounded-full bg-green-100 flex-1">
+                  <div class="h-2 rounded-full bg-sgaLime" style="width:80%"></div>
+                </div>
+                <span class="text-xs text-gray-600 w-28">Marketing reach</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="h-2 rounded-full bg-green-100 flex-1">
+                  <div class="h-2 rounded-full bg-sgaLime" style="width:95%"></div>
+                </div>
+                <span class="text-xs text-gray-600 w-28">Succession plan</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Metric Cards -->
+      <div class="mb-6">
+        <h3 class="font-slab font-bold text-gray-800 text-xl mb-3">Thurston Group Track Record <span class="real-badge ml-2">Real Source</span></h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div class="metric-card bg-sgaBlue text-white rounded-xl p-4 text-center">
+            <div class="text-3xl font-slab font-bold text-sgaLime">$4B+</div>
+            <div class="text-xs text-blue-200 mt-1">Returned to partners</div>
+          </div>
+          <div class="metric-card bg-white border border-gray-200 rounded-xl p-4 text-center">
+            <div class="text-3xl font-slab font-bold text-sgaBlue">38 yrs</div>
+            <div class="text-xs text-gray-500 mt-1">Thurston Group history</div>
+          </div>
+          <div class="metric-card bg-white border border-gray-200 rounded-xl p-4 text-center">
+            <div class="text-3xl font-slab font-bold text-sgaBlue">8+</div>
+            <div class="text-xs text-gray-500 mt-1">Dental platforms built</div>
+          </div>
+          <div class="metric-card bg-white border border-gray-200 rounded-xl p-4 text-center">
+            <div class="text-3xl font-slab font-bold text-sgaBlue">$350M</div>
+            <div class="text-xs text-gray-500 mt-1">Credit facility</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quote -->
+      <div class="bg-sgaBlue text-white rounded-2xl p-8 mb-6 relative overflow-hidden">
+        <div class="quote-mark absolute top-4 left-6">&ldquo;</div>
+        <blockquote class="relative z-10 pl-8">
+          <p class="text-xl font-slab font-bold leading-relaxed mb-4">
+            "For a lot of docs, they've been on their own for such a long time that they almost forgot how exciting it is to be with peers who are challenging each other to think bigger, to take the next step, to evolve the idea."
+          </p>
+          <footer class="text-sgaLime font-semibold text-sm">
+            — Dr. Mitch Ellingson, Chief Clinical Officer, Gen4 Dental Partners
+            <span class="real-badge ml-2">Real Source</span>
+          </footer>
+        </blockquote>
+      </div>
+
+      <!-- CTA -->
+      <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <p class="text-sm text-gray-700 italic mb-3">
+          "[Name] is still the periodontist his referral network calls first for complex implant cases. What changed: he no longer needs to apologize for his aging CT scanner. His full-arch case volume is up [X%]. And for the first time in [years], he has a succession plan."
+        </p>
+        <button class="bg-sgaOrange text-white font-bold px-6 py-2.5 rounded-lg text-sm hover:bg-orange-600 transition-colors">
+          Talk to a MODIS Partner Specialist
+        </button>
+        <span class="text-gray-400 text-xs ml-3">modisdental.com/partnership</span>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         CASE STUDY 5: OFFICE MANAGER
+    ============================================================ -->
+    <div x-show="activeTab === 4" x-transition>
+      <div class="mb-2 flex items-center gap-2">
+        <span class="bg-sgaBlue text-white text-xs font-bold px-3 py-1 rounded-full">Avatar 5</span>
+        <span class="text-gray-500 text-sm">SGA Dental Partners — Internal Onboarding &amp; Staff Retention</span>
+      </div>
+
+      <div class="bg-sgaBlue text-white rounded-2xl p-8 mb-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full transform translate-x-20 -translate-y-20"></div>
+        <h2 class="font-slab text-2xl md:text-3xl font-bold mb-3 relative z-10 leading-tight">
+          "She Was Terrified the Day SGA Acquired Her Practice. Six Months Later, She Says It Was the Best Thing That Ever Happened to Her Team."
+        </h2>
+        <p class="text-blue-200 text-sm relative z-10">
+          <em>Alt:</em> "She Was the Last Person Who Wanted a DSO in Her Office. Then the First Payroll Ran Itself."
+        </p>
+      </div>
+
+      <!-- Snapshot -->
+      <div class="bg-white border-2 border-sgaBlue rounded-xl p-6 mb-6">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-2 h-6 bg-sgaLime rounded-full"></div>
+          <h3 class="font-slab font-bold text-sgaBlue uppercase tracking-wide text-sm">Snapshot</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
+          <div><span class="font-semibold">Practice manager:</span> <span class="placeholder-badge">Fill: Jennifer Watkins</span></div>
+          <div><span class="font-semibold">Practice:</span> <span class="placeholder-badge">Fill: Practice name, City, State</span></div>
+          <div><span class="font-semibold">Tenure:</span> <span class="placeholder-badge">Fill: e.g. 6 yrs — started at front desk, promoted 3 yrs ago</span></div>
+          <div><span class="font-semibold">Challenge:</span> Administrative overload + deep fear for team culture post-acquisition</div>
+          <div class="sm:col-span-2"><span class="font-semibold">Key results:</span> <span class="placeholder-badge">Fill: Payroll automated &middot; HR via PeopleOps &middot; 0 turnover in 6 months &middot; Benefits upgraded &middot; Practice Mgmt Pathways</span></div>
+        </div>
+      </div>
+
+      <!-- Before / After -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="before-bar bg-white rounded-xl p-5 shadow-sm">
+          <div class="text-red-500 font-bold text-xs uppercase tracking-widest mb-3">Before — The Week SGA Was Announced</div>
+          <ul class="space-y-2 text-base text-gray-700">
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> Payroll in QuickBooks, by hand, every two weeks</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> Insurance verification: one person, always behind</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> Benefits from a PEO nobody understood</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> Team coming to her with questions she couldn't answer</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> OSHA compliance: stack of unread materials</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> "Corporate" = everyone she knew left within 18 months</li>
+          </ul>
+        </div>
+        <div class="after-bar bg-white rounded-xl p-5 shadow-sm">
+          <div class="text-green-600 font-bold text-xs uppercase tracking-widest mb-3">After — 6 Months Post-Acquisition</div>
+          <ul class="space-y-2 text-base text-gray-700">
+            <li class="flex gap-2"><span class="text-green-500">&#10003;</span> iSolved payroll — runs without her</li>
+            <li class="flex gap-2"><span class="text-green-500">&#10003;</span> PeopleOps answers staff HR questions directly</li>
+            <li class="flex gap-2"><span class="text-green-500">&#10003;</span> Cigna/Mutual of Omaha benefits, 401(k) via Voya</li>
+            <li class="flex gap-2"><span class="text-green-500">&#10003;</span> OSHA compliance handled by SGA compliance team</li>
+            <li class="flex gap-2"><span class="text-green-500">&#10003;</span> Zero staff turnover since acquisition date</li>
+            <li class="flex gap-2"><span class="text-green-500">&#10003;</span> Practice Management Pathways Program — her career track</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Quote callout -->
+      <div class="bg-sgaBlue text-white rounded-2xl p-8 mb-6 relative overflow-hidden">
+        <div class="quote-mark absolute top-4 left-6">&ldquo;</div>
+        <blockquote class="relative z-10 pl-8">
+          <p class="text-xl font-slab font-bold leading-relaxed mb-4">
+            "After onboarding is completed, there's an abundance of relief. It's like 'Okay, I understand what this means for me now.'"
+          </p>
+          <footer class="text-sgaLime font-semibold text-sm">
+            — Spencer Pierce, VP of People &amp; Culture, Gen4 Dental Partners
+            <span class="real-badge ml-2">Real Source</span>
+          </footer>
+        </blockquote>
+      </div>
+
+      <!-- Metric Cards -->
+      <div class="mb-6">
+        <h3 class="font-slab font-bold text-gray-800 text-xl mb-3">SGA Staff Retention Numbers <span class="real-badge ml-2">Claimed — Verify Methodology</span></h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div class="metric-card bg-sgaBlue text-white rounded-xl p-4 text-center">
+            <div class="text-3xl font-slab font-bold text-sgaLime">85%</div>
+            <div class="text-xs text-blue-200 mt-1">Network staff retention rate</div>
+          </div>
+          <div class="metric-card bg-white border border-gray-200 rounded-xl p-4 text-center">
+            <div class="text-3xl font-slab font-bold text-sgaBlue">100+</div>
+            <div class="text-xs text-gray-500 mt-1">Partner practices</div>
+          </div>
+          <div class="metric-card bg-white border-2 border-dashed border-gray-300 rounded-xl p-4 text-center">
+            <div class="text-2xl font-slab font-bold text-gray-400">[X] hrs</div>
+            <div class="text-xs text-gray-500 mt-1">Admin time reclaimed/week</div>
+          </div>
+          <div class="metric-card bg-white border-2 border-dashed border-gray-300 rounded-xl p-4 text-center">
+            <div class="text-2xl font-slab font-bold text-gray-400">0</div>
+            <div class="text-xs text-gray-500 mt-1">Turnover in first 6 months</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deployment Note -->
+      <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-5 mb-6">
+        <div class="flex items-start gap-3">
+          <div class="text-yellow-500 text-xl mt-0.5">&#9888;</div>
+          <div>
+            <div class="font-semibold text-yellow-800 text-sm mb-1">Primary Deployment: Internal Onboarding</div>
+            <p class="text-sm text-yellow-700">This case study's primary audience is staff at newly acquired practices. CTA should be adjusted for external recruiting or sales contexts. This request should come from SGA PeopleOps, not the local practice, to feel genuinely separate from the dentist's management relationship.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <p class="text-sm text-gray-700 italic mb-3">
+          "[Name] still knows every patient by name. Dr. [Name] is still their dentist. The office still feels like theirs. What is different: [Name] goes home at 5:30 most days. She is not reconciling payroll this weekend. Her team is on real benefits for the first time."
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <button class="bg-sgaOrange text-white font-bold px-6 py-2.5 rounded-lg text-sm hover:bg-orange-600 transition-colors">
+            Partnership Inquiries
+          </button>
+          <button class="border border-sgaBlue text-sgaBlue font-semibold px-6 py-2.5 rounded-lg text-sm hover:bg-sgaBlueLight transition-colors">
+            Team Member Resources
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         QUALITY CHECKLIST
+    ============================================================ -->
+    <div class="mt-12 bg-white border border-gray-200 rounded-2xl p-8 no-print">
+      <h2 class="font-slab text-xl font-bold text-gray-800 mb-6 flex items-center gap-3">
+        <div class="w-8 h-8 bg-sgaBlue rounded-lg flex items-center justify-center text-white text-sm font-bold">&#10003;</div>
+        Quality Checklist: Before Publishing Any Case Study
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <h3 class="font-semibold text-sgaBlue text-sm uppercase tracking-wide mb-3">Specificity</h3>
+          <ul class="space-y-2">
+            <template x-for="item in [
+              'Headline includes a specific result (not \'better outcomes\' but \'revenue up 16.5%\')',
+              'The \'before\' section describes a specific moment, not a category of pain',
+              'Results section includes at least two quantified metrics',
+              'Partner named with full name, practice, city, credentials',
+              'The quote sounds like a human being, not marketing'
+            ]">
+              <li class="flex items-start gap-2 text-sm text-gray-700">
+                <input type="checkbox" class="mt-0.5 accent-sgaBlue flex-shrink-0" />
+                <span x-text="item"></span>
+              </li>
+            </template>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold text-sgaBlue text-sm uppercase tracking-wide mb-3">Authenticity</h3>
+          <ul class="space-y-2">
+            <template x-for="item in [
+              'No corporate language (\'world-class,\' \'premier,\' \'holistic approach\')',
+              'Partner\'s natural speech patterns preserved in quotes',
+              'Objections acknowledged, not ignored',
+              'The \'why SGA and not someone else\' question answered specifically'
+            ]">
+              <li class="flex items-start gap-2 text-sm text-gray-700">
+                <input type="checkbox" class="mt-0.5 accent-sgaBlue flex-shrink-0" />
+                <span x-text="item"></span>
+              </li>
+            </template>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold text-sgaBlue text-sm uppercase tracking-wide mb-3">Legal &amp; Permissions</h3>
+          <ul class="space-y-2">
+            <template x-for="item in [
+              'Partner approved quotes in writing',
+              'Specific financial figures confirmed with partner before publishing',
+              'Patient video testimonials have signed release forms on file',
+              'Practice name, credentials, and location verified'
+            ]">
+              <li class="flex items-start gap-2 text-sm text-gray-700">
+                <input type="checkbox" class="mt-0.5 accent-sgaBlue flex-shrink-0" />
+                <span x-text="item"></span>
+              </li>
+            </template>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="bg-gray-900 text-white mt-12 no-print">
+    <div class="max-w-7xl mx-auto px-6 py-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-sgaBlue rounded-lg flex items-center justify-center">
+            <span class="text-white font-bold text-sm font-slab">SGA</span>
+          </div>
+          <div>
+            <div class="font-slab font-bold">SGA Dental Partners</div>
+            <div class="text-gray-400 text-xs">Case Study Templates — Confidential — March 2026</div>
+          </div>
+        </div>
+        <div class="text-gray-400 text-xs">
+          See also: Social Proof Strategy &bull; Interview Question Bank &bull; Avatar Case Study Frameworks
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

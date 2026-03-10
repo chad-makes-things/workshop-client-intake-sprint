@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Practice Concierge — SGA Digital Storefront at Scale</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface-2: #1a1a26;
+    --surface-3: #22222f;
+    --border: #2a2a3a;
+    --border-light: #3a3a4a;
+    --text: #e8e8f0;
+    --text-muted: #8888a0;
+    --text-dim: #5a5a70;
+    --accent: #4f8fff;
+    --accent-glow: rgba(79,143,255,0.15);
+    --accent-border: rgba(79,143,255,0.3);
+    --green: #34d399;
+    --green-glow: rgba(52,211,153,0.15);
+    --green-border: rgba(52,211,153,0.3);
+    --orange: #fb923c;
+    --orange-glow: rgba(251,146,60,0.15);
+    --red: #f87171;
+    --red-glow: rgba(248,113,113,0.15);
+    --purple: #a78bfa;
+    --purple-glow: rgba(167,139,250,0.15);
+    --yellow: #fbbf24;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,15,0.85); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; height: 52px; gap: 0; }
+  .nav-logo { font-weight: 800; font-size: 0.8rem; color: var(--accent); letter-spacing: 0.8px; text-transform: uppercase; margin-right: 2.5rem; white-space: nowrap; }
+  .nav-links { display: flex; gap: 0; height: 100%; }
+  .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.78rem; font-weight: 500; padding: 0 1rem; display: flex; align-items: center; height: 100%; border-bottom: 2px solid transparent; transition: all 0.2s; }
+  .nav-links a:hover { color: var(--text); border-bottom-color: var(--accent); }
+
+  /* HERO */
+  .hero { padding: 7rem 2rem 5rem; text-align: center; background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(79,143,255,0.08), transparent); position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
+  .hero .badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1.1rem; background: var(--accent-glow); border: 1px solid var(--accent-border); border-radius: 100px; font-size: 0.7rem; color: var(--accent); margin-bottom: 2rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; }
+  .hero .badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .hero h1 { font-size: clamp(2.2rem, 5.5vw, 4rem); font-weight: 800; line-height: 1.1; max-width: 850px; margin: 0 auto 1.5rem; letter-spacing: -0.02em; }
+  .hero h1 .gradient { background: linear-gradient(135deg, var(--accent), #818cf8, var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero .desc { font-size: 1.15rem; color: var(--text-muted); max-width: 620px; margin: 0 auto 3rem; line-height: 1.7; }
+  .hero-stats { display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; }
+  .hero-stat { text-align: center; }
+  .hero-stat .val { font-size: 2.2rem; font-weight: 800; background: linear-gradient(135deg, var(--text), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero-stat .lbl { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; margin-top: 0.25rem; }
+
+  /* SECTIONS */
+  .section { padding: 5rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-header { margin-bottom: 3rem; }
+  .section-header .overline { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); font-weight: 700; margin-bottom: 0.75rem; }
+  .section-header h2 { font-size: 2rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 0.5rem; }
+  .section-header p { color: var(--text-muted); font-size: 1rem; max-width: 600px; }
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 0 2rem; }
+
+  /* COMPARE */
+  .compare-grid { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 0; align-items: stretch; }
+  .compare-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; }
+  .compare-card.before { border-color: rgba(248,113,113,0.25); }
+  .compare-card.after { border-color: rgba(52,211,153,0.25); }
+  .compare-arrow { display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 1.5rem; }
+  .compare-card h3 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.6rem; }
+  .compare-card h3 .indicator { width: 8px; height: 8px; border-radius: 50%; }
+  .compare-card.before h3 { color: var(--red); }
+  .compare-card.before h3 .indicator { background: var(--red); }
+  .compare-card.after h3 { color: var(--green); }
+  .compare-card.after h3 .indicator { background: var(--green); }
+  .compare-card ul { list-style: none; }
+  .compare-card li { padding: 0.6rem 0; font-size: 0.88rem; color: var(--text-muted); border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; align-items: flex-start; gap: 0.5rem; }
+  .compare-card li:last-child { border: none; }
+  .compare-card li .icon { flex-shrink: 0; margin-top: 0.15rem; font-size: 0.75rem; }
+  .compare-card.before li .icon { color: var(--red); }
+  .compare-card.after li .icon { color: var(--green); }
+
+  /* SPRINT PROCESS CARDS */
+  .process-phases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 3rem; }
+  .process-phase { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; position: relative; overflow: hidden; }
+  .process-phase::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .process-phase:nth-child(1)::before { background: var(--accent); }
+  .process-phase:nth-child(2)::before { background: var(--purple); }
+  .process-phase:nth-child(3)::before { background: var(--green); }
+  .process-phase:nth-child(4)::before { background: var(--orange); }
+  .process-phase .day { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-dim); font-weight: 700; }
+  .process-phase h4 { font-size: 0.95rem; margin: 0.4rem 0 0.5rem; }
+  .process-phase p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
+
+  /* QUESTIONS */
+  .sq-list { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 3rem; }
+  .sq { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .sq-text { font-size: 0.9rem; font-weight: 600; flex: 1; }
+  .sq-risk { font-size: 0.65rem; padding: 0.2rem 0.7rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; white-space: nowrap; }
+  .sq-risk.high { background: var(--red-glow); color: var(--red); }
+  .sq-risk.medium { background: var(--orange-glow); color: var(--orange); }
+
+  /* TARGET SELECTION */
+  .target-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 3rem; }
+  .target-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; position: relative; }
+  .target-card.selected { border-color: var(--green-border); background: rgba(52,211,153,0.03); }
+  .target-card .target-score { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; }
+  .target-card.selected .target-score { color: var(--green); }
+  .target-card h4 { font-size: 0.9rem; margin-bottom: 0.5rem; }
+  .target-card p { font-size: 0.8rem; color: var(--text-muted); }
+  .target-card .selected-badge { position: absolute; top: 1rem; right: 1rem; font-size: 0.6rem; padding: 0.2rem 0.6rem; background: var(--green-glow); color: var(--green); border-radius: 100px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; }
+
+  /* SOLUTIONS */
+  .solution-list { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+  .sol { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem 1.5rem; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 1rem; }
+  .sol.winner { border-color: var(--green-border); background: rgba(52,211,153,0.03); }
+  .sol-name { font-weight: 700; font-size: 0.92rem; }
+  .sol-desc { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.15rem; }
+  .sol-right { text-align: right; }
+  .sol-score { font-size: 1.6rem; font-weight: 800; color: var(--text-dim); }
+  .sol.winner .sol-score { color: var(--green); }
+  .sol-verdict { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 100px; display: inline-block; margin-top: 0.25rem; }
+  .v-selected { background: var(--green-glow); color: var(--green); }
+  .v-strong { background: var(--purple-glow); color: var(--purple); }
+  .v-pragmatic { background: var(--accent-glow); color: var(--accent); }
+  .v-creative { background: var(--orange-glow); color: var(--orange); }
+  .v-fast { background: var(--red-glow); color: var(--red); }
+
+  /* DECISION CALLOUT */
+  .decision-callout { background: var(--surface-2); border: 1px solid var(--green-border); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+  .decision-callout h4 { color: var(--green); font-size: 0.95rem; margin-bottom: 0.75rem; }
+  .decision-callout p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
+  .decision-callout .why-list { margin-top: 1rem; list-style: none; }
+  .decision-callout .why-list li { padding: 0.3rem 0; font-size: 0.85rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; }
+  .decision-callout .why-list li::before { content: ''; position: absolute; left: 0; top: 0.7rem; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+
+  /* JOURNEY TIMELINE */
+  .timeline { position: relative; padding-left: 3rem; }
+  .timeline::before { content: ''; position: absolute; left: 0.75rem; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--accent), var(--purple), var(--green), var(--orange)); border-radius: 1px; }
+  .tl-step { position: relative; margin-bottom: 3rem; }
+  .tl-step:last-child { margin-bottom: 0; }
+  .tl-dot { position: absolute; left: -2.5rem; top: 0.2rem; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); }
+  .tl-step:nth-child(4) .tl-dot { background: var(--purple); }
+  .tl-step:nth-child(6) .tl-dot { background: var(--green); }
+  .tl-step:nth-child(7) .tl-dot { background: var(--green); }
+  .tl-step:nth-child(8) .tl-dot { background: var(--orange); }
+  .tl-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); font-weight: 700; }
+  .tl-step h3 { font-size: 1.1rem; margin: 0.3rem 0 0.6rem; }
+  .tl-scene { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem; line-height: 1.6; }
+  .tl-detail { background: var(--surface); border-left: 3px solid var(--accent); padding: 0.9rem 1.2rem; border-radius: 0 10px 10px 0; font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* ARCHITECTURE SVG */
+  .arch-container { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin: 2rem 0; overflow-x: auto; }
+  .arch-svg { width: 100%; min-width: 800px; }
+  .arch-svg text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+
+  /* COMPONENT CARDS */
+  .comp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin: 2rem 0; }
+  .comp { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; transition: border-color 0.2s; }
+  .comp:hover { border-color: var(--border-light); }
+  .comp .comp-color { width: 32px; height: 4px; border-radius: 2px; margin-bottom: 1rem; }
+  .comp h4 { font-size: 0.95rem; margin-bottom: 0.5rem; }
+  .comp p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* ADRS */
+  .adr-list { display: flex; flex-direction: column; gap: 0.75rem; margin: 2rem 0; }
+  .adr { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .adr summary { padding: 1.1rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.9rem; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+  .adr summary:hover { background: var(--surface-2); }
+  .adr summary .toggle { color: var(--text-dim); font-size: 1.1rem; transition: transform 0.2s; }
+  .adr[open] summary .toggle { transform: rotate(45deg); }
+  .adr-body { padding: 0 1.5rem 1.5rem; }
+  .adr-body p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; line-height: 1.6; }
+  .adr-body strong { color: var(--text); }
+
+  /* ROADMAP */
+  .roadmap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin: 2rem 0; }
+  .rm-phase { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; position: relative; overflow: hidden; }
+  .rm-phase::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .rm-phase:nth-child(1)::before { background: var(--accent); }
+  .rm-phase:nth-child(2)::before { background: var(--purple); }
+  .rm-phase:nth-child(3)::before { background: var(--green); }
+  .rm-phase:nth-child(4)::before { background: var(--orange); }
+  .rm-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-dim); font-weight: 700; }
+  .rm-phase h4 { font-size: 1rem; margin: 0.4rem 0 1rem; }
+  .rm-phase ul { list-style: none; }
+  .rm-phase li { font-size: 0.78rem; color: var(--text-muted); padding: 0.3rem 0; padding-left: 1rem; position: relative; }
+  .rm-phase li::before { content: ''; position: absolute; left: 0; top: 0.65rem; width: 5px; height: 5px; border-radius: 50%; background: var(--border-light); }
+
+  /* TECH STACK */
+  .tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0; }
+  .tech { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; }
+  .tech .tech-cat { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-dim); font-weight: 700; }
+  .tech .tech-name { font-weight: 700; font-size: 0.95rem; margin: 0.25rem 0 0.2rem; }
+  .tech .tech-why { font-size: 0.78rem; color: var(--text-muted); }
+
+  /* LEARNINGS */
+  .learnings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 2rem 0; }
+  .learning { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; }
+  .learning .num { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem; }
+  .learning h4 { font-size: 0.95rem; margin-bottom: 0.5rem; }
+  .learning p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* FOOTER */
+  footer { text-align: center; padding: 4rem 2rem; border-top: 1px solid var(--border); }
+  footer p { font-size: 0.8rem; color: var(--text-dim); }
+  footer .footer-logo { font-weight: 800; font-size: 0.85rem; color: var(--text-muted); letter-spacing: 1px; margin-bottom: 0.5rem; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .compare-grid { grid-template-columns: 1fr; }
+    .compare-arrow { display: none; }
+    .process-phases, .target-cards, .comp-grid, .roadmap-grid, .tech-grid, .learnings-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 2rem; }
+    nav { padding: 0 1rem; }
+    .nav-links { overflow-x: auto; }
+  }
+  @media (max-width: 600px) {
+    .section { padding: 3rem 1.25rem; }
+    .hero { padding: 5rem 1.25rem 3rem; }
+  }
+  @media print {
+    nav { position: relative; background: white; }
+    body { background: white; color: #111; }
+    .hero { background: none; }
+    .compare-card, .process-phase, .sol, .sq, .comp, .adr, .rm-phase, .tech, .learning, .decision-callout { border-color: #ddd; background: #fafafa; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">SGA Practice Concierge</span>
+  <div class="nav-links">
+    <a href="#problem">Problem</a>
+    <a href="#process">Sprint Process</a>
+    <a href="#journey">Journey</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#decisions">Decisions</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#learnings">Learnings</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="badge"><span class="dot"></span> Problem Sprint — March 2026</span>
+  <h1>The <span class="gradient">Practice Concierge</span></h1>
+  <p class="desc">An AI concierge for every practice in the SGA network. Modernize 260+ digital storefronts, manage them 365 days a year, with a team of 10.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="val">260+</div><div class="lbl">Practices</div></div>
+    <div class="hero-stat"><div class="val">&lt; 2 wk</div><div class="lbl">Setup (was months)</div></div>
+    <div class="hero-stat"><div class="val">365</div><div class="lbl">Days/yr curated</div></div>
+    <div class="hero-stat"><div class="val">~10</div><div class="lbl">Person HQ team</div></div>
+  </div>
+</div>
+
+<!-- ============ PROBLEM ============ -->
+<div class="divider"></div>
+<div class="section" id="problem">
+  <div class="container">
+    <div class="section-header">
+      <div class="overline">The Problem</div>
+      <h2>Every acquisition is a months-long digital nightmare</h2>
+      <p>The existing network is inconsistent, the team is tiny, and practices view HQ marketing as a nuisance.</p>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card before">
+        <h3><span class="indicator"></span> Current State</h3>
+        <ul>
+          <li><span class="icon">&#x2717;</span> Months to set up each practice's digital storefront</li>
+          <li><span class="icon">&#x2717;</span> Days just to recover passwords and account access</li>
+          <li><span class="icon">&#x2717;</span> Every website is custom — no templates, no consistency</li>
+          <li><span class="icon">&#x2717;</span> No standardized GMB, social, or lead gen</li>
+          <li><span class="icon">&#x2717;</span> Practices view HQ marketing as a nuisance</li>
+          <li><span class="icon">&#x2717;</span> No ongoing curation — storefronts decay after setup</li>
+          <li><span class="icon">&#x2717;</span> Staff changes go undetected across 7+ touchpoints</li>
+          <li><span class="icon">&#x2717;</span> Zero executive visibility into network health</li>
+        </ul>
+      </div>
+      <div class="compare-arrow">&#8594;</div>
+      <div class="compare-card after">
+        <h3><span class="indicator"></span> Practice Concierge</h3>
+        <ul>
+          <li><span class="icon">&#x2713;</span> Under 2 weeks from acquisition to live storefront</li>
+          <li><span class="icon">&#x2713;</span> Pre-populated profiles — no password chasing</li>
+          <li><span class="icon">&#x2713;</span> Specialty-specific templates: GP, Perio, Full Arch, Pediatric</li>
+          <li><span class="icon">&#x2713;</span> GMB, social, CRM auto-configured from day one</li>
+          <li><span class="icon">&#x2713;</span> 24/7 concierge — 5-minute interactions, not meetings</li>
+          <li><span class="icon">&#x2713;</span> 365-day automated curation with human QC</li>
+          <li><span class="icon">&#x2713;</span> One change → automatic cascade everywhere</li>
+          <li><span class="icon">&#x2713;</span> Real-time network health dashboard</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SPRINT PROCESS ============ -->
+<div class="divider"></div>
+<div class="section" id="process">
+  <div class="container">
+    <div class="section-header">
+      <div class="overline">Sprint Process</div>
+      <h2>How we got here</h2>
+      <p>The decision-making context — methodology, questions, targets, solutions explored, and why the winner was chosen.</p>
+    </div>
+
+    <!-- Phases -->
+    <div class="process-phases">
+      <div class="process-phase">
+        <div class="day">Monday — Frame</div>
+        <h4>Problem Mapping</h4>
+        <p>Defined 30-day goal, mapped 5 actors across 10 journey steps, identified critical bottlenecks, generated 25 HMW notes across 6 themes.</p>
+      </div>
+      <div class="process-phase">
+        <div class="day">Tuesday — Sketch</div>
+        <h4>Solution Generation</h4>
+        <p>Researched SOCi's 150K AI agents, franchise models, dental AI receptionists, and multi-location platforms. Generated 5 distinct solutions.</p>
+      </div>
+      <div class="process-phase">
+        <div class="day">Wednesday — Decide</div>
+        <h4>Evaluation & Selection</h4>
+        <p>Scored all solutions against 5 sprint questions + 2 operational criteria. Practice Concierge selected at 30/35.</p>
+      </div>
+      <div class="process-phase">
+        <div class="day">Thursday — Architect</div>
+        <h4>System Design</h4>
+        <p>Designed 6-component architecture with event-driven orchestration, wrote 5 ADRs, defined 4-phase implementation roadmap.</p>
+      </div>
+    </div>
+
+    <!-- Sprint Questions -->
+    <h3 style="font-size:1.1rem; margin-bottom:1rem;">Sprint Questions</h3>
+    <div class="sq-list">
+      <div class="sq">
+        <span class="sq-text">Can we reduce practice setup from months to under 2 weeks?</span>
+        <span class="sq-risk high">High Risk</span>
+      </div>
+      <div class="sq">
+        <span class="sq-text">Can a ~10-person team maintain quality across 300+ storefronts?</span>
+        <span class="sq-risk high">High Risk</span>
+      </div>
+      <div class="sq">
+        <span class="sq-text">Will practices engage with an agent instead of ignoring it?</span>
+        <span class="sq-risk high">High Risk</span>
+      </div>
+      <div class="sq">
+        <span class="sq-text">Can we detect practice-level changes proactively?</span>
+        <span class="sq-risk medium">Medium</span>
+      </div>
+      <div class="sq">
+        <span class="sq-text">Can we provide exec visibility without reporting burden?</span>
+        <span class="sq-risk medium">Medium</span>
+      </div>
+    </div>
+
+    <!-- Targets -->
+    <h3 style="font-size:1.1rem; margin-bottom:1rem;">Target Selection</h3>
+    <div class="target-cards">
+      <div class="target-card selected">
+        <span class="selected-badge">Selected</span>
+        <div class="target-score">23/25</div>
+        <h4>A+C: Onboarding + Agent</h4>
+        <p>Rapid enrollment pipeline with practice-facing AI agent as the primary interface. Both new acquisitions and existing practices.</p>
+      </div>
+      <div class="target-card">
+        <div class="target-score" style="color:var(--text-dim)">22/25</div>
+        <h4>C: Practice Agent</h4>
+        <p>Build the 24/7 conversational interface for practices. Tests the behavioral adoption question.</p>
+      </div>
+      <div class="target-card">
+        <div class="target-score" style="color:var(--text-dim)">20/25</div>
+        <h4>B: 365-Day Curation</h4>
+        <p>Automate ongoing content, reviews, and change management. Planned as Stage 2.</p>
+      </div>
+    </div>
+
+    <!-- Solutions -->
+    <h3 style="font-size:1.1rem; margin-bottom:1rem;">All Solutions Explored</h3>
+    <div class="solution-list">
+      <div class="sol winner">
+        <div>
+          <div class="sol-name">The Practice Concierge</div>
+          <div class="sol-desc">Agent-first orchestration. Every practice talks to an AI concierge that handles everything.</div>
+        </div>
+        <div class="sol-right">
+          <div class="sol-score">30/35</div>
+          <span class="sol-verdict v-selected">Selected</span>
+        </div>
+      </div>
+      <div class="sol">
+        <div>
+          <div class="sol-name">The Network Operating System</div>
+          <div class="sol-desc">Custom unified platform. Strongest long-term but 3-6 month build.</div>
+        </div>
+        <div class="sol-right">
+          <div class="sol-score">27/35</div>
+          <span class="sol-verdict v-strong">Strong Long-Term</span>
+        </div>
+      </div>
+      <div class="sol">
+        <div>
+          <div class="sol-name">The Smart Wrapper</div>
+          <div class="sol-desc">Agent layer over SOCi + CMS + CRM. Pragmatic but fragmented.</div>
+        </div>
+        <div class="sol-right">
+          <div class="sol-score">24/35</div>
+          <span class="sol-verdict v-pragmatic">Pragmatic</span>
+        </div>
+      </div>
+      <div class="sol">
+        <div>
+          <div class="sol-name">The Practice Playbook</div>
+          <div class="sol-desc">Guided self-service with guardrailed decisions. Creative but one-time.</div>
+        </div>
+        <div class="sol-right">
+          <div class="sol-score">21/35</div>
+          <span class="sol-verdict v-creative">Creative</span>
+        </div>
+      </div>
+      <div class="sol">
+        <div>
+          <div class="sol-name">The Assembly Line</div>
+          <div class="sol-desc">Manufacturing pipeline. Fastest setup but zero practice relationship.</div>
+        </div>
+        <div class="sol-right">
+          <div class="sol-score">20/35</div>
+          <span class="sol-verdict v-fast">Fast but Dead-End</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Decision Callout -->
+    <div class="decision-callout">
+      <h4>Why The Practice Concierge Won</h4>
+      <p>The only solution that solves setup speed AND establishes the ongoing relationship needed for 365-day curation. The agent-first architecture matches the vision of chat today, voice tomorrow, video avatar next year.</p>
+      <ul class="why-list">
+        <li>Highest score on practice engagement (5/5) — the core behavioral bet</li>
+        <li>Strongest Stage 2 foundation (5/5) — the enrollment agent becomes the curation agent</li>
+        <li>Pre-population via scraping eliminates the password-chasing bottleneck</li>
+        <li>Blitz-deploy safety net ensures 100% coverage even without practice engagement</li>
+        <li>Guardrailed decisions (from Playbook) give practices ownership within SGA quality standards</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ============ JOURNEY ============ -->
+<div class="divider"></div>
+<div class="section" id="journey">
+  <div class="container">
+    <div class="section-header">
+      <div class="overline">User Journey</div>
+      <h2>From current state to fully managed storefront</h2>
+      <p>How a practice experiences the Practice Concierge — from silent discovery through ongoing change management.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-step">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Step 1 — Before Contact</div>
+        <h3>Discovery & Pre-Population</h3>
+        <p class="tl-scene">System silently harvests public data — websites, GMB, social profiles, reviews, directories. Builds a Practice Profile Draft with confidence scores per field.</p>
+        <div class="tl-detail">Uses LLM-assisted extraction to parse any website structure. The "we already know about you" moment. Quality here determines first-impression impact.</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Step 2 — Invitation</div>
+        <h3>Enrollment Invitation</h3>
+        <p class="tl-scene">Batches of 20-30 practices receive personalized invitations with a preview of what the system already knows about them. "Meet your concierge and get upgraded in 15 minutes."</p>
+        <div class="tl-detail">Must feel like a gift, not a mandate. The preview data demonstrates value before asking for anything.</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Step 3 — Verification</div>
+        <h3>Concierge Welcome & Data Verification</h3>
+        <p class="tl-scene">Concierge presents harvested data. Practice corrects in 3-4 minutes: "Dr. Miller left, add Sarah." Every correction triggers downstream cascades automatically.</p>
+        <div class="tl-detail">Sage + Caregiver tone — knowledgeable, warm, never bureaucratic. "Got it — I'll remove Dr. Miller from everything."</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Step 4 — Generation</div>
+        <h3>Storefront Generation</h3>
+        <p class="tl-scene">2-3 specialty-optimized templates populated with real data. Concierge recommends with reasoning: "Perio sites convert 23% better with referral-optimized layouts."</p>
+        <div class="tl-detail">Guardrailed decisions — every option is SGA-approved. If no response in 3 weeks, auto-deploys the recommendation.</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Step 5 — Review</div>
+        <h3>Full Storefront Approval</h3>
+        <p class="tl-scene">Complete package: website, GMB, social profiles, lead capture. HQ creative reviews in parallel (24-hour QC window). Practice approves, everything deploys.</p>
+        <div class="tl-detail">99% pass QC without issue. Real-time changes handled in-conversation.</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Step 6 — Go Live</div>
+        <h3>Activation</h3>
+        <p class="tl-scene">Website, GMB, social, forms — all live. Concierge sends 1-week follow-up: "Your new site had X visitors. Y appointment requests."</p>
+        <div class="tl-detail">First data delivery reinforces value and builds the check-in habit.</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Step 7 — The Moment of Truth</div>
+        <h3>Change Management</h3>
+        <p class="tl-scene">A doctor leaves. Office manager tells the concierge. It responds with a complete action plan across all 7+ touchpoints, scheduled for the departure date.</p>
+        <div class="tl-detail">This is where long-term value is proven. Proactive suggestions demonstrate opinion and thoroughness.</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Step 8 — Safety Net</div>
+        <h3>Blitz Deploy</h3>
+        <p class="tl-scene">After 30 days, non-engaged practices get default storefronts auto-deployed from scraped data. "I went ahead and launched your upgrade — customize anytime."</p>
+        <div class="tl-detail">100% coverage regardless of engagement. Dashboard shows "auto-deployed" vs "practice-customized" tiers.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ARCHITECTURE ============ -->
+<div class="divider"></div>
+<div class="section" id="architecture">
+  <div class="container">
+    <div class="section-header">
+      <div class="overline">System Architecture</div>
+      <h2>Six components, one orchestration layer</h2>
+      <p>Event-driven architecture with a single source of truth for all practice data.</p>
+    </div>
+
+    <div class="arch-container">
+      <svg class="arch-svg" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg">
+        <rect width="900" height="520" fill="var(--bg)" rx="12"/>
+        <!-- Interfaces -->
+        <rect x="40" y="20" width="180" height="60" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="1.5"/>
+        <text x="130" y="45" fill="var(--accent)" font-size="10" text-anchor="middle" font-weight="700">PRACTICE</text>
+        <text x="130" y="60" fill="var(--text-muted)" font-size="9" text-anchor="middle">Chat Interface</text>
+        <rect x="260" y="20" width="180" height="60" rx="10" fill="var(--surface)" stroke="var(--purple)" stroke-width="1.5"/>
+        <text x="350" y="45" fill="var(--purple)" font-size="10" text-anchor="middle" font-weight="700">HQ TEAM</text>
+        <text x="350" y="60" fill="var(--text-muted)" font-size="9" text-anchor="middle">Admin + QC</text>
+        <rect x="480" y="20" width="180" height="60" rx="10" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>
+        <text x="570" y="45" fill="var(--green)" font-size="10" text-anchor="middle" font-weight="700">EXECUTIVE</text>
+        <text x="570" y="60" fill="var(--text-muted)" font-size="9" text-anchor="middle">Health Dashboard</text>
+        <!-- Agent Layer -->
+        <rect x="40" y="110" width="620" height="80" rx="10" fill="var(--surface-2)" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="5"/>
+        <text x="60" y="135" fill="var(--accent)" font-size="11" font-weight="700">CONCIERGE AGENT (per practice)</text>
+        <rect x="60" y="148" width="120" height="30" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+        <text x="120" y="167" fill="var(--text-muted)" font-size="8" text-anchor="middle">Conversation Engine</text>
+        <rect x="195" y="148" width="110" height="30" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+        <text x="250" y="167" fill="var(--text-muted)" font-size="8" text-anchor="middle">Knowledge Base</text>
+        <rect x="320" y="148" width="100" height="30" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+        <text x="370" y="167" fill="var(--text-muted)" font-size="8" text-anchor="middle">Action Router</text>
+        <rect x="435" y="148" width="120" height="30" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+        <text x="495" y="167" fill="var(--text-muted)" font-size="8" text-anchor="middle">Proactive Scheduler</text>
+        <!-- Lines to agent -->
+        <line x1="130" y1="80" x2="130" y2="110" stroke="var(--accent)" stroke-width="1" marker-end="url(#a1)"/>
+        <line x1="350" y1="80" x2="350" y2="110" stroke="var(--purple)" stroke-width="1" marker-end="url(#a2)"/>
+        <!-- Event Bus -->
+        <rect x="40" y="220" width="820" height="35" rx="8" fill="var(--accent-glow)" stroke="var(--accent)" stroke-width="1"/>
+        <text x="450" y="242" fill="var(--accent)" font-size="10" text-anchor="middle" font-weight="700" letter-spacing="2">EVENT-DRIVEN ORCHESTRATION BUS</text>
+        <line x1="350" y1="190" x2="350" y2="220" stroke="var(--accent)" stroke-width="1" marker-end="url(#a1)"/>
+        <!-- Components -->
+        <rect x="40" y="285" width="180" height="80" rx="10" fill="var(--surface)" stroke="var(--border)"/>
+        <text x="130" y="310" fill="var(--orange)" font-size="10" text-anchor="middle" font-weight="700">DATA HARVESTER</text>
+        <text x="130" y="328" fill="var(--text-muted)" font-size="8" text-anchor="middle">Web Scrape + APIs</text>
+        <text x="130" y="342" fill="var(--text-muted)" font-size="8" text-anchor="middle">LLM-Assisted Extraction</text>
+        <rect x="250" y="285" width="180" height="80" rx="10" fill="var(--surface)" stroke="var(--border)"/>
+        <text x="340" y="310" fill="var(--purple)" font-size="10" text-anchor="middle" font-weight="700">TEMPLATE ENGINE</text>
+        <text x="340" y="328" fill="var(--text-muted)" font-size="8" text-anchor="middle">GP · Perio · Full Arch</text>
+        <text x="340" y="342" fill="var(--text-muted)" font-size="8" text-anchor="middle">Pediatric · Multi</text>
+        <rect x="460" y="285" width="180" height="80" rx="10" fill="var(--surface)" stroke="var(--border)"/>
+        <text x="550" y="310" fill="var(--green)" font-size="10" text-anchor="middle" font-weight="700">CHANNEL SYNC</text>
+        <text x="550" y="328" fill="var(--text-muted)" font-size="8" text-anchor="middle">GMB · Social · Directories</text>
+        <text x="550" y="342" fill="var(--text-muted)" font-size="8" text-anchor="middle">CRM · Reviews</text>
+        <rect x="680" y="285" width="180" height="80" rx="10" fill="var(--surface)" stroke="var(--border)"/>
+        <text x="770" y="310" fill="var(--accent)" font-size="10" text-anchor="middle" font-weight="700">NETWORK DASHBOARD</text>
+        <text x="770" y="328" fill="var(--text-muted)" font-size="8" text-anchor="middle">Health Scores · Alerts</text>
+        <text x="770" y="342" fill="var(--text-muted)" font-size="8" text-anchor="middle">Reporting · KPIs</text>
+        <!-- Lines bus to components -->
+        <line x1="130" y1="255" x2="130" y2="285" stroke="var(--accent)" stroke-width="1" marker-end="url(#a1)"/>
+        <line x1="340" y1="255" x2="340" y2="285" stroke="var(--accent)" stroke-width="1" marker-end="url(#a1)"/>
+        <line x1="550" y1="255" x2="550" y2="285" stroke="var(--accent)" stroke-width="1" marker-end="url(#a1)"/>
+        <line x1="770" y1="255" x2="770" y2="285" stroke="var(--accent)" stroke-width="1" marker-end="url(#a1)"/>
+        <!-- Dashboard to exec -->
+        <line x1="770" y1="285" x2="770" y2="255" stroke="var(--green)" stroke-width="1" stroke-dasharray="4"/>
+        <path d="M770,255 Q770,200 570,80" fill="none" stroke="var(--green)" stroke-width="1" stroke-dasharray="4"/>
+        <!-- Data Hub -->
+        <rect x="40" y="400" width="820" height="55" rx="10" fill="var(--surface-2)" stroke="var(--accent)" stroke-width="2"/>
+        <text x="450" y="425" fill="var(--accent)" font-size="12" text-anchor="middle" font-weight="700">PRACTICE DATA HUB — Single Source of Truth</text>
+        <text x="450" y="442" fill="var(--text-muted)" font-size="9" text-anchor="middle">260+ Practice Records · Team · Brand · Digital Presence · Health Scores</text>
+        <!-- Lines to hub -->
+        <line x1="130" y1="365" x2="130" y2="400" stroke="var(--border)" stroke-width="1" marker-end="url(#a3)"/>
+        <line x1="340" y1="365" x2="340" y2="400" stroke="var(--border)" stroke-width="1" marker-end="url(#a3)"/>
+        <line x1="550" y1="365" x2="550" y2="400" stroke="var(--border)" stroke-width="1" marker-end="url(#a3)"/>
+        <line x1="770" y1="365" x2="770" y2="400" stroke="var(--border)" stroke-width="1" marker-end="url(#a3)"/>
+        <!-- External -->
+        <rect x="40" y="480" width="820" height="30" rx="6" fill="var(--surface)" stroke="var(--border)"/>
+        <text x="450" y="500" fill="var(--text-muted)" font-size="9" text-anchor="middle">Google APIs · Meta APIs · iSolved HR · CRM · Hosting / CDN · Directory APIs</text>
+        <line x1="450" y1="455" x2="450" y2="480" stroke="var(--border)" stroke-width="1" marker-end="url(#a3)"/>
+        <defs>
+          <marker id="a1" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="var(--accent)" stroke-width="1"/></marker>
+          <marker id="a2" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="var(--purple)" stroke-width="1"/></marker>
+          <marker id="a3" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="var(--border)" stroke-width="1"/></marker>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="comp-grid">
+      <div class="comp"><div class="comp-color" style="background:var(--accent)"></div><h4>Practice Data Hub</h4><p>Single source of truth. One canonical record per practice. Change here and it propagates everywhere. PostgreSQL + Redis cache for fast agent context loading.</p></div>
+      <div class="comp"><div class="comp-color" style="background:var(--orange)"></div><h4>Data Harvester</h4><p>Pre-populates practice profiles from public data using LLM-assisted extraction. Runs before any practice interaction to build the "we already know you" moment.</p></div>
+      <div class="comp"><div class="comp-color" style="background:var(--accent)"></div><h4>Concierge Agent</h4><p>Per-practice AI concierge. Handles enrollment, change management, content approval, Q&A. Opinionated — always recommends with reasoning. Sage + Caregiver personality.</p></div>
+      <div class="comp"><div class="comp-color" style="background:var(--purple)"></div><h4>Template Engine</h4><p>5 specialty-specific website templates generated from structured data. One template update re-generates all sites using it. Batch operations are native.</p></div>
+      <div class="comp"><div class="comp-color" style="background:var(--green)"></div><h4>Channel Sync Engine</h4><p>Event-driven sync to GMB, social, directories, CRM, and reviews. Changes fire in minutes, not nightly batches. Retry with exponential backoff.</p></div>
+      <div class="comp"><div class="comp-color" style="background:var(--accent)"></div><h4>Network Dashboard</h4><p>Executive + HQ views. Automated health scores, alerts, QC queue, batch operations. Zero manual data entry — every metric pulls from live sources.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ DECISIONS ============ -->
+<div class="divider"></div>
+<div class="section" id="decisions">
+  <div class="container">
+    <div class="section-header">
+      <div class="overline">Architecture Decisions</div>
+      <h2>The reasoning behind critical choices</h2>
+      <p>Each decision record documents what was decided, why, and the trade-offs accepted.</p>
+    </div>
+    <div class="adr-list">
+      <details class="adr">
+        <summary>ADR-1: One Agent Per Practice (not shared) <span class="toggle">+</span></summary>
+        <div class="adr-body">
+          <p><strong>Decision:</strong> Deploy one logical agent instance per practice — shared model, practice-specific context.</p>
+          <p><strong>Why:</strong> Per-practice agents feel personal and eliminate context-switching errors. The LLM is shared; only the system prompt and context window differ. At 260+ practices, overhead is context storage, not compute.</p>
+          <p><strong>Trade-off:</strong> Practice data must be efficiently loadable into each agent's context on every interaction. Requires a practice context service.</p>
+        </div>
+      </details>
+      <details class="adr">
+        <summary>ADR-2: Generated Sites (not CMS-managed) <span class="toggle">+</span></summary>
+        <div class="adr-body">
+          <p><strong>Decision:</strong> Generate static/JAMstack sites from templates + data, not CMS-managed dynamic sites.</p>
+          <p><strong>Why:</strong> 260 WordPress instances is a maintenance nightmare. Generated sites are faster, cheaper, more secure, and easier to batch-update. One template change re-generates all sites.</p>
+          <p><strong>Trade-off:</strong> Content updates require re-generation and re-deployment. Pipeline must produce live updates within minutes.</p>
+        </div>
+      </details>
+      <details class="adr">
+        <summary>ADR-3: Event-Driven Sync (not nightly batch) <span class="toggle">+</span></summary>
+        <div class="adr-body">
+          <p><strong>Decision:</strong> Event-driven synchronization with nightly batch as safety net.</p>
+          <p><strong>Why:</strong> "Dr. Johnson left" can't wait for a nightly batch — the website would show a departed doctor for up to 24 hours. Events fire within minutes. Batch catches anything the event system misses.</p>
+          <p><strong>Trade-off:</strong> Requires a reliable message queue and graceful API rate limit handling with retry logic.</p>
+        </div>
+      </details>
+      <details class="adr">
+        <summary>ADR-4: Blitz Deploy Safety Net <span class="toggle">+</span></summary>
+        <div class="adr-body">
+          <p><strong>Decision:</strong> Auto-deploy default storefronts for non-engaged practices after 30 days.</p>
+          <p><strong>Why:</strong> A clean generic storefront from scraped data is better than a broken or nonexistent one. Ensures 100% network coverage regardless of practice engagement.</p>
+          <p><strong>Trade-off:</strong> Blitz-deployed sites may have inaccuracies. Flagged as "auto-deployed — unverified" in the dashboard.</p>
+        </div>
+      </details>
+      <details class="adr">
+        <summary>ADR-5: Opinionated Agent with Reasoning <span class="toggle">+</span></summary>
+        <div class="adr-body">
+          <p><strong>Decision:</strong> The Concierge always recommends with evidence-based reasoning, never just presents options.</p>
+          <p><strong>Why:</strong> SGA's brand is Sage + Caregiver. An agent that says "here are 5 options" adds no value. "I recommend Template A because perio sites convert 23% better with referral-optimized layouts" reduces decision fatigue and demonstrates expertise.</p>
+          <p><strong>Trade-off:</strong> Knowledge base must include conversion data and industry benchmarks. Wrong recommendations erode trust permanently.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ROADMAP ============ -->
+<div class="divider"></div>
+<div class="section" id="roadmap">
+  <div class="container">
+    <div class="section-header">
+      <div class="overline">Implementation Roadmap</div>
+      <h2>MVP to self-improving system in 120 days</h2>
+      <p>Four phases from first enrolled practice to predictive optimization.</p>
+    </div>
+    <div class="roadmap-grid">
+      <div class="rm-phase">
+        <div class="rm-label">Phase 1 — Days 1-30</div>
+        <h4>MVP</h4>
+        <ul>
+          <li>Practice Data Hub schema + seed</li>
+          <li>Data Harvester (top 50 practices)</li>
+          <li>Concierge core enrollment flow</li>
+          <li>2 website templates (GP + specialty)</li>
+          <li>Template Engine: generate + deploy</li>
+          <li>Basic enrollment dashboard</li>
+        </ul>
+      </div>
+      <div class="rm-phase">
+        <div class="rm-label">Phase 2 — Days 31-60</div>
+        <h4>Scale</h4>
+        <ul>
+          <li>Remaining 3 specialty templates</li>
+          <li>Channel Sync: GMB + social</li>
+          <li>Blitz deploy for non-engaged</li>
+          <li>Change management flows</li>
+          <li>Health scores + alert system</li>
+          <li>iSolved HR integration</li>
+        </ul>
+      </div>
+      <div class="rm-phase">
+        <div class="rm-label">Phase 3 — Days 61-90</div>
+        <h4>Curation</h4>
+        <ul>
+          <li>Hub-and-spoke social automation</li>
+          <li>Content approval workflows</li>
+          <li>Review management engine</li>
+          <li>Full KPI dashboard suite</li>
+          <li>CRM integration + lead routing</li>
+          <li>Proactive concierge outreach</li>
+        </ul>
+      </div>
+      <div class="rm-phase">
+        <div class="rm-label">Phase 4 — Days 91-120</div>
+        <h4>Intelligence</h4>
+        <ul>
+          <li>Concierge voice channel</li>
+          <li>A/B testing framework</li>
+          <li>Predictive health scoring</li>
+          <li>Network content analytics</li>
+          <li>Auto-optimization recommendations</li>
+          <li>Cross-practice benchmarking</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <h3 style="font-size:1.1rem; margin: 3rem 0 1rem;">Technology Stack</h3>
+    <div class="tech-grid">
+      <div class="tech"><div class="tech-cat">Data Layer</div><div class="tech-name">PostgreSQL + Redis</div><div class="tech-why">Relational practice data with fast agent context loading</div></div>
+      <div class="tech"><div class="tech-cat">Harvester</div><div class="tech-name">Python + Playwright + Claude</div><div class="tech-why">LLM-assisted extraction from any website structure</div></div>
+      <div class="tech"><div class="tech-cat">Concierge</div><div class="tech-name">Claude API + Orchestration</div><div class="tech-why">Conversation + reasoning + tool_use for backend actions</div></div>
+      <div class="tech"><div class="tech-cat">Templates</div><div class="tech-name">Next.js / Astro + Tailwind</div><div class="tech-why">Static generation, component-based, fast edge deploys</div></div>
+      <div class="tech"><div class="tech-cat">Channel Sync</div><div class="tech-name">Node.js + BullMQ</div><div class="tech-why">Event-driven workers with reliable message queue</div></div>
+      <div class="tech"><div class="tech-cat">Hosting</div><div class="tech-name">Cloudflare + Vercel + AWS</div><div class="tech-why">Static sites at edge, app hosting, data infrastructure</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ LEARNINGS ============ -->
+<div class="divider"></div>
+<div class="section" id="learnings">
+  <div class="container">
+    <div class="section-header">
+      <div class="overline">Key Learnings</div>
+      <h2>What the sprint revealed</h2>
+      <p>Insights that emerged through structured divergent-convergent thinking.</p>
+    </div>
+    <div class="learnings-grid">
+      <div class="learning">
+        <div class="num">Insight 01</div>
+        <h4>The onboarding problem is really a data problem</h4>
+        <p>Multi-month setup time isn't because building websites is hard. It's because getting the data (passwords, brand assets, team info) is hard. Pre-populate from public sources, verify in 15 minutes.</p>
+      </div>
+      <div class="learning">
+        <div class="num">Insight 02</div>
+        <h4>The agent IS the product, not a feature</h4>
+        <p>The concierge should be the ONLY interface practices see. Everything else is backend infrastructure. One thing to talk to, not five tools to learn.</p>
+      </div>
+      <div class="learning">
+        <div class="num">Insight 03</div>
+        <h4>Opinionated by default, customizable by exception</h4>
+        <p>The system comes in with strong opinions backed by data. 90% get a great storefront without lifting a finger. 10% get guardrailed choices. Nobody gets a blank canvas.</p>
+      </div>
+      <div class="learning">
+        <div class="num">Insight 04</div>
+        <h4>Blitz deploy prevents the adoption trap</h4>
+        <p>If the system requires engagement to deliver value, non-engaged practices get nothing. Auto-deploy defaults ensure 100% coverage regardless of practice behavior.</p>
+      </div>
+      <div class="learning">
+        <div class="num">Insight 05</div>
+        <h4>Stage 2 is an extension, not a rebuild</h4>
+        <p>The enrollment agent becomes the curation agent. The data hub becomes the curation data layer. Everything we build for onboarding feeds directly into 365-day operations.</p>
+      </div>
+      <div class="learning">
+        <div class="num">Unresolved</div>
+        <h4>Open questions for development</h4>
+        <p>CRM standardization across practices. Domain/hosting migration strategy. Photo quality for practices without professional imagery. HIPAA compliance in templates. iSolved API accessibility.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">SGA DENTAL PARTNERS</div>
+  <p>Sprint: Digital Storefront at Scale — The Practice Concierge</p>
+  <p>March 2026 &middot; Problem Sprint Methodology</p>
+</footer>
+
+</body>
+</html>

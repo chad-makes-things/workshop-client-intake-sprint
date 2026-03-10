@@ -1,0 +1,531 @@
+{
+  "scripts": [
+    {
+      "id": "discovery",
+      "name": "Discovery Call Script",
+      "type": "discovery",
+      "duration": "15-20 min",
+      "targetAvatar": "Dr. Mark Hendricks",
+      "sections": [
+        {
+          "name": "Opening",
+          "duration": "2-3 min",
+          "script": "\"Dr. [Name], thanks for taking the time. Before we get started, I want to set expectations.\n\nThis call is not a pitch. My goal in the next 15 minutes is to understand your practice, your situation, and what you are looking for -- and then to give you an honest assessment of whether SGA might be a fit.\n\nIf it is not a fit, I will tell you that. And I will still give you the framework to evaluate anyone else you are talking to.\n\nDoes that sound fair?\n\n[PAUSE -- let them respond]\n\nGreat. Let me start with a simple question: what prompted you to take this call today? What is on your mind about your practice right now?\"",
+          "speakerCues": "you",
+          "notes": "The opening must disarm. Practice owners expect a sales pitch. The 'not a pitch' framing and permission to say no creates trust immediately. Let them talk first."
+        },
+        {
+          "name": "Discovery Questions",
+          "duration": "7-8 min",
+          "script": "\"Tell me about your practice. How many years have you been open? How many providers? What is your rough annual revenue?\"\n\n[LISTEN -- take notes]\n\n\"What does a typical week look like for you? How many hours are clinical versus administrative?\"\n\n[LISTEN]\n\n\"If I asked your office manager what keeps her up at night, what would she say?\"\n\n[LISTEN]\n\n\"Have you talked to any other DSOs or partnership platforms? What was your impression?\"\n\n[LISTEN -- this reveals their framework and objections]\n\n\"What would need to be true for you to consider a partnership? What is the one thing you would never compromise on?\"\n\n[LISTEN -- this is the critical question. Their answer reveals their core value: autonomy, legacy, financial security, or clinical growth]",
+          "speakerCues": "you",
+          "notes": "Spend 60% of this section listening, 40% asking. The goal is to map their avatar (practice owner, specialist, near-retirement, growth-stage) and identify their primary pain point."
+        },
+        {
+          "name": "Qualification",
+          "duration": "2-3 min",
+          "script": "\"Based on what you have told me, let me share a few things that are relevant to your situation.\n\n[If they match SGA's profile:]\nYour practice sounds like it would be a strong fit for our [Community/Collaborative/MODIS] vertical. Here is why: [connect their specific situation to SGA's model].\n\n[If they do not match:]\nI want to be honest with you -- based on what you have described, I am not sure SGA is the right fit right now. Here is why: [specific reason]. What I CAN do is give you the framework to evaluate whoever you do talk to.\"",
+          "speakerCues": "you",
+          "notes": "Honest disqualification builds more trust than pitching a bad fit. If the practice is under $1M revenue or the owner is not interested in equity, say so. Refer them to the 7-question framework."
+        },
+        {
+          "name": "Transition to Next Step",
+          "duration": "2-3 min",
+          "script": "\"Here is what I would suggest as a next step.\n\nI would like to schedule a 30-minute deep-dive call where I can walk you through the SGA model in detail -- specific to your practice, your market, and your goals. I will bring information on [specific thing they care about most: the education platform, the financial model, partner stories in their geography, etc.].\n\nI will also send you contact information for a current partner in a similar situation so you can have a peer conversation. Not a curated testimonial -- a phone number.\n\nDoes [Day] at [Time] or [Day] at [Time] work for the deep-dive?\"\n\n[BOOK THE MEETING -- do not end without a next step]\n\n\"One last thing: is there anyone else who needs to be part of this conversation? A spouse, a business partner, a financial advisor? I would rather include them early than have the conversation twice.\"",
+          "speakerCues": "you",
+          "notes": "Always end with a scheduled next step. Always ask about decision influencers. Always offer a partner reference. These three actions double conversion from discovery to deep-dive."
+        }
+      ],
+      "keyQuestions": [
+        "What prompted you to take this call today?",
+        "How many hours per week are clinical versus administrative?",
+        "Have you talked to any other DSOs? What was your impression?",
+        "What is the one thing you would never compromise on?",
+        "Is there anyone else who needs to be part of this conversation?"
+      ],
+      "timingGuidelines": "Spend 60% listening, 40% talking. If you are talking more than the prospect, you are doing it wrong."
+    },
+    {
+      "id": "demo",
+      "name": "Deep-Dive / Demo Call Script",
+      "type": "demo",
+      "duration": "30 min",
+      "targetAvatar": "Dr. Mark Hendricks",
+      "sections": [
+        {
+          "name": "Opening and Reconnect",
+          "duration": "3 min",
+          "script": "\"Dr. [Name], great to reconnect. Before we dive in, I want to make sure I have the right focus for today.\n\nLast time we talked, you mentioned [specific pain point or interest from discovery call]. I have prepared the deep-dive around that. But first -- has anything changed since we last spoke? Any new developments or concerns?\"",
+          "speakerCues": "you",
+          "notes": "Reference specific details from the discovery call. This demonstrates you listened and prepared. If they brought a spouse or advisor, acknowledge them and explain that you welcome their questions."
+        },
+        {
+          "name": "Avatar-Customized Walkthrough",
+          "duration": "15 min",
+          "script": "[For the Practice Owner (Dr. Hendricks avatar):]\n\"Let me walk you through how the SGA model addresses the specific things you told me matter most.\n\nOn clinical autonomy: the Clinical Independence Clause in our partnership agreement specifies that treatment plans, materials, lab selection, scheduling, and clinical protocols remain with you. Our CCO, Dr. Ellingson, is a practicing dentist -- not a corporate executive.\n\nOn your team: every team member stays. Benefits upgrade: Cigna, 401(k) through Voya, PTO, CE stipends. 85% staff retention rate across the network.\n\nOn the financial model: JV equity partnership. 60-70% cash at closing. 30-40% retained as equity in the SGA platform. I want to walk you through what this looks like with numbers similar to yours.\n\n[Present customized financial comparison: solo vs. SGA over 5 years]\n\nOn education: you mentioned wanting to expand into [procedure]. The Individual Growth Engine pairs you with a mentor. The Pikos Institute gives you access to world-class implantology training. The 4Front Symposium connects you with 100+ peers.\n\nOn the PE question: the Thurston Group has been doing this for 38 years. $4B+ returned to partners across 8 platforms. I can connect you with partners from prior Thurston platforms who have been through a full cycle.\"",
+          "speakerCues": "you",
+          "notes": "Customize this section based on the avatar identified in discovery. Lead with whatever they said mattered most. Use their exact words back to them."
+        },
+        {
+          "name": "Partner Reference and Close",
+          "duration": "5 min",
+          "script": "\"Here is what I would like to do next.\n\nFirst, I am going to send you contact information for [Partner Name] at [Practice Name]. Their situation was very similar to yours -- [specific parallel]. They are expecting your call.\n\nSecond, if the peer conversation goes well, I would like to schedule a follow-up where we discuss next steps -- whether that is a site visit, a financial model walkthrough with your advisor, or a conversation with our leadership.\n\nWhat questions do you have right now?\"",
+          "speakerCues": "you",
+          "notes": "The partner reference is the highest-leverage move at this stage. Always offer it. Always have a specific partner name ready that matches their situation."
+        }
+      ],
+      "keyQuestions": [
+        "Has anything changed since we last spoke?",
+        "What would your ideal partnership look like day-to-day?",
+        "Have you discussed this with your spouse/advisor?",
+        "On a scale of 1-10, where are you on moving forward?"
+      ],
+      "timingGuidelines": "This call is about depth, not breadth. Focus on the 2-3 things that matter most to this specific prospect."
+    },
+    {
+      "id": "follow-up",
+      "name": "Follow-Up Call Script",
+      "type": "follow-up",
+      "duration": "10 min",
+      "targetAvatar": "Dr. Mark Hendricks",
+      "sections": [
+        {
+          "name": "Opening",
+          "duration": "2 min",
+          "script": "\"Dr. [Name], thanks for connecting again. I have been thinking about our conversation. You mentioned [specific concern or interest from demo call] -- I actually found something I think you will find interesting on that.\n\nBut first, tell me: what has been on your mind since we last talked? Have you had a chance to discuss it with [spouse/advisor/partner they named]?\"",
+          "speakerCues": "you",
+          "notes": "Open with value, not a check-in. Reference something specific and demonstrate continued investment in their situation."
+        },
+        {
+          "name": "Address Concerns and Advance",
+          "duration": "6 min",
+          "script": "[If they spoke with spouse -- address spouse concerns directly:]\n\"What were their biggest concerns? Spouses often see angles the dentist does not. For financial concerns: Thurston Group, 38 years, $4B+ returned. For lifestyle concerns: Dr. Hallissey -- 'I traded doing books at midnight for being a dad at dinner.'\"\n\n[If they spoke with financial advisor:]\n\"What did your advisor want to see? Advisors typically ask three things: valuation methodology, tax implications of the equity roll, and exit timeline. We can address all three. Would it be helpful for me to have a direct conversation with your advisor?\"\n\n[Scale question:]\n\"On a scale of 1-10, where are you on moving forward with a proposal?\"\n[If 7+:] \"What would get you to a 10?\"\n[If below 7:] \"What is holding you back? Let us name it and deal with it.\"",
+          "speakerCues": "you",
+          "notes": "Use LAER framework for any objection that surfaces. The scale question is a diagnostic tool -- the answer reveals their true position."
+        },
+        {
+          "name": "Close with Next Step",
+          "duration": "2 min",
+          "script": "\"Here is what I am going to do: I will send over a preliminary proposal by [specific date]. It will include the valuation range, deal structure options, and a transition timeline. I will also send you contact information for [partner reference] so you can schedule a peer conversation.\n\nTake the time you need with the proposal. When you are ready, we will schedule a call to walk through it together.\n\nDoes [day/time] work for us to reconnect after you have reviewed it?\"",
+          "speakerCues": "you",
+          "notes": "Always close with a specific date for the next interaction. Vague 'let me know when you are ready' loses deals."
+        }
+      ],
+      "keyQuestions": [
+        "What has been on your mind since we last talked?",
+        "Did you discuss with your spouse/advisor? What were their concerns?",
+        "On a scale of 1-10, where are you on moving forward?",
+        "What would get you to a 10?"
+      ],
+      "timingGuidelines": "This call should feel like a check-in with a trusted advisor, not a sales follow-up. Lead with value, end with a specific next step."
+    },
+    {
+      "id": "cold-call",
+      "name": "Cold Outreach Script",
+      "type": "cold-call",
+      "duration": "2 min",
+      "targetAvatar": "Dr. Mark Hendricks",
+      "sections": [
+        {
+          "name": "Permission Opening",
+          "duration": "30 sec",
+          "script": "\"Dr. [Name], this is [Your Name]. I have to be upfront -- this is a cold call, and I know you are busy. Can I have 30 seconds to tell you why I called, and if it does not resonate, I will hang up?\"\n\n[PAUSE. Wait for permission. If they say no, say 'Understood. Thanks, Dr. [Name]' and hang up. Do not push.]",
+          "speakerCues": "you",
+          "notes": "The permission frame is essential. Forcing a cold pitch on an unwilling listener destroys any chance of a future relationship. Respect the 'no.'"
+        },
+        {
+          "name": "Value Statement",
+          "duration": "30 sec",
+          "script": "[Version A - the '7 out of 10' opener:]\n\"I work with dentists who are thinking about what comes next. Research shows 7 out of 10 dentists who sell to a DSO end up frustrated or regretful. We built a partnership model specifically designed to be the opposite of that experience. I am not calling to pitch you. I think a 15-minute conversation about how our model works might be worth your time. Would you be open to a brief call?\"\n\n[Version B - the 'QuickBooks' opener:]\n\"Quick question: how many nights this month have you stayed late doing something that has nothing to do with dentistry? One of our partners described it perfectly: 'QuickBooks no longer calls me to the back office.' We are a dental partnership platform that takes the entire business side off your plate -- without changing your name, your team, or how you practice. I would love 15 minutes to show you how it works.\"\n\n[Version C - the 'peer curiosity' opener:]\n\"I just got off a call with a practice owner in [nearby city] who joined our partnership last year. Same size practice as yours. He told me his only regret was not doing it sooner -- and the thing that sold him was something I would never have guessed. If I could share that story in 15 minutes, would it be worth a call?\"",
+          "speakerCues": "you",
+          "notes": "A/B/C test these openers. Track which version books the most 15-minute calls. Rotate weekly."
+        }
+      ],
+      "keyQuestions": [
+        "Can I have 30 seconds to tell you why I called?",
+        "Would you be open to a brief call this week or next?"
+      ],
+      "timingGuidelines": "Under 2 minutes total. The ONLY goal is to book a 15-minute call. Do not pitch on the cold call."
+    },
+    {
+      "id": "voicemail",
+      "name": "Voicemail Script",
+      "type": "voicemail",
+      "duration": "30 sec",
+      "targetAvatar": "Dr. Mark Hendricks",
+      "sections": [
+        {
+          "name": "Full Script",
+          "duration": "30 sec",
+          "script": "[Version A:]\n\"Dr. [Name], this is [Your Name], [phone number]. I was doing some research on practices in [City] and came across yours. I work with dentists who are looking at what comes next -- and I have a story from a practice owner in a very similar situation to yours that I think you would find interesting. [Phone number] again. I hope we get a chance to connect.\"\n\n[Version B:]\n\"Dr. [Name], [Your Name] here, [phone number]. Quick message: I was talking with a dentist last week who told me his biggest regret was not making one phone call two years earlier. I would love to tell you that story. [Phone number]. Have a great day.\"\n\n[Version C:]\n\"Dr. [Name], this is [Your Name], [phone number]. I am not a broker and I am not trying to sell your practice. I work with a dental partnership platform that is doing something genuinely different, and I thought of your practice specifically. Give me a call back when you have a minute -- [phone number].\"",
+          "speakerCues": "you",
+          "notes": "Under 30 seconds. Leave name and number at the BEGINNING. One intriguing statement. No ask beyond 'I would love to connect.'"
+        }
+      ],
+      "keyQuestions": [],
+      "timingGuidelines": "Under 30 seconds. Name and number first (they are writing it down). One curiosity hook. No pitch."
+    }
+  ],
+  "objections": [
+    {
+      "id": "obj-1",
+      "objection": "I don't want to lose control of my practice.",
+      "frequency": "Very Common",
+      "severity": "high",
+      "acknowledge": "That is the right concern to have. If I were in your shoes with 22 years of my life in this practice, it would be my first question too. And honestly, the fact that you are asking it tells me you have done your homework on what happens at other DSOs.",
+      "probe": "When you say 'control,' what specifically are you most protective of? Is it who you work with, how you treat patients, what materials you use -- or is it all of the above?",
+      "respond": "Here is how SGA handles this, and I want to be specific because vague promises are worthless.\n\nYou choose your materials. You choose your lab. You set your schedule. You determine treatment plans. SGA does not have 'crown days' or 'Invisalign days.' There are no production quotas.\n\nOur CCO is Dr. Mitch Ellingson -- a practicing dentist who left private practice specifically to protect other dentists from losing their autonomy.\n\nAnd here is the proof: call Dr. Godat at Periodontal Associates of Memphis. Still his name. Still his team. Still his way of practicing.",
+      "confirm": "Does that address the concern, or is there a specific scenario you are worried about that I have not covered?",
+      "competitorContext": "If they reference Heartland crown days or Aspen rebranding, validate those concerns as real and use them to contrast SGA's contractual protections."
+    },
+    {
+      "id": "obj-2",
+      "objection": "I've heard horror stories about DSOs.",
+      "frequency": "Very Common",
+      "severity": "high",
+      "acknowledge": "You should have heard horror stories, because they are real. The Dentist Advisors podcast says 7 out of 10 dentists who sell to a DSO end up frustrated or regretful. That is not marketing. That is the actual market data.",
+      "probe": "What specifically about those stories worries you the most? Is it the financial terms not working out, the autonomy eroding over time, or something else?",
+      "respond": "SGA was built by people who heard those numbers and said: we refuse to add to them.\n\nFirst, you retain equity in the platform. You are not an employee. You are a co-owner.\n\nSecond, the Thurston Group has been doing this for 38 years. $4B+ returned to partners across 8 platforms. The horror stories come from first-time PE funds learning on dentists' dimes.\n\nThird, we do not ask you to believe a claim. We ask you to verify it. I will give you names and phone numbers of current partners. Call them. Ask them if they would do it again.",
+      "confirm": "I am not going to pretend the DSO industry does not have a reputation problem. It does. The question is whether SGA has earned your trust by being structurally different. Would talking to a current partner help you evaluate that?",
+      "competitorContext": "Acknowledge specific horror stories by name if they bring them up. Never dismiss their concerns as unfounded."
+    },
+    {
+      "id": "obj-3",
+      "objection": "Your offer is lower than [Heartland/Aspen/MB2/etc.].",
+      "frequency": "Common",
+      "severity": "high",
+      "acknowledge": "I appreciate you being transparent about that. You should absolutely understand how every offer stacks up.",
+      "probe": "Help me understand the other offer. Is it all cash at close, or is there an equity component? What happens to your name and your team? Do you become an employee, or do you retain ownership?",
+      "respond": "Here is the question I would put to your financial advisor: what is the total value over 5-7 years, not just the day-one check?\n\nA higher multiple from a DSO that makes you an employee, replaces your brand, and gives you no equity upside is not a better deal. It is a bigger check on day one followed by zero participation in the upside.\n\nSGA's model -- 60-70% cash at close plus retained equity in a $350M+ platform -- is designed so that the second bite is bigger than the first. The Thurston Group has returned over $4 billion to partners across 8 platforms.\n\nAnd I would ask the other DSO three questions: What is your education platform? Who is your PE sponsor and what have they returned to partners? Can I call 5 of your current partners?",
+      "confirm": "Would it help to walk through a side-by-side comparison of the two offers with your financial advisor? I am happy to do that.",
+      "competitorContext": "Often comparing all-cash buyout (Heartland) to SGA's JV equity model. These are apples to oranges. The total 5-7 year value comparison is the reframe."
+    },
+    {
+      "id": "obj-4",
+      "objection": "I'm not ready to sell yet.",
+      "frequency": "Common",
+      "severity": "medium",
+      "acknowledge": "And you should not be ready until you are ready. This is not a decision anyone should rush, and I am not here to create artificial urgency.",
+      "probe": "Can I ask -- what would need to change for you to be ready? Is it a financial milestone, a personal milestone like kids finishing school, or just a feeling that the time is right?",
+      "respond": "Even if the timing is not right today, understanding where you stand in the market is valuable.\n\nValuations for dental practices are at or near cyclical highs right now. Interest rates, PE deployment cycles, and market saturation could compress multiples in the next 2-3 years. That does not mean you should rush. It means you should be informed.\n\nWe have had dentists start the conversation and partner 18 months later. We have had dentists start the conversation and decide never to partner. Both outcomes are fine.\n\nThe worst outcome is waiting until you are burned out, your team is leaving, and your leverage is gone.",
+      "confirm": "Would it be useful to stay in touch? I can check in periodically -- no pressure, just a relationship. And when the timing is right, you will already know us.",
+      "competitorContext": "This is often a stall, not a real objection. The probe question ('what would need to change?') reveals whether it is genuine or a polite deflection."
+    },
+    {
+      "id": "obj-5",
+      "objection": "My staff won't like this.",
+      "frequency": "Common",
+      "severity": "medium",
+      "acknowledge": "That is because you have built something worth protecting. Your staff's loyalty to you is a direct reflection of your leadership, and the last thing you want is a partnership that undermines it.",
+      "probe": "What specifically concerns you? Is it that they will feel threatened about their jobs, or that the culture will change, or that new management will come in and override how things work?",
+      "respond": "Three things to know. First, every team member stays. Nobody is let go as part of the partnership. Period.\n\nSecond, benefits improve. Cigna health insurance, 401(k) through Voya with employer match, PTO, CE stipends.\n\nThird, we have an 85% staff retention rate across the network. No competitor publishes this number because they cannot match it. Spencer Pierce, our VP of People and Culture: 'There is an abundance of relief.'\n\nYour office manager is not losing her role. She is getting a team.",
+      "confirm": "Would it help for your office manager to talk with an office manager at one of our partner practices? Peer to peer, so she can hear what the experience is actually like?",
+      "competitorContext": "Staff retention is SGA's strongest differentiator. Push this number hard -- no competitor can match it."
+    },
+    {
+      "id": "obj-6",
+      "objection": "What happens to my name on the door?",
+      "frequency": "Common",
+      "severity": "medium",
+      "acknowledge": "Your name IS the practice. You spent decades building trust in this community under that name. Changing it would be disrespectful to everything you built.",
+      "probe": "Is this about your patients recognizing the brand, or is it about legacy and identity?",
+      "respond": "SGA does not change practice names. Full stop. This is contractual.\n\nDental Partners of SW Georgia is still Dental Partners of SW Georgia. Periodontal Associates of Memphis is still Periodontal Associates of Memphis. Innovative Dental is still Innovative Dental. Five years later. Ten years later.\n\nSGA operates as an invisible back-office partner. There is no SGA logo on your door. Your patients will not receive a letter saying 'your dentist has been acquired.'\n\nWhat they WILL notice: the office runs smoother, the hold times are shorter, and you seem less stressed.",
+      "confirm": "Does that address the concern?",
+      "competitorContext": "If they mention Aspen (rebrands everything) or Heartland (rebrands most), validate and contrast."
+    },
+    {
+      "id": "obj-7",
+      "objection": "I need to talk to my spouse/financial advisor.",
+      "frequency": "Very Common",
+      "severity": "low",
+      "acknowledge": "Absolutely. This is a major decision and getting trusted counsel is exactly the right move.",
+      "probe": "What questions do you think they will have? I want to make sure I have given you everything you need to have a productive conversation with them.",
+      "respond": "I would actually love to be part of that conversation if you are open to it. Spouses and advisors see angles that we do not.\n\nFor your spouse, the conversation is usually about lifestyle: what changes, what stays the same, and whether the financial structure delivers the security it promises.\n\nFor your financial advisor: valuation methodology, tax implications of the equity roll, and exit timeline. We have walked through this with dental CPAs across the country.",
+      "confirm": "Can we schedule a call that includes your spouse/advisor? I would rather address their concerns directly than have them form an opinion based on incomplete information.",
+      "competitorContext": "This can be genuine or a stall. The probe question reveals which. If genuine, offer to join the conversation. If a stall, use the 'what specifically do you want to think through?' question."
+    },
+    {
+      "id": "obj-8",
+      "objection": "How is this different from every other DSO?",
+      "frequency": "Very Common",
+      "severity": "high",
+      "acknowledge": "You are right. Every DSO in the market now claims clinical autonomy, brand preservation, and 'partnership.' It has become wallpaper. I would be skeptical too.",
+      "probe": "What specifically have you heard from other DSOs that felt generic or unverifiable?",
+      "respond": "Three things no other DSO can say.\n\nOne: education. SGA has the Pikos Institute, the 4Front Symposium, and the Individual Growth Engine. MB2 has zero education platform. Heartland offers generic CE.\n\nTwo: track record. Thurston Group. 38 years. $4 billion returned. 8 platforms. No competitor can match this.\n\nThree: the post-deal story. Every DSO sells the transaction. Nobody tells you what year 3 looks like. We can: Dr. Cavendish -- revenue up 16.5%, staff retention 100%, 'it is fun again.'\n\nAsk the other DSOs three questions: What is your education platform? What is your PE track record? Can I call someone who has been with you for 3 years? If they cannot answer all three, you have your answer.",
+      "confirm": "Would applying those three questions to us and to the others you are talking to help clarify the differences?",
+      "competitorContext": "This objection is an opportunity to differentiate. Use the three-question framework to create a clear contrast."
+    },
+    {
+      "id": "obj-9",
+      "objection": "I'm worried about patient care quality.",
+      "frequency": "Occasional",
+      "severity": "high",
+      "acknowledge": "That concern is earned. There are documented cases of DSOs pressuring dentists to hit production quotas, recommend unnecessary procedures, and prioritize revenue over clinical judgment. Aspen has faced state AG investigations. Heartland has Glassdoor reviews describing 'crown days.' It happens.",
+      "probe": "What specifically concerns you -- that SGA would pressure you to overtreeat, or that the clinical standards across the network would decline?",
+      "respond": "SGA was founded as the structural opposite of that model.\n\nOur clinical decisions are governed by a Clinical Advisory Board made up of partner dentists -- not corporate executives. Our CCO, Dr. Ellingson, is a practicing dentist.\n\nWe do not set production targets by procedure type. We do not incentivize overtreatment.\n\nAnd our education platform -- Pikos Institute, 4Front, Individual Growth Engine -- is designed to make our dentists BETTER clinicians over time. We invest in clinical excellence, not production quotas.",
+      "confirm": "Does that address the concern? I can also connect you with a partner who shares your focus on clinical quality.",
+      "competitorContext": "If they mention specific DSO scandals, validate them. Never dismiss documented patient care concerns."
+    },
+    {
+      "id": "obj-10",
+      "objection": "What if I want out?",
+      "frequency": "Occasional",
+      "severity": "medium",
+      "acknowledge": "That is a fair question, and you deserve a direct answer.",
+      "probe": "Are you thinking about a scenario where you want to fully retire, or one where the partnership is not working and you want to leave?",
+      "respond": "SGA partnership agreements include defined terms, and specifics vary by deal. But the structure is built for alignment, not entrapment.\n\nIf you want to retire: we have succession planning infrastructure. Your patients continue receiving care. Your staff keeps their jobs and benefits.\n\nIf you want to transition to reduced clinical schedule: we accommodate that. Many partners scale down gradually.\n\nThe real question is not 'can I leave?' It is 'will I want to?' The education, the peer community, the operational relief, the equity growth -- when those things work, people do not want to leave.",
+      "confirm": "Does that address the concern, or is there a specific exit scenario you are thinking about?",
+      "competitorContext": "Be transparent that this is a long-term commitment. Never oversell the ease of exit. Honesty here builds trust."
+    },
+    {
+      "id": "obj-11",
+      "objection": "Why should I trust private equity?",
+      "frequency": "Common",
+      "severity": "high",
+      "acknowledge": "That fear is based on a pattern that actually happens in the market. It is not paranoia. It is observation.",
+      "probe": "What specifically worries you about PE? Is it the debt loading, the timeline pressure, or the loss of control?",
+      "respond": "The Thurston Group is not a typical PE firm.\n\nFounded in 1988. 38 years old. Not a first-time fund experimenting with dental. 8 dental and healthcare platforms built. Over $4 billion returned to partners.\n\nThe fear you are describing -- load up debt, squeeze, flip -- comes from funds with 5-year exit horizons. Thurston's model is patient capital.\n\nAnd we will back that up with something no competitor offers: direct access to the Thurston principals. Patrick Haynes III and Daniel Davis on the phone. Plus named references from partners in PRIOR Thurston platforms who have been through a full cycle.",
+      "confirm": "Would speaking directly with the Thurston principals help address your PE concerns?",
+      "competitorContext": "If they ask 'who is behind MB2?' or 'who backs Guardian?', note that MB2's sponsor is undisclosed and Guardian is family-office backed with no published returns. The transparency contrast is powerful."
+    },
+    {
+      "id": "obj-12",
+      "objection": "I have a broker who says I can get more.",
+      "frequency": "Occasional",
+      "severity": "medium",
+      "acknowledge": "Your broker is doing their job. They should be advocating for the best possible outcome for you.",
+      "probe": "Can I ask what they are benchmarking against? Is it a specific offer from another DSO, or a general market range?",
+      "respond": "Two things to consider. First, a broker typically takes 8-12% commission. On a $2M deal, that is $160K-$240K out of your pocket. SGA works directly with practice owners -- no broker fee required.\n\nSecond, the headline multiple is not the whole picture. A broker may get you a higher multiple from a DSO that makes you an employee, changes your brand, and gives you no equity upside.\n\nSGA's model -- cash at close PLUS retained equity -- is designed so the total value over 5-7 years significantly exceeds the day-one number.\n\nWe respect brokers and work with them regularly. If you would like your broker involved, bring them.",
+      "confirm": "Would it help for your broker to evaluate our term structure alongside whatever else they are presenting?",
+      "competitorContext": "Never disparage the broker relationship. Invite the broker into the conversation -- their scrutiny validates SGA's terms."
+    },
+    {
+      "id": "obj-13",
+      "objection": "My practice is too small/too large.",
+      "frequency": "Occasional",
+      "severity": "low",
+      "acknowledge": "That is a fair concern. Let me address it specifically.",
+      "probe": "What is your approximate annual revenue and provider count?",
+      "respond": "[If too small:] SGA partners across three tiers. Our community practice tier is designed for 1-3 doctor practices doing $1M-$3M. Some of the strongest partnerships are community practices with fiercely loyal patient bases.\n\n[If too large:] SGA actively seeks group practices. Our group tier handles 4-10 doctor practices doing $3M-$10M. We also offer leadership roles -- regional clinical director or advisory board positions.",
+      "confirm": "Based on your numbers, you fall squarely within our [tier]. Would it help to talk to a partner at a similar-sized practice?",
+      "competitorContext": "Size is rarely a true disqualifier. Use it as an opportunity to show that SGA has structured tiers for different practice sizes."
+    },
+    {
+      "id": "obj-14",
+      "objection": "I'm close to retirement. Why bother?",
+      "frequency": "Occasional",
+      "severity": "medium",
+      "acknowledge": "Actually, you might be the ideal candidate.",
+      "probe": "How many more years do you want to practice? And what is your succession plan for your patients and team?",
+      "respond": "You need a liquidity event NOW -- to diversify, fund retirement, de-risk your net worth. SGA delivers 60-70% cash at close.\n\nYou want to keep practicing without the administrative burden. SGA handles billing, payroll, HR, compliance, marketing, recruiting.\n\nAnd you need a succession plan. What happens to your patients and staff when you stop? SGA ensures continuity.\n\nThe equity component is valuable at this stage -- your retained equity appreciates as the platform grows. By the time you fully retire, that equity may be worth significantly more.\n\nMany of Thurston's most successful partners were in their 50s and 60s at partnership.",
+      "confirm": "Would it be helpful to see how the financial model works specifically for someone in your timeline?",
+      "competitorContext": "Near-retirement owners are often the most satisfied partners because the operational relief is most immediately felt."
+    },
+    {
+      "id": "obj-15",
+      "objection": "What about my associate -- will they stay?",
+      "frequency": "Occasional",
+      "severity": "medium",
+      "acknowledge": "That is a critical question. If your associate leaves, you lose 30-40% of production.",
+      "probe": "How long has your associate been with you? What keeps them -- compensation, mentorship, lifestyle?",
+      "respond": "Associate retention is one of the strongest arguments FOR partnership.\n\nSolo owners often cannot offer associates the career pathway, benefits, or equity that keeps them long-term. The pattern: hire, train for 2 years, they leave.\n\nSGA changes that equation. Associates get the Individual Growth Engine, Pikos Institute access, 4Front Symposium, and a Class A shareholder pathway from day one. Competitive base, 28-32% production bonus, full benefits, peer community.\n\nThe associate is more likely to STAY after partnership, because SGA offers them something you alone cannot: a growth trajectory with equity participation.\n\nAnd if your associate does leave, SGA has dedicated recruiting infrastructure. The 18-month associate search becomes a solved problem.",
+      "confirm": "Would your associate benefit from hearing about the pathway directly? We can arrange a separate conversation.",
+      "competitorContext": "Associate retention is a universal pain point. SGA's associate pathway (Class A shareholder, mentorship, CE access) is a strong differentiator."
+    }
+  ],
+  "battleCards": [
+    {
+      "id": "bc-heartland",
+      "competitor": "Heartland Dental",
+      "overview": "Largest DSO in the US with 1,800+ offices. Backed by KKR. Corporate acquirer model -- buys 100% of practice, dentist becomes employee. Regional managers (non-dentists) oversee operations.",
+      "differentiators": [
+        "SGA retains partner equity; Heartland does not -- you become an employee",
+        "SGA preserves practice names; Heartland rebrands most practices",
+        "SGA CCO is a practicing dentist; Heartland clinical decisions influenced by non-clinical regional managers",
+        "SGA has Pikos Institute and 4Front; Heartland offers generic CE",
+        "SGA publishes 85% staff retention; Heartland does not publish theirs"
+      ],
+      "landmines": [
+        "Ask Heartland: what is your staff retention rate across the network?",
+        "Ask Heartland: can I see 3 practices that joined 5 years ago -- are their names the same?",
+        "Ask Heartland: who is my day-to-day contact and are they a dentist?"
+      ],
+      "traps": [
+        "They will emphasize scale: '1,800 offices means more resources.' Counter: scale and partnership are different experiences. Your experience is determined by YOUR office, not their total count.",
+        "They will emphasize KKR backing. Counter: KKR is a financial conglomerate, not a dental specialist. Thurston has 38 years focused on dental and healthcare."
+      ],
+      "pricingComparison": "Heartland typically offers higher day-one multiples (all cash) but no equity upside. Total 5-7 year value comparison favors SGA's JV model.",
+      "migrationEase": "Moderate -- Heartland employment agreements have non-compete clauses that may complicate transition.",
+      "pagePath": ""
+    },
+    {
+      "id": "bc-aspen",
+      "competitor": "Aspen Dental",
+      "overview": "900+ offices. Franchisor model for new practices, acquirer for existing ones. Rebrands every practice to Aspen Dental. Consumer marketing driven (TV, digital). Multiple state AG investigations for deceptive practices.",
+      "differentiators": [
+        "SGA preserves practice names; Aspen rebrands every practice to Aspen Dental",
+        "SGA has zero regulatory issues; Aspen has multiple state AG investigations",
+        "SGA is clinician-led (CCO is a practicing dentist); Aspen is corporate-marketing-driven",
+        "SGA does not set production protocols; Aspen Glassdoor reviews describe production pressure",
+        "SGA 85% staff retention; Aspen has 1.2 stars on Sitejabber from 311 reviews"
+      ],
+      "landmines": [
+        "Ask Aspen: how many state AG investigations have you faced?",
+        "Ask Aspen: if I join, will my practice still have my name on it in Year 3?",
+        "Ask Aspen: what do your Glassdoor reviews say about clinical autonomy?"
+      ],
+      "traps": [
+        "They will emphasize patient volume from national brand marketing. Counter: volume from their brand is not your patients. They chose Aspen, not you. When you leave, the volume stays with the brand.",
+        "They will emphasize their 'support model.' Counter: support that comes with production pressure and brand replacement is not support. It is corporate operations."
+      ],
+      "pricingComparison": "Aspen deals are typically structured as franchise agreements (for new offices) or outright acquisitions. No equity partnership model.",
+      "migrationEase": "Low -- exiting Aspen requires giving up the brand, patient records may be complicated.",
+      "pagePath": ""
+    },
+    {
+      "id": "bc-pds",
+      "competitor": "PDS Health (Pacific Dental Services)",
+      "overview": "800+ offices. Management services model -- dentists own their practice and pay PDS a management fee (15-25% of collections). No platform equity for dentists. Expanding into medical-dental integration.",
+      "differentiators": [
+        "SGA provides equity in the platform; PDS provides management services only -- no equity upside",
+        "SGA partner costs are built into the platform; PDS charges 15-25% management fee that comes directly from your collections",
+        "SGA JV model means aligned interests; PDS management fee means they are incentivized to charge more, not make you more valuable",
+        "SGA has Pikos Institute and clinical education; PDS focuses on medical-dental integration"
+      ],
+      "landmines": [
+        "Ask PDS: what is my equity in the PDS platform? Answer: zero.",
+        "Ask PDS: if PDS underdelivers on services, how do I exit the management agreement?",
+        "Ask PDS: what happens to my management fee as I grow? Does PDS take a larger dollar amount as my revenue increases?"
+      ],
+      "traps": [
+        "They will say 'you keep ownership.' Counter: ownership with a 15-25% management fee is expensive. SGA provides cash at close, equity appreciation, AND operational support without a recurring fee.",
+        "They will emphasize medical-dental integration as innovation. Counter: for most general dentists, this is irrelevant to their daily practice and patient base."
+      ],
+      "pricingComparison": "PDS has no upfront liquidity event. You pay them, rather than receiving equity value. Total financial comparison over 5-7 years strongly favors SGA's JV equity model.",
+      "migrationEase": "Moderate -- management service agreements have defined terms but can be exited.",
+      "pagePath": ""
+    },
+    {
+      "id": "bc-mb2",
+      "competitor": "MB2 Dental",
+      "overview": "800+ offices. Positions as 'DPO' (Dental Partnership Organization) not DSO. Equity partnership model similar to SGA. PE sponsor is undisclosed. No education platform. General dentistry focused.",
+      "differentiators": [
+        "SGA has Pikos Institute, 4Front, Individual Growth Engine; MB2 has zero education platform",
+        "SGA has three specialty verticals; MB2 is general dentistry only",
+        "SGA PE sponsor (Thurston) is transparent with 38 years and $4B+ returned; MB2 PE sponsor is undisclosed",
+        "SGA has 85% staff retention published; MB2 does not publish staff retention"
+      ],
+      "landmines": [
+        "Ask MB2: who is your PE sponsor and what have they returned to partners? If undisclosed, that IS the answer.",
+        "Ask MB2: what is your education platform beyond CE stipends? Answer: they do not have one.",
+        "Ask MB2: what does your staff retention look like across 800 offices?"
+      ],
+      "traps": [
+        "They will use 'DPO not DSO' language. Counter: 'DPO' is a marketing term MB2 created. There is no legal or structural difference. The real question is what happens after you sign.",
+        "They will emphasize scale (800 practices). Counter: 800 deals with zero education platform. Ask what you actually get beyond back-office support."
+      ],
+      "pricingComparison": "Similar equity partnership structure. The differentiator is not the deal terms -- it is the post-deal experience (education, clinical community, PE track record).",
+      "migrationEase": "Moderate -- similar JV structure means similar contractual provisions.",
+      "pagePath": ""
+    },
+    {
+      "id": "bc-dca",
+      "competitor": "Dental Care Alliance",
+      "overview": "400+ offices across 20+ states. Backed by Mubadala sovereign wealth fund. Mix of acquisition models. Growing through aggressive M&A. No education platform.",
+      "differentiators": [
+        "SGA PE sponsor is a specialist (Thurston, 38 years in dental); DCA is backed by a foreign sovereign wealth fund (Mubadala) with no dental specialization",
+        "SGA preserves practice names; DCA rebrands many practices",
+        "SGA has Pikos Institute and clinical education; DCA has no education platform",
+        "SGA structure is JV equity; DCA uses a mix of outright acquisition and management models"
+      ],
+      "landmines": [
+        "Ask DCA: who makes clinical decisions at the regional level? Are they dentists?",
+        "Ask DCA: how many practices have kept their original name after 3 years?",
+        "Ask DCA: what is the exit history of Mubadala's dental investments?"
+      ],
+      "traps": [
+        "They will emphasize geographic reach and scale. Counter: scale from a sovereign wealth fund is capital-driven, not culture-driven. Ask what the partner experience looks like, not how many offices they have."
+      ],
+      "pricingComparison": "DCA offers vary widely by deal. Some are outright acquisitions (all cash), others have equity components. Compare specific terms, not general positioning.",
+      "migrationEase": "Low-moderate -- DCA acquisition agreements may include restrictive covenants.",
+      "pagePath": ""
+    },
+    {
+      "id": "bc-salt",
+      "competitor": "SALT Dental Partners",
+      "overview": "Specialty-focused DSO targeting pediatric dentistry and orthodontics. PE sponsor undisclosed. Growing in the specialty vertical. No education platform.",
+      "differentiators": [
+        "SGA MODIS vertical is built for implantology and specialty with the Pikos Institute; SALT has no education platform",
+        "SGA has cross-referral pathways between verticals; SALT is siloed in pedo/ortho",
+        "SGA PE sponsor (Thurston) is transparent; SALT PE sponsor is undisclosed",
+        "SGA offers equity in a multi-vertical platform; SALT offers equity in a single-specialty network"
+      ],
+      "landmines": [
+        "Ask SALT: what clinical education resources do you provide beyond a CE stipend?",
+        "Ask SALT: who is your PE sponsor and what have they returned to partners?",
+        "Ask SALT: if I want to develop implant capabilities, can your platform support that?"
+      ],
+      "traps": [
+        "They will emphasize specialty expertise. Counter: SGA also has specialty expertise (MODIS, Dr. Pikos) AND general dentistry AND cross-referral volume. SALT is narrower."
+      ],
+      "pricingComparison": "Similar equity model for specialty practices. SGA's three-vertical architecture provides broader platform value and cross-referral pathways.",
+      "migrationEase": "Moderate -- similar JV structure.",
+      "pagePath": ""
+    },
+    {
+      "id": "bc-guardian",
+      "competitor": "Guardian Dentistry Partners",
+      "overview": "160+ offices in the Southeast. Family-office backed. Positions as 'preservation' model -- keep your name, your culture, your team. No education platform. Inc. 5000 recognition.",
+      "differentiators": [
+        "SGA has $350M credit facility; Guardian has limited growth capital as a family-office-backed entity",
+        "SGA has Pikos Institute, 4Front, Individual Growth Engine; Guardian has no education platform",
+        "SGA has three specialty verticals with national reach; Guardian is a regional Southeast network",
+        "SGA PE sponsor (Thurston) has $4B+ returned across 8 platforms; Guardian's family office has no published returns"
+      ],
+      "landmines": [
+        "Ask Guardian: what is your growth capital for new technology investment? How do you fund expansion?",
+        "Ask Guardian: what clinical education resources do you provide?",
+        "Ask Guardian: what is your PE exit history? What have investors received?"
+      ],
+      "traps": [
+        "They will emphasize 'family office = no PE exit pressure.' Counter: patience and capability are different. A family office has patient capital but limited scale. Thurston has patient capital AND 38 years of infrastructure.",
+        "They will emphasize 'preservation.' Counter: preservation keeps you where you are. SGA plays offense: education, mentorship, clinical growth. Both preserve your name. Only SGA makes you better."
+      ],
+      "pricingComparison": "Similar brand preservation promise. SGA's financial backing ($350M facility vs. family office capital) and education platform are the differentiators.",
+      "migrationEase": "Moderate -- similar partnership structure in the Southeast market.",
+      "pagePath": ""
+    }
+  ],
+  "followUpTemplates": [
+    {
+      "id": "post-discovery",
+      "name": "Post-Discovery Follow-Up",
+      "subject": "Following up on our conversation, Dr. [Name]",
+      "body": "Dr. [Name],\n\nThank you for the conversation today. I appreciate you being open about [reference specific thing they shared].\n\nA few things I took away:\n\n- [Specific pain they named, in their exact words]\n- [What they said they care about most]\n- [Their timeline or where they are in the process]\n\nI mentioned [specific partner story or data point from the call]. Here is a bit more context on that: [link]\n\nAs a next step, I suggested we schedule a 30-minute deep dive. Would [Day] at [Time] or [Day] at [Time] work?\n\nNo rush. I know this is a big decision and it moves at your pace.\n\nBest,\n[Your Name]\n[Phone Number]"
+    },
+    {
+      "id": "post-demo",
+      "name": "Post-Demo Follow-Up",
+      "subject": "Something I did not mention yesterday",
+      "body": "Dr. [Name],\n\nI was thinking about our conversation yesterday, specifically your question about [reference their most pointed question].\n\nI dug into this a bit more and found something I think you will find valuable: [new piece of information not discussed on the call].\n\nAlso, as promised, here is the contact information for [Partner Name] at [Practice Name]. They are expecting your call and happy to share their experience.\n\n[Partner Name]: [Phone Number] / [Email]\n\nWhen you are ready to discuss next steps, I am here. Would [Day/Time] work for a brief follow-up?\n\nBest,\n[Your Name]"
+    },
+    {
+      "id": "post-proposal",
+      "name": "Post-Proposal Follow-Up",
+      "subject": "Checking in on the proposal, Dr. [Name]",
+      "body": "Dr. [Name],\n\nI wanted to check in and see if you have had a chance to review the partnership proposal we sent over on [date].\n\nI know there is a lot in there, so here is what I would suggest: let us schedule a 20-minute call to walk through any questions -- especially anything in the financial section or the transition timeline.\n\nIf you have shared it with your [spouse/financial advisor/attorney], I am happy to join a call with them as well.\n\nTwo specific things I would highlight:\n\n1. The partner references on page [X]. I encourage you to call [Partner Name].\n2. The ROI comparison on page [X]. I built that with YOUR numbers. Worth reviewing with your advisor.\n\nWhat does your schedule look like this week?\n\nBest,\n[Your Name]"
+    },
+    {
+      "id": "gentle-nudge",
+      "name": "Gentle Nudge",
+      "subject": "Quick thought for you, Dr. [Name]",
+      "body": "Dr. [Name],\n\nI came across this [article/data point/partner update] and thought of our conversation: [brief description and link].\n\n[One sentence connecting it to their specific situation.]\n\nNo pressure on timing. When you are ready to pick the conversation back up, I am here.\n\nBest,\n[Your Name]"
+    },
+    {
+      "id": "break-up",
+      "name": "Break-Up Email",
+      "subject": "Closing the loop",
+      "body": "Dr. [Name],\n\nI have reached out a few times and have not heard back, so I want to respect your time and close the loop on my end.\n\nI am going to assume one of three things:\n\n1. The timing is not right (totally fine -- it may never be, and that is okay)\n2. You went in a different direction (I hope it works out well for you)\n3. Life got busy and this fell off the radar (happens to all of us)\n\nIf anything changes down the road, I am here. No need to feel awkward about reaching back out -- our best partnerships have come from dentists who said 'not now' and then called us 12-18 months later.\n\nI wish you and your practice well, Dr. [Name].\n\nBest,\n[Your Name]\n[Phone Number]"
+    }
+  ]
+}

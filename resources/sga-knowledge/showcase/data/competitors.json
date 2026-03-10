@@ -1,0 +1,151 @@
+[
+  {
+    "name": "Heartland Dental",
+    "positioning": "The Doctor Difference -- clinical independence within the largest private DSO in the US",
+    "pricing": "Outright acquisition model. Dentists become employees/associates with no ongoing equity. Specific multiples not publicly disclosed. KKR-backed since 2021.",
+    "strengths": [
+      "Largest private DSO with 1,800+ practices across 38+ states",
+      "Massive support infrastructure and operational expertise",
+      "KKR backing provides virtually unlimited capital",
+      "Strong CE/education offerings and 25+ year track record"
+    ],
+    "weaknesses": [
+      "Employee reviews reveal complaints about lack of real autonomy and production pressure",
+      "Size makes it impersonal -- dentists report feeling like a number",
+      "Gen2 standardization DNA despite Gen4 marketing language",
+      "'Doctor-led' messaging rings hollow when non-dentist managers control daily operations"
+    ],
+    "fullAnalysis": "Heartland is the market leader by practice count (1,800+) and estimated revenue ($4.2-5B). They brand their model as 'The Doctor Difference' and claim 'no treatment or schedule quotas.' However, Indeed and Glassdoor reviews tell a different story: complaints about managers overriding doctors, production pressure, and 'crown days' pushing higher-cost treatments. One lawsuit (Hardin Advanced Dentistry) alleges aggressive business practices impacting practice autonomy. Their sheer scale provides resources no smaller DSO can match, but the impersonal nature of that scale is their vulnerability. If Heartland improves its autonomy reputation, it becomes a formidable competitor at every level.",
+    "userFeedback": "'Focus too much on profit hidden behind crown days or Invisalign days pushing doctors to focus on higher cost treatment.' -- Heartland Dental Glassdoor review. 'Usual corporate ponzi scheme, paid 25% collections, astronomical turnover.' -- Student Doctor Network. 'High staff turnover... ALWAYS short-staffed.' -- Heartland associate.",
+    "ourAdvantage": "SGA's peer collaboration model where dentists lead dentists, not managers. Our CCO (Dr. Ellingson) is a practicing dentist who personally lived the private-to-group transition. 85% staff retention rate vs. Heartland's high turnover. Dentists teach dentists at SGA, not corporate trainers delivering standardized programs."
+  },
+  {
+    "name": "The Aspen Group (Aspen Dental)",
+    "positioning": "Breaking down barriers to ensure everyone gets the care they need -- 'The Yes Campaign'",
+    "pricing": "Franchisor-like model. Dentists are practice owners but operate under the Aspen Dental brand with standardized protocols. The opposite of SGA's 'keep your name' approach.",
+    "strengths": [
+      "Strongest consumer brand in dentistry -- patients search for 'Aspen Dental'",
+      "Multi-brand portfolio (Aspen, ClearChoice, WellNow, Chapter, Lovet) creates cross-referral pathways",
+      "Proven de novo model -- can grow without acquisitions",
+      "Massive marketing spend drives patient volume ($4.2B annualized revenue)"
+    ],
+    "weaknesses": [
+      "Reputation crisis: 1.2 stars on Sitejabber (311 reviews), 4,100+ complaints on PissedConsumer",
+      "Multiple state AG investigations and $1.7M+ in settlements for deceptive practices",
+      "Overtreatment allegations -- production pressure on dentists",
+      "No clinical autonomy -- dentists operate under Aspen brand and protocols",
+      "Zero appeal to mid-career practice owners who want to keep their identity"
+    ],
+    "fullAnalysis": "Aspen is the most visible consumer-facing dental brand in the US with 1,300+ offices and the broadest multi-brand portfolio. They lead with patient access and social mission. However, they face a genuine reputation crisis -- Sitejabber ratings of 1.2 stars, PissedConsumer complaints exceeding 4,100, and state AG investigations for deceptive practices. Patients report being 'upsold over $5k worth of work' and discovering 'cavities under 3 out of 4 crowns only 5 months after treatment.' For dentists, Aspen represents the corporate dentistry archetype -- exactly what SGA positions against.",
+    "userFeedback": "'It's ALL ABOUT THE MONEY with them... no comparison, it's ALWAYS better to be your own boss.' -- Dentist, Student Doctor Network. Patients report being upsold and finding cavities under recently placed crowns. 1.2 stars from 311 reviews on Sitejabber.",
+    "ourAdvantage": "SGA keeps your name on the door. Aspen puts their name on it. Dental Partners of SW Georgia is still Dental Partners of SW Georgia. Our clinical-autonomy-first, patient-obsessed positioning with real doctor testimonials stands in stark contrast to Aspen's standardized, production-driven model."
+  },
+  {
+    "name": "PDS Health (Pacific Dental Services)",
+    "positioning": "A new era of health care -- bringing dental and medical care together through the 'Mouth-Body Connection'",
+    "pricing": "Owner Clinician model. Dentists own their practice; PDS provides management services for a fee. No equity in a larger platform -- dentists own only their individual practice.",
+    "strengths": [
+      "Owner Clinician model is genuinely differentiated -- dentists actually own their practices",
+      "Mouth-Body Connection gives them a clinical innovation story",
+      "Founder-led (Stephen Thorne) with authentic mission",
+      "Strong specialty expansion trajectory ($3.1B+ annual revenue, 1,000+ practices)"
+    ],
+    "weaknesses": [
+      "Geographic concentration (historically West Coast-heavy)",
+      "PDS Health rebrand moves away from dental identity",
+      "No equity upside for dentists in a larger platform",
+      "Not a liquidity event -- a management services arrangement",
+      "Integrated care model is complex to explain and slow to scale"
+    ],
+    "fullAnalysis": "PDS is repositioning as an integrated dental-medical care platform with their 'Mouth-Body Connection' concept. Their Owner Clinician model is structurally different from SGA's JV equity model -- PDS dentists don't get equity in a larger platform. They just own their individual practice while paying PDS a management fee. With $3.1B+ revenue and 1,000+ practices across 24 states, they have significant scale. Their weakness is that the PDS model isn't a liquidity event and doesn't offer platform equity upside.",
+    "userFeedback": "PDS generally receives better employee reviews than Heartland or Aspen. Dentists appreciate the ownership model. However, the lack of platform equity means dentists miss the 'second bite of the apple' that JV models offer.",
+    "ourAdvantage": "They charge you management fees. We make you an equity partner in a $350M+ platform. There's a difference between paying for support and owning a piece of something. SGA's JV equity model gives partners upside in the whole platform, not just their individual practice."
+  },
+  {
+    "name": "MB2 Dental",
+    "positioning": "Freedom to Practice Your Way. Support to Do It Better. -- 'Power to the Partners' (self-described Dental Partnership Organization)",
+    "pricing": "Partial equity model. Partners sell a portion of their practice and keep the rest. MB2 invests alongside partners. Minimum practice size: $1.25M revenue, 4+ ops. Specific multiples not disclosed.",
+    "strengths": [
+      "'DPO' terminology creates perceived differentiation from DSOs",
+      "Rapid growth to 800+ practices across 41 states",
+      "Scale of peer community (1,700+ dentists)",
+      "Carabelli Club creates an on-ramp for dentists not ready to partner",
+      "Clear minimum criteria signals quality"
+    ],
+    "weaknesses": [
+      "'DPO' is a marketing distinction, not a structural one -- functionally similar to JV DSOs",
+      "No education platform or clinical development story (pure business support)",
+      "No specialty vertical differentiation -- general dentistry focus",
+      "PE backers are opaque -- less transparent than Thurston-backed SGA",
+      "Growth-at-all-costs trajectory may dilute partner experience"
+    ],
+    "fullAnalysis": "MB2 is the most dangerous direct competitor. Their 'DPO' branding, 800+ practice scale, and 'Power to the Partners' messaging directly overlap SGA's positioning. They've pioneered the 'not a DSO' language and have first-mover advantage on that framing. Their partial equity model is functionally similar to SGA's JV model. However, they lack three critical things SGA has: an education platform (zero CE infrastructure), specialty verticals (general dentistry only), and PE track record transparency (who is behind MB2?).",
+    "userFeedback": "MB2 partners generally report positive experiences with the partnership model. The 1,700+ dentist community creates peer networking opportunities. However, no clinical development story -- it's pure business support without the education ecosystem SGA offers.",
+    "ourAdvantage": "They've done 800 deals. We're backed by the firm that's built this model 8 times across dental and healthcare, returning $4B+ over 38 years. Experience compounds. Plus, SGA has the Pikos Institute, 4Front Symposium, and three clinical verticals -- education and growth infrastructure MB2 simply doesn't offer."
+  },
+  {
+    "name": "Dental Care Alliance (DCA)",
+    "positioning": "Shaping the future of dentistry together -- 'Go further with an ally'",
+    "pricing": "Acquisition model into their alliance. Specific equity/partnership terms not publicly disclosed. Now backed by Mubadala sovereign wealth fund (Abu Dhabi, acquired January 2025).",
+    "strengths": [
+      "Practice-type-specific divisions (General, Peds/Ortho, Adult Specialty) is genuinely useful",
+      "30+ year track record provides credibility",
+      "Sovereign wealth fund backing (Mubadala) signals long-term stability",
+      "400+ practices across 24 states with 900+ dentists"
+    ],
+    "weaknesses": [
+      "Sovereign wealth fund ownership removes the 'partnership' feel",
+      "No strong brand identity or memorable messaging",
+      "No education/CE platform",
+      "No visible content marketing or thought leadership",
+      "Limited social proof on website"
+    ],
+    "fullAnalysis": "DCA is an established mid-market DSO with a useful structural differentiator: dedicated support divisions for general dentistry (275 practices), pediatrics & orthodontics (70 practices), and adult specialty (45 practices). Their 30-year track record provides credibility. However, the Mubadala sovereign wealth fund acquisition in January 2025 fundamentally changes the feel -- this is now sovereign capital, not entrepreneurial PE. Their messaging ('Shaping the future of dentistry together') is generic, and they have no education platform or content marketing presence.",
+    "userFeedback": "Limited public feedback available. DCA operates relatively quietly compared to Heartland or Aspen. Practice-type divisions receive positive feedback from specialists who feel understood, but the sovereign wealth fund ownership creates distance.",
+    "ourAdvantage": "Sovereign wealth funds are impersonal. Thurston Group is specialized healthcare PE with named partners (Patrick Haynes III) and a verifiable 38-year, $4B+ track record. SGA offers the education platform (Pikos Institute, 4Front) and three clinical verticals that DCA's divisions lack."
+  },
+  {
+    "name": "SALT Dental Partners",
+    "positioning": "Enhancing Practices. Preserving Brands. -- 'The premier DSO for top-tier pediatric dentists, orthodontists, and oral surgeons'",
+    "pricing": "Partnership model with brand preservation. Specific terms not publicly disclosed. 156+ practice locations across 20+ states.",
+    "strengths": [
+      "Clear niche: specialty and pediatric focus is genuinely differentiated",
+      "'Preserving Brands' messaging is concrete and specific",
+      "Rapid growth trajectory with 300% geographic expansion",
+      "De novo development capability (not just acquisitions)",
+      "Multi-brand architecture (65+ affiliated practice brands)"
+    ],
+    "weaknesses": [
+      "Smaller scale limits resources compared to top-tier competitors",
+      "Specialty focus limits addressable market",
+      "No PE track record narrative or education/CE platform",
+      "Limited Southeast presence (expanding from Western base)",
+      "Brand awareness still low"
+    ],
+    "fullAnalysis": "SALT is a fast-growing niche player focused on pediatric dentistry, orthodontics, and oral surgery. With 156+ locations across 20+ states and 233+ doctors, they've carved a clear specialty position. Their 'Preserving Brands' messaging is concrete and their de novo development capability shows ambition beyond acquisitions. However, they lack SGA's education platform, PE track record narrative, and Southeast presence. SALT competes most directly with MODIS in the specialty space, but MODIS has the Pikos Institute and implantology vertical that SALT cannot match.",
+    "userFeedback": "SALT is recognized on Becker's 'Top DSOs to Know in 2025.' Partner practices report positive experiences with brand preservation. However, limited public testimonial content compared to larger competitors.",
+    "ourAdvantage": "SALT addresses specialty but narrowly (peds/ortho/oral surgery). SGA/MODIS offers an integrated implantology vertical anchored by the Pikos Institute -- the gold standard in implant education. Plus three verticals (community, collaborative, implantology) that create career pathways no single-model DSO can match."
+  },
+  {
+    "name": "Guardian Dentistry Partners",
+    "positioning": "A dental partnership network like none you've ever met -- 'Partner, not proprietor. Preserve your past and protect your future.'",
+    "pricing": "Partnership model with family office backing. 160+ practices across 11 states. Specific terms not publicly disclosed.",
+    "strengths": [
+      "Strong Southeast presence -- direct geographic overlap with SGA (FL, AL, NC, SC)",
+      "Family office backing may appeal to dentists wary of PE timelines",
+      "'Partner, not proprietor' is clear, memorable messaging",
+      "Inc. 5000 recognition (#1089 in 2025) signals growth credibility",
+      "Entrepreneurial network positioning is differentiated"
+    ],
+    "weaknesses": [
+      "Smaller scale limits resources and brand awareness",
+      "Family office backing means less capital than PE-backed competitors",
+      "No education/CE platform or specialty vertical differentiation",
+      "Limited content marketing and thought leadership",
+      "'Dental Partnership Network' (DPN) is yet another acronym in a sea of DSO/DPO jargon"
+    ],
+    "fullAnalysis": "Guardian is the most dangerous regional competitor with direct geographic overlap in the Southeast. Their family office backing and 'partner, not proprietor' messaging resonates with the same dentist SGA targets. They explicitly position as an entrepreneurial network rather than a corporate acquirer. However, Guardian is smaller (160+ practices vs. SGA's 125+ but with less capital), has no education platform, and cannot offer the specialty verticals or PE track record that SGA provides. Their family office structure provides patient capital but limits growth infrastructure compared to Thurston's $350M credit facility.",
+    "userFeedback": "Guardian's 'preserve your past and protect your future' messaging resonates emotionally with practice owners. Inc. 5000 recognition validates growth trajectory. However, limited partner testimonial content publicly available.",
+    "ourAdvantage": "Family offices are patient but small. We combine patient capital (Thurston's 38-year track record) with the infrastructure to actually scale -- $350M credit facility, three clinical verticals, the Pikos Institute, and a content engine (138K YouTube subscribers via Dr. Olson) that Guardian cannot replicate."
+  }
+]

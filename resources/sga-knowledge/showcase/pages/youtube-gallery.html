@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SGA Dental Partners — YouTube Script Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'sga-blue': '#2D6FB7',
+            'sga-blue-dark': '#1e4e8a',
+            'sga-blue-light': '#4a8fd4',
+            'sga-lime': '#C4D347',
+            'sga-orange': '#F36F21',
+            'sga-text': '#333333',
+          },
+          fontFamily: {
+            sans: ['Roboto', 'sans-serif'],
+            slab: ['Roboto Slab', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Roboto', sans-serif; color: #333333; }
+    h1, h2, h3 { font-family: 'Roboto Slab', serif; }
+
+    .header-gradient {
+      background: linear-gradient(135deg, #2D6FB7 0%, #1e4e8a 100%);
+    }
+
+    .funnel-badge-top {
+      background: #e8f4e8;
+      color: #2a7a2a;
+      border: 1px solid #c3e6c3;
+    }
+
+    .funnel-badge-mid {
+      background: #fff3e0;
+      color: #b35800;
+      border: 1px solid #ffd599;
+    }
+
+    .funnel-badge-bottom {
+      background: #e8eef9;
+      color: #1e4e8a;
+      border: 1px solid #b3c9ee;
+    }
+
+    .video-thumbnail {
+      background: linear-gradient(135deg, #1e4e8a 0%, #2D6FB7 50%, #4a8fd4 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video-thumbnail::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.15);
+    }
+
+    .play-button {
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .play-triangle {
+      width: 0;
+      height: 0;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      border-left: 16px solid #2D6FB7;
+      margin-left: 3px;
+    }
+
+    .tag-pill {
+      background: #f0f0f0;
+      color: #555;
+      font-size: 0.65rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      white-space: nowrap;
+    }
+
+    .seo-block {
+      background: #1a1a1a;
+      color: #e8e8e8;
+      font-family: 'Roboto Mono', 'Courier New', monospace;
+      font-size: 0.75rem;
+      line-height: 1.7;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+    }
+
+    .accordion-trigger {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .funnel-flow-arrow {
+      color: #C4D347;
+      font-size: 1.25rem;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .script-text {
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .script-text p {
+      margin-bottom: 0.75rem;
+    }
+
+    .visual-note {
+      border-left: 3px solid #F36F21;
+      background: #fff8f4;
+      font-size: 0.8rem;
+      color: #666;
+      padding: 0.4rem 0.75rem;
+      border-radius: 0 4px 4px 0;
+      margin: 0.5rem 0;
+    }
+
+    .text-overlay-note {
+      border-left: 3px solid #C4D347;
+      background: #f7f9e8;
+      font-size: 0.8rem;
+      color: #555;
+      padding: 0.4rem 0.75rem;
+      border-radius: 0 4px 4px 0;
+      margin: 0.5rem 0;
+      font-style: italic;
+    }
+
+    .segment-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #2D6FB7;
+      margin-top: 1.25rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .interview-note {
+      border-left: 3px solid #2D6FB7;
+      background: #f0f5fb;
+      font-size: 0.8rem;
+      color: #555;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0 4px 4px 0;
+      margin: 0.5rem 0;
+    }
+
+    .checklist-item {
+      font-size: 0.8rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .retention-table th {
+      background: #f5f5f5;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.5rem 0.75rem;
+    }
+
+    .retention-table td {
+      font-size: 0.78rem;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: top;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen" style="padding-top:40px;">
+<div style="position:fixed;top:0;left:0;right:0;height:40px;background:#1e293b;display:flex;align-items:center;padding:0 16px;z-index:9999;">
+  <a href="../index.html" style="color:#93c5fd;text-decoration:none;font-size:14px;font-family:Inter,sans-serif;">&larr; Back to Showcase</a>
+  <span style="color:#64748b;margin-left:auto;font-size:12px;font-family:Inter,sans-serif;">SGA Dental Partners Marketing Showcase</span>
+</div>
+
+  <!-- HEADER -->
+  <header class="header-gradient text-white">
+    <div class="max-w-6xl mx-auto px-6 py-8">
+      <div class="flex items-start justify-between flex-wrap gap-4">
+        <div>
+          <div class="text-sga-lime text-xs font-bold tracking-widest uppercase mb-1">SGA Dental Partners</div>
+          <h1 class="font-slab text-2xl md:text-3xl font-bold leading-tight mb-2">YouTube Script Gallery</h1>
+          <p class="text-blue-100 text-sm max-w-xl">5-video funnel sequence — content planning reference for the Innovative Dental channel</p>
+        </div>
+        <div class="text-right">
+          <div class="text-sga-lime font-bold text-2xl font-slab">138K</div>
+          <div class="text-blue-200 text-xs uppercase tracking-widest">Channel Subscribers</div>
+          <div class="text-blue-300 text-xs mt-1">23M+ total views</div>
+        </div>
+      </div>
+
+      <!-- Channel meta strip -->
+      <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="bg-white bg-opacity-10 rounded-lg px-3 py-2">
+          <div class="text-blue-200 text-xs uppercase tracking-wide">Presenter</div>
+          <div class="text-white text-sm font-medium">Dr. Grant Olson</div>
+        </div>
+        <div class="bg-white bg-opacity-10 rounded-lg px-3 py-2">
+          <div class="text-blue-200 text-xs uppercase tracking-wide">Channel</div>
+          <div class="text-white text-sm font-medium">Innovative Dental</div>
+        </div>
+        <div class="bg-white bg-opacity-10 rounded-lg px-3 py-2">
+          <div class="text-blue-200 text-xs uppercase tracking-wide">Videos</div>
+          <div class="text-white text-sm font-medium">5 — Funnel Mapped</div>
+        </div>
+        <div class="bg-white bg-opacity-10 rounded-lg px-3 py-2">
+          <div class="text-blue-200 text-xs uppercase tracking-wide">Prepared</div>
+          <div class="text-white text-sm font-medium">March 2026</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- FUNNEL FLOW OVERVIEW -->
+  <div class="max-w-6xl mx-auto px-4 md:px-6 pt-8 pb-4">
+    <div class="bg-white rounded-xl border border-gray-200 p-5 mb-8">
+      <h2 class="font-slab text-base font-bold text-sga-blue mb-4">Funnel Sequence</h2>
+      <div class="flex flex-col md:flex-row items-stretch gap-0">
+
+        <!-- V1 -->
+        <div class="flex-1 text-center px-3 py-3 border border-green-200 rounded-lg bg-green-50">
+          <div class="funnel-badge-top inline-block px-2 py-0.5 rounded-full text-xs font-bold mb-2">Awareness</div>
+          <div class="text-xs font-bold text-gray-700 leading-tight">Video 1</div>
+          <div class="text-xs text-gray-500 mt-1">DSO Regret</div>
+          <div class="text-xs text-gray-400 mt-0.5">12-15 min</div>
+        </div>
+
+        <div class="funnel-flow-arrow self-center mx-1 hidden md:block">&#8594;</div>
+        <div class="funnel-flow-arrow self-center my-1 md:hidden">&#8595;</div>
+
+        <!-- V2 -->
+        <div class="flex-1 text-center px-3 py-3 border border-green-200 rounded-lg bg-green-50">
+          <div class="funnel-badge-top inline-block px-2 py-0.5 rounded-full text-xs font-bold mb-2">Awareness</div>
+          <div class="text-xs font-bold text-gray-700 leading-tight">Video 2</div>
+          <div class="text-xs text-gray-500 mt-1">Valuations</div>
+          <div class="text-xs text-gray-400 mt-0.5">10-12 min</div>
+        </div>
+
+        <div class="funnel-flow-arrow self-center mx-1 hidden md:block">&#8594;</div>
+        <div class="funnel-flow-arrow self-center my-1 md:hidden">&#8595;</div>
+
+        <!-- V3 -->
+        <div class="flex-1 text-center px-3 py-3 border border-orange-200 rounded-lg bg-orange-50">
+          <div class="funnel-badge-mid inline-block px-2 py-0.5 rounded-full text-xs font-bold mb-2">Consideration</div>
+          <div class="text-xs font-bold text-gray-700 leading-tight">Video 3</div>
+          <div class="text-xs text-gray-500 mt-1">Model Comparison</div>
+          <div class="text-xs text-gray-400 mt-0.5">15-18 min</div>
+        </div>
+
+        <div class="funnel-flow-arrow self-center mx-1 hidden md:block">&#8594;</div>
+        <div class="funnel-flow-arrow self-center my-1 md:hidden">&#8595;</div>
+
+        <!-- V4 -->
+        <div class="flex-1 text-center px-3 py-3 border border-orange-200 rounded-lg bg-orange-50">
+          <div class="funnel-badge-mid inline-block px-2 py-0.5 rounded-full text-xs font-bold mb-2">Consideration</div>
+          <div class="text-xs font-bold text-gray-700 leading-tight">Video 4</div>
+          <div class="text-xs text-gray-500 mt-1">Partner Review</div>
+          <div class="text-xs text-gray-400 mt-0.5">12-15 min</div>
+        </div>
+
+        <div class="funnel-flow-arrow self-center mx-1 hidden md:block">&#8594;</div>
+        <div class="funnel-flow-arrow self-center my-1 md:hidden">&#8595;</div>
+
+        <!-- V5 -->
+        <div class="flex-1 text-center px-3 py-3 border border-blue-200 rounded-lg bg-blue-50">
+          <div class="funnel-badge-bottom inline-block px-2 py-0.5 rounded-full text-xs font-bold mb-2">Conversion</div>
+          <div class="text-xs font-bold text-gray-700 leading-tight">Video 5</div>
+          <div class="text-xs text-gray-500 mt-1">Inside SGA</div>
+          <div class="text-xs text-gray-400 mt-0.5">10-12 min</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- VIDEO CARDS -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <div class="max-w-6xl mx-auto px-4 md:px-6 pb-16 space-y-8">
+
+    <!-- ─────────────────────────────────────────────────────────── -->
+    <!-- VIDEO 1 -->
+    <!-- ─────────────────────────────────────────────────────────── -->
+    <div class="bg-white rounded-xl border border-gray-200 overflow-hidden" x-data="{ open: false }">
+
+      <!-- Card header / thumbnail row -->
+      <div class="flex flex-col md:flex-row">
+
+        <!-- Thumbnail -->
+        <div class="video-thumbnail w-full md:w-56 flex-shrink-0 h-40 md:h-auto flex flex-col items-center justify-center p-4 relative">
+          <!-- stat overlay -->
+          <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#c0392b 100%);z-index:1;"></div>
+          <div style="position:relative;z-index:3;" class="text-center">
+            <div class="text-white font-bold text-3xl leading-none">7/10</div>
+            <div class="text-red-200 font-bold text-sm mt-1 uppercase tracking-wider">REGRET IT</div>
+          </div>
+          <div class="play-button mt-3" style="position:relative;z-index:3;">
+            <div class="play-triangle"></div>
+          </div>
+        </div>
+
+        <!-- Card meta -->
+        <div class="flex-1 p-5">
+          <div class="flex items-start justify-between flex-wrap gap-2 mb-2">
+            <span class="funnel-badge-top px-2 py-0.5 rounded-full text-xs font-bold">Top of Funnel — Awareness</span>
+            <span class="text-gray-400 text-xs font-mono">12-15 min</span>
+          </div>
+
+          <h3 class="font-slab font-bold text-lg text-sga-text leading-tight mb-3">
+            Why 7 Out of 10 Dentists Regret Selling to a DSO (And What to Do Instead)
+          </h3>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3 text-xs mb-4">
+            <div>
+              <div class="text-gray-400 uppercase tracking-wider mb-0.5">Target Keyword</div>
+              <div class="font-medium text-sga-blue">selling dental practice to DSO</div>
+            </div>
+            <div>
+              <div class="text-gray-400 uppercase tracking-wider mb-0.5">Target Avatar</div>
+              <div class="font-medium">Dr. Mark Hendricks (52, exhausted, solution-aware)</div>
+            </div>
+            <div>
+              <div class="text-gray-400 uppercase tracking-wider mb-0.5">Awareness Level</div>
+              <div class="font-medium">Solution-Aware</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="tag-pill">DSO regret</span>
+            <span class="tag-pill">sell dental practice</span>
+            <span class="tag-pill">dental practice valuation</span>
+            <span class="tag-pill">DSO vs private practice</span>
+            <span class="tag-pill">practice exit strategy</span>
+            <span class="tag-pill">+15 more</span>
+          </div>
+
+          <button
+            @click="open = !open"
+            class="mt-4 text-sga-blue text-sm font-medium flex items-center gap-1 hover:text-sga-blue-dark transition-colors accordion-trigger"
+          >
+            <span x-text="open ? 'Collapse script' : 'View full script + SEO metadata'"></span>
+            <span x-text="open ? '&#9650;' : '&#9660;'" class="text-xs"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Expanded content -->
+      <div x-show="open" x-collapse class="border-t border-gray-100">
+        <div class="p-5 md:p-6">
+
+          <!-- Performance note -->
+          <div class="bg-sga-lime bg-opacity-20 border border-yellow-300 rounded-lg p-4 mb-6 text-sm">
+            <div class="font-bold text-yellow-800 mb-1">Performance Prediction</div>
+            <div class="text-yellow-700">Highest traffic potential in the set. "7 out of 10" stat is specific, surprising, and searchable. Expect strong CTR from the thumbnail stat treatment. Best organic reach potential due to target keyword volume. Ideal as first upload — seeds the funnel and builds channel credibility with a problem-aware audience.</div>
+          </div>
+
+          <!-- Retention risks -->
+          <div class="mb-6">
+            <h4 class="font-slab font-bold text-sm text-sga-blue mb-3">Retention Strategy</h4>
+            <div class="overflow-x-auto">
+              <table class="retention-table w-full text-sm border border-gray-100 rounded-lg overflow-hidden">
+                <thead>
+                  <tr>
+                    <th class="text-left">Timestamp</th>
+                    <th class="text-left">Drop-Off Risk</th>
+                    <th class="text-left">Countermeasure</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="font-mono text-sga-blue">0:10-0:30</td>
+                    <td>"This doesn't apply to me"</td>
+                    <td>Pattern interrupt with data visual at 0:15</td>
+                  </tr>
+                  <tr>
+                    <td class="font-mono text-sga-blue">2:30</td>
+                    <td>First segment ends, natural pause</td>
+                    <td>Mini-hook: "But here's the one that really caught me off guard..."</td>
+                  </tr>
+                  <tr>
+                    <td class="font-mono text-sga-blue">5:00</td>
+                    <td>Mid-video sag</td>
+                    <td>Open loop: "I'll show you the 6-point checklist — but reasons 4 and 5 are the ones nobody talks about"</td>
+                  </tr>
+                  <tr>
+                    <td class="font-mono text-sga-blue">8:15</td>
+                    <td>"I've heard enough" threshold</td>
+                    <td>Pattern interrupt: change visual format entirely, increase energy</td>
+                  </tr>
+                  <tr>
+                    <td class="font-mono text-sga-blue">10:00</td>
+                    <td>May leave before "what to do" payoff</td>
+                    <td>Mini-hook at 9:45: "Okay, here's where this gets useful for you specifically"</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Full Script -->
+          <div class="mb-6">
+            <h4 class="font-slab font-bold text-sm text-sga-blue mb-4">Full Script</h4>
+
+            <div class="segment-label">Hook (0:00-0:05)</div>
+            <div class="visual-note">Dr. O, tight frame, direct to camera. No intro animation. No music. Just him.</div>
+            <div class="script-text">
+              <p>"Seven out of ten dentists who sell to a DSO end up frustrated, annoyed, or flat-out regretful. And I know that number is real — because I've talked to hundreds of them."</p>
+            </div>
+            <div class="text-overlay-note">[TEXT ON SCREEN: "7 out of 10 regret it." — Dentist Advisors research]</div>
+
+            <div class="segment-label">Pattern Interrupt + Context (0:05-0:42)</div>
+            <div class="visual-note">Cut to data graphic — simple bar chart or stat card with source cited.</div>
+            <div class="script-text">
+              <p>"That stat comes from the Dentist Advisors podcast — they work with practice owners every single day on financial planning and transitions. And what they found is that the vast majority of dentists who sold to a DSO say, quote, 'it's not what they thought.' One of them — a guy who walked away with ten million dollars in cash — still told them, 'I wish I would have never done this.'"</p>
+              <p>"Now think about that. Ten million dollars. And he still regrets it. That tells you this isn't about the money. There's something deeper going on."</p>
+            </div>
+            <div class="text-overlay-note">[TEXT ON SCREEN: "I wish I would have never done this." — Practice owner, $10M cash at close]</div>
+
+            <div class="segment-label">Promise + Open Loop (0:42-1:30)</div>
+            <div class="script-text">
+              <p>"So here's what we're going to do in this video. I'm going to break down the five biggest reasons dentists regret their DSO sale — and these aren't the obvious ones you'll read in a forum post. These are the patterns I see over and over again when I talk to owners who've been through it."</p>
+              <p><em>"And the fifth one — buyer's remorse — is the one that keeps people up at night, because by the time you feel it, it's too late to undo."</em></p>
+              <p>"But I'm also going to give you something practical at the end. A six-point checklist — the exact questions you should be asking any DSO before you sign anything. Whether you're actively exploring a sale or just starting to think about it, this checklist will save you from joining the wrong side of that seven-out-of-ten statistic."</p>
+            </div>
+
+            <div class="segment-label">Reason 1: Loss of Identity (1:30-3:15)</div>
+            <div class="script-text">
+              <p>"Reason number one: loss of identity. And I don't mean your sign gets changed — although sometimes that happens too. I mean the entire feel of your practice changes in ways you didn't expect."</p>
+              <p>"Here's what dentists tell me. They say, 'I spent 20 years building something. My team knows every patient by name. Mrs. Johnson brings cookies on Fridays. We sponsor the Little League team. And then one day there's a corporate playbook sitting on my front desk and a regional manager calling to ask why my supply spend is above benchmark.'"</p>
+              <p>"The big corporate DSOs — the Gen2 model, the cookie-cutter approach — they standardize everything. Same supplies in the same place in every office. Same scheduling templates. Same scripting for your front desk. If you built something with a specific culture, a specific patient experience — that standardization doesn't feel like support. It feels like erasure."</p>
+            </div>
+            <div class="text-overlay-note">[TEXT: "Some DSOs require branding or procedural changes that could alter the practice's reputation." — Dentaltown research]</div>
+
+            <div class="segment-label">Reason 2: Production Pressure Trap (3:15-5:00)</div>
+            <div class="script-text">
+              <p>"Reason number two: production pressure. This is the one I hear about the most, and it's the one that damages the profession."</p>
+              <p>"Here's a direct quote from a dentist: 'I was told when I was hired that my indirect to direct restoration ratio needed to be 2:1.' Think about what that means. Before you even look in a patient's mouth, someone has decided how many crowns you need to be doing."</p>
+              <p>"Another one said — 'Decisions about your production are being made by people wearing suits in a boardroom.' People wearing suits in a boardroom. Not clinicians. Not your peers. People whose job it is to hit a revenue number."</p>
+            </div>
+
+            <div class="segment-label">Reason 3: Equity Dilution and Hidden Terms (5:00-6:45)</div>
+            <div class="script-text">
+              <p>"Reason number three: the money isn't what you think. When a DSO offers you a multiple — let's say seven times EBITDA — that number sounds great. But some DSOs manipulate the math. They factor in the note you carry back to them. They layer in management fees that reduce your effective payout."</p>
+              <p>"Then there's the equity piece. A lot of DSOs now offer you equity in the larger company. That sounds amazing. But some of those equity provisions have clawbacks. As one advisor put it: 'The equity did not turn out to be what they thought.'"</p>
+            </div>
+
+            <div class="segment-label">Reason 4: Staff Turnover + Culture Destruction (6:45-8:15)</div>
+            <div class="script-text">
+              <p>"Reason number four: your team leaves. And when your team leaves, your patients leave."</p>
+              <p>"Here's a patient review that stopped me cold: 'Dr. Jones is gone, there's been two to three new doctors there, and all the old staff are gone.'"</p>
+              <p>"Your hygienist who's been with you for twelve years? She didn't sign up to work for a corporation. And here's the industry data — over 76% of dental practices now find it 'extremely challenging' to recruit hygienists. So when your staff leaves, you can't just replace them."</p>
+            </div>
+            <div class="text-overlay-note">[TEXT: "Dr. Jones is gone. All the old staff are gone." — Patient describing post-acquisition experience]</div>
+
+            <div class="segment-label">Reason 5: Buyer's Remorse — The Irreversibility Problem (8:15-9:45)</div>
+            <div class="script-text">
+              <p>"Reason number five: it's irreversible. And that's the part that really weighs on people."</p>
+              <p>"When you sell your practice to a DSO, you can't un-sell it. You signed a work-back agreement — three years, five years, sometimes longer. And if it's not what you expected? If the support doesn't materialize? You're stuck."</p>
+              <p>"This is why that guy with ten million dollars still wishes he hadn't done it. Because you can't put a price on waking up every morning and loving what you do. And when that gets taken from you, no check makes up for it."</p>
+            </div>
+
+            <div class="segment-label">The 6-Point Checklist (9:45-11:30)</div>
+            <div class="visual-note">Switch to on-screen checklist graphic. New visual format. Energy picks up.</div>
+            <div class="script-text">
+              <p>"If you're exploring your options — here are six things I'd look for before you partner with anyone."</p>
+            </div>
+            <div class="space-y-2 my-3">
+              <div class="checklist-item"><span class="text-sga-blue font-bold text-xs">1.</span><span><strong>Do you keep your name?</strong> Not "we'll discuss it later." Yes or no.</span></div>
+              <div class="checklist-item"><span class="text-sga-blue font-bold text-xs">2.</span><span><strong>Do you keep your team?</strong> Ask for the benefits package in writing before you sign.</span></div>
+              <div class="checklist-item"><span class="text-sga-blue font-bold text-xs">3.</span><span><strong>Who makes clinical decisions?</strong> If a regional manager has input on your treatment planning — that's not autonomy.</span></div>
+              <div class="checklist-item"><span class="text-sga-blue font-bold text-xs">4.</span><span><strong>What's the PE track record?</strong> Has this firm done this before? Can you call those partners?</span></div>
+              <div class="checklist-item"><span class="text-sga-blue font-bold text-xs">5.</span><span><strong>What happens after the deal?</strong> Not the first 90 days. Year two. Year three. Year five.</span></div>
+              <div class="checklist-item"><span class="text-sga-blue font-bold text-xs">6.</span><span><strong>Can you call existing partners?</strong> Partners you choose — in a market you choose — who will tell you the truth.</span></div>
+            </div>
+
+            <div class="segment-label">CTA Bridge (11:30-12:15)</div>
+            <div class="script-text">
+              <p>"Now, I'll be transparent with you. I'm a partner at SGA Dental Partners. And the reason I'm a partner is because when I ran through this exact checklist, the answer was yes on all six. My practice — Innovative Dental here in Springfield — kept its name, kept its team, kept its way of doing things."</p>
+              <p>"But I'm not here to pitch you. I'm here to make sure you have the right questions before you talk to anyone — whether that's us or somebody else."</p>
+            </div>
+          </div>
+
+          <!-- SEO Metadata -->
+          <div class="mb-4">
+            <h4 class="font-slab font-bold text-sm text-sga-blue mb-3">SEO Description</h4>
+            <div class="seo-block">
+              <div class="text-green-400 font-bold mb-2"># YouTube Description</div>
+              Why do 7 out of 10 dentists regret selling to a DSO? I've talked to hundreds of practice owners who made the leap — and most of them say it wasn't what they expected. In this video, I break down the 5 biggest reasons dentists regret their DSO sale, what the data actually shows, and what to look for if you're considering a partnership instead of a traditional sale.
+              <br/><br/>
+              Timestamps:<br/>
+              0:00 - The stat that shocked me<br/>
+              0:42 - Why this matters to every practice owner<br/>
+              1:30 - Reason #1: Loss of identity<br/>
+              3:15 - Reason #2: The production pressure trap<br/>
+              5:00 - Reason #3: Equity dilution and hidden terms<br/>
+              6:45 - Reason #4: Staff turnover and culture destruction<br/>
+              8:15 - Reason #5: Buyer's remorse (the irreversibility problem)<br/>
+              9:45 - What to look for instead (the 6-point checklist)<br/>
+              11:30 - The free assessment I wish I'd had<br/>
+              <br/>
+              FREE Practice Partnership Assessment:<br/>
+              https://sgadental.com/assessment<br/>
+              <br/>
+              Want to talk confidentially about your practice?<br/>
+              https://sgadental.com/conversation<br/>
+              <br/>
+              <span class="text-gray-500">#DSO #DentalPractice #SellDentalPractice #DentistLife #PracticeOwner #DentalPartnership #DSOprosandcons #DentalPracticeValuation #PrivateEquityDental #DentalBusiness #SGA #DentalTransition #PracticeManagement #DSOregret #DentalIndustry #DentistBurnout</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────────── -->
+    <!-- VIDEO 2 -->
+    <!-- ─────────────────────────────────────────────────────────── -->
+    <div class="bg-white rounded-xl border border-gray-200 overflow-hidden" x-data="{ open: false }">
+
+      <div class="flex flex-col md:flex-row">
+        <div class="video-thumbnail w-full md:w-56 flex-shrink-0 h-40 md:h-auto flex flex-col items-center justify-center p-4 relative">
+          <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,#1a1a2e 0%,#2D6FB7 60%,#0f4c81 100%);z-index:1;"></div>
+          <div style="position:relative;z-index:3;" class="text-center">
+            <div class="text-white font-bold text-xl leading-none">WHAT'S IT</div>
+            <div class="text-sga-lime font-bold text-2xl mt-1">WORTH?</div>
+            <div class="text-blue-200 text-xs mt-2">7-9x EBITDA</div>
+          </div>
+          <div class="play-button mt-3" style="position:relative;z-index:3;">
+            <div class="play-triangle"></div>
+          </div>
+        </div>
+
+        <div class="flex-1 p-5">
+          <div class="flex items-start justify-between flex-wrap gap-2 mb-2">
+            <span class="funnel-badge-top px-2 py-0.5 rounded-full text-xs font-bold">Top of Funnel — Awareness</span>
+            <span class="text-gray-400 text-xs font-mono">10-12 min</span>
+          </div>
+
+          <h3 class="font-slab font-bold text-lg text-sga-text leading-tight mb-3">
+            The Truth About Dental Practice Valuations in 2026
+          </h3>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3 text-xs mb-4">
+            <div>
+              <div class="text-gray-400 uppercase tracking-wider mb-0.5">Target Keyword</div>
+              <div class="font-medium text-sga-blue">dental practice valuation</div>
+            </div>
+            <div>
+              <div class="text-gray-400 uppercase tracking-wider mb-0.5">Target Avatar</div>
+              <div class="font-medium">Dr. Mark Hendricks + Dr. James Whitfield</div>
+            </div>
+            <div>
+              <div class="text-gray-400 uppercase tracking-wider mb-0.5">Awareness Level</div>
+              <div class="font-medium">Solution-Aware to Product-Aware</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="tag-pill">dental practice valuation</span>
+            <span class="tag-pill">how much is my dental practice worth</span>
+            <span class="tag-pill">dental EBITDA multiples</span>
+            <span class="tag-pill">sell dental practice</span>
+            <span class="tag-pill">+16 more</span>
+          </div>
+
+          <button @click="open = !open" class="mt-4 text-sga-blue text-sm font-medium flex items-center gap-1 hover:text-sga-blue-dark transition-colors accordion-trigger">
+            <span x-text="open ? 'Collapse script' : 'View full script + SEO metadata'"></span>
+            <span x-text="open ? '&#9650;' : '&#9660;'" class="text-xs"></span>
+          </button>
+        </div>
+      </div>
+
+      <div x-show="open" x-collapse class="border-t border-gray-100">
+        <div class="p-5 md:p-6">
+
+          <div class="bg-sga-lime bg-opacity-20 border border-yellow-300 rounded-lg p-4 mb-6 text-sm">
+            <div class="font-bold text-yellow-800 mb-1">Performance Prediction</div>
+            <div class="text-yellow-700">Second highest search volume in the set. "Dental practice valuation" is a transactional-intent keyword — viewers searching this are actively exploring an exit. Give the EBITDA multiple range early (7-9x) to hook financial-minded searchers, then use the variables to keep them watching. Strong candidate for paid promotion targeting practice owners in the 45-65 demographic.</div>
+          </div>
+
+          <div class="mb-6">
+            <h4 class="font-slab font-bold text-sm text-sga-blue mb-4">Full Script</h4>
+
+            <div class="segment-label">Hook (0:00-0:05)</div>
+            <div class="visual-note">Dr. O, direct to camera. Slightly wry expression.</div>
+            <div class="script-text">
+              <p>"Your dental practice is probably worth more than you think — or less than you hope. And the difference between those two numbers can be millions of dollars."</p>
+            </div>
+
+            <div class="segment-label">EBITDA 101 (1:15-3:00)</div>
+            <div class="visual-note">Switch to on-screen financial breakdown. Calculator-style graphic. Dr. O narrates as numbers appear.</div>
+            <div class="script-text">
+              <p>"Alright, let's start with the number that determines everything: EBITDA. That's Earnings Before Interest, Taxes, Depreciation, and Amortization."</p>
+              <p>"Take your total revenue. Let's say you're doing two million a year. Subtract your operating expenses — but NOT your own salary. In a valuation context, they're going to look at your owner compensation and normalize it. If you're paying yourself $400K and the market rate for an associate to do your clinical work is $250K, they'll adjust. The difference — that $150K — goes back into your EBITDA."</p>
+              <p>"After all the adjustments, let's say your adjusted EBITDA comes out to $500K. That's the number that gets multiplied."</p>
+            </div>
+
+            <div class="segment-label">The 2026 Multiple Range (3:00-4:30)</div>
+            <div class="visual-note">Graphic showing a spectrum from 6x to 12x with markers for different practice tiers.</div>
+            <div class="script-text">
+              <p>"In 2026, dental practice EBITDA multiples for DSO and PE-backed acquisitions are generally running in the six to twelve times range. The sweet spot for most quality general practices is seven to nine times EBITDA. That means if your adjusted EBITDA is $500K, you're looking at a valuation between $3.5 million and $4.5 million."</p>
+            </div>
+            <div class="text-overlay-note">[ON SCREEN: $500K EBITDA x 7-9x = $3.5M - $4.5M]</div>
+
+            <div class="segment-label">5 Factors That Drive Your Multiple Up (4:30-6:30)</div>
+            <div class="visual-note">Numbered list appearing on screen with green upward arrows.</div>
+            <div class="script-text">
+              <p><strong>1. Multiple locations.</strong> You represent a platform, not just a single practice. There's a cluster premium built in.</p>
+              <p><strong>2. Strong and stable team.</strong> Low turnover, experienced hygienists, reliable office manager — that de-risks the acquisition.</p>
+              <p><strong>3. Growth trajectory.</strong> Revenue trending up 5-10% year over year tells a buyer there's upside.</p>
+              <p><strong>4. Payer mix.</strong> A meaningful fee-for-service component or strategic insurance participation means your effective revenue is worth more per dollar. This can swing your valuation by a full multiple point.</p>
+              <p><strong>5. Geographic value.</strong> DSOs don't just buy practices — they buy markets. If you're in a market where they're building density, they'll pay a premium.</p>
+            </div>
+
+            <div class="segment-label">3 Factors That Drive Your Multiple Down (6:30-8:15)</div>
+            <div class="visual-note">Same numbered list format but with red downward arrows.</div>
+            <div class="script-text">
+              <p><strong>1. Owner dependency.</strong> If you do 85% of the production and every patient is "your" patient — a buyer is purchasing a job, not a business. And if you leave, the value walks out with you.</p>
+              <p><strong>2. Deferred maintenance.</strong> Aging equipment, a lease coming up for renewal with no extension option, outdated technology. It all comes out of your valuation.</p>
+              <p><strong>3. Bad books.</strong> Comingling personal expenses, not tracking production by provider, not having clean P&amp;Ls going back three years. Clean, organized, verifiable financial records are worth more to your valuation than almost any other single factor.</p>
+            </div>
+
+            <div class="segment-label">How PE-Backed Groups Value Differently (8:15-9:30)</div>
+            <div class="script-text">
+              <p>"When an individual buyer values your practice, they're looking at what they can earn as an owner-operator. When a PE-backed group values your practice, they're looking at your practice as a component of a larger platform. This is called the 'multiple arbitrage.' Your practice might be worth seven times on its own, but inside a platform of a hundred practices, the combined entity might be valued at ten or twelve times."</p>
+              <p>"The retained minority equity position will be far more valuable in the future than if the doctor had kept 100% of the practice."</p>
+            </div>
+
+            <div class="segment-label">The Biggest Valuation Mistake (9:30-10:15)</div>
+            <div class="script-text">
+              <p>"The biggest valuation mistake I see practice owners make is evaluating the cash number without evaluating the partner."</p>
+              <p>"A seven-times multiple from a firm that has built eight dental platforms over 38 years and returned four billion dollars to partners is not the same as a seven-times multiple from a fund that's doing its first dental deal. Don't just ask 'what's my multiple?' Ask 'who am I partnering with, what's their track record, and what does year three look like for their existing partners?'"</p>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <h4 class="font-slab font-bold text-sm text-sga-blue mb-3">SEO Description</h4>
+            <div class="seo-block">
+              How much is your dental practice actually worth in 2026? In this video, I break down exactly how PE-backed groups and DSOs value dental practices — including the EBITDA calculation most owners get wrong, what drives multiples up or down, the current range of 7-9x for quality practices, and how to avoid the biggest valuation mistakes I see practice owners make.<br/><br/>
+              Timestamps:<br/>
+              0:00 - Your practice is worth more (or less) than you think<br/>
+              1:15 - EBITDA 101: The number that determines everything<br/>
+              3:00 - The 2026 multiple range: 7-9x for quality practices<br/>
+              4:30 - 5 factors that drive your multiple UP<br/>
+              6:30 - 3 factors that drive your multiple DOWN<br/>
+              8:15 - How PE-backed groups value differently than individual buyers<br/>
+              9:30 - The biggest valuation mistake I see owners make<br/><br/>
+              FREE Practice Partnership Assessment: https://sgadental.com/assessment<br/><br/>
+              <span class="text-gray-500">#DentalPracticeValuation #SellDentalPractice #DentalEBITDA #PracticeValuation #DentistBusiness #DSO #DentalPracticeTransition #PrivateEquityDental #DentalBusiness #DentalMultiples #SGA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────────── -->
+    <!-- VIDEO 3 -->
+    <!-- ─────────────────────────────────────────────────────────── -->
+    <div class="bg-white rounded-xl border border-gray-200 overflow-hidden" x-data="{ open: false }">
+
+      <div class="flex flex-col md:flex-row">
+        <div class="video-thumbnail w-full md:w-56 flex-shrink-0 h-40 md:h-auto flex flex-col items-center justify-center p-4 relative">
+          <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,#1a1a2e 0%,#2D6FB7 40%,#C4D347 100%);z-index:1;"></div>
+          <div style="position:relative;z-index:3;" class="text-center">
+            <div class="text-white font-bold text-xs uppercase tracking-widest">DSO vs Private</div>
+            <div class="text-sga-lime font-bold text-xl mt-1">vs PARTNERSHIP</div>
+            <div class="text-blue-200 text-xs mt-2">Which Wins?</div>
+          </div>
+          <div class="play-button mt-3" style="position:relative;z-index:3;">
+            <div class="play-triangle"></div>
+          </div>
+        </div>
+
+        <div class="flex-1 p-5">
+          <div class="flex items-start justify-between flex-wrap gap-2 mb-2">
+            <span class="funnel-badge-mid px-2 py-0.5 rounded-full text-xs font-bold">Middle of Funnel — Consideration</span>
+            <span class="text-gray-400 text-xs font-mono">15-18 min</span>
+          </div>
+
+          <h3 class="font-slab font-bold text-lg text-sga-text leading-tight mb-3">
+            DSO vs Private Practice vs Dental Partnership: Which Model Wins in 2026?
+          </h3>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3 text-xs mb-4">
+            <div>
+              <div class="text-gray-400 uppercase tracking-wider mb-0.5">Target Keyword</div>
+              <div class="font-medium text-sga-blue">DSO vs private practice</div>
+            </div>
+            <div>
+              <div class="text-gray-400 uppercase tracking-wider mb-0.5">Target Avatars</div>
+              <div class="font-medium">Dr. Mark Hendricks + Dr. Priya Nair</div>
+            </div>
+            <div>
+              <div class="text-gray-400 uppercase tracking-wider mb-0.5">Awareness Level</div>
+              <div class="font-medium">Solution-Aware (needs framework)</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="tag-pill">DSO vs private practice</span>
+            <span class="tag-pill">dental practice model comparison</span>
+            <span class="tag-pill">dental partnership model</span>
+            <span class="tag-pill">dental career path</span>
+            <span class="tag-pill">+16 more</span>
+          </div>
+
+          <button @click="open = !open" class="mt-4 text-sga-blue text-sm font-medium flex items-center gap-1 hover:text-sga-blue-dark transition-colors accordion-trigger">
+            <span x-text="open ? 'Collapse script' : 'View full script + SEO metadata'"></span>
+            <span x-text="open ? '&#9650;' : '&#9660;'" class="text-xs"></span>
+          </button>
+        </div>
+      </div>
+
+      <div x-show="open" x-collapse class="border-t border-gray-100">
+        <div class="p-5 md:p-6">
+
+          <div class="bg-sga-lime bg-opacity-20 border border-yellow-300 rounded-lg p-4 mb-6 text-sm">
+            <div class="font-bold text-yellow-800 mb-1">Performance Prediction</div>
+            <div class="text-yellow-700">Widest audience reach — this video serves both practice owners AND associates. The three-way comparison is a differentiator; most content only covers two options. The "novel frame" hook (most dentists don't know there's a third model) is the strongest curiosity trigger in the set. Highest watch time potential due to 16-minute format with matrix format maintaining visual interest throughout.</div>
+          </div>
+
+          <div class="mb-6">
+            <h4 class="font-slab font-bold text-sm text-sga-blue mb-4">Full Script — Key Segments</h4>
+
+            <div class="segment-label">Hook (0:00-0:05)</div>
+            <div class="script-text">
+              <p>"I've worked inside all three models — corporate DSO, private practice, and partnership. And what nobody tells you is that the best option depends entirely on one question most dentists never ask themselves."</p>
+            </div>
+
+            <div class="segment-label">The Outdated Debate (0:38-1:30)</div>
+            <div class="script-text">
+              <p>"Here's why the old 'DSO versus private practice' debate is outdated. That debate assumes there are only two options: go it alone or sell to corporate. But over the last five to ten years, a third model has emerged — dental partnership, invisible DSO, IDSO, DPO — where you sell a portion of your practice, retain equity in a larger platform, keep your name and your team, and get operational support without giving up clinical control."</p>
+            </div>
+
+            <div class="segment-label">The Comparison Matrix (6 Dimensions)</div>
+            <div class="visual-note">Full-screen graphic: Corporate DSO | Private Practice | Dental Partnership scored across 6 rows.</div>
+            <div class="space-y-3 my-3">
+              <div class="bg-gray-50 rounded-lg p-3 text-xs">
+                <div class="font-bold text-sga-blue mb-1">Dimension 1: Income</div>
+                <div class="grid grid-cols-3 gap-2 text-center">
+                  <div><div class="text-gray-500">Corporate DSO</div><div class="font-bold">$$ Capped</div><div class="text-xs text-gray-400">$150-250K + production</div></div>
+                  <div><div class="text-gray-500">Private Practice</div><div class="font-bold">$$$$ Variable</div><div class="text-xs text-gray-400">$400K+ but high risk</div></div>
+                  <div class="border-l border-sga-lime"><div class="text-sga-blue font-bold">Partnership</div><div class="font-bold text-sga-blue">$$$$$ Diversified</div><div class="text-xs text-gray-400">Cash + income + equity</div></div>
+                </div>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-3 text-xs">
+                <div class="font-bold text-sga-blue mb-1">Dimension 2: Clinical Autonomy</div>
+                <div class="grid grid-cols-3 gap-2 text-center">
+                  <div><div class="text-gray-500">Corporate DSO</div><div class="font-bold text-red-500">Low</div><div class="text-xs text-gray-400">Production ratios mandated</div></div>
+                  <div><div class="text-gray-500">Private Practice</div><div class="font-bold text-green-600">Total</div><div class="text-xs text-gray-400">But isolated</div></div>
+                  <div class="border-l border-sga-lime"><div class="text-sga-blue font-bold">Partnership</div><div class="font-bold text-sga-blue">Full + community</div><div class="text-xs text-gray-400">Autonomy + peer network</div></div>
+                </div>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-3 text-xs">
+                <div class="font-bold text-sga-blue mb-1">Dimension 5: Exit Value (Most Important)</div>
+                <div class="grid grid-cols-3 gap-2 text-center">
+                  <div><div class="text-gray-500">Corporate DSO</div><div class="font-bold text-red-500">Zero</div><div class="text-xs text-gray-400">No asset to sell</div></div>
+                  <div><div class="text-gray-500">Private Practice</div><div class="font-bold">1x-1.5x revenue</div><div class="text-xs text-gray-400">All eggs, one basket</div></div>
+                  <div class="border-l border-sga-lime"><div class="text-sga-blue font-bold">Partnership</div><div class="font-bold text-sga-blue">Cash + platform equity</div><div class="text-xs text-gray-400">Second bite of the apple</div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="segment-label">Who Should Choose What (14:00-15:15)</div>
+            <div class="script-text">
+              <p>"If you're a brand-new associate with $300K in debt — a quality DSO associateship can be a great short-term move. Just don't plan to stay forever."</p>
+              <p>"If you're five to ten years in, you love running your own show, you have the energy for the business side, and your practice is in a growth phase — private practice might be exactly right for you right now."</p>
+              <p>"If you're mid-career, you've built something you're proud of, but you're tired of the admin weight, you want to diversify your financial risk, and you want to be around peers who make you better — a genuine partnership is worth exploring. Not every partnership. The right one."</p>
+              <p>"If you're approaching retirement and you need a succession plan that doesn't require you to hand over the keys to a stranger — a partnership that lets you transition gradually, stay involved as long as you want, and leave on your terms is worth more than a big check with a three-year work-back."</p>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <h4 class="font-slab font-bold text-sm text-sga-blue mb-3">SEO Description</h4>
+            <div class="seo-block">
+              DSO vs private practice vs dental partnership — which practice model actually wins in 2026? I've worked inside all three models, and in this video I give you the honest comparison nobody else will. I break down income potential, clinical autonomy, lifestyle, growth ceiling, exit value, and clinical freedom across all three models — with real numbers and real examples.<br/><br/>
+              Timestamps:<br/>
+              0:00 - I've worked inside all three models<br/>
+              0:38 - Why the old DSO vs private debate is outdated<br/>
+              1:30 - The comparison matrix (6 dimensions)<br/>
+              8:30 - Dimension 5: Exit value and wealth building<br/>
+              12:00 - The model that doesn't get talked about<br/>
+              14:00 - Who should choose what (honest recommendation)<br/><br/>
+              FREE Practice Partnership Assessment: https://sgadental.com/assessment<br/><br/>
+              <span class="text-gray-500">#DSO #PrivatePractice #DentalPartnership #DSOvsPrivatePractice #DentistCareer #DentalBusiness #PracticeOwnership #DentalPartner #ClinicalAutonomy #DentalCareerPath #SGA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────────── -->
+    <!-- VIDEO 4 -->
+    <!-- ─────────────────────────────────────────────────────────── -->
+    <div class="bg-white rounded-xl border border-gray-200 overflow-hidden" x-data="{ open: false }">
+
+      <div class="flex flex-col md:flex-row">
+        <div class="video-thumbnail w-full md:w-56 flex-shrink-0 h-40 md:h-auto flex flex-col items-center justify-center p-4 relative">
+          <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,#1a1a2e 0%,#2c3e50 50%,#2D6FB7 100%);z-index:1;"></div>
+          <div style="position:relative;z-index:3;" class="text-center">
+            <div class="text-white font-bold text-xl leading-none">HONEST</div>
+            <div class="text-sga-lime font-bold text-lg mt-1">REVIEW</div>
+            <div class="text-blue-200 text-xs mt-2">Dr. Matt Cavendish</div>
+          </div>
+          <div class="play-button mt-3" style="position:relative;z-index:3;">
+            <div class="play-triangle"></div>
+          </div>
+        </div>
+
+        <div class="flex-1 p-5">
+          <div class="flex items-start justify-between flex-wrap gap-2 mb-2">
+            <span class="funnel-badge-mid px-2 py-0.5 rounded-full text-xs font-bold">Middle of Funnel — Consideration</span>
+            <span class="text-gray-400 text-xs font-mono">12-15 min</span>
+          </div>
+
+          <h3 class="font-slab font-bold text-lg text-sga-text leading-tight mb-3">
+            What Really Happens After You Join a DSO (A Partner's Honest Review)
+          </h3>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3 text-xs mb-3">
+            <div>
+              <div class="text-gray-400 uppercase tracking-wider mb-0.5">Target Keyword</div>
+              <div class="font-medium text-sga-blue">DSO partnership experience</div>
+            </div>
+            <div>
+              <div class="text-gray-400 uppercase tracking-wider mb-0.5">Format</div>
+              <div class="font-medium">Interview — Dr. O + Dr. Cavendish</div>
+            </div>
+            <div>
+              <div class="text-gray-400 uppercase tracking-wider mb-0.5">Awareness Level</div>
+              <div class="font-medium">Product-Aware (needs proof)</div>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-3 text-xs text-blue-800">
+            <strong>Production Note:</strong> This is a structured interview guide, not a word-for-word teleprompter script. Dr. Cavendish should speak in his own words, guided by beat prompts. Two-camera setup required.
+          </div>
+
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="tag-pill">DSO partner review</span>
+            <span class="tag-pill">what happens when you join a DSO</span>
+            <span class="tag-pill">dental partnership honest review</span>
+            <span class="tag-pill">clinical mentorship dental</span>
+            <span class="tag-pill">+16 more</span>
+          </div>
+
+          <button @click="open = !open" class="mt-4 text-sga-blue text-sm font-medium flex items-center gap-1 hover:text-sga-blue-dark transition-colors accordion-trigger">
+            <span x-text="open ? 'Collapse script' : 'View full script + SEO metadata'"></span>
+            <span x-text="open ? '&#9650;' : '&#9660;'" class="text-xs"></span>
+          </button>
+        </div>
+      </div>
+
+      <div x-show="open" x-collapse class="border-t border-gray-100">
+        <div class="p-5 md:p-6">
+
+          <div class="bg-sga-lime bg-opacity-20 border border-yellow-300 rounded-lg p-4 mb-6 text-sm">
+            <div class="font-bold text-yellow-800 mb-1">Performance Prediction</div>
+            <div class="text-yellow-700">Highest conversion potential in the set. The "before I partnered, I was terrified" hook is emotionally direct and mirrors the viewer's current state. The timeline structure (Day 1, 90 days, 6 months, 1 year) creates a narrative arc that drives watch time. The 16.5% revenue + 100% staff retention data points are the most specific social proof in the funnel — expect these to drive direct CTA clicks.</div>
+          </div>
+
+          <div class="mb-6">
+            <h4 class="font-slab font-bold text-sm text-sga-blue mb-4">Interview Structure + Key Beats</h4>
+
+            <div class="segment-label">Hook (0:00-0:05)</div>
+            <div class="interview-note">Dr. Cavendish leads — Dr. O does not appear first.</div>
+            <div class="script-text">
+              <p><strong>DR. CAVENDISH:</strong> "Before I partnered, I was terrified. I'd heard all the horror stories. I thought I was going to lose everything I'd built. Here's what actually happened."</p>
+            </div>
+
+            <div class="segment-label">Dr. O Intro (0:05-0:30)</div>
+            <div class="script-text">
+              <p><strong>DR. O:</strong> "Today I'm sitting down with Dr. Matt Cavendish. He's been a practicing dentist for over 20 years. He joined a dental partnership, and I asked him to come on and tell you the truth about the experience — the good and the bad. I told Matt: be honest. If something didn't work, say it. If something surprised you, share it. This only works if it's real."</p>
+            </div>
+
+            <div class="segment-label">Timeline Structure — Key Beats</div>
+            <div class="space-y-3 my-3">
+              <div class="border border-gray-200 rounded-lg p-3">
+                <div class="text-xs font-bold text-sga-blue uppercase tracking-wider mb-2">Day 1</div>
+                <div class="text-xs text-gray-600"><strong>DR. O asks:</strong> "Okay, Day 1 arrives. You've signed. What actually changed?"</div>
+                <div class="text-xs text-gray-500 mt-1"><strong>Cavendish hits:</strong> Almost nothing visible to patients. Same team, same name, same schedule. Behind the scenes — billing/payroll/HR transition started. The biggest surprise: how much didn't change.</div>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-3">
+                <div class="text-xs font-bold text-sga-blue uppercase tracking-wider mb-2">90 Days</div>
+                <div class="text-xs text-gray-500"><strong>Cavendish hits:</strong> Admin burden started lifting. Payroll handled, benefits upgraded, compliance taken care of. Unexpected thing: the peer community. Getting on calls with other partners and realizing they had the same challenges.</div>
+                <div class="text-xs text-gray-600 mt-1 italic">Key quote: "The thing I didn't expect was how much I'd learn from the other doctors. I'd been doing this for 20 years and I was suddenly getting better."</div>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-3">
+                <div class="text-xs font-bold text-sga-blue uppercase tracking-wider mb-2">6 Months</div>
+                <div class="text-xs text-gray-500"><strong>Cavendish hits:</strong> Paired with clinical mentor. Started observing advanced procedures. Felt the complacency lifting. Saw his practice through new eyes.</div>
+                <div class="text-xs text-gray-600 mt-1 italic">Key quote: "When you have been in dentistry for 20 years like I have, sometimes it is not as fun as it used to be. So to be able to do a complex case like this, with somebody who is also working at a very high skill level — it is fun."</div>
+              </div>
+              <div class="border border-sga-lime rounded-lg p-3 bg-yellow-50">
+                <div class="text-xs font-bold text-sga-blue uppercase tracking-wider mb-2">1 Year — Results</div>
+                <div class="grid grid-cols-3 gap-2 text-center mt-1">
+                  <div class="bg-white rounded p-2"><div class="font-bold text-sga-blue text-sm">+16.5%</div><div class="text-xs text-gray-500">Revenue TTM</div></div>
+                  <div class="bg-white rounded p-2"><div class="font-bold text-sga-blue text-sm">100%</div><div class="text-xs text-gray-500">Staff Retention</div></div>
+                  <div class="bg-white rounded p-2"><div class="font-bold text-sga-blue text-sm">Beating</div><div class="text-xs text-gray-500">EBITDA Plan</div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="segment-label">The All-On-Four Moment (8:45-10:00)</div>
+            <div class="interview-note">This is the emotional peak of the interview. The "it's fun again" moment after two decades of complacency.</div>
+            <div class="script-text">
+              <p><strong>DR. O:</strong> "Tell me about that first all-on-four."</p>
+              <p>Cavendish describes observing his first all-on-four with his mentor — the clinical complexity, the patient transformation. He started training to offer the procedure himself. Doing dentistry at a level he never imagined after 20 years.</p>
+            </div>
+
+            <div class="segment-label">What He'd Tell His Past Self (11:30-12:30)</div>
+            <div class="script-text">
+              <p><strong>DR. O:</strong> "If you could go back and talk to the version of yourself who was sitting at home late at night googling 'sell dental practice' — what would you tell him?"</p>
+            </div>
+            <div class="interview-note">Authenticity moment — not scripted. Possible directions: "Stop being afraid and start asking better questions" / "The fear of change is worse than the change itself" / "Being stubborn about going it alone isn't strength — it's just stubbornness."</div>
+
+            <div class="segment-label">The Question Every Dentist Should Ask (12:30-13:15)</div>
+            <div class="script-text">
+              <p><strong>DR. O:</strong> "Last question. What's the one question every dentist should ask before they partner with anyone?"</p>
+              <p>Cavendish's answer should be organic. Possible directions: "Can I talk to your partners? Not the ones you choose. Ones I choose." / "What does year three look like? Show me a partner who's been with you for three years."</p>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <h4 class="font-slab font-bold text-sm text-sga-blue mb-3">SEO Description</h4>
+            <div class="seo-block">
+              What really happens after you join a DSO? In this video, I sit down with Dr. Matt Cavendish — a dentist who'd been in practice for over 20 years before partnering with a dental partnership organization. He shares the honest truth about Day 1, the first 90 days, the 6-month mark, and what his practice looks like after a full year.<br/><br/>
+              Timestamps:<br/>
+              0:00 - Before I partnered, I was terrified<br/>
+              0:30 - Meet Dr. Matt Cavendish<br/>
+              4:00 - Day 1: What actually changed (and what didn't)<br/>
+              7:00 - 6-month check-in: Clinical mentorship changed everything<br/>
+              8:45 - The all-on-four moment<br/>
+              10:00 - 1-year results: 16.5% revenue growth<br/>
+              11:30 - What he'd tell his past self<br/><br/>
+              Schedule a Confidential Conversation: https://sgadental.com/conversation<br/><br/>
+              <span class="text-gray-500">#DSOpartnership #DentalPartnerReview #DSOexperience #JoinADSO #DentalPartnership #DentalMentorship #DSOresults #DentalPracticeGrowth #SGA #DentalTransformation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────────── -->
+    <!-- VIDEO 5 -->
+    <!-- ─────────────────────────────────────────────────────────── -->
+    <div class="bg-white rounded-xl border border-gray-200 overflow-hidden" x-data="{ open: false }">
+
+      <div class="flex flex-col md:flex-row">
+        <div class="video-thumbnail w-full md:w-56 flex-shrink-0 h-40 md:h-auto flex flex-col items-center justify-center p-4 relative">
+          <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,#1e4e8a 0%,#2D6FB7 40%,#C4D347 100%);z-index:1;"></div>
+          <div style="position:relative;z-index:3;" class="text-center">
+            <div class="text-sga-lime font-bold text-xl leading-none">INSIDE</div>
+            <div class="text-white font-bold text-lg mt-1">SGA DENTAL</div>
+            <div class="text-blue-200 text-xs mt-2">Full Tour</div>
+          </div>
+          <div class="play-button mt-3" style="position:relative;z-index:3;">
+            <div class="play-triangle"></div>
+          </div>
+        </div>
+
+        <div class="flex-1 p-5">
+          <div class="flex items-start justify-between flex-wrap gap-2 mb-2">
+            <span class="funnel-badge-bottom px-2 py-0.5 rounded-full text-xs font-bold">Bottom of Funnel — Conversion</span>
+            <span class="text-gray-400 text-xs font-mono">10-12 min</span>
+          </div>
+
+          <h3 class="font-slab font-bold text-lg text-sga-text leading-tight mb-3">
+            Inside SGA Dental Partners: How Our Partnership Model Actually Works
+          </h3>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3 text-xs mb-4">
+            <div>
+              <div class="text-gray-400 uppercase tracking-wider mb-0.5">Target Keyword</div>
+              <div class="font-medium text-sga-blue">SGA Dental Partners</div>
+            </div>
+            <div>
+              <div class="text-gray-400 uppercase tracking-wider mb-0.5">Target Avatar</div>
+              <div class="font-medium">All personas — warm prospects</div>
+            </div>
+            <div>
+              <div class="text-gray-400 uppercase tracking-wider mb-0.5">Awareness Level</div>
+              <div class="font-medium">Product-Aware to Most-Aware</div>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-3 text-xs text-blue-800">
+            <strong>Production Note:</strong> Tour-style documentary format. Mix of office footage, symposium clips, partner interactions, direct-to-camera. Requires most production assets of any video in the set.
+          </div>
+
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="tag-pill">SGA Dental Partners</span>
+            <span class="tag-pill">dental partnership explained</span>
+            <span class="tag-pill">Thurston Group dental</span>
+            <span class="tag-pill">Pikos Institute</span>
+            <span class="tag-pill">4Front symposium</span>
+            <span class="tag-pill">+15 more</span>
+          </div>
+
+          <button @click="open = !open" class="mt-4 text-sga-blue text-sm font-medium flex items-center gap-1 hover:text-sga-blue-dark transition-colors accordion-trigger">
+            <span x-text="open ? 'Collapse script' : 'View full script + SEO metadata'"></span>
+            <span x-text="open ? '&#9650;' : '&#9660;'" class="text-xs"></span>
+          </button>
+        </div>
+      </div>
+
+      <div x-show="open" x-collapse class="border-t border-gray-100">
+        <div class="p-5 md:p-6">
+
+          <div class="bg-sga-lime bg-opacity-20 border border-yellow-300 rounded-lg p-4 mb-6 text-sm">
+            <div class="font-bold text-yellow-800 mb-1">Performance Prediction</div>
+            <div class="text-yellow-700">Lowest organic reach but highest conversion rate. This video targets prospects searching "SGA Dental Partners" by name — they've already done the research. The inside-look format (tour, partner clips, equity model walkthrough) is designed to close uncertainty, not create awareness. Direct CTA conversions should be highest per view of any video in the set.</div>
+          </div>
+
+          <div class="mb-6">
+            <h4 class="font-slab font-bold text-sm text-sga-blue mb-4">Full Script</h4>
+
+            <div class="segment-label">Hook (0:00-0:05)</div>
+            <div class="visual-note">Dr. O, direct to camera. Confident, calm, direct.</div>
+            <div class="script-text">
+              <p>"You've done the research. You've heard the horror stories about DSOs. You've watched the comparison videos. Now let me show you exactly how our model is different — and you can decide for yourself."</p>
+            </div>
+
+            <div class="segment-label">What SGA Dental Partners Actually Is (0:35-1:30)</div>
+            <div class="script-text">
+              <p>"SGA Dental Partners is a dental partnership platform. Not a corporate DSO. Not a management company. A partnership — where dentists retain ownership, retain clinical autonomy, and get equity in something much larger than any one practice."</p>
+              <p>"We're currently across multiple states with over sixty practice groups. General dentistry, pediatric, periodontics, oral surgery, orthodontics, cosmetic, and implantology. Every single practice in it kept its name, its team, and its way of doing things."</p>
+            </div>
+
+            <div class="segment-label">The Three Verticals (1:30-3:15)</div>
+            <div class="visual-note">Three-column graphic. B-roll of community practices, collaborative practices, specialty/implant practices as each vertical is described.</div>
+            <div class="space-y-2 my-3">
+              <div class="bg-gray-50 rounded-lg p-3 text-sm border-l-4 border-sga-blue">
+                <div class="font-bold text-sga-blue mb-1">Vertical 1: Community Dentistry</div>
+                <div class="text-xs text-gray-600">Hometown practices serving families across the Southeast — Georgia, Mississippi, Alabama, Louisiana, Tennessee. Practices that have been there for 20-30 years, sponsor the Little League team, know every patient by name. SGA provides back-office support so they can keep doing what they do best without drowning in admin.</div>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-3 text-sm border-l-4 border-sga-blue">
+                <div class="font-bold text-sga-blue mb-1">Vertical 2: Collaborative General &amp; Specialty</div>
+                <div class="text-xs text-gray-600">National footprint — Arizona, California, Nevada, Michigan, Minnesota, Texas. The differentiator: peer learning culture. Regular partner calls. Clinical advisory boards. The annual 4Front Symposium where 100+ clinicians push each other to get better.</div>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-3 text-sm border-l-4 border-sga-lime">
+                <div class="font-bold text-sga-blue mb-1">Vertical 3: Advanced Implantology</div>
+                <div class="text-xs text-gray-600">MODIS Dental Partners — anchored by the Pikos Institute and practices like Innovative Dental. For specialists and implant-focused practices that need capital, marketing infrastructure, and a peer network of elite clinicians. Dr. Michael A. Pikos — one of the most respected names in implant dentistry in the world.</div>
+              </div>
+            </div>
+
+            <div class="segment-label">The Thurston Group: Trust Anchor (3:15-4:45)</div>
+            <div class="visual-note">Thurston Group logo and statistics appear on screen.</div>
+            <div class="script-text">
+              <p>"Behind all of this is the Thurston Group. Thurston has been operating for 38 years. They've returned over four billion dollars to partners across their portfolio. And they've built eight dental and healthcare platforms before SGA — including Smile Doctors, US Endodontics Partners, US Oral Surgery Management, and more."</p>
+              <p>"Why does this matter? Because the number one fear dentists have about PE is: 'They're going to load up on debt, squeeze my margins, and flip the company in three years.' Thurston has done it eight times. Their partners can tell you how it worked out. Their track record is not a projection. It's history."</p>
+            </div>
+            <div class="text-overlay-note">[ON SCREEN: 38 Years | $4B+ Returned to Partners | 8+ Dental &amp; Healthcare Platforms]</div>
+
+            <div class="segment-label">What Stays the Same (4:45-6:00)</div>
+            <div class="script-text">
+              <p>"Your name stays on the door. Dental Partners of SW Georgia is still Dental Partners of SW Georgia. Periodontal Associates of Memphis is still Periodontal Associates of Memphis. Innovative Dental is still Innovative Dental. There is no corporate rebrand."</p>
+              <p>"Your team stays. SGA has an 85% staff retention rate across the network. And the benefits your team gets actually improve — 401(k) through Voya, healthcare through Cigna, PTO, CE stipends."</p>
+              <p>"Your clinical approach stays. You choose the lab. You choose the materials. You design the treatment plans. Nobody from a regional office is telling you which crowns to prep."</p>
+            </div>
+
+            <div class="segment-label">The Education Platform (6:00-7:45)</div>
+            <div class="visual-note">Cut to symposium footage, Pikos Institute B-roll, clinical training clips. Visually rich and energetic — use footage, not slides.</div>
+            <div class="script-text">
+              <p>"The Pikos Institute is a globally recognized implantology training center founded by Dr. Michael A. Pikos — one of the most respected names in implant dentistry in the world. Not a brochure. Not a discount code. Real, hands-on clinical training."</p>
+              <p>"The 4Front Symposium is our annual peer collaboration event. A hundred-plus clinicians in a room together, sharing techniques, presenting cases, challenging each other."</p>
+              <p>"And the Individual Growth Engine — personalized mentorship. Dr. Cavendish was paired with a mentor through this program. He'd been practicing for 20 years and described himself as 'in a spot of complacency.' After mentorship, his revenue grew 16.5% in the trailing twelve months."</p>
+            </div>
+
+            <div class="segment-label">The Equity Model (7:45-9:15)</div>
+            <div class="visual-note">Simplified equity diagram on screen.</div>
+            <div class="script-text">
+              <p>"When you partner with SGA, you sell a portion of your practice equity. You receive cash at closing. But you also retain an ownership stake in the combined SGA platform — not just your practice. The whole platform."</p>
+              <p>"You continue to earn clinical income. You continue to practice. And you hold equity that appreciates as the platform grows. When the platform reaches a recapitalization event — and the Thurston Group has a track record of guiding platforms to successful recaps — your retained equity participates in that value creation."</p>
+              <p>"I'll be direct: the specific financial terms of any deal are confidential and unique to each practice. The process is: Connect — an introductory conversation. Engage — an evaluation walkthrough. Partner — a mutual decision. At any point, you can walk away. No pressure."</p>
+            </div>
+
+            <div class="segment-label">Partner Voices (9:15-10:15)</div>
+            <div class="visual-note">Multiple short partner clips — 15-20 seconds each. Let partners speak in their own voices.</div>
+            <div class="script-text">
+              <p><strong>Dr. Mitchel Godat:</strong> "SGA supports us and manages things behind the scenes. Our partnership allows us to focus on changing lives."</p>
+              <p><strong>Dr. Matt Cavendish:</strong> "To be able to do a complex case like this, with somebody who is also working at a very high skill level — it's fun. It's fun again."</p>
+              <p><strong>Dr. Mitch Ellingson (CCO):</strong> "I love being a dentist, and I want to protect my profession from becoming like medicine. We want it to be more about the doctors and the patients."</p>
+            </div>
+          </div>
+
+          <!-- Three-step process -->
+          <div class="bg-sga-blue text-white rounded-xl p-5 mb-6">
+            <div class="font-slab font-bold text-sm mb-3">The Three-Step Process</div>
+            <div class="grid grid-cols-3 gap-3 text-center text-sm">
+              <div>
+                <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-2 font-bold">1</div>
+                <div class="font-bold">Connect</div>
+                <div class="text-blue-200 text-xs mt-1">Introductory confidential conversation</div>
+              </div>
+              <div>
+                <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-2 font-bold">2</div>
+                <div class="font-bold">Engage</div>
+                <div class="text-blue-200 text-xs mt-1">Evaluation walkthrough — see the numbers</div>
+              </div>
+              <div>
+                <div class="w-8 h-8 bg-sga-lime rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-sga-blue">3</div>
+                <div class="font-bold">Partner</div>
+                <div class="text-blue-200 text-xs mt-1">Mutual decision based on real information</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <h4 class="font-slab font-bold text-sm text-sga-blue mb-3">SEO Description</h4>
+            <div class="seo-block">
+              What does it actually look like inside SGA Dental Partners? In this video, I walk you through our partnership model from the inside — the three practice verticals, the Thurston Group backing (38 years, $4B+ returned to partners), our education platform including the Pikos Institute, the equity model, and what stays exactly the same after you partner.<br/><br/>
+              If you've done the research and you're ready to see the full picture, this is the video.<br/><br/>
+              Timestamps:<br/>
+              0:00 - You've done the research. Here's the full picture.<br/>
+              0:35 - What SGA Dental Partners actually is<br/>
+              1:30 - The three verticals (and why they matter)<br/>
+              3:15 - The Thurston Group: 38 years, $4B+ returned<br/>
+              4:45 - What stays the same when you partner<br/>
+              6:00 - The education platform (Pikos Institute + 4Front)<br/>
+              7:45 - The equity model explained<br/>
+              9:15 - What partners say in their own words<br/><br/>
+              Schedule a Confidential Conversation: https://sgadental.com/conversation<br/><br/>
+              <span class="text-gray-500">#SGADentalPartners #DentalPartnership #DentalPartnershipModel #DSO #ThurstonGroup #PikosInstitute #ClinicalAutonomy #DentalEquity #DentalPartner #4FrontSymposium #DentalPracticePartnership</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- CROSS-VIDEO STRATEGY NOTES -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <div class="bg-white rounded-xl border border-gray-200 p-6">
+      <h2 class="font-slab font-bold text-lg text-sga-blue mb-4">Cross-Video Strategy Notes</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="font-bold text-sm text-sga-text mb-3">End Screen Linking Chain</h3>
+          <div class="space-y-2 text-sm">
+            <div class="flex items-center gap-2 p-2 bg-green-50 rounded border border-green-200">
+              <span class="text-xs font-mono text-green-700">Video 1</span>
+              <span class="text-gray-400">&#8594;</span>
+              <span class="text-xs text-gray-600">End screen recommends Video 2 (Valuations)</span>
+            </div>
+            <div class="flex items-center gap-2 p-2 bg-green-50 rounded border border-green-200">
+              <span class="text-xs font-mono text-green-700">Video 2</span>
+              <span class="text-gray-400">&#8594;</span>
+              <span class="text-xs text-gray-600">End screen recommends Video 3 (Model Comparison)</span>
+            </div>
+            <div class="flex items-center gap-2 p-2 bg-orange-50 rounded border border-orange-200">
+              <span class="text-xs font-mono text-orange-700">Video 3</span>
+              <span class="text-gray-400">&#8594;</span>
+              <span class="text-xs text-gray-600">End screen recommends Video 4 (Partner Review)</span>
+            </div>
+            <div class="flex items-center gap-2 p-2 bg-orange-50 rounded border border-orange-200">
+              <span class="text-xs font-mono text-orange-700">Video 4</span>
+              <span class="text-gray-400">&#8594;</span>
+              <span class="text-xs text-gray-600">End screen recommends Video 5 (Inside SGA)</span>
+            </div>
+            <div class="flex items-center gap-2 p-2 bg-blue-50 rounded border border-blue-200">
+              <span class="text-xs font-mono text-blue-700">Video 5</span>
+              <span class="text-gray-400">&#8594;</span>
+              <span class="text-xs text-gray-600">Direct CTA: sgadental.com/conversation</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-sm text-sga-text mb-3">CTA Ladder</h3>
+          <div class="space-y-2">
+            <div class="flex items-start gap-3 p-2 bg-gray-50 rounded border border-gray-200">
+              <span class="text-xs text-sga-blue font-bold mt-0.5">Videos 1-2</span>
+              <div class="text-xs text-gray-600">
+                <div class="font-medium">Primary: Practice Partnership Assessment</div>
+                <div class="text-gray-400 font-mono">sgadental.com/assessment</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 p-2 bg-gray-50 rounded border border-gray-200">
+              <span class="text-xs text-sga-blue font-bold mt-0.5">Videos 3-4</span>
+              <div class="text-xs text-gray-600">
+                <div class="font-medium">Primary: Confidential Conversation</div>
+                <div class="text-gray-400 font-mono">sgadental.com/conversation</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 p-2 bg-blue-50 rounded border border-blue-200">
+              <span class="text-xs text-sga-blue font-bold mt-0.5">Video 5</span>
+              <div class="text-xs text-gray-600">
+                <div class="font-medium text-sga-blue">Warm close: Schedule conversation</div>
+                <div class="text-gray-400 font-mono">sgadental.com/conversation</div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="font-bold text-sm text-sga-text mb-3 mt-5">Production Priorities</h3>
+          <div class="space-y-1 text-xs text-gray-600">
+            <div class="flex items-start gap-2"><span class="text-sga-orange">1.</span>Dr. Matt Cavendish interview footage (Video 4)</div>
+            <div class="flex items-start gap-2"><span class="text-sga-orange">2.</span>4Front Symposium footage (Videos 3, 5)</div>
+            <div class="flex items-start gap-2"><span class="text-sga-orange">3.</span>Dr. Mitchel Godat testimonial (Videos 1, 5)</div>
+            <div class="flex items-start gap-2"><span class="text-sga-orange">4.</span>Pikos Institute B-roll (Videos 3, 5)</div>
+            <div class="flex items-start gap-2"><span class="text-sga-orange">5.</span>SGA/Gen4/MODIS practice exteriors (all videos)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-gray-200 bg-white mt-4 py-6 text-center">
+    <div class="text-sga-blue font-slab font-bold text-base mb-1">SGA Dental Partners</div>
+    <div class="text-gray-400 text-xs">YouTube Script Gallery — Innovative Dental Channel | Prepared March 2026 | 5 videos, funnel-mapped</div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGA Dental Partners - Elevator Pitch Scripts</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'sga-blue': '#2D6FB7',
+            'sga-blue-dark': '#1E4F85',
+            'sga-cyan': '#009DD6',
+            'sga-lime': '#C4D347',
+            'sga-orange': '#F36F21',
+            'sga-text': '#333333',
+            'sga-gray': '#F7F8FA',
+            'sga-border': '#E2E8F0',
+          },
+          fontFamily: {
+            'sans': ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    [id] { scroll-margin-top: 100px; }
+
+    /* Pitch card text selection */
+    .pitch-text::selection {
+      background-color: rgba(45, 111, 183, 0.15);
+    }
+
+    /* Print styles */
+    @media print {
+      html, body { margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .no-print { display: none !important; }
+      .pitch-card { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body class="bg-sga-gray font-sans text-sga-text antialiased" style="padding-top:40px;">
+<!-- Back to Showcase banner -->
+<div style="position:fixed;top:0;left:0;right:0;height:40px;background:#1e293b;display:flex;align-items:center;padding:0 16px;z-index:9999;">
+  <a href="../index.html" style="color:#93c5fd;text-decoration:none;font-size:14px;font-family:Inter,sans-serif;">&larr; Back to Showcase</a>
+  <span style="color:#64748b;margin-left:auto;font-size:12px;font-family:Inter,sans-serif;">SGA Dental Partners Marketing Showcase</span>
+</div>
+
+<!-- Page Header -->
+<header class="bg-sga-blue-dark">
+  <div class="max-w-5xl mx-auto px-6 py-10 sm:py-14">
+    <div class="flex items-center gap-4 mb-6">
+      <img src="../images/SGA-logo.png" alt="SGA Dental Partners" class="h-9 brightness-0 invert">
+      <div class="flex items-center gap-3">
+        <span class="bg-sga-orange/20 text-orange-300 text-[10px] font-bold px-3 py-1 rounded-full tracking-wider uppercase border border-sga-orange/30">BD Training</span>
+        <span class="text-white/40 text-xs tracking-widest uppercase font-medium">Sales Enablement</span>
+      </div>
+    </div>
+    <h1 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight mb-3">Elevator Pitch Scripts</h1>
+    <p class="text-white/70 text-base max-w-2xl leading-relaxed">12 pitch scripts across 3 lengths and 4 audiences. Sage archetype -- wise counsel, not aggressive sales. Memorize the structure, deliver naturally.</p>
+
+    <!-- Quick stats -->
+    <div class="flex flex-wrap gap-6 mt-8">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-3 h-3 rounded-full bg-emerald-400"></span>
+        <span class="text-white/70 text-sm">15-second &middot; Cocktail party</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-3 h-3 rounded-full bg-amber-400"></span>
+        <span class="text-white/70 text-sm">30-second &middot; Conference</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-3 h-3 rounded-full bg-sga-blue"></span>
+        <span class="text-white/70 text-sm">60-second &middot; BD call opener</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Sticky Audience Filter -->
+<nav class="sticky bg-white border-b border-sga-border shadow-sm no-print z-40" style="top:40px;">
+  <div class="max-w-5xl mx-auto px-6" x-data>
+    <div class="flex gap-1 overflow-x-auto py-2 -mx-1" style="-webkit-overflow-scrolling:touch; scrollbar-width:none;">
+      <a href="#universal" class="shrink-0 px-3 py-2 text-xs font-semibold text-sga-text/70 rounded-md hover:bg-sga-blue/5 hover:text-sga-blue cursor-pointer transition-colors duration-150">Universal Differentiator</a>
+      <a href="#practice-owners" class="shrink-0 px-3 py-2 text-xs font-semibold text-sga-text/70 rounded-md hover:bg-sga-blue/5 hover:text-sga-blue cursor-pointer transition-colors duration-150">Practice Owners</a>
+      <a href="#associates" class="shrink-0 px-3 py-2 text-xs font-semibold text-sga-text/70 rounded-md hover:bg-sga-blue/5 hover:text-sga-blue cursor-pointer transition-colors duration-150">Associates</a>
+      <a href="#specialists" class="shrink-0 px-3 py-2 text-xs font-semibold text-sga-text/70 rounded-md hover:bg-sga-blue/5 hover:text-sga-blue cursor-pointer transition-colors duration-150">Specialists</a>
+      <a href="#referring" class="shrink-0 px-3 py-2 text-xs font-semibold text-sga-text/70 rounded-md hover:bg-sga-blue/5 hover:text-sga-blue cursor-pointer transition-colors duration-150">Referring Dentists</a>
+    </div>
+  </div>
+</nav>
+
+<main class="max-w-5xl mx-auto px-6 py-10">
+
+  <!-- ========================================== -->
+  <!-- UNIVERSAL DIFFERENTIATOR                   -->
+  <!-- ========================================== -->
+  <section id="universal" class="mb-14">
+    <div class="flex items-center gap-3 mb-2">
+      <div class="w-10 h-10 rounded-lg bg-sga-blue/10 text-sga-blue flex items-center justify-center">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-sga-text">The One-Sentence Differentiator</h2>
+        <p class="text-sm text-gray-500">If you can only say ONE sentence about SGA, say this</p>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <div class="bg-white rounded-xl border-2 border-sga-blue/20 shadow-sm p-6 sm:p-8 pitch-card">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="inline-flex items-center gap-1.5 bg-sga-blue/10 text-sga-blue text-[11px] font-bold px-3 py-1 rounded-full">
+            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+            10 seconds
+          </span>
+          <span class="text-xs text-gray-400 font-medium">Works for any audience</span>
+        </div>
+        <blockquote class="pitch-text text-base sm:text-lg text-sga-text leading-relaxed">
+          "SGA is the only dental partnership with a built-in clinical education platform -- the Pikos Institute and the 4Front Symposium -- backed by a PE firm that has done this 8 times and returned $4 billion to partners over 38 years."
+        </blockquote>
+        <div class="mt-5 pt-4 border-t border-sga-border">
+          <div class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-2">What this sentence contains</div>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-[11px] bg-sga-gray text-gray-600 px-2.5 py-1 rounded-md border border-sga-border">Education (Pikos + 4Front)</span>
+            <span class="text-[11px] bg-sga-gray text-gray-600 px-2.5 py-1 rounded-md border border-sga-border">Track record (8 platforms, $4B, 38yr)</span>
+            <span class="text-[11px] bg-sga-gray text-gray-600 px-2.5 py-1 rounded-md border border-sga-border">Unique to SGA -- no competitor can say it</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- AUDIENCE 1: PRACTICE OWNERS                -->
+  <!-- ========================================== -->
+  <section id="practice-owners" class="mb-14">
+    <div class="flex items-center gap-3 mb-2">
+      <div class="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-sga-text">Practice Owners</h2>
+        <p class="text-sm text-gray-500">Mid-career dentists considering a partnership or liquidity event</p>
+      </div>
+    </div>
+
+    <div class="grid gap-5 mt-5">
+
+      <!-- 15s -->
+      <div class="bg-white rounded-xl border border-sga-border shadow-sm overflow-hidden pitch-card">
+        <div class="px-6 py-5 flex items-start justify-between gap-4">
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[11px] font-bold px-3 py-1 rounded-full border border-emerald-200">
+                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+                15 seconds
+              </span>
+              <span class="text-xs text-gray-400 font-medium">Cocktail Party</span>
+            </div>
+            <blockquote class="pitch-text text-[15px] text-sga-text leading-relaxed">
+              "I work with SGA Dental Partners. We partner with practice owners who are exhausted by the business side of dentistry but do not want to lose what they built. The short version: your name stays, your team stays, you get equity in a growing platform, and our education program makes you a better clinician. We are backed by a PE firm with 38 years and $4B in partner returns. Do you know anyone in that situation?"
+            </blockquote>
+          </div>
+        </div>
+        <div class="bg-sga-gray px-6 py-3 border-t border-sga-border">
+          <div class="flex flex-wrap gap-2 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">
+            <span>Problem (exhausted by business)</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Differentiator (name stays, education)</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Trust anchor (38yr, $4B)</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Open question</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 30s -->
+      <div class="bg-white rounded-xl border border-sga-border shadow-sm overflow-hidden pitch-card">
+        <div class="px-6 py-5 flex items-start justify-between gap-4">
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 text-[11px] font-bold px-3 py-1 rounded-full border border-amber-200">
+                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+                30 seconds
+              </span>
+              <span class="text-xs text-gray-400 font-medium">Conference</span>
+            </div>
+            <blockquote class="pitch-text text-[15px] text-sga-text leading-relaxed">
+              "Seven out of ten dentists who sell to a DSO end up frustrated or regretful. That is not our stat -- that is what the Dentist Advisors podcast found. SGA Dental Partners was built by people who heard that number and refused to add to it.
+              <br><br>
+              We are a dental partnership platform -- not a corporate DSO. Practice owners keep their name, their team, and their clinical autonomy. They get a meaningful liquidity event plus equity in a multi-state platform. What makes us different: the Pikos Institute for world-class implant education, the 4Front Symposium, and the Thurston Group -- 38 years, $4 billion returned to partners, 8 platforms.
+              <br><br>
+              Dentists come to SGA to get better, not just to get bought."
+            </blockquote>
+          </div>
+        </div>
+        <div class="bg-sga-gray px-6 py-3 border-t border-sga-border">
+          <div class="flex flex-wrap gap-2 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">
+            <span>Problem hook (7/10 regret)</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Category reframe</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Three differentiators</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Big idea line</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 60s -->
+      <div class="bg-white rounded-xl border border-sga-border shadow-sm overflow-hidden pitch-card">
+        <div class="px-6 py-5 flex items-start justify-between gap-4">
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="inline-flex items-center gap-1.5 bg-blue-50 text-sga-blue text-[11px] font-bold px-3 py-1 rounded-full border border-blue-200">
+                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+                60 seconds
+              </span>
+              <span class="text-xs text-gray-400 font-medium">BD Call Opener</span>
+            </div>
+            <blockquote class="pitch-text text-[15px] text-sga-text leading-relaxed">
+              "Dr. [Name], thank you for taking the time. You have probably heard the statistics -- seven or eight out of ten dentists who sell to a DSO end up frustrated or regretful. SGA Dental Partners exists because of that number.
+              <br><br>
+              We are not a corporate DSO. We are a dental partnership platform built around three things no competitor offers together.
+              <br><br>
+              First: education -- the Pikos Institute, 4Front Symposium, and a 1:1 mentorship program. Dr. Matt Cavendish was 20 years in and learned all-on-four procedures through our program. Revenues up 16.5%, staff retention 100%. His words: 'It is fun again.'
+              <br><br>
+              Second: the Thurston Group. 38 years, $4B+ returned, 8 platforms.
+              <br><br>
+              Third: your name stays, your team stays, you retain equity.
+              <br><br>
+              Would it make sense to schedule 45 minutes?"
+            </blockquote>
+          </div>
+        </div>
+        <div class="bg-sga-gray px-6 py-3 border-t border-sga-border">
+          <div class="flex flex-wrap gap-2 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">
+            <span>Empathy opening</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Cavendish proof story</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Three-pillar structure</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Soft CTA</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- AUDIENCE 2: ASSOCIATES                     -->
+  <!-- ========================================== -->
+  <section id="associates" class="mb-14">
+    <div class="flex items-center gap-3 mb-2">
+      <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/></svg>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-sga-text">Associates</h2>
+        <p class="text-sm text-gray-500">Early-career dentists looking for mentorship, equity, and a real career path</p>
+      </div>
+    </div>
+
+    <div class="grid gap-5 mt-5">
+
+      <!-- 15s -->
+      <div class="bg-white rounded-xl border border-sga-border shadow-sm overflow-hidden pitch-card">
+        <div class="px-6 py-5">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[11px] font-bold px-3 py-1 rounded-full border border-emerald-200">
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+              15 seconds
+            </span>
+            <span class="text-xs text-gray-400 font-medium">Cocktail Party</span>
+          </div>
+          <blockquote class="pitch-text text-[15px] text-sga-text leading-relaxed">
+            "I work with SGA Dental Partners. We pair early-career dentists with clinical mentors, give them Pikos Institute access, and offer equity from day one -- not a vague pathway, but Class A shares. If you know any associates on a production treadmill, I'd love to connect."
+          </blockquote>
+        </div>
+        <div class="bg-sga-gray px-6 py-3 border-t border-sga-border">
+          <div class="flex flex-wrap gap-2 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">
+            <span>Mentorship + Pikos</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Immediate equity (Class A)</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Production treadmill pain</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 30s -->
+      <div class="bg-white rounded-xl border border-sga-border shadow-sm overflow-hidden pitch-card">
+        <div class="px-6 py-5">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 text-[11px] font-bold px-3 py-1 rounded-full border border-amber-200">
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+              30 seconds
+            </span>
+            <span class="text-xs text-gray-400 font-medium">Conference</span>
+          </div>
+          <blockquote class="pitch-text text-[15px] text-sga-text leading-relaxed">
+            "If you are an associate right now, you probably know the feeling: 25-30 patients a day, 15 minutes each, no complex cases, no one to bounce ideas off of.
+            <br><br>
+            SGA Dental Partners is different. Individual Growth Engine mentorship. Pikos Institute access. 4Front Symposium with 100+ clinicians. Class A shareholder equity from day one. Your career is not a production number."
+          </blockquote>
+        </div>
+        <div class="bg-sga-gray px-6 py-3 border-t border-sga-border">
+          <div class="flex flex-wrap gap-2 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">
+            <span>Pain identification (treadmill, isolation)</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>4-point value stack</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Big idea line</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 60s -->
+      <div class="bg-white rounded-xl border border-sga-border shadow-sm overflow-hidden pitch-card">
+        <div class="px-6 py-5">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-flex items-center gap-1.5 bg-blue-50 text-sga-blue text-[11px] font-bold px-3 py-1 rounded-full border border-blue-200">
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+              60 seconds
+            </span>
+            <span class="text-xs text-gray-400 font-medium">BD Call Opener</span>
+          </div>
+          <blockquote class="pitch-text text-[15px] text-sga-text leading-relaxed">
+            "Dr. [Name], let me ask directly -- are you doing the kind of dentistry you envisioned in dental school? Are you getting mentored? Do you have a clear 5-year path?
+            <br><br>
+            SGA offers 1:1 clinical mentorship, Pikos Institute courses worth $6,500-$12,000, the 4Front Symposium, and equity from day one as a Class A shareholder.
+            <br><br>
+            One associate came in doing bread-and-butter dentistry, learned implants through the program, and now loves his profession. Would 30 minutes to walk through the specifics be useful?"
+          </blockquote>
+        </div>
+        <div class="bg-sga-gray px-6 py-3 border-t border-sga-border">
+          <div class="flex flex-wrap gap-2 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">
+            <span>Self-reflection opening</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Four proof points</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Named outcome</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Humble CTA</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- AUDIENCE 3: SPECIALISTS                    -->
+  <!-- ========================================== -->
+  <section id="specialists" class="mb-14">
+    <div class="flex items-center gap-3 mb-2">
+      <div class="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-sga-text">Specialists</h2>
+        <p class="text-sm text-gray-500">Periodontists, oral surgeons, and implantologists -- the MODIS vertical</p>
+      </div>
+    </div>
+
+    <div class="grid gap-5 mt-5">
+
+      <!-- 15s -->
+      <div class="bg-white rounded-xl border border-sga-border shadow-sm overflow-hidden pitch-card">
+        <div class="px-6 py-5">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[11px] font-bold px-3 py-1 rounded-full border border-emerald-200">
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+              15 seconds
+            </span>
+            <span class="text-xs text-gray-400 font-medium">Cocktail Party</span>
+          </div>
+          <blockquote class="pitch-text text-[15px] text-sga-text leading-relaxed">
+            "I work with MODIS, the specialty vertical of SGA Dental Partners, anchored by Dr. Michael Pikos. We partner with periodontists, oral surgeons, and implantologists who have the skills but need the capital, marketing, and recruiting infrastructure to compete at scale."
+          </blockquote>
+        </div>
+        <div class="bg-sga-gray px-6 py-3 border-t border-sga-border">
+          <div class="flex flex-wrap gap-2 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">
+            <span>Pikos name = instant credibility</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Infrastructure gap framing</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Referral ask</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 30s -->
+      <div class="bg-white rounded-xl border border-sga-border shadow-sm overflow-hidden pitch-card">
+        <div class="px-6 py-5">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 text-[11px] font-bold px-3 py-1 rounded-full border border-amber-200">
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+              30 seconds
+            </span>
+            <span class="text-xs text-gray-400 font-medium">Conference</span>
+          </div>
+          <blockquote class="pitch-text text-[15px] text-sga-text leading-relaxed">
+            "If you are a specialist, you know: the full-arch market is exploding, but competing requires capital you do not have. MODIS provides $250K-$750K capital investment, dedicated recruiting, marketing modeled on Innovative Dental (138K YouTube, 3,390+ reviews), and equity in the SGA platform.
+            <br><br>
+            Anchored by Dr. Michael Pikos. Thurston Group: 38 years, $4B+ returned."
+          </blockquote>
+        </div>
+        <div class="bg-sga-gray px-6 py-3 border-t border-sga-border">
+          <div class="flex flex-wrap gap-2 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">
+            <span>Infrastructure gap</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Capital specificity ($250K-$750K)</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Innovative Dental proof</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Thurston anchor</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 60s -->
+      <div class="bg-white rounded-xl border border-sga-border shadow-sm overflow-hidden pitch-card">
+        <div class="px-6 py-5">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-flex items-center gap-1.5 bg-blue-50 text-sga-blue text-[11px] font-bold px-3 py-1 rounded-full border border-blue-200">
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+              60 seconds
+            </span>
+            <span class="text-xs text-gray-400 font-medium">BD Call Opener</span>
+          </div>
+          <blockquote class="pitch-text text-[15px] text-sga-text leading-relaxed">
+            "Dr. [Name], you have probably seen the full-arch market accelerate. The question every specialist faces: how do I compete at that level from a solo practice?
+            <br><br>
+            MODIS exists for this. Co-founded with Dr. Michael Pikos. $250K-$750K capital investment. Dedicated recruiting. Marketing engine. Scope protection in writing.
+            <br><br>
+            Behind it: the Thurston Group, 38 years, $4B+ returned, 8 platforms. Would next week work for a detailed conversation?"
+          </blockquote>
+        </div>
+        <div class="bg-sga-gray px-6 py-3 border-t border-sga-border">
+          <div class="flex flex-wrap gap-2 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">
+            <span>Market context</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Pikos + capital + scope protection</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Thurston track record</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Concrete CTA</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- AUDIENCE 4: REFERRING DENTISTS             -->
+  <!-- ========================================== -->
+  <section id="referring" class="mb-14">
+    <div class="flex items-center gap-3 mb-2">
+      <div class="w-10 h-10 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-sga-text">Referring Dentists</h2>
+        <p class="text-sm text-gray-500">Dentists who may not partner themselves but can refer colleagues or patients</p>
+      </div>
+    </div>
+
+    <div class="grid gap-5 mt-5">
+
+      <!-- 15s -->
+      <div class="bg-white rounded-xl border border-sga-border shadow-sm overflow-hidden pitch-card">
+        <div class="px-6 py-5">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[11px] font-bold px-3 py-1 rounded-full border border-emerald-200">
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+              15 seconds
+            </span>
+            <span class="text-xs text-gray-400 font-medium">Cocktail Party</span>
+          </div>
+          <blockquote class="pitch-text text-[15px] text-sga-text leading-relaxed">
+            "I work with SGA Dental Partners -- we are a dental partnership platform backed by a PE firm with 38 years and $4 billion in partner returns. If you know any practice owners who are burning out on the business side but do not want to lose their name, team, or autonomy -- or any associates who feel stuck on a production treadmill -- I would love an introduction. We treat referrals like gold."
+          </blockquote>
+        </div>
+        <div class="bg-sga-gray px-6 py-3 border-t border-sga-border">
+          <div class="flex flex-wrap gap-2 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">
+            <span>Credibility anchor (38yr, $4B)</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Two referral categories</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Explicit appreciation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 30s -->
+      <div class="bg-white rounded-xl border border-sga-border shadow-sm overflow-hidden pitch-card">
+        <div class="px-6 py-5">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 text-[11px] font-bold px-3 py-1 rounded-full border border-amber-200">
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+              30 seconds
+            </span>
+            <span class="text-xs text-gray-400 font-medium">Conference</span>
+          </div>
+          <blockquote class="pitch-text text-[15px] text-sga-text leading-relaxed">
+            "Quick question -- do you know any colleagues who are drowning in the business side of dentistry? The ones who are still great clinicians but spent last Sunday night doing payroll instead of being with their family?
+            <br><br>
+            SGA Dental Partners is a dental partnership platform where practice owners keep their name, their team, and their clinical autonomy. They get a liquidity event, equity in a growing platform, and access to the Pikos Institute and 4Front Symposium. Backed by the Thurston Group -- 38 years, $4 billion returned.
+            <br><br>
+            I am not asking you to sell anything. If someone comes to mind, would you be open to making an introduction?"
+          </blockquote>
+        </div>
+        <div class="bg-sga-gray px-6 py-3 border-t border-sga-border">
+          <div class="flex flex-wrap gap-2 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">
+            <span>Sunday night pain (mental Rolodex activation)</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Low-pressure referral ask</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 60s -->
+      <div class="bg-white rounded-xl border border-sga-border shadow-sm overflow-hidden pitch-card">
+        <div class="px-6 py-5">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-flex items-center gap-1.5 bg-blue-50 text-sga-blue text-[11px] font-bold px-3 py-1 rounded-full border border-blue-200">
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+              60 seconds
+            </span>
+            <span class="text-xs text-gray-400 font-medium">BD Call / Peer Conversation</span>
+          </div>
+          <blockquote class="pitch-text text-[15px] text-sga-text leading-relaxed">
+            "Dr. [Name], I wanted to reach out because you have a reputation in the dental community here as someone people trust. That matters more than you probably realize.
+            <br><br>
+            I work with SGA Dental Partners. We partner with practice owners who want a liquidity event and operational relief without losing their identity. Name stays, team stays, equity in our platform, and a clinical education ecosystem -- Pikos Institute, 4Front Symposium, and 1:1 mentorship -- that genuinely makes them better clinicians. Backed by the Thurston Group: 38 years, $4B+ returned, 8 platforms.
+            <br><br>
+            If you hear a colleague mention they are overwhelmed by the business side, thinking about succession planning, or frustrated they cannot invest in technology -- would you be willing to pass along my name?
+            <br><br>
+            And for your own practice: if you refer patients who need full-arch implant work, our MODIS partners include some of the best implantologists in the country. That cross-referral relationship benefits your patients directly."
+          </blockquote>
+        </div>
+        <div class="bg-sga-gray px-6 py-3 border-t border-sga-border">
+          <div class="flex flex-wrap gap-2 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">
+            <span>Lead with flattery</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Referral mechanism as peer service</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Cross-referral value (MODIS)</span>
+            <span class="text-gray-300">&middot;</span>
+            <span>Low-commitment CTA</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- QUICK REFERENCE TABLE                      -->
+  <!-- ========================================== -->
+  <section class="mb-10">
+    <div class="bg-white rounded-xl border border-sga-border shadow-sm overflow-hidden">
+      <div class="px-6 py-5 border-b border-sga-border">
+        <h3 class="text-lg font-bold text-sga-text">Quick Reference: Pitch Selection Guide</h3>
+        <p class="text-sm text-gray-500 mt-1">Match the situation to the right script</p>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead>
+            <tr class="bg-sga-gray">
+              <th class="px-6 py-3 text-xs font-bold text-gray-500 uppercase tracking-wider">Situation</th>
+              <th class="px-4 py-3 text-xs font-bold text-gray-500 uppercase tracking-wider">Length</th>
+              <th class="px-4 py-3 text-xs font-bold text-gray-500 uppercase tracking-wider">Audience</th>
+              <th class="px-6 py-3 text-xs font-bold text-gray-500 uppercase tracking-wider">Key to Nail</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-sga-border">
+            <tr class="hover:bg-gray-50 transition-colors duration-100">
+              <td class="px-6 py-3 text-sga-text font-medium">Random introduction at a party</td>
+              <td class="px-4 py-3"><span class="inline-flex items-center bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-200">15s</span></td>
+              <td class="px-4 py-3 text-gray-600">Owner or Referring</td>
+              <td class="px-6 py-3 text-gray-500 text-xs">End with a question, not a claim</td>
+            </tr>
+            <tr class="hover:bg-gray-50 transition-colors duration-100">
+              <td class="px-6 py-3 text-sga-text font-medium">Conference booth conversation</td>
+              <td class="px-4 py-3"><span class="inline-flex items-center bg-amber-50 text-amber-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-amber-200">30s</span></td>
+              <td class="px-4 py-3 text-gray-600">Owner, Associate, or Specialist</td>
+              <td class="px-6 py-3 text-gray-500 text-xs">Lead with the problem, not SGA</td>
+            </tr>
+            <tr class="hover:bg-gray-50 transition-colors duration-100">
+              <td class="px-6 py-3 text-sga-text font-medium">Warm BD call with practice owner</td>
+              <td class="px-4 py-3"><span class="inline-flex items-center bg-blue-50 text-sga-blue text-[10px] font-bold px-2 py-0.5 rounded-full border border-blue-200">60s</span></td>
+              <td class="px-4 py-3 text-gray-600">Owner</td>
+              <td class="px-6 py-3 text-gray-500 text-xs">Cavendish proof + Thurston + humble CTA</td>
+            </tr>
+            <tr class="hover:bg-gray-50 transition-colors duration-100">
+              <td class="px-6 py-3 text-sga-text font-medium">Recruiting conversation with associate</td>
+              <td class="px-4 py-3"><span class="inline-flex items-center bg-blue-50 text-sga-blue text-[10px] font-bold px-2 py-0.5 rounded-full border border-blue-200">60s</span></td>
+              <td class="px-4 py-3 text-gray-600">Associate</td>
+              <td class="px-6 py-3 text-gray-500 text-xs">IGE + Pikos + equity + "not a production number"</td>
+            </tr>
+            <tr class="hover:bg-gray-50 transition-colors duration-100">
+              <td class="px-6 py-3 text-sga-text font-medium">Specialist outreach call</td>
+              <td class="px-4 py-3"><span class="inline-flex items-center bg-blue-50 text-sga-blue text-[10px] font-bold px-2 py-0.5 rounded-full border border-blue-200">60s</span></td>
+              <td class="px-4 py-3 text-gray-600">Specialist</td>
+              <td class="px-6 py-3 text-gray-500 text-xs">Pikos + capital + scope protection + recruiting</td>
+            </tr>
+            <tr class="hover:bg-gray-50 transition-colors duration-100">
+              <td class="px-6 py-3 text-sga-text font-medium">Asking for referrals</td>
+              <td class="px-4 py-3">
+                <span class="inline-flex items-center bg-amber-50 text-amber-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-amber-200">30s</span>
+                <span class="inline-flex items-center bg-blue-50 text-sga-blue text-[10px] font-bold px-2 py-0.5 rounded-full border border-blue-200 ml-1">60s</span>
+              </td>
+              <td class="px-4 py-3 text-gray-600">Referring</td>
+              <td class="px-6 py-3 text-gray-500 text-xs">Low pressure, high respect, cross-referral value</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Training Notes -->
+  <section class="mb-10">
+    <div class="bg-sga-blue-dark rounded-xl p-6 sm:p-8" x-data="{ showNotes: false }">
+      <button @click="showNotes = !showNotes" class="w-full flex items-center justify-between cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded-lg">
+        <div>
+          <h3 class="text-lg font-bold text-white">Pitch Training Notes</h3>
+          <p class="text-white/50 text-sm mt-1">What to memorize, what to practice, and the five essentials</p>
+        </div>
+        <svg class="w-5 h-5 text-white/50 shrink-0 transition-transform duration-200" :class="{ 'rotate-180': showNotes }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div x-show="showNotes" x-transition class="mt-6 border-t border-white/10 pt-6">
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <h4 class="text-sm font-bold text-white/90 uppercase tracking-wide mb-3">Memorize These 5 Things</h4>
+            <ol class="space-y-2">
+              <li class="flex items-start gap-2 text-sm text-white/70"><span class="text-sga-lime font-bold shrink-0">1.</span> The opening hook for each audience (first sentence)</li>
+              <li class="flex items-start gap-2 text-sm text-white/70"><span class="text-sga-lime font-bold shrink-0">2.</span> Three differentiators: Education, Thurston, Structure</li>
+              <li class="flex items-start gap-2 text-sm text-white/70"><span class="text-sga-lime font-bold shrink-0">3.</span> Cavendish proof story (20yr, all-on-four, 16.5%, "fun again")</li>
+              <li class="flex items-start gap-2 text-sm text-white/70"><span class="text-sga-lime font-bold shrink-0">4.</span> Big idea: "Dentists come to SGA to get better, not just to get bought"</li>
+              <li class="flex items-start gap-2 text-sm text-white/70"><span class="text-sga-lime font-bold shrink-0">5.</span> Closing CTA: "Would it make sense to schedule 45 minutes..."</li>
+            </ol>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-white/90 uppercase tracking-wide mb-3">Practice Tips</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-2 text-sm text-white/70"><span class="text-white/30 shrink-0">&mdash;</span> Deliver each pitch to a timer. The 15s must actually be 15 seconds.</li>
+              <li class="flex items-start gap-2 text-sm text-white/70"><span class="text-white/30 shrink-0">&mdash;</span> Record yourself. Listen for corporate jargon and filler words.</li>
+              <li class="flex items-start gap-2 text-sm text-white/70"><span class="text-white/30 shrink-0">&mdash;</span> Practice the 60s until you can deliver it with eye contact.</li>
+              <li class="flex items-start gap-2 text-sm text-white/70"><span class="text-white/30 shrink-0">&mdash;</span> Role-play objections. Common: "How are you different from Heartland / MB2?"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="text-center pb-8 text-sm text-gray-400">
+    12 pitch scripts &middot; 3 lengths &times; 4 audiences &middot; Source: SGA BD Team &middot; March 2026
+  </div>
+
+</main>
+</body>
+</html>

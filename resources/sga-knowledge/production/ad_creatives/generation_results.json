@@ -1,0 +1,92 @@
+[
+  {
+    "name": "FB V1 - Sunday Night (Primary)",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/facebook/variation1_sunday_night_1080x1080.png",
+    "success": true
+  },
+  {
+    "name": "FB V2 - Horror Stories Thumbnail (Primary)",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/facebook/variation2_horror_stories_1080x1080.png",
+    "success": true
+  },
+  {
+    "name": "FB V3 - Peer Testimonial",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/facebook/variation3_peer_testimonial_1080x1080.png",
+    "success": true
+  },
+  {
+    "name": "FB V5 - Thurston Authority",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/facebook/variation5_thurston_authority_1080x1080.png",
+    "success": true
+  },
+  {
+    "name": "FB V1 Patient - Steak Moment (Primary)",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/facebook/variation1_patient_steak_moment_1080x1350.png",
+    "success": true
+  },
+  {
+    "name": "FB V3 Patient - Transparent Pricing",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/facebook/variation3_patient_pricing_1080x1080.png",
+    "success": true
+  },
+  {
+    "name": "IG V1 - Tooth Mechanic (Primary)",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/instagram/variation1_tooth_mechanic_1080x1080.png",
+    "success": true
+  },
+  {
+    "name": "IG V4 - Benefits Stories (Primary)",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/instagram/variation4_benefits_stories_1080x1920.png",
+    "success": true
+  },
+  {
+    "name": "IG V5 - Not Just a Job",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/instagram/variation5_not_just_a_job_1080x1080.png",
+    "success": true
+  },
+  {
+    "name": "IG V1 Patient - One Day (Primary)",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/instagram/variation1_patient_one_day_1080x1080.png",
+    "success": true
+  },
+  {
+    "name": "IG V3 Patient - Grandkids",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/instagram/variation3_patient_grandkids_1080x1350.png",
+    "success": true
+  },
+  {
+    "name": "IG V5 Patient - Financing Stories",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/instagram/variation5_patient_financing_1080x1920.png",
+    "success": true
+  },
+  {
+    "name": "LI V1 - Regret Stat (Primary)",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/linkedin/variation1_regret_stat_1200x628.png",
+    "success": true
+  },
+  {
+    "name": "LI V2 - QuickBooks (Primary)",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/linkedin/variation2_quickbooks_1200x628.png",
+    "success": true
+  },
+  {
+    "name": "LI V3 - PE Fear / Thurston",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/linkedin/variation3_pe_fear_1200x628.png",
+    "success": true
+  },
+  {
+    "name": "LI V5 - Document Ad Cover",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/linkedin/variation5_document_ad_1200x628.png",
+    "success": true
+  },
+  {
+    "name": "YT PreRoll1 - The Number Thumbnail (Primary)",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/youtube/preroll1_the_number_1280x720.png",
+    "success": true
+  },
+  {
+    "name": "YT PreRoll2 - Not a Production Number Thumbnail",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/youtube/preroll2_not_production_number_1280x720.png",
+    "success": true
+  }
+]

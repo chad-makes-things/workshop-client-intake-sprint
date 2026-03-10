@@ -1,0 +1,1152 @@
+{
+  "overview": "SGA operates four distinct funnels, each with different buying psychology, timelines, and conversion economics. A dentist selling a $2.4M practice is making a once-in-a-career decision over 6-18 months. A patient booking an implant consultation is making a high-emotion decision in 2-8 weeks. These cannot be served by the same system.",
+  "namingConvention": "Each funnel is labeled with a prefix (PA = Practice Acquisition, DR = Dentist Recruitment, PT = Patient, SP = Specialist Partnership) so email sequences, tags, and automations stay organized across the platform.",
+  "funnels": [
+    {
+      "id": "pa",
+      "name": "Practice Acquisition",
+      "avatar": "Dr. Mark Hendricks",
+      "businessGoal": "Generate qualified partnership conversations with practice owners doing $1M+ revenue",
+      "timeline": "6-18 months from first touch to signed deal",
+      "funnelType": "Diagnose Then Prescribe (Assessment entry) + High-Trust Nurture",
+      "expectedConversion": "2-4% of marketing-qualified leads to signed partnership",
+      "stageMap": {
+        "awareness": {
+          "channels": [
+            {
+              "channel": "Google Search (non-branded)",
+              "content": "RSAs targeting 'sell dental practice,' 'DSO partnership,' 'dental practice valuation'",
+              "cta": "See What Your Practice Is Worth",
+              "kpi": "CPC < $25, CTR > 4%"
+            },
+            {
+              "channel": "LinkedIn Thought Leader Ads",
+              "content": "Lamonte Jensen and Dr. Ellingson on the Gen4 model, autonomy, peer collaboration",
+              "cta": "Read the Full Partnership Guide",
+              "kpi": "CPL < $150"
+            },
+            {
+              "channel": "SEO Content Hub",
+              "content": "Pillar pages: 'How to Sell Your Dental Practice,' 'DSO vs Private Practice,' 'What Is a 4th Generation DSO'",
+              "cta": "Internal links to assessment",
+              "kpi": "Organic traffic growth 15%+ MoM"
+            },
+            {
+              "channel": "Trade Publications",
+              "content": "Byline articles in Dental Economics, Group Dentistry Now, Becker's",
+              "cta": "Brand authority, no hard CTA",
+              "kpi": "Impressions, backlinks"
+            },
+            {
+              "channel": "Conferences",
+              "content": "Booth at Dykema, Hinman, state dental meetings. Hosted dinners with 8-12 practice owners",
+              "cta": "Book a confidential conversation",
+              "kpi": "Conversations started per event"
+            },
+            {
+              "channel": "Podcasts",
+              "content": "Lamonte Jensen or Pete Wong on Shared Practices, Dental Hacks, Dentist Money Show",
+              "cta": "Visit sgadental.com/partners",
+              "kpi": "Referral traffic spike post-episode"
+            }
+          ]
+        },
+        "consideration": {
+          "leadMagnet": {
+            "name": "Practice Partnership Assessment",
+            "description": "A 12-question self-assessment that helps practice owners score their readiness across 4 categories",
+            "categories": [
+              {
+                "name": "Operational Readiness",
+                "questions": 3,
+                "focus": "How dependent is the practice on the owner for day-to-day operations?"
+              },
+              {
+                "name": "Financial Position",
+                "questions": 3,
+                "focus": "Revenue trends, debt load, concentration risk"
+              },
+              {
+                "name": "Growth Potential",
+                "questions": 3,
+                "focus": "Technology adoption, service mix, market position"
+              },
+              {
+                "name": "Personal Readiness",
+                "questions": 3,
+                "focus": "Timeline, retirement plans, emotional preparedness"
+              }
+            ],
+            "scoringTiers": [
+              {
+                "tier": "Strong Position",
+                "range": "80-100",
+                "message": "Your practice is well-positioned for a premium partnership. Let's explore what SGA can offer.",
+                "cta": "Book a confidential discovery call"
+              },
+              {
+                "tier": "Growth Opportunity",
+                "range": "50-79",
+                "message": "You have a solid foundation with room to grow. Here's how partnership could accelerate your trajectory.",
+                "cta": "Download the Partnership Guide"
+              },
+              {
+                "tier": "Foundation Building",
+                "range": "0-49",
+                "message": "You're earlier in the journey. Here's what to focus on over the next 12-24 months.",
+                "cta": "Subscribe for practice growth content"
+              }
+            ]
+          }
+        },
+        "evaluation": {
+          "description": "Confidential Partnership Guide (deep-dive PDF) followed by Engagement Sequence (8 emails, Days 8-35)"
+        },
+        "conversion": {
+          "description": "Discovery call with Biz Dev team, followed by site visit, partner introductions, LOI, due diligence, and signing"
+        }
+      },
+      "emailSequences": [
+        {
+          "id": "pa-indoctrination",
+          "name": "PA-Indoctrination",
+          "emailCount": 5,
+          "days": "0-7",
+          "trigger": "Completes Practice Partnership Assessment",
+          "goal": "Establish SGA as the informed, trustworthy alternative to the DSO horror stories they have heard",
+          "emails": [
+            {
+              "number": 1,
+              "day": 0,
+              "subject": "Your assessment results + what they mean",
+              "goal": "Deliver results, introduce SGA",
+              "elements": "Score summary, personalized tier message, brief SGA intro, link to full results page"
+            },
+            {
+              "number": 2,
+              "day": 1,
+              "subject": "The question every practice owner asks at 2 AM",
+              "goal": "Empathy and identification",
+              "elements": "Acknowledge the late-night googling, mirror their exhaustion, introduce the Gen4 philosophy"
+            },
+            {
+              "number": 3,
+              "day": 3,
+              "subject": "What 7 out of 10 dentists regret after selling",
+              "goal": "Address the elephant in the room",
+              "elements": "Acknowledge DSO horror stories head-on, cite the '7 out of 10 frustrated or regretful' stat, position SGA's model as the structural counter"
+            },
+            {
+              "number": 4,
+              "day": 5,
+              "subject": "How Thurston Group has done this 8 times",
+              "goal": "Trust anchor: PE track record",
+              "elements": "37 years, $4B+ returned, 8 dental/healthcare platforms, Smile Doctors as proof point"
+            },
+            {
+              "number": 5,
+              "day": 7,
+              "subject": "Dr. Cavendish was bored after 20 years. Then this happened.",
+              "goal": "Transformation story bridge",
+              "elements": "Dr. Cavendish case study (revenues up 16.5%, EBITA beating plan, 100% staff retention)"
+            }
+          ]
+        },
+        {
+          "id": "pa-engagement",
+          "name": "PA-Engagement",
+          "emailCount": 8,
+          "days": "8-35",
+          "trigger": "Completed indoctrination OR opened 3+ indoctrination emails",
+          "goal": "Move from awareness to active evaluation using Gain/Logic/Fear + extensions",
+          "emails": [
+            {
+              "number": 1,
+              "day": 8,
+              "subject": "GAIN: What your practice looks like 2 years after partnering",
+              "goal": "Paint the post-deal picture",
+              "elements": "Dr. Godat testimonial, specific outcomes, 'amplification not absorption'"
+            },
+            {
+              "number": 2,
+              "day": 12,
+              "subject": "LOGIC: The math behind a JV equity partnership",
+              "goal": "Rational justification",
+              "elements": "How the equity model works, compare to outright sale, management services, and staying solo"
+            },
+            {
+              "number": 3,
+              "day": 16,
+              "subject": "FEAR: The cost of waiting another 3 years",
+              "goal": "Cost of inaction",
+              "elements": "Technology gap widening, staffing crisis intensifying, practice values in flux, retirement timeline shrinking"
+            },
+            {
+              "number": 4,
+              "day": 20,
+              "subject": "Your team stays. Your patients stay. Your name stays.",
+              "goal": "Objection: culture destruction",
+              "elements": "85% staff retention rate, specific practices that kept their names, staff testimonials"
+            },
+            {
+              "number": 5,
+              "day": 23,
+              "subject": "What Dr. Ellingson means by 'protect the profession'",
+              "goal": "Objection: corporatization fear",
+              "elements": "Dr. Ellingson full quote, the autonomy paradox, ADA president speaking at Gen4 event"
+            },
+            {
+              "number": 6,
+              "day": 26,
+              "subject": "Three questions your financial advisor should ask about any DSO deal",
+              "goal": "Objection: financial opacity",
+              "elements": "Education-forward email on deal evaluation criteria, positions SGA as transparent"
+            },
+            {
+              "number": 7,
+              "day": 30,
+              "subject": "The Pikos Institute + 4Front: why our dentists keep getting better",
+              "goal": "Differentiation: education moat",
+              "elements": "CE as the soul of the platform, Pikos Institute for implantology, 4Front for peer collaboration"
+            },
+            {
+              "number": 8,
+              "day": 35,
+              "subject": "Ready for a confidential conversation?",
+              "goal": "Conversion ask",
+              "elements": "Direct CTA to book a discovery call. No pressure framing."
+            }
+          ]
+        },
+        {
+          "id": "pa-post-conversation",
+          "name": "PA-Post-Conversation Nurture",
+          "emailCount": -1,
+          "days": "Biweekly for 6 months, then monthly",
+          "trigger": "Completed discovery call but did not advance to site visit",
+          "goal": "Keep SGA top of mind without sales pressure during the 6-18 month decision cycle",
+          "emails": []
+        }
+      ],
+      "successMetrics": [
+        {
+          "stage": "Awareness",
+          "metric": "Cost per assessment completion",
+          "target": "< $300"
+        },
+        {
+          "stage": "Consideration",
+          "metric": "Assessment completion rate",
+          "target": "> 35% of landing page visitors"
+        },
+        {
+          "stage": "Indoctrination",
+          "metric": "Email open rate (sequence avg)",
+          "target": "> 40%"
+        },
+        {
+          "stage": "Engagement",
+          "metric": "Click-through rate (sequence avg)",
+          "target": "> 5%"
+        },
+        {
+          "stage": "Evaluation",
+          "metric": "Discovery calls booked per month",
+          "target": "8-15"
+        },
+        {
+          "stage": "Conversation",
+          "metric": "Call-to-site-visit conversion",
+          "target": "> 30%"
+        },
+        {
+          "stage": "Close",
+          "metric": "Site-visit-to-LOI conversion",
+          "target": "> 40%"
+        }
+      ]
+    },
+    {
+      "id": "dr",
+      "name": "Dentist Recruitment",
+      "avatar": "Dr. Priya Nair",
+      "businessGoal": "Attract qualified associate dentists and fill open positions across the SGA network",
+      "timeline": "2-8 weeks from application to offer, ongoing passive nurture for future openings",
+      "funnelType": "Lead Magnet Funnel (career content entry) + Job Board Optimization",
+      "expectedConversion": "5-8% of applicants to hired",
+      "stageMap": {
+        "awareness": {
+          "channels": [
+            {
+              "channel": "LinkedIn Sponsored Jobs",
+              "content": "Position-specific listings with mentorship, CE, and equity pathway highlighted",
+              "cta": "Apply now",
+              "kpi": "Cost per qualified applicant < $80"
+            },
+            {
+              "channel": "Instagram",
+              "content": "Day-in-the-life content from SGA practices, CE event highlights, office tour reels",
+              "cta": "See open positions",
+              "kpi": "Engagement rate > 3%"
+            },
+            {
+              "channel": "DentalPost / Indeed",
+              "content": "Optimized listings with differentiated copy",
+              "cta": "Apply",
+              "kpi": "Applications per listing per month"
+            },
+            {
+              "channel": "Dental School Outreach",
+              "content": "Residency program partnerships, GPR site placements at SGA practices",
+              "cta": "Learn about SGA careers",
+              "kpi": "Applicants from partner programs"
+            },
+            {
+              "channel": "SEO Content",
+              "content": "Articles: 'Working at a DSO Pros and Cons,' 'DSO Dentist Salary Guide,' 'New Dentist Career Paths'",
+              "cta": "Download career guide",
+              "kpi": "Organic traffic, guide downloads"
+            }
+          ]
+        },
+        "consideration": {
+          "leadMagnet": {
+            "name": "The Associate Dentist's Career Decision Guide",
+            "description": "A 15-page guide covering solo vs. DSO vs. partnership track comparison with real numbers, compensation structures, red/green flags, interview questions, and SGA's mentorship model"
+          }
+        },
+        "application": {
+          "description": "Specific job application through ATS intake"
+        },
+        "conversion": {
+          "description": "Phone screen, clinical interview, practice visit, then 90-day onboarding sequence"
+        }
+      },
+      "emailSequences": [
+        {
+          "id": "dr-nurture",
+          "name": "DR-Nurture",
+          "emailCount": 4,
+          "days": "0-10",
+          "trigger": "Downloads career guide OR visits careers page without applying",
+          "goal": "Move from passive browsing to active consideration",
+          "emails": [
+            {
+              "number": 1,
+              "day": 0,
+              "subject": "Your career guide + a question most DSOs won't answer",
+              "goal": "Deliver guide, set expectations",
+              "elements": "Guide link, introduce SGA's 'career not a production number' positioning"
+            },
+            {
+              "number": 2,
+              "day": 3,
+              "subject": "How one associate went from Class IIs to full-arch implants",
+              "goal": "Clinical growth proof",
+              "elements": "Story of a Gen4 associate who expanded their clinical skills through mentorship"
+            },
+            {
+              "number": 3,
+              "day": 6,
+              "subject": "The benefits nobody lists on the job posting",
+              "goal": "Differentiate beyond salary",
+              "elements": "CE stipends, Pikos Institute access, 4Front symposium, 401(k) with match, equity participation"
+            },
+            {
+              "number": 4,
+              "day": 10,
+              "subject": "Open positions that match your goals",
+              "goal": "Conversion to application",
+              "elements": "Curated list of current openings based on geography/specialty interests"
+            }
+          ]
+        },
+        {
+          "id": "dr-passive",
+          "name": "DR-Passive Candidate Nurture",
+          "emailCount": -1,
+          "days": "Monthly",
+          "trigger": "Engaged with career content but did not apply",
+          "goal": "Maintain relationship with dentists who may move in 6-12 months",
+          "emails": []
+        },
+        {
+          "id": "dr-onboarding",
+          "name": "DR-Onboarding",
+          "emailCount": -1,
+          "days": "90-day sequence, post-hire",
+          "trigger": "Signed offer letter",
+          "goal": "Reduce first-90-day turnover, accelerate clinical integration",
+          "phases": [
+            {
+              "phase": "Pre-arrival",
+              "timing": "Days -14 to 0",
+              "content": "Welcome packet, team introductions, first-week schedule, benefits enrollment guide",
+              "owner": "HR + People Ops"
+            },
+            {
+              "phase": "Week 1",
+              "timing": "Days 1-7",
+              "content": "Practice orientation, clinical systems training, mentor assignment",
+              "owner": "Practice lead + mentor"
+            },
+            {
+              "phase": "Weeks 2-4",
+              "timing": "Days 8-30",
+              "content": "Weekly check-in emails, first CE opportunity, peer introduction, 30-day feedback survey",
+              "owner": "People Ops"
+            },
+            {
+              "phase": "Weeks 5-12",
+              "timing": "Days 31-90",
+              "content": "Monthly check-in, clinical goal setting, 60- and 90-day surveys, invitation to next 4Front event",
+              "owner": "Mentor + People Ops"
+            }
+          ]
+        }
+      ],
+      "successMetrics": [
+        {
+          "stage": "Awareness",
+          "metric": "Cost per qualified applicant",
+          "target": "< $80 (LinkedIn), < $40 (DentalPost)"
+        },
+        {
+          "stage": "Interest",
+          "metric": "Career guide download rate",
+          "target": "> 25% of careers page visitors"
+        },
+        {
+          "stage": "Application",
+          "metric": "Application completion rate",
+          "target": "> 60% of started applications"
+        },
+        {
+          "stage": "Interview",
+          "metric": "Phone-screen-to-offer rate",
+          "target": "> 25%"
+        },
+        {
+          "stage": "Onboarding",
+          "metric": "90-day retention rate",
+          "target": "> 90%"
+        },
+        {
+          "stage": "Retention",
+          "metric": "12-month retention rate",
+          "target": "> 85%"
+        }
+      ]
+    },
+    {
+      "id": "pt",
+      "name": "Patient Acquisition",
+      "avatar": "Linda Dawson",
+      "businessGoal": "Drive new patient appointments across SGA practices, with special emphasis on high-value implant cases for the MODIS vertical",
+      "timeline": "1-8 weeks from first touch to booked appointment (general: 1-2 weeks; implants: 4-8 weeks)",
+      "funnelType": "Split funnel -- Local Search Capture (general) + Content-Led Assessment (implants)",
+      "expectedConversion": "15-25% of leads to booked appointments (general), 8-15% (implants)",
+      "stageMap": {
+        "awareness": {
+          "channels": [
+            {
+              "channel": "Google LSAs",
+              "content": "Verified practice profiles with high review counts",
+              "cta": "Call or book",
+              "kpi": "CPL < $75 general, < $120 implants"
+            },
+            {
+              "channel": "Meta Local Ads",
+              "content": "Before/after transformations (MODIS), community content (general practices)",
+              "cta": "Book a Free Consultation",
+              "kpi": "CPL < $65 general, < $90 implants"
+            },
+            {
+              "channel": "YouTube",
+              "content": "Dr. Olson transformation videos, procedure explainers, live Q&As",
+              "cta": "Take Our Free Smile Assessment",
+              "kpi": "Views, assessment starts"
+            },
+            {
+              "channel": "Google Search",
+              "content": "RSAs for 'dental implants [city],' 'full arch dental implants cost,' 'All-on-4 near me'",
+              "cta": "Landing page with assessment CTA",
+              "kpi": "CPC, conversion rate"
+            },
+            {
+              "channel": "Referral Program",
+              "content": "In-office cards, post-visit text/email with referral link",
+              "cta": "Refer a friend, both receive $50 credit",
+              "kpi": "Referrals per month per practice"
+            }
+          ]
+        },
+        "consideration": {
+          "leadMagnet": {
+            "name": "Smile Assessment (Implant Vertical)",
+            "description": "An 8-question online assessment for potential implant patients",
+            "questions": [
+              "Current dental situation (dentures, partial, failing teeth, missing teeth)",
+              "How long they have been dealing with the issue",
+              "What bothers them most (eating, appearance, pain, social situations)",
+              "Previous dental work attempted",
+              "Awareness of implant options (none, some research, consulted a dentist)",
+              "Biggest concern (cost, pain, surgery, travel, time)",
+              "Financing preference (insurance, savings, financing, unsure)",
+              "Location / willingness to travel"
+            ],
+            "output": "Personalized results page with Smile Readiness Score, relevant patient transformation story, estimated treatment timeline, financing overview, and CTA to book a free virtual consultation"
+          }
+        },
+        "booking": {
+          "description": "Virtual consultation or in-person consult, followed by treatment planning"
+        },
+        "referral": {
+          "description": "Post-visit review request + referral program activation"
+        }
+      },
+      "emailSequences": [
+        {
+          "id": "pt-implant-nurture",
+          "name": "PT-Implant Nurture",
+          "emailCount": 6,
+          "days": "0-14",
+          "trigger": "Completes Smile Assessment but does not book consultation",
+          "goal": "Overcome fear, build trust, move to consultation booking",
+          "emails": [
+            {
+              "number": 1,
+              "day": 0,
+              "subject": "Your smile assessment results (and what they mean for you)",
+              "goal": "Deliver results, introduce Dr. Olson",
+              "elements": "Personalized results summary, Dr. Olson intro, link to 2-3 relevant transformation videos"
+            },
+            {
+              "number": 2,
+              "day": 2,
+              "subject": "The nurse who finally chose herself",
+              "goal": "Emotional identification",
+              "elements": "Nurse transformation story, 'putting everyone else first' narrative, before/after photos"
+            },
+            {
+              "number": 3,
+              "day": 4,
+              "subject": "What dental implants actually cost (honest numbers)",
+              "goal": "Objection: cost",
+              "elements": "Transparent price ranges by procedure type, financing breakdown ($199-$349/month)"
+            },
+            {
+              "number": 4,
+              "day": 7,
+              "subject": "Scott's first meal with his new teeth was a New York strip",
+              "goal": "Sensory transformation story",
+              "elements": "The steak moment. Vivid, specific, sensory."
+            },
+            {
+              "number": 5,
+              "day": 10,
+              "subject": "What to expect on your first visit (no surprises)",
+              "goal": "Objection: fear of the unknown",
+              "elements": "Step-by-step walkthrough of consultation process, 'no commitment at your first visit' reassurance"
+            },
+            {
+              "number": 6,
+              "day": 14,
+              "subject": "A personal invitation from Dr. Olson",
+              "goal": "Final conversion push",
+              "elements": "Short, personal email from Dr. Olson. Direct booking link."
+            }
+          ]
+        },
+        {
+          "id": "pt-post-treatment",
+          "name": "PT-Post-Treatment Referral Loop",
+          "emailCount": 4,
+          "days": "Day 1, 7, 30, 90 post-treatment",
+          "trigger": "Treatment completed",
+          "goal": "Generate reviews, capture testimonials, activate referrals",
+          "emails": [
+            {
+              "number": 1,
+              "day": 1,
+              "subject": "How are you feeling? Here's your recovery guide",
+              "goal": "Care delivery, open support line"
+            },
+            {
+              "number": 2,
+              "day": 7,
+              "subject": "You're one week in -- here's what to expect next",
+              "goal": "Generate 5-star review while satisfaction is peak"
+            },
+            {
+              "number": 3,
+              "day": 30,
+              "subject": "30 days of your new smile -- would you share your story?",
+              "goal": "Capture transformation testimonial (written or video)"
+            },
+            {
+              "number": 4,
+              "day": 90,
+              "subject": "Know someone who deserves to smile again?",
+              "goal": "Activate referral. $100 credit for both referrer and referred."
+            }
+          ]
+        }
+      ],
+      "successMetrics": [
+        {
+          "stage": "Awareness",
+          "metric": "Cost per lead (general)",
+          "target": "< $75"
+        },
+        {
+          "stage": "Awareness",
+          "metric": "Cost per lead (implant)",
+          "target": "< $120"
+        },
+        {
+          "stage": "Research",
+          "metric": "Smile Assessment completion rate",
+          "target": "> 40% of starters"
+        },
+        {
+          "stage": "Nurture",
+          "metric": "Email open rate (implant sequence)",
+          "target": "> 45%"
+        },
+        {
+          "stage": "Booking",
+          "metric": "Lead-to-consultation rate",
+          "target": "> 15% (implants), > 25% (general)"
+        },
+        {
+          "stage": "Treatment",
+          "metric": "Consultation-to-case-acceptance",
+          "target": "> 50% (implants), > 70% (general)"
+        },
+        {
+          "stage": "Referral",
+          "metric": "Reviews generated per 100 patients",
+          "target": "> 20"
+        },
+        {
+          "stage": "Referral",
+          "metric": "Referrals per 100 patients per quarter",
+          "target": "> 8"
+        }
+      ]
+    },
+    {
+      "id": "sp",
+      "name": "Specialist Partnership",
+      "avatar": "Dr. James Whitfield",
+      "businessGoal": "Attract periodontists, oral surgeons, and implantologists to the MODIS specialty vertical",
+      "timeline": "8-24 months (longer than general practice due to higher complexity and smaller prospect pool)",
+      "funnelType": "Relationship-Led Nurture (conference/peer-network entry) + Content Drip",
+      "expectedConversion": "3-5% of identified prospects to signed partnership",
+      "stageMap": {
+        "awareness": {
+          "channels": [
+            {
+              "channel": "Pikos Institute Network",
+              "content": "Direct outreach to Pikos course alumni, co-branded content with Dr. Pikos",
+              "cta": "Explore MODIS Partnership",
+              "kpi": "Conversations per quarter"
+            },
+            {
+              "channel": "MODIS Community Conversations Podcast",
+              "content": "Episodes featuring current MODIS partners telling their story",
+              "cta": "Download the Specialist's Guide",
+              "kpi": "Downloads per episode"
+            },
+            {
+              "channel": "LinkedIn",
+              "content": "Marcus Morosin and Pete Wong content: specialty practice growth, implant market trends, PE in specialty dentistry",
+              "cta": "See if MODIS fits your practice",
+              "kpi": "InMail response rate, connection requests"
+            },
+            {
+              "channel": "Conferences",
+              "content": "Booth and hosted dinners at AAP Annual Meeting, AO Annual Meeting, Pikos Symposium",
+              "cta": "Book a confidential conversation",
+              "kpi": "Conversations per event"
+            },
+            {
+              "channel": "Peer Referrals",
+              "content": "Existing MODIS partners introduce prospects from their network",
+              "cta": "Warm introduction",
+              "kpi": "Referral pipeline"
+            }
+          ]
+        },
+        "consideration": {
+          "leadMagnet": {
+            "name": "The Specialist's Guide to DSO Partnership",
+            "description": "A 20-page white paper addressing specialist-specific concerns: why specialty practices are valued differently, capital investment gaps, scope preservation, Thurston Group track record, case studies (Pensacola Perio, Troy Family Dental, Jacksonville Dental Specialists), and Pikos Institute as a clinical development engine"
+          }
+        },
+        "evaluation": {
+          "description": "MODIS Community Conversations Podcast deep dive, followed by discovery call with Marcus Morosin (VP Business Development)"
+        },
+        "conversion": {
+          "description": "Site visit, partner introductions, LOI"
+        }
+      },
+      "emailSequences": [
+        {
+          "id": "sp-indoctrination",
+          "name": "SP-Indoctrination",
+          "emailCount": 4,
+          "days": "0-7",
+          "trigger": "Downloads Specialist's Guide or requests information at conference",
+          "goal": "Establish MODIS as the only specialty-focused DSO with clinical credibility",
+          "emails": [
+            {
+              "number": 1,
+              "day": 0,
+              "subject": "Your guide + why we built MODIS for specialists",
+              "goal": "Deliver guide, introduce MODIS",
+              "elements": "Guide link, Pete Wong intro, the gap MODIS fills"
+            },
+            {
+              "number": 2,
+              "day": 2,
+              "subject": "What Thurston learned from US Endodontics Partners and US Oral Surgery Management",
+              "goal": "Trust anchor: specialty PE experience",
+              "elements": "Thurston has built specialty dental platforms before, specific precedents"
+            },
+            {
+              "number": 3,
+              "day": 4,
+              "subject": "Dr. Pikos on the future of implantology (and why he chose MODIS)",
+              "goal": "Clinical credibility anchor",
+              "elements": "Dr. Pikos quote and endorsement, the Pikos Institute connection"
+            },
+            {
+              "number": 4,
+              "day": 7,
+              "subject": "How Pensacola Perio / Coastal Jaw Surgery grew after partnering",
+              "goal": "Transformation proof",
+              "elements": "Specific partner story with outcomes: capital invested, cases expanded, recruiting solved"
+            }
+          ]
+        },
+        {
+          "id": "sp-engagement",
+          "name": "SP-Engagement",
+          "emailCount": 6,
+          "days": "8-28",
+          "trigger": "Completed indoctrination OR opened 3+ indoctrination emails",
+          "goal": "Move from awareness to active evaluation",
+          "emails": [
+            {
+              "number": 1,
+              "day": 8,
+              "subject": "GAIN: What your practice looks like with capital, marketing, and a lab behind it",
+              "goal": "Aspirational future state",
+              "elements": "Paint the picture of a fully equipped specialist practice with MODIS resources"
+            },
+            {
+              "number": 2,
+              "day": 12,
+              "subject": "LOGIC: The solo specialist's math problem",
+              "goal": "Rational case for partnership",
+              "elements": "Cost of CT scanner, surgical suite, in-house lab, marketing, recruiting -- totaled vs. MODIS providing it"
+            },
+            {
+              "number": 3,
+              "day": 16,
+              "subject": "FEAR: The recruiting crisis is hitting specialists hardest",
+              "goal": "Cost of inaction",
+              "elements": "18-month associate search stat, inability to compete on benefits/equity, succession risk"
+            },
+            {
+              "number": 4,
+              "day": 20,
+              "subject": "60% of your revenue is traditional perio. That's fine.",
+              "goal": "Objection: scope narrowing",
+              "elements": "Explicit reassurance that MODIS supports full-scope specialty practice, not just implants"
+            },
+            {
+              "number": 5,
+              "day": 24,
+              "subject": "PE exit timelines: what Thurston's 37-year track record actually shows",
+              "goal": "Objection: PE fear",
+              "elements": "Address the 'load up debt, flip in 3 years' fear directly with historical evidence"
+            },
+            {
+              "number": 6,
+              "day": 28,
+              "subject": "A conversation with Marcus Morosin (no NDAs, no pressure)",
+              "goal": "Conversion ask",
+              "elements": "Warm, direct invitation to connect with VP of Business Development"
+            }
+          ]
+        }
+      ],
+      "successMetrics": [
+        {
+          "stage": "Awareness",
+          "metric": "Identified specialist prospects per quarter",
+          "target": "50-100"
+        },
+        {
+          "stage": "Consideration",
+          "metric": "Guide downloads per quarter",
+          "target": "25-40"
+        },
+        {
+          "stage": "Indoctrination",
+          "metric": "Email open rate (sequence avg)",
+          "target": "> 45%"
+        },
+        {
+          "stage": "Engagement",
+          "metric": "Click-through rate (sequence avg)",
+          "target": "> 6%"
+        },
+        {
+          "stage": "Conversation",
+          "metric": "Discovery calls per quarter",
+          "target": "5-10"
+        },
+        {
+          "stage": "Close",
+          "metric": "Call-to-LOI conversion",
+          "target": "> 25%"
+        }
+      ]
+    }
+  ],
+  "crossFunnelMechanics": {
+    "referralLoops": [
+      {
+        "audience": "Practice Owners (PA)",
+        "mechanism": "Partner introduces a peer practice owner in their network",
+        "incentive": "Equity appreciation (aligned incentive -- more partners = larger platform = higher equity value)",
+        "expectedYield": "1-2 warm introductions per partner per year"
+      },
+      {
+        "audience": "Associate Dentists (DR)",
+        "mechanism": "Hired associate refers a classmate or former colleague",
+        "incentive": "Referral bonus ($2,000-$5,000 for successful hire that stays 6+ months)",
+        "expectedYield": "15-20% of hires from internal referrals"
+      },
+      {
+        "audience": "Patients (PT)",
+        "mechanism": "Post-treatment referral program with dual incentive",
+        "incentive": "$50-$100 credit for both referrer and referred",
+        "expectedYield": "8+ referrals per 100 patients per quarter"
+      },
+      {
+        "audience": "Specialists (SP)",
+        "mechanism": "MODIS partner introduces a specialist colleague through Pikos network",
+        "incentive": "Equity appreciation + clinical collaboration opportunity",
+        "expectedYield": "1-2 warm introductions per partner per year"
+      }
+    ],
+    "interconnections": [
+      {
+        "from": "Recruited Dentist (DR)",
+        "to": "PA Funnel",
+        "trigger": "Refers a practice owner colleague"
+      },
+      {
+        "from": "Recruited Dentist (DR)",
+        "to": "PT Funnel",
+        "trigger": "Generates patients through clinical work"
+      },
+      {
+        "from": "Acquired Practice (PA)",
+        "to": "DR Funnel",
+        "trigger": "Needs associate dentists filled"
+      },
+      {
+        "from": "Acquired Practice (PA)",
+        "to": "PT Funnel",
+        "trigger": "Brings existing patient base to network"
+      },
+      {
+        "from": "Acquired Practice (PA)",
+        "to": "SP Funnel",
+        "trigger": "Owner refers a specialist peer"
+      },
+      {
+        "from": "Implant Patient (PT)",
+        "to": "PT Funnel",
+        "trigger": "Refers family/friends for general care"
+      },
+      {
+        "from": "Implant Patient (PT)",
+        "to": "PA + SP Awareness",
+        "trigger": "Transformation story becomes content"
+      },
+      {
+        "from": "Specialist Partner (SP)",
+        "to": "PA Funnel",
+        "trigger": "Refers general practice peers"
+      },
+      {
+        "from": "Specialist Partner (SP)",
+        "to": "PT Funnel",
+        "trigger": "Pikos network generates clinical referrals"
+      }
+    ],
+    "automationTriggers": [
+      "When a new partner signs (PA close), automatically trigger DR sequence for open positions at that practice",
+      "When a recruited dentist starts (DR close), add their practice location to patient acquisition ad campaigns",
+      "When a patient transformation story is captured (PT post-treatment), route to content team for use in PA and SP awareness campaigns",
+      "When a specialist partner refers a colleague (SP referral), tag as 'warm intro' and route to Marcus Morosin with context"
+    ]
+  },
+  "retentionMechanics": [
+    {
+      "audience": "Partner Dentists",
+      "system": "Partner Pulse newsletter + quarterly partner calls + annual 4Front symposium",
+      "cadence": "Monthly newsletter, quarterly calls, annual event",
+      "content": "Network growth updates, clinical innovation highlights, peer success stories, market intelligence"
+    },
+    {
+      "audience": "Associate Dentists",
+      "system": "90-day onboarding sequence + mentor check-ins + CE calendar",
+      "cadence": "Weekly (first 90 days), monthly (ongoing)",
+      "content": "Clinical development milestones, CE opportunities, career pathing, peer cohort connections"
+    },
+    {
+      "audience": "Patients",
+      "system": "Recall/recare system + seasonal campaigns + referral program",
+      "cadence": "Biannual recall reminders, quarterly promotions",
+      "content": "Appointment reminders, educational content (oral health tips), seasonal offers, referral prompts"
+    },
+    {
+      "audience": "Specialist Partners",
+      "system": "MODIS Community Conversations podcast + Pikos CE calendar + peer case collaboration",
+      "cadence": "Monthly touchpoints",
+      "content": "Advanced CE events, clinical case sharing, research updates, network expansion news"
+    }
+  ],
+  "reEngagement": {
+    "trigger": "No email opens for 60+ days (B2B) or 90+ days (patients)",
+    "sequenceLength": "3 emails over 10 days",
+    "emails": [
+      {
+        "number": 1,
+        "day": 0,
+        "subject": "Still thinking about it? Here's what changed since we last talked",
+        "goal": "Re-establish relevance with new information"
+      },
+      {
+        "number": 2,
+        "day": 5,
+        "subject": "Quick question (takes 10 seconds)",
+        "goal": "Single-question survey to re-engage and re-segment"
+      },
+      {
+        "number": 3,
+        "day": 10,
+        "subject": "Last note from us (unless you say otherwise)",
+        "goal": "Give explicit opt-out or opt-back-in. Clean the list."
+      }
+    ],
+    "outcomeLogic": [
+      "Opens/clicks email 1 or 2: Return to active nurture sequence",
+      "Responds to survey (email 2): Re-segment based on response, route to appropriate sequence",
+      "No engagement after email 3: Tag as 'cold_unresponsive,' suppress from active sequences, move to quarterly-only cadence"
+    ]
+  },
+  "tagArchitecture": [
+    {
+      "tag": "pa_assessment_complete",
+      "appliedWhen": "Completes Practice Partnership Assessment",
+      "usedFor": "Entry to PA-Indoctrination"
+    },
+    {
+      "tag": "pa_tier_strong / pa_tier_growth / pa_tier_foundation",
+      "appliedWhen": "Assessment scoring tier",
+      "usedFor": "Segment-specific messaging in engagement"
+    },
+    {
+      "tag": "pa_indoctrinated",
+      "appliedWhen": "Opens 3+ emails in PA-Indoctrination",
+      "usedFor": "Trigger PA-Engagement"
+    },
+    {
+      "tag": "pa_discovery_call",
+      "appliedWhen": "Books or completes discovery call",
+      "usedFor": "Move to post-conversation nurture, alert BD team"
+    },
+    {
+      "tag": "pa_customer",
+      "appliedWhen": "Signs LOI",
+      "usedFor": "Remove from all PA prospect sequences"
+    },
+    {
+      "tag": "dr_guide_download",
+      "appliedWhen": "Downloads career guide",
+      "usedFor": "Entry to DR-Nurture"
+    },
+    {
+      "tag": "dr_applied",
+      "appliedWhen": "Submits job application",
+      "usedFor": "Remove from DR-Nurture, route to ATS"
+    },
+    {
+      "tag": "dr_hired",
+      "appliedWhen": "Signs offer letter",
+      "usedFor": "Entry to DR-Onboarding"
+    },
+    {
+      "tag": "pt_assessment_complete",
+      "appliedWhen": "Completes Smile Assessment",
+      "usedFor": "Entry to PT-Implant Nurture"
+    },
+    {
+      "tag": "pt_consultation_booked",
+      "appliedWhen": "Books virtual or in-person consult",
+      "usedFor": "Remove from PT nurture, add to pre-appointment reminders"
+    },
+    {
+      "tag": "pt_treatment_complete",
+      "appliedWhen": "Completes treatment",
+      "usedFor": "Entry to PT-Post-Treatment loop"
+    },
+    {
+      "tag": "sp_guide_download",
+      "appliedWhen": "Downloads Specialist's Guide",
+      "usedFor": "Entry to SP-Indoctrination"
+    },
+    {
+      "tag": "sp_indoctrinated",
+      "appliedWhen": "Opens 3+ emails in SP-Indoctrination",
+      "usedFor": "Trigger SP-Engagement"
+    },
+    {
+      "tag": "sp_customer",
+      "appliedWhen": "Signs LOI",
+      "usedFor": "Remove from all SP prospect sequences"
+    },
+    {
+      "tag": "cold_60d",
+      "appliedWhen": "No email opens for 60 days (B2B)",
+      "usedFor": "Trigger re-engagement sequence"
+    },
+    {
+      "tag": "cold_90d",
+      "appliedWhen": "No email opens for 90 days (B2C)",
+      "usedFor": "Trigger re-engagement sequence"
+    },
+    {
+      "tag": "unresponsive",
+      "appliedWhen": "No engagement after re-engagement sequence",
+      "usedFor": "Suppress from active sequences"
+    }
+  ],
+  "conditionalLogic": [
+    {
+      "condition": "Tag pa_customer or sp_customer applied",
+      "action": "Immediately remove from ALL prospect sequences; add to Partner Pulse newsletter"
+    },
+    {
+      "condition": "Tag dr_hired applied",
+      "action": "Remove from DR-Nurture; start DR-Onboarding; add practice location to PT ad targeting"
+    },
+    {
+      "condition": "Tag pt_consultation_booked applied",
+      "action": "Remove from PT-Implant Nurture; start pre-appointment reminder sequence"
+    },
+    {
+      "condition": "Score > 80 on Practice Assessment",
+      "action": "Fast-track: add note to BD team for priority outreach within 48 hours"
+    },
+    {
+      "condition": "Score < 40 on Practice Assessment",
+      "action": "Route to educational content track (SEO articles, market reports), not sales sequences"
+    },
+    {
+      "condition": "Clicked offer/CTA 3+ times without converting",
+      "action": "Tag as hot_lead; alert BD team for personal outreach (PA/SP) or front desk for phone call (PT)"
+    }
+  ],
+  "funnelKpis": [
+    {
+      "funnel": "PA (Practice Acquisition)",
+      "northStarMetric": "Signed partnerships per quarter",
+      "leadingIndicators": "Assessment completions, discovery calls booked, site visits completed"
+    },
+    {
+      "funnel": "DR (Dentist Recruitment)",
+      "northStarMetric": "Positions filled per quarter (with 90-day retention)",
+      "leadingIndicators": "Guide downloads, applications submitted, interviews completed"
+    },
+    {
+      "funnel": "PT (Patient Acquisition)",
+      "northStarMetric": "New patient appointments per practice per month",
+      "leadingIndicators": "Smile Assessment completions, consultation bookings, ad CPL"
+    },
+    {
+      "funnel": "SP (Specialist Partnership)",
+      "northStarMetric": "Specialist partnerships per year",
+      "leadingIndicators": "Guide downloads, podcast listens, discovery calls booked"
+    }
+  ],
+  "emailHealthMetrics": [
+    {
+      "metric": "Open Rate",
+      "healthy": "> 35%",
+      "warning": "25-35%",
+      "actionRequired": "< 25% -- review subject lines, sender name, send times"
+    },
+    {
+      "metric": "Click Rate",
+      "healthy": "> 4%",
+      "warning": "2-4%",
+      "actionRequired": "< 2% -- review CTAs, content relevance, link placement"
+    },
+    {
+      "metric": "Unsubscribe Rate",
+      "healthy": "< 0.3%",
+      "warning": "0.3-0.5%",
+      "actionRequired": "> 0.5% -- review frequency, relevance, list hygiene"
+    },
+    {
+      "metric": "Bounce Rate",
+      "healthy": "< 1%",
+      "warning": "1-2%",
+      "actionRequired": "> 2% -- clean list, verify capture forms"
+    },
+    {
+      "metric": "Deliverability",
+      "healthy": "> 95%",
+      "warning": "90-95%",
+      "actionRequired": "< 90% -- investigate domain reputation, authentication"
+    }
+  ],
+  "implementationPriority": [
+    {
+      "phase": "Phase 1: Weeks 1-4 (Foundation)",
+      "tasks": [
+        "PA Funnel: Build Practice Partnership Assessment, landing page, and PA-Indoctrination sequence. Launch Google Search and LinkedIn campaigns.",
+        "PT Funnel (General): Activate Google LSAs for top 10 practices. Implement Google Business Profile optimization protocol.",
+        "DR Funnel: Launch LinkedIn Sponsored Jobs for highest-priority open positions."
+      ]
+    },
+    {
+      "phase": "Phase 2: Weeks 5-8 (Expansion)",
+      "tasks": [
+        "PA Funnel: Build PA-Engagement sequence (8 emails). Launch conference presence strategy.",
+        "PT Funnel (Implant): Build Smile Assessment. Launch PT-Implant Nurture sequence. Begin Meta ad campaigns using Dr. Olson content.",
+        "DR Funnel: Build and deploy Career Decision Guide. Launch DR-Nurture sequence.",
+        "SP Funnel: Build Specialist's Guide white paper. Launch SP-Indoctrination sequence."
+      ]
+    },
+    {
+      "phase": "Phase 3: Weeks 9-12 (Optimization and Loops)",
+      "tasks": [
+        "All Funnels: Deploy re-engagement sequences. Implement cross-funnel routing automation.",
+        "PT Funnel: Launch post-treatment referral loop. Implement review generation system.",
+        "PA + SP Funnels: Launch post-conversation nurture for leads not ready to proceed.",
+        "All Funnels: First performance review. Optimize sequences. Scale winning channels."
+      ]
+    }
+  ]
+}

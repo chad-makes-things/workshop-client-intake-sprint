@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGA Dental Partners — Welcome Sequence Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #F0F2F5;
+      color: #333333;
+      padding: 32px 16px;
+    }
+    .sequence-label {
+      max-width: 640px;
+      margin: 0 auto 24px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #2D6FB7;
+    }
+    .email-wrapper {
+      max-width: 640px;
+      margin: 0 auto 0;
+      background: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    }
+    /* ── Header ── */
+    .email-header {
+      background: linear-gradient(135deg, #2D6FB7 0%, #1a4f8a 100%);
+      padding: 28px 40px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .logo-lockup {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .logo-box {
+      width: 48px;
+      height: 48px;
+      background: #C4D347;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+      color: #1a4f8a;
+      flex-shrink: 0;
+    }
+    .brand-name {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    .brand-tagline {
+      color: rgba(255,255,255,0.72);
+      font-size: 12px;
+      font-weight: 400;
+      margin-top: 2px;
+    }
+    /* ── Meta bar ── */
+    .meta-bar {
+      background: #F7F9FC;
+      border-bottom: 1px solid #E5E9F0;
+      padding: 10px 40px;
+      font-size: 12px;
+      color: #6B7A8F;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .meta-bar span strong { color: #333; }
+    /* ── Body ── */
+    .email-body {
+      padding: 36px 40px;
+      line-height: 1.7;
+      font-size: 15px;
+      color: #333333;
+    }
+    .email-body p { margin-bottom: 16px; }
+    .email-body p:last-child { margin-bottom: 0; }
+    .email-body strong { font-weight: 700; }
+    /* ── Merge tag ── */
+    .merge-tag {
+      display: inline-block;
+      background: #EBF4FF;
+      color: #2D6FB7;
+      border: 1px solid #BDD9F5;
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 13px;
+      font-family: 'Roboto Mono', monospace, sans-serif;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    /* ── CTA Button ── */
+    .cta-wrap { margin: 28px 0; }
+    .cta-btn {
+      display: inline-block;
+      background: #F36F21;
+      color: #ffffff !important;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 6px;
+      letter-spacing: 0.01em;
+      transition: background 0.15s;
+    }
+    .cta-btn:hover { background: #d95e15; }
+    .cta-btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: #2D6FB7 !important;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 12px 24px;
+      border-radius: 6px;
+      border: 2px solid #2D6FB7;
+      margin-top: 12px;
+      letter-spacing: 0.01em;
+    }
+    /* ── PS ── */
+    .ps-block {
+      margin-top: 28px;
+      padding: 18px 20px;
+      background: #F7F9FC;
+      border-left: 3px solid #C4D347;
+      border-radius: 0 6px 6px 0;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.65;
+    }
+    /* ── Quote ── */
+    .pull-quote {
+      margin: 24px 0;
+      padding: 18px 24px;
+      background: #F7F9FC;
+      border-left: 4px solid #2D6FB7;
+      border-radius: 0 6px 6px 0;
+      font-size: 15px;
+      font-style: italic;
+      color: #444;
+      line-height: 1.65;
+    }
+    /* ── Metrics grid ── */
+    .metrics-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .metric-card {
+      flex: 1 1 140px;
+      background: #EBF4FF;
+      border-radius: 8px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .metric-card .num { font-size: 22px; font-weight: 700; color: #2D6FB7; }
+    .metric-card .lbl { font-size: 12px; color: #6B7A8F; margin-top: 4px; }
+    /* ── Bullet list ── */
+    .content-list {
+      padding-left: 0;
+      list-style: none;
+      margin: 16px 0;
+    }
+    .content-list li {
+      padding: 8px 0 8px 24px;
+      position: relative;
+      border-bottom: 1px solid #F0F2F5;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .content-list li:last-child { border-bottom: none; }
+    .content-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #C4D347;
+      font-weight: 700;
+    }
+    /* ── Vertical section ── */
+    .vertical-card {
+      background: #F7F9FC;
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 16px 0;
+      border-left: 4px solid #2D6FB7;
+    }
+    .vertical-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #2D6FB7;
+      margin-bottom: 8px;
+    }
+    /* ── Footer ── */
+    .email-footer {
+      background: #F7F9FC;
+      border-top: 1px solid #E5E9F0;
+      padding: 24px 40px;
+      font-size: 12px;
+      color: #9AA4B2;
+      line-height: 1.6;
+    }
+    .email-footer a { color: #2D6FB7; text-decoration: none; }
+    .email-footer .footer-links { margin-bottom: 10px; }
+    /* ── Divider ── */
+    .email-divider {
+      max-width: 640px;
+      margin: 40px auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .email-divider hr { flex: 1; border: none; border-top: 2px solid #E5E9F0; }
+    .email-divider .div-label {
+      background: #2D6FB7;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 6px 16px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+<div class="sequence-label">Welcome Sequence &mdash; 7 Emails Over 14 Days &mdash; Preview Mode</div>
+
+<!-- ═══════════════════════════════════ EMAIL 1 ═══════════════════════════════════ -->
+<div class="email-wrapper">
+  <div class="email-header">
+    <div class="logo-lockup">
+      <div class="logo-box">SGA</div>
+      <div>
+        <div class="brand-name">SGA Dental Partners</div>
+        <div class="brand-tagline">Get Better. Not Just Bought.</div>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 1 of 7</span>
+    <span><strong>Send:</strong> Day 0 — Immediately</span>
+    <span><strong>Subject:</strong> Your assessment results are in (plus a question nobody asks)</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>Your Practice Partnership Assessment results are ready. You can review your full report here:</p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">View My Assessment Results</a></div>
+    <p>Take a few minutes with it. The scoring is straightforward, and the recommendations are specific to where your practice sits right now — not generic advice from a consulting binder that collects dust on a shelf.</p>
+    <p>Now, a quick introduction.</p>
+    <p>My name is [sender name], and I am writing to you from SGA Dental Partners. We are not a brokerage. We are not a consulting firm. We are a dental partnership platform backed by the Thurston Group — a private equity firm that has spent 38 years and 8 healthcare platforms learning how to do this right.</p>
+    <p>Why am I telling you that?</p>
+    <p>Because there is a number that haunts this industry: <strong>seven out of ten dentists who sell to a DSO end up frustrated, annoyed, or outright regretful.</strong></p>
+    <p>That is not our number. That is what the Dentist Advisors podcast found after talking to hundreds of practice owners who took the deal, cashed the check, and woke up six months later wondering what they had done.</p>
+    <p>We built SGA because we knew that number — and we refused to add to it.</p>
+    <p>Over the next few emails, I am going to share what makes this platform different. Not marketing claims. Names, numbers, and stories from dentists who sound a lot like you.</p>
+    <p>If at any point you want to skip ahead and have a direct conversation, you can schedule one here:</p>
+    <div class="cta-wrap"><a href="#" class="cta-btn-secondary">Schedule a Confidential Conversation</a></div>
+    <p>No brokers. No NDAs at this stage. Just a conversation between professionals.</p>
+    <p>Talk soon,</p>
+    <p>[Sender name]<br>SGA Dental Partners</p>
+    <div class="ps-block"><strong>P.S.</strong> — Your assessment results do not expire, but the market context around them shifts quarterly. The analysis is most useful while the data is fresh.</div>
+  </div>
+  <div class="email-footer">
+    <div class="footer-links">
+      <a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a> &nbsp;·&nbsp; <a href="#">View in Browser</a>
+    </div>
+    SGA Dental Partners &nbsp;·&nbsp; Backed by the Thurston Group &nbsp;·&nbsp; [Address] &nbsp;·&nbsp; [City, State ZIP]<br>
+    You received this email because you completed the Practice Partnership Assessment.
+  </div>
+</div>
+
+<!-- Divider -->
+<div class="email-divider"><hr><div class="div-label">Email 2 of 7</div><hr></div>
+
+<!-- ═══════════════════════════════════ EMAIL 2 ═══════════════════════════════════ -->
+<div class="email-wrapper">
+  <div class="email-header">
+    <div class="logo-lockup">
+      <div class="logo-box">SGA</div>
+      <div>
+        <div class="brand-name">SGA Dental Partners</div>
+        <div class="brand-tagline">Get Better. Not Just Bought.</div>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 2 of 7</span>
+    <span><strong>Send:</strong> Day 1</span>
+    <span><strong>Subject:</strong> You did not go to dental school for this</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>There is a question that practice owners ask themselves late at night, usually after the last staff email is answered and the house is finally quiet.</p>
+    <div class="pull-quote">"How much longer can I keep doing this?"</div>
+    <p>Not the dentistry. The dentistry is why you got into this. The dentistry is the part that still makes sense.</p>
+    <p>It is everything else.</p>
+    <p>You are the dentist, the HR department, the IT guy, and the therapist for your whole staff. You did not sign up for any of that. But here you are — spending Sunday nights fixing the schedule because your office manager gave notice, arguing with insurance companies over claims that should have been paid six weeks ago, and watching younger dentists adopt digital workflows you have never had time to learn.</p>
+    <p>One practice owner we spoke to put it this way:</p>
+    <div class="pull-quote">"I traded my passion for a payroll spreadsheet."</div>
+    <p>Another said:</p>
+    <div class="pull-quote">"Stressed out and burned out. How could we deal with owning two dental practices?"</div>
+    <p>Here is what nobody mentions at the dental society dinner: this feeling is not a personal failure. It is a structural one. The business of dentistry has outgrown what a single human being can manage, no matter how smart or how hard they work.</p>
+    <p>The dentists who figure this out early do not work harder. They change the structure.</p>
+    <p>That is what tomorrow's email is about — the people who decided to change it, and the 38-year track record behind them.</p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">Read My Assessment Results Again</a></div>
+    <p>Talk soon,</p>
+    <p>[Sender name]</p>
+    <div class="ps-block"><strong>P.S.</strong> — If you are reading this and nodding, you already know the business side is not sustainable. The question is what you do about it. That is the most common thing we hear in first conversations with practice owners. No judgment here. Just understanding.</div>
+  </div>
+  <div class="email-footer">
+    <div class="footer-links">
+      <a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a> &nbsp;·&nbsp; <a href="#">View in Browser</a>
+    </div>
+    SGA Dental Partners &nbsp;·&nbsp; Backed by the Thurston Group &nbsp;·&nbsp; [Address] &nbsp;·&nbsp; [City, State ZIP]
+  </div>
+</div>
+
+<!-- Divider -->
+<div class="email-divider"><hr><div class="div-label">Email 3 of 7</div><hr></div>
+
+<!-- ═══════════════════════════════════ EMAIL 3 ═══════════════════════════════════ -->
+<div class="email-wrapper">
+  <div class="email-header">
+    <div class="logo-lockup">
+      <div class="logo-box">SGA</div>
+      <div>
+        <div class="brand-name">SGA Dental Partners</div>
+        <div class="brand-tagline">Get Better. Not Just Bought.</div>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 3 of 7</span>
+    <span><strong>Send:</strong> Day 3</span>
+    <span><strong>Subject:</strong> 38 years. 8 platforms. $4 billion returned. Here is why that matters to you.</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>The number one fear dentists have about DSO partnerships is not the valuation. It is not the management fee. It is not even the autonomy question — though that is a close second.</p>
+    <p>It is private equity.</p>
+    <div class="pull-quote">"They load up on debt, squeeze margins, and flip the company in 3–5 years. Then I'm stuck with a new owner who doesn't care about me."</div>
+    <p>We have heard this objection a hundred times. And honestly, in most cases, dentists are right to be skeptical. The PE-backed DSO track record is, to put it politely, uneven.</p>
+    <p>So let me tell you about the Thurston Group.</p>
+    <p>Patrick J. Haynes III founded the firm in 1988. That is 38 years ago. While most PE funds operate on 5–7 year cycles, Thurston has been building healthcare platforms for nearly four decades.</p>
+    <p><strong>The numbers:</strong></p>
+    <div class="metrics-grid">
+      <div class="metric-card"><div class="num">$4B+</div><div class="lbl">Returned to partners</div></div>
+      <div class="metric-card"><div class="num">38</div><div class="lbl">Years of history</div></div>
+      <div class="metric-card"><div class="num">8</div><div class="lbl">Healthcare platforms built</div></div>
+      <div class="metric-card"><div class="num">$350M</div><div class="lbl">Credit facility secured</div></div>
+    </div>
+    <p>But the number that matters most is this: Thurston did not get it right the first time. They built, learned, and rebuilt. South Georgia Dental Management taught them community dentistry operations. Gen4 Dental Partners taught them that doctor autonomy could not just be promised — it had to be structural. MODIS Dental Partners taught them that education was the competitive moat, not purchasing power.</p>
+    <p>SGA is the synthesis of all three. Thirty-eight years of iteration.</p>
+    <p>These are not projections. That is history. And the partners from prior Thurston platforms are not anonymous case studies — they are people you can call.</p>
+    <p>Tomorrow, I am going to tell you about the part of SGA that no competitor can replicate: our education platform. It starts with a name you may already know.</p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">Schedule a Confidential Conversation</a></div>
+    <p>Talk soon,</p>
+    <p>[Sender name]</p>
+    <div class="ps-block"><strong>P.S.</strong> — If "private equity" makes your stomach turn, you are in good company. That is exactly why we lead with the track record, not the pitch deck. The evidence speaks louder than any brochure.</div>
+  </div>
+  <div class="email-footer">
+    <div class="footer-links">
+      <a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a> &nbsp;·&nbsp; <a href="#">View in Browser</a>
+    </div>
+    SGA Dental Partners &nbsp;·&nbsp; Backed by the Thurston Group &nbsp;·&nbsp; [Address] &nbsp;·&nbsp; [City, State ZIP]
+  </div>
+</div>
+
+<!-- Divider -->
+<div class="email-divider"><hr><div class="div-label">Email 4 of 7</div><hr></div>
+
+<!-- ═══════════════════════════════════ EMAIL 4 ═══════════════════════════════════ -->
+<div class="email-wrapper">
+  <div class="email-header">
+    <div class="logo-lockup">
+      <div class="logo-box">SGA</div>
+      <div>
+        <div class="brand-name">SGA Dental Partners</div>
+        <div class="brand-tagline">Get Better. Not Just Bought.</div>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 4 of 7</span>
+    <span><strong>Send:</strong> Day 5</span>
+    <span><strong>Subject:</strong> The Pikos Institute. 100+ clinicians who teach each other. And why you have never heard of anything like this.</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>Every DSO in America offers a continuing education stipend. Usually $1,500 to $3,000 a year. Enough to attend one generic seminar at a hotel conference room, eat a mediocre lunch, and come home with a binder of slides you will never open again.</p>
+    <p>That is not what we do.</p>
+    <p>SGA was built around education as the soul of the platform, not a line item on the benefits page. Here is what that actually means:</p>
+
+    <div class="vertical-card">
+      <h4>The Pikos Institute</h4>
+      <p>Dr. Michael A. Pikos — a pioneer in implantology and one of the most respected educators in global dentistry — is a founding partner of our MODIS specialty vertical. His institute provides world-class, hands-on implantology training. Not webinars. Not slide decks. Hands-on surgical technique with the person who wrote the textbook.</p>
+    </div>
+    <div class="vertical-card">
+      <h4>The 4Front Symposium</h4>
+      <p>Our annual gathering of partner clinicians. This is where the goose bumps happen. Senior clinicians brainstorming together, elevating ideas collectively. As one partner described it: "They're like, 'I've never thought about it like that.' Now you got me."</p>
+    </div>
+    <div class="vertical-card">
+      <h4>The Individual Growth Engine</h4>
+      <p>Every partner gets paired with a clinical mentor — not a corporate trainer reading a script. A practicing dentist who has been where you are and can show you what they see. Dr. Matt Cavendish was paired with Dr. Bryan Shanahan through this program. More on his story in my next email.</p>
+    </div>
+    <div class="vertical-card">
+      <h4>Dentists Teaching Dentists</h4>
+      <p>That is the phrase you will hear more than any other inside SGA. Not consultants teaching dentists. Not MBAs teaching dentists. Clinicians sharing what works, in the operatory, with someone who understands the craft.</p>
+    </div>
+
+    <p>No competitor has the Pikos Institute. No competitor has the 4Front Symposium. No competitor has 100+ clinicians who actively teach each other.</p>
+    <p>This is not something money buys. It is something you build over years. And we have built it.</p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">Learn More About the Pikos Institute</a></div>
+    <p>Talk soon,</p>
+    <p>[Sender name]</p>
+    <div class="ps-block"><strong>P.S.</strong> — If you have ever attended a Pikos course, you already know what I am describing. If you have not, this alone is worth a conversation.</div>
+  </div>
+  <div class="email-footer">
+    <div class="footer-links">
+      <a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a> &nbsp;·&nbsp; <a href="#">View in Browser</a>
+    </div>
+    SGA Dental Partners &nbsp;·&nbsp; Backed by the Thurston Group &nbsp;·&nbsp; [Address] &nbsp;·&nbsp; [City, State ZIP]
+  </div>
+</div>
+
+<!-- Divider -->
+<div class="email-divider"><hr><div class="div-label">Email 5 of 7</div><hr></div>
+
+<!-- ═══════════════════════════════════ EMAIL 5 ═══════════════════════════════════ -->
+<div class="email-wrapper">
+  <div class="email-header">
+    <div class="logo-lockup">
+      <div class="logo-box">SGA</div>
+      <div>
+        <div class="brand-name">SGA Dental Partners</div>
+        <div class="brand-tagline">Get Better. Not Just Bought.</div>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 5 of 7</span>
+    <span><strong>Send:</strong> Day 7</span>
+    <span><strong>Subject:</strong> Revenues up 16.5%. Staff retention at 100%. And he says "it is fun again."</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>Dr. Matt Cavendish had been practicing for 20 years in Phoenix. By every external measure, he was successful. Good revenue. Good reputation. Solid patient base.</p>
+    <p>But privately, he was in a different place.</p>
+    <div class="pull-quote">"Maybe was in a spot of complacency, not being challenged as much, just getting through the day and not enjoying it as much."</div>
+    <p>Sound familiar?</p>
+    <p>Twenty years in, the spark was fading. He was spending his time on employee benefits, wifi routers, Facebook ads — "a hundred other things that have little to do with dental excellence."</p>
+    <p>When staff issues came up: "I was just trying to figure out by myself what I needed to do. It was very difficult."</p>
+    <p>Then he joined Gen4 (now part of SGA). And something unexpected happened.</p>
+    <p>He got paired with a mentor — Dr. Bryan Shanahan — through the Individual Growth Engine. He observed his first all-on-four procedure. He learned surgical techniques, treatment planning approaches, and lab relationships he never would have accessed in solo practice.</p>
+    <div class="pull-quote">"Just to pick his brain on his surgical technique, treatment planning, and the way he works with his lab — that's something I would have never had an opportunity to do if I were still in a solo practice."</div>
+    <p><strong>Here are his numbers since partnering:</strong></p>
+    <div class="metrics-grid">
+      <div class="metric-card"><div class="num">+16.5%</div><div class="lbl">Revenue (TTM)</div></div>
+      <div class="metric-card"><div class="num">+2.3 pts</div><div class="lbl">EBITA vs. plan</div></div>
+      <div class="metric-card"><div class="num">100%</div><div class="lbl">Staff retention</div></div>
+      <div class="metric-card"><div class="num">+6.4 pts</div><div class="lbl">Supply costs vs. plan</div></div>
+    </div>
+    <p>But the number Dr. Cavendish talks about most is not on a spreadsheet.</p>
+    <div class="pull-quote">"When you've been in dentistry for 20 years like I have, sometimes it's not as fun as it used to be. So to be able to do a complex case like this, with somebody who is also working at a very high skill level — <strong>it is fun.</strong>"</div>
+    <p><strong>It is fun again.</strong></p>
+    <p>That is what nobody tells you about partnering with SGA. Not the financial relief — every DSO promises that. Not the operational support — that is table stakes. The thing nobody tells you is that you might actually enjoy dentistry again.</p>
+    <p>Dr. Cavendish has one piece of advice for dentists considering the same decision:</p>
+    <div class="pull-quote">"Don't push back. There's no downside to having a mentor."</div>
+    <div class="cta-wrap"><a href="#" class="cta-btn">Schedule a Confidential Conversation</a></div>
+    <p>Talk soon,</p>
+    <p>[Sender name]</p>
+    <div class="ps-block"><strong>P.S.</strong> — Dr. Cavendish is a real person at a real practice. If you want to hear it from him directly, we can arrange that conversation. Just ask.</div>
+  </div>
+  <div class="email-footer">
+    <div class="footer-links">
+      <a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a> &nbsp;·&nbsp; <a href="#">View in Browser</a>
+    </div>
+    SGA Dental Partners &nbsp;·&nbsp; Backed by the Thurston Group &nbsp;·&nbsp; [Address] &nbsp;·&nbsp; [City, State ZIP]
+  </div>
+</div>
+
+<!-- Divider -->
+<div class="email-divider"><hr><div class="div-label">Email 6 of 7</div><hr></div>
+
+<!-- ═══════════════════════════════════ EMAIL 6 ═══════════════════════════════════ -->
+<div class="email-wrapper">
+  <div class="email-header">
+    <div class="logo-lockup">
+      <div class="logo-box">SGA</div>
+      <div>
+        <div class="brand-name">SGA Dental Partners</div>
+        <div class="brand-tagline">Get Better. Not Just Bought.</div>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 6 of 7</span>
+    <span><strong>Send:</strong> Day 10</span>
+    <span><strong>Subject:</strong> Three kinds of dental practice. Only one platform built for all of them. (Which are you?)</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>Most DSOs are built for one type of practice. General dentistry platforms acquire general practices. Specialty platforms acquire specialists. And when they encounter a practice that does not fit their mold, they either force it to fit or walk away.</p>
+    <p>SGA is built differently. We operate three distinct verticals under one platform, each purpose-built for a different kind of practice:</p>
+
+    <div class="vertical-card">
+      <h4>1. Community Dentistry</h4>
+      <p>Hometown general practices serving the families and communities that built them. Our original SGA network spans 17+ practice groups across Georgia, Mississippi, Alabama, Louisiana, and Tennessee. These are practices where the dentist coaches Little League and the hygienist's kids go to the same school as the patients. The operational support is centralized. The community identity is sacred.</p>
+    </div>
+    <div class="vertical-card">
+      <h4>2. Collaborative General &amp; Specialty Practice</h4>
+      <p>Multi-location groups and specialty practices that thrive on peer collaboration. Our Gen4 model spans practices across Arizona, California, Nevada, Minnesota, Michigan, Texas, and beyond. The difference here is the culture: dentists teaching dentists, the 4Front Symposium, the Individual Growth Engine. These are practices where clinical growth is not optional — it is the expectation.</p>
+    </div>
+    <div class="vertical-card">
+      <h4>3. Advanced Implantology</h4>
+      <p>Specialty and implant-focused practices anchored by the Pikos Institute and innovators like Dr. Grant Olson (138,000 YouTube subscribers from Springfield, Missouri). Our MODIS vertical serves periodontists, oral surgeons, and implantologists who need capital investment, marketing infrastructure, and recruiting support to compete at the level their clinical skills deserve.</p>
+    </div>
+
+    <p>Your practice does not have to be one thing to fit inside SGA. If you are a general practitioner who wants to develop implant skills, the Pikos Institute pathway exists. If you have a multi-specialty group, the collaborative model supports every discipline. If you run a hometown family practice and want to keep it exactly that — we have been doing precisely that in South Georgia for over a decade.</p>
+    <p>No other DSO offers this range. And that is not a marketing claim — it is a structural reality you can verify by looking at our partner list.</p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">See Our Partner Practices</a></div>
+    <p>Talk soon,</p>
+    <p>[Sender name]</p>
+    <div class="ps-block"><strong>P.S.</strong> — Not sure which vertical fits your practice? That is exactly what the confidential conversation is for. We do not start with a pitch. We start with a fit evaluation.</div>
+  </div>
+  <div class="email-footer">
+    <div class="footer-links">
+      <a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a> &nbsp;·&nbsp; <a href="#">View in Browser</a>
+    </div>
+    SGA Dental Partners &nbsp;·&nbsp; Backed by the Thurston Group &nbsp;·&nbsp; [Address] &nbsp;·&nbsp; [City, State ZIP]
+  </div>
+</div>
+
+<!-- Divider -->
+<div class="email-divider"><hr><div class="div-label">Email 7 of 7</div><hr></div>
+
+<!-- ═══════════════════════════════════ EMAIL 7 ═══════════════════════════════════ -->
+<div class="email-wrapper">
+  <div class="email-header">
+    <div class="logo-lockup">
+      <div class="logo-box">SGA</div>
+      <div>
+        <div class="brand-name">SGA Dental Partners</div>
+        <div class="brand-tagline">Get Better. Not Just Bought.</div>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 7 of 7</span>
+    <span><strong>Send:</strong> Day 14</span>
+    <span><strong>Subject:</strong> Ready for a conversation? (No pitch. No pressure. No NDAs.)</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>Over the past two weeks I have shared:</p>
+    <ul class="content-list">
+      <li>The number that haunts this industry (7 out of 10 dentists regret their DSO sale) and why SGA was built to be the exception</li>
+      <li>The Thurston Group's 38-year, $4B+ track record across 8 dental and healthcare platforms</li>
+      <li>An education platform anchored by the Pikos Institute, the 4Front Symposium, and the Individual Growth Engine — things no competitor can replicate</li>
+      <li>Dr. Matt Cavendish's transformation from complacent to rejuvenated, with revenues up 16.5% and staff retention at 100%</li>
+      <li>Three clinical verticals that mean your practice does not have to change to fit our model</li>
+    </ul>
+    <p>I have not asked you for anything. Until now.</p>
+    <p>Here is what I am asking:</p>
+    <p><strong>Schedule a confidential conversation with our partnership team.</strong></p>
+    <p>Not a sales call. Not a pitch meeting. A 30-minute conversation between professionals about what a partnership could look like for your specific practice. You will talk to someone who has sat in your chair — a dentist or a dental-industry veteran who understands what you are weighing.</p>
+    <p>Here is what one partner said about the experience:</p>
+    <div class="pull-quote">"SGA supports us and manages things behind the scenes. Our partnership allows us to focus on changing lives." — Dr. Mitchel Godat, Periodontal Associates of Memphis</div>
+    <p>He kept his name. He kept his team. He kept his practice exactly the way he built it. What changed was everything behind the scenes — and the weight he no longer carries alone.</p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">Schedule a Confidential Conversation</a></div>
+    <p>If you are not ready yet, that is fine. I will continue to share industry insights, partner stories, and market data over the coming weeks. The door does not close.</p>
+    <p>But if there is a voice in the back of your mind — the one that surfaces at 2 AM, the one that wonders whether there is a way to keep what you built and still get relief — this is the conversation that answers it.</p>
+    <p>No commitments. No brokers. No NDAs at this stage.</p>
+    <p>Just a direct conversation about what is possible.</p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">Schedule a Confidential Conversation</a></div>
+    <p>Talk soon,</p>
+    <p>[Sender name]<br>SGA Dental Partners</p>
+    <div class="ps-block"><strong>P.S.</strong> — If you want to talk to a current partner before you talk to us, we can arrange that too. Dr. Cavendish, Dr. Godat, and others have offered to speak directly with prospective partners. Just reply to this email and ask.</div>
+  </div>
+  <div class="email-footer">
+    <div class="footer-links">
+      <a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a> &nbsp;·&nbsp; <a href="#">View in Browser</a>
+    </div>
+    SGA Dental Partners &nbsp;·&nbsp; Backed by the Thurston Group &nbsp;·&nbsp; [Address] &nbsp;·&nbsp; [City, State ZIP]<br>
+    You received this email as part of the SGA Dental Partners Welcome Series.
+  </div>
+</div>
+
+</body>
+</html>

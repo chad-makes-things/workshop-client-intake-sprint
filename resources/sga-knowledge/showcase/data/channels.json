@@ -1,0 +1,217 @@
+{
+  "executiveSummary": "SGA Dental operates across three distinct audience segments, each with fundamentally different buying psychology, sales cycles, and channel behavior. Practice acquisition targets have a 6-18 month decision cycle driven by trust and peer validation. Recruitment targets respond to career-stage-specific messaging on professional networks. Patient acquisition targets respond to high-intent local search and community-level social proof.",
+  "audiences": [
+    "B2B (practice acquisition + dentist recruitment)",
+    "B2C (patient acquisition)"
+  ],
+  "channels": [
+    {
+      "rank": 1,
+      "name": "Google Ads -- Search",
+      "segment": "B2B Practice Acquisition",
+      "classification": "Quick win",
+      "whyItFits": "Dentists exploring a sale or DSO partnership are high-intent searchers. Queries like 'sell my dental practice,' 'dental practice valuation,' 'DSO partnership options' represent bottom-of-funnel buyers actively researching. No other channel captures this demand as directly.",
+      "targeting": {
+        "keywords": [
+          "sell dental practice",
+          "dental practice valuation",
+          "DSO partnership options",
+          "dental practice transition"
+        ],
+        "audienceSize": "Approximately 202,000 licensed dentists in the US, with 10-15% actively considering transition options in any given year"
+      },
+      "costs": {
+        "cpc": "$12-$35",
+        "cpa": "$200-$500 per qualified lead"
+      },
+      "bestFormat": "Responsive Search Ads leading to dedicated 'Explore Partnership' landing page. Headlines referencing specific outcomes: equity retention, clinical autonomy, operational relief. Sitelink extensions to partner testimonials, valuation process, and FAQ pages.",
+      "competitorActivity": "Dental brokers (Henry Schein, Professional Transition Strategies, ADS Transitions) dominate 'sell dental practice' keyword space. DSOs like Heartland, Pacific Dental, Aspen run brand campaigns but are less aggressive on transition-specific search terms. This creates an opening.",
+      "recommendation": "Run branded search (protect 'SGA Dental,' 'Gen4 Dental,' 'MODIS Dental') alongside non-branded intent campaigns. Allocate $3,000-$5,000/month initially.",
+      "budgetAllocation": { "percentage": 15, "monthlyRange": "$3,750-$6,000" }
+    },
+    {
+      "rank": 2,
+      "name": "LinkedIn",
+      "segment": "B2B Practice Acquisition + Recruitment",
+      "classification": "Long-term play (acquisition), Quick win (recruitment)",
+      "whyItFits": "LinkedIn is the only platform where SGA can target dentists by job title, practice ownership status, specialty, geography, and career stage simultaneously. Serves double duty as both an acquisition and recruitment channel.",
+      "targeting": {
+        "acquisitionAudience": "80,000-120,000 practice owners/dentists on LinkedIn",
+        "recruitmentAudience": "Any licensed dentist or dental school graduate in target states",
+        "geographies": [
+          "GA",
+          "MS",
+          "AL",
+          "LA",
+          "TN",
+          "AZ",
+          "UT",
+          "MI",
+          "CA",
+          "NV",
+          "MN",
+          "TX",
+          "FL",
+          "MO",
+          "NC",
+          "MD",
+          "IA"
+        ]
+      },
+      "costs": {
+        "cpm": "$31-$50",
+        "cpc": "$8-$15",
+        "cpl": "$100-$150 per qualified lead"
+      },
+      "bestFormat": "Acquisition: Thought Leader Ads featuring Lamonte Jensen or Dr. Mitch Ellingson. Document Ads with gated Partnership Guide. Recruitment: Sponsored job posts, carousel ads showcasing CE opportunities.",
+      "competitorActivity": "DSOs are underinvesting on LinkedIn relative to the opportunity. Most dental industry LinkedIn activity is organic thought leadership from individuals, not paid campaigns from DSOs. This is a gap SGA can exploit.",
+      "recommendation": "Split into two objectives. Acquisition: $2,000-$4,000/month on Thought Leader Ads and Document Ads. Recruitment: $1,500-$2,500/month on sponsored job posts and culture-focused content.",
+      "budgetAllocation": { "percentage": 20, "monthlyRange": "$5,000-$8,000" }
+    },
+    {
+      "rank": 3,
+      "name": "Google Local Services Ads + Google Business Profile",
+      "segment": "B2C Patient Acquisition",
+      "classification": "Quick win",
+      "whyItFits": "Patients searching for dental services have the highest commercial intent. 'Dentist near me,' 'emergency dentist,' 'dental implants [city]' are bottom-of-funnel queries that convert directly to appointments. LSAs sit above organic results and standard search ads with Google Verified badge.",
+      "targeting": {
+        "radius": "5-15 mile radius per practice location",
+        "locations": "60+ practice locations across 17+ states",
+        "services": "Focus budget on high-value services (implants, crowns, cosmetic)"
+      },
+      "costs": {
+        "lsaCostPerLead": "$45-$85 general, $90-$130+ implants",
+        "searchCpc": "$6.50-$9.75 competitive markets, $2-$3 smaller towns"
+      },
+      "bestFormat": "LSA profile optimization with verified licenses and high review counts. GBP: weekly posts, photo updates, Q&A management, active review response.",
+      "competitorActivity": "Every dental practice competes in local search. DSOs with centralized marketing (Heartland, Aspen, Pacific Dental) have an advantage through systematized GBP management.",
+      "recommendation": "Roll out LSAs to all SGA practice locations in phased approach. Budget $500-$2,000/month per practice. Implement centralized GBP optimization protocol.",
+      "budgetAllocation": { "percentage": 25, "monthlyRange": "$6,250-$10,000" }
+    },
+    {
+      "rank": 4,
+      "name": "Meta Ads -- Facebook/Instagram",
+      "segment": "B2C Patient Acquisition + B2B Awareness",
+      "classification": "Quick win (B2C), Long-term play (B2B)",
+      "whyItFits": "For patient acquisition, Facebook and Instagram local ads are the most cost-effective way to generate demand among people not actively searching. For B2B, Meta can reach dentists through interest and behavior-based audiences, though with less precision than LinkedIn.",
+      "targeting": {
+        "b2cReach": "Facebook reaches 70%+ of US adults. Geo-targeted to practice locations with demographic layering.",
+        "b2bReach": "Approximately 1-2 million people in the US with 'dentist' as a job title or employer affiliation."
+      },
+      "costs": {
+        "patientCpl": "$50-$80",
+        "cpc": "$9.78 average",
+        "ctr": "1.05% (lowest among all industries on Meta)",
+        "b2bCpm": "$15-$30"
+      },
+      "bestFormat": "Patient: Before/after transformations (MODIS implant vertical, Dr. Olson content library). Short-form video testimonials. B2B: Video snippets of 4Front symposium, partner testimonials.",
+      "competitorActivity": "Dental practices are heavy Meta advertisers. Heartland, Aspen, and independents all run local patient acquisition ads. SGA's advantage: Dr. Olson's content library (138K YouTube subscribers, 23M+ views) provides authenticity that templated corporate dental ads lack.",
+      "recommendation": "B2C: $1,000-$3,000/month per practice cluster. Focus on MODIS implant vertical first. B2B awareness: $1,000-$2,000/month supplementary layer.",
+      "budgetAllocation": { "percentage": 20, "monthlyRange": "$5,000-$8,000" }
+    },
+    {
+      "rank": 5,
+      "name": "Dental Industry Events and Conferences",
+      "segment": "B2B Practice Acquisition",
+      "classification": "Long-term play",
+      "whyItFits": "The dental practice acquisition decision is fundamentally a relationship and trust decision. Dentists selling their life's work need face-to-face validation. Events like Dykema DSO Conference, ADA Annual Meeting, Hinman Dental Meeting are where practice owners encounter DSO options in low-pressure, peer-surrounded environments.",
+      "targeting": {
+        "events": [
+          "Dykema DSO Conference (1,500+ attendees)",
+          "ADA Annual Meeting (25,000+)",
+          "State dental meetings (500-5,000)"
+        ],
+        "audienceQuality": "Pre-qualified: practicing dentists who invest in professional development"
+      },
+      "costs": {
+        "sponsorship": "$5,000-$50,000 per event",
+        "boothAndMaterials": "$3,000-$10,000 per event",
+        "costPerQualifiedLead": "$300-$800"
+      },
+      "bestFormat": "Booth presence with partner testimonials. Speaking engagements by Lamonte Jensen, Dr. Ellingson, or Dr. Pikos. Hosted dinners with prospective partners. Post-event retargeting on LinkedIn and Meta.",
+      "competitorActivity": "Every major DSO invests in event presence. Heartland, Pacific Dental, Aspen are fixtures at Dykema and major state meetings.",
+      "recommendation": "Confirm 1-2 conference sponsorships per quarter. Each event is also a content creation opportunity feeding digital channels.",
+      "budgetAllocation": { "percentage": 10, "monthlyRange": "$2,500-$4,000" }
+    },
+    {
+      "rank": 6,
+      "name": "Dental Trade Publications",
+      "segment": "B2B Acquisition + Recruitment",
+      "classification": "Long-term play",
+      "whyItFits": "Dental Economics, DentistryIQ, ADA News, Becker's Dental Review, and Group Dentistry Now are where practice owners consume industry news. Thought leadership articles position SGA as the informed, dentist-centric alternative.",
+      "targeting": {
+        "reach": "Dental Economics reaches approximately 120,000 dentists",
+        "bestPublication": "Group Dentistry Now -- specifically focused on DSO-interested dentists"
+      },
+      "costs": {
+        "sponsoredContent": "$3,000-$10,000 per placement",
+        "displayCpm": "$30-$80",
+        "contributedEditorial": "Free (requires content production investment)",
+        "podcastSponsorship": "$500-$3,000 per episode"
+      },
+      "bestFormat": "Contributed articles by SGA leadership on succession planning, DSO model evolution, clinical autonomy in partnership structures. Not advertisements; thought leadership pieces.",
+      "competitorActivity": "Trade publications are underutilized for direct acquisition marketing. Content feeds retargeting: dentists who read an SGA article can be retargeted on LinkedIn and Meta.",
+      "recommendation": "1-2 contributed articles and 1 sponsored placement per quarter.",
+      "budgetAllocation": { "percentage": 10, "monthlyRange": "$2,500-$4,000" }
+    },
+    {
+      "rank": 7,
+      "name": "Patient Referral Programs + Community Presence",
+      "segment": "B2C Patient Acquisition",
+      "classification": "Quick win (setup), Long-term compounding asset",
+      "whyItFits": "SGA's brand positioning as 'hometown dental practices with big-platform support' makes grassroots patient referral the most brand-aligned growth channel. Referral patients have lower acquisition cost, higher lifetime value, and better retention than any paid channel.",
+      "targeting": {
+        "referralNetwork": "Each existing patient has an average social circle of 5-15 people who need dental care",
+        "communityPresence": "Little League teams, school dental health days, charity events"
+      },
+      "costs": {
+        "referralIncentive": "$25-$75 per referred patient",
+        "communitySponsorship": "$500-$5,000 per event",
+        "costPerAcquiredPatient": "$15-$40"
+      },
+      "bestFormat": "In-office referral cards and signage. Post-visit email/text with referral link. Social media posts celebrating community involvement. Nextdoor posts from practice staff.",
+      "competitorActivity": "Referral programs are universally underinvested by DSOs. Most focus on paid acquisition. SGA can differentiate through systematized referral across all practices.",
+      "recommendation": "Launch standardized referral program across 10 pilot practices. Referral volume grows as patient base grows.",
+      "budgetAllocation": {
+        "percentage": 0,
+        "monthlyRange": "Included in Events + Community budget"
+      }
+    }
+  ],
+  "recommendedPlatforms": [
+    {
+      "segment": "B2B Practice Acquisition",
+      "primaryPaid": "Google Search Ads",
+      "primaryOrganic": "LinkedIn thought leadership + Lamonte Jensen/Dr. Ellingson personal brands"
+    },
+    {
+      "segment": "B2B Dentist Recruitment",
+      "primaryPaid": "LinkedIn Sponsored Jobs",
+      "primaryOrganic": "LinkedIn organic + dental job boards (DentalPost, ADA CareerCenter)"
+    },
+    {
+      "segment": "B2C Patient Acquisition",
+      "primaryPaid": "Google LSAs + Meta local ads",
+      "primaryOrganic": "Google Business Profile (review management, local SEO, weekly posts)"
+    }
+  ],
+  "totalMonthlyBudget": "$25,000-$40,000",
+  "budgetScalingTriggers": {
+    "increaseWhen": [
+      "Google Search B2B: Cost per qualified acquisition lead drops below $350",
+      "LinkedIn B2B: Lead Gen Form CPL drops below $120, or a lead converts to a partnership conversation",
+      "Google LSAs: Practice-level ROI exceeds 5:1 on new patient lifetime value",
+      "Meta B2C: CPL stabilizes below $65 with acceptable patient show rates"
+    ],
+    "reduceWhen": [
+      "LinkedIn B2B acquisition: CPL exceeds $200 with no qualified conversations after 60 days",
+      "Meta B2C: CPL exceeds $100 with declining CTR (signal of creative fatigue or audience saturation)"
+    ]
+  },
+  "strategicNotes": [
+    "The acquisition funnel is a trust funnel, not a conversion funnel. Every paid channel should feed into a nurture system rather than expect immediate form fills.",
+    "Dr. Grant Olson's content library (138K YouTube subscribers, 23M+ views) is SGA's single biggest creative advantage. Repurpose across Meta ads, LinkedIn, and YouTube campaigns.",
+    "Centralized marketing operations are the real differentiator. SGA's promise of marketing support must be backed by real marketing ops infrastructure.",
+    "Practice acquisition marketing has almost no competition from other DSOs in paid search. DSOs that run their own acquisition search campaigns intercept prospects before the broker ecosystem."
+  ]
+}

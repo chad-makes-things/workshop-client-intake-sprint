@@ -1,0 +1,516 @@
+{
+  "leadMagnets": [
+    {
+      "id": "lead-magnet-1",
+      "title": "The Practice Partnership Assessment",
+      "type": "Self-Evaluation Scorecard",
+      "targetAvatar": "Dr. Mark Hendricks",
+      "description": "A 22-question self-evaluation scorecard for dental practice owners considering their next chapter. Covers 6 categories: Practice Financial Health, Operational Burden, Clinical Trajectory, Market Position, Personal Readiness, and Partnership Fit. Takes 10-15 minutes. Results are private -- no one sees them but the practice owner.",
+      "format": "Interactive web assessment / Downloadable PDF",
+      "sections": [
+        {
+          "name": "Category 1: Practice Financial Health (4 questions)",
+          "description": "Revenue trajectory, EBITDA, collections efficiency, financial diversification. Max 20 points."
+        },
+        {
+          "name": "Category 2: Operational Burden (4 questions)",
+          "description": "Admin time, staff stability, owner dependency, technology infrastructure. Max 20 points."
+        },
+        {
+          "name": "Category 3: Clinical Trajectory (3 questions)",
+          "description": "CE engagement, case complexity trend, access to mentorship. Max 15 points."
+        },
+        {
+          "name": "Category 4: Market Position (3 questions)",
+          "description": "Competitive pressure, patient acquisition/retention, growth ceiling. Max 15 points."
+        },
+        {
+          "name": "Category 5: Personal Readiness (4 questions)",
+          "description": "Burnout level, succession planning, financial goals alignment, emotional readiness. Max 20 points."
+        },
+        {
+          "name": "Category 6: Partnership Fit (4 questions)",
+          "description": "Autonomy requirements, equity preference, cultural alignment, timeline. Max 20 points."
+        }
+      ],
+      "results": [
+        {
+          "tier": "Tier 1: Foundation Building (22-50 points)",
+          "description": "Earlier in the journey. Focus on fundamentals: financials, reducing owner dependency, technology gaps, peer network."
+        },
+        {
+          "tier": "Tier 2: Exploring (51-79 points)",
+          "description": "Solid foundation with room for growth. Get a baseline valuation, talk to peers who have transitioned, understand the models."
+        },
+        {
+          "tier": "Tier 3: Ready to Talk (80-110 points)",
+          "description": "Position of strength. Have 3-5 confidential conversations, bring advisors, visit partner practices."
+        }
+      ],
+      "bonus": "Includes 'Questions to Ask Any DSO' checklist -- 22 due diligence questions across Track Record, Autonomy, Financial Structure, Operations, and Culture.",
+      "pagePath": ""
+    }
+  ],
+  "salesAssets": [
+    {
+      "id": "sales-asset-1",
+      "title": "Partnership Overview One-Pager",
+      "type": "Leave-Behind / PDF",
+      "targetAvatar": "Dr. Mark Hendricks",
+      "description": "Two-sided printed leave-behind (8.5x11) for BD meetings, conference handouts, and post-call follow-up. Front side: hero headline ('Dentists Come to SGA to Get Better. Not Just to Get Bought.'), three pillars (Education Platform, Thurston Track Record, Three Verticals). Back side: partnership tiers table, partner testimonials, metrics, and partnership path.",
+      "sections": [
+        {
+          "name": "Three Pillars",
+          "description": "Education (Pikos Institute, 4Front, IGE), Thurston Track Record (38 years, $4B+, 8 platforms), Three Verticals (Community, Collaborative, Implantology)"
+        },
+        {
+          "name": "Partnership Tiers",
+          "description": "Community Practice (1-3 docs, $1M-$3M), Group Practice (4-10 docs, $3M-$10M), Specialty Practice. Shows liquidity %, equity %, support level."
+        },
+        {
+          "name": "Partner Testimonials",
+          "description": "Dr. Godat: 'SGA supports us and manages things behind the scenes.' Dr. Cavendish: revenues up 16.5%, 100% staff retention. Dr. Ellingson: protecting profession."
+        },
+        {
+          "name": "By the Numbers",
+          "description": "38 years, $4B+, 8+ platforms, 100+ practices, 10+ states, 85% staff retention, $350M credit facility, 100% brands preserved."
+        }
+      ],
+      "pagePath": ""
+    },
+    {
+      "id": "sales-asset-2",
+      "title": "Competitive Battle Cards",
+      "type": "Internal Reference Document",
+      "targetAvatar": "BD Team",
+      "description": "7 battle cards covering SGA's primary competitors: Heartland Dental (KKR, 1,800+ practices), Aspen/TAG (1,300+ offices), PDS Health (1,000+ practices), MB2 Dental (800+ practices), DCA (400+ practices, Mubadala), SALT Dental (156+ locations), Guardian Dentistry (160+ practices). Each card includes overview, their pitch, weaknesses, SGA advantages, objection rebuttals, and honest assessment.",
+      "sections": [
+        {
+          "name": "Heartland Dental",
+          "description": "No JV equity, autonomy gap between marketing and reality, Gen2 DNA. SGA wins: equity model, CCO is practicing dentist, Pikos Institute."
+        },
+        {
+          "name": "Aspen/TAG",
+          "description": "Zero identity preservation, 1.2 stars Sitejabber, production pressure. Not a real competitive threat for practice owners."
+        },
+        {
+          "name": "PDS Health",
+          "description": "No platform equity, no liquidity event, management services only. SGA wins: platform equity, cash at close, education."
+        },
+        {
+          "name": "MB2 Dental",
+          "description": "No education platform, no specialty vertical, opaque PE backing. Most direct structural competitor. SGA wins: education, verticals, Thurston."
+        },
+        {
+          "name": "DCA",
+          "description": "Sovereign wealth fund, no JV equity, no education. Mid-tier threat."
+        },
+        {
+          "name": "SALT Dental",
+          "description": "Narrow specialty focus, no education, opaque PE. Niche player."
+        },
+        {
+          "name": "Guardian Dentistry",
+          "description": "Direct Southeast overlap, family-office backed, no education. Most dangerous regional competitor."
+        }
+      ],
+      "competitivePositioning": "Three questions that win: (1) What happens to your clinical skills after you sign? (2) Who is behind the money? (3) What does year 3 look like?",
+      "pagePath": ""
+    },
+    {
+      "id": "sales-asset-3",
+      "title": "Elevator Pitch Scripts",
+      "type": "BD Training Resource",
+      "targetAvatar": "BD Team",
+      "description": "12 elevator pitch scripts: 3 lengths (15s, 30s, 60s) x 4 audiences (Practice Owners, Associates, Specialists, Referring Dentists). Each script follows Sage archetype -- wise counsel, not aggressive sales.",
+      "sections": [
+        {
+          "name": "Practice Owner Pitches",
+          "description": "15s: Problem + differentiator + trust anchor. 30s: Regret stat hook, three differentiators, big idea line. 60s: Full narrative with Cavendish proof story."
+        },
+        {
+          "name": "Associate Pitches",
+          "description": "15s: Mentorship + Pikos + equity from day one. 30s: Pain (production treadmill) + 4-point value stack. 60s: Opening questions, four proof points, named outcome."
+        },
+        {
+          "name": "Specialist Pitches",
+          "description": "15s: Pikos name + infrastructure gap. 30s: Market context + capital investment specifics. 60s: Full MODIS story with scope protection and recruiting."
+        },
+        {
+          "name": "Referring Dentist Pitches",
+          "description": "15s: Credibility anchor + referral ask. 30s: Sunday night pain + low-pressure referral ask. 60s: Flattery + referral mechanism + cross-referral value."
+        }
+      ],
+      "pitches": [
+        {
+          "audience": "Practice Owners",
+          "duration": "15s",
+          "text": "I work with SGA Dental Partners. We partner with practice owners who are exhausted by the business side of dentistry but do not want to lose what they built. The short version: your name stays, your team stays, you get equity in a growing platform, and our education program makes you a better clinician. We are backed by a PE firm with 38 years and $4B in partner returns. Do you know anyone in that situation?"
+        },
+        {
+          "audience": "Practice Owners",
+          "duration": "30s",
+          "text": "Seven out of ten dentists who sell to a DSO end up frustrated or regretful. That is not our stat -- that is what the Dentist Advisors podcast found. SGA Dental Partners was built by people who heard that number and refused to add to it. We are a dental partnership platform -- not a corporate DSO. Practice owners keep their name, team, and clinical autonomy. They get a liquidity event plus equity in a multi-state platform. What makes us different: the Pikos Institute for world-class implant education, the 4Front Symposium, and the Thurston Group -- 38 years, $4B returned, 8 platforms. Dentists come to SGA to get better, not just to get bought."
+        },
+        {
+          "audience": "Practice Owners",
+          "duration": "60s",
+          "text": "Dr. [Name], thank you for taking the time. You have probably heard the statistics -- seven or eight out of ten dentists who sell to a DSO end up frustrated or regretful. SGA Dental Partners exists because of that number. We are not a corporate DSO. We are a dental partnership platform built around three things no competitor offers together. First: education -- the Pikos Institute, 4Front Symposium, and a 1:1 mentorship program. Dr. Matt Cavendish was 20 years in and learned all-on-four procedures through our program. Revenues up 16.5%, staff retention 100%. His words: 'It is fun again.' Second: the Thurston Group. 38 years, $4B+ returned, 8 dental platforms. Third: your name stays, your team stays, you retain equity. Would it make sense to schedule 45 minutes?"
+        },
+        {
+          "audience": "Associates",
+          "duration": "15s",
+          "text": "I work with SGA Dental Partners. We pair early-career dentists with clinical mentors, give them Pikos Institute access, and offer equity from day one -- not a vague pathway, but Class A shares. If you know any associates on a production treadmill, I'd love to connect."
+        },
+        {
+          "audience": "Associates",
+          "duration": "30s",
+          "text": "If you are an associate right now, you probably know the feeling: 25-30 patients a day, 15 minutes each, no complex cases, no one to bounce ideas off of. SGA Dental Partners is different. Individual Growth Engine mentorship. Pikos Institute access. 4Front Symposium with 100+ clinicians. Class A shareholder equity from day one. Your career is not a production number."
+        },
+        {
+          "audience": "Associates",
+          "duration": "60s",
+          "text": "Dr. [Name], let me ask directly -- are you doing the kind of dentistry you envisioned in dental school? Are you getting mentored? Do you have a clear 5-year path? SGA offers 1:1 clinical mentorship, Pikos Institute courses worth $6,500-$12,000, the 4Front Symposium, and equity from day one as a Class A shareholder. One associate came in doing bread-and-butter dentistry, learned implants through the program, and now loves his profession. Would 30 minutes to walk through the specifics be useful?"
+        },
+        {
+          "audience": "Specialists",
+          "duration": "15s",
+          "text": "I work with MODIS, the specialty vertical of SGA Dental Partners, anchored by Dr. Michael Pikos. We partner with periodontists, oral surgeons, and implantologists who have the skills but need the capital, marketing, and recruiting infrastructure to compete at scale."
+        },
+        {
+          "audience": "Specialists",
+          "duration": "30s",
+          "text": "If you are a specialist, you know: the full-arch market is exploding, but competing requires capital you do not have. MODIS provides $250K-$750K capital investment, dedicated recruiting, marketing modeled on Innovative Dental (138K YouTube, 3,390+ reviews), and equity in the SGA platform. Anchored by Dr. Michael Pikos. Thurston Group: 38 years, $4B+ returned."
+        },
+        {
+          "audience": "Specialists",
+          "duration": "60s",
+          "text": "Dr. [Name], you have probably seen the full-arch market accelerate. The question every specialist faces: how do I compete at that level from a solo practice? MODIS exists for this. Co-founded with Dr. Michael Pikos. $250K-$750K capital investment. Dedicated recruiting. Marketing engine. Scope protection in writing. Behind it: the Thurston Group, 38 years, $4B+ returned, 8 platforms. Would next week work for a detailed conversation?"
+        }
+      ],
+      "pagePath": "pages/elevator-pitches.html"
+    },
+    {
+      "id": "sales-asset-4",
+      "title": "Partnership FAQ Document",
+      "type": "Sales Support / Web Content",
+      "targetAvatar": "Dr. Mark Hendricks",
+      "description": "Comprehensive FAQ covering 20+ questions organized by category: Partnership Process (5), Financial Structure (4), Clinical Operations (4), Staff & Culture (3), Education Platform (2), and Competitive Positioning (2). Written in Sage archetype voice -- direct, evidence-backed, never evasive.",
+      "sections": [
+        {
+          "name": "Partnership Process",
+          "description": "How it works, timeline, broker needs, practice size requirements, due diligence."
+        },
+        {
+          "name": "Financial Structure",
+          "description": "Valuation methodology, equity model, management fees, second bite."
+        },
+        {
+          "name": "Clinical Operations",
+          "description": "Autonomy specifics, supplies, scheduling, clinical protocols."
+        },
+        {
+          "name": "Staff & Culture",
+          "description": "Staff retention, benefits, practice name and brand."
+        }
+      ],
+      "pagePath": "pages/faq.html"
+    },
+    {
+      "id": "sales-asset-5",
+      "title": "Case Study Production Kit",
+      "type": "Content Template",
+      "targetAvatar": "Marketing Team",
+      "description": "Three case study templates (Long-Form 1,500-2,000 words, One-Page 400-500 words, Video Testimonial 3-5 min), interview question bank (28+ questions across 5 sections), and quality checklist. Designed for collecting and publishing proof stories from practice partners, associates, specialists, patients, and staff.",
+      "sections": [
+        {
+          "name": "Long-Form Template",
+          "description": "Headline, Snapshot Box, Before/Decision/Transition/After/In Their Words structure."
+        },
+        {
+          "name": "One-Page Template",
+          "description": "Challenge/Solution/Results/Quote format for PDF leave-behinds."
+        },
+        {
+          "name": "Video Script Template",
+          "description": "5-section interview structure: before, turning point, changes, results, advice."
+        },
+        {
+          "name": "Interview Question Bank",
+          "description": "28 questions organized by narrative arc with avatar-specific variants."
+        }
+      ],
+      "pagePath": "pages/case-study-kit.html"
+    }
+  ],
+  "faqEntries": [
+    {
+      "id": "faq-1",
+      "category": "Partnership Process",
+      "question": "How does the partnership process work? What are the steps?",
+      "answer": "SGA follows a transparent three-step path: (1) Explore -- confidential discovery call evaluating mutual fit, (2) Partner -- structured evaluation with honest valuation and JV equity structuring, (3) Thrive -- operational transition within 60-90 days, clinical mentor pairing, 4Front access. Typical timeline: 3-6 months from first conversation to close."
+    },
+    {
+      "id": "faq-2",
+      "category": "Partnership Process",
+      "question": "How long does the partnership process take?",
+      "answer": "Typical timeline is 3-6 months. Smaller community practices can move faster. Phases: Explore (2-4 weeks), Partner (6-12 weeks evaluation and deal structuring), Thrive (30-60 days post-close transition). Pace is set by the practice owner, not SGA."
+    },
+    {
+      "id": "faq-3",
+      "category": "Partnership Process",
+      "question": "Do I need a broker or advisor?",
+      "answer": "No broker is needed. SGA encourages direct peer-level conversations. However, independent advisors (dental CPAs, healthcare attorneys) are welcome and encouraged. SGA cautions against paying broker fees of 8-12% just for introductions."
+    },
+    {
+      "id": "faq-4",
+      "category": "Partnership Process",
+      "question": "What size practice is SGA looking for?",
+      "answer": "Three tiers: Community (1-3 doctors, $1M-$3M), Group (4-10 doctors, $3M-$10M), Specialty (periodontists, oral surgeons, implantologists). Generally $400K+ EBITDA, but quality matters more than size -- strong patient relationships, stable team, healthy reputation."
+    },
+    {
+      "id": "faq-5",
+      "category": "Financial Structure",
+      "question": "What kind of valuation can I expect?",
+      "answer": "Transparent EBITDA-based methodology. Market range: 6-9x EBITDA for mid-market, with premiums for larger groups, strategic geography, and high-growth. SGA does not manipulate math with carried notes or hidden management fees. Your CPA is encouraged to review every number."
+    },
+    {
+      "id": "faq-6",
+      "category": "Financial Structure",
+      "question": "How does the equity model work?",
+      "answer": "60-70% of valuation paid in cash at close. Remaining 30-40% rolled into equity in the entire SGA platform (not just your practice). Your equity appreciates as the platform grows -- every new practice, every efficiency gained. Thurston Group has returned $4B+ across 8 platforms using this model."
+    },
+    {
+      "id": "faq-7",
+      "category": "Financial Structure",
+      "question": "What is my ongoing compensation after partnership?",
+      "answer": "Market-rate base salary plus production bonus (typically 25-30% above baseline). Total compensation comparable to or better than solo ownership -- without absorbing overhead risk, staffing burden, or capital expenditure. Dr. Hallissey: 'I am more engaged with my patients -- QuickBooks no longer calls me to the back office.'"
+    },
+    {
+      "id": "faq-8",
+      "category": "Financial Structure",
+      "question": "What happens at exit? When does Thurston plan to sell?",
+      "answer": "Thurston Group is structurally different from typical PE: founded 1988, 38 years, patient capital philosophy. Not a 3-5 year exit fund. When exits occur, they benefit partners -- $4B+ returned is the proof. SGA partners can speak with partners from PRIOR Thurston platforms about the full cycle."
+    },
+    {
+      "id": "faq-9",
+      "category": "Financial Structure",
+      "question": "What management fees does SGA charge?",
+      "answer": "SGA charges a percentage of practice revenue covering billing, payroll, HR, compliance, procurement, marketing, recruiting, benefits, and technology investment. Designed to be fully offset by operational savings. Alternative cost of these services independently: $297K-$575K/year. The JV model means you are a co-owner, not an employee."
+    },
+    {
+      "id": "faq-10",
+      "category": "Clinical Autonomy",
+      "question": "Will SGA tell me how to practice?",
+      "answer": "No. Full stop. You choose materials, labs, schedule, treatment plans. No crown days, no Invisalign days, no production quotas. CCO Dr. Mitch Ellingson is a practicing dentist. Clinical advisory board is partner dentists, not corporate executives. Dr. Ellingson: 'We are going to ask you to lead more. We are going to amplify your voice.'"
+    },
+    {
+      "id": "faq-11",
+      "category": "Clinical Autonomy",
+      "question": "What happens to my practice name?",
+      "answer": "It stays. Non-negotiable. Dental Partners of SW Georgia is still Dental Partners of SW Georgia. Every partner keeps local name, signage, community identity. SGA operates as invisible back-office partner -- patients will not see an SGA logo. 85% staff retention. Benefits improve (Cigna, Voya 401k, Mutual of Omaha)."
+    },
+    {
+      "id": "faq-12",
+      "category": "Clinical Autonomy",
+      "question": "Do DSOs push overtreatment and production quotas?",
+      "answer": "Some do -- documented on Glassdoor, SDN, and in state AG investigations. SGA was built as the structural opposite. No production targets by procedure type. No overtreatment incentives. Clinical advisory board shapes policy. Dr. Ellingson: 'I want to protect my profession from becoming like medicine.'"
+    },
+    {
+      "id": "faq-13",
+      "category": "Operations",
+      "question": "What operational support does SGA provide?",
+      "answer": "Revenue cycle management, payroll (iSolved), benefits (Cigna, Voya, Mutual of Omaha), HR/compliance, procurement, marketing, technology investment, and recruiting. All transitioned within 60-90 days. What SGA does NOT do: dictate clinical decisions, change your brand, replace your team."
+    },
+    {
+      "id": "faq-14",
+      "category": "Operations",
+      "question": "What happens to my staff during transition?",
+      "answer": "Your team stays. No layoffs as part of partnership. Benefits typically improve: Cigna health, 401(k) with employer match, PTO, CE stipends. SGA's 85% staff retention rate exists because they invest in teams. Career development through Practice Management Pathways Program."
+    },
+    {
+      "id": "faq-15",
+      "category": "Operations",
+      "question": "How does the first 90 days work?",
+      "answer": "Days 1-30: Transition coordinator, payroll to iSolved, benefits enrollment. Days 31-60: Billing/RCM transition, procurement to group rates, marketing evaluation, mentor introduction. Days 61-90: Full support in place, technology investment planning, first 4Front/partner event. Clinical operations continue without interruption throughout."
+    },
+    {
+      "id": "faq-16",
+      "category": "Education",
+      "question": "What is the Pikos Institute?",
+      "answer": "World-renowned implantology training center founded by Dr. Michael A. Pikos. Hands-on courses worth $6,500-$12,000 on open market, included for SGA partners. No other DSO has anything comparable. Dr. Cavendish went from 20-year complacency to all-on-four procedures, revenues up 16.5%."
+    },
+    {
+      "id": "faq-17",
+      "category": "Education",
+      "question": "What is the 4Front Symposium?",
+      "answer": "SGA's annual peer-learning event. No vendor booths, no keynote slides. Partner clinicians collaborate, share innovations, present complex cases. 'Senior clinicians brainstorming together naturally elevated the ideas -- that is where the goose bumps come from.'"
+    },
+    {
+      "id": "faq-18",
+      "category": "Education",
+      "question": "What is the Individual Growth Engine?",
+      "answer": "1:1 clinical mentorship pairing each partner with an experienced SGA clinician. Not generic orientation -- sustained relationship driven by YOUR clinical goals. Dr. Cavendish: 20 years in practice, paired with mentor, learned all-on-four, revenues up 16.5%, staff retention 100%, 'It is fun again.'"
+    },
+    {
+      "id": "faq-19",
+      "category": "Growth",
+      "question": "How does SGA help my practice grow?",
+      "answer": "Centralized marketing driving patients to YOUR brand, recruiting pipelines, group purchasing, technology investment (CEREC, guided implants, digital workflows), and peer community of 100+ clinicians. Dr. Cavendish's 16.5% growth came from support infrastructure, not longer hours."
+    },
+    {
+      "id": "faq-20",
+      "category": "Growth",
+      "question": "Can I open additional locations through SGA?",
+      "answer": "Yes. SGA supports de novo locations, satellites, and facility expansion with $350M credit facility backing. Three-vertical architecture also creates growth through clinical expansion (implant capabilities via Pikos) and cross-referral networks (GP to MODIS specialists)."
+    },
+    {
+      "id": "faq-21",
+      "category": "Growth",
+      "question": "What technology does SGA invest in?",
+      "answer": "CEREC milling, guided implant systems, CBCT scanners, intraoral scanners, digital workflows, practice management software, patient communication platforms. Not a loan -- SGA capital deployed into your practice. Dr. Olson at Innovative Dental uses patented guided technology and is one of 300 CEREC Mentors worldwide."
+    },
+    {
+      "id": "faq-22",
+      "category": "Concerns",
+      "question": "What if the partnership doesn't work out?",
+      "answer": "Partnership agreements include defined terms with succession planning infrastructure. But the question is 'will I want to leave?' -- SGA's education, peer community, autonomy protections, and equity model are designed to make partnership better than solo. Ask existing partners: 'Would you do it again?'"
+    },
+    {
+      "id": "faq-23",
+      "category": "Concerns",
+      "question": "I'm 5-10 years from retirement. Is SGA still a fit?",
+      "answer": "Often the BEST fit. Upfront liquidity (60-70%) provides financial diversification. Ongoing clinical comp without admin burden. Full succession infrastructure protecting patients and staff. Retained equity appreciates as platform grows -- additional retirement asset. Many Thurston partners were 50-60 at partnership."
+    },
+    {
+      "id": "faq-24",
+      "category": "Concerns",
+      "question": "I've heard horror stories about DSOs. Why should I believe SGA is different?",
+      "answer": "You should be skeptical. 7-8 out of 10 regret it. SGA says: verify, don't believe. Call our partners (Dr. Godat, Dr. Cavendish). Examine the structure (name stays, CCO is practicing dentist, equity model). Look at Thurston's track record (38 years, $4B+, 8 platforms). 'You have heard the horror stories. So have we. That is why we built something different.'"
+    },
+    {
+      "id": "faq-25",
+      "category": "Concerns",
+      "question": "What about PE legislation in my state?",
+      "answer": "SGA monitors legislative developments across all states. Most proposed legislation targets egregious PE practices (non-compete abuse, overtreatment, brand erasure). SGA's model -- preserving autonomy, maintaining local identity, transparent JV partnership -- aligns with regulatory intent. Thurston's 38-year legal team adapts structures to evolving requirements."
+    },
+    {
+      "id": "faq-26",
+      "category": "Concerns",
+      "question": "Another DSO offered a higher multiple. Why SGA?",
+      "answer": "SGA does not engage in bidding wars. A higher multiple from a DSO that erodes autonomy, replaces your team, and delivers underperforming equity is a more expensive mistake. SGA offers Pikos Institute, 100+ peer community, three verticals, Thurston's $4B+ track record. Economics are competitive (7-9x+ EBITDA). Ask the other DSO: What is your education platform? What have they returned to partners? Can I call 5 of their partners?"
+    },
+    {
+      "id": "faq-27",
+      "category": "Concerns",
+      "question": "Why partner now instead of waiting?",
+      "answer": "EBITDA multiples at cyclical highs. Technology gap widens yearly. 76% of practices find hygienist recruiting extremely challenging -- SGA's infrastructure provides advantage. DSO consolidation accelerating -- MB2 has 800+ practices. But no artificial urgency: the Explore conversation costs 45 minutes and provides market intelligence regardless of timing."
+    }
+  ],
+  "competitorPages": [
+    {
+      "id": "vs-heartland",
+      "title": "SGA vs Heartland Dental",
+      "competitor": "Heartland Dental",
+      "targetKeyword": "heartland dental alternative",
+      "description": "Side-by-side comparison: JV equity vs. acquisition, practicing dentist CCO vs. non-dentist managers, Pikos Institute vs. generic CE, Thurston (38yr, $4B+) vs. KKR.",
+      "pagePath": ""
+    },
+    {
+      "id": "vs-mb2",
+      "title": "SGA vs MB2 Dental",
+      "competitor": "MB2 Dental",
+      "targetKeyword": "mb2 dental alternative",
+      "description": "Most direct structural competitor. SGA wins on education (Pikos vs. none), specialty verticals (3 vs. 0), and PE transparency (Thurston vs. undisclosed).",
+      "pagePath": ""
+    },
+    {
+      "id": "vs-pds",
+      "title": "SGA vs PDS Health",
+      "competitor": "PDS Health",
+      "targetKeyword": "pacific dental services alternative",
+      "description": "Key difference: SGA provides platform equity + liquidity event. PDS provides individual practice ownership with management fees, no platform upside.",
+      "pagePath": ""
+    },
+    {
+      "id": "vs-guardian",
+      "title": "SGA vs Guardian Dentistry",
+      "competitor": "Guardian Dentistry Partners",
+      "targetKeyword": "guardian dentistry alternative",
+      "description": "Direct Southeast overlap. SGA wins: education (Pikos vs. none), capital ($350M facility vs. family office), PE track record (Thurston vs. unspecified).",
+      "pagePath": ""
+    },
+    {
+      "id": "vs-aspen",
+      "title": "SGA vs Aspen Dental",
+      "competitor": "Aspen Dental/TAG",
+      "targetKeyword": "aspen dental alternative for dentists",
+      "description": "Fundamentally different models. Aspen: franchise-like, brand replacement, standardized. SGA: partnership, brand preservation, clinical autonomy.",
+      "pagePath": ""
+    },
+    {
+      "id": "vs-dca",
+      "title": "SGA vs Dental Care Alliance",
+      "competitor": "Dental Care Alliance",
+      "targetKeyword": "dental care alliance alternative",
+      "description": "DCA: sovereign wealth fund, no JV equity, no education. SGA: Thurston Group, JV equity, Pikos Institute + 4Front.",
+      "pagePath": ""
+    },
+    {
+      "id": "vs-salt",
+      "title": "SGA vs SALT Dental Partners",
+      "competitor": "SALT Dental Partners",
+      "targetKeyword": "salt dental alternative",
+      "description": "SALT: specialty-focused but no education platform. SGA/MODIS: specialty vertical with Pikos Institute integration and cross-referral networks.",
+      "pagePath": ""
+    }
+  ],
+  "chatbotFlows": [
+    {
+      "id": "website-b2b",
+      "title": "SGA Website B2B Chat Widget",
+      "platform": "Website (sgadental.com)",
+      "entryPoint": "Bottom-right widget on all pages, triggered by page context",
+      "questionCount": 8,
+      "branches": 4,
+      "description": "Routes dental professionals to appropriate flow: Practice Owner (qualification + pain identification + partnership info), Associate (career opportunities + mentorship + equity), Specialist (MODIS vertical + capital investment + scope protection), Office Manager (redirect to appropriate team). Includes lead scoring, CRM integration, and human handoff protocols."
+    },
+    {
+      "id": "website-b2c",
+      "title": "MODIS Patient Chat Widget",
+      "platform": "Website (modisdental.com / idspringfield.com)",
+      "entryPoint": "Implant pages, service pages, pricing pages",
+      "questionCount": 6,
+      "branches": 3,
+      "description": "Routes implant patients through: current dental situation assessment, treatment information delivery, cost/financing discussion, and appointment booking. Includes Smile Assessment quiz, insurance/financing FAQ, and scheduling integration with practice PMS."
+    },
+    {
+      "id": "messenger-b2b",
+      "title": "Facebook Messenger B2B Flow",
+      "platform": "Facebook Messenger",
+      "entryPoint": "Meta ads (B2B), Facebook page CTA",
+      "questionCount": 5,
+      "branches": 3,
+      "description": "Triggered from Meta B2B ads. Qualifies practice owners with 3-question sequence (practice size, timeline, primary interest), delivers relevant content, routes to Calendly for BD team scheduling."
+    },
+    {
+      "id": "messenger-b2c",
+      "title": "Facebook Messenger Patient Flow",
+      "platform": "Facebook Messenger",
+      "entryPoint": "Meta ads (B2C), Facebook page CTA",
+      "questionCount": 4,
+      "branches": 2,
+      "description": "Triggered from patient-facing ads. Handles implant inquiries and general dentistry questions. Routes to appointment booking or Smile Assessment."
+    },
+    {
+      "id": "instagram-dm",
+      "title": "Instagram DM Auto-Reply System",
+      "platform": "Instagram DM",
+      "entryPoint": "Keyword-triggered auto-replies + Story reply triggers",
+      "questionCount": 3,
+      "branches": 5,
+      "description": "Keyword detection routes conversations: partnership/DSO terms to B2B owner flow, implant/teeth terms to B2C flow, career/job terms to associate flow, location terms to practice finder. Story reply triggers activate contextual responses."
+    }
+  ],
+  "pagePath": "pages/faq.html"
+}

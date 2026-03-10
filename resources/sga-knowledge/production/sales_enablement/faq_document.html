@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGA Dental Partners - Frequently Asked Questions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Slab:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'sga-blue': '#2D6FB7',
+            'sga-blue-dark': '#1E4F85',
+            'sga-lime': '#C4D347',
+            'sga-orange': '#F36F21',
+            'sga-text': '#333333',
+            'sga-gray': '#F7F8FA',
+            'sga-border': '#E2E8F0',
+          },
+          fontFamily: {
+            'sans': ['Roboto', 'sans-serif'],
+            'slab': ['Roboto Slab', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @media print {
+      html, body { margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .no-print { display: none !important; }
+      .faq-content { display: block !important; max-height: none !important; overflow: visible !important; }
+      .faq-chevron { display: none !important; }
+      .page-break { page-break-before: always; }
+      .avoid-break { page-break-inside: avoid; }
+      @page { margin: 0.5in 0.6in; }
+    }
+    .faq-content { transition: max-height 0.3s ease-out, opacity 0.2s ease-out; }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans text-sga-text">
+
+  <div class="max-w-4xl mx-auto bg-white shadow-lg print:shadow-none">
+    <!-- Header -->
+    <div class="bg-sga-blue px-10 py-8">
+      <div class="flex items-center justify-between mb-6">
+        <img src="../../brand-assets/SGA-logo.png" alt="SGA Dental Partners" class="h-10 brightness-0 invert">
+        <span class="text-white/70 text-xs tracking-widest uppercase">Sales Enablement</span>
+      </div>
+      <h1 class="font-slab text-3xl font-bold text-white mb-2">Frequently Asked Questions</h1>
+      <p class="text-white/80 text-sm">Prepared: March 2026 | Comprehensive answers for prospect conversations</p>
+    </div>
+
+    <div class="px-10 py-8">
+      <!-- How to Use -->
+      <div class="bg-sga-gray rounded-lg p-5 mb-8 border border-sga-border">
+        <h3 class="font-slab text-sm font-bold text-sga-blue-dark mb-2">How to Use This Document</h3>
+        <p class="text-xs text-gray-600 leading-relaxed mb-2">Each question includes the surface question, the underlying objection the prospect is actually worried about, the evidence-backed answer, and a closer -- a named reference or specific data point that resolves the concern.</p>
+        <p class="text-xs text-gray-500 italic">Tone: Confident, evidence-backed, never defensive. Sage archetype -- wise counsel, not aggressive sales.</p>
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="mb-10">
+        <h2 class="font-slab text-lg font-bold text-sga-blue-dark mb-4 flex items-center">
+          <span class="w-8 h-8 rounded bg-sga-blue text-white text-xs font-bold flex items-center justify-center mr-3">TOC</span>
+          Table of Contents
+        </h2>
+        <div class="grid grid-cols-2 gap-x-8 gap-y-1 text-xs">
+          <div>
+            <p class="font-bold text-sga-blue mb-1 mt-2">1. Partnership Process</p>
+            <p class="text-gray-500 pl-3">Q1: How does the partnership process work?</p>
+            <p class="text-gray-500 pl-3">Q2: How long does it take?</p>
+            <p class="text-gray-500 pl-3">Q3: Do I need a broker?</p>
+            <p class="text-gray-500 pl-3">Q4: What size practice do you look for?</p>
+            <p class="font-bold text-sga-blue mb-1 mt-3">2. Financial Structure</p>
+            <p class="text-gray-500 pl-3">Q5: What valuation can I expect?</p>
+            <p class="text-gray-500 pl-3">Q6: How does the equity model work?</p>
+            <p class="text-gray-500 pl-3">Q7: What is my ongoing compensation?</p>
+            <p class="text-gray-500 pl-3">Q8: What happens at exit?</p>
+            <p class="text-gray-500 pl-3">Q9: What management fees?</p>
+            <p class="font-bold text-sga-blue mb-1 mt-3">3. Clinical Autonomy</p>
+            <p class="text-gray-500 pl-3">Q10: Will SGA tell me how to practice?</p>
+            <p class="text-gray-500 pl-3">Q11: What happens to my practice name?</p>
+            <p class="text-gray-500 pl-3">Q12: Do you push overtreatment?</p>
+          </div>
+          <div>
+            <p class="font-bold text-sga-blue mb-1 mt-2">4. Operations & Transition</p>
+            <p class="text-gray-500 pl-3">Q13: What operational support?</p>
+            <p class="text-gray-500 pl-3">Q14: What happens to my staff?</p>
+            <p class="text-gray-500 pl-3">Q15: How do the first 90 days work?</p>
+            <p class="font-bold text-sga-blue mb-1 mt-3">5. Education & Clinical Growth</p>
+            <p class="text-gray-500 pl-3">Q16: What is the Pikos Institute?</p>
+            <p class="text-gray-500 pl-3">Q17: What is the 4Front Symposium?</p>
+            <p class="text-gray-500 pl-3">Q18: What is the Individual Growth Engine?</p>
+            <p class="font-bold text-sga-blue mb-1 mt-3">6. Growth & Scale</p>
+            <p class="text-gray-500 pl-3">Q19-Q21: Practice growth, expansion, technology</p>
+            <p class="font-bold text-sga-blue mb-1 mt-3">7. Exit, Timeline & Concerns</p>
+            <p class="text-gray-500 pl-3">Q22-Q27: Exit options, retirement, DSO concerns, timing</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORY 1 -->
+      <div x-data="{ openItems: [true, true, true, true] }" class="mb-8">
+        <div class="flex items-center mb-4">
+          <span class="w-8 h-8 rounded bg-sga-blue text-white text-xs font-bold flex items-center justify-center mr-3">01</span>
+          <h2 class="font-slab text-xl font-bold text-sga-blue-dark">Partnership Process</h2>
+        </div>
+
+        <!-- Q1 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[0] = !openItems[0]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q1</span>
+              <span class="font-medium text-sm text-sga-text">How does the partnership process work? What are the steps?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[0] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[0]" x-collapse>
+            <div class="bg-sga-orange/10 border-l-4 border-sga-orange rounded-r px-3 py-2 mb-3">
+              <p class="text-xs text-sga-orange font-medium">Underlying concern: "Is this going to be a drawn-out, opaque process where I lose control?"</p>
+            </div>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>SGA follows a transparent, three-step partnership path designed to feel like a conversation between peers, not a corporate acquisition process. No brokers, no high-pressure timelines, no hidden steps.</p>
+              <p><strong class="text-sga-text">Step 1: Explore.</strong> A confidential, mutual discovery call. We learn about your practice, goals, and concerns. You learn about SGA's model, culture, and track record. Many of the best partnerships start with a 45-minute call where the dentist was "just curious."</p>
+              <p><strong class="text-sga-text">Step 2: Partner.</strong> Structured evaluation with transparent valuation methodology. We structure a JV equity partnership tailored to your profile -- community, group, or specialty. You retain an ownership stake in the combined SGA platform.</p>
+              <p><strong class="text-sga-text">Step 3: Thrive.</strong> SGA transitions back-office operations within 60-90 days. You are paired with a clinical mentor. You attend the 4Front Symposium. Your name stays. Your team stays. You get back to dentistry.</p>
+            </div>
+            <div class="bg-sga-gray rounded px-3 py-2 mt-3 ml-8">
+              <p class="text-xs text-gray-600"><strong class="text-sga-blue">Closer:</strong> Typical timeline from first conversation to close is 3-6 months. We do not rush partners. You will have a direct point of contact throughout.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[1] = !openItems[1]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q2</span>
+              <span class="font-medium text-sm text-sga-text">How long does the partnership process take from start to finish?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[1] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[1]" x-collapse>
+            <div class="bg-sga-orange/10 border-l-4 border-sga-orange rounded-r px-3 py-2 mb-3">
+              <p class="text-xs text-sga-orange font-medium">Underlying concern: "I do not want this hanging over my head for a year."</p>
+            </div>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>Typical timeline: <strong class="text-sga-text">3-6 months</strong>. Smaller community practices can move faster; larger multi-location groups may take longer.</p>
+              <p>Explore (2-4 weeks), Partner (6-12 weeks of evaluation and deal structuring), Thrive (30-60 days of post-close transition).</p>
+            </div>
+            <div class="bg-sga-gray rounded px-3 py-2 mt-3 ml-8">
+              <p class="text-xs text-gray-600"><strong class="text-sga-blue">Closer:</strong> We have closed in as few as 90 days. The pace is set by you, not us. Weekly updates during active evaluation.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[2] = !openItems[2]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q3</span>
+              <span class="font-medium text-sm text-sga-text">Do I need a broker or advisor to work with SGA?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[2] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[2]" x-collapse>
+            <div class="bg-sga-orange/10 border-l-4 border-sga-orange rounded-r px-3 py-2 mb-3">
+              <p class="text-xs text-sga-orange font-medium">Underlying concern: "I do not trust the buyer to give me a fair deal without my own representation."</p>
+            </div>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>No broker needed -- we encourage direct conversations. That said, we work seamlessly with transition advisors, dental CPAs, and healthcare attorneys. Many partners had advisors review the terms, and we welcome the scrutiny.</p>
+              <p>What we caution against: paying a broker 8-12% of your deal value simply to make introductions. The Thurston Group has learned that partnerships structured for mutual benefit outperform exploitative deals. Over $4 billion in partner returns proves it.</p>
+            </div>
+            <div class="bg-sga-gray rounded px-3 py-2 mt-3 ml-8">
+              <p class="text-xs text-gray-600"><strong class="text-sga-blue">Closer:</strong> If you have an advisor, bring them. If you do not, we can recommend independent dental transition specialists.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[3] = !openItems[3]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q4</span>
+              <span class="font-medium text-sm text-sga-text">What size practice is SGA looking for?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[3] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[3]" x-collapse>
+            <div class="bg-sga-orange/10 border-l-4 border-sga-orange rounded-r px-3 py-2 mb-3">
+              <p class="text-xs text-sga-orange font-medium">Underlying concern: "Am I too small? Am I not profitable enough?"</p>
+            </div>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>Three tiers: <strong class="text-sga-text">Community</strong> (1-3 doctors, $1M-$3M), <strong class="text-sga-text">Group</strong> (4-10 doctors, $3M-$10M), and <strong class="text-sga-text">Specialty</strong>. Typically $400K+ EBITDA, but quality matters more: strong patient relationships, stable team, healthy reputation.</p>
+            </div>
+            <div class="bg-sga-gray rounded px-3 py-2 mt-3 ml-8">
+              <p class="text-xs text-gray-600"><strong class="text-sga-blue">Closer:</strong> The Explore conversation costs nothing but 45 minutes. Even when the fit is not right today, conversations often lead to partnerships 12-18 months later.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORY 2 -->
+      <div x-data="{ openItems: [true, true, true, true, true] }" class="mb-8 page-break">
+        <div class="flex items-center mb-4">
+          <span class="w-8 h-8 rounded bg-sga-blue text-white text-xs font-bold flex items-center justify-center mr-3">02</span>
+          <h2 class="font-slab text-xl font-bold text-sga-blue-dark">Financial Structure</h2>
+        </div>
+
+        <!-- Q5 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[0] = !openItems[0]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q5</span>
+              <span class="font-medium text-sm text-sga-text">What kind of valuation can I expect?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[0] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[0]" x-collapse>
+            <div class="bg-sga-orange/10 border-l-4 border-sga-orange rounded-r px-3 py-2 mb-3">
+              <p class="text-xs text-sga-orange font-medium">Underlying concern: "Am I going to get lowballed?"</p>
+            </div>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>Transparent, EBITDA-based valuation methodology. Current market: <strong class="text-sga-text">6-9x EBITDA</strong> for mid-market practices, with premiums for larger groups, strategic geography, and high-growth profiles. We evaluate revenue trends, patient mix, payer mix, and strategic fit.</p>
+              <p>We do not play accounting games. Your valuation is based on auditable financials -- we encourage your own CPA to review every number.</p>
+            </div>
+            <div class="bg-sga-gray rounded px-3 py-2 mt-3 ml-8">
+              <p class="text-xs text-gray-600"><strong class="text-sga-blue">Closer:</strong> We walk you through valuation methodology step by step. Nothing is hidden. Our deal terms have survived independent scrutiny from dental CPAs across the country.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[1] = !openItems[1]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q6</span>
+              <span class="font-medium text-sm text-sga-text">How does the equity model work?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[1] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[1]" x-collapse>
+            <div class="bg-sga-orange/10 border-l-4 border-sga-orange rounded-r px-3 py-2 mb-3">
+              <p class="text-xs text-sga-orange font-medium">Underlying concern: "The equity did not turn out to be what they thought" -- #1 financial fear.</p>
+            </div>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>You receive <strong class="text-sga-text">60-70% of valuation in cash at close</strong>. The remaining 30-40% is "rolled" into equity in the combined SGA platform -- you own shares in the entire network, not just your practice.</p>
+              <p>Your equity appreciates as the platform grows. Every new practice, every operational efficiency, every revenue increase across the network increases your stake. This is the "second bite of the apple."</p>
+              <p>The Thurston Group has executed this model across 8 platforms and returned <strong class="text-sga-text">$4B+ to partners</strong>. The equity appreciation story is not theoretical -- it has happened repeatedly.</p>
+            </div>
+            <div class="bg-sga-gray rounded px-3 py-2 mt-3 ml-8">
+              <p class="text-xs text-gray-600"><strong class="text-sga-blue">Closer:</strong> We can connect you with current SGA partners who will tell you exactly how the equity model has performed. Real people. Real numbers.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[2] = !openItems[2]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q7</span>
+              <span class="font-medium text-sm text-sga-text">What is my ongoing compensation after partnership?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[2] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[2]" x-collapse>
+            <div class="bg-sga-orange/10 border-l-4 border-sga-orange rounded-r px-3 py-2 mb-3">
+              <p class="text-xs text-sga-orange font-medium">Underlying concern: "Will I take a pay cut to work in my own office?"</p>
+            </div>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>Market-rate base salary plus <strong class="text-sga-text">production bonus (generally 25-30% above baseline)</strong>. Total compensation comparable to or better than solo earnings -- without the overhead risk, staffing burden, and capital expenditures.</p>
+              <p>As a solo owner, "compensation" was whatever was left after expenses. As an SGA partner, clinical income is predictable, equity grows independently, and the 10-15 hours/week of admin burden is handled by professionals.</p>
+            </div>
+            <div class="bg-sga-gray rounded px-3 py-2 mt-3 ml-8">
+              <p class="text-xs text-gray-600"><strong class="text-sga-blue">Closer:</strong> Dr. Hallissey: "I am more engaged with my patients -- QuickBooks no longer calls me to the back office."</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[3] = !openItems[3]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q8</span>
+              <span class="font-medium text-sm text-sga-text">What happens at exit? When does the Thurston Group plan to sell?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[3] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[3]" x-collapse>
+            <div class="bg-sga-orange/10 border-l-4 border-sga-orange rounded-r px-3 py-2 mb-3">
+              <p class="text-xs text-sga-orange font-medium">Underlying concern: "PE will flip us in 3 years."</p>
+            </div>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>The Thurston Group is structurally different from typical PE. Founded in 1988, <strong class="text-sga-text">38 years building healthcare partnerships</strong>. Not a fund with a 5-year exit horizon. Their philosophy is patient capital: build value, compound returns, long-term relationships.</p>
+              <p>When an exit occurs, it benefits partners. <strong class="text-sga-text">$4B+ returned</strong> across all platforms is the proof. SGA partners can speak directly with partners from prior Thurston platforms who have been through exits.</p>
+            </div>
+            <div class="bg-sga-gray rounded px-3 py-2 mt-3 ml-8">
+              <p class="text-xs text-gray-600"><strong class="text-sga-blue">Closer:</strong> We will connect you with Patrick Haynes or Daniel Davis at Thurston. Principals on the phone answering your questions directly. No competitor offers that transparency.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[4] = !openItems[4]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q9</span>
+              <span class="font-medium text-sm text-sga-text">What management fees does SGA charge?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[4] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[4]" x-collapse>
+            <div class="bg-sga-orange/10 border-l-4 border-sga-orange rounded-r px-3 py-2 mb-3">
+              <p class="text-xs text-sga-orange font-medium">Underlying concern: "They are going to take 70% of my collections."</p>
+            </div>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>The management fee covers full operations (billing, payroll, HR, compliance, procurement, marketing, recruiting, technology). Structured as a percentage of revenue, designed to be <strong class="text-sga-text">fully offset by operational savings and revenue growth</strong>.</p>
+              <p>Hiring these functions independently: $297,000-$575,000/year. SGA's fee is a fraction of that through economies of scale across 100+ practices. You are a co-owner, not an employee -- the fee is for services, not a cut of your income.</p>
+            </div>
+            <div class="bg-sga-gray rounded px-3 py-2 mt-3 ml-8">
+              <p class="text-xs text-gray-600"><strong class="text-sga-blue">Closer:</strong> During the Partner phase, we provide a detailed financial model showing projected income, fees, savings, and net impact. Full transparency. No surprises at close.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORY 3 -->
+      <div x-data="{ openItems: [true, true, true] }" class="mb-8">
+        <div class="flex items-center mb-4">
+          <span class="w-8 h-8 rounded bg-sga-blue text-white text-xs font-bold flex items-center justify-center mr-3">03</span>
+          <h2 class="font-slab text-xl font-bold text-sga-blue-dark">Clinical Autonomy</h2>
+        </div>
+
+        <!-- Q10 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[0] = !openItems[0]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q10</span>
+              <span class="font-medium text-sm text-sga-text">Will SGA tell me how to practice?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[0] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[0]" x-collapse>
+            <div class="bg-sga-orange/10 border-l-4 border-sga-orange rounded-r px-3 py-2 mb-3">
+              <p class="text-xs text-sga-orange font-medium">Underlying concern: "Some corporate suit is going to tell me how to practice."</p>
+            </div>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p><strong class="text-sga-text">No. Full stop.</strong> Clinical autonomy is a structural principle, protected by governance and enforced by a Chief Clinical Officer -- Dr. Mitch Ellingson -- a practicing dentist.</p>
+              <p>You choose your materials, your lab, your schedule. No "crown days." No production quotas. No non-dentist managers overriding clinical judgment. SGA provides peer collaboration, mentorship, CE, and technology that expands what you CAN do -- not what you MUST do.</p>
+            </div>
+            <div class="bg-sga-gray rounded px-3 py-2 mt-3 ml-8">
+              <p class="text-xs text-gray-600"><strong class="text-sga-blue">Closer:</strong> Dr. Ellingson: "We are going to ask you to lead more. We are going to amplify your voice." Call any SGA partner and ask: has anyone told you how to practice?</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q11 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[1] = !openItems[1]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q11</span>
+              <span class="font-medium text-sm text-sga-text">What happens to my practice name?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[1] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[1]" x-collapse>
+            <div class="bg-sga-orange/10 border-l-4 border-sga-orange rounded-r px-3 py-2 mb-3">
+              <p class="text-xs text-sga-orange font-medium">Underlying concern: "My patients and staff will freak out."</p>
+            </div>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p><strong class="text-sga-text">Your name stays. Non-negotiable.</strong> Dental Partners of SW Georgia is still Dental Partners of SW Georgia. Periodontal Associates of Memphis is still Periodontal Associates of Memphis. 100% of partner practices retain their name.</p>
+              <p>SGA operates as an invisible back-office partner. Your team stays. Benefits improve (Cigna health, 401(k) through Voya). <strong class="text-sga-text">85% staff retention rate</strong> across the network.</p>
+            </div>
+            <div class="bg-sga-gray rounded px-3 py-2 mt-3 ml-8">
+              <p class="text-xs text-gray-600"><strong class="text-sga-blue">Closer:</strong> Look at our partner practices' websites. Their names. Their branding. If you did not know SGA existed, you would never know. By design.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q12 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[2] = !openItems[2]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q12</span>
+              <span class="font-medium text-sm text-sga-text">I have heard DSOs push overtreatment. How is SGA different?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[2] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[2]" x-collapse>
+            <div class="bg-sga-orange/10 border-l-4 border-sga-orange rounded-r px-3 py-2 mb-3">
+              <p class="text-xs text-sga-orange font-medium">Underlying concern: "The pressure to produce starts impacting the ethics of practice."</p>
+            </div>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>That fear is legitimate because it happens at other organizations. SGA was built as the structural opposite. No production targets by procedure type. No incentivized overtreatment. Our clinical advisory board is made up of partner dentists, not corporate executives.</p>
+              <p>Dr. Ellingson: "I want to protect my profession from becoming like medicine. We want it to be more about the doctors and the patients."</p>
+            </div>
+            <div class="bg-sga-gray rounded px-3 py-2 mt-3 ml-8">
+              <p class="text-xs text-gray-600"><strong class="text-sga-blue">Closer:</strong> 7-8 out of 10 dentists who sell to a DSO end up frustrated. SGA was founded by people who heard that and built a model to produce the opposite outcome.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORY 4 -->
+      <div x-data="{ openItems: [true, true, true] }" class="mb-8 page-break">
+        <div class="flex items-center mb-4">
+          <span class="w-8 h-8 rounded bg-sga-blue text-white text-xs font-bold flex items-center justify-center mr-3">04</span>
+          <h2 class="font-slab text-xl font-bold text-sga-blue-dark">Operations & Transition</h2>
+        </div>
+
+        <!-- Q13 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[0] = !openItems[0]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q13</span>
+              <span class="font-medium text-sm text-sga-text">What operational support does SGA actually provide?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[0] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[0]" x-collapse>
+            <div class="text-sm text-gray-600 leading-relaxed pl-8">
+              <div class="grid grid-cols-2 gap-2 mt-1">
+                <div class="bg-sga-gray rounded p-2"><strong class="text-sga-text text-xs">Revenue Cycle</strong><br><span class="text-xs">Insurance billing, claims, AR follow-up</span></div>
+                <div class="bg-sga-gray rounded p-2"><strong class="text-sga-text text-xs">Payroll & Benefits</strong><br><span class="text-xs">iSolved, Cigna, 401(k) through Voya</span></div>
+                <div class="bg-sga-gray rounded p-2"><strong class="text-sga-text text-xs">Human Resources</strong><br><span class="text-xs">Recruiting, onboarding, compliance</span></div>
+                <div class="bg-sga-gray rounded p-2"><strong class="text-sga-text text-xs">Compliance</strong><br><span class="text-xs">OSHA, HIPAA, state board, credentialing</span></div>
+                <div class="bg-sga-gray rounded p-2"><strong class="text-sga-text text-xs">Procurement</strong><br><span class="text-xs">Group purchasing at volume rates</span></div>
+                <div class="bg-sga-gray rounded p-2"><strong class="text-sga-text text-xs">Marketing</strong><br><span class="text-xs">Digital marketing, patient acquisition</span></div>
+                <div class="bg-sga-gray rounded p-2"><strong class="text-sga-text text-xs">Technology</strong><br><span class="text-xs">CEREC, guided implants, digital workflows</span></div>
+                <div class="bg-sga-gray rounded p-2"><strong class="text-sga-text text-xs">Recruiting</strong><br><span class="text-xs">Associate dentists, hygienists, staff</span></div>
+              </div>
+            </div>
+            <div class="bg-sga-gray rounded px-3 py-2 mt-3 ml-8">
+              <p class="text-xs text-gray-600"><strong class="text-sga-blue">Closer:</strong> Spencer Pierce, VP of People: "After onboarding, there is an abundance of relief. It is like 'Okay, I understand what this means for me now.'"</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q14 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[1] = !openItems[1]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q14</span>
+              <span class="font-medium text-sm text-sga-text">What happens to my staff during the transition?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[1] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[1]" x-collapse>
+            <div class="bg-sga-orange/10 border-l-4 border-sga-orange rounded-r px-3 py-2 mb-3">
+              <p class="text-xs text-sga-orange font-medium">Underlying concern: "Are you going to fire anyone?"</p>
+            </div>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p><strong class="text-sga-text">Your team stays.</strong> 85% staff retention rate across the network. All existing staff retained. Benefits improve: Cigna health, 401(k), PTO, CE stipends. Career development through Practice Management Pathways Program.</p>
+              <p>"You are not losing your role. You are getting a team."</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q15 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[2] = !openItems[2]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q15</span>
+              <span class="font-medium text-sm text-sga-text">How does the transition work in the first 90 days?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[2] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[2]" x-collapse>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p><strong class="text-sga-blue">Days 1-30: Foundation.</strong> Transition coordinator intro. Payroll to iSolved. Benefits enrollment. Financial onboarding. Clinical operations continue uninterrupted.</p>
+              <p><strong class="text-sga-blue">Days 31-60: Integration.</strong> Billing/RCM transitions. Group procurement. Marketing evaluation. Clinical mentor introduction. Peer community connections.</p>
+              <p><strong class="text-sga-blue">Days 61-90: Acceleration.</strong> Full operational support in place. Technology investment planning. First 4Front or partner event. The admin burden is off your plate.</p>
+            </div>
+            <div class="bg-sga-gray rounded px-3 py-2 mt-3 ml-8">
+              <p class="text-xs text-gray-600"><strong class="text-sga-blue">Closer:</strong> Dr. Godat: "SGA supports us and manages things behind the scenes. Our partnership allows us to focus on changing lives."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORY 5 -->
+      <div x-data="{ openItems: [true, true, true] }" class="mb-8">
+        <div class="flex items-center mb-4">
+          <span class="w-8 h-8 rounded bg-sga-blue text-white text-xs font-bold flex items-center justify-center mr-3">05</span>
+          <h2 class="font-slab text-xl font-bold text-sga-blue-dark">Education & Clinical Growth</h2>
+        </div>
+
+        <!-- Q16 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[0] = !openItems[0]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q16</span>
+              <span class="font-medium text-sm text-sga-text">What is the Pikos Institute, and how does it benefit me?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[0] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[0]" x-collapse>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>World-renowned implantology training center founded by Dr. Michael A. Pikos. Hands-on surgical courses that cost <strong class="text-sga-text">$6,500-$12,000 on the open market</strong> -- available to SGA partners as part of partnership. No other DSO has anything comparable.</p>
+            </div>
+            <div class="bg-sga-gray rounded px-3 py-2 mt-3 ml-8">
+              <p class="text-xs text-gray-600"><strong class="text-sga-blue">Closer:</strong> Dr. Cavendish: 20 years in, "complacency." Through SGA's education: all-on-four procedures, 16.5% revenue growth. "It is fun again."</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q17 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[1] = !openItems[1]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q17</span>
+              <span class="font-medium text-sm text-sga-text">What is the 4Front Symposium?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[1] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[1]" x-collapse>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>Annual peer-learning event. No vendor booths, no keynote slides. Partner clinicians collaborate, share innovations, present complex cases. The collaborative energy of dental school -- without the hierarchy or the grading.</p>
+              <p>"Senior clinicians brainstorming together naturally elevated the ideas together -- that is where the goose bumps come from."</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q18 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[2] = !openItems[2]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q18</span>
+              <span class="font-medium text-sm text-sga-text">What is the Individual Growth Engine?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[2] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[2]" x-collapse>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>1:1 clinical mentorship pairing you with an experienced SGA clinician. Driven by your goals, not corporate training. Dr. Cavendish: paired with mentor, observed first all-on-four, new lab relationships, new capabilities. <strong class="text-sga-text">Revenues +16.5%, 100% staff retention, EBITDA beating plan.</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORY 6 -->
+      <div x-data="{ openItems: [true, true, true] }" class="mb-8 page-break">
+        <div class="flex items-center mb-4">
+          <span class="w-8 h-8 rounded bg-sga-blue text-white text-xs font-bold flex items-center justify-center mr-3">06</span>
+          <h2 class="font-slab text-xl font-bold text-sga-blue-dark">Growth & Scale</h2>
+        </div>
+
+        <!-- Q19 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[0] = !openItems[0]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q19</span>
+              <span class="font-medium text-sm text-sga-text">How does SGA help my practice grow?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[0] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[0]" x-collapse>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>Centralized marketing for YOUR brand, recruiting pipelines, group purchasing, technology investment (CEREC, guided implants, digital workflows), and a peer community of 100+ clinicians. Dr. Cavendish's 16.5% growth came from support freeing him to focus on clinical excellence.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q20 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[1] = !openItems[1]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q20</span>
+              <span class="font-medium text-sm text-sga-text">Can I open additional locations through SGA?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[1] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[1]" x-collapse>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>Yes. De novo locations, satellites, facility expansion -- backed by a <strong class="text-sga-text">$350M credit facility</strong>. Three verticals create growth pathways: clinical growth (new procedures), revenue growth (better case acceptance), and career growth (mentorship, leadership, advisory board).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q21 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[2] = !openItems[2]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q21</span>
+              <span class="font-medium text-sm text-sga-text">What technology does SGA invest in?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[2] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[2]" x-collapse>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>CEREC milling, guided implant systems, CBCT scanners, intraoral scanners, digital workflows, practice management software, patient communication platforms. SGA capital, not a loan. Dr. Grant Olson: patented guided implant tech, one of only 300 CEREC Mentors worldwide.</p>
+            </div>
+            <div class="bg-sga-gray rounded px-3 py-2 mt-3 ml-8">
+              <p class="text-xs text-gray-600"><strong class="text-sga-blue">Closer:</strong> Many owners have wanted digital workflows for years but could not justify $150K-$500K. SGA makes that investment without personal financial risk.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORY 7 -->
+      <div x-data="{ openItems: [true, true, true, true, true, true] }" class="mb-8">
+        <div class="flex items-center mb-4">
+          <span class="w-8 h-8 rounded bg-sga-blue text-white text-xs font-bold flex items-center justify-center mr-3">07</span>
+          <h2 class="font-slab text-xl font-bold text-sga-blue-dark">Exit, Timeline & Concerns</h2>
+        </div>
+
+        <!-- Q22 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[0] = !openItems[0]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q22</span>
+              <span class="font-medium text-sm text-sga-text">What if the partnership does not work out? Can I leave?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[0] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[0]" x-collapse>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>Agreements include defined terms. Succession planning infrastructure is in place. The real question: will you want to? Our education, peer community, and equity model are designed to make partnership better than solo ownership.</p>
+            </div>
+            <div class="bg-sga-gray rounded px-3 py-2 mt-3 ml-8">
+              <p class="text-xs text-gray-600"><strong class="text-sga-blue">Closer:</strong> Call our existing partners and ask: "If you could go back, would you do it again?"</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q23 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[1] = !openItems[1]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q23</span>
+              <span class="font-medium text-sm text-sga-text">I am 5-10 years from retirement. Is SGA still a fit?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[1] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[1]" x-collapse>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>Often the <strong class="text-sga-text">best</strong> fit. Immediate financial diversification (60-70% liquidity), predictable clinical income without admin burden, and equity appreciation as retirement asset. Many of Thurston's most successful partners across prior platforms were 50-60 at partnership.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q24 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[2] = !openItems[2]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q24</span>
+              <span class="font-medium text-sm text-sga-text">I have heard horror stories about DSOs. Why should I believe SGA is different?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[2] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[2]" x-collapse>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>You should be skeptical. 7-8 out of 10 dentists who sell to a DSO end up regretful. We do not ask you to believe a claim. We ask you to verify it:</p>
+              <p><strong class="text-sga-text">Call our partners.</strong> Named, reachable people. <strong class="text-sga-text">Examine the structure.</strong> Your name stays, team stays, CCO is a practicing dentist. <strong class="text-sga-text">Look at the track record.</strong> Thurston Group, 38 years, $4B+, 8 platforms.</p>
+            </div>
+            <div class="bg-sga-gray rounded px-3 py-2 mt-3 ml-8">
+              <p class="text-xs text-gray-600"><strong class="text-sga-blue">Closer:</strong> "You have heard the horror stories. So have we. That is exactly why we built something different."</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q25 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[3] = !openItems[3]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q25</span>
+              <span class="font-medium text-sm text-sga-text">What happens if PE legislation passes in my state?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[3] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[3]" x-collapse>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>Most proposed legislation targets egregious PE practices. SGA's model -- clinical autonomy, local brand, dentist-controlled clinical decisions, transparent JV partnership -- aligns with the intent of most regulations. Thurston's legal team is positioned to adapt. Regulatory risk disproportionately threatens the corporate DSOs that SGA was built to be the alternative to.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q26 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[4] = !openItems[4]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q26</span>
+              <span class="font-medium text-sm text-sga-text">Another DSO offered better terms. Why choose SGA?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[4] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[4]" x-collapse>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p>A higher multiple from a DSO that erodes your autonomy, replaces your team, and leaves you with underperforming equity is not a better deal -- it is a more expensive mistake. SGA operates at <strong class="text-sga-text">7-9x EBITDA</strong> with willingness to go higher for strategic fits.</p>
+            </div>
+            <div class="bg-sga-gray rounded px-3 py-2 mt-3 ml-8">
+              <p class="text-xs text-gray-600"><strong class="text-sga-blue">Closer:</strong> Ask the other DSO three things: What is your education platform? Who is your PE sponsor and what have they returned? Can I call 5 of your partners? If they cannot answer all three, the higher multiple is not what it appears.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q27 -->
+        <div class="border border-sga-border rounded-lg mb-3 avoid-break">
+          <button @click="openItems[5] = !openItems[5]" class="w-full flex items-center justify-between p-4 text-left hover:bg-sga-gray transition-colors rounded-lg">
+            <div class="flex items-start gap-3">
+              <span class="bg-sga-lime/30 text-sga-blue-dark font-bold text-xs px-2 py-0.5 rounded mt-0.5 shrink-0">Q27</span>
+              <span class="font-medium text-sm text-sga-text">Why should I partner now instead of waiting?</span>
+            </div>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="openItems[5] ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content px-4 pb-4" x-show="openItems[5]" x-collapse>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2 pl-8">
+              <p><strong class="text-sga-text">Valuation environment:</strong> Multiples at cyclical highs. <strong class="text-sga-text">Technology gap:</strong> Every year you delay, competitors invest. <strong class="text-sga-text">Talent market:</strong> 76% of practices find hygienist recruiting "extremely challenging." <strong class="text-sga-text">Consolidation momentum:</strong> MB2 alone has 800+ practices.</p>
+            </div>
+            <div class="bg-sga-gray rounded px-3 py-2 mt-3 ml-8">
+              <p class="text-xs text-gray-600"><strong class="text-sga-blue">Closer:</strong> Not creating artificial urgency -- describing market reality. The Explore conversation costs nothing but 45 minutes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="border-t border-sga-border pt-6 mt-8 text-center">
+        <img src="../../brand-assets/SGA-logo.png" alt="SGA Dental Partners" class="h-8 mx-auto mb-3">
+        <p class="text-xs text-gray-500 mb-1">sgadental.com/partnership</p>
+        <p class="text-[10px] text-gray-400">Last updated: March 2026 | Confidential -- For BD team and prospect conversations</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGA Dental Partners — Nurture Sequence Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Roboto', sans-serif; background: #F0F2F5; color: #333333; padding: 32px 16px; }
+    .sequence-label { max-width: 640px; margin: 0 auto 24px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #2D6FB7; }
+    .email-wrapper { max-width: 640px; margin: 0 auto 0; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.10); }
+    .email-header { background: linear-gradient(135deg, #2D6FB7 0%, #1a4f8a 100%); padding: 28px 40px 24px; display: flex; align-items: center; gap: 16px; }
+    .logo-lockup { display: flex; align-items: center; gap: 14px; }
+    .logo-box { width: 48px; height: 48px; background: #C4D347; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; color: #1a4f8a; flex-shrink: 0; }
+    .brand-name { color: #ffffff; font-size: 20px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; }
+    .brand-tagline { color: rgba(255,255,255,0.72); font-size: 12px; font-weight: 400; margin-top: 2px; }
+    .meta-bar { background: #F7F9FC; border-bottom: 1px solid #E5E9F0; padding: 10px 40px; font-size: 12px; color: #6B7A8F; display: flex; gap: 24px; flex-wrap: wrap; }
+    .meta-bar span strong { color: #333; }
+    .email-body { padding: 36px 40px; line-height: 1.7; font-size: 15px; color: #333333; }
+    .email-body p { margin-bottom: 16px; }
+    .email-body p:last-child { margin-bottom: 0; }
+    .email-body strong { font-weight: 700; }
+    .merge-tag { display: inline-block; background: #EBF4FF; color: #2D6FB7; border: 1px solid #BDD9F5; border-radius: 4px; padding: 1px 7px; font-size: 13px; font-weight: 500; white-space: nowrap; }
+    .cta-wrap { margin: 28px 0; }
+    .cta-btn { display: inline-block; background: #F36F21; color: #ffffff !important; text-decoration: none; font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: 6px; letter-spacing: 0.01em; }
+    .ps-block { margin-top: 28px; padding: 18px 20px; background: #F7F9FC; border-left: 3px solid #C4D347; border-radius: 0 6px 6px 0; font-size: 14px; color: #555; line-height: 1.65; }
+    .pull-quote { margin: 24px 0; padding: 18px 24px; background: #F7F9FC; border-left: 4px solid #2D6FB7; border-radius: 0 6px 6px 0; font-size: 15px; font-style: italic; color: #444; line-height: 1.65; }
+    .stat-bar { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+    .stat-box { flex: 1 1 130px; background: #EBF4FF; border-radius: 8px; padding: 14px 16px; text-align: center; }
+    .stat-box .num { font-size: 22px; font-weight: 700; color: #2D6FB7; }
+    .stat-box .lbl { font-size: 12px; color: #6B7A8F; margin-top: 4px; }
+    .highlight-block { background: #FFF8F5; border: 1px solid #F9D4BE; border-radius: 8px; padding: 18px 20px; margin: 20px 0; }
+    .highlight-block h4 { font-size: 15px; font-weight: 700; color: #F36F21; margin-bottom: 8px; }
+    .failure-card { background: #FFF8F5; border-left: 4px solid #F36F21; border-radius: 0 6px 6px 0; padding: 16px 20px; margin: 16px 0; }
+    .failure-card h4 { font-size: 14px; font-weight: 700; color: #F36F21; margin-bottom: 8px; }
+    .content-list { padding-left: 0; list-style: none; margin: 16px 0; }
+    .content-list li { padding: 8px 0 8px 24px; position: relative; border-bottom: 1px solid #F0F2F5; font-size: 15px; line-height: 1.6; }
+    .content-list li:last-child { border-bottom: none; }
+    .content-list li::before { content: '→'; position: absolute; left: 0; color: #C4D347; font-weight: 700; }
+    .options-block { background: #F7F9FC; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+    .options-block .option { padding: 14px 0; border-bottom: 1px solid #E5E9F0; font-size: 15px; line-height: 1.6; }
+    .options-block .option:last-child { border-bottom: none; padding-bottom: 0; }
+    .options-block .option strong { color: #2D6FB7; }
+    .email-footer { background: #F7F9FC; border-top: 1px solid #E5E9F0; padding: 24px 40px; font-size: 12px; color: #9AA4B2; line-height: 1.6; }
+    .email-footer a { color: #2D6FB7; text-decoration: none; }
+    .email-footer .footer-links { margin-bottom: 10px; }
+    .email-divider { max-width: 640px; margin: 40px auto; display: flex; align-items: center; gap: 16px; }
+    .email-divider hr { flex: 1; border: none; border-top: 2px solid #E5E9F0; }
+    .email-divider .div-label { background: #2D6FB7; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; padding: 6px 16px; border-radius: 20px; white-space: nowrap; }
+  </style>
+</head>
+<body>
+
+<div class="sequence-label">Nurture Sequence &mdash; 7 Emails Over 28 Days &mdash; Preview Mode</div>
+
+<!-- ═══════════ EMAIL 1 ═══════════ -->
+<div class="email-wrapper">
+  <div class="email-header"><div class="logo-lockup"><div class="logo-box">SGA</div><div><div class="brand-name">SGA Dental Partners</div><div class="brand-tagline">Get Better. Not Just Bought.</div></div></div></div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 1 of 7</span>
+    <span><strong>Send:</strong> Day 0</span>
+    <span><strong>Subject:</strong> 200 dental practices changed hands last quarter. Here is who bought them.</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>A quick market update you will not get from a broker or a trade magazine headline.</p>
+    <p>The dental acquisition market in 2026 is moving faster than most practice owners realize. Here is what the numbers show:</p>
+    <div class="highlight-block">
+      <h4>The buyer landscape is consolidating.</h4>
+      <p>There are over 1,000 IDSOs operating today. But fewer than 100 are considered qualified bidders by industry experts. That means the vast majority of offers dentists receive come from organizations without the capital, infrastructure, or track record to deliver on their promises.</p>
+    </div>
+    <div class="highlight-block">
+      <h4>Multiples are strong — for now.</h4>
+      <p>Mid-market practices (1–3 doctors, $1M–$3M revenue) are trading at 7–9x EBITDA. Group practices with 4+ doctors are commanding 9–12x. These are historically elevated numbers driven by PE fund deployment cycles and competition for quality targets.</p>
+    </div>
+    <div class="highlight-block">
+      <h4>The talent crisis is accelerating the math.</h4>
+      <p>Over 76% of practices find hygienist recruiting "extremely challenging." When a solo practice cannot fill a hygiene chair, revenue drops 15–20%. When a DSO-affiliated practice has a dedicated recruiting team and a benefits package that includes 401(k), Cigna health insurance, and real PTO, the talent flows toward the platform.</p>
+    </div>
+    <p><strong>What this means for you:</strong></p>
+    <p>If you are a practice owner doing $1M+ in revenue, you are a target. The question is not whether you will be approached. The question is whether you will be approached by the right people with the right structure — or by the wrong ones with a glossy pitch deck and a 3-year exit horizon.</p>
+    <p>SGA is backed by the Thurston Group — 38 years, $4B+ returned, 8 dental and healthcare platforms built. We are not a first-time fund experimenting with your career.</p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">Schedule a Confidential Conversation</a></div>
+    <p>Talk soon,<br>[Sender name]</p>
+  </div>
+  <div class="email-footer"><div class="footer-links"><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a> &nbsp;·&nbsp; <a href="#">View in Browser</a></div>SGA Dental Partners &nbsp;·&nbsp; Backed by the Thurston Group &nbsp;·&nbsp; [Address]</div>
+</div>
+
+<div class="email-divider"><hr><div class="div-label">Email 2 of 7</div><hr></div>
+
+<!-- ═══════════ EMAIL 2 ═══════════ -->
+<div class="email-wrapper">
+  <div class="email-header"><div class="logo-lockup"><div class="logo-box">SGA</div><div><div class="brand-name">SGA Dental Partners</div><div class="brand-tagline">Get Better. Not Just Bought.</div></div></div></div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 2 of 7</span>
+    <span><strong>Send:</strong> Day 4</span>
+    <span><strong>Subject:</strong> Why 7 out of 10 dentists regret their DSO sale (and what the other 3 did differently)</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <div class="pull-quote">"Seven or eight out of 10 are pretty bugged or annoyed or frustrated or regretful. It's not what they thought."<br><br>— Dentist Advisors podcast, after speaking with hundreds of dentists who sold to DSOs</div>
+    <p>And it gets worse. One dentist they spoke to had $10 million in cash from the sale. Ten million dollars. And he said:</p>
+    <div class="pull-quote">"I wish I would have never done this."</div>
+    <p>So what goes wrong? After studying the patterns across every available source — Dentaltown, White Coat Investor, Student Doctor Network, Glassdoor reviews, industry podcasts — three structural failures account for most of the regret:</p>
+
+    <div class="failure-card">
+      <h4>Failure 1: Promised support never materialized.</h4>
+      <p>"I didn't get the support I thought. They just like took control or sort of control, but I'm still like running it." The DSO promised to handle billing, HR, compliance. In practice, they charged a management fee and handed the dentist a login to new software.</p>
+    </div>
+    <div class="failure-card">
+      <h4>Failure 2: Equity and financial terms were worse than expected.</h4>
+      <p>"The money, they have a clawback or they had some type of provision that they didn't know about, or the equity did not turn out to be what they thought." The multiple looked good on paper. But the DSO manipulated the math.</p>
+    </div>
+    <div class="failure-card">
+      <h4>Failure 3: Autonomy eroded gradually.</h4>
+      <p>"When you sell, you are no longer the employer — you are the employee." Nobody said "you can't use that lab" on day one. Instead, it was a slow drift. By month 18, the practice owner looked around and realized they were running someone else's practice with their name on the door.</p>
+    </div>
+
+    <p><strong>What the other 3 out of 10 did differently:</strong></p>
+    <p>They chose partners with verifiable track records — not pitch decks. They talked to existing partners directly, not just the business development team. They verified that clinical autonomy was contractual, not just conversational. And they aligned with organizations where the equity model had been tested across multiple platforms and hold periods.</p>
+    <p>That is the model we built at SGA. Not because we are smarter than other DSOs. Because we studied why they fail, and we refused to repeat the pattern.</p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">Schedule a Confidential Conversation</a></div>
+    <p>Talk soon,<br>[Sender name]</p>
+    <div class="ps-block"><strong>P.S.</strong> — This is not an attack on other DSOs. There are good operators in this market. But the data says most are not — and you deserve to know the difference before you sign anything.</div>
+  </div>
+  <div class="email-footer"><div class="footer-links"><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a> &nbsp;·&nbsp; <a href="#">View in Browser</a></div>SGA Dental Partners &nbsp;·&nbsp; Backed by the Thurston Group &nbsp;·&nbsp; [Address]</div>
+</div>
+
+<div class="email-divider"><hr><div class="div-label">Email 3 of 7</div><hr></div>
+
+<!-- ═══════════ EMAIL 3 ═══════════ -->
+<div class="email-wrapper">
+  <div class="email-header"><div class="logo-lockup"><div class="logo-box">SGA</div><div><div class="brand-name">SGA Dental Partners</div><div class="brand-tagline">Get Better. Not Just Bought.</div></div></div></div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 3 of 7</span>
+    <span><strong>Send:</strong> Day 8</span>
+    <span><strong>Subject:</strong> Every DSO says "clinical autonomy." Only one puts it in the contract.</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>Every DSO in America claims clinical autonomy. It has become marketing wallpaper — a phrase so overused that it has lost all meaning.</p>
+    <p>So let me be specific about what SGA means when we say it. And more importantly, let me tell you what it looks like when other organizations do not mean it.</p>
+    <p><strong>What clinical autonomy sounds like at a typical DSO:</strong></p>
+    <div class="pull-quote">"You want to be in control of your materials, your labs, your assistants." — A dentist on Student Doctor Network, describing what they expected.<br><br>"Decisions are being made about what your production is supposed to be by people wearing suits in a boardroom." — What they got instead.</div>
+    <p>The pattern is consistent. Autonomy is promised in the recruitment conversation and eroded after the deal closes. Not through a single dramatic mandate, but through a thousand small changes: new preferred labs, standardized supply lists, scheduling templates that prioritize volume.</p>
+    <p><strong>What clinical autonomy actually means at SGA — written into the partnership agreement:</strong></p>
+    <ul class="content-list">
+      <li><strong>You choose your materials.</strong> Not a corporate supply list. Your materials.</li>
+      <li><strong>You choose your lab.</strong> The lab relationships you have built over years of practice stay intact.</li>
+      <li><strong>You choose your schedule.</strong> SGA does not dictate patient volume or appointment length.</li>
+      <li><strong>You choose your treatment plans.</strong> Clinical decisions are made by clinicians, not by MBAs reviewing your production reports.</li>
+    </ul>
+    <p>Our CCO, Dr. Mitch Ellingson, is a practicing dentist who has personally lived the transition from solo practice to group. He put it bluntly:</p>
+    <div class="pull-quote">"I'm a 'call-out-the-elephant-in-the-room type guy.' And the elephant in the room is that doctors are worried Operations are going to lead them."<br><br>And then the reframe: "When we talk about autonomy, actually, it's the opposite of what you'd expect — the reality is we're going to ask you to lead more. We're going to amplify your voice. Your ideas are going to influence everyone."</div>
+    <p>Clinical autonomy at SGA does not mean you are left alone. It means you are surrounded by peers who challenge you to get better — on your terms, using your judgment, with your name on every treatment plan.</p>
+    <p>That is the difference between isolation disguised as independence and genuine clinical freedom surrounded by infrastructure.</p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">Download the SGA Partnership Overview</a></div>
+    <p>Talk soon,<br>[Sender name]</p>
+    <div class="ps-block"><strong>P.S.</strong> — Ask any DSO this question: "Show me where clinical autonomy is written in the partnership agreement." If they hesitate, you have your answer.</div>
+  </div>
+  <div class="email-footer"><div class="footer-links"><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a> &nbsp;·&nbsp; <a href="#">View in Browser</a></div>SGA Dental Partners &nbsp;·&nbsp; Backed by the Thurston Group &nbsp;·&nbsp; [Address]</div>
+</div>
+
+<div class="email-divider"><hr><div class="div-label">Email 4 of 7</div><hr></div>
+
+<!-- ═══════════ EMAIL 4 ═══════════ -->
+<div class="email-wrapper">
+  <div class="email-header"><div class="logo-lockup"><div class="logo-box">SGA</div><div><div class="brand-name">SGA Dental Partners</div><div class="brand-tagline">Get Better. Not Just Bought.</div></div></div></div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 4 of 7</span>
+    <span><strong>Send:</strong> Day 12</span>
+    <span><strong>Subject:</strong> How the equity model works (the explanation your broker will not give you)</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>There is a number your broker will never show you. It is the difference between what you receive at closing and what your equity could be worth five years later. For some Thurston Group partners, that second number was larger than the first.</p>
+    <p>Most practice owners fixate on the multiple. That is like evaluating a house by the down payment and ignoring the appreciation over 20 years. Let me show you the full picture.</p>
+    <p><strong>The basic structure (simplified):</strong></p>
+    <p>When you partner with SGA, the deal is structured as a joint-venture equity partnership. Here is what that means:</p>
+    <div class="highlight-block">
+      <h4>1. Upfront liquidity.</h4>
+      <p>You receive a meaningful cash payment at close — typically 60–70% of the agreed valuation. This lets you diversify, fund college tuition, pay off debt, or simply sleep better knowing your net worth is no longer concentrated in a single illiquid asset.</p>
+    </div>
+    <div class="highlight-block">
+      <h4>2. Retained equity in the SGA platform.</h4>
+      <p>The remaining 30–40% of the deal value is rolled into ownership shares in the combined SGA entity. This is real equity that appreciates as the platform grows. "In many cases, the retained minority equity position will be far more valuable in the future than if the doctor had kept 100% of the practice."</p>
+    </div>
+    <div class="highlight-block">
+      <h4>3. Ongoing ownership for as long as you are a partner.</h4>
+      <p>You hold equity shares in SGA for as long as you remain clinically active. When SGA succeeds, you succeed. When your peers grow their practices, your equity benefits.</p>
+    </div>
+    <div class="highlight-block">
+      <h4>4. Clinical compensation continues.</h4>
+      <p>You continue to earn a competitive salary plus production bonuses. The partnership does not reduce your income — it supplements it with equity appreciation and removes the costs you were absorbing as an owner.</p>
+    </div>
+    <p><strong>Why this is structurally different from a traditional DSO sale:</strong></p>
+    <p>At Heartland, DCA, and many large DSOs, you sell your practice and become an employee. Your upside ends at closing. At SGA, you become a co-owner of the entire platform. The Thurston Group has returned over $4 billion to partners across 8 platforms using this exact model. That is not a projection. It is a repeated pattern.</p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">Schedule a Confidential Conversation</a></div>
+    <p>Talk soon,<br>[Sender name]</p>
+    <div class="ps-block"><strong>P.S.</strong> — This email is a simplification. The actual deal structure is customized to each practice. But the principles are consistent: upfront liquidity, retained equity, and ongoing ownership. No clawbacks. No hidden provisions.</div>
+  </div>
+  <div class="email-footer"><div class="footer-links"><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a> &nbsp;·&nbsp; <a href="#">View in Browser</a></div>SGA Dental Partners &nbsp;·&nbsp; Backed by the Thurston Group &nbsp;·&nbsp; [Address]</div>
+</div>
+
+<div class="email-divider"><hr><div class="div-label">Email 5 of 7</div><hr></div>
+
+<!-- ═══════════ EMAIL 5 ═══════════ -->
+<div class="email-wrapper">
+  <div class="email-header"><div class="logo-lockup"><div class="logo-box">SGA</div><div><div class="brand-name">SGA Dental Partners</div><div class="brand-tagline">Get Better. Not Just Bought.</div></div></div></div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 5 of 7</span>
+    <span><strong>Send:</strong> Day 16</span>
+    <span><strong>Subject:</strong> The loneliest job in healthcare (and what to do about it)</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>Nobody goes into dentistry expecting to be lonely.</p>
+    <p>But 15 years into practice ownership, loneliness is the problem most dentists feel and fewest name. It does not sound like loneliness — it sounds like "I have no one to bounce this case off of" or "I wish there was someone who understood what I'm dealing with."</p>
+    <p>Dr. Mitch Ellingson, our Chief Clinical Officer, sees this pattern constantly:</p>
+    <div class="pull-quote">"For a lot of docs, they have been on their own for such a long time that they almost forgot how exciting it is to be with peers who are challenging each other to think bigger, to take the next step, to evolve the idea."</div>
+    <p>This is what SGA's collaborative model is built to solve. Not with team-building exercises or corporate webinars, but with a genuine peer community of 100+ clinicians who actively teach each other.</p>
+    <p><strong>What this looks like in practice:</strong></p>
+    <ul class="content-list">
+      <li>Partner calls where a dentist in Michigan shares a technique with a periodontist in Florida, and both leave with something they did not have before</li>
+      <li>The 4Front Symposium, where senior clinicians brainstorm together and "naturally elevated the ideas together. That's where the goose bumps come from."</li>
+      <li>The Individual Growth Engine, where a mentor opens their operatory, shares their lab relationships, and walks you through cases together</li>
+      <li>A clinical advisory board where your voice shapes the direction of the entire organization</li>
+    </ul>
+    <p>One associate at SGA put it simply: "He relearned how to do implants and now he loves his profession, his patients, everything."</p>
+    <p>That did not happen because someone handed him a CE stipend. It happened because someone showed up, sat next to him, and taught him.</p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">Learn About the 4Front Symposium</a></div>
+    <p>Talk soon,<br>[Sender name]</p>
+    <div class="ps-block"><strong>P.S.</strong> — For associates reading this: the peer community is not reserved for partners. SGA connects new associates with a regional cohort from day one. Residency-like camaraderie without residency-like hours.</div>
+  </div>
+  <div class="email-footer"><div class="footer-links"><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a> &nbsp;·&nbsp; <a href="#">View in Browser</a></div>SGA Dental Partners &nbsp;·&nbsp; Backed by the Thurston Group &nbsp;·&nbsp; [Address]</div>
+</div>
+
+<div class="email-divider"><hr><div class="div-label">Email 6 of 7</div><hr></div>
+
+<!-- ═══════════ EMAIL 6 ═══════════ -->
+<div class="email-wrapper">
+  <div class="email-header"><div class="logo-lockup"><div class="logo-box">SGA</div><div><div class="brand-name">SGA Dental Partners</div><div class="brand-tagline">Get Better. Not Just Bought.</div></div></div></div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 6 of 7</span>
+    <span><strong>Send:</strong> Day 20</span>
+    <span><strong>Subject:</strong> CEREC, guided implants, digital workflows — and you are still taking PVS impressions</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>You know the feeling. A younger dentist down the street just posted about their new CEREC unit on Instagram. Your colleague at the study club is doing guided implant surgery with 3D-printed surgical guides. Meanwhile, you are still taking PVS impressions and hoping the lab gets a clean model.</p>
+    <p>It is not that you do not know the technology exists. It is that the capital investment — $100K for a CEREC unit, $150K for a CBCT scanner, $50K for an intraoral scanner, plus the training time to become proficient — adds up to a number that makes your accountant wince and your spouse nervous.</p>
+    <div class="pull-quote">"I feel like I'm falling behind. The young dentists coming out of school know digital workflows I've never touched, and I can't afford the time or the money to retool by myself."</div>
+    <p><strong>Here is what happens when you partner with SGA:</strong></p>
+    <div class="highlight-block">
+      <h4>Capital commitment within 12 months.</h4>
+      <p>SGA dedicates a capital budget for equipment upgrades at every partner practice. This is not a loan against your future earnings. It is platform capital invested in your practice because a better-equipped practice generates better outcomes.</p>
+    </div>
+    <div class="highlight-block">
+      <h4>The right technology, not all technology.</h4>
+      <p>SGA does not force a standardized equipment list. If implantology is your growth area, the capital goes toward guided surgery systems and CBCT. If restorative is your bread and butter, CEREC and digital impressions are the priority.</p>
+    </div>
+    <div class="highlight-block">
+      <h4>Training included.</h4>
+      <p>Equipment without training is expensive furniture. SGA provides training through the Pikos Institute (for implant technology), CEREC mentor programs — Dr. Grant Olson is one of only 300 CEREC Mentors worldwide — and peer-to-peer learning from clinicians who have already adopted the workflows.</p>
+    </div>
+    <div class="stat-bar">
+      <div class="stat-box"><div class="num">$150K</div><div class="lbl">Minimum investment</div></div>
+      <div class="stat-box"><div class="num">$500K</div><div class="lbl">Maximum investment</div></div>
+      <div class="stat-box"><div class="num">12–18</div><div class="lbl">Months to deploy</div></div>
+    </div>
+    <p>That is capital you would have to borrow, save for, or simply forgo if you stayed solo. It is capital SGA deploys because investing in your practice is investing in our platform.</p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">Schedule a Confidential Conversation</a></div>
+    <p>Talk soon,<br>[Sender name]</p>
+    <div class="ps-block"><strong>P.S.</strong> — "Free CEREC training. Can't imagine doing another PVS impression." That is a direct quote from a dentist who joined a DSO with a technology investment program. Imagine never mixing another impression material again.</div>
+  </div>
+  <div class="email-footer"><div class="footer-links"><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a> &nbsp;·&nbsp; <a href="#">View in Browser</a></div>SGA Dental Partners &nbsp;·&nbsp; Backed by the Thurston Group &nbsp;·&nbsp; [Address]</div>
+</div>
+
+<div class="email-divider"><hr><div class="div-label">Email 7 of 7</div><hr></div>
+
+<!-- ═══════════ EMAIL 7 ═══════════ -->
+<div class="email-wrapper">
+  <div class="email-header"><div class="logo-lockup"><div class="logo-box">SGA</div><div><div class="brand-name">SGA Dental Partners</div><div class="brand-tagline">Get Better. Not Just Bought.</div></div></div></div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 7 of 7</span>
+    <span><strong>Send:</strong> Day 28</span>
+    <span><strong>Subject:</strong> Dentistry is the last great profession run by the people who do it. How long does that last?</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>Dr. Mitch Ellingson said something that has stuck with me since the first time I read it:</p>
+    <div class="pull-quote">"Dentistry is the last great profession that is run by the people who do it — the dentists."</div>
+    <p>That statement is true today. The question is whether it will be true in 2031.</p>
+    <p>The consolidation is accelerating. The independent model is under structural pressure. The DSO model is splitting into two tracks: corporate consolidation and collaborative consolidation — the one SGA represents.</p>
+    <p><strong>What this means for you. You have three options:</strong></p>
+
+    <div class="options-block">
+      <div class="option"><strong>Option 1: Stay solo.</strong> Continue to own 100% of a practice that depends entirely on you. Accept the administrative burden, the capital constraints, the recruiting challenges, and the isolation. This is a viable choice — but it requires clear eyes about the cost.</div>
+      <div class="option"><strong>Option 2: Partner with a corporate DSO.</strong> Get the liquidity event. Lose the autonomy. Join the 7 out of 10 who end up frustrated. Hope your specific situation is different.</div>
+      <div class="option"><strong>Option 3: Partner with an organization built to be different.</strong> One backed by 38 years and $4B+ in returns. One where dentists teach dentists, clinical autonomy is contractual, your name stays on the door, and your equity appreciates as the platform grows.</div>
+    </div>
+
+    <p>We built SGA for option three. If that resonates:</p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">Schedule a Confidential Conversation</a></div>
+    <p>If you are not ready yet, I understand. This is a once-in-a-career decision and it deserves time. I will continue to share insights and perspectives as the market evolves.</p>
+    <p>But know this: the market is not waiting. And the dentists who position themselves intentionally — rather than reactively — have the strongest outcomes.</p>
+    <p>Talk soon,<br>[Sender name]</p>
+    <div class="ps-block"><strong>P.S.</strong> — "What I would like to do is live up to our name. I would like to gather a group of very smart, very successful dentists together who like to collaborate so we can change the game a little bit." — Lamonte Jensen, CEO. That is the vision. If it matches yours, the conversation is free.</div>
+  </div>
+  <div class="email-footer"><div class="footer-links"><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a> &nbsp;·&nbsp; <a href="#">View in Browser</a></div>SGA Dental Partners &nbsp;·&nbsp; Backed by the Thurston Group &nbsp;·&nbsp; [Address]</div>
+</div>
+
+</body>
+</html>

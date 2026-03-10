@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partnership Readiness Scorecard | SGA Dental Partners</title>
+    <meta name="description" content="How partnership-ready is your practice? 8 questions. 5 dimensions. A clear picture of your practice's readiness for its next chapter.">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sga: {
+                            blue: '#2D6FB7',
+                            'blue-dark': '#1E5A96',
+                            'blue-deeper': '#164578',
+                            lime: '#C4D347',
+                            'lime-dark': '#A8B73D',
+                            orange: '#F36F21',
+                            'orange-dark': '#D85E1A',
+                            text: '#333333',
+                            'text-light': '#5A5A5A',
+                            'text-muted': '#7A7A7A',
+                            bg: '#FFFFFF',
+                            'bg-warm': '#F9FAFB',
+                            'bg-blue': '#EDF4FB',
+                            'bg-blue-deep': '#D6E7F5',
+                            border: '#E2E8F0',
+                        }
+                    },
+                    fontFamily: {
+                        'slab': ['"Roboto Slab"', 'Georgia', 'serif'],
+                        'sans': ['Roboto', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base typography */
+        body {
+            font-family: 'Roboto', system-ui, sans-serif;
+            color: #333333;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Smooth transitions for Alpine */
+        [x-cloak] { display: none !important; }
+
+        /* Card selection */
+        .answer-card {
+            transition: all 200ms ease-out;
+        }
+        .answer-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px -5px rgba(45, 111, 183, 0.12);
+        }
+        .answer-card.selected {
+            border-color: #2D6FB7;
+            background: #EDF4FB;
+            box-shadow: 0 0 0 2px #2D6FB7;
+        }
+
+        /* Progress bar animation */
+        .progress-fill {
+            transition: width 500ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Score ring animation */
+        .score-ring {
+            transition: stroke-dashoffset 1500ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Staggered reveal for results */
+        .stagger-reveal > * {
+            opacity: 0;
+            transform: translateY(16px);
+            animation: revealUp 500ms ease-out forwards;
+        }
+        .stagger-reveal > *:nth-child(1) { animation-delay: 0ms; }
+        .stagger-reveal > *:nth-child(2) { animation-delay: 120ms; }
+        .stagger-reveal > *:nth-child(3) { animation-delay: 240ms; }
+        .stagger-reveal > *:nth-child(4) { animation-delay: 360ms; }
+        .stagger-reveal > *:nth-child(5) { animation-delay: 480ms; }
+        .stagger-reveal > *:nth-child(6) { animation-delay: 600ms; }
+
+        @keyframes revealUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Category bar animation */
+        .cat-bar-fill {
+            transition: width 800ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Subtle gradient mesh for hero */
+        .hero-mesh {
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(45, 111, 183, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(196, 211, 71, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 60% 80%, rgba(45, 111, 183, 0.05) 0%, transparent 50%);
+        }
+
+        /* Floating nav glass effect */
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Print-friendly results */
+        @media print {
+            .no-print { display: none !important; }
+            .print-break { page-break-before: always; }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #F9FAFB; }
+        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+            .progress-fill, .score-ring, .cat-bar-fill {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white min-h-screen" x-data="quizApp()" x-cloak style="padding-top:40px;">
+<div style="position:fixed;top:0;left:0;right:0;height:40px;background:#1e293b;display:flex;align-items:center;padding:0 16px;z-index:9999;">
+  <a href="../index.html" style="color:#93c5fd;text-decoration:none;font-size:14px;font-family:Inter,sans-serif;">&larr; Back to Showcase</a>
+  <span style="color:#64748b;margin-left:auto;font-size:12px;font-family:Inter,sans-serif;">SGA Dental Partners Marketing Showcase</span>
+</div>
+
+    <!-- ============================================================
+         NAVIGATION BAR
+         ============================================================ -->
+    <nav class="nav-glass fixed top-[40px] left-0 right-0 z-50 border-b border-sga-border/60 no-print">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <img src="../images/SGA-logo.png"
+                 alt="SGA Dental Partners"
+                 class="h-9 sm:h-10 w-auto"
+                 onerror="this.onerror=null; this.parentElement.insertAdjacentHTML('beforeend','<span class=\'font-slab font-bold text-sga-blue text-xl\'>SGA Dental Partners</span>'); this.style.display='none';"
+                 width="200" height="40">
+            <div class="flex items-center gap-3">
+                <span class="hidden sm:inline text-sm text-sga-text-muted">Confidential Assessment</span>
+                <span class="inline-flex items-center gap-1 text-xs font-medium text-sga-blue bg-sga-bg-blue px-2.5 py-1 rounded-full">
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                    Private
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Spacer for fixed nav -->
+    <div class="h-16"></div>
+
+    <!-- ============================================================
+         PROGRESS BAR (visible during quiz and email gate)
+         ============================================================ -->
+    <div x-show="screen === 'quiz' || screen === 'email-gate'"
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 -translate-y-2"
+         x-transition:enter-end="opacity-100 translate-y-0"
+         class="sticky top-16 z-40 bg-white/95 backdrop-blur-sm border-b border-sga-border/40 no-print">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3">
+            <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-medium text-sga-text-muted uppercase tracking-wide" x-text="progressLabel"></span>
+                <span class="text-xs font-semibold text-sga-blue" x-text="progressPercent + '%'"></span>
+            </div>
+            <div class="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+                <div class="progress-fill h-full rounded-full"
+                     :style="'width:' + progressPercent + '%'"
+                     :class="progressPercent >= 95 ? 'bg-gradient-to-r from-sga-blue to-sga-lime' : 'bg-sga-blue'">
+                </div>
+            </div>
+            <div class="flex justify-between mt-2">
+                <template x-for="(cat, idx) in categoryLabels" :key="idx">
+                    <span class="text-[10px] sm:text-xs font-medium transition-colors duration-200"
+                          :class="currentCategoryIdx > idx ? 'text-sga-blue' : currentCategoryIdx === idx ? 'text-sga-text' : 'text-gray-300'"
+                          x-text="cat"></span>
+                </template>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============================================================
+         SCREEN: LANDING / INTRO
+         ============================================================ -->
+    <div x-show="screen === 'landing'" x-transition:leave="transition ease-in duration-200" x-transition:leave-end="opacity-0">
+        <!-- Hero section -->
+        <section class="hero-mesh py-16 sm:py-24 lg:py-32">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+                <div class="inline-flex items-center gap-2 text-sm font-medium text-sga-blue bg-sga-bg-blue px-4 py-1.5 rounded-full mb-6">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    Free Diagnostic Tool
+                </div>
+
+                <h1 class="font-slab font-bold text-3xl sm:text-4xl lg:text-5xl text-sga-text leading-tight tracking-tight mb-6"
+                    style="text-wrap: balance;">
+                    How Partnership-Ready Is Your Practice?
+                    <span class="text-sga-blue">Find Out in Under 4 Minutes.</span>
+                </h1>
+
+                <p class="text-lg sm:text-xl text-sga-text-light max-w-2xl mx-auto mb-10 leading-relaxed">
+                    8 questions. 5 dimensions. A clear picture of your practice's readiness for its
+                    next chapter -- whether that involves a partnership, a growth push, or simply
+                    shoring up your foundation.
+                </p>
+
+                <button @click="startQuiz()"
+                        class="group inline-flex items-center gap-2.5 bg-sga-orange hover:bg-sga-orange-dark text-white font-semibold text-lg px-8 py-4 rounded-xl shadow-lg shadow-sga-orange/20 hover:shadow-xl hover:shadow-sga-orange/30 transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-orange focus-visible:ring-offset-2">
+                    Discover Your Score
+                    <svg class="w-5 h-5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                </button>
+
+                <p class="mt-6 text-sm text-sga-text-muted">
+                    Takes less than 5 minutes. No financial data required. Completely confidential.
+                </p>
+            </div>
+        </section>
+
+        <!-- What you'll learn -->
+        <section class="py-16 bg-sga-bg-warm border-t border-sga-border/40">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <h2 class="font-slab font-bold text-2xl text-sga-text text-center mb-12">
+                    Your results include a personalized score across five dimensions
+                </h2>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-3">
+                    <div class="bg-white rounded-xl p-5 border border-sga-border/60 text-center">
+                        <div class="w-10 h-10 mx-auto mb-3 rounded-lg bg-sga-bg-blue flex items-center justify-center">
+                            <svg class="w-5 h-5 text-sga-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                        </div>
+                        <h3 class="font-semibold text-sm text-sga-text">Practice Performance</h3>
+                        <p class="text-xs text-sga-text-muted mt-1">Revenue, retention, trajectory</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-sga-border/60 text-center">
+                        <div class="w-10 h-10 mx-auto mb-3 rounded-lg bg-sga-bg-blue flex items-center justify-center">
+                            <svg class="w-5 h-5 text-sga-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
+                        <h3 class="font-semibold text-sm text-sga-text">Operational Independence</h3>
+                        <p class="text-xs text-sga-text-muted mt-1">Systems, team, owner dependency</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-sga-border/60 text-center">
+                        <div class="w-10 h-10 mx-auto mb-3 rounded-lg bg-sga-bg-blue flex items-center justify-center">
+                            <svg class="w-5 h-5 text-sga-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        </div>
+                        <h3 class="font-semibold text-sm text-sga-text">Clinical Growth</h3>
+                        <p class="text-xs text-sga-text-muted mt-1">Case mix, CE, technology</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-sga-border/60 text-center">
+                        <div class="w-10 h-10 mx-auto mb-3 rounded-lg bg-sga-bg-blue flex items-center justify-center">
+                            <svg class="w-5 h-5 text-sga-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
+                        <h3 class="font-semibold text-sm text-sga-text">Market Position</h3>
+                        <p class="text-xs text-sga-text-muted mt-1">Competition, referrals, reach</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-sga-border/60 text-center">
+                        <div class="w-10 h-10 mx-auto mb-3 rounded-lg bg-sga-bg-blue flex items-center justify-center">
+                            <svg class="w-5 h-5 text-sga-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                        </div>
+                        <h3 class="font-semibold text-sm text-sga-text">Personal Alignment</h3>
+                        <p class="text-xs text-sga-text-muted mt-1">Energy, vision, readiness</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Credibility -->
+        <section class="py-12 border-t border-sga-border/40">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <p class="text-center text-sm text-sga-text-muted mb-8">
+                    Built on insights from the Thurston Group's dental and healthcare partnership experience
+                </p>
+                <div class="flex flex-wrap justify-center gap-8 sm:gap-12">
+                    <div class="text-center">
+                        <span class="block font-slab font-bold text-2xl text-sga-blue">38</span>
+                        <span class="text-xs text-sga-text-muted">Years of experience</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="block font-slab font-bold text-2xl text-sga-blue">8</span>
+                        <span class="text-xs text-sga-text-muted">Platforms built</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="block font-slab font-bold text-2xl text-sga-blue">$4B+</span>
+                        <span class="text-xs text-sga-text-muted">Returned to partners</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="block font-slab font-bold text-2xl text-sga-blue">60+</span>
+                        <span class="text-xs text-sga-text-muted">Practices assessed</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- ============================================================
+         SCREEN: QUIZ QUESTIONS
+         ============================================================ -->
+    <div x-show="screen === 'quiz'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+
+            <!-- Category label -->
+            <div class="mb-2">
+                <span class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-sga-blue bg-sga-bg-blue px-3 py-1 rounded-full"
+                      x-text="'Category ' + (currentCategoryIdx + 1) + ' of 5: ' + currentCatName">
+                </span>
+            </div>
+
+            <!-- Question counter -->
+            <p class="text-sm text-sga-text-muted mb-6" x-text="'Question ' + (currentQuestionIndex + 1) + ' of ' + questions.length"></p>
+
+            <!-- Question text -->
+            <h2 class="font-slab font-bold text-xl sm:text-2xl text-sga-text leading-snug mb-8"
+                x-text="questions[currentQuestionIndex].text"
+                style="text-wrap: balance;">
+            </h2>
+
+            <!-- Answer cards -->
+            <div class="space-y-3" role="radiogroup" :aria-label="questions[currentQuestionIndex].text">
+                <template x-for="(answer, aIdx) in questions[currentQuestionIndex].answers" :key="currentQuestionIndex + '-' + aIdx">
+                    <button @click="selectAnswer(aIdx)"
+                            @keydown.enter="selectAnswer(aIdx)"
+                            :aria-checked="answers[currentQuestionIndex] === aIdx ? 'true' : 'false'"
+                            role="radio"
+                            class="answer-card w-full text-left px-5 py-4 rounded-xl border-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-blue focus-visible:ring-offset-2"
+                            :class="answers[currentQuestionIndex] === aIdx
+                                ? 'selected border-sga-blue bg-sga-bg-blue'
+                                : 'border-gray-200 bg-white hover:border-sga-blue/40'">
+                        <div class="flex items-start gap-3.5">
+                            <!-- Radio indicator -->
+                            <span class="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors"
+                                  :class="answers[currentQuestionIndex] === aIdx ? 'border-sga-blue bg-sga-blue' : 'border-gray-300'">
+                                <span x-show="answers[currentQuestionIndex] === aIdx"
+                                      class="w-2 h-2 rounded-full bg-white"></span>
+                            </span>
+                            <div>
+                                <span class="text-sm sm:text-base font-medium leading-snug"
+                                      :class="answers[currentQuestionIndex] === aIdx ? 'text-sga-blue-dark' : 'text-sga-text'"
+                                      x-text="answer.label"></span>
+                            </div>
+                        </div>
+                    </button>
+                </template>
+            </div>
+
+            <!-- Navigation buttons -->
+            <div class="flex items-center justify-between mt-10 pt-6 border-t border-sga-border/40">
+                <button @click="prevQuestion()"
+                        x-show="currentQuestionIndex > 0"
+                        class="inline-flex items-center gap-1.5 text-sm font-medium text-sga-text-muted hover:text-sga-text transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-blue focus-visible:ring-offset-2 rounded-lg px-3 py-2">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                    Previous
+                </button>
+                <div x-show="currentQuestionIndex === 0"></div>
+
+                <button @click="nextQuestion()"
+                        :disabled="answers[currentQuestionIndex] === null"
+                        class="inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-blue focus-visible:ring-offset-2"
+                        :class="answers[currentQuestionIndex] !== null
+                            ? 'bg-sga-blue hover:bg-sga-blue-dark text-white shadow-md shadow-sga-blue/20 cursor-pointer'
+                            : 'bg-gray-100 text-gray-400 cursor-not-allowed'"
+                        x-text="currentQuestionIndex === questions.length - 1 ? 'See My Results' : 'Continue'">
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============================================================
+         SCREEN: EMAIL GATE
+         ============================================================ -->
+    <div x-show="screen === 'email-gate'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+            <div class="bg-white rounded-2xl border border-sga-border shadow-xl shadow-gray-100/50 p-6 sm:p-10">
+
+                <!-- Score teaser -->
+                <div class="text-center mb-8">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-sga-bg-blue mb-4">
+                        <svg class="w-8 h-8 text-sga-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h2 class="font-slab font-bold text-2xl sm:text-3xl text-sga-text mb-2">Your score is ready.</h2>
+                    <p class="text-sga-text-light">Enter your details to unlock your full results.</p>
+                </div>
+
+                <!-- What they get -->
+                <div class="bg-sga-bg-warm rounded-xl p-5 mb-8">
+                    <p class="text-sm font-semibold text-sga-text mb-3">Your personalized report includes:</p>
+                    <ul class="space-y-2.5">
+                        <li class="flex items-start gap-2.5 text-sm text-sga-text-light">
+                            <svg class="w-4 h-4 text-sga-lime-dark flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            Partnership Readiness Score with category-by-category breakdown
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-sga-text-light">
+                            <svg class="w-4 h-4 text-sga-lime-dark flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            Specific recommendations for your weakest category
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-sga-text-light">
+                            <svg class="w-4 h-4 text-sga-lime-dark flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            Benchmarks from 60+ dental practices nationwide
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-sga-text-light">
+                            <svg class="w-4 h-4 text-sga-lime-dark flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            Tier-matched resource library and action plan
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Form -->
+                <form @submit.prevent="submitEmail()" class="space-y-4">
+                    <div>
+                        <label for="gate-name" class="block text-sm font-medium text-sga-text mb-1.5">First name</label>
+                        <input id="gate-name" type="text" x-model="userName" required autocomplete="given-name"
+                               class="w-full px-4 py-3 rounded-lg border border-gray-300 text-sga-text placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sga-blue focus:border-sga-blue transition"
+                               placeholder="Your first name">
+                    </div>
+                    <div>
+                        <label for="gate-email" class="block text-sm font-medium text-sga-text mb-1.5">Email address</label>
+                        <input id="gate-email" type="email" x-model="userEmail" required autocomplete="email"
+                               class="w-full px-4 py-3 rounded-lg border border-gray-300 text-sga-text placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sga-blue focus:border-sga-blue transition"
+                               placeholder="you@practice.com">
+                    </div>
+                    <div>
+                        <label for="gate-state" class="block text-sm font-medium text-sga-text mb-1.5">Practice state</label>
+                        <select id="gate-state" x-model="userState" required
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 text-sga-text focus:outline-none focus:ring-2 focus:ring-sga-blue focus:border-sga-blue transition cursor-pointer appearance-none bg-no-repeat"
+                                style="background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 12 12%22%3E%3Cpath fill=%22%236b7280%22 d=%22M3 5l3 3 3-3z%22/%3E%3C/svg%3E'); background-size: 20px; background-position: right 12px center;">
+                            <option value="">Select your state</option>
+                            <template x-for="s in usStates" :key="s"><option :value="s" x-text="s"></option></template>
+                        </select>
+                    </div>
+
+                    <button type="submit"
+                            :disabled="!userName || !userEmail || !userState"
+                            class="w-full font-semibold text-base py-3.5 rounded-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-orange focus-visible:ring-offset-2"
+                            :class="userName && userEmail && userState
+                                ? 'bg-sga-orange hover:bg-sga-orange-dark text-white shadow-lg shadow-sga-orange/20 cursor-pointer'
+                                : 'bg-gray-100 text-gray-400 cursor-not-allowed'">
+                        Get My Score
+                    </button>
+                </form>
+
+                <p class="text-xs text-center text-sga-text-muted mt-5">
+                    Your information is confidential. We do not share data and you can unsubscribe at any time.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============================================================
+         SCREEN: RESULTS
+         ============================================================ -->
+    <div x-show="screen === 'results'" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
+
+        <!-- Results hero -->
+        <section class="py-12 sm:py-16 bg-gradient-to-b from-sga-bg-blue/60 to-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 stagger-reveal">
+
+                <!-- Tier badge + headline -->
+                <div class="text-center mb-10">
+                    <span class="inline-flex items-center text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full mb-5"
+                          :class="tierBadgeClasses" x-text="tierLabel"></span>
+                    <h1 class="font-slab font-bold text-2xl sm:text-3xl lg:text-4xl text-sga-text leading-tight mb-3"
+                        x-text="tierHeadline" style="text-wrap: balance;"></h1>
+                </div>
+
+                <!-- Score ring -->
+                <div class="flex justify-center mb-10">
+                    <div class="relative w-44 h-44 sm:w-52 sm:h-52">
+                        <svg class="w-full h-full -rotate-90" viewBox="0 0 120 120">
+                            <circle cx="60" cy="60" r="52" fill="none" stroke="#E2E8F0" stroke-width="8"/>
+                            <circle cx="60" cy="60" r="52" fill="none"
+                                    :stroke="tierColor"
+                                    stroke-width="8"
+                                    stroke-linecap="round"
+                                    class="score-ring"
+                                    :stroke-dasharray="ringCircumference"
+                                    :stroke-dashoffset="ringOffset"/>
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <span class="font-slab font-bold text-4xl sm:text-5xl" :style="'color:' + tierColor" x-text="totalScore"></span>
+                            <span class="text-sm text-sga-text-muted font-medium">out of 40</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category breakdown bars -->
+                <div class="bg-white rounded-2xl border border-sga-border p-6 sm:p-8 shadow-sm">
+                    <h3 class="font-slab font-semibold text-lg text-sga-text mb-6">Category Breakdown</h3>
+                    <div class="space-y-5">
+                        <template x-for="(cat, cIdx) in computedCategories" :key="cIdx">
+                            <div>
+                                <div class="flex items-center justify-between mb-1.5">
+                                    <span class="text-sm font-medium text-sga-text" x-text="cat.name"></span>
+                                    <span class="text-sm font-bold" :style="'color:' + tierColor"
+                                          x-text="cat.score + ' / ' + cat.max"></span>
+                                </div>
+                                <div class="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
+                                    <div class="cat-bar-fill h-full rounded-full"
+                                         :style="'width:' + cat.pct + '%; background-color:' + tierColor">
+                                    </div>
+                                </div>
+                                <p class="text-xs text-sga-text-muted mt-1" x-text="cat.interp"></p>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personalized analysis -->
+        <section class="py-12 sm:py-16">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6">
+                <h2 class="font-slab font-bold text-xl sm:text-2xl text-sga-text mb-8">What Your Score Means</h2>
+                <div class="space-y-5 text-sga-text-light leading-relaxed">
+                    <template x-for="(para, pIdx) in analysisParas" :key="pIdx">
+                        <p x-text="para"></p>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommendations -->
+        <section class="py-12 sm:py-16 bg-sga-bg-warm border-t border-sga-border/40">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6">
+                <h2 class="font-slab font-bold text-xl sm:text-2xl text-sga-text mb-8">Your Personalized Recommendations</h2>
+                <div class="space-y-4">
+                    <template x-for="(rec, rIdx) in recs" :key="rIdx">
+                        <div class="bg-white rounded-xl border border-sga-border p-5 sm:p-6">
+                            <div class="flex items-start gap-3.5">
+                                <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold"
+                                      :style="'background-color:' + tierColor"
+                                      x-text="rIdx + 1"></span>
+                                <div>
+                                    <h3 class="font-semibold text-sga-text text-sm sm:text-base mb-1.5" x-text="rec.title"></h3>
+                                    <p class="text-sm text-sga-text-light leading-relaxed" x-text="rec.body"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA section -->
+        <section class="py-12 sm:py-16 border-t border-sga-border/40">
+            <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+                <h2 class="font-slab font-bold text-xl sm:text-2xl text-sga-text mb-4" x-text="ctaHeadline"></h2>
+                <p class="text-sga-text-light mb-8 leading-relaxed" x-text="ctaBody"></p>
+                <a :href="ctaMailto"
+                   class="group inline-flex items-center gap-2.5 bg-sga-orange hover:bg-sga-orange-dark text-white font-semibold text-base px-8 py-4 rounded-xl shadow-lg shadow-sga-orange/20 hover:shadow-xl hover:shadow-sga-orange/30 transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-orange focus-visible:ring-offset-2"
+                   x-text="ctaBtn">
+                </a>
+
+                <!-- Share -->
+                <div class="mt-10 pt-8 border-t border-sga-border/40 no-print">
+                    <p class="text-sm text-sga-text-muted mb-3">Know someone who should take this assessment?</p>
+                    <button @click="copyShareLink()"
+                            class="inline-flex items-center gap-2 text-sm font-medium text-sga-blue hover:text-sga-blue-dark transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-blue focus-visible:ring-offset-2 rounded-lg px-3 py-2">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+                        <span x-text="shareBtnLabel">Share this assessment</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-8 border-t border-sga-border/40 no-print">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+                <p class="text-xs text-sga-text-muted">
+                    &copy; <span x-text="new Date().getFullYear()"></span> SGA Dental Partners. All rights reserved.
+                    <span class="mx-2">|</span>
+                    <a href="mailto:partners@sgadental.com" class="text-sga-blue hover:underline cursor-pointer">partners@sgadental.com</a>
+                    <span class="mx-2">|</span>
+                    43 Ford Way, Richmond Hill, GA 31324
+                </p>
+            </div>
+        </footer>
+    </div>
+
+
+    <!-- ============================================================
+         ALPINE.JS APPLICATION LOGIC
+         ============================================================ -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+    function quizApp() {
+        return {
+            // ── State ──────────────────────────────────────
+            screen: 'landing',
+            currentQuestionIndex: 0,
+            answers: [],
+            userName: '',
+            userEmail: '',
+            userState: '',
+            shareBtnLabel: 'Share this assessment',
+
+            usStates: [
+                'Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut',
+                'Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa',
+                'Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan',
+                'Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada',
+                'New Hampshire','New Jersey','New Mexico','New York','North Carolina',
+                'North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island',
+                'South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont',
+                'Virginia','Washington','West Virginia','Wisconsin','Wyoming'
+            ],
+
+            categoryLabels: ['Performance', 'Operations', 'Clinical', 'Market', 'Alignment'],
+
+            // ── 8-Question Bank (CRO-optimized) ───────────
+            // Original Q1, Q3, Q4, Q6, Q8, Q10, Q13, Q15
+            questions: [
+                {
+                    category: 'Practice Performance',
+                    catIdx: 0,
+                    text: 'Over the past three years, how would you describe your practice\'s revenue trend?',
+                    answers: [
+                        { label: 'Declining or flat for three or more years', score: 1 },
+                        { label: 'Fluctuates year to year with no clear trend', score: 2 },
+                        { label: 'Grown modestly (1-5% annually)', score: 3 },
+                        { label: 'Grown steadily (6-12% annually)', score: 4 },
+                        { label: 'Grown aggressively (13%+) through new services, locations, or capacity', score: 5 }
+                    ]
+                },
+                {
+                    category: 'Practice Performance',
+                    catIdx: 0,
+                    text: 'What percentage of your active patients return for their recommended recall appointments?',
+                    answers: [
+                        { label: 'Below 60% -- we lose more patients than we keep each year', score: 1 },
+                        { label: '60-70% -- retention is a known challenge we have not solved', score: 2 },
+                        { label: '70-80% -- decent but we know we could do better', score: 3 },
+                        { label: '80-90% -- patients stay and we actively track retention', score: 4 },
+                        { label: 'Above 90% -- loyal patients, strong referrals, recall system dialed in', score: 5 }
+                    ]
+                },
+                {
+                    category: 'Operational Independence',
+                    catIdx: 1,
+                    text: 'If you took a two-week vacation tomorrow with no phone or email access, what would happen to your practice?',
+                    answers: [
+                        { label: 'It would essentially stop. No one else can do what I do.', score: 1 },
+                        { label: 'Major problems would surface within days. Critical decisions would stall.', score: 2 },
+                        { label: 'Most things would run, but a few key functions still depend on me.', score: 3 },
+                        { label: 'It would run smoothly. My team handles day-to-day operations independently.', score: 4 },
+                        { label: 'My team runs the practice better than I do. A month off would be no issue.', score: 5 }
+                    ]
+                },
+                {
+                    category: 'Operational Independence',
+                    catIdx: 1,
+                    text: 'How documented and systematized are your practice\'s core operations?',
+                    answers: [
+                        { label: 'Almost nothing is documented. Processes live in people\'s heads.', score: 1 },
+                        { label: 'A few things are written down, but most knowledge is informal.', score: 2 },
+                        { label: 'Documented procedures for most workflows, but not always followed or updated.', score: 3 },
+                        { label: 'Well-documented, regularly updated -- new staff onboard using our systems manual.', score: 4 },
+                        { label: 'Every core process documented, measured, and continuously improved.', score: 5 }
+                    ]
+                },
+                {
+                    category: 'Clinical Growth Trajectory',
+                    catIdx: 2,
+                    text: 'How has the complexity and value of the cases you perform changed over the past five years?',
+                    answers: [
+                        { label: 'Mostly the same procedures. My case mix has not changed.', score: 1 },
+                        { label: 'Added one or two new services, but they are a small fraction of revenue.', score: 2 },
+                        { label: 'Meaningfully expanded clinical scope -- new procedures are 15-30% of revenue.', score: 3 },
+                        { label: 'Broad range including procedures most general dentists refer out.', score: 4 },
+                        { label: 'Known for complex, high-value cases. Patients and referring doctors seek us out.', score: 5 }
+                    ]
+                },
+                {
+                    category: 'Market Positioning',
+                    catIdx: 3,
+                    text: 'How well do you understand the competitive dynamics in your local market?',
+                    answers: [
+                        { label: 'I do not pay much attention to other practices. I focus on my own patients.', score: 1 },
+                        { label: 'General sense of who competitors are, but no systematic analysis.', score: 2 },
+                        { label: 'Know competitors, understand strengths, and have a sense of market demographics.', score: 3 },
+                        { label: 'Studied the market in detail -- DSO presence, referral dynamics, growth corridors.', score: 4 },
+                        { label: 'Actively monitor market data, track competitor moves, and adjust strategy accordingly.', score: 5 }
+                    ]
+                },
+                {
+                    category: 'Personal Alignment',
+                    catIdx: 4,
+                    text: 'When you think about going to work on a Monday morning, how do you feel?',
+                    answers: [
+                        { label: 'Dread. I am counting the years until I can stop.', score: 1 },
+                        { label: 'Tired. I still care, but the business side has drained the joy from clinical work.', score: 2 },
+                        { label: 'Neutral. Some days good, some hard. Neither excited nor dreading it.', score: 3 },
+                        { label: 'Mostly positive. I enjoy clinical work even though admin is a drag.', score: 4 },
+                        { label: 'Energized. I love what I do, my team, and where we are headed.', score: 5 }
+                    ]
+                },
+                {
+                    category: 'Personal Alignment',
+                    catIdx: 4,
+                    text: 'When you imagine the ideal outcome for your practice five years from now, which resonates most?',
+                    answers: [
+                        { label: 'I want someone to take over so I can retire with dignity and my patients are cared for.', score: 1 },
+                        { label: 'I want to keep practicing dentistry, but with someone else handling the business side.', score: 2 },
+                        { label: 'I want to grow with a partner who brings capital, infrastructure, and a peer network.', score: 3 },
+                        { label: 'I want to build something larger -- multiple locations, expanded services, or a leadership role.', score: 4 },
+                        { label: 'I want to shape the future of the profession and mentor the next generation.', score: 5 }
+                    ]
+                }
+            ],
+
+            // Category definitions for scoring
+            catDefs: [
+                { name: 'Practice Performance', qs: [0, 1], max: 10 },
+                { name: 'Operational Independence', qs: [2, 3], max: 10 },
+                { name: 'Clinical Growth Trajectory', qs: [4], max: 5 },
+                { name: 'Market Positioning', qs: [5], max: 5 },
+                { name: 'Personal Alignment', qs: [6, 7], max: 10 }
+            ],
+
+            // ── Computed Properties ────────────────────────
+            get currentCategoryIdx() {
+                return this.questions[this.currentQuestionIndex].catIdx;
+            },
+            get currentCatName() {
+                return this.questions[this.currentQuestionIndex].category;
+            },
+            get progressPercent() {
+                if (this.screen === 'email-gate') return 95;
+                var answered = 0;
+                for (var i = 0; i < this.answers.length; i++) {
+                    if (this.answers[i] !== null) answered++;
+                }
+                return Math.round((answered / this.questions.length) * 90);
+            },
+            get progressLabel() {
+                if (this.screen === 'email-gate') return 'Almost there';
+                return this.questions[this.currentQuestionIndex].category;
+            },
+            get totalScore() {
+                var sum = 0;
+                for (var i = 0; i < this.questions.length; i++) {
+                    var aIdx = this.answers[i];
+                    if (aIdx !== null && aIdx !== undefined) {
+                        sum += this.questions[i].answers[aIdx].score;
+                    }
+                }
+                return sum;
+            },
+            get tier() {
+                var s = this.totalScore;
+                if (s <= 15) return 1;       // Foundation Builder: 8-15
+                if (s <= 24) return 2;       // Growth Ready: 16-24
+                if (s <= 32) return 3;       // Partnership Primed: 25-32
+                return 4;                    // Strategic Acquirer: 33-40
+            },
+            get tierLabel() {
+                var labels = ['', 'Foundation Builder', 'Growth Ready', 'Partnership Primed', 'Strategic Acquirer'];
+                return labels[this.tier];
+            },
+            get tierBadgeClasses() {
+                var cls = ['', 'bg-amber-100 text-amber-800', 'bg-blue-100 text-blue-800', 'bg-emerald-100 text-emerald-800', 'bg-purple-100 text-purple-800'];
+                return cls[this.tier];
+            },
+            get tierColor() {
+                var colors = ['', '#D97706', '#2D6FB7', '#059669', '#7C3AED'];
+                return colors[this.tier];
+            },
+            get tierHeadline() {
+                var h = [
+                    '',
+                    'Your Foundation Is Being Built -- And That Is Exactly Where the Smartest Decisions Start.',
+                    'Your Practice Has Momentum -- The Question Is What Happens Next.',
+                    'Your Practice Is Ready for Its Next Chapter. The Question Is Who Writes It With You.',
+                    'You Have Already Built What Most Dentists Dream Of. Let Us Talk About What Comes Next.'
+                ];
+                return h[this.tier];
+            },
+            get ringCircumference() {
+                return 2 * Math.PI * 52;
+            },
+            get ringOffset() {
+                var pct = this.totalScore / 40;
+                return this.ringCircumference - (this.ringCircumference * pct);
+            },
+
+            get computedCategories() {
+                var self = this;
+                return this.catDefs.map(function(cat) {
+                    var score = 0;
+                    for (var i = 0; i < cat.qs.length; i++) {
+                        var aIdx = self.answers[cat.qs[i]];
+                        if (aIdx !== null && aIdx !== undefined) {
+                            score += self.questions[cat.qs[i]].answers[aIdx].score;
+                        }
+                    }
+                    var pct = Math.round((score / cat.max) * 100);
+                    var ratio = score / cat.max;
+                    var interp = '';
+                    if (ratio <= 0.3) interp = 'Significant opportunity for improvement. This is your highest-leverage area.';
+                    else if (ratio <= 0.5) interp = 'Below benchmarks for high-performing practices. Focused attention here would yield strong returns.';
+                    else if (ratio <= 0.7) interp = 'Solid foundation. Typical of well-established practices with room to optimize.';
+                    else if (ratio <= 0.85) interp = 'Above average. You have invested meaningfully in this area and it shows.';
+                    else interp = 'Exceptional. You are performing at or near the top of the practices we assess.';
+                    return { name: cat.name, score: score, max: cat.max, pct: pct, interp: interp };
+                });
+            },
+
+            get weakestCat() {
+                var minRatio = Infinity, minName = '';
+                var cats = this.computedCategories;
+                for (var i = 0; i < cats.length; i++) {
+                    var r = cats[i].score / cats[i].max;
+                    if (r < minRatio) { minRatio = r; minName = cats[i].name; }
+                }
+                return minName;
+            },
+
+            get strongestCat() {
+                var maxRatio = -1, maxName = '';
+                var cats = this.computedCategories;
+                for (var i = 0; i < cats.length; i++) {
+                    var r = cats[i].score / cats[i].max;
+                    if (r > maxRatio) { maxRatio = r; maxName = cats[i].name; }
+                }
+                return maxName;
+            },
+
+            get analysisParas() {
+                var t = this.tier;
+                var sc = this.totalScore;
+                var wk = this.weakestCat;
+
+                if (t === 1) return [
+                    'You scored ' + sc + ' out of 40, which places you in our Foundation Builder category. The fact that you took this assessment puts you ahead of the vast majority of practice owners who never pause to evaluate where they stand. Self-awareness is the first step toward any meaningful change.',
+                    'Your results suggest your practice is in an earlier stage of development across several key dimensions. That is not a judgment -- it is a starting point. Many of the most successful dental practices in the country went through a foundation-building phase where the owner recognized that clinical excellence alone was not enough to build a sustainable, transferable business.',
+                    'Your lowest-scoring category was ' + wk + '. This is where the highest-leverage improvement lives -- because addressing your weakest link has a compounding effect on everything else. A Foundation Builder score does not mean your practice is failing. It means your practice has untapped potential currently limited by structural constraints -- systems, capital, bandwidth, or strategic clarity.',
+                    'Addressing these constraints is the path to transformation, whether you pursue it independently or with a partner.'
+                ];
+                if (t === 2) return [
+                    'You scored ' + sc + ' out of 40, placing you in our Growth Ready category. This is where we see the majority of strong, established practices -- and it is a meaningful position. You have built something real. Your practice generates revenue, serves patients, employs a team, and has survived the thousand small crises that eliminate weaker practices.',
+                    'But your scores also reveal something you probably already feel: you have built a good practice that is working hard to become a great one, and the distance between good and great is not clinical skill -- it is infrastructure.',
+                    'Your lowest-scoring category was ' + wk + '. The gap between Growth Ready and the next tier is not a clinical gap. It is an infrastructure gap -- operational support, capital, technology, and a peer community that challenges you to think bigger. Some owners close that gap by hiring a COO, an office manager, and a consultant -- at a cost of $200K-$400K annually with no guaranteed results. Others close it by finding the right partner.',
+                    'Here is the insight that separates Growth Ready practices from those that stagnate: the distance between where you are and where you want to be is not a skills gap. You have the clinical skills. You need operational support, capital for technology investment, and freedom from the administrative burden that is consuming 30-40% of your available energy.'
+                ];
+                if (t === 3) return [
+                    'You scored ' + sc + ' out of 40, placing you in our Partnership Primed category. This score reflects something you probably already know: you have built a practice that is not just surviving -- it is thriving in ways most dental practices never achieve. Your revenue is strong, your clinical capabilities are advancing, and your market position is defensible.',
+                    'You are not taking this assessment because your practice is struggling. You are taking it because you sense that what you have built could become something significantly larger -- and that getting there alone is either impossible or not worth the personal cost.',
+                    'Even in your strong overall score, ' + wk + ' lagged slightly behind the others. That is your highest-leverage improvement area. A Partnership Primed score means your practice is exactly the kind of practice that benefits most from the right partnership. Not because you need saving -- you do not. Because you have already done the hard work of building something valuable, and the right partner amplifies that value in ways you cannot achieve alone.',
+                    'Capital for technology investment. Operational support that eliminates the administrative burden. A peer community of 100+ clinicians. Access to the Pikos Institute and a clinical mentorship network built by dentists for dentists. And equity in a platform backed by the Thurston Group\'s 38-year, $4B+ track record.'
+                ];
+                return [
+                    'You scored ' + sc + ' out of 40, which places you in our Strategic Acquirer category -- the highest tier in this assessment. Scoring at this level is uncommon. It indicates a practice with strong financial performance, genuine operational independence, advancing clinical capability, defensible market positioning, and clear personal vision.',
+                    'You are not evaluating partnership because something is broken. You are evaluating it because you think in terms of compounding value, platform economics, and strategic leverage.',
+                    'Your financial discipline is exactly what makes your practice strategically valuable. Acquirers pay premiums for practices with predictable, growing cash flows and operators who understand their own economics. You are not a practice that needs to be fixed post-acquisition. You are a practice that generates returns from day one.',
+                    'Here is what a Strategic Acquirer score means in practical terms: you are not a standard acquisition target. You are a potential co-builder. The practices that score at this level have the financial performance, operational maturity, and strategic vision to contribute to a platform\'s growth -- not just benefit from it. That changes the conversation entirely.'
+                ];
+            },
+
+            get recs() {
+                var t = this.tier;
+                if (t === 1) return [
+                    { title: 'Reduce owner dependency', body: 'Document your three most critical operational processes this month. If your office manager left tomorrow, could someone else follow a written playbook? Even basic documentation dramatically reduces fragility.' },
+                    { title: 'Get financial clarity', body: 'If you do not know your EBITDA within $50K, schedule time with your accountant this quarter. Track three numbers monthly: collections, overhead percentage, and patient retention rate.' },
+                    { title: 'Invest in one clinical growth area', body: 'Choose a single service line you want to develop and commit to one advanced CE course in the next six months. Pick one, go deep, and let it reignite the clinical curiosity that brought you to dentistry.' },
+                    { title: 'Build one referral relationship', body: 'Identify one specialist or GP whose patients overlap with yours and invite them to lunch. A single strong referral relationship can generate 3-5 new patients per month -- that is 36-60 patients per year with zero advertising cost.' },
+                    { title: 'Explore the Practice Transition Playbook', body: 'We have assembled a resource library for practices at the Foundation Builder stage, covering financial benchmarking to succession planning fundamentals. These resources are yours regardless of whether you ever consider a partnership.' }
+                ];
+                if (t === 2) return [
+                    { title: 'Identify your operational bottleneck', body: 'Review your Operational Independence answers. Which specific function depends most on you -- billing, scheduling, HR, staff management? That is your highest-leverage problem to solve.' },
+                    { title: 'Quantify the administrative cost', body: 'Track how many hours per week you spend on non-clinical tasks for the next 30 days. Most practice owners underestimate by 40-60%. The real number is typically 15-25 hours per week.' },
+                    { title: 'Talk to a peer who has made a change', body: 'Have an honest conversation with someone at a similar career stage who explored partnership. Not a sales pitch -- a real peer conversation. We can connect you with a partner clinician who was exactly where you are.' },
+                    { title: 'Explore partnership economics vs. solo', body: 'Our Partnership Economics Comparison walks you through the real costs of independence versus the economics of platform partnership. The numbers often surprise owners who have never done the side-by-side analysis.' },
+                    { title: 'Invest in your weakest category', body: 'Whichever of the five categories scored lowest, that is where the highest-leverage improvement lives. We have category-specific resource guides for each dimension.' }
+                ];
+                if (t === 3) return [
+                    { title: 'Have the conversation you have been putting off', body: 'A confidential, no-obligation conversation with someone who has done this before. What does the equity model look like? What changes and what stays the same? We can arrange that with a current SGA partner in your specialty.' },
+                    { title: 'Bring your financial advisor into the loop', body: 'We have published a guide -- "Three Questions Your Financial Advisor Should Ask About Any DSO Deal" -- to help your advisor evaluate any partnership on the terms that matter.' },
+                    { title: 'Address your lowest-scoring category', body: 'Even in a strong overall score, one category lagged. That is your highest-leverage area. Do not let the weakest category become the ceiling on everything else.' },
+                    { title: 'Evaluate the opportunity cost of waiting', body: 'Practice valuations are strong in the current market cycle, but conditions are cyclical. Every year you delay is a year you carry the full administrative burden, financial risk, and emotional weight of solo ownership.' },
+                    { title: 'Meet the community', body: 'Consider attending the 4Front Symposium as a guest. No NDA. No pitch. Just two days with 100+ clinicians practicing at the highest level. You will know within an hour whether this is your kind of community.' }
+                ];
+                return [
+                    { title: 'Schedule a conversation with SGA executive leadership', body: 'At your score level, we want to connect you directly with senior leadership for a strategic conversation about what partnership looks like at the executive level. This is not a discovery call.' },
+                    { title: 'Explore the equity model in detail', body: 'We will provide a detailed equity model overview -- how the JV structure works, how platform equity appreciates, and the Thurston Group\'s historical outcomes across 8 platforms. Bring your financial advisor, attorney, and CPA.' },
+                    { title: 'Talk to existing partners at your level', body: 'We will connect you with 2-3 current SGA partners who brought in practices of comparable size and complexity. These are direct introductions to peers you can contact at any time.' },
+                    { title: 'Visit a partner practice', body: 'We will arrange a confidential visit to an SGA-affiliated practice so you can see the operational support, technology investment, and cultural preservation first-hand. Walk through the office. Talk to the staff.' },
+                    { title: 'Think about what you want to build', body: 'Before any conversation about deal terms, we want to understand your vision. Where do you want to take your clinical career? SGA is not a finished product -- it is a platform being built by the partners who join it.' }
+                ];
+            },
+
+            get ctaHeadline() {
+                var h = ['', 'Ready to strengthen your foundation?', 'Ready to explore what comes next?', 'Ready for a confidential conversation?', 'Ready for a strategic conversation?'];
+                return h[this.tier];
+            },
+            get ctaBody() {
+                var b = [
+                    '',
+                    'No sales call. No pressure. Just the tools to strengthen your foundation at your own pace. If you want to talk through what your scores mean, reach us at partners@sgadental.com.',
+                    'This is not a sales call. It is a peer conversation with a current SGA partner who scored in your range. Ask them anything.',
+                    'Thirty minutes. No NDAs. No commitments. Your scorecard results inform the conversation so it starts where you are -- not with a generic pitch.',
+                    'This is a direct line to SGA senior leadership. A strategic conversation about fit, vision, and platform economics -- tailored to your practice profile.'
+                ];
+                return b[this.tier];
+            },
+            get ctaBtn() {
+                var btns = ['', 'Download Practice-Building Resources', 'Book a Peer Conversation', 'Schedule a Discovery Conversation', 'Request an Executive Conversation'];
+                return btns[this.tier];
+            },
+            get ctaMailto() {
+                var subj = 'Partnership Readiness Scorecard - ' + this.tierLabel + ' (' + this.totalScore + '/40)';
+                var body = 'Hi SGA team,\n\nI just completed the Partnership Readiness Scorecard and scored ' + this.totalScore + '/40 (' + this.tierLabel + '). I would like to learn more.\n\nName: ' + (this.userName || '') + '\nState: ' + (this.userState || '') + '\n\nBest,\n' + (this.userName || '');
+                return 'mailto:partners@sgadental.com?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
+            },
+
+            // ── Methods ────────────────────────────────────
+            init() {
+                this.answers = [];
+                for (var i = 0; i < this.questions.length; i++) {
+                    this.answers.push(null);
+                }
+            },
+
+            startQuiz() {
+                this.screen = 'quiz';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            },
+
+            selectAnswer(answerIndex) {
+                // Use splice for Alpine reactivity
+                this.answers.splice(this.currentQuestionIndex, 1, answerIndex);
+
+                // Auto-advance after brief delay (not on last question)
+                if (this.currentQuestionIndex < this.questions.length - 1) {
+                    var self = this;
+                    setTimeout(function() { self.nextQuestion(); }, 380);
+                }
+            },
+
+            nextQuestion() {
+                if (this.answers[this.currentQuestionIndex] === null) return;
+                if (this.currentQuestionIndex === this.questions.length - 1) {
+                    this.screen = 'email-gate';
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+                this.currentQuestionIndex++;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            },
+
+            prevQuestion() {
+                if (this.currentQuestionIndex > 0) {
+                    this.currentQuestionIndex--;
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            },
+
+            submitEmail() {
+                if (!this.userName || !this.userEmail || !this.userState) return;
+
+                // Build lead data payload (logged to console; in production POST to webhook)
+                var leadData = {
+                    name: this.userName,
+                    email: this.userEmail,
+                    state: this.userState,
+                    totalScore: this.totalScore,
+                    tier: this.tierLabel,
+                    categoryScores: [],
+                    questionAnswers: [],
+                    weakestCategory: this.weakestCat,
+                    strongestCategory: this.strongestCat,
+                    timestamp: new Date().toISOString(),
+                    source: (new URLSearchParams(window.location.search)).get('utm_source') || 'direct'
+                };
+
+                var cats = this.computedCategories;
+                for (var c = 0; c < cats.length; c++) {
+                    leadData.categoryScores.push({ name: cats[c].name, score: cats[c].score, max: cats[c].max });
+                }
+                for (var q = 0; q < this.questions.length; q++) {
+                    var aIdx = this.answers[q];
+                    leadData.questionAnswers.push({
+                        question: this.questions[q].text,
+                        answer: aIdx !== null ? this.questions[q].answers[aIdx].label : null,
+                        score: aIdx !== null ? this.questions[q].answers[aIdx].score : 0
+                    });
+                }
+
+                console.log('LEAD CAPTURED:', JSON.stringify(leadData, null, 2));
+
+                this.screen = 'results';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            },
+
+            copyShareLink() {
+                var url = window.location.origin + window.location.pathname;
+                var self = this;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(url).then(function() {
+                        self.shareBtnLabel = 'Link copied!';
+                        setTimeout(function() { self.shareBtnLabel = 'Share this assessment'; }, 2500);
+                    });
+                } else {
+                    var ta = document.createElement('textarea');
+                    ta.value = url;
+                    ta.style.position = 'fixed';
+                    ta.style.left = '-9999px';
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(ta);
+                    self.shareBtnLabel = 'Link copied!';
+                    setTimeout(function() { self.shareBtnLabel = 'Share this assessment'; }, 2500);
+                }
+            }
+        };
+    }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Implants - Same-Day Teeth | 3,390+ Reviews | Free Virtual Consultation</title>
+    <meta name="description" content="Same-day dental implants from a Pikos Institute-trained team. 3,390+ five-star reviews. Transparent pricing from $199/month. Free virtual consultation. New teeth, new life.">
+    <meta property="og:title" content="Same-Day Dental Implants | 3,390+ Five-Star Reviews">
+    <meta property="og:description" content="Dental implants from a Pikos Institute-trained team. Transparent pricing. Free virtual consultation. Patients travel from across the country for this care.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/assets/og-patient.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teal: {
+                            50: '#edfaf8', 100: '#d0f2ed', 200: '#a3e5dc', 300: '#6dd4c6',
+                            400: '#3bbfad', 500: '#1B998B', 600: '#178070', 700: '#136658',
+                            800: '#0f4d42', 900: '#0b342d',
+                        },
+                        navy: {
+                            50: '#eaeaf0', 100: '#c5c6d2', 200: '#9c9eb3', 300: '#737694',
+                            400: '#53567d', 500: '#2D3047', 600: '#272940', 700: '#1f2135',
+                            800: '#181a2a', 900: '#10111d',
+                        },
+                        gold: {
+                            50: '#fdf6e3', 100: '#faeab8', 200: '#f7dc8a', 300: '#f3cd5c',
+                            400: '#eebb38', 500: '#E8AA14', 600: '#c99210', 700: '#a87a0d',
+                            800: '#87620a', 900: '#5c4307',
+                        },
+                        warm: {
+                            50: '#faf9f7',
+                            100: '#f5f3ef',
+                        }
+                    },
+                    fontFamily: {
+                        'display': ['"Roboto Slab"', 'serif'],
+                        'body': ['Roboto', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Roboto', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Roboto Slab', serif; }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .stagger > * {
+                opacity: 0;
+                transform: translateY(20px);
+                animation: fadeUp 0.6s ease-out forwards;
+            }
+            .stagger > *:nth-child(1) { animation-delay: 0ms; }
+            .stagger > *:nth-child(2) { animation-delay: 120ms; }
+            .stagger > *:nth-child(3) { animation-delay: 240ms; }
+            .stagger > *:nth-child(4) { animation-delay: 360ms; }
+            @keyframes fadeUp {
+                to { opacity: 1; transform: translateY(0); }
+            }
+        }
+
+        .card-lift {
+            transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+        }
+        .card-lift:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px -8px rgba(45, 48, 71, 0.12);
+        }
+
+        .accordion-body {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 300ms ease-out;
+        }
+        .accordion-body.open {
+            grid-template-rows: 1fr;
+        }
+        .accordion-body > div {
+            overflow: hidden;
+        }
+
+        .noise-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        /* Star rating */
+        .stars { color: #E8AA14; letter-spacing: 2px; }
+    </style>
+</head>
+<body class="bg-warm-50 text-navy-700 font-body antialiased">
+
+    <!-- NAVIGATION -->
+    <nav x-data="{ open: false, scrolled: false }"
+         x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 40 })"
+         :class="scrolled ? 'bg-white/90 shadow-md backdrop-blur-lg' : 'bg-transparent'"
+         class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <a href="index.html" class="flex items-center gap-3 cursor-pointer" aria-label="SGA Dental Partners Home">
+                    <img src="../../brand-assets/SGA-logo.png" alt="SGA Dental Partners" class="h-10 sm:h-12 w-auto">
+                </a>
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="#transformations" class="text-sm font-medium text-navy-600 hover:text-teal-500 transition-colors cursor-pointer">Stories</a>
+                    <a href="#services" class="text-sm font-medium text-navy-600 hover:text-teal-500 transition-colors cursor-pointer">Services</a>
+                    <a href="#pricing" class="text-sm font-medium text-navy-600 hover:text-teal-500 transition-colors cursor-pointer">Pricing</a>
+                    <a href="#faq" class="text-sm font-medium text-navy-600 hover:text-teal-500 transition-colors cursor-pointer">FAQ</a>
+                    <a href="tel:+10000000000" class="text-sm font-medium text-navy-600 hover:text-teal-500 transition-colors cursor-pointer">
+                        <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        Call Us
+                    </a>
+                    <a href="#book" class="inline-flex items-center px-5 py-2.5 bg-teal-500 text-white text-sm font-bold rounded-lg hover:bg-teal-600 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2">
+                        Free Consultation
+                    </a>
+                </div>
+                <button @click="open = !open" class="lg:hidden p-2 rounded-md text-navy-600 hover:text-teal-500 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500" aria-label="Toggle menu">
+                    <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    <svg x-show="open" x-cloak class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div x-show="open" x-cloak x-transition class="lg:hidden pb-4 border-t border-gray-100 mt-2">
+                <div class="flex flex-col gap-1 pt-3">
+                    <a href="#transformations" @click="open = false" class="px-3 py-2.5 text-sm font-medium text-navy-600 hover:bg-teal-50 rounded-lg cursor-pointer">Stories</a>
+                    <a href="#services" @click="open = false" class="px-3 py-2.5 text-sm font-medium text-navy-600 hover:bg-teal-50 rounded-lg cursor-pointer">Services</a>
+                    <a href="#pricing" @click="open = false" class="px-3 py-2.5 text-sm font-medium text-navy-600 hover:bg-teal-50 rounded-lg cursor-pointer">Pricing</a>
+                    <a href="#faq" @click="open = false" class="px-3 py-2.5 text-sm font-medium text-navy-600 hover:bg-teal-50 rounded-lg cursor-pointer">FAQ</a>
+                    <a href="tel:+10000000000" @click="open = false" class="px-3 py-2.5 text-sm font-medium text-teal-600 hover:bg-teal-50 rounded-lg cursor-pointer">Call Now</a>
+                    <a href="#book" @click="open = false" class="mt-2 mx-3 text-center px-5 py-2.5 bg-teal-500 text-white text-sm font-bold rounded-lg cursor-pointer">Free Consultation</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+        <!-- Warm gradient background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-warm-50 via-teal-50/30 to-warm-100"></div>
+        <!-- Subtle decorative orbs -->
+        <div class="absolute top-20 right-10 w-[500px] h-[500px] bg-teal-200/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 left-0 w-[400px] h-[400px] bg-gold-200/15 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-40">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div class="stagger">
+                    <!-- Trust badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm border border-gray-100 mb-6">
+                        <span class="stars text-base" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                        <span class="text-sm text-navy-500 font-medium">3,390+ Five-Star Reviews</span>
+                    </div>
+
+                    <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-[3.2rem] font-bold text-navy-800 leading-[1.15] tracking-tight" style="text-wrap: balance;">
+                        If You Have to Think About Your Teeth, Those Moments Are Not There
+                    </h1>
+                    <p class="mt-6 text-lg text-navy-500 leading-relaxed max-w-xl">
+                        Dr. Grant Olson and the team at Innovative Dental have helped 3,390+ patients get back to eating, smiling, and living -- many with new teeth in a single visit. Your transformation starts with a free virtual consultation.
+                    </p>
+                    <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                        <a href="#book" class="inline-flex items-center justify-center px-7 py-4 bg-teal-500 text-white font-bold text-lg rounded-lg hover:bg-teal-600 transition-colors cursor-pointer shadow-lg shadow-teal-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2">
+                            Book Your Free Consultation
+                            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                        <a href="tel:+10000000000" class="inline-flex items-center justify-center px-7 py-4 border-2 border-navy-200 text-navy-600 font-bold rounded-lg hover:border-teal-400 hover:text-teal-600 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500">
+                            <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            Call to Speak Now
+                        </a>
+                    </div>
+                    <p class="mt-4 text-sm text-navy-400">Same-day procedures available. Financing from $199/month. Pikos Institute-trained team.</p>
+                </div>
+
+                <!-- Hero image placeholder -->
+                <div class="hidden lg:flex items-center justify-center">
+                    <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-teal-100 to-warm-100 border border-gray-200 shadow-xl">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center px-8">
+                                <svg class="w-16 h-16 mx-auto mb-4 text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <p class="text-teal-500/70 text-sm font-medium">Hero Image: Patient Transformation Before/After</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF BAR -->
+    <section class="bg-white border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-center">
+                <div class="flex items-center gap-2">
+                    <span class="stars text-sm" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    <span class="text-sm font-medium text-navy-600">3,390+ Reviews</span>
+                </div>
+                <span class="hidden sm:inline text-gray-300">|</span>
+                <span class="text-sm text-navy-500">138,000 YouTube Subscribers</span>
+                <span class="hidden sm:inline text-gray-300">|</span>
+                <span class="text-sm text-navy-500">23M+ Views</span>
+                <span class="hidden sm:inline text-gray-300">|</span>
+                <span class="text-sm text-navy-500">Pikos Institute-Trained</span>
+                <span class="hidden sm:inline text-gray-300">|</span>
+                <span class="text-sm font-medium text-teal-600">Same-Day Procedures</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section class="bg-warm-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-700 leading-tight" style="text-wrap: balance;">
+                    You Have Been Putting Everyone Else First. It Is Time to Choose Yourself.
+                </h2>
+                <div class="mt-8 space-y-5 text-lg text-navy-500 leading-relaxed">
+                    <p>You stopped eating the foods you love. Corn on the cob, apples, steak -- forget it. You live on soft foods and the constant frustration of dentures that slip, food that gets trapped, and sore spots that never quite heal.</p>
+                    <p>You cover your mouth when you laugh. You skip photos with your grandkids. You turned down the invitation to your church choir because you were afraid your dentures would slip when you sang.</p>
+                    <p>You have spent years putting everyone else first -- your family, your patients, your community. And somewhere along the way, your smile became the thing you sacrificed.</p>
+                </div>
+
+                <div class="mt-10 grid sm:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+                        <svg class="w-8 h-8 text-teal-200 mb-3" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z"/></svg>
+                        <p class="text-navy-600 italic leading-relaxed">"I was in pain and had infection. I was not able to eat my favorite foods and was afraid to smile."</p>
+                        <p class="mt-3 text-sm font-medium text-navy-400">-- Juan, before treatment</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+                        <svg class="w-8 h-8 text-teal-200 mb-3" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z"/></svg>
+                        <p class="text-navy-600 italic leading-relaxed">"Put everybody else first. Took care of other patients. Took care of her family. Sacrificed for everybody else."</p>
+                        <p class="mt-3 text-sm font-medium text-navy-400">-- Dr. Olson, about a patient who was a nurse</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <p class="text-xl font-display font-semibold text-teal-600">You are not alone. And what you are living with does not have to be your story.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTION -->
+    <section id="services" class="bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-700 leading-tight" style="text-wrap: balance;">
+                    New Teeth. New Life. Often in a Single Visit.
+                </h2>
+                <p class="mt-4 text-lg text-navy-400">Dental implants are not just about teeth. They are about getting your life back.</p>
+            </div>
+
+            <div class="max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card-lift p-6 rounded-xl bg-teal-50 border border-teal-100">
+                    <div class="w-12 h-12 rounded-xl bg-teal-500 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3 class="font-display text-lg font-semibold text-navy-700">Same-Day Procedures</h3>
+                    <p class="mt-2 text-sm text-navy-500 leading-relaxed">Walk in with failing teeth or ill-fitting dentures and walk out the same day with a new set of permanent teeth. Implants placed and temporary prosthetics fitted in one visit.</p>
+                </div>
+
+                <div class="card-lift p-6 rounded-xl bg-white border border-gray-200">
+                    <div class="w-12 h-12 rounded-xl bg-navy-700 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                    </div>
+                    <h3 class="font-display text-lg font-semibold text-navy-700">Pikos Institute-Trained</h3>
+                    <p class="mt-2 text-sm text-navy-500 leading-relaxed">Your surgeon trained at the gold standard in implantology education. Advanced techniques and guided surgical technology for precise, predictable outcomes.</p>
+                </div>
+
+                <div class="card-lift p-6 rounded-xl bg-white border border-gray-200">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-navy-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="font-display text-lg font-semibold text-navy-700">Transparent Pricing</h3>
+                    <p class="mt-2 text-sm text-navy-500 leading-relaxed">You will know your total cost upfront. All-inclusive fees covering surgery, prosthetics, follow-up, and aftercare. No hidden charges. No surprise bills.</p>
+                </div>
+
+                <div class="card-lift p-6 rounded-xl bg-white border border-gray-200">
+                    <div class="w-12 h-12 rounded-xl bg-teal-500 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                    </div>
+                    <h3 class="font-display text-lg font-semibold text-navy-700">Financing Available</h3>
+                    <p class="mt-2 text-sm text-navy-500 leading-relaxed">Monthly payments starting from $199-$349. 0% introductory options available. CareCredit, Proceed Finance, and in-house payment plans.</p>
+                </div>
+
+                <div class="card-lift p-6 rounded-xl bg-white border border-gray-200 sm:col-span-2 lg:col-span-1">
+                    <div class="w-12 h-12 rounded-xl bg-teal-500 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    </div>
+                    <h3 class="font-display text-lg font-semibold text-navy-700">Spa-Like Experience</h3>
+                    <p class="mt-2 text-sm text-navy-500 leading-relaxed">This is not a factory. A concierge guides you through a personalized "care itinerary." Your experience is designed around your comfort, not an assembly line.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#book" class="inline-flex items-center px-7 py-3.5 bg-teal-500 text-white font-bold rounded-lg hover:bg-teal-600 transition-colors cursor-pointer shadow-lg shadow-teal-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2">
+                    Book Your Free Virtual Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRANSFORMATION STORIES -->
+    <section id="transformations" class="bg-warm-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-700">
+                    Real Patients. Real Transformations.
+                </h2>
+                <p class="mt-3 text-navy-400 text-lg">Real moments restored.</p>
+            </div>
+
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Scott -->
+                <div class="card-lift bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                    <div class="aspect-[4/3] bg-gradient-to-br from-teal-50 to-gold-50 flex items-center justify-center">
+                        <div class="text-center px-6">
+                            <svg class="w-12 h-12 mx-auto mb-2 text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <p class="text-xs text-teal-400">Before/After: Scott</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display font-semibold text-navy-700">Scott's Story: The First Steak</h3>
+                        <blockquote class="mt-3 text-sm text-navy-500 italic leading-relaxed">"Dr. Olson grilled a nice New York strip steak for me. Nicely seasoned, cooked perfectly like I ordered, medium rare, and it was so juicy and fresh off the grill. It was awesome."</blockquote>
+                        <p class="mt-3 text-xs text-navy-400">A steak is not just a steak when you have not been able to bite into one for a decade.</p>
+                    </div>
+                </div>
+
+                <!-- Juan -->
+                <div class="card-lift bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                    <div class="aspect-[4/3] bg-gradient-to-br from-teal-50 to-gold-50 flex items-center justify-center">
+                        <div class="text-center px-6">
+                            <svg class="w-12 h-12 mx-auto mb-2 text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <p class="text-xs text-teal-400">Before/After: Juan</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display font-semibold text-navy-700">Juan: From Pain to Confidence</h3>
+                        <blockquote class="mt-3 text-sm text-navy-500 italic leading-relaxed">"I love my new teeth because they look and feel totally natural and I can eat whatever I want. They have given me back my confidence!"</blockquote>
+                    </div>
+                </div>
+
+                <!-- Louis -->
+                <div class="card-lift bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                    <div class="aspect-[4/3] bg-gradient-to-br from-teal-50 to-gold-50 flex items-center justify-center">
+                        <div class="text-center px-6">
+                            <svg class="w-12 h-12 mx-auto mb-2 text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <p class="text-xs text-teal-400">Before/After: Louis</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display font-semibold text-navy-700">Louis: One Day, Everything Changed</h3>
+                        <blockquote class="mt-3 text-sm text-navy-500 italic leading-relaxed">"I have a new set of permanent teeth and it all happened in ONE DAY! I can eat whatever I like. No more pain or crooked smile."</blockquote>
+                    </div>
+                </div>
+
+                <!-- Maria -->
+                <div class="card-lift bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                    <div class="p-6">
+                        <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center mb-3">
+                            <span class="text-teal-700 font-display font-bold text-sm">M</span>
+                        </div>
+                        <h3 class="font-display font-semibold text-navy-700">Maria: Confidence Restored</h3>
+                        <blockquote class="mt-3 text-sm text-navy-500 italic leading-relaxed">"For the first time in years, I am not self-conscious about my smile."</blockquote>
+                    </div>
+                </div>
+
+                <!-- Janice -->
+                <div class="card-lift bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                    <div class="p-6">
+                        <div class="w-10 h-10 rounded-full bg-gold-100 flex items-center justify-center mb-3">
+                            <span class="text-gold-700 font-display font-bold text-sm">J</span>
+                        </div>
+                        <h3 class="font-display font-semibold text-navy-700">Janice: Life-Changing at 87</h3>
+                        <blockquote class="mt-3 text-sm text-navy-500 italic leading-relaxed">"It is life changing -- my teeth don't fall out anymore."</blockquote>
+                        <p class="mt-3 text-xs text-teal-600 font-medium">If Janice can do it at 87, you can do it too.</p>
+                    </div>
+                </div>
+
+                <!-- The Nurse -->
+                <div class="card-lift bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                    <div class="p-6">
+                        <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center mb-3">
+                            <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                        </div>
+                        <h3 class="font-display font-semibold text-navy-700">The Nurse Who Finally Chose Herself</h3>
+                        <p class="mt-3 text-sm text-navy-500 leading-relaxed">She spent 20 years caring for everyone else. When she finally sat in Dr. Olson's chair, the transformation was not just dental.</p>
+                        <blockquote class="mt-2 text-sm text-navy-600 italic">"Now she has confidence, better mental health, better way to carry her life."</blockquote>
+                        <p class="mt-1 text-xs text-navy-400">-- Dr. Olson</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#book" class="inline-flex items-center px-7 py-3.5 bg-teal-500 text-white font-bold rounded-lg hover:bg-teal-600 transition-colors cursor-pointer shadow-lg shadow-teal-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2">
+                    Book Your Free Virtual Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DR. OLSON -->
+    <section class="bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+            <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Photo placeholder -->
+                <div class="relative aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br from-navy-100 to-teal-50 border border-gray-200 shadow-lg">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center px-8">
+                            <svg class="w-16 h-16 mx-auto mb-4 text-navy-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                            <p class="text-navy-300 text-sm font-medium">Photo: Dr. Grant Olson</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-teal-500 font-medium text-sm tracking-wide uppercase mb-3">Your Doctor</p>
+                    <h2 class="font-display text-2xl sm:text-3xl font-bold text-navy-700">
+                        Dr. Grant Olson: The Dentist 138,000 People Trust
+                    </h2>
+                    <div class="mt-6 space-y-4 text-navy-500 leading-relaxed">
+                        <p>One of only 300 CEREC Mentors worldwide. He holds a patent on guided implant technology. His YouTube channel has been watched 23 million times. 3,390+ patients have trusted him with their smile.</p>
+                        <p>But what his patients talk about most is not the technology. It is the care.</p>
+                    </div>
+                    <blockquote class="mt-6 p-5 bg-teal-50 rounded-xl border-l-4 border-teal-500">
+                        <p class="text-navy-600 italic leading-relaxed">"Implant Dentistry is about giving people back all of life's moments. If you have to think about your teeth, those moments aren't there. I want to dedicate my life to helping my patients."</p>
+                        <p class="mt-2 text-sm font-medium text-navy-500">-- Dr. Grant Olson</p>
+                    </blockquote>
+                    <p class="mt-6 text-sm text-navy-400">Patients fly from Florida, Texas, and across the country to see Dr. Olson in Springfield, Missouri.</p>
+
+                    <div class="mt-8 grid grid-cols-3 gap-4">
+                        <div class="text-center">
+                            <p class="text-2xl font-display font-bold text-teal-600">3,390+</p>
+                            <p class="text-xs text-navy-400 mt-1">5-Star Reviews</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-2xl font-display font-bold text-teal-600">138K</p>
+                            <p class="text-xs text-navy-400 mt-1">Subscribers</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-2xl font-display font-bold text-teal-600">23M+</p>
+                            <p class="text-xs text-navy-400 mt-1">Views</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="bg-warm-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-700">
+                    Your Path to a New Smile
+                </h2>
+                <p class="mt-3 text-navy-400">Three simple steps.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-full bg-teal-50 border-2 border-teal-500 flex items-center justify-center mx-auto mb-6">
+                        <span class="font-display font-bold text-teal-600 text-2xl">1</span>
+                    </div>
+                    <h3 class="font-display text-lg font-semibold text-navy-700 mb-3">Discover</h3>
+                    <p class="text-sm text-navy-400 leading-relaxed">Start with a free virtual consultation from the comfort of your home. See your options. Understand what is possible. No pressure. No commitment.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-full bg-teal-50 border-2 border-teal-500 flex items-center justify-center mx-auto mb-6">
+                        <span class="font-display font-bold text-teal-600 text-2xl">2</span>
+                    </div>
+                    <h3 class="font-display text-lg font-semibold text-navy-700 mb-3">Design</h3>
+                    <p class="text-sm text-navy-400 leading-relaxed">Your care team creates a personalized treatment plan with transparent, all-inclusive pricing. Explore financing. See a digital preview of your new smile.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-full bg-gold-50 border-2 border-gold-500 flex items-center justify-center mx-auto mb-6">
+                        <span class="font-display font-bold text-gold-600 text-2xl">3</span>
+                    </div>
+                    <h3 class="font-display text-lg font-semibold text-navy-700 mb-3">Transform</h3>
+                    <p class="text-sm text-navy-400 leading-relaxed">In many cases, walk in and walk out the same day with new teeth. Then do what Scott did -- eat a perfectly seasoned, medium-rare New York strip steak.</p>
+                </div>
+            </div>
+
+            <div class="max-w-lg mx-auto mt-10 p-6 bg-white rounded-xl border border-teal-100 text-center shadow-sm">
+                <p class="font-display font-semibold text-navy-700 text-lg">What will your first meal with new teeth be?</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-700">
+                    What Dental Implants Actually Cost
+                </h2>
+                <p class="mt-3 text-navy-400 text-lg">Honest numbers. No hidden fees.</p>
+                <blockquote class="mt-4 text-sm text-navy-500 italic">"I want to be transparent because I think it is difficult for people to find that answer." -- Dr. Olson</blockquote>
+            </div>
+
+            <div class="max-w-4xl mx-auto grid sm:grid-cols-2 gap-6">
+                <!-- Single Implant -->
+                <div class="card-lift bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+                    <h3 class="font-display font-semibold text-navy-700 text-lg">Single Implant</h3>
+                    <p class="text-xs text-navy-400 mt-1">Crown included</p>
+                    <div class="mt-4">
+                        <span class="text-3xl font-display font-bold text-navy-800">$3,500</span>
+                        <span class="text-lg text-navy-400"> - $5,500</span>
+                    </div>
+                    <p class="mt-2 text-sm text-teal-600 font-medium">From $99/month</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <p class="text-xs text-navy-400">All-inclusive: surgery, prosthetics, all follow-up visits, aftercare</p>
+                    </div>
+                </div>
+
+                <!-- Snap-in Denture -->
+                <div class="card-lift bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+                    <h3 class="font-display font-semibold text-navy-700 text-lg">Snap-In Denture</h3>
+                    <p class="text-xs text-navy-400 mt-1">Implant-retained, removable</p>
+                    <div class="mt-4">
+                        <span class="text-3xl font-display font-bold text-navy-800">$14,000</span>
+                        <span class="text-lg text-navy-400"> - $22,000</span>
+                    </div>
+                    <p class="mt-2 text-sm text-teal-600 font-medium">From $249/month</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <p class="text-xs text-navy-400">Significant upgrade from traditional dentures. Clicks into implants for stability.</p>
+                    </div>
+                </div>
+
+                <!-- All-on-4 -->
+                <div class="card-lift bg-teal-50 rounded-2xl border-2 border-teal-500 p-6 shadow-sm relative">
+                    <span class="absolute -top-3 left-6 px-3 py-1 bg-teal-500 text-white text-xs font-bold rounded-full">Most Popular</span>
+                    <h3 class="font-display font-semibold text-navy-700 text-lg">All-on-4</h3>
+                    <p class="text-xs text-navy-400 mt-1">Per arch, permanent fixed teeth</p>
+                    <div class="mt-4">
+                        <span class="text-3xl font-display font-bold text-navy-800">$22,000</span>
+                        <span class="text-lg text-navy-400"> - $30,000</span>
+                    </div>
+                    <p class="mt-2 text-sm text-teal-600 font-medium">From $349/month</p>
+                    <div class="mt-4 pt-4 border-t border-teal-200">
+                        <p class="text-xs text-navy-500">Fixed teeth that function like natural teeth. You brush them normally. They do not come out.</p>
+                    </div>
+                </div>
+
+                <!-- Full-Mouth -->
+                <div class="card-lift bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+                    <h3 class="font-display font-semibold text-navy-700 text-lg">Full-Mouth</h3>
+                    <p class="text-xs text-navy-400 mt-1">Both arches, complete transformation</p>
+                    <div class="mt-4">
+                        <span class="text-3xl font-display font-bold text-navy-800">$40,000</span>
+                        <span class="text-lg text-navy-400"> - $55,000</span>
+                    </div>
+                    <p class="mt-2 text-sm text-teal-600 font-medium">From $599/month</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <p class="text-xs text-navy-400">All-inclusive: surgery, prosthetics, all follow-up visits, aftercare. Lifetime warranty on implant hardware.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financing info -->
+            <div class="max-w-3xl mx-auto mt-12 bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                <h3 class="font-display font-semibold text-navy-700 text-lg mb-4">Financing Options</h3>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <p class="text-sm text-navy-500">0% interest for 12-24 months (CareCredit, Proceed Finance)</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <p class="text-sm text-navy-500">Extended financing at competitive rates</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <p class="text-sm text-navy-500">In-house payment plans for deposits</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <p class="text-sm text-navy-500">Insurance coordination to maximize benefits</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cost of NOT treating -->
+            <div class="max-w-3xl mx-auto mt-8 p-6 bg-gold-50 border-l-4 border-gold-500 rounded-r-xl">
+                <h4 class="font-display font-semibold text-navy-700 mb-2">The Real Cost of Not Treating</h4>
+                <p class="text-sm text-navy-500 leading-relaxed">Every month you wait, bone loss continues. What starts as a standard implant case can become a more complex and expensive procedure. Many patients discover that monthly implant financing costs less than what they are already spending on denture adhesive, replacements, and avoided meals.</p>
+            </div>
+
+            <div class="text-center mt-10">
+                <a href="#book" class="inline-flex items-center px-8 py-4 bg-teal-500 text-white font-bold text-lg rounded-lg hover:bg-teal-600 transition-colors cursor-pointer shadow-lg shadow-teal-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2">
+                    Book Your Free Consultation -- Learn Your Exact Options
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF NUMBERS -->
+    <section class="relative bg-navy-800 noise-bg overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-teal-800/20 to-navy-800"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <h3 class="text-center font-display text-xl font-bold text-white mb-10">3,390+ Patients Trust This Team With Their Smile</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center max-w-3xl mx-auto">
+                <div>
+                    <p class="text-3xl font-display font-bold text-gold-400">3,390+</p>
+                    <p class="text-xs text-gray-400 mt-1">Five-Star Reviews</p>
+                </div>
+                <div>
+                    <p class="text-3xl font-display font-bold text-gold-400">138K</p>
+                    <p class="text-xs text-gray-400 mt-1">YouTube Subscribers</p>
+                </div>
+                <div>
+                    <p class="text-3xl font-display font-bold text-gold-400">23M+</p>
+                    <p class="text-xs text-gray-400 mt-1">Video Views</p>
+                </div>
+                <div>
+                    <p class="text-3xl font-display font-bold text-gold-400">1 of 300</p>
+                    <p class="text-xs text-gray-400 mt-1">CEREC Mentors Worldwide</p>
+                </div>
+            </div>
+
+            <!-- Pull quotes -->
+            <div class="max-w-4xl mx-auto mt-10 grid sm:grid-cols-2 gap-4">
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5">
+                    <p class="text-sm text-gray-300 italic">"I love my new teeth because they look and feel totally natural and I can eat whatever I want."</p>
+                    <p class="mt-2 text-xs text-gray-500">-- Juan</p>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5">
+                    <p class="text-sm text-gray-300 italic">"My confidence went from about a 10 to 100%."</p>
+                    <p class="mt-2 text-xs text-gray-500">-- Implant Patient</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="bg-warm-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-700">
+                    Your Questions, Answered Honestly
+                </h2>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-3" x-data="{ active: null }">
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <button @click="active = active === 1 ? null : 1" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-inset">
+                        <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">How much do dental implants cost?</span>
+                        <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 1 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div :class="active === 1 ? 'open' : ''" class="accordion-body">
+                        <div><div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                            Full-mouth dental implants (both arches) range from $40,000 to $55,000. Single implants start at $3,500. All-on-4 (per arch) ranges from $22,000 to $30,000. All pricing is all-inclusive -- surgery, prosthetics, follow-up, and aftercare. No hidden fees. We provide your exact treatment cost before you commit to anything.
+                        </div></div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <button @click="active = active === 2 ? null : 2" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-inset">
+                        <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">Can I really get new teeth in one day?</span>
+                        <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 2 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div :class="active === 2 ? 'open' : ''" class="accordion-body">
+                        <div><div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                            Yes. In many cases, implants are placed and temporary prosthetics are fitted in a single visit. You walk in with failing teeth or dentures and walk out the same day with fixed teeth that function immediately. Final permanent prosthetics are placed after healing (typically 3-6 months), but you have functional, natural-looking teeth from day one.
+                        </div></div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <button @click="active = active === 3 ? null : 3" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-inset">
+                        <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">I am terrified of the surgery. What should I expect?</span>
+                        <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 3 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div :class="active === 3 ? 'open' : ''" class="accordion-body">
+                        <div><div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                            You are not the first person to feel this way. Sedation options are available to keep you comfortable. Your surgical team is Pikos Institute-trained, which means precise, efficient, predictable procedures. We provide a step-by-step walkthrough before your appointment so there are no surprises. Janice was 87 when she had her implants. She said it was "life changing." You can do this.
+                        </div></div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <button @click="active = active === 4 ? null : 4" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-inset">
+                        <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">I have been told I do not have enough bone. Am I still a candidate?</span>
+                        <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 4 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div :class="active === 4 ? 'open' : ''" class="accordion-body">
+                        <div><div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                            Possibly yes. Our team is trained in advanced techniques including zygomatic implants, which anchor in the cheekbone rather than the jawbone. These techniques were developed for patients who have been told they are "not candidates" by other providers. A free virtual consultation can determine your options.
+                        </div></div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <button @click="active = active === 5 ? null : 5" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-inset">
+                        <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">How do I afford this on a fixed income?</span>
+                        <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 5 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div :class="active === 5 ? 'open' : ''" class="accordion-body">
+                        <div><div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                            We offer multiple financing options: 0% interest for 12-24 months through CareCredit and Proceed Finance (with qualifying credit), extended financing at competitive rates, in-house payment plans, and insurance coordination. Monthly payments can start as low as $199. Many patients tell us the monthly payment is less than what they were spending on denture adhesive, replacement dentures, and the foods they had to avoid.
+                        </div></div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <button @click="active = active === 6 ? null : 6" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-inset">
+                        <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">I live far from the practice. How do I manage travel?</span>
+                        <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 6 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div :class="active === 6 ? 'open' : ''" class="accordion-body">
+                        <div><div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                            Many patients travel from out of state. We minimize trips through careful scheduling -- consultation happens virtually, and the surgical procedure is typically completed in a single visit. We provide hotel recommendations, coordinate appointments, and offer virtual follow-up. If something feels wrong after surgery, our team is available by phone and text -- even at 2 AM.
+                        </div></div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <button @click="active = active === 7 ? null : 7" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-inset">
+                        <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">What is the difference between All-on-4 and snap-in dentures?</span>
+                        <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 7 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div :class="active === 7 ? 'open' : ''" class="accordion-body">
+                        <div><div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                            All-on-4 gives you permanent, fixed teeth that function like natural teeth. They do not come out. You brush them like regular teeth. Snap-in dentures are removable but click into implants for stability -- a significant upgrade from traditional dentures but not as permanent. Snap-in dentures cost less and can be a good option if full All-on-4 is not in your budget right now.
+                        </div></div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <button @click="active = active === 8 ? null : 8" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-inset">
+                        <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">How long do dental implants last?</span>
+                        <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 8 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div :class="active === 8 ? 'open' : ''" class="accordion-body">
+                        <div><div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                            The implants themselves -- the titanium posts -- are designed to last a lifetime. We back them with a lifetime warranty on hardware. The prosthetic components carry a 5-10 year warranty. With proper care, many patients keep the same prosthetics for 15-20 years or longer.
+                        </div></div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <button @click="active = active === 9 ? null : 9" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-inset">
+                        <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">Will my new teeth look natural?</span>
+                        <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 9 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div :class="active === 9 ? 'open' : ''" class="accordion-body">
+                        <div><div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                            Yes. Your prosthetics are custom-designed using digital technology to match your facial structure and desired aesthetic. Dr. Olson offers a digital smile preview so you can see what your new teeth will look like before committing to treatment. Patients consistently describe their new teeth as looking and feeling "totally natural."
+                        </div></div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <button @click="active = active === 10 ? null : 10" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-inset">
+                        <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">I am getting wildly different quotes. How do I know who to trust?</span>
+                        <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 10 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div :class="active === 10 ? 'open' : ''" class="accordion-body">
+                        <div><div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                            All-inclusive pricing -- your quote covers everything, no surprise bills. We publish our price ranges publicly. Dr. Olson has built his practice on transparency -- 138,000 YouTube subscribers trust him specifically because he answers the questions other providers avoid. 3,390+ five-star reviews. Your consultation is free and shows your exact pricing before committing.
+                        </div></div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <button @click="active = active === 11 ? null : 11" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-inset">
+                        <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">What is the Pikos Institute and why does it matter to me?</span>
+                        <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 11 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div :class="active === 11 ? 'open' : ''" class="accordion-body">
+                        <div><div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                            The Pikos Institute is the world's premier implantology training center, founded by Dr. Michael A. Pikos. When we say your surgical team is "Pikos Institute-trained," it means more precise procedures, better outcomes, and the ability to handle complex cases. It is the difference between a general mechanic and a Formula 1 engineer working on your car.
+                        </div></div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <button @click="active = active === 12 ? null : 12" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-inset">
+                        <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">What happens after surgery? What is the recovery like?</span>
+                        <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 12 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div :class="active === 12 ? 'open' : ''" class="accordion-body">
+                        <div><div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                            Most patients return to normal activities within 2-3 days. You will receive a detailed recovery guide, dietary recommendations, and a direct phone/text line to our clinical team. If something feels wrong at 2 AM, you text that number and get a response. Follow-up visits are included. Final prosthetics are placed 3-6 months after surgery.
+                        </div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section id="book" class="relative bg-white overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-teal-50 to-warm-50"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-teal-200/20 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-700 leading-tight" style="text-wrap: balance;">
+                    Your Grandkids Are Waiting for That Smile
+                </h2>
+                <div class="mt-6 space-y-4 text-lg text-navy-500 leading-relaxed">
+                    <p>You have spent years putting everyone else first. Your family. Your career. Your community.</p>
+                    <p class="font-medium text-navy-700">This is for you.</p>
+                    <p>A free virtual consultation costs you nothing but 30 minutes. No driving. No pressure. No commitment. Just an honest conversation with a team that has helped 3,390+ people get back to eating, smiling, and living.</p>
+                </div>
+
+                <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-teal-500 text-white font-bold text-lg rounded-lg hover:bg-teal-600 transition-colors cursor-pointer shadow-lg shadow-teal-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2">
+                        Book Your Free Virtual Consultation
+                    </a>
+                    <a href="tel:+10000000000" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-navy-200 text-navy-600 font-bold rounded-lg hover:border-teal-400 hover:text-teal-600 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500">
+                        <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        Call to Speak Now
+                    </a>
+                </div>
+
+                <p class="mt-4 text-sm text-navy-400">
+                    Or <a href="#" class="text-teal-500 hover:text-teal-600 underline cursor-pointer">take the Free Smile Assessment</a> -- a personalized 2-minute quiz to understand your options.
+                </p>
+
+                <div class="mt-8 p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-100 inline-block">
+                    <p class="text-sm text-navy-400">Your consultation is free. Your information is private. No obligation. No sales pitch. Just answers.</p>
+                </div>
+
+                <p class="mt-6 text-sm text-navy-400">Dr. Olson's consultation calendar books 4-6 weeks out. Virtual consultations booked today receive the earliest available appointment.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-900 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <img src="../../brand-assets/SGA-logo.png" alt="SGA Dental Partners" class="h-10 w-auto brightness-0 invert opacity-70">
+                    <p class="mt-4 text-sm text-gray-500 leading-relaxed">Same-day dental implants. 3,390+ five-star reviews. Pikos Institute-trained team.</p>
+                </div>
+                <div>
+                    <h4 class="font-display text-sm font-semibold text-gray-300 mb-4">Patient Care</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="text-sm text-gray-500 hover:text-teal-400 transition-colors cursor-pointer">Services</a></li>
+                        <li><a href="#pricing" class="text-sm text-gray-500 hover:text-teal-400 transition-colors cursor-pointer">Pricing</a></li>
+                        <li><a href="#transformations" class="text-sm text-gray-500 hover:text-teal-400 transition-colors cursor-pointer">Patient Stories</a></li>
+                        <li><a href="#faq" class="text-sm text-gray-500 hover:text-teal-400 transition-colors cursor-pointer">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-display text-sm font-semibold text-gray-300 mb-4">SGA Network</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-sm text-gray-500 hover:text-teal-400 transition-colors cursor-pointer">Practice Partnership</a></li>
+                        <li><a href="associate.html" class="text-sm text-gray-500 hover:text-teal-400 transition-colors cursor-pointer">Associate Careers</a></li>
+                        <li><a href="#" class="text-sm text-gray-500 hover:text-teal-400 transition-colors cursor-pointer">Pikos Institute</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-display text-sm font-semibold text-gray-300 mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#book" class="text-sm text-gray-500 hover:text-teal-400 transition-colors cursor-pointer">Book Consultation</a></li>
+                        <li><a href="tel:+10000000000" class="text-sm text-gray-500 hover:text-teal-400 transition-colors cursor-pointer">Call Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-10 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-gray-600">2026 SGA Dental Partners / Innovative Dental. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-xs text-gray-600 hover:text-gray-400 cursor-pointer">Privacy Policy</a>
+                    <a href="#" class="text-xs text-gray-600 hover:text-gray-400 cursor-pointer">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY MOBILE CTA -->
+    <div x-data="{ show: false }" x-init="window.addEventListener('scroll', () => { show = window.scrollY > 600 })" x-show="show" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-y-full" x-transition:enter-end="translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-y-0" x-transition:leave-end="translate-y-full" class="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-white/95 backdrop-blur-lg border-t border-gray-200 px-4 py-3 shadow-lg">
+        <div class="flex gap-3">
+            <a href="#book" class="flex-1 flex items-center justify-center px-4 py-3 bg-teal-500 text-white font-bold rounded-lg cursor-pointer text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500">
+                Free Consultation
+            </a>
+            <a href="tel:+10000000000" class="flex items-center justify-center px-4 py-3 border-2 border-navy-200 text-navy-600 font-bold rounded-lg cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

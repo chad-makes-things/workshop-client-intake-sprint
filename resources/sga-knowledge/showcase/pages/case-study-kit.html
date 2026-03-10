@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGA Dental Partners - Case Study Production Kit</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'sga-blue': '#2D6FB7',
+            'sga-blue-dark': '#1E4F85',
+            'sga-cyan': '#009DD6',
+            'sga-lime': '#C4D347',
+            'sga-orange': '#F36F21',
+            'sga-text': '#333333',
+            'sga-gray': '#F7F8FA',
+            'sga-border': '#E2E8F0',
+          },
+          fontFamily: {
+            'sans': ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    [id] { scroll-margin-top: 100px; }
+    @media print {
+      html, body { margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-sga-gray font-sans text-sga-text antialiased" style="padding-top:40px;">
+
+  <!-- Fixed Back Bar -->
+  <div class="fixed top-0 left-0 right-0 z-50 bg-sga-blue text-white h-10 flex items-center px-4 no-print">
+    <a href="../index.html" class="flex items-center gap-2 text-sm font-medium hover:text-sga-lime transition-colors">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      Back to Showcase
+    </a>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10" x-data="{ activeTab: 'templates', activeTemplate: 'long-form', activeSection: 'universal' }">
+
+    <!-- Header -->
+    <div class="mb-10">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-lg bg-sga-blue/10 flex items-center justify-center">
+          <svg class="w-5 h-5 text-sga-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        </div>
+        <div>
+          <h1 class="text-2xl font-bold text-gray-900">Case Study Production Kit</h1>
+          <p class="text-sm text-gray-500">Templates, Interview Questions & Social Proof Strategy</p>
+        </div>
+      </div>
+      <p class="text-base text-gray-600 max-w-3xl">Three production-ready formats for capturing partner and patient proof stories, a comprehensive interview question bank, and a systematic social proof deployment strategy.</p>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="flex gap-1 bg-white rounded-xl p-1 shadow-sm border border-sga-border mb-8 overflow-x-auto no-print">
+      <button @click="activeTab = 'templates'" :class="activeTab === 'templates' ? 'bg-sga-blue text-white shadow' : 'text-gray-600 hover:bg-gray-100'" class="px-4 py-2.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap">Case Study Templates</button>
+      <button @click="activeTab = 'questions'" :class="activeTab === 'questions' ? 'bg-sga-blue text-white shadow' : 'text-gray-600 hover:bg-gray-100'" class="px-4 py-2.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap">Interview Question Bank</button>
+      <button @click="activeTab = 'strategy'" :class="activeTab === 'strategy' ? 'bg-sga-blue text-white shadow' : 'text-gray-600 hover:bg-gray-100'" class="px-4 py-2.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap">Social Proof Strategy</button>
+      <button @click="activeTab = 'checklist'" :class="activeTab === 'checklist' ? 'bg-sga-blue text-white shadow' : 'text-gray-600 hover:bg-gray-100'" class="px-4 py-2.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap">Quality Checklist</button>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- TEMPLATES TAB -->
+    <!-- ============================================ -->
+    <div x-show="activeTab === 'templates'" x-cloak>
+
+      <!-- Format Overview -->
+      <div class="bg-white rounded-xl border border-sga-border p-6 mb-6">
+        <h2 class="text-lg font-bold text-gray-900 mb-4">Choosing the Right Format</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="border border-sga-border rounded-lg p-4 cursor-pointer hover:border-sga-blue transition-colors" :class="activeTemplate === 'long-form' ? 'border-sga-blue bg-sga-blue/5' : ''" @click="activeTemplate = 'long-form'">
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="w-5 h-5 text-sga-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <h3 class="font-semibold text-gray-900">Long-Form</h3>
+            </div>
+            <p class="text-sm text-gray-600">1,500-2,000 words. Website library, PDF handoffs, partnership deck appendix.</p>
+          </div>
+          <div class="border border-sga-border rounded-lg p-4 cursor-pointer hover:border-sga-blue transition-colors" :class="activeTemplate === 'one-page' ? 'border-sga-blue bg-sga-blue/5' : ''" @click="activeTemplate = 'one-page'">
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="w-5 h-5 text-sga-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+              <h3 class="font-semibold text-gray-900">One-Page</h3>
+            </div>
+            <p class="text-sm text-gray-600">400-500 words. Printed leave-behind, email attachment, deck insert.</p>
+          </div>
+          <div class="border border-sga-border rounded-lg p-4 cursor-pointer hover:border-sga-blue transition-colors" :class="activeTemplate === 'video' ? 'border-sga-blue bg-sga-blue/5' : ''" @click="activeTemplate = 'video'">
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="w-5 h-5 text-sga-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              <h3 class="font-semibold text-gray-900">Video Testimonial</h3>
+            </div>
+            <p class="text-sm text-gray-600">3-5 min on camera. Homepage, landing pages, YouTube, social media.</p>
+          </div>
+        </div>
+        <p class="text-xs text-gray-500 mt-4 italic">Produce all three formats from a single interview. The interview question bank generates enough raw material for all three.</p>
+      </div>
+
+      <!-- Long-Form Template -->
+      <div x-show="activeTemplate === 'long-form'" class="space-y-4">
+        <div class="bg-white rounded-xl border border-sga-border overflow-hidden">
+          <div class="bg-sga-blue/5 px-6 py-4 border-b border-sga-border">
+            <h3 class="text-lg font-bold text-gray-900">Long-Form Case Study (1,500-2,000 Words)</h3>
+            <p class="text-sm text-gray-600 mt-1">The evidentiary anchor for prospects asking "does this actually work for people like me?"</p>
+          </div>
+          <div class="p-6 space-y-6">
+
+            <!-- Headline -->
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="px-2 py-0.5 bg-sga-blue/10 text-sga-blue text-xs font-semibold rounded">HEADLINE</span>
+              </div>
+              <p class="text-sm text-gray-700 mb-3">Formula: <strong>[Result] + [Who] + [Timeframe]</strong></p>
+              <div class="bg-gray-50 rounded-lg p-4 space-y-2">
+                <p class="text-sm text-gray-600 italic">"How Periodontal Associates of Memphis Grew Revenue 16.5% and Got Its Doctor Back to Dentistry"</p>
+                <p class="text-sm text-gray-600 italic">"From Solo Periodontist to Full-Arch Platform: One Specialist's First Year with MODIS"</p>
+                <p class="text-sm text-gray-600 italic">"What Happened After [Practice Name] Stopped Running QuickBooks and Started Running a Dental Practice"</p>
+              </div>
+              <p class="text-xs text-gray-500 mt-2">The headline is a promise. Make it specific. Vague headlines ("A Better Partnership Experience") are skipped. Specific headlines ("Revenue Up 16.5%, Staff Turnover Down to Zero") are read.</p>
+            </div>
+
+            <!-- Snapshot Box -->
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="px-2 py-0.5 bg-sga-cyan/10 text-sga-cyan text-xs font-semibold rounded">SNAPSHOT BOX</span>
+                <span class="text-xs text-gray-500">Top of article, visually pulled out</span>
+              </div>
+              <div class="bg-sga-blue/5 border-l-4 border-sga-blue rounded-r-lg p-4">
+                <div class="grid grid-cols-2 gap-3 text-sm">
+                  <div><span class="font-semibold text-gray-900">Partner:</span> <span class="text-gray-600">[Name, credentials, practice, city/state]</span></div>
+                  <div><span class="font-semibold text-gray-900">Practice type:</span> <span class="text-gray-600">[General / Periodontal / Implant / etc.]</span></div>
+                  <div><span class="font-semibold text-gray-900">Years in practice:</span> <span class="text-gray-600">[#]</span></div>
+                  <div><span class="font-semibold text-gray-900">Challenge:</span> <span class="text-gray-600">[One sentence]</span></div>
+                  <div><span class="font-semibold text-gray-900">Key result:</span> <span class="text-gray-600">[Single most compelling number]</span></div>
+                  <div><span class="font-semibold text-gray-900">Partnership timeline:</span> <span class="text-gray-600">[Date joined]</span></div>
+                </div>
+              </div>
+              <p class="text-xs text-gray-500 mt-2">For the skimmer. If they read nothing else, this box tells the essential story. "Revenue up 16.5% in 12 months" not "significant revenue growth."</p>
+            </div>
+
+            <!-- Sections -->
+            <div class="space-y-4">
+              <div class="border border-sga-border rounded-lg p-4">
+                <h4 class="font-semibold text-gray-900 mb-1">Section 1: BEFORE -- The Situation <span class="text-xs font-normal text-gray-500">(300-400 words)</span></h4>
+                <ul class="text-sm text-gray-600 space-y-1 mt-2">
+                  <li class="flex items-start gap-2"><span class="text-sga-blue mt-1 flex-shrink-0">&#8226;</span> Where was this person 12-24 months before? What did their day look like?</li>
+                  <li class="flex items-start gap-2"><span class="text-sga-blue mt-1 flex-shrink-0">&#8226;</span> What was the specific problem? Not "administrative burden" but "spending Sunday nights reconciling payroll."</li>
+                  <li class="flex items-start gap-2"><span class="text-sga-blue mt-1 flex-shrink-0">&#8226;</span> What had they already tried? Why did it fall short?</li>
+                  <li class="flex items-start gap-2"><span class="text-sga-blue mt-1 flex-shrink-0">&#8226;</span> What was the cost of staying -- financial, emotional, professional?</li>
+                  <li class="flex items-start gap-2"><span class="text-sga-blue mt-1 flex-shrink-0">&#8226;</span> Was there a specific tipping-point moment?</li>
+                </ul>
+                <div class="mt-3 bg-red-50 border border-red-200 rounded-lg p-3">
+                  <p class="text-xs text-red-700"><strong>DO NOT write:</strong> "Like many dental practice owners, [Name] was feeling the pressure of running a modern practice."</p>
+                  <p class="text-xs text-green-700 mt-1"><strong>DO write:</strong> "At 7 PM on a Tuesday in March 2024, [Name] was at his desk reviewing insurance denials instead of at his daughter's soccer game. Again."</p>
+                </div>
+              </div>
+
+              <div class="border border-sga-border rounded-lg p-4">
+                <h4 class="font-semibold text-gray-900 mb-1">Section 2: THE DECISION -- Why SGA <span class="text-xs font-normal text-gray-500">(250-350 words)</span></h4>
+                <ul class="text-sm text-gray-600 space-y-1 mt-2">
+                  <li class="flex items-start gap-2"><span class="text-sga-blue mt-1 flex-shrink-0">&#8226;</span> What had they heard/thought about DSOs before?</li>
+                  <li class="flex items-start gap-2"><span class="text-sga-blue mt-1 flex-shrink-0">&#8226;</span> What made them take the first call seriously?</li>
+                  <li class="flex items-start gap-2"><span class="text-sga-blue mt-1 flex-shrink-0">&#8226;</span> What surprised them? What almost stopped them?</li>
+                  <li class="flex items-start gap-2"><span class="text-sga-blue mt-1 flex-shrink-0">&#8226;</span> What ultimately convinced them?</li>
+                </ul>
+                <div class="mt-3 bg-red-50 border border-red-200 rounded-lg p-3">
+                  <p class="text-xs text-red-700"><strong>DO NOT write:</strong> "After a thorough evaluation process, [Name] chose SGA Dental Partners as the right fit."</p>
+                  <p class="text-xs text-green-700 mt-1"><strong>DO write:</strong> "He had taken two other DSO calls before SGA. One wanted to change his brand immediately. The other wouldn't let him choose his own lab. SGA was the first conversation where they asked what he wanted his practice to look like in five years."</p>
+                </div>
+              </div>
+
+              <div class="border border-sga-border rounded-lg p-4">
+                <h4 class="font-semibold text-gray-900 mb-1">Section 3: THE PARTNERSHIP JOURNEY -- First 90 Days to Year One <span class="text-xs font-normal text-gray-500">(400-500 words)</span></h4>
+                <ul class="text-sm text-gray-600 space-y-1 mt-2">
+                  <li class="flex items-start gap-2"><span class="text-sga-blue mt-1 flex-shrink-0">&#8226;</span> What was the onboarding experience like? First 30 days?</li>
+                  <li class="flex items-start gap-2"><span class="text-sga-blue mt-1 flex-shrink-0">&#8226;</span> First tangible change? (iSolved, recruiting, new website)</li>
+                  <li class="flex items-start gap-2"><span class="text-sga-blue mt-1 flex-shrink-0">&#8226;</span> "This is actually different" moment?</li>
+                  <li class="flex items-start gap-2"><span class="text-sga-blue mt-1 flex-shrink-0">&#8226;</span> Any friction or challenges? How resolved?</li>
+                </ul>
+                <p class="text-xs text-gray-500 mt-2">"Operational support" means nothing. "The billing team caught $47,000 in denied claims in the first 90 days" means everything.</p>
+              </div>
+
+              <div class="border border-sga-border rounded-lg p-4">
+                <h4 class="font-semibold text-gray-900 mb-1">Section 4: THE RESULTS -- What Changed <span class="text-xs font-normal text-gray-500">(300-400 words)</span></h4>
+                <ul class="text-sm text-gray-600 space-y-1 mt-2">
+                  <li class="flex items-start gap-2"><span class="text-sga-blue mt-1 flex-shrink-0">&#8226;</span> Specific numbers: revenue, EBITA, staff turnover, new patient volume, production</li>
+                  <li class="flex items-start gap-2"><span class="text-sga-blue mt-1 flex-shrink-0">&#8226;</span> What changed that doesn't show on a spreadsheet?</li>
+                  <li class="flex items-start gap-2"><span class="text-sga-blue mt-1 flex-shrink-0">&#8226;</span> Unexpected benefits?</li>
+                </ul>
+                <div class="bg-sga-blue/5 rounded-lg p-3 mt-3">
+                  <p class="text-xs font-semibold text-sga-blue mb-1">Reference: Dr. Matt Cavendish Results</p>
+                  <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs text-gray-600">
+                    <span>Revenue TTM: +16.5%</span>
+                    <span>EBITA: +$45,266 vs prior year</span>
+                    <span>Staff retention: 100%</span>
+                    <span>Supply costs: -6.4 pts vs plan</span>
+                    <span>Payroll expenses: down</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="border border-sga-border rounded-lg p-4">
+                <h4 class="font-semibold text-gray-900 mb-1">Section 5: THE QUOTE -- Shareable Sound Bite</h4>
+                <p class="text-sm text-gray-600 mt-1">Pull one 2-4 sentence quote capturing the entire arc. Must be specific, emotional, in their natural voice, and fully attributed.</p>
+                <div class="bg-gray-50 rounded-lg p-3 mt-2">
+                  <p class="text-sm text-gray-700 italic">"If you were having coffee with a dentist who is exactly where you were 18 months ago -- same situation, same fears -- what would you say to them?"</p>
+                </div>
+              </div>
+
+              <div class="border border-sga-border rounded-lg p-4">
+                <h4 class="font-semibold text-gray-900 mb-1">CLOSING + CTA <span class="text-xs font-normal text-gray-500">(100-150 words)</span></h4>
+                <div class="bg-gray-50 rounded-lg p-3 mt-2 text-sm text-gray-700">
+                  <p>"[Practice name] is still [practice name]. [Name]'s patients still see his/her face when they walk in. His/her staff is still there. What changed: [one-sentence summary].</p>
+                  <p class="mt-2">If you are a practice owner thinking about what your next chapter looks like, the best first step is a direct conversation -- not with a broker, not with a sales team, but with a partner dentist who has already made the decision."</p>
+                  <p class="mt-2 text-sga-blue font-medium">[CTA: Schedule a Confidential Conversation]</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- One-Page Template -->
+      <div x-show="activeTemplate === 'one-page'" class="space-y-4">
+        <div class="bg-white rounded-xl border border-sga-border overflow-hidden">
+          <div class="bg-sga-cyan/5 px-6 py-4 border-b border-sga-border">
+            <h3 class="text-lg font-bold text-gray-900">One-Page Case Study (400-500 Words)</h3>
+            <p class="text-sm text-gray-600 mt-1">A leave-behind read in 90 seconds at a conference table, glanced at in an email, or handed to a spouse.</p>
+          </div>
+          <div class="p-6 space-y-4">
+            <div class="border border-sga-border rounded-lg p-4">
+              <h4 class="font-semibold text-gray-900 mb-1">HEADER</h4>
+              <p class="text-sm text-gray-600">Practice name | Partner name, credentials | City, state | Specialty/practice type</p>
+            </div>
+            <div class="border border-sga-border rounded-lg p-4">
+              <h4 class="font-semibold text-gray-900 mb-1">CHALLENGE <span class="text-xs font-normal text-gray-500">(75-100 words)</span></h4>
+              <p class="text-sm text-gray-600 mb-2">One focused paragraph. Lead with the specific pain, not the category of pain.</p>
+              <div class="bg-gray-50 rounded-lg p-3">
+                <p class="text-xs text-gray-600 italic">"[Name] had spent [X] years building [practice name] into a [adjective] practice in [city]. But by [year], he was spending more time managing his staff and chasing insurance claims than treating patients. His billing team was inconsistent. Recruiting had stalled. And the growing stack of compliance requirements was sitting at the back of his desk, unread."</p>
+              </div>
+            </div>
+            <div class="border border-sga-border rounded-lg p-4">
+              <h4 class="font-semibold text-gray-900 mb-1">WHY SGA <span class="text-xs font-normal text-gray-500">(75-100 words)</span></h4>
+              <p class="text-sm text-gray-600 mb-2">Must answer: "Why SGA and not another DSO or no DSO at all?"</p>
+              <div class="bg-gray-50 rounded-lg p-3">
+                <p class="text-xs text-gray-600 italic">"After two disappointing DSO conversations -- one wanted to rebrand his practice immediately, another couldn't tell him who would handle his billing -- [Name] reached SGA through a colleague's referral. What was different: the first conversation was with a practicing dentist, not a sales rep."</p>
+              </div>
+            </div>
+            <div class="border border-sga-border rounded-lg p-4">
+              <h4 class="font-semibold text-gray-900 mb-1">RESULTS <span class="text-xs font-normal text-gray-500">(100-150 words)</span></h4>
+              <p class="text-sm text-gray-600 mb-2">Bulleted metrics first. One to two sentences of qualitative impact.</p>
+              <div class="bg-gray-50 rounded-lg p-3 text-xs text-gray-600">
+                <ul class="space-y-1">
+                  <li>&#8226; Revenue: [X% increase / TTM change]</li>
+                  <li>&#8226; EBITA: [Beating prior year by $X]</li>
+                  <li>&#8226; Staff retention: [X%]</li>
+                  <li>&#8226; Overhead / supply costs: [Change]</li>
+                  <li>&#8226; [Other specific metric]</li>
+                </ul>
+              </div>
+            </div>
+            <div class="border border-sga-border rounded-lg p-4">
+              <h4 class="font-semibold text-gray-900 mb-1">IN THEIR WORDS <span class="text-xs font-normal text-gray-500">(50-75 words)</span></h4>
+              <p class="text-sm text-gray-600">Pull quote. Full name, practice name, city attribution.</p>
+            </div>
+            <div class="border border-sga-border rounded-lg p-4">
+              <h4 class="font-semibold text-gray-900 mb-1">FOOTER</h4>
+              <p class="text-sm text-gray-600 italic">"[Practice name] is still [practice name]. The name on the door has not changed. The team has not changed. The patients have not changed. What changed: [Name] is not carrying the business alone anymore."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Testimonial Template -->
+      <div x-show="activeTemplate === 'video'" class="space-y-4">
+        <div class="bg-white rounded-xl border border-sga-border overflow-hidden">
+          <div class="bg-sga-orange/5 px-6 py-4 border-b border-sga-border">
+            <h3 class="text-lg font-bold text-gray-900">Video Testimonial Script (3-5 Minutes)</h3>
+            <p class="text-sm text-gray-600 mt-1">The highest-converting proof format in B2B sales and patient acquisition.</p>
+          </div>
+          <div class="p-6 space-y-6">
+
+            <!-- Pre-Interview -->
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-3">Pre-Interview Setup</h4>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-gray-50 rounded-lg p-4">
+                  <h5 class="text-sm font-semibold text-gray-900 mb-2">Technical Requirements</h5>
+                  <ul class="text-xs text-gray-600 space-y-1">
+                    <li>&#8226; Location: Partner's own practice (authentic)</li>
+                    <li>&#8226; Camera: Eye-level, natural/softbox light, clean background</li>
+                    <li>&#8226; Audio: Lapel mic required; eliminate room echo</li>
+                    <li>&#8226; Interviewer: Off-camera, friendly, unhurried</li>
+                  </ul>
+                </div>
+                <div class="bg-sga-blue/5 rounded-lg p-4">
+                  <h5 class="text-sm font-semibold text-sga-blue mb-2">Briefing Script</h5>
+                  <p class="text-xs text-gray-600 italic">"We are going to have a conversation about your experience. We are not looking for polished answers -- we are looking for honest ones. If you stumble, we will cut it. The only thing that matters is that it sounds like you."</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interview Questions -->
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-3">On-Camera Interview Questions</h4>
+              <div class="space-y-2">
+                <div class="border border-sga-border rounded-lg p-3 flex items-start gap-3">
+                  <span class="w-6 h-6 rounded-full bg-sga-blue text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                  <p class="text-sm text-gray-700">"Before you joined SGA -- what was a typical week like for you?"</p>
+                </div>
+                <div class="border border-sga-border rounded-lg p-3 flex items-start gap-3">
+                  <span class="w-6 h-6 rounded-full bg-sga-blue text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                  <p class="text-sm text-gray-700">"What was the thing that was bothering you most? The thing that kept you up at night or made you dread Monday mornings?"</p>
+                </div>
+                <div class="border border-sga-border rounded-lg p-3 flex items-start gap-3">
+                  <span class="w-6 h-6 rounded-full bg-sga-blue text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                  <p class="text-sm text-gray-700">"Had you looked at other DSOs before this? What happened with those conversations?"</p>
+                </div>
+                <div class="border border-sga-border rounded-lg p-3 flex items-start gap-3">
+                  <span class="w-6 h-6 rounded-full bg-sga-blue text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+                  <p class="text-sm text-gray-700">"What made you take the first call with SGA seriously?"</p>
+                </div>
+                <div class="border border-sga-border rounded-lg p-3 flex items-start gap-3">
+                  <span class="w-6 h-6 rounded-full bg-sga-blue text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">5</span>
+                  <p class="text-sm text-gray-700">"What surprised you about that first conversation?"</p>
+                </div>
+                <div class="border border-sga-border rounded-lg p-3 flex items-start gap-3">
+                  <span class="w-6 h-6 rounded-full bg-sga-blue text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">6</span>
+                  <p class="text-sm text-gray-700">"Walk me through the first 90 days after you joined. What actually changed?"</p>
+                </div>
+                <div class="border border-sga-border rounded-lg p-3 flex items-start gap-3">
+                  <span class="w-6 h-6 rounded-full bg-sga-blue text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">7</span>
+                  <p class="text-sm text-gray-700">"What is different now -- and I mean specifically, not generally. Give me a number or a moment."</p>
+                </div>
+                <div class="border border-sga-border rounded-lg p-3 flex items-start gap-3">
+                  <span class="w-6 h-6 rounded-full bg-sga-blue text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">8</span>
+                  <p class="text-sm text-gray-700">"What do you spend your time on now that you used to spend time on before?"</p>
+                </div>
+                <div class="border border-sga-border rounded-lg p-3 flex items-start gap-3">
+                  <span class="w-6 h-6 rounded-full bg-sga-blue text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">9</span>
+                  <p class="text-sm text-gray-700">"Is there a moment in the last [timeframe] that captures what this partnership has meant to you?"</p>
+                </div>
+                <div class="border border-sga-border rounded-lg p-3 flex items-start gap-3 bg-sga-lime/10">
+                  <span class="w-6 h-6 rounded-full bg-sga-lime text-gray-900 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">10</span>
+                  <p class="text-sm text-gray-700 font-medium">"If you were having coffee with a dentist who is where you were 18 months ago -- same situation, same fears -- what would you say to them?"</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- B-Roll Shot List -->
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-3">B-Roll Shot List</h4>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-gray-50 rounded-lg p-4">
+                  <h5 class="text-xs font-semibold text-gray-500 uppercase mb-2">Practice Owner / Specialist</h5>
+                  <ul class="text-xs text-gray-600 space-y-1">
+                    <li>&#8226; Arriving at office, greeting staff</li>
+                    <li>&#8226; With a patient (consent required)</li>
+                    <li>&#8226; At treatment chair, working</li>
+                    <li>&#8226; Technology in use (CBCT, CEREC)</li>
+                    <li>&#8226; Reviewing case on computer</li>
+                    <li>&#8226; Exterior with signage (name on door)</li>
+                  </ul>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-4">
+                  <h5 class="text-xs font-semibold text-gray-500 uppercase mb-2">Patient</h5>
+                  <ul class="text-xs text-gray-600 space-y-1">
+                    <li>&#8226; In consultation chair (signed consent)</li>
+                    <li>&#8226; Before photos (if available)</li>
+                    <li>&#8226; After smile -- the emotional payoff</li>
+                    <li>&#8226; Doing what they couldn't before</li>
+                    <li>&#8226; Team interaction (warmth)</li>
+                  </ul>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-4">
+                  <h5 class="text-xs font-semibold text-gray-500 uppercase mb-2">Associate</h5>
+                  <ul class="text-xs text-gray-600 space-y-1">
+                    <li>&#8226; With mentor, examining X-ray/CBCT</li>
+                    <li>&#8226; Performing a procedure</li>
+                    <li>&#8226; Learning environment (4Front)</li>
+                    <li>&#8226; In conversation with staff</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cut-downs -->
+            <div class="bg-sga-orange/5 rounded-lg p-4">
+              <h5 class="text-sm font-semibold text-gray-900 mb-2">Cut-Downs to Produce from Every Interview</h5>
+              <div class="grid grid-cols-3 gap-3 text-xs text-gray-600">
+                <div class="text-center p-2 bg-white rounded-lg"><span class="block text-lg font-bold text-sga-orange">30s</span>Key quote + result<br>(paid social)</div>
+                <div class="text-center p-2 bg-white rounded-lg"><span class="block text-lg font-bold text-sga-orange">60s</span>Challenge + result<br>(YouTube pre-roll)</div>
+                <div class="text-center p-2 bg-white rounded-lg"><span class="block text-lg font-bold text-sga-orange">3-5m</span>Full version<br>(website + email)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- INTERVIEW QUESTIONS TAB -->
+    <!-- ============================================ -->
+    <div x-show="activeTab === 'questions'" x-cloak>
+
+      <!-- Interviewer Principles -->
+      <div class="bg-white rounded-xl border border-sga-border p-6 mb-6">
+        <h2 class="text-lg font-bold text-gray-900 mb-4">Interviewer Principles</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div class="bg-sga-blue/5 rounded-lg p-4">
+            <h4 class="text-sm font-semibold text-sga-blue mb-1">1. Ask and then shut up</h4>
+            <p class="text-xs text-gray-600">Let the silence do the work. Most interviewees fill silence by going deeper.</p>
+          </div>
+          <div class="bg-sga-blue/5 rounded-lg p-4">
+            <h4 class="text-sm font-semibold text-sga-blue mb-1">2. Follow the specifics</h4>
+            <p class="text-xs text-gray-600">"Things got better" needs a follow-up: "What specifically got better?"</p>
+          </div>
+          <div class="bg-sga-blue/5 rounded-lg p-4">
+            <h4 class="text-sm font-semibold text-sga-blue mb-1">3. Acknowledge, then go deeper</h4>
+            <p class="text-xs text-gray-600">Acknowledgment earns the deeper story.</p>
+          </div>
+          <div class="bg-sga-blue/5 rounded-lg p-4">
+            <h4 class="text-sm font-semibold text-sga-blue mb-1">4. Be comfortable with discomfort</h4>
+            <p class="text-xs text-gray-600">"What almost stopped you?" is more useful than "What made you excited?"</p>
+          </div>
+          <div class="bg-sga-blue/5 rounded-lg p-4">
+            <h4 class="text-sm font-semibold text-sga-blue mb-1">5. Let them tell the story their way</h4>
+            <p class="text-xs text-gray-600">Guide gently to cover essentials, but don't interrupt a good story.</p>
+          </div>
+          <div class="bg-sga-blue/5 rounded-lg p-4">
+            <h4 class="text-sm font-semibold text-sga-blue mb-1">6. The best quote is the one they almost didn't say</h4>
+            <p class="text-xs text-gray-600">"I probably shouldn't say this, but..." -- invite them to finish.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section Selector -->
+      <div class="flex flex-wrap gap-2 mb-6 no-print">
+        <button @click="activeSection = 'universal'" :class="activeSection === 'universal' ? 'bg-sga-blue text-white' : 'bg-white text-gray-700 border border-sga-border'" class="px-3 py-1.5 rounded-lg text-xs font-medium transition-all">Universal</button>
+        <button @click="activeSection = 'owners'" :class="activeSection === 'owners' ? 'bg-sga-blue text-white' : 'bg-white text-gray-700 border border-sga-border'" class="px-3 py-1.5 rounded-lg text-xs font-medium transition-all">Practice Owners</button>
+        <button @click="activeSection = 'associates'" :class="activeSection === 'associates' ? 'bg-sga-blue text-white' : 'bg-white text-gray-700 border border-sga-border'" class="px-3 py-1.5 rounded-lg text-xs font-medium transition-all">Associates</button>
+        <button @click="activeSection = 'patients'" :class="activeSection === 'patients' ? 'bg-sga-blue text-white' : 'bg-white text-gray-700 border border-sga-border'" class="px-3 py-1.5 rounded-lg text-xs font-medium transition-all">Patients</button>
+        <button @click="activeSection = 'specialists'" :class="activeSection === 'specialists' ? 'bg-sga-blue text-white' : 'bg-white text-gray-700 border border-sga-border'" class="px-3 py-1.5 rounded-lg text-xs font-medium transition-all">Specialists</button>
+        <button @click="activeSection = 'staff'" :class="activeSection === 'staff' ? 'bg-sga-blue text-white' : 'bg-white text-gray-700 border border-sga-border'" class="px-3 py-1.5 rounded-lg text-xs font-medium transition-all">Office Managers</button>
+        <button @click="activeSection = 'closing'" :class="activeSection === 'closing' ? 'bg-sga-blue text-white' : 'bg-white text-gray-700 border border-sga-border'" class="px-3 py-1.5 rounded-lg text-xs font-medium transition-all">Closing Questions</button>
+      </div>
+
+      <!-- Universal Questions -->
+      <div x-show="activeSection === 'universal'" class="space-y-4">
+        <div class="bg-white rounded-xl border border-sga-border overflow-hidden">
+          <div class="px-6 py-4 border-b border-sga-border bg-gray-50">
+            <h3 class="font-bold text-gray-900">Section 1: Before SGA -- Context, Pain & Tipping Point</h3>
+          </div>
+          <div class="p-6 space-y-3">
+            <div class="border-l-4 border-sga-blue pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q1. Set the scene for me</p><p class="text-sm text-gray-600">"Before you made this decision, what did a typical week look like for you? Walk me through it."</p></div>
+            <div class="border-l-4 border-sga-blue pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q2. What was wearing on you most?</p><p class="text-sm text-gray-600">"If you had to name the one thing -- the thing that was draining your energy or keeping you up at night -- what was it?"</p></div>
+            <div class="border-l-4 border-sga-blue pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q3. What had you tried before?</p><p class="text-sm text-gray-600">"Before you connected with SGA, had you tried to fix this problem in other ways? What did you try, and why did it fall short?"</p></div>
+            <div class="border-l-4 border-sga-blue pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q4. The cost of not changing</p><p class="text-sm text-gray-600">"If you had kept doing what you were doing -- if nothing had changed -- where would things be now?"</p></div>
+            <div class="border-l-4 border-sga-blue pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q5. The tipping point</p><p class="text-sm text-gray-600">"Was there a specific moment or event that made you think 'something has to change'? What was it?"</p></div>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl border border-sga-border overflow-hidden">
+          <div class="px-6 py-4 border-b border-sga-border bg-gray-50">
+            <h3 class="font-bold text-gray-900">Section 2: The Decision -- What Convinced Them</h3>
+          </div>
+          <div class="p-6 space-y-3">
+            <div class="border-l-4 border-sga-cyan pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q6. What alternatives did you consider?</p><p class="text-sm text-gray-600">"When you were making this decision, what other options were on the table? How did you evaluate them?"</p></div>
+            <div class="border-l-4 border-sga-cyan pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q7. What made you take the first call seriously?</p><p class="text-sm text-gray-600">"A lot of people hear about DSO partnerships and don't even take the call. What made you decide to have this conversation?"</p></div>
+            <div class="border-l-4 border-sga-cyan pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q8. What surprised you?</p><p class="text-sm text-gray-600">"What was different about the SGA conversation from what you were expecting?"</p></div>
+            <div class="border-l-4 border-sga-cyan pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q9. What almost stopped you?</p><p class="text-sm text-gray-600">"Was there a point where you almost walked away? What was the concern? How was it resolved?"</p></div>
+            <div class="border-l-4 border-sga-cyan pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q10. What ultimately convinced you?</p><p class="text-sm text-gray-600">"When you finally decided to move forward, what was the thing that pushed you over the line?"</p></div>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl border border-sga-border overflow-hidden">
+          <div class="px-6 py-4 border-b border-sga-border bg-gray-50">
+            <h3 class="font-bold text-gray-900">Section 3: The Transition -- First 90 Days</h3>
+          </div>
+          <div class="p-6 space-y-3">
+            <div class="border-l-4 border-sga-lime pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q11. Walk me through what happened first</p><p class="text-sm text-gray-600">"After the partnership was official, what was the first thing that changed? Not on paper -- the first thing you actually noticed."</p></div>
+            <div class="border-l-4 border-sga-lime pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q12. The first 30 days</p><p class="text-sm text-gray-600">"What were the first 30 days like? What did SGA's team actually do?"</p></div>
+            <div class="border-l-4 border-sga-lime pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q13. What went smoothly</p><p class="text-sm text-gray-600">"What was easier than you expected? What worked well from the start?"</p></div>
+            <div class="border-l-4 border-sga-lime pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q14. What was harder than expected</p><p class="text-sm text-gray-600">"What was harder or different from what you anticipated? Was there friction?"</p></div>
+            <div class="border-l-4 border-sga-lime pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q15. The "this is different" moment</p><p class="text-sm text-gray-600">"Was there a specific moment where you thought -- this is actually different from what I expected?"</p></div>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl border border-sga-border overflow-hidden">
+          <div class="px-6 py-4 border-b border-sga-border bg-gray-50">
+            <h3 class="font-bold text-gray-900">Section 4: Results -- Quantified Outcomes</h3>
+          </div>
+          <div class="p-6 space-y-3">
+            <div class="border-l-4 border-sga-orange pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q16. Give me a number</p><p class="text-sm text-gray-600">"What is the most important metric you track, and what has happened to it since the partnership?"</p></div>
+            <div class="border-l-4 border-sga-orange pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q17. What doesn't show on a spreadsheet</p><p class="text-sm text-gray-600">"What changed about your daily experience? How you feel when you go to work, or come home?"</p></div>
+            <div class="border-l-4 border-sga-orange pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q18. The unexpected benefit</p><p class="text-sm text-gray-600">"Was there something you got that you did not expect? Something nobody told you would happen?"</p></div>
+            <div class="border-l-4 border-sga-orange pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q19. What you miss about before</p><p class="text-sm text-gray-600">"Is there anything about how things were before that you miss or wish you could have back?"</p></div>
+            <div class="border-l-4 border-sga-orange pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q20. A specific story</p><p class="text-sm text-gray-600">"Give me one specific story from the last six months. Not a general feeling -- an actual event."</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Practice Owner Questions -->
+      <div x-show="activeSection === 'owners'" class="space-y-4">
+        <div class="bg-white rounded-xl border border-sga-border overflow-hidden">
+          <div class="px-6 py-4 border-b border-sga-border bg-sga-blue/5">
+            <h3 class="font-bold text-gray-900">Practice Owner Variants (Dr. Hendricks Archetype)</h3>
+          </div>
+          <div class="p-6 space-y-3">
+            <div class="border-l-4 border-sga-blue pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q1-A. The business vs. the dentistry</p><p class="text-sm text-gray-600">"You went to dental school to be a dentist. How much of your time were you actually spending on dentistry versus running the business side?"</p></div>
+            <div class="border-l-4 border-sga-blue pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q2-A. The financial picture</p><p class="text-sm text-gray-600">"A lot of practice owners carry all their financial security in one practice. Is that something you thought about?"</p></div>
+            <div class="border-l-4 border-sga-blue pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q3-A. What you were afraid of losing</p><p class="text-sm text-gray-600">"Your practice has your name on it. What were you most afraid would change?"</p></div>
+            <div class="border-l-4 border-sga-blue pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q4-A. Other DSO experiences</p><p class="text-sm text-gray-600">"Had you spoken with any other DSOs before SGA? What happened with those conversations?"</p></div>
+            <div class="border-l-4 border-sga-blue pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q5-A. Staff and patient concern</p><p class="text-sm text-gray-600">"What were you expecting would happen with your patients and staff?"</p></div>
+            <div class="border-l-4 border-sga-cyan pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q6-A. The autonomy question</p><p class="text-sm text-gray-600">"How did you think about clinical and operational autonomy? What were your specific concerns?"</p></div>
+            <div class="border-l-4 border-sga-cyan pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q7-A. The equity model</p><p class="text-sm text-gray-600">"The JV equity model is different from what most assume. What did you understand it to mean?"</p></div>
+            <div class="border-l-4 border-sga-lime pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q11-A. First operational change</p><p class="text-sm text-gray-600">"What was the first administrative task that got taken off your plate?"</p></div>
+            <div class="border-l-4 border-sga-lime pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q12-A. The peer community</p><p class="text-sm text-gray-600">"When did you first connect with other SGA partner dentists? What was that like?"</p></div>
+            <div class="border-l-4 border-sga-lime pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q13-A. The mentor relationship</p><p class="text-sm text-gray-600">"Did you work with a mentor through IGE? How did that relationship start?"</p></div>
+            <div class="border-l-4 border-sga-orange pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q16-A. Financial results in order</p><p class="text-sm text-gray-600">"Walk me through the financial picture. Revenue? EBITA? Staff costs? Supply costs?"</p></div>
+            <div class="border-l-4 border-sga-orange pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q17-A. What your family noticed</p><p class="text-sm text-gray-600">"Did your family notice a change? What did they observe?"</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Associate Questions -->
+      <div x-show="activeSection === 'associates'" class="space-y-4">
+        <div class="bg-white rounded-xl border border-sga-border overflow-hidden">
+          <div class="px-6 py-4 border-b border-sga-border bg-sga-cyan/5">
+            <h3 class="font-bold text-gray-900">Associate Dentist Variants (Dr. Nair Archetype)</h3>
+          </div>
+          <div class="p-6 space-y-3">
+            <div class="border-l-4 border-sga-cyan pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q1-B. Describe your previous position</p><p class="text-sm text-gray-600">"Before SGA, where were you working? Not the job description -- the actual day."</p></div>
+            <div class="border-l-4 border-sga-cyan pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q2-B. Clinical frustration</p><p class="text-sm text-gray-600">"Were there procedures you wanted to do that you were not getting to do?"</p></div>
+            <div class="border-l-4 border-sga-cyan pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q3-B. The debt and career math</p><p class="text-sm text-gray-600">"Student loans shape early-career decisions. Was that part of your thinking?"</p></div>
+            <div class="border-l-4 border-sga-cyan pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q4-B. The mentorship gap</p><p class="text-sm text-gray-600">"When you had a difficult case, who did you go to? Was there someone to ask?"</p></div>
+            <div class="border-l-4 border-sga-cyan pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q12-B. The first complex case</p><p class="text-sm text-gray-600">"Describe the first case you did here that you wouldn't have been trusted to do before."</p></div>
+            <div class="border-l-4 border-sga-cyan pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q16-B. Clinical growth measurement</p><p class="text-sm text-gray-600">"What can you do now that you could not do 12 months ago? What procedures, what complexity?"</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Patient Questions -->
+      <div x-show="activeSection === 'patients'" class="space-y-4">
+        <div class="bg-white rounded-xl border border-sga-border overflow-hidden">
+          <div class="px-6 py-4 border-b border-sga-border bg-sga-orange/5">
+            <h3 class="font-bold text-gray-900">Patient Variants (Linda Dawson Archetype)</h3>
+          </div>
+          <div class="p-6 space-y-3">
+            <div class="border-l-4 border-sga-orange pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q1-C. The daily experience</p><p class="text-sm text-gray-600">"Before your procedure, what was a normal day like in terms of your teeth? Not dental terms -- what it actually felt like."</p></div>
+            <div class="border-l-4 border-sga-orange pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q2-C. The thing you stopped doing</p><p class="text-sm text-gray-600">"Were there things you stopped doing because of your dental situation? A specific time?"</p></div>
+            <div class="border-l-4 border-sga-orange pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q4-C. The fear</p><p class="text-sm text-gray-600">"What scared you most about the procedure? Surgery? Cost? Something else?"</p></div>
+            <div class="border-l-4 border-sga-orange pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q5-C. Why you almost didn't do it</p><p class="text-sm text-gray-600">"Was there a moment where you almost talked yourself out of it?"</p></div>
+            <div class="border-l-4 border-sga-orange pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q12-C. The first look</p><p class="text-sm text-gray-600">"When did you first see your new smile? What was that moment like?"</p></div>
+            <div class="border-l-4 border-sga-orange pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q16-C. The functional result</p><p class="text-sm text-gray-600">"What can you eat now that you could not eat before? Give me specific foods."</p></div>
+            <div class="border-l-4 border-sga-orange pl-4 py-2 bg-sga-orange/5"><p class="text-sm font-semibold text-gray-900">Q19-C. Your first meal</p><p class="text-sm text-gray-600">"A lot of patients remember their first meal after getting their new teeth. Do you remember yours?" <span class="font-medium">Do NOT skip this question -- it is the most deployable piece of patient proof content.</span></p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Specialist Questions -->
+      <div x-show="activeSection === 'specialists'" class="space-y-4">
+        <div class="bg-white rounded-xl border border-sga-border overflow-hidden">
+          <div class="px-6 py-4 border-b border-sga-border bg-sga-lime/10">
+            <h3 class="font-bold text-gray-900">Specialist Variants (Dr. Whitfield Archetype)</h3>
+          </div>
+          <div class="p-6 space-y-3">
+            <div class="border-l-4 border-sga-lime pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q1-D. The infrastructure gap</p><p class="text-sm text-gray-600">"What was the ceiling on your practice -- the thing you wanted to do that you could not do?"</p></div>
+            <div class="border-l-4 border-sga-lime pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q2-D. Recruiting reality</p><p class="text-sm text-gray-600">"Had you tried to bring in another specialist? What happened?"</p></div>
+            <div class="border-l-4 border-sga-lime pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q3-D. The succession concern</p><p class="text-sm text-gray-600">"What would have happened to your practice if you had been unable to practice tomorrow?"</p></div>
+            <div class="border-l-4 border-sga-lime pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q5-D. What Pikos Institute meant</p><p class="text-sm text-gray-600">"What does the Pikos Institute represent to you as a clinician? How did that factor into MODIS?"</p></div>
+            <div class="border-l-4 border-sga-lime pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q6-D. The PE fear directly</p><p class="text-sm text-gray-600">"Private equity has a reputation. How did you think through the PE question?"</p></div>
+            <div class="border-l-4 border-sga-lime pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q16-D. Capital investment impact</p><p class="text-sm text-gray-600">"What did the capital investment make possible clinically that was not possible before?"</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Staff Questions -->
+      <div x-show="activeSection === 'staff'" class="space-y-4">
+        <div class="bg-white rounded-xl border border-sga-border overflow-hidden">
+          <div class="px-6 py-4 border-b border-sga-border bg-gray-50">
+            <h3 class="font-bold text-gray-900">Office Manager / Staff Variants (Tamara Reeves Archetype)</h3>
+          </div>
+          <div class="p-6 space-y-3">
+            <div class="border-l-4 border-gray-400 pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q1-E. What you heard first</p><p class="text-sm text-gray-600">"Do you remember the moment you found out? What was your first reaction?"</p></div>
+            <div class="border-l-4 border-gray-400 pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q2-E. What you were afraid of</p><p class="text-sm text-gray-600">"What were you most worried about -- for yourself, your team, the patients?"</p></div>
+            <div class="border-l-4 border-gray-400 pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q3-E. The administrative reality</p><p class="text-sm text-gray-600">"What were the tasks that took most of your time that had nothing to do with patients?"</p></div>
+            <div class="border-l-4 border-gray-400 pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q4-E. What you told your team</p><p class="text-sm text-gray-600">"Your team came to you with questions. What were they asking, and what did you tell them?"</p></div>
+            <div class="border-l-4 border-gray-400 pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q16-E. Hours reclaimed</p><p class="text-sm text-gray-600">"How many hours a week were you spending on tasks now handled by SGA? What do those hours go to now?"</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Closing Questions -->
+      <div x-show="activeSection === 'closing'" class="space-y-4">
+        <div class="bg-white rounded-xl border border-sga-border overflow-hidden">
+          <div class="px-6 py-4 border-b border-sga-border bg-sga-blue/5">
+            <h3 class="font-bold text-gray-900">Closing Questions -- Designed for Shareable Sound Bites</h3>
+            <p class="text-sm text-gray-500 mt-1">Placed last because the best quotes come when the interviewee has processed their story fully.</p>
+          </div>
+          <div class="p-6 space-y-3">
+            <div class="border-l-4 border-sga-blue pl-4 py-2 bg-sga-blue/5"><p class="text-sm font-semibold text-gray-900">Q21. The coffee with a colleague</p><p class="text-sm text-gray-600">"If you were having coffee with someone who is exactly where you were 12-18 months ago -- same situation, same fears -- what would you say to them?" <span class="font-semibold text-sga-blue">Never skip this question.</span></p></div>
+            <div class="border-l-4 border-sga-blue pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q22. What you wish someone had told you</p><p class="text-sm text-gray-600">"Is there anything you wish someone had told you before you made this decision?"</p></div>
+            <div class="border-l-4 border-sga-blue pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q23. What you'd say to skeptics</p><p class="text-sm text-gray-600">"A lot of people are skeptical. They've heard horror stories. What would you say to that person?"</p></div>
+            <div class="border-l-4 border-sga-blue pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q24. The thing nobody talks about</p><p class="text-sm text-gray-600">"What is the thing that is hard to convey in a brochure? The thing you would not have believed until you lived it?"</p></div>
+            <div class="border-l-4 border-sga-blue pl-4 py-2"><p class="text-sm font-semibold text-gray-900">Q25. One word or phrase</p><p class="text-sm text-gray-600">"If you had to describe what this partnership has meant in one word or phrase -- honestly -- what would it be?"</p></div>
+          </div>
+        </div>
+
+        <!-- Quick Reference -->
+        <div class="bg-white rounded-xl border border-sga-border p-6">
+          <h3 class="font-bold text-gray-900 mb-4">Quick Reference: Questions by Time Available</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-gray-50 rounded-lg p-4 text-center">
+              <span class="block text-2xl font-bold text-sga-blue">10 min</span>
+              <span class="text-xs text-gray-500">Testimonial email</span>
+              <p class="text-sm text-gray-700 mt-2 font-medium">Q1, Q5, Q16, Q21</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-4 text-center">
+              <span class="block text-2xl font-bold text-sga-cyan">20 min</span>
+              <span class="text-xs text-gray-500">Quick phone/video</span>
+              <p class="text-sm text-gray-700 mt-2 font-medium">Q1, Q2, Q5, Q8, Q9, Q15, Q16, Q17, Q21, Q24</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-4 text-center">
+              <span class="block text-2xl font-bold text-sga-lime">45 min</span>
+              <span class="text-xs text-gray-500">Full case study</span>
+              <p class="text-sm text-gray-700 mt-2 font-medium">All sections + avatar variants</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-4 text-center">
+              <span class="block text-2xl font-bold text-sga-orange">90 min</span>
+              <span class="text-xs text-gray-500">Video testimonial day</span>
+              <p class="text-sm text-gray-700 mt-2 font-medium">Full bank + extra closing Qs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SOCIAL PROOF STRATEGY TAB -->
+    <!-- ============================================ -->
+    <div x-show="activeTab === 'strategy'" x-cloak>
+      <div class="space-y-6">
+
+        <!-- Current Proof Assets -->
+        <div class="bg-white rounded-xl border border-sga-border overflow-hidden">
+          <div class="px-6 py-4 border-b border-sga-border">
+            <h3 class="font-bold text-gray-900">Confirmed Proof Assets</h3>
+          </div>
+          <div class="p-6">
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead><tr class="text-left text-xs text-gray-500 uppercase border-b border-sga-border"><th class="pb-2 pr-4">Asset</th><th class="pb-2 pr-4">Source</th><th class="pb-2">Status</th></tr></thead>
+                <tbody class="divide-y divide-gray-100">
+                  <tr><td class="py-2 pr-4 text-gray-700">Dr. Godat quote ("SGA supports us...")</td><td class="py-2 pr-4 text-gray-500">SGA website</td><td class="py-2"><span class="px-2 py-0.5 bg-green-100 text-green-700 text-xs rounded-full">Deploy Now</span></td></tr>
+                  <tr><td class="py-2 pr-4 text-gray-700">Dr. Cavendish financial results (16.5% rev, 100% retention)</td><td class="py-2 pr-4 text-gray-500">Gen4 case study</td><td class="py-2"><span class="px-2 py-0.5 bg-green-100 text-green-700 text-xs rounded-full">Deploy Now</span></td></tr>
+                  <tr><td class="py-2 pr-4 text-gray-700">Dr. Ellingson quotes (multiple)</td><td class="py-2 pr-4 text-gray-500">Gen4 materials</td><td class="py-2"><span class="px-2 py-0.5 bg-green-100 text-green-700 text-xs rounded-full">Deploy Now</span></td></tr>
+                  <tr><td class="py-2 pr-4 text-gray-700">Dr. Olson content (138K YouTube, 23M+ views)</td><td class="py-2 pr-4 text-gray-500">Public record</td><td class="py-2"><span class="px-2 py-0.5 bg-green-100 text-green-700 text-xs rounded-full">Deploy Now</span></td></tr>
+                  <tr><td class="py-2 pr-4 text-gray-700">Thurston Group: 38 years, $4B+, 8+ platforms</td><td class="py-2 pr-4 text-gray-500">Public record</td><td class="py-2"><span class="px-2 py-0.5 bg-green-100 text-green-700 text-xs rounded-full">Deploy Now</span></td></tr>
+                  <tr><td class="py-2 pr-4 text-gray-700">SGA $350M credit facility</td><td class="py-2 pr-4 text-gray-500">Press release</td><td class="py-2"><span class="px-2 py-0.5 bg-green-100 text-green-700 text-xs rounded-full">Deploy Now</span></td></tr>
+                  <tr><td class="py-2 pr-4 text-gray-700">Patient stories (Josh, Scott, Janice, Juan, Louis, Maria)</td><td class="py-2 pr-4 text-gray-500">ID YouTube</td><td class="py-2"><span class="px-2 py-0.5 bg-yellow-100 text-yellow-700 text-xs rounded-full">Verify Release</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Critical Proof Gaps -->
+        <div class="bg-white rounded-xl border border-sga-border overflow-hidden">
+          <div class="px-6 py-4 border-b border-sga-border">
+            <h3 class="font-bold text-gray-900">Critical Proof Gaps</h3>
+          </div>
+          <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div class="border border-red-200 bg-red-50 rounded-lg p-4">
+              <span class="px-2 py-0.5 bg-red-200 text-red-800 text-xs font-semibold rounded mb-2 inline-block">HIGHEST</span>
+              <h4 class="text-sm font-semibold text-gray-900">Named patient case study with photo consent</h4>
+              <p class="text-xs text-gray-600 mt-1">The most powerful proof format for MODIS/ID vertical. None structured for deployment yet.</p>
+            </div>
+            <div class="border border-red-200 bg-red-50 rounded-lg p-4">
+              <span class="px-2 py-0.5 bg-red-200 text-red-800 text-xs font-semibold rounded mb-2 inline-block">HIGHEST</span>
+              <h4 class="text-sm font-semibold text-gray-900">Associate dentist testimonial</h4>
+              <p class="text-xs text-gray-600 mt-1">Associate recruitment is a key growth driver with no peer proof.</p>
+            </div>
+            <div class="border border-yellow-200 bg-yellow-50 rounded-lg p-4">
+              <span class="px-2 py-0.5 bg-yellow-200 text-yellow-800 text-xs font-semibold rounded mb-2 inline-block">HIGH</span>
+              <h4 class="text-sm font-semibold text-gray-900">Office manager / staff testimonial</h4>
+              <p class="text-xs text-gray-600 mt-1">Silent reason acquisitions stall -- Tamara-type fears about job security.</p>
+            </div>
+            <div class="border border-yellow-200 bg-yellow-50 rounded-lg p-4">
+              <span class="px-2 py-0.5 bg-yellow-200 text-yellow-800 text-xs font-semibold rounded mb-2 inline-block">HIGH</span>
+              <h4 class="text-sm font-semibold text-gray-900">Post-deal timeline data (Year 2, 3)</h4>
+              <p class="text-xs text-gray-600 mt-1">#1 market opportunity -- nobody shows what happens after the deal.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collection Triggers -->
+        <div class="bg-white rounded-xl border border-sga-border overflow-hidden">
+          <div class="px-6 py-4 border-b border-sga-border">
+            <h3 class="font-bold text-gray-900">When to Ask -- Milestone Triggers</h3>
+          </div>
+          <div class="p-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="text-center p-4 bg-sga-blue/5 rounded-lg">
+                <span class="block text-2xl font-bold text-sga-blue">90 Days</span>
+                <span class="text-xs font-semibold text-sga-blue">First Wins</span>
+                <p class="text-xs text-gray-600 mt-2">Highest-quality window. Initial fears resolved, first tangible changes happened, emotional relief is fresh.</p>
+              </div>
+              <div class="text-center p-4 bg-sga-cyan/5 rounded-lg">
+                <span class="block text-2xl font-bold text-sga-cyan">6 Months</span>
+                <span class="text-xs font-semibold text-sga-cyan">Results Visible</span>
+                <p class="text-xs text-gray-600 mt-2">First financial results visible. Revenue trends, retention data, EBITA comparisons exist.</p>
+              </div>
+              <div class="text-center p-4 bg-sga-lime/10 rounded-lg">
+                <span class="block text-2xl font-bold text-gray-700">12 Months</span>
+                <span class="text-xs font-semibold text-gray-700">Full Story</span>
+                <p class="text-xs text-gray-600 mt-2">The "Dr. Cavendish level" moment. A year of data and relationship.</p>
+              </div>
+              <div class="text-center p-4 bg-sga-orange/5 rounded-lg">
+                <span class="block text-2xl font-bold text-sga-orange">Organic</span>
+                <span class="text-xs font-semibold text-sga-orange">Never Let It Pass</span>
+                <p class="text-xs text-gray-600 mt-2">When someone expresses unsolicited gratitude, that is a collection opportunity.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Funnel Placement -->
+        <div class="bg-white rounded-xl border border-sga-border overflow-hidden">
+          <div class="px-6 py-4 border-b border-sga-border">
+            <h3 class="font-bold text-gray-900">Proof Placement by Funnel Stage</h3>
+          </div>
+          <div class="p-6 space-y-4">
+            <div class="border border-sga-border rounded-lg p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="px-2 py-0.5 bg-sga-blue/10 text-sga-blue text-xs font-bold rounded">TOFU</span>
+                <span class="text-sm font-semibold text-gray-900">Awareness</span>
+              </div>
+              <p class="text-sm text-gray-600 mb-2">Numbers only. No stories yet. Pattern interruption and credibility signaling.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Aggregate stats</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Third-party validation</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Authority signals</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Logo bar</span>
+              </div>
+            </div>
+            <div class="border border-sga-border rounded-lg p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="px-2 py-0.5 bg-sga-cyan/10 text-sga-cyan text-xs font-bold rounded">MOFU</span>
+                <span class="text-sm font-semibold text-gray-900">Consideration</span>
+              </div>
+              <p class="text-sm text-gray-600 mb-2">Specificity. The MOFU reader is sophisticated. Give them names, numbers, and detail.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Named testimonials</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Case study summaries</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Avatar-matched proof</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Comparison content</span>
+              </div>
+            </div>
+            <div class="border border-sga-border rounded-lg p-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="px-2 py-0.5 bg-sga-orange/10 text-sga-orange text-xs font-bold rounded">BOFU</span>
+                <span class="text-sm font-semibold text-gray-900">Decision</span>
+              </div>
+              <p class="text-sm text-gray-600 mb-2">Direct and low-pressure. The proof confirms, not persuades. Give every piece of evidence and step back.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Full-length video</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Long-form case studies</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">"Call them yourself"</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">ROI calculator</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Partner panel Q&A</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- CHECKLIST TAB -->
+    <!-- ============================================ -->
+    <div x-show="activeTab === 'checklist'" x-cloak>
+      <div class="space-y-6">
+
+        <!-- Specificity Check -->
+        <div class="bg-white rounded-xl border border-sga-border p-6" x-data="{ checks: { s1: false, s2: false, s3: false, s4: false, s5: false, a1: false, a2: false, a3: false, a4: false, p1: false, p2: false, p3: false, l1: false, l2: false, l3: false, l4: false } }">
+          <h3 class="font-bold text-gray-900 mb-4">Quality Checklist: Before Publishing Any Case Study</h3>
+
+          <div class="space-y-6">
+            <div>
+              <h4 class="text-sm font-semibold text-sga-blue uppercase tracking-wider mb-3">Specificity Check</h4>
+              <div class="space-y-2">
+                <label class="flex items-start gap-3 cursor-pointer" @click="checks.s1 = !checks.s1">
+                  <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors" :class="checks.s1 ? 'bg-sga-blue border-sga-blue' : 'border-gray-300'">
+                    <svg x-show="checks.s1" class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700">Headline includes a specific result (not "better outcomes" but "revenue up 16.5%")</span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer" @click="checks.s2 = !checks.s2">
+                  <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors" :class="checks.s2 ? 'bg-sga-blue border-sga-blue' : 'border-gray-300'">
+                    <svg x-show="checks.s2" class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700">The "before" section describes a specific moment, not a category of pain</span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer" @click="checks.s3 = !checks.s3">
+                  <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors" :class="checks.s3 ? 'bg-sga-blue border-sga-blue' : 'border-gray-300'">
+                    <svg x-show="checks.s3" class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700">Results section includes at least two quantified metrics</span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer" @click="checks.s4 = !checks.s4">
+                  <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors" :class="checks.s4 ? 'bg-sga-blue border-sga-blue' : 'border-gray-300'">
+                    <svg x-show="checks.s4" class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700">Partner named with full name, practice name, city, and credentials</span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer" @click="checks.s5 = !checks.s5">
+                  <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors" :class="checks.s5 ? 'bg-sga-blue border-sga-blue' : 'border-gray-300'">
+                    <svg x-show="checks.s5" class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700">The quote sounds like a human being, not marketing copy</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="text-sm font-semibold text-sga-cyan uppercase tracking-wider mb-3">Authenticity Check</h4>
+              <div class="space-y-2">
+                <label class="flex items-start gap-3 cursor-pointer" @click="checks.a1 = !checks.a1">
+                  <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors" :class="checks.a1 ? 'bg-sga-cyan border-sga-cyan' : 'border-gray-300'">
+                    <svg x-show="checks.a1" class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700">No corporate language ("world-class," "premier," "holistic approach")</span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer" @click="checks.a2 = !checks.a2">
+                  <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors" :class="checks.a2 ? 'bg-sga-cyan border-sga-cyan' : 'border-gray-300'">
+                    <svg x-show="checks.a2" class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700">Partner's natural speech patterns preserved in quotes</span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer" @click="checks.a3 = !checks.a3">
+                  <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors" :class="checks.a3 ? 'bg-sga-cyan border-sga-cyan' : 'border-gray-300'">
+                    <svg x-show="checks.a3" class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700">Objections acknowledged, not ignored</span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer" @click="checks.a4 = !checks.a4">
+                  <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors" :class="checks.a4 ? 'bg-sga-cyan border-sga-cyan' : 'border-gray-300'">
+                    <svg x-show="checks.a4" class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700">"Why SGA and not someone else" is answered specifically</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="text-sm font-semibold text-sga-orange uppercase tracking-wider mb-3">Proof Hierarchy Check</h4>
+              <div class="space-y-2">
+                <label class="flex items-start gap-3 cursor-pointer" @click="checks.p1 = !checks.p1">
+                  <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors" :class="checks.p1 ? 'bg-sga-orange border-sga-orange' : 'border-gray-300'">
+                    <svg x-show="checks.p1" class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700">Deployed at appropriate funnel stage (long-form for MOFU/BOFU, video for BOFU)</span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer" @click="checks.p2 = !checks.p2">
+                  <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors" :class="checks.p2 ? 'bg-sga-orange border-sga-orange' : 'border-gray-300'">
+                    <svg x-show="checks.p2" class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700">Case study matches the avatar it's meant to persuade</span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer" @click="checks.p3 = !checks.p3">
+                  <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors" :class="checks.p3 ? 'bg-sga-orange border-sga-orange' : 'border-gray-300'">
+                    <svg x-show="checks.p3" class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700">Proof addresses the #1 objection for that avatar</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="text-sm font-semibold text-red-600 uppercase tracking-wider mb-3">Legal & Permissions Check</h4>
+              <div class="space-y-2">
+                <label class="flex items-start gap-3 cursor-pointer" @click="checks.l1 = !checks.l1">
+                  <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors" :class="checks.l1 ? 'bg-red-600 border-red-600' : 'border-gray-300'">
+                    <svg x-show="checks.l1" class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700">Partner has approved quotes in writing</span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer" @click="checks.l2 = !checks.l2">
+                  <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors" :class="checks.l2 ? 'bg-red-600 border-red-600' : 'border-gray-300'">
+                    <svg x-show="checks.l2" class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700">Financial figures confirmed with partner before publishing</span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer" @click="checks.l3 = !checks.l3">
+                  <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors" :class="checks.l3 ? 'bg-red-600 border-red-600' : 'border-gray-300'">
+                    <svg x-show="checks.l3" class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700">Patient video testimonials have signed release forms</span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer" @click="checks.l4 = !checks.l4">
+                  <div class="w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors" :class="checks.l4 ? 'bg-red-600 border-red-600' : 'border-gray-300'">
+                    <svg x-show="checks.l4" class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700">Practice name, credentials, and location verified</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Progress -->
+          <div class="mt-6 pt-4 border-t border-sga-border">
+            <div class="flex items-center justify-between text-sm">
+              <span class="text-gray-500">Checklist progress</span>
+              <span class="font-semibold text-gray-900" x-text="Object.values(checks).filter(c => c).length + ' / ' + Object.keys(checks).length + ' completed'"></span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+              <div class="bg-sga-blue h-2 rounded-full transition-all" :style="'width: ' + (Object.values(checks).filter(c => c).length / Object.keys(checks).length * 100) + '%'"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

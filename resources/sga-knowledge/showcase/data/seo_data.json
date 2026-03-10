@@ -1,0 +1,581 @@
+{
+  "blogPosts": [
+    {
+      "id": "blog-1",
+      "title": "How to Sell Your Dental Practice: The Complete 2026 Guide",
+      "slug": "sell-dental-practice-guide",
+      "targetKeyword": "sell dental practice",
+      "secondaryKeywords": [
+        "how to sell a dental practice",
+        "dental practice sale guide",
+        "selling dental practice to DSO"
+      ],
+      "targetAvatar": "Dr. Mark Hendricks",
+      "wordCount": 3500,
+      "publishMonth": "April 2026",
+      "cluster": "Practice Transition & Acquisition",
+      "type": "pillar",
+      "metaDescription": "A step-by-step guide for dental practice owners considering a sale or partnership. Covers valuation, DSO evaluation, equity models, due diligence, and how to protect what you built.",
+      "outline": [
+        "Assess Your Readiness -- Financial health, owner dependency, personal timeline",
+        "Understand Your Options -- Private sale, broker-assisted, DSO partnership comparison",
+        "Get a Practice Valuation -- EBITDA methodology, market multiples, strategic premium factors",
+        "Evaluate Potential Partners -- Clinical autonomy, equity structure, PE track record, education",
+        "Enter Discovery Conversations -- What to ask, reference checks, site visits",
+        "Complete Due Diligence and Close -- Financial audit, legal review, staff transition, 60-120 day timeline"
+      ],
+      "pagePath": "pages/blog-post-1.html"
+    },
+    {
+      "id": "blog-2",
+      "title": "What Is a DSO? Dental Service Organizations Explained for Practice Owners",
+      "slug": "what-is-a-dso",
+      "targetKeyword": "what is a DSO",
+      "secondaryKeywords": [
+        "dental service organization",
+        "DSO meaning",
+        "DSO dental"
+      ],
+      "targetAvatar": "Dr. Mark Hendricks",
+      "wordCount": 2200,
+      "publishMonth": "April 2026",
+      "cluster": "Practice Transition & Acquisition",
+      "type": "spoke",
+      "metaDescription": "What is a DSO and how do dental service organizations work? An honest guide covering Gen1-Gen4 models, equity structures, and what practice owners should know before signing.",
+      "outline": [
+        "Definition and history of DSOs -- from Gen1 to Gen4",
+        "How DSO models work -- management fees, equity, employment structures",
+        "Types of DSOs -- Corporate, MSO, IDSO, JV equity partnership",
+        "The consolidation landscape -- 1,000+ IDSOs, fewer than 100 qualified",
+        "What to evaluate -- autonomy, track record, equity performance, education",
+        "Red flags and green flags in DSO conversations"
+      ],
+      "pagePath": "pages/blog-post-2.html"
+    },
+    {
+      "id": "blog-3",
+      "title": "Dental Practice Valuation Guide: What Your Practice Is Actually Worth",
+      "slug": "dental-practice-valuation-guide",
+      "targetKeyword": "dental practice valuation",
+      "secondaryKeywords": [
+        "dental practice value",
+        "how much is my dental practice worth",
+        "EBITDA dental practice"
+      ],
+      "targetAvatar": "Dr. Mark Hendricks",
+      "wordCount": 2500,
+      "publishMonth": "May 2026",
+      "cluster": "Practice Transition & Acquisition",
+      "type": "spoke",
+      "metaDescription": "How dental practice valuations work in 2026. Covers EBITDA methodology, market multiples (6-12x), factors that increase value, and common valuation mistakes to avoid.",
+      "outline": [
+        "EBITDA: The metric that drives dental practice valuations",
+        "Current market multiples -- 7-9x for mid-market, 9-12x for groups",
+        "Factors that increase practice value -- growth trajectory, specialties, geography",
+        "Factors that decrease value -- owner dependency, declining patients, deferred maintenance",
+        "Common valuation manipulation tactics by DSOs",
+        "Getting an independent valuation vs. relying on the buyer's math"
+      ],
+      "pagePath": "pages/blog-post-3.html"
+    },
+    {
+      "id": "blog-4",
+      "title": "The Complete Guide to Dental Implants: Cost, Procedure, and What to Expect",
+      "slug": "dental-implants-guide",
+      "targetKeyword": "dental implants guide",
+      "secondaryKeywords": [
+        "dental implant cost",
+        "same day dental implants",
+        "full arch dental implants"
+      ],
+      "targetAvatar": "Linda Dawson",
+      "wordCount": 3000,
+      "publishMonth": "April 2026",
+      "cluster": "Dental Implant Patient Education",
+      "type": "pillar",
+      "metaDescription": "Everything you need to know about dental implants: cost ($20K-$50K per arch), same-day options, recovery timeline, and how to choose the right implant specialist.",
+      "outline": [
+        "What are dental implants -- types, materials, procedures",
+        "Cost breakdown -- full arch pricing, single implant, financing options",
+        "Same-day vs. staged procedures -- candidacy factors",
+        "The consultation process -- 3D CT scan, treatment plan, cost estimate",
+        "Recovery timeline -- week by week expectations",
+        "Choosing your implant team -- credentials, experience, technology"
+      ],
+      "pagePath": "pages/blog-post-4.html"
+    },
+    {
+      "id": "blog-5",
+      "title": "Dental Career Paths in 2026: From Associate to Partner to Practice Leader",
+      "slug": "dental-career-paths-guide",
+      "targetKeyword": "dental career paths",
+      "secondaryKeywords": [
+        "associate dentist career",
+        "dentist career development",
+        "dental practice partnership career"
+      ],
+      "targetAvatar": "Dr. Priya Nair",
+      "wordCount": 2800,
+      "publishMonth": "May 2026",
+      "cluster": "Dental Career Opportunities",
+      "type": "pillar",
+      "metaDescription": "A comprehensive guide to dental career paths in 2026. Covers associate positions, DSO vs. private practice, partnership tracks, specialization, and how to build long-term career value.",
+      "outline": [
+        "The associate reality -- high volume, limited mentorship, production pressure",
+        "DSO vs. private practice salary and lifestyle comparison",
+        "The partnership track -- equity, leadership, clinical advisory board roles",
+        "Specialization pathways -- implants through Pikos Institute, CEREC mentorship",
+        "Avoiding burnout -- the structural causes and structural solutions",
+        "Building career value -- CE investment, peer community, equity participation"
+      ],
+      "pagePath": "pages/blog-post-5.html"
+    }
+  ],
+  "keywordMap": {
+    "clusters": [
+      {
+        "id": "cluster-1",
+        "name": "Practice Transition & Acquisition",
+        "pillarPage": "/blog/sell-dental-practice-guide",
+        "landingPage": "/partners",
+        "keywords": [
+          {
+            "keyword": "sell dental practice",
+            "volume": 2900,
+            "difficulty": 45,
+            "intent": "transactional",
+            "priority": "high",
+            "assignedPage": "/blog/sell-dental-practice-guide"
+          },
+          {
+            "keyword": "dental practice valuation",
+            "volume": 1600,
+            "difficulty": 38,
+            "intent": "informational",
+            "priority": "high",
+            "assignedPage": "/blog/dental-practice-valuation-guide"
+          },
+          {
+            "keyword": "what is a DSO",
+            "volume": 2400,
+            "difficulty": 32,
+            "intent": "informational",
+            "priority": "high",
+            "assignedPage": "/blog/what-is-a-dso"
+          },
+          {
+            "keyword": "DSO vs private sale",
+            "volume": 480,
+            "difficulty": 28,
+            "intent": "informational",
+            "priority": "medium",
+            "assignedPage": "/blog/dso-vs-private-sale"
+          },
+          {
+            "keyword": "dental practice succession planning",
+            "volume": 720,
+            "difficulty": 35,
+            "intent": "informational",
+            "priority": "medium",
+            "assignedPage": "/blog/dental-practice-succession-planning"
+          },
+          {
+            "keyword": "DSO equity partnership model",
+            "volume": 260,
+            "difficulty": 22,
+            "intent": "informational",
+            "priority": "medium",
+            "assignedPage": "/blog/dso-equity-partnership-model"
+          },
+          {
+            "keyword": "clinical autonomy DSO",
+            "volume": 390,
+            "difficulty": 25,
+            "intent": "informational",
+            "priority": "medium",
+            "assignedPage": "/blog/clinical-autonomy-dso"
+          },
+          {
+            "keyword": "evaluate DSO partnership",
+            "volume": 210,
+            "difficulty": 20,
+            "intent": "informational",
+            "priority": "low",
+            "assignedPage": "/blog/evaluate-dso-partnership"
+          }
+        ]
+      },
+      {
+        "id": "cluster-2",
+        "name": "Dental Career Opportunities",
+        "pillarPage": "/blog/dental-career-paths-guide",
+        "landingPage": "/careers",
+        "keywords": [
+          {
+            "keyword": "dental career paths",
+            "volume": 1900,
+            "difficulty": 40,
+            "intent": "informational",
+            "priority": "high",
+            "assignedPage": "/blog/dental-career-paths-guide"
+          },
+          {
+            "keyword": "working at DSO pros cons",
+            "volume": 880,
+            "difficulty": 30,
+            "intent": "informational",
+            "priority": "high",
+            "assignedPage": "/blog/working-at-dso-pros-cons"
+          },
+          {
+            "keyword": "associate dentist salary DSO",
+            "volume": 1200,
+            "difficulty": 35,
+            "intent": "informational",
+            "priority": "medium",
+            "assignedPage": "/blog/dso-vs-private-practice-salary"
+          },
+          {
+            "keyword": "associate to partner pathway",
+            "volume": 320,
+            "difficulty": 20,
+            "intent": "informational",
+            "priority": "medium",
+            "assignedPage": "/blog/associate-to-partner-pathway"
+          },
+          {
+            "keyword": "dentist burnout",
+            "volume": 1400,
+            "difficulty": 42,
+            "intent": "informational",
+            "priority": "medium",
+            "assignedPage": "/blog/dentist-burnout"
+          },
+          {
+            "keyword": "continuing education dentistry",
+            "volume": 590,
+            "difficulty": 28,
+            "intent": "informational",
+            "priority": "low",
+            "assignedPage": "/blog/continuing-education-dentistry"
+          }
+        ]
+      },
+      {
+        "id": "cluster-3",
+        "name": "Dental Implant Patient Education",
+        "pillarPage": "/blog/dental-implants-guide",
+        "landingPage": "/implants",
+        "keywords": [
+          {
+            "keyword": "dental implants guide",
+            "volume": 3200,
+            "difficulty": 55,
+            "intent": "informational",
+            "priority": "high",
+            "assignedPage": "/blog/dental-implants-guide"
+          },
+          {
+            "keyword": "dental implant cost",
+            "volume": 14800,
+            "difficulty": 62,
+            "intent": "informational",
+            "priority": "high",
+            "assignedPage": "/blog/full-arch-dental-implants-cost"
+          },
+          {
+            "keyword": "same day dental implants",
+            "volume": 4100,
+            "difficulty": 48,
+            "intent": "transactional",
+            "priority": "high",
+            "assignedPage": "/blog/same-day-dental-implants"
+          },
+          {
+            "keyword": "dental implant recovery",
+            "volume": 2800,
+            "difficulty": 38,
+            "intent": "informational",
+            "priority": "medium",
+            "assignedPage": "/blog/dental-implant-recovery-timeline"
+          },
+          {
+            "keyword": "are dental implants worth it",
+            "volume": 2200,
+            "difficulty": 35,
+            "intent": "informational",
+            "priority": "medium",
+            "assignedPage": "/blog/are-dental-implants-worth-it"
+          },
+          {
+            "keyword": "dental implant before and after",
+            "volume": 3600,
+            "difficulty": 45,
+            "intent": "informational",
+            "priority": "medium",
+            "assignedPage": "/blog/dental-implant-before-and-after"
+          }
+        ]
+      },
+      {
+        "id": "cluster-4",
+        "name": "DSO Industry Thought Leadership",
+        "pillarPage": "/blog/evolution-of-dsos",
+        "landingPage": "/why-sga",
+        "keywords": [
+          {
+            "keyword": "evolution of DSOs",
+            "volume": 480,
+            "difficulty": 25,
+            "intent": "informational",
+            "priority": "high",
+            "assignedPage": "/blog/evolution-of-dsos"
+          },
+          {
+            "keyword": "types of DSO models",
+            "volume": 390,
+            "difficulty": 22,
+            "intent": "informational",
+            "priority": "medium",
+            "assignedPage": "/blog/types-of-dso-models"
+          },
+          {
+            "keyword": "private equity dental",
+            "volume": 720,
+            "difficulty": 30,
+            "intent": "informational",
+            "priority": "medium",
+            "assignedPage": "/blog/private-equity-dental"
+          },
+          {
+            "keyword": "dental consolidation trends",
+            "volume": 520,
+            "difficulty": 28,
+            "intent": "informational",
+            "priority": "medium",
+            "assignedPage": "/blog/dental-consolidation-trends-2026"
+          },
+          {
+            "keyword": "clinician led DSO",
+            "volume": 210,
+            "difficulty": 18,
+            "intent": "informational",
+            "priority": "low",
+            "assignedPage": "/blog/clinician-led-dso-model"
+          }
+        ]
+      },
+      {
+        "id": "cluster-5",
+        "name": "Local & Community (Location Pages)",
+        "pillarPage": "/practices",
+        "landingPage": "/practices",
+        "keywords": [
+          {
+            "keyword": "dentist near me",
+            "volume": 201000,
+            "difficulty": 85,
+            "intent": "transactional",
+            "priority": "high",
+            "assignedPage": "/practices"
+          },
+          {
+            "keyword": "dental implants springfield mo",
+            "volume": 480,
+            "difficulty": 35,
+            "intent": "transactional",
+            "priority": "high",
+            "assignedPage": "/practices/innovative-dental-springfield-mo"
+          },
+          {
+            "keyword": "dentist valdosta ga",
+            "volume": 320,
+            "difficulty": 28,
+            "intent": "transactional",
+            "priority": "medium",
+            "assignedPage": "/practices/dental-partners-sw-georgia-valdosta-ga"
+          }
+        ]
+      }
+    ]
+  },
+  "onPageSpecs": [
+    {
+      "page": "Homepage",
+      "url": "/",
+      "title": "SGA Dental Partners | Dental Partnership Platform",
+      "h1": "Dentists Come to SGA to Get Better. Not Just to Get Bought.",
+      "metaDescription": "SGA Dental Partners is a dental partnership platform backed by the Thurston Group (38 years, $4B+ returned). Keep your name, team, and autonomy. Retain equity.",
+      "priority": "high"
+    },
+    {
+      "page": "Partners",
+      "url": "/partners",
+      "title": "Dental Practice Partnership | SGA Dental Partners",
+      "h1": "Your Name Stays. Your Team Stays. Your Future Gets Bigger.",
+      "metaDescription": "Explore partnership with SGA Dental Partners. Equity model, clinical autonomy, Pikos Institute access, and the Thurston Group's 38-year track record. Free confidential consultation.",
+      "priority": "high"
+    },
+    {
+      "page": "Careers",
+      "url": "/careers",
+      "title": "Dental Careers | Associate & Partner Opportunities | SGA Dental",
+      "h1": "Your Career Is Not a Production Number.",
+      "metaDescription": "Associate dentist opportunities at SGA Dental Partners. Clinical mentorship, Pikos Institute access, equity from day one, and a career built around clinical growth.",
+      "priority": "high"
+    },
+    {
+      "page": "Implants",
+      "url": "/implants",
+      "title": "Dental Implants | Same-Day Teeth | Free Consultation",
+      "h1": "Your Smile Shouldn't Wait. Neither Should You.",
+      "metaDescription": "Same-day dental implants from Dr. Grant Olson at Innovative Dental. 138K YouTube subscribers, 3,390+ reviews. Free consultation with 3D CT scan. Financing from $250/month.",
+      "priority": "high"
+    },
+    {
+      "page": "Why SGA",
+      "url": "/why-sga",
+      "title": "Why SGA Dental Partners | The DSO Alternative",
+      "h1": "Not All DSOs Are the Same. Here Is Why SGA Is Different.",
+      "metaDescription": "SGA Dental Partners vs. corporate DSOs: education platform, equity partnership, clinical autonomy, and the Thurston Group's 38-year, $4B+ track record.",
+      "priority": "high"
+    },
+    {
+      "page": "Specialists",
+      "url": "/specialists",
+      "title": "Specialist Dental Partnership | MODIS by SGA Dental",
+      "h1": "Your Clinical Mastery Deserves Infrastructure to Match.",
+      "metaDescription": "MODIS specialist partnerships for periodontists, oral surgeons, and implantologists. $250K-$750K capital investment, Pikos Institute, scope protection in writing.",
+      "priority": "high"
+    },
+    {
+      "page": "Blog",
+      "url": "/blog",
+      "title": "Dental Industry Insights | SGA Dental Partners Blog",
+      "h1": "Industry Insights for Dental Professionals",
+      "metaDescription": "Expert insights on dental practice transitions, DSO partnerships, dental careers, implant education, and industry trends from SGA Dental Partners.",
+      "priority": "medium"
+    },
+    {
+      "page": "About",
+      "url": "/about",
+      "title": "About SGA Dental Partners | Our Team & Mission",
+      "h1": "Built by Dentists Who Heard the Horror Stories and Refused to Add to Them.",
+      "metaDescription": "Meet the SGA Dental Partners leadership team. Learn about our mission, the Thurston Group backing, and why we built a dental partnership model designed to reverse the DSO regret statistic.",
+      "priority": "medium"
+    }
+  ],
+  "schemaMarkup": {
+    "types": [
+      "Organization",
+      "LocalBusiness (Dentist)",
+      "FAQPage",
+      "Article",
+      "HowTo",
+      "VideoObject",
+      "JobPosting",
+      "BreadcrumbList",
+      "WebSite",
+      "Person"
+    ],
+    "deploymentPriority": [
+      {
+        "page": "Homepage",
+        "schemas": [
+          "Organization",
+          "WebSite",
+          "BreadcrumbList"
+        ],
+        "priority": "high"
+      },
+      {
+        "page": "/partners",
+        "schemas": [
+          "FAQPage",
+          "BreadcrumbList"
+        ],
+        "priority": "high"
+      },
+      {
+        "page": "/careers/[job]",
+        "schemas": [
+          "JobPosting",
+          "BreadcrumbList"
+        ],
+        "priority": "high"
+      },
+      {
+        "page": "/practices/[name]",
+        "schemas": [
+          "Dentist",
+          "BreadcrumbList"
+        ],
+        "priority": "high"
+      },
+      {
+        "page": "/implants",
+        "schemas": [
+          "FAQPage",
+          "VideoObject",
+          "BreadcrumbList"
+        ],
+        "priority": "high"
+      },
+      {
+        "page": "/blog/[article]",
+        "schemas": [
+          "Article",
+          "FAQPage",
+          "BreadcrumbList"
+        ],
+        "priority": "high"
+      },
+      {
+        "page": "/about",
+        "schemas": [
+          "Person (multiple)",
+          "BreadcrumbList"
+        ],
+        "priority": "medium"
+      }
+    ]
+  },
+  "internalLinking": {
+    "architecture": "Hub-and-spoke topical authority clusters with cross-cluster bridges",
+    "totalPlannedPages": "75+ (6 landing, 5 pillar, 34 cluster articles, 10+ location pages at launch)",
+    "priorityPages": [
+      {
+        "page": "/partners",
+        "targetInboundLinks": "25-30",
+        "rationale": "Primary conversion page for practice acquisition"
+      },
+      {
+        "page": "/blog/sell-dental-practice-guide",
+        "targetInboundLinks": "15-20",
+        "rationale": "Hub page for highest-value keyword cluster"
+      },
+      {
+        "page": "/careers",
+        "targetInboundLinks": "15-20",
+        "rationale": "Conversion page for recruitment pipeline"
+      },
+      {
+        "page": "/implants",
+        "targetInboundLinks": "15-20",
+        "rationale": "Conversion page for patient acquisition"
+      },
+      {
+        "page": "/why-sga",
+        "targetInboundLinks": "12-15",
+        "rationale": "Comparison/education page supporting all B2B funnels"
+      }
+    ],
+    "rules": [
+      "Every page gets at least 3 internal inbound links. No orphan pages.",
+      "Pillar pages receive links from all their spokes and pass equity to landing pages.",
+      "Cross-cluster bridges limited to 2-3 per article to maintain topical relevance.",
+      "No page should be more than 3 clicks from the homepage.",
+      "Vary anchor text -- 40% primary keyword, 60% natural variations."
+    ]
+  }
+}

@@ -1,0 +1,425 @@
+{
+  "channelAssessment": [
+    {
+      "channel": "Referral Program",
+      "audienceFit": 9,
+      "economics": 9,
+      "scalability": 7,
+      "timeToImpact": 8,
+      "total": 33,
+      "timeframe": "30-60 days to launch, 90 days to measurable results"
+    },
+    {
+      "channel": "Partner/Affiliate Program",
+      "audienceFit": 8,
+      "economics": 7,
+      "scalability": 8,
+      "timeToImpact": 6,
+      "total": 29,
+      "timeframe": "60-90 days to first partner revenue"
+    },
+    {
+      "channel": "Community Growth",
+      "audienceFit": 9,
+      "economics": 8,
+      "scalability": 6,
+      "timeToImpact": 5,
+      "total": 28,
+      "timeframe": "90-180 days to meaningful engagement"
+    },
+    {
+      "channel": "Influencer Campaigns",
+      "audienceFit": 7,
+      "economics": 6,
+      "scalability": 7,
+      "timeToImpact": 7,
+      "total": 27,
+      "timeframe": "30-60 days per campaign cycle"
+    },
+    {
+      "channel": "Retargeting Campaigns",
+      "audienceFit": 8,
+      "economics": 8,
+      "scalability": 9,
+      "timeToImpact": 9,
+      "total": 34,
+      "timeframe": "14-21 days to launch, immediate impact"
+    }
+  ],
+  "referralProgram": {
+    "incentive": {
+      "referrer": "Equity credit toward platform investment + recognition at 4Front Symposium",
+      "referee": "Priority onboarding + dedicated transition team + waived initial assessment fee"
+    },
+    "mechanism": "Three-track referral system: Partner-to-Partner (practice owners referring peers), Associate-to-Associate (associates recruiting associates), Patient-to-Patient (patient referral program for MODIS implant vertical)",
+    "viralCoefficient": "Target K-factor: 0.25-0.35 for B2B partner referrals. Patient referral K-factor target: 0.4-0.6 for implant vertical.",
+    "tracks": [
+      {
+        "name": "Partner-to-Partner Referral",
+        "description": "Current SGA partners refer practice owners they know. Highest-trust channel. Incentives: equity credit in SGA platform, recognition at 4Front Symposium, priority mentorship matching for referred partner.",
+        "targetVolume": "2-4 referrals per partner per year",
+        "conversionRate": "40-60% to discovery call"
+      },
+      {
+        "name": "Associate-to-Associate Referral",
+        "description": "Associates at SGA practices refer peers from dental school or study groups. Incentives: signing bonus enhancement, CE credit toward Pikos Institute courses, Class A shareholder pathway acceleration.",
+        "targetVolume": "1-2 referrals per associate per year",
+        "conversionRate": "25-35% to application"
+      },
+      {
+        "name": "Patient-to-Patient Referral (MODIS)",
+        "description": "Implant patients refer friends and family. 00 credit for both referrer and referee. Activated at Day 30 post-treatment when satisfaction peaks.",
+        "targetVolume": "15-20% of treated patients make a referral",
+        "conversionRate": "30-40% of referred patients book consultation"
+      }
+    ],
+    "copy": {
+      "inviteEmail": "Subject: A personal introduction to SGA Dental Partners\n\nDr. [Referee Name],\n\nI wanted to introduce you to something that has genuinely changed my practice and my life.\n\nI partnered with SGA Dental Partners [X] years ago. My name is still on my door. My team is still in their chairs. My patients do not know anything changed -- except that the billing got better and I started coming home earlier.\n\nThe reason I am reaching out is that I know what it feels like to carry the weight of running a practice alone. If you have ever stayed late doing payroll or Googled HIPAA compliance at 6 AM, you know exactly what I mean.\n\nSGA is different from any DSO I evaluated. The education platform alone -- the Pikos Institute, the 4Front Symposium -- has made me a better dentist. And the Thurston Group (38 years, B+ returned to partners) is the kind of PE sponsor that actually delivers on its promises.\n\nI am not getting paid to send this. I am sending it because I wish someone had told me about this option 5 years earlier.\n\nWould a 15-minute conversation be worth your time? I can introduce you directly to our team, or you can take the Partnership Readiness Scorecard first: [LINK]\n\nEither way, no pressure. This decision moves at your pace.\n\nBest,\nDr. [Referrer Name]",
+      "shareMessage": "I partnered with SGA Dental Partners and it changed my practice. If you are a practice owner thinking about what comes next, take 5 minutes and see where you stand: [SCORECARD LINK]. My name is still on my door. My team is still here. And for the first time in 20 years, QuickBooks does not call me to the back office.",
+      "landingPage": "You Were Referred by a Current SGA Partner\n\nA colleague who knows your work thinks you should explore what SGA Dental Partners offers. They are not getting paid to refer you. They are sharing this because it changed their practice.\n\nTake 5 minutes. See where you stand.\n\n[SCORECARD CTA]"
+    },
+    "implementation": [
+      "Month 1: Design referral tracking in CRM (HubSpot). Create unique referral links per partner. Build referral landing page.",
+      "Month 2: Soft launch to 10 highest-engaged partners. Collect feedback on messaging and incentive structure.",
+      "Month 3: Full network launch at 4Front Symposium. Announce incentive program. Provide partners with pre-written referral email and social share templates.",
+      "Month 4+: Monthly leaderboard. Quarterly recognition. Annual top-referrer award at 4Front."
+    ],
+    "kpis": [
+      "Partner referral rate > 15% of network per year",
+      "Referral-to-discovery-call conversion > 40%",
+      "Patient referral rate > 15% of treated implant patients",
+      "K-factor > 0.25 for partner referrals"
+    ]
+  },
+  "partnerProgram": {
+    "commissionStructure": "Revenue share model for dental industry affiliates. Brokers: negotiated per-deal fee (typically offset by broker commission the practice owner would have paid anyway). Content partners: flat fee per qualified referral + performance bonus.",
+    "tiers": [
+      {
+        "name": "Dental Transition Broker",
+        "type": "Broker",
+        "commission": "Negotiated per-deal (SGA works with brokers regularly)",
+        "requirements": "Licensed dental practice transition specialist",
+        "fit": "High -- brokers control 30-40% of practice acquisition pipeline"
+      },
+      {
+        "name": "Dental CPA/Financial Advisor",
+        "type": "Professional referral",
+        "commission": "Referral fee per closed partnership + ongoing advisory relationship",
+        "requirements": "Established dental CPA or financial advisory practice",
+        "fit": "High -- CPAs are trusted advisors in the partnership decision"
+      },
+      {
+        "name": "Dental Industry Consultant",
+        "type": "Consulting referral",
+        "commission": ",500-5,000 per qualified referral that converts to discovery call",
+        "requirements": "Established dental consulting practice with practice owner clientele",
+        "fit": "Medium -- consultants influence practice strategy"
+      },
+      {
+        "name": "Dental Media/Content Partner",
+        "type": "Content affiliate",
+        "commission": "Flat fee per qualified lead + co-branded content opportunities",
+        "requirements": "Dental podcast, publication, or content platform with 5K+ audience",
+        "fit": "Medium -- content partners drive awareness and credibility"
+      },
+      {
+        "name": "Dental Equipment/Technology Vendor",
+        "type": "Strategic alliance",
+        "commission": "Preferred pricing for SGA network + co-marketing",
+        "requirements": "Established dental technology or equipment company",
+        "fit": "Low-medium -- indirect referral pathway"
+      }
+    ],
+    "onboardingKit": [
+      "SGA brand overview and three-vertical architecture summary",
+      "Partner testimonials and case studies (printable one-pagers)",
+      "Financial model overview (non-confidential version for advisor conversations)",
+      "Co-branded email templates for broker/CPA introductions",
+      "Partnership Readiness Scorecard link with partner attribution tracking"
+    ],
+    "targetPartners": [
+      {
+        "name": "Dental Transition Advisors/Brokers",
+        "type": "Practice broker network",
+        "audience": "Practice owners evaluating sale",
+        "fit": "High"
+      },
+      {
+        "name": "Dental CPAs (e.g., CPA firms specializing in dental)",
+        "type": "Financial advisor",
+        "audience": "Practice owners doing tax planning",
+        "fit": "High"
+      },
+      {
+        "name": "Shared Practices Podcast",
+        "type": "Podcast/Content",
+        "audience": "15K+ dental practice owners",
+        "fit": "High"
+      },
+      {
+        "name": "Investment Grade Practices",
+        "type": "Podcast/Content",
+        "audience": "Practice owners focused on valuation",
+        "fit": "High"
+      },
+      {
+        "name": "Dental Economics / Group Dentistry Now",
+        "type": "Trade publication",
+        "audience": "Dental industry professionals",
+        "fit": "Medium"
+      }
+    ],
+    "implementation": [
+      "Month 1: Identify top 20 broker and CPA relationships. Develop onboarding materials.",
+      "Month 2: Outreach to top 10 brokers with SGA overview and case studies. Offer co-branded workshops.",
+      "Month 3: Launch podcast sponsorship/guest appearance pipeline. Target 2 appearances per month.",
+      "Month 4+: Quarterly partner reviews. Track attribution. Optimize commission structure based on conversion data."
+    ],
+    "kpis": [
+      "5+ active broker relationships generating referrals",
+      "Broker-referred deals: 20-30% of pipeline",
+      "CPA-referred discovery calls: 5+ per quarter",
+      "Content partner attributed leads: 10+ per month"
+    ]
+  },
+  "communityGrowth": {
+    "platform": "LinkedIn (primary B2B), Private online community (Circle or similar for partners), Podcast presence (guest appearances)",
+    "valueProp": "A peer community for dental practice owners navigating the partnership decision. No pitch. No pressure. Just honest conversations with dentists who have been where you are.",
+    "contentCadence": "LinkedIn: 3 posts/week from Jensen + 3 posts/week from Ellingson. Podcast: 2 guest appearances/month. Community: Weekly discussion threads + monthly live Q&A with current partners.",
+    "contentPillars": [
+      {
+        "pillar": "The 7-Out-of-10 Problem",
+        "description": "Content exploring why DSO partnerships fail and how to avoid the common mistakes. Data-driven, honest, not promotional.",
+        "frequency": "2x per week across platforms"
+      },
+      {
+        "pillar": "Partner Stories",
+        "description": "First-person narratives from current SGA partners. Before/after arcs. Specific metrics where available. Real names, real practices.",
+        "frequency": "1x per week"
+      },
+      {
+        "pillar": "Clinical Growth",
+        "description": "Content about clinical development, mentorship, the Pikos Institute, and 4Front Symposium. Positions SGA as an education-first platform.",
+        "frequency": "2x per week"
+      },
+      {
+        "pillar": "Industry Analysis",
+        "description": "Commentary on DSO market trends, valuations, PE activity, and regulatory developments. Jensen as the voice of business analysis.",
+        "frequency": "1x per week"
+      }
+    ],
+    "ambassadorProgram": {
+      "requirements": "Current SGA partner with 12+ months tenure, strong engagement, willing to share experience publicly",
+      "perks": "Speaking opportunities at 4Front Symposium, priority mentorship matching, LinkedIn content amplification, featured partner spotlight",
+      "tiers": [
+        "Advocate (shares content organically)",
+        "Ambassador (participates in webinars and partner calls)",
+        "Champion (speaks at conferences and podcasts on behalf of SGA)"
+      ]
+    },
+    "conversionPaths": [
+      "LinkedIn content -> Scorecard -> Discovery call",
+      "Podcast appearance -> Scorecard -> Discovery call",
+      "Community Q&A -> Partner conversation -> Discovery call",
+      "Conference networking -> Content follow -> Scorecard"
+    ],
+    "implementation": [
+      "Month 1: Launch Jensen and Ellingson LinkedIn content calendars. Establish posting cadence.",
+      "Month 2: Secure first 2 podcast guest appearances. Launch partner ambassador outreach.",
+      "Month 3: Launch private online community for warm leads (Circle or similar). Weekly moderated discussions.",
+      "Month 4+: Scale LinkedIn paid amplification for top-performing organic posts. Monthly community events with current partners."
+    ],
+    "kpis": [
+      "LinkedIn follower growth: +300/month (months 1-3), +500/month (months 4-6)",
+      "LinkedIn engagement rate: 3-5% average",
+      "Podcast-attributed scorecard completions: 10+ per appearance",
+      "Community-to-discovery-call conversion: 15-20%"
+    ]
+  },
+  "influencerCampaigns": {
+    "tiers": [
+      {
+        "tier": "Dental Industry KOLs (Key Opinion Leaders)",
+        "count": 5,
+        "budget": ",000-15,000/engagement",
+        "format": "Podcast co-hosting, keynote co-presentation, byline co-authorship",
+        "description": "Established dental thought leaders with conference presence and publication credibility. Not influencers in the social media sense -- these are peer authorities."
+      },
+      {
+        "tier": "Dental Content Creators (10K-100K followers)",
+        "count": 10,
+        "budget": ",000-5,000/campaign",
+        "format": "YouTube collaboration, Instagram Reel feature, podcast guest spot",
+        "description": "Dental professionals with active social audiences. Dr. Grant Olson (138K YouTube) is already a MODIS partner -- leverage his platform for organic content."
+      },
+      {
+        "tier": "Dental Practice Management Influencers",
+        "count": 8,
+        "budget": ",000-3,000/campaign",
+        "format": "LinkedIn thought leadership collaboration, webinar co-hosting",
+        "description": "Practice management consultants and coaches who advise practice owners on business decisions."
+      },
+      {
+        "tier": "Patient Experience Micro-Influencers (1K-10K)",
+        "count": 15,
+        "budget": "00-500/post",
+        "format": "Patient transformation stories, before/after content",
+        "description": "For MODIS implant vertical only. Local influencers who share dental transformation stories."
+      }
+    ],
+    "outreachTemplate": "Subject: Collaboration opportunity -- dental partnership education\n\nHi [Name],\n\nI have been following your work on [platform] and your perspective on [specific topic they cover] resonates with what we are building at SGA Dental Partners.\n\nWe are a dental partnership platform backed by the Thurston Group (38 years, B+ returned). Our CCO is a practicing dentist (Dr. Mitch Ellingson). We have the Pikos Institute for implantology education. And we are on a mission to change the 7-out-of-10 regret rate in dental consolidation.\n\nI would love to explore a collaboration: [specific format -- podcast guest, co-authored article, content series]. Our goal is education-first, not promotional. We want your audience to walk away with actionable frameworks regardless of whether they ever contact us.\n\nWould a 15-minute call to explore this be worthwhile?\n\nBest,\n[Name]\nSGA Dental Partners",
+    "contentBrief": "All influencer content must lead with education, not promotion. The SGA brand should appear naturally in the context of the 7-question framework or partner stories. Every piece must include at least one verifiable data point (85% retention, B returned, 38 years). CTA is always the Partnership Readiness Scorecard -- never a direct sales call.",
+    "compensation": "KOLs: honorarium + travel + speaking fee. Content creators: flat fee + performance bonus per attributed scorecard completion. Micro-influencers: product credit + flat fee per post.",
+    "tracking": "Unique UTM codes per influencer. Dedicated scorecard landing pages per campaign. CRM attribution tagging for all influencer-sourced leads.",
+    "topTargets": [
+      {
+        "name": "Dr. Grant Olson",
+        "platform": "YouTube",
+        "followers": "138,000",
+        "engagement": "High",
+        "fit": "Highest -- already a MODIS partner"
+      },
+      {
+        "name": "Shared Practices Podcast",
+        "platform": "Podcast",
+        "followers": "15K+ listeners",
+        "engagement": "High",
+        "fit": "High -- audience is practice owners evaluating options"
+      },
+      {
+        "name": "Investment Grade Practices",
+        "platform": "Podcast",
+        "followers": "10K+ listeners",
+        "engagement": "High",
+        "fit": "High -- focused on practice valuation and transition"
+      },
+      {
+        "name": "Dental Hacks Podcast",
+        "platform": "Podcast",
+        "followers": "8K+ listeners",
+        "engagement": "Medium",
+        "fit": "Medium -- broader dental audience"
+      },
+      {
+        "name": "Dentist Money Show",
+        "platform": "Podcast",
+        "followers": "10K+ listeners",
+        "engagement": "High",
+        "fit": "High -- financial audience evaluating partnership economics"
+      }
+    ],
+    "implementation": [
+      "Month 1: Secure Dr. Olson content calendar for MODIS organic content. Identify top 5 podcast targets.",
+      "Month 2: Book first 2 podcast appearances (Jensen or Ellingson). Launch KOL outreach.",
+      "Month 3: First paid influencer campaign with 2-3 dental content creators. Track attribution.",
+      "Month 4+: Scale based on CPL and attribution data. Add patient micro-influencer program for MODIS vertical."
+    ],
+    "kpis": [
+      "Influencer-attributed scorecard completions: 20+ per month",
+      "Cost per influenced lead: < 50",
+      "Podcast appearance-to-lead conversion: 10+ leads per appearance",
+      "Dr. Olson organic content views: 50K+ per month"
+    ]
+  },
+  "retargetingCampaigns": {
+    "audiences": [
+      {
+        "name": "Practice Assessment Completers (PA-Hot)",
+        "source": "Website pixel + CRM",
+        "window": "90 days",
+        "adSequence": [
+          "Days 1-7: Partner proof story (Dr. Cavendish or Dr. Godat)",
+          "Days 8-14: Education platform content (Pikos Institute, 4Front)",
+          "Days 15-30: Confidential discovery call CTA",
+          "Days 31-90: Light-touch nurture (market updates, partner stories)"
+        ],
+        "exclusions": [
+          "Current partners",
+          "Active pipeline (Stage 3+)"
+        ]
+      },
+      {
+        "name": "Assessment Starters Not Completers (PA-Warm)",
+        "source": "Website pixel",
+        "window": "60 days",
+        "adSequence": [
+          "Days 1-7: Complete your assessment CTA with value reminder",
+          "Days 8-14: Partner testimonial ad",
+          "Days 15-30: Scorecard completion incentive"
+        ],
+        "exclusions": [
+          "Assessment completers",
+          "Current partners"
+        ]
+      },
+      {
+        "name": "Website Visitors (General)",
+        "source": "Website pixel",
+        "window": "30 days",
+        "adSequence": [
+          "Days 1-7: 7-out-of-10 stat awareness ad",
+          "Days 8-14: Partnership Readiness Scorecard CTA",
+          "Days 15-30: Partner story video ad"
+        ],
+        "exclusions": [
+          "Assessment completers",
+          "Current partners",
+          "Patient website visitors"
+        ]
+      },
+      {
+        "name": "Implant Patient Assessment Completers (PT-Hot)",
+        "source": "MODIS/Innovative Dental pixel",
+        "window": "14 days",
+        "adSequence": [
+          "Days 1-3: Before/after transformation story",
+          "Days 4-7: Cost/financing information",
+          "Days 8-14: Book consultation CTA"
+        ],
+        "exclusions": [
+          "Booked patients",
+          "Treated patients"
+        ]
+      }
+    ],
+    "platforms": [
+      "LinkedIn (primary B2B)",
+      "Meta/Facebook (B2B awareness + B2C patient)",
+      "Google Display (B2B and B2C)",
+      "YouTube (pre-roll for patient awareness)"
+    ],
+    "budgetAllocation": "20-25% of total paid media budget allocated to retargeting",
+    "creativeFatigueRotation": "Rotate creatives every 14 days. Maintain 3-4 active variants per audience segment. Weekly creative performance review.",
+    "pixelArchitecture": {
+      "platforms": [
+        "Google Tag Manager (container for all pixels)",
+        "Meta Pixel (Facebook/Instagram)",
+        "LinkedIn Insight Tag",
+        "Google Ads Remarketing Tag"
+      ],
+      "utmConventions": "utm_source=[platform]&utm_medium=[campaign_type]&utm_campaign=[funnel]_[audience]_[quarter]",
+      "audienceSegments": [
+        "PA-Cold (website visitor, no action)",
+        "PA-Warm (assessment started, not completed)",
+        "PA-Hot (assessment completed)",
+        "PA-Hot-2 (pricing page visitor)",
+        "PT-Cold (patient site visitor)",
+        "PT-Hot (smile assessment completed)",
+        "DR-Warm (career guide downloaded)",
+        "SP-Warm (specialist guide downloaded)"
+      ]
+    },
+    "implementation": [
+      "Week 1-2: Install pixel infrastructure (GTM, Meta, LinkedIn, Google). Configure audience segments.",
+      "Week 3-4: Launch retargeting campaigns for PA-Hot and PT-Hot audiences (highest-value segments).",
+      "Month 2: Expand to PA-Warm and general website visitor audiences. A/B test creative variants.",
+      "Month 3+: Optimize based on CPL data. Scale winning audiences by 25%. Pause underperformers."
+    ],
+    "kpis": [
+      "Retargeting ROAS > 3x (B2B) / > 8x (B2C)",
+      "Retargeting CPA < 50% of cold campaign CPA",
+      "Hot audience CTR > 1.5% (LinkedIn) / > 2% (Meta)",
+      "Creative fatigue threshold: CTR decline > 20% triggers rotation"
+    ]
+  }
+}

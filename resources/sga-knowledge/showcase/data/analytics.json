@@ -1,0 +1,2039 @@
+{
+  "utmConvention": {
+    "structure": "?utm_source={source}&utm_medium={medium}&utm_campaign={campaign}&utm_content={content}&utm_term={term}",
+    "rules": [
+      "All UTM values are lowercase, use hyphens as separators (never underscores or spaces)",
+      "Never create a new source/medium pair without adding it to the approved list",
+      "Campaign names always start with the funnel prefix (pa-, dr-, pt-, sp-, brand-, re-)",
+      "Content values identify the specific creative or email -- must be descriptive enough to trace back to the exact asset",
+      "Term is optional for non-search channels -- use for keyword targeting (search) or audience segment targeting (social/display)",
+      "A/B test variants append -v1, -v2, etc.",
+      "Use a UTM builder spreadsheet -- no freehand URL construction"
+    ],
+    "funnelPrefixes": [
+      {
+        "prefix": "pa-",
+        "funnel": "Practice Acquisition",
+        "audience": "Dr. Mark Hendricks (practice owners)"
+      },
+      {
+        "prefix": "dr-",
+        "funnel": "Dentist Recruitment",
+        "audience": "Dr. Priya Nair (associate dentists)"
+      },
+      {
+        "prefix": "pt-",
+        "funnel": "Patient Acquisition",
+        "audience": "Linda Dawson (implant/general patients)"
+      },
+      {
+        "prefix": "sp-",
+        "funnel": "Specialist Partnership",
+        "audience": "Dr. James Whitfield (periodontists, oral surgeons)"
+      },
+      {
+        "prefix": "brand-",
+        "funnel": "Brand Awareness / Cross-Funnel",
+        "audience": "All audiences"
+      },
+      {
+        "prefix": "re-",
+        "funnel": "Re-engagement",
+        "audience": "Lapsed contacts across all funnels"
+      }
+    ],
+    "sourceMediumPairs": [
+      {
+        "source": "google",
+        "medium": "cpc",
+        "useCase": "Google Search Ads (RSAs)"
+      },
+      {
+        "source": "google",
+        "medium": "lsa",
+        "useCase": "Google Local Services Ads"
+      },
+      {
+        "source": "google",
+        "medium": "display",
+        "useCase": "Google Display Network"
+      },
+      {
+        "source": "google",
+        "medium": "video",
+        "useCase": "YouTube Ads (paid)"
+      },
+      {
+        "source": "facebook",
+        "medium": "social-paid",
+        "useCase": "Facebook Ads"
+      },
+      {
+        "source": "facebook",
+        "medium": "social-organic",
+        "useCase": "Organic Facebook posts"
+      },
+      {
+        "source": "instagram",
+        "medium": "social-paid",
+        "useCase": "Instagram Ads"
+      },
+      {
+        "source": "instagram",
+        "medium": "social-organic",
+        "useCase": "Organic Instagram posts"
+      },
+      {
+        "source": "linkedin",
+        "medium": "social-paid",
+        "useCase": "LinkedIn Sponsored Content / Lead Gen Forms"
+      },
+      {
+        "source": "linkedin",
+        "medium": "social-organic",
+        "useCase": "Organic LinkedIn posts"
+      },
+      {
+        "source": "youtube",
+        "medium": "social-organic",
+        "useCase": "Organic YouTube videos (Dr. Olson channel, SGA channel)"
+      },
+      {
+        "source": "email",
+        "medium": "email",
+        "useCase": "All email sequences (ESP-generated)"
+      },
+      {
+        "source": "podcast",
+        "medium": "podcast",
+        "useCase": "MODIS Community Conversations, guest appearances"
+      },
+      {
+        "source": "dentalpost",
+        "medium": "referral",
+        "useCase": "DentalPost job listings"
+      },
+      {
+        "source": "indeed",
+        "medium": "referral",
+        "useCase": "Indeed job listings"
+      },
+      {
+        "source": "conference",
+        "medium": "event",
+        "useCase": "Conference booth, hosted dinners, trade shows"
+      },
+      {
+        "source": "direct-mail",
+        "medium": "direct",
+        "useCase": "Physical mailers"
+      },
+      {
+        "source": "referral",
+        "medium": "referral",
+        "useCase": "Partner/patient referral program links"
+      },
+      {
+        "source": "chatbot",
+        "medium": "chat",
+        "useCase": "Chatbot-initiated links and CTAs"
+      }
+    ],
+    "examples": [
+      {
+        "funnel": "Practice Acquisition (PA)",
+        "url": "sgadental.com/partners?utm_source=google&utm_medium=cpc&utm_campaign=pa-assessment&utm_content=ad-fear-stat-headline&utm_term=sell-dental-practice"
+      },
+      {
+        "funnel": "Practice Acquisition (PA)",
+        "url": "sgadental.com/partners?utm_source=linkedin&utm_medium=social-paid&utm_campaign=pa-thought-leader&utm_content=ad-lamonte-autonomy-post&utm_term=practice-owners-southeast"
+      },
+      {
+        "funnel": "Dentist Recruitment (DR)",
+        "url": "sgadental.com/careers?utm_source=linkedin&utm_medium=social-paid&utm_campaign=dr-associate-jobs&utm_content=ad-mentorship-equity&utm_term=associate-dentist-arizona"
+      },
+      {
+        "funnel": "Patient Acquisition (PT)",
+        "url": "sgadental.com/smile-assessment?utm_source=facebook&utm_medium=social-paid&utm_campaign=pt-implant-smile&utm_content=ad-scott-steak-story&utm_term=dental-implants-springfield-mo"
+      },
+      {
+        "funnel": "Specialist Partnership (SP)",
+        "url": "sgadental.com/specialists?utm_source=linkedin&utm_medium=social-paid&utm_campaign=sp-specialist-guide&utm_content=ad-pikos-endorsement&utm_term=periodontist-dso-partnership"
+      }
+    ]
+  },
+  "conversionEvents": {
+    "namingConvention": "{category}_{action}_{label}",
+    "categories": [
+      "page",
+      "form",
+      "email",
+      "ad",
+      "quiz",
+      "webinar",
+      "chatbot",
+      "video",
+      "cta"
+    ],
+    "actions": [
+      "view",
+      "start",
+      "complete",
+      "click",
+      "submit",
+      "book",
+      "download",
+      "play",
+      "scroll"
+    ],
+    "stages": [
+      {
+        "stage": "Awareness",
+        "description": "Events that fire when a user first encounters SGA content or assets",
+        "events": [
+          {
+            "name": "page_view",
+            "trigger": "Any page loads",
+            "parameters": "page_title, page_path, page_referrer, funnel_prefix, audience_type",
+            "funnels": "All"
+          },
+          {
+            "name": "page_scroll_25",
+            "trigger": "User scrolls to 25% of page depth",
+            "parameters": "page_path, scroll_depth",
+            "funnels": "All"
+          },
+          {
+            "name": "page_scroll_50",
+            "trigger": "User scrolls to 50% of page depth",
+            "parameters": "page_path, scroll_depth",
+            "funnels": "All"
+          },
+          {
+            "name": "page_scroll_75",
+            "trigger": "User scrolls to 75% of page depth",
+            "parameters": "page_path, scroll_depth",
+            "funnels": "All"
+          },
+          {
+            "name": "page_scroll_100",
+            "trigger": "User scrolls to 100% of page depth",
+            "parameters": "page_path, scroll_depth",
+            "funnels": "All"
+          },
+          {
+            "name": "page_section_view",
+            "trigger": "User scrolls a specific landing page section into the viewport",
+            "parameters": "page_path, section_name (hero, problem, solution, social_proof, pillars, how_it_works, faq, final_cta)",
+            "funnels": "PA, PT, SP"
+          },
+          {
+            "name": "ad_impression",
+            "trigger": "Ad served (platform-side)",
+            "parameters": "platform, campaign_id, ad_set, creative_id",
+            "funnels": "All paid"
+          },
+          {
+            "name": "ad_click",
+            "trigger": "Ad clicked (platform-side)",
+            "parameters": "platform, campaign_id, ad_set, creative_id, cpc",
+            "funnels": "All paid"
+          },
+          {
+            "name": "blog_view",
+            "trigger": "Blog post loaded",
+            "parameters": "post_title, post_category, post_author, funnel_prefix",
+            "funnels": "SEO"
+          },
+          {
+            "name": "blog_read_complete",
+            "trigger": "User scrolls to 75%+ of blog content",
+            "parameters": "post_title, read_time_seconds",
+            "funnels": "SEO"
+          },
+          {
+            "name": "youtube_channel_view",
+            "trigger": "Organic YouTube video starts playing",
+            "parameters": "video_id, video_title, traffic_source",
+            "funnels": "PT"
+          },
+          {
+            "name": "social_engagement",
+            "trigger": "Like, comment, share on organic social post",
+            "parameters": "platform, post_id, engagement_type",
+            "funnels": "All"
+          },
+          {
+            "name": "competitor_page_view",
+            "trigger": "Competitor comparison page loaded",
+            "parameters": "comparison_type (heartland, aspen, pds, general-dso)",
+            "funnels": "PA, SP"
+          },
+          {
+            "name": "competitor_page_scroll",
+            "trigger": "Scroll depth on comparison page",
+            "parameters": "comparison_type, scroll_depth_percent",
+            "funnels": "PA, SP"
+          },
+          {
+            "name": "competitor_cta_click",
+            "trigger": "CTA clicked on competitor comparison page",
+            "parameters": "comparison_type, cta_position, cta_text",
+            "funnels": "PA, SP"
+          }
+        ]
+      },
+      {
+        "stage": "Consideration",
+        "description": "Events that fire when a user engages with lead capture or evaluation content",
+        "events": [
+          {
+            "name": "quiz_start",
+            "trigger": "User begins Practice Partnership Assessment or Smile Assessment",
+            "parameters": "quiz_type (practice_assessment or smile_assessment), traffic_source",
+            "funnels": "PA, PT"
+          },
+          {
+            "name": "quiz_step_complete",
+            "trigger": "User completes a step/question in the quiz",
+            "parameters": "quiz_type, step_number, step_name, answer_value",
+            "funnels": "PA, PT"
+          },
+          {
+            "name": "quiz_abandon",
+            "trigger": "User exits quiz without completing",
+            "parameters": "quiz_type, last_step_completed, time_on_quiz_seconds",
+            "funnels": "PA, PT"
+          },
+          {
+            "name": "quiz_complete",
+            "trigger": "User finishes all quiz questions",
+            "parameters": "quiz_type, score, tier (strong/growth/foundation for PA; smile_readiness_score for PT), completion_time_seconds",
+            "funnels": "PA, PT"
+          },
+          {
+            "name": "quiz_results_view",
+            "trigger": "User views their quiz results page",
+            "parameters": "quiz_type, score, tier",
+            "funnels": "PA, PT"
+          },
+          {
+            "name": "quiz_results_cta_click",
+            "trigger": "User clicks CTA on quiz results page",
+            "parameters": "quiz_type, tier, cta_type (book_call, download_guide, subscribe)",
+            "funnels": "PA, PT"
+          },
+          {
+            "name": "lead_magnet_download",
+            "trigger": "User downloads a gated asset",
+            "parameters": "asset_name (career_guide, partnership_guide, specialist_guide, financing_guide), funnel_prefix",
+            "funnels": "PA, DR, PT, SP"
+          },
+          {
+            "name": "form_start",
+            "trigger": "User clicks into first field of any form",
+            "parameters": "form_name, form_location",
+            "funnels": "All"
+          },
+          {
+            "name": "form_field_complete",
+            "trigger": "User completes a specific form field",
+            "parameters": "form_name, field_name",
+            "funnels": "All"
+          },
+          {
+            "name": "form_abandon",
+            "trigger": "User leaves a form without submitting",
+            "parameters": "form_name, last_field_completed, fields_completed_count",
+            "funnels": "All"
+          },
+          {
+            "name": "form_submit",
+            "trigger": "Form successfully submitted",
+            "parameters": "form_name, funnel_prefix, lead_source",
+            "funnels": "All"
+          },
+          {
+            "name": "email_signup",
+            "trigger": "User subscribes to email list (any entry point)",
+            "parameters": "signup_source, funnel_prefix, lead_magnet",
+            "funnels": "All"
+          },
+          {
+            "name": "chatbot_start",
+            "trigger": "User initiates chatbot conversation",
+            "parameters": "page_path, trigger_type (proactive or user_initiated)",
+            "funnels": "All"
+          },
+          {
+            "name": "chatbot_qualify",
+            "trigger": "Chatbot qualifies lead based on responses",
+            "parameters": "qualification_score, audience_type, key_answers",
+            "funnels": "All"
+          },
+          {
+            "name": "chatbot_handoff",
+            "trigger": "Chatbot transfers to human or books appointment",
+            "parameters": "handoff_type (phone, calendar, email), audience_type",
+            "funnels": "All"
+          },
+          {
+            "name": "chatbot_conversion",
+            "trigger": "Chatbot interaction leads to desired action",
+            "parameters": "conversion_type (assessment_start, call_booked, guide_download), messages_exchanged",
+            "funnels": "All"
+          }
+        ]
+      },
+      {
+        "stage": "Decision",
+        "description": "Events that fire when a user takes a high-intent action toward conversion",
+        "events": [
+          {
+            "name": "discovery_call_booked",
+            "trigger": "Practice owner or specialist books a discovery call",
+            "parameters": "funnel_prefix, lead_source, assessment_score, assessment_tier",
+            "funnels": "PA, SP"
+          },
+          {
+            "name": "discovery_call_completed",
+            "trigger": "Discovery call confirmed as completed by BD team",
+            "parameters": "funnel_prefix, call_outcome (advance_to_site_visit, nurture, disqualified), call_duration_minutes",
+            "funnels": "PA, SP"
+          },
+          {
+            "name": "site_visit_scheduled",
+            "trigger": "Site visit booked with a partner practice",
+            "parameters": "funnel_prefix, practice_name, region",
+            "funnels": "PA, SP"
+          },
+          {
+            "name": "site_visit_completed",
+            "trigger": "Site visit confirmed as completed",
+            "parameters": "funnel_prefix, visit_outcome (advance_to_loi, nurture, declined)",
+            "funnels": "PA, SP"
+          },
+          {
+            "name": "consultation_booked",
+            "trigger": "Patient books a virtual or in-person consultation",
+            "parameters": "consultation_type (virtual, in_person), practice_name, service_type (implant, general, cosmetic), lead_source",
+            "funnels": "PT"
+          },
+          {
+            "name": "consultation_completed",
+            "trigger": "Consultation confirmed as attended",
+            "parameters": "practice_name, service_type, outcome (treatment_plan_accepted, followup_needed, declined)",
+            "funnels": "PT"
+          },
+          {
+            "name": "application_started",
+            "trigger": "Associate dentist begins job application",
+            "parameters": "position_id, position_title, practice_name, lead_source",
+            "funnels": "DR"
+          },
+          {
+            "name": "application_submitted",
+            "trigger": "Associate dentist completes job application",
+            "parameters": "position_id, position_title, practice_name",
+            "funnels": "DR"
+          },
+          {
+            "name": "interview_scheduled",
+            "trigger": "Interview booked with candidate",
+            "parameters": "position_id, interview_type (phone_screen, clinical, practice_visit)",
+            "funnels": "DR"
+          },
+          {
+            "name": "webinar_pitch_cta_click",
+            "trigger": "User clicks the pitch CTA during or after webinar",
+            "parameters": "webinar_id, cta_type, timing (live, replay)",
+            "funnels": "PA, SP"
+          },
+          {
+            "name": "pricing_page_view",
+            "trigger": "User views the pricing/partnership economics page",
+            "parameters": "funnel_prefix, referrer_page",
+            "funnels": "PA, SP, PT"
+          },
+          {
+            "name": "pricing_calculator_use",
+            "trigger": "User interacts with the financing calculator (implant patients)",
+            "parameters": "monthly_payment_selected, treatment_type, total_estimate",
+            "funnels": "PT"
+          }
+        ]
+      },
+      {
+        "stage": "Close / Conversion",
+        "description": "Completed conversions -- the business outcomes that matter",
+        "events": [
+          {
+            "name": "loi_signed",
+            "trigger": "Letter of intent signed by practice owner or specialist",
+            "parameters": "funnel_prefix, practice_name, practice_revenue_tier, days_from_first_touch, attribution_source",
+            "funnels": "PA, SP"
+          },
+          {
+            "name": "deal_closed",
+            "trigger": "Partnership deal fully executed",
+            "parameters": "funnel_prefix, practice_name, deal_value_tier, acquisition_cost_total",
+            "funnels": "PA, SP"
+          },
+          {
+            "name": "treatment_accepted",
+            "trigger": "Patient accepts treatment plan",
+            "parameters": "practice_name, service_type, treatment_value, financing_method",
+            "funnels": "PT"
+          },
+          {
+            "name": "treatment_completed",
+            "trigger": "Patient completes treatment",
+            "parameters": "practice_name, service_type, treatment_value, days_to_completion",
+            "funnels": "PT"
+          },
+          {
+            "name": "offer_accepted",
+            "trigger": "Associate dentist accepts job offer",
+            "parameters": "position_id, practice_name, days_from_application, lead_source",
+            "funnels": "DR"
+          },
+          {
+            "name": "hire_retained_90d",
+            "trigger": "New hire reaches 90-day retention milestone",
+            "parameters": "position_id, practice_name, satisfaction_score",
+            "funnels": "DR"
+          }
+        ]
+      },
+      {
+        "stage": "Retention / Referral",
+        "description": "Post-conversion engagement and viral referral loops",
+        "events": [
+          {
+            "name": "review_requested",
+            "trigger": "Review request sent to patient post-treatment",
+            "parameters": "practice_name, platform (google, yelp, healthgrades), days_post_treatment",
+            "funnels": "PT"
+          },
+          {
+            "name": "review_submitted",
+            "trigger": "Patient submits a review",
+            "parameters": "practice_name, platform, rating, days_post_treatment",
+            "funnels": "PT"
+          },
+          {
+            "name": "referral_link_shared",
+            "trigger": "Referral link clicked/shared by existing contact",
+            "parameters": "referrer_type (patient, partner, associate), funnel_prefix",
+            "funnels": "All"
+          },
+          {
+            "name": "referral_conversion",
+            "trigger": "Referred contact converts",
+            "parameters": "referrer_id, conversion_type, funnel_prefix",
+            "funnels": "All"
+          },
+          {
+            "name": "testimonial_captured",
+            "trigger": "Transformation story or partner testimonial collected",
+            "parameters": "testimonial_type (written, video), funnel_prefix, practice_name",
+            "funnels": "PA, PT, SP"
+          },
+          {
+            "name": "newsletter_open",
+            "trigger": "Partner Pulse or other retention newsletter opened",
+            "parameters": "newsletter_name, audience_type",
+            "funnels": "PA, SP, DR"
+          },
+          {
+            "name": "recare_booked",
+            "trigger": "Patient books recall/recare appointment",
+            "parameters": "practice_name, months_since_last_visit",
+            "funnels": "PT"
+          },
+          {
+            "name": "ce_event_registered",
+            "trigger": "Partner/associate registers for CE event",
+            "parameters": "event_name (4front, pikos_symposium, webinar), attendee_type",
+            "funnels": "PA, SP, DR"
+          },
+          {
+            "name": "re_engagement_responded",
+            "trigger": "Cold contact re-engages from re-engagement sequence",
+            "parameters": "funnel_prefix, re_engagement_email_number, response_type (open, click, reply)",
+            "funnels": "All"
+          }
+        ]
+      }
+    ],
+    "emailEvents": [
+      {
+        "name": "email_sent",
+        "trigger": "Email dispatched from ESP",
+        "parameters": "sequence_name, email_number, subject_line, funnel_prefix"
+      },
+      {
+        "name": "email_delivered",
+        "trigger": "Email confirmed delivered",
+        "parameters": "sequence_name, email_number"
+      },
+      {
+        "name": "email_opened",
+        "trigger": "Email opened",
+        "parameters": "sequence_name, email_number, open_count (first open vs. re-open)"
+      },
+      {
+        "name": "email_clicked",
+        "trigger": "Link clicked within email",
+        "parameters": "sequence_name, email_number, link_url, link_position"
+      },
+      {
+        "name": "email_replied",
+        "trigger": "Recipient replies to email",
+        "parameters": "sequence_name, email_number"
+      },
+      {
+        "name": "email_unsubscribed",
+        "trigger": "Recipient unsubscribes",
+        "parameters": "sequence_name, email_number, reason (if captured)"
+      },
+      {
+        "name": "email_bounced",
+        "trigger": "Email bounces (hard or soft)",
+        "parameters": "sequence_name, email_number, bounce_type"
+      },
+      {
+        "name": "email_marked_spam",
+        "trigger": "Recipient marks as spam",
+        "parameters": "sequence_name, email_number"
+      }
+    ]
+  },
+  "kpisPerChannel": [
+    {
+      "channel": "Paid Search (Google Ads)",
+      "kpis": [
+        {
+          "metric": "CTR",
+          "paFunnel": "> 4.0%",
+          "drFunnel": "> 3.5%",
+          "ptGeneral": "> 5.0%",
+          "ptImplant": "> 4.0%",
+          "spFunnel": "> 3.5%"
+        },
+        {
+          "metric": "CPC",
+          "paFunnel": "< $25",
+          "drFunnel": "< $8",
+          "ptGeneral": "< $12",
+          "ptImplant": "< $18",
+          "spFunnel": "< $30"
+        },
+        {
+          "metric": "CPL",
+          "paFunnel": "< $300",
+          "drFunnel": "< $60",
+          "ptGeneral": "< $75",
+          "ptImplant": "< $120",
+          "spFunnel": "< $350"
+        },
+        {
+          "metric": "Conversion Rate",
+          "paFunnel": "> 8%",
+          "drFunnel": "> 12%",
+          "ptGeneral": "> 15%",
+          "ptImplant": "> 8%",
+          "spFunnel": "> 7%"
+        },
+        {
+          "metric": "Quality Score (avg)",
+          "paFunnel": "> 7",
+          "drFunnel": "> 7",
+          "ptGeneral": "> 6",
+          "ptImplant": "> 7",
+          "spFunnel": "> 7"
+        },
+        {
+          "metric": "ROAS",
+          "paFunnel": "Track and baseline",
+          "drFunnel": "N/A",
+          "ptGeneral": "> 5:1",
+          "ptImplant": "> 8:1",
+          "spFunnel": "Track and baseline"
+        },
+        {
+          "metric": "Impression Share",
+          "paFunnel": "> 60% branded, > 30% non-branded",
+          "drFunnel": "> 40%",
+          "ptGeneral": "> 50% local",
+          "ptImplant": "> 40%",
+          "spFunnel": "> 50% niche terms"
+        }
+      ]
+    },
+    {
+      "channel": "Google Local Services Ads (LSAs)",
+      "kpis": [
+        {
+          "metric": "Cost per booked appointment",
+          "target": "< $75 (general), < $130 (implant)"
+        },
+        { "metric": "Lead response time", "target": "< 5 minutes" },
+        { "metric": "Lead-to-appointment rate", "target": "> 30%" },
+        { "metric": "Review rating", "target": "> 4.5 stars" },
+        {
+          "metric": "Budget pacing accuracy",
+          "target": "Within 10% of monthly target"
+        }
+      ]
+    },
+    {
+      "channel": "Facebook / Instagram Ads",
+      "kpis": [
+        {
+          "metric": "CTR (link clicks)",
+          "paFunnel": "> 1.2%",
+          "drFunnel": "> 1.5%",
+          "ptGeneral": "> 1.8%",
+          "ptImplant": "> 1.5%",
+          "spFunnel": "> 1.0%"
+        },
+        {
+          "metric": "CPM",
+          "paFunnel": "< $35",
+          "drFunnel": "< $25",
+          "ptGeneral": "< $20",
+          "ptImplant": "< $25",
+          "spFunnel": "< $45"
+        },
+        {
+          "metric": "CPL",
+          "paFunnel": "< $150",
+          "drFunnel": "< $50",
+          "ptGeneral": "< $65",
+          "ptImplant": "< $90",
+          "spFunnel": "< $175"
+        },
+        {
+          "metric": "Conversion Rate",
+          "paFunnel": "> 5%",
+          "drFunnel": "> 8%",
+          "ptGeneral": "> 10%",
+          "ptImplant": "> 6%",
+          "spFunnel": "> 4%"
+        },
+        {
+          "metric": "Frequency (30-day avg)",
+          "paFunnel": "< 4.0",
+          "drFunnel": "< 5.0",
+          "ptGeneral": "< 3.5",
+          "ptImplant": "< 4.0",
+          "spFunnel": "< 3.0"
+        },
+        {
+          "metric": "ROAS",
+          "paFunnel": "Track and baseline",
+          "drFunnel": "N/A",
+          "ptGeneral": "> 4:1",
+          "ptImplant": "> 6:1",
+          "spFunnel": "Track and baseline"
+        },
+        {
+          "metric": "Video View Rate",
+          "paFunnel": "> 25% (15-sec), > 15% (30-sec)",
+          "drFunnel": "> 20%",
+          "ptGeneral": "> 30% (testimonial)",
+          "ptImplant": "> 25% (transformation)",
+          "spFunnel": "> 20%"
+        }
+      ]
+    },
+    {
+      "channel": "LinkedIn Ads",
+      "kpis": [
+        {
+          "metric": "CTR",
+          "paFunnel": "> 0.8% (Sponsored), > 3.0% (InMail)",
+          "drFunnel": "> 0.6% (Sponsored Jobs)",
+          "spFunnel": "> 0.7%"
+        },
+        {
+          "metric": "CPL (Lead Gen Form)",
+          "paFunnel": "< $150",
+          "drFunnel": "< $80",
+          "spFunnel": "< $175"
+        },
+        {
+          "metric": "Lead Gen Form completion rate",
+          "paFunnel": "> 12%",
+          "drFunnel": "> 15%",
+          "spFunnel": "> 10%"
+        },
+        {
+          "metric": "InMail response rate",
+          "paFunnel": "> 15%",
+          "drFunnel": "N/A",
+          "spFunnel": "> 12%"
+        },
+        {
+          "metric": "Engagement rate (organic)",
+          "paFunnel": "> 3%",
+          "drFunnel": "> 2%",
+          "spFunnel": "> 3%"
+        }
+      ]
+    },
+    {
+      "channel": "YouTube (Organic + Paid)",
+      "kpis": [
+        {
+          "metric": "Subscriber growth (Dr. Olson channel)",
+          "target": "> 3% month-over-month",
+          "notes": "Currently 138K subscribers"
+        },
+        {
+          "metric": "Average view duration",
+          "target": "> 50% of video length",
+          "notes": "For transformation videos"
+        },
+        {
+          "metric": "CTR (thumbnail)",
+          "target": "> 5%",
+          "notes": "Organic click-through rate"
+        },
+        {
+          "metric": "Views per video (first 48 hours)",
+          "target": "> 10,000 (transformation), > 5,000 (educational)",
+          "notes": "Organic reach"
+        },
+        {
+          "metric": "Video-to-assessment conversion rate",
+          "target": "> 2% of viewers",
+          "notes": "Tracked via UTM on description links"
+        },
+        {
+          "metric": "Paid video ad CPV",
+          "target": "< $0.05",
+          "notes": "TrueView in-stream"
+        },
+        {
+          "metric": "Paid video ad view-through rate",
+          "target": "> 30%",
+          "notes": "15-sec+ view"
+        }
+      ]
+    },
+    {
+      "channel": "Email Sequences",
+      "kpis": [
+        {
+          "metric": "Open Rate",
+          "paSequences": "> 40%",
+          "drSequences": "> 35%",
+          "ptSequences": "> 45%",
+          "spSequences": "> 45%",
+          "reEngagement": "> 25%"
+        },
+        {
+          "metric": "Click Rate",
+          "paSequences": "> 5%",
+          "drSequences": "> 4%",
+          "ptSequences": "> 5%",
+          "spSequences": "> 6%",
+          "reEngagement": "> 3%"
+        },
+        {
+          "metric": "Click-to-Open Rate",
+          "paSequences": "> 12%",
+          "drSequences": "> 11%",
+          "ptSequences": "> 11%",
+          "spSequences": "> 13%",
+          "reEngagement": "> 12%"
+        },
+        {
+          "metric": "Unsubscribe Rate",
+          "paSequences": "< 0.3%",
+          "drSequences": "< 0.3%",
+          "ptSequences": "< 0.5%",
+          "spSequences": "< 0.2%",
+          "reEngagement": "< 1.0%"
+        },
+        {
+          "metric": "Bounce Rate",
+          "paSequences": "< 1%",
+          "drSequences": "< 1%",
+          "ptSequences": "< 2%",
+          "spSequences": "< 0.5%",
+          "reEngagement": "< 2%"
+        },
+        {
+          "metric": "Spam Complaint Rate",
+          "paSequences": "< 0.05%",
+          "drSequences": "< 0.05%",
+          "ptSequences": "< 0.08%",
+          "spSequences": "< 0.03%",
+          "reEngagement": "< 0.1%"
+        },
+        {
+          "metric": "Sequence Completion Rate",
+          "paSequences": "> 60%",
+          "drSequences": "> 55%",
+          "ptSequences": "> 50%",
+          "spSequences": "> 65%",
+          "reEngagement": "> 40%"
+        }
+      ]
+    },
+    {
+      "channel": "SEO / Organic Search",
+      "kpis": [
+        {
+          "metric": "Organic traffic growth",
+          "target": "> 15% month-over-month (first 6 months)"
+        },
+        {
+          "metric": "Keyword rankings (target keywords)",
+          "target": "Top 10 for 15+ primary keywords within 6 months"
+        },
+        {
+          "metric": "Domain Authority / Domain Rating",
+          "target": "Increase by 5+ points in 6 months"
+        },
+        {
+          "metric": "Blog engagement (avg time on page)",
+          "target": "> 3 minutes"
+        },
+        {
+          "metric": "Blog-to-lead conversion rate",
+          "target": "> 2% of blog readers"
+        },
+        {
+          "metric": "Internal link CTR (blog to assessment/landing page)",
+          "target": "> 8%"
+        },
+        {
+          "metric": "Backlinks acquired per month",
+          "target": "> 10 quality backlinks from DA 30+ sites"
+        },
+        {
+          "metric": "Featured snippet captures",
+          "target": "> 5 featured snippets for DSO-related queries"
+        }
+      ]
+    },
+    {
+      "channel": "Social Media (Organic)",
+      "kpis": [
+        {
+          "metric": "Engagement rate",
+          "facebookInstagram": "> 3%",
+          "linkedin": "> 3%",
+          "youtube": "> 5%"
+        },
+        {
+          "metric": "Follower growth rate",
+          "facebookInstagram": "> 5% MoM",
+          "linkedin": "> 8% MoM",
+          "youtube": "> 3% MoM"
+        },
+        {
+          "metric": "Reach per post",
+          "facebookInstagram": "> 10% of followers",
+          "linkedin": "> 15% of connections",
+          "youtube": "N/A (view-based)"
+        },
+        {
+          "metric": "Content-to-site traffic",
+          "facebookInstagram": "> 2% of engagers",
+          "linkedin": "> 3%",
+          "youtube": "> 2% click description links"
+        },
+        {
+          "metric": "Share/save rate",
+          "facebookInstagram": "> 1% of impressions",
+          "linkedin": "> 2% of impressions",
+          "youtube": "> 0.5% save-to-playlist"
+        }
+      ]
+    },
+    {
+      "channel": "Referral Program",
+      "kpis": [
+        {
+          "metric": "Referral rate",
+          "patient": "> 8 per 100 patients per quarter",
+          "partner": "> 1-2 warm intros per partner per year",
+          "associate": "> 15-20% of hires from internal referrals"
+        },
+        {
+          "metric": "Cost per referred conversion",
+          "patient": "< $40",
+          "partner": "$0 (equity-aligned)",
+          "associate": "< $5,000 (referral bonus)"
+        },
+        {
+          "metric": "Referred-to-converted rate",
+          "patient": "> 30%",
+          "partner": "> 40%",
+          "associate": "> 35%"
+        }
+      ]
+    }
+  ],
+  "attributionModel": {
+    "b2bModel": {
+      "name": "Position-Based (U-Shaped) 40/20/40",
+      "funnels": [
+        "PA (Practice Acquisition)",
+        "DR (Dentist Recruitment)",
+        "SP (Specialist Partnership)"
+      ],
+      "distribution": {
+        "firstTouch": "40% credit to the channel that created initial awareness",
+        "middleTouches": "20% distributed across nurture emails, content, retargeting",
+        "lastTouch": "40% credit to the channel that drove the final conversion action"
+      },
+      "rationale": [
+        "Long sales cycles (6-24 months for PA/SP, 2-8 weeks for DR) -- first-touch and last-touch models each capture only one end",
+        "High consideration, high stakes -- a $2.4M partnership decision involves multiple research sessions across channels",
+        "Small audience, high value -- with only 5-15 discovery calls per month, every data point matters"
+      ]
+    },
+    "patientModel": {
+      "name": "Data-Driven Attribution",
+      "funnels": ["PT (Patient Acquisition)"],
+      "requirements": "600+ conversions per month and 15,000+ clicks (achievable across the SGA practice network)",
+      "rationale": [
+        "Shorter sales cycle (1-8 weeks) -- compact enough for ML models to identify patterns quickly",
+        "Higher volume -- hundreds of patient appointments per month provide enough data",
+        "Multi-channel complexity -- patients see YouTube, Facebook, Google, and email in unpredictable orders"
+      ],
+      "fallback": "Time-decay attribution with a 7-day half-life if conversion volume threshold is not reached"
+    },
+    "implementationRequirements": [
+      {
+        "component": "Web attribution",
+        "tool": "GA4 with custom channel groupings",
+        "purpose": "Website behavior and conversion tracking"
+      },
+      {
+        "component": "CRM attribution",
+        "tool": "HubSpot (or Salesforce)",
+        "purpose": "Full-journey tracking from first touch to closed deal"
+      },
+      {
+        "component": "Cross-device tracking",
+        "tool": "GA4 User-ID + Google Signals",
+        "purpose": "Connect sessions across devices"
+      },
+      {
+        "component": "Offline conversion import",
+        "tool": "Google Ads Offline Conversion Import + Meta CAPI",
+        "purpose": "Feed CRM conversion data back to ad platforms for optimization"
+      },
+      {
+        "component": "Call tracking",
+        "tool": "CallRail or CallTrackingMetrics",
+        "purpose": "Attribute phone calls to marketing touchpoints"
+      },
+      {
+        "component": "UTM parsing",
+        "tool": "CRM auto-parse on form submission",
+        "purpose": "Store UTM parameters as contact properties for attribution analysis"
+      }
+    ],
+    "reportingViews": [
+      {
+        "name": "Channel Comparison Report",
+        "description": "Side-by-side view of first-touch, last-touch, and position-based attribution for each channel. Identifies channels that start conversations vs. channels that close them."
+      },
+      {
+        "name": "Path Analysis Report",
+        "description": "Most common conversion paths by funnel. Shows which channel sequences produce the highest conversion rates."
+      },
+      {
+        "name": "Time-to-Conversion Report",
+        "description": "Days from first touch to each conversion milestone (lead, MQL, SQL, opportunity, close) by funnel. Benchmarks the sales cycle and identifies stalls."
+      }
+    ]
+  },
+  "dashboards": [
+    {
+      "name": "Executive Overview",
+      "audience": "CEO, CMO, VP Marketing, VP Business Development",
+      "tool": "Looker Studio (connected to GA4 + CRM + ad platform APIs)",
+      "refresh": "Daily auto-refresh, reviewed weekly",
+      "sections": [
+        {
+          "name": "Funnel Health Summary",
+          "metrics": "Leads, MQLs, SQLs, opportunities, conversions by funnel (PA, DR, PT, SP)",
+          "visualization": "4-column funnel bars with week-over-week trend arrows"
+        },
+        {
+          "name": "Revenue Attribution",
+          "metrics": "Revenue attributed to marketing by channel (position-based)",
+          "visualization": "Stacked bar chart, monthly trend"
+        },
+        {
+          "name": "Blended CAC",
+          "metrics": "Total marketing spend / total conversions, by funnel",
+          "visualization": "Single number with trend line"
+        },
+        {
+          "name": "Pipeline Value",
+          "metrics": "Open opportunity value by funnel and stage",
+          "visualization": "Horizontal funnel chart"
+        },
+        {
+          "name": "Top Performing Channels",
+          "metrics": "Top 5 channels by CPL, conversion rate, and volume",
+          "visualization": "Ranked table with conditional formatting"
+        },
+        {
+          "name": "Budget vs. Actual",
+          "metrics": "Spend by channel vs. budget allocation",
+          "visualization": "Bar chart with budget line overlay"
+        },
+        {
+          "name": "A/B Test Scorecard",
+          "metrics": "Active tests, status, results summary",
+          "visualization": "Status table (green/yellow/red)"
+        }
+      ]
+    },
+    {
+      "name": "Paid Media Performance",
+      "audience": "Media buyer, marketing manager",
+      "tool": "Looker Studio (connected to Google Ads, Meta Ads Manager, LinkedIn Campaign Manager APIs)",
+      "refresh": "Daily",
+      "sections": [
+        {
+          "name": "Google Ads",
+          "metrics": "Spend, impressions, clicks, CTR, CPC, conversions, CPL, ROAS by campaign",
+          "visualization": "Campaign-level table + trend sparklines"
+        },
+        {
+          "name": "Meta Ads",
+          "metrics": "Spend, impressions, reach, frequency, clicks, CTR, CPL, ROAS by ad set",
+          "visualization": "Ad set table + creative preview thumbnails"
+        },
+        {
+          "name": "LinkedIn Ads",
+          "metrics": "Spend, impressions, clicks, CTR, CPL, Lead Gen Form fills by campaign",
+          "visualization": "Campaign table"
+        },
+        {
+          "name": "YouTube Ads",
+          "metrics": "Spend, views, CPV, view-through rate, conversions by video",
+          "visualization": "Video table with thumbnails"
+        },
+        {
+          "name": "LSAs",
+          "metrics": "Spend, leads, cost per lead, lead quality rating by practice",
+          "visualization": "Practice-level table"
+        },
+        {
+          "name": "Budget Pacing",
+          "metrics": "Daily spend vs. daily budget, projected monthly spend vs. budget",
+          "visualization": "Line chart with budget ceiling"
+        },
+        {
+          "name": "Audience Insights",
+          "metrics": "Top performing audiences by demographic, geo, device",
+          "visualization": "Demographic breakdown charts"
+        },
+        {
+          "name": "Creative Performance",
+          "metrics": "CTR and CPL by ad creative variant",
+          "visualization": "Creative comparison table (integrates with A/B test tracking)"
+        }
+      ]
+    },
+    {
+      "name": "Email and Sequence Performance",
+      "audience": "Email marketing manager, content strategist",
+      "tool": "Looker Studio (connected to ESP API -- ActiveCampaign, HubSpot, or Mailchimp)",
+      "refresh": "Daily",
+      "sections": [
+        {
+          "name": "Sequence Health",
+          "metrics": "Open rate, click rate, unsubscribe rate, bounce rate by sequence",
+          "visualization": "Sequence comparison table with health thresholds (green/yellow/red)"
+        },
+        {
+          "name": "Email-Level Performance",
+          "metrics": "Open rate, click rate, click-to-open rate by individual email",
+          "visualization": "Heatmap grid (sequences as rows, emails as columns)"
+        },
+        {
+          "name": "List Health",
+          "metrics": "Total active subscribers, growth rate, deliverability, spam rate by funnel",
+          "visualization": "Trend lines with threshold indicators"
+        },
+        {
+          "name": "Sequence Completion",
+          "metrics": "Percentage of contacts who complete each sequence",
+          "visualization": "Horizontal funnel chart per sequence"
+        },
+        {
+          "name": "Re-Engagement",
+          "metrics": "Cold contacts identified, re-engagement response rate, list cleaned",
+          "visualization": "Trend chart"
+        },
+        {
+          "name": "Revenue Attribution",
+          "metrics": "Conversions attributed to email sequences (last-click and position-based)",
+          "visualization": "Bar chart by sequence"
+        }
+      ]
+    },
+    {
+      "name": "SEO and Content Performance",
+      "audience": "Content strategist, SEO specialist",
+      "tool": "Looker Studio (connected to GA4 + Search Console + Ahrefs/Semrush API)",
+      "refresh": "Weekly",
+      "sections": [
+        {
+          "name": "Organic Traffic",
+          "metrics": "Sessions, users, new users by landing page cluster",
+          "visualization": "Trend line with month-over-month comparison"
+        },
+        {
+          "name": "Keyword Rankings",
+          "metrics": "Position tracking for target keywords (top 50)",
+          "visualization": "Ranking distribution chart + movement table"
+        },
+        {
+          "name": "Content Performance",
+          "metrics": "Page views, avg engagement time, scroll depth, conversion rate by blog post",
+          "visualization": "Post-level table sorted by conversion contribution"
+        },
+        {
+          "name": "Backlink Profile",
+          "metrics": "New backlinks, referring domains, domain rating trend",
+          "visualization": "Trend line + new link table"
+        },
+        {
+          "name": "Technical Health",
+          "metrics": "Core Web Vitals (LCP, FID, CLS), crawl errors, index coverage",
+          "visualization": "Scorecard with pass/fail indicators"
+        },
+        {
+          "name": "Competitor Comparison Page Performance",
+          "metrics": "Views, scroll depth, CTA clicks, conversion rate by comparison page",
+          "visualization": "Comparison page table"
+        },
+        {
+          "name": "Content Gap Analysis",
+          "metrics": "Keyword opportunities identified vs. content produced",
+          "visualization": "Progress tracker"
+        }
+      ]
+    },
+    {
+      "name": "Funnel-Specific Deep Dives",
+      "audience": "Funnel owner, marketing manager",
+      "tool": "Looker Studio (one tab per funnel)",
+      "refresh": "Daily",
+      "sections": [
+        {
+          "name": "PA (Practice Acquisition)",
+          "metrics": "Assessment completion funnel (visitors > starts > finishes), score distribution by tier, email sequence engagement waterfall, discovery call pipeline by lead source, time-to-conversion analysis"
+        },
+        {
+          "name": "DR (Dentist Recruitment)",
+          "metrics": "Career page traffic by source, guide download and application conversion, application funnel (started > completed > phone screen > interview > offer > hire), 90-day retention tracking, source-of-hire analysis"
+        },
+        {
+          "name": "PT (Patient Acquisition)",
+          "metrics": "Smile Assessment funnel (starts > finishes > consultation booked), practice-level performance (new patients, CPL, conversion rate), treatment acceptance rates, review generation, referral program performance"
+        },
+        {
+          "name": "SP (Specialist Partnership)",
+          "metrics": "Specialist guide downloads by source, email sequence engagement waterfall, discovery call pipeline, conference ROI by event, Pikos Institute conversion funnel"
+        }
+      ]
+    },
+    {
+      "name": "V2 Asset Performance",
+      "audience": "Marketing manager, growth team",
+      "tool": "Looker Studio",
+      "refresh": "Daily",
+      "sections": [
+        {
+          "name": "Quiz/Scorecard",
+          "metrics": "Start rate, step-by-step completion, abandon points, score distribution, results page CTA clicks",
+          "visualization": "Funnel chart + abandonment heatmap"
+        },
+        {
+          "name": "Webinar",
+          "metrics": "Registration rate, attendance rate, replay views, pitch CTA clicks, post-webinar conversions",
+          "visualization": "Funnel chart with reg > attend > convert"
+        },
+        {
+          "name": "Chatbot",
+          "metrics": "Conversations started, qualification rate, handoff rate, conversion rate, avg messages to conversion",
+          "visualization": "Flow chart + conversation metrics"
+        },
+        {
+          "name": "VSL",
+          "metrics": "Play rate, 25%/50%/75%/100% completion, CTA click rate, post-VSL conversions",
+          "visualization": "Retention curve + CTA performance"
+        },
+        {
+          "name": "YouTube Content",
+          "metrics": "Views, retention curve, subscriber conversion, description link clicks",
+          "visualization": "Per-video retention charts"
+        },
+        {
+          "name": "A/B Tests",
+          "metrics": "Active tests, sample progress, statistical significance, winner/loser status",
+          "visualization": "Test status board"
+        }
+      ]
+    }
+  ],
+  "v2Tracking": {
+    "quizScorecard": {
+      "events": [
+        {
+          "name": "quiz_impression",
+          "trigger": "Quiz widget or page loads in viewport",
+          "parameters": "quiz_type, page_path, traffic_source"
+        },
+        {
+          "name": "quiz_start",
+          "trigger": "User clicks to begin quiz",
+          "parameters": "quiz_type, traffic_source, referrer"
+        },
+        {
+          "name": "quiz_step_view",
+          "trigger": "Each question loads",
+          "parameters": "quiz_type, step_number, step_name"
+        },
+        {
+          "name": "quiz_step_answer",
+          "trigger": "User selects/submits an answer",
+          "parameters": "quiz_type, step_number, answer_value, time_on_step_seconds"
+        },
+        {
+          "name": "quiz_step_back",
+          "trigger": "User navigates backward",
+          "parameters": "quiz_type, from_step, to_step"
+        },
+        {
+          "name": "quiz_abandon",
+          "trigger": "User leaves without completing",
+          "parameters": "quiz_type, last_step_completed, total_time_seconds, answers_given"
+        },
+        {
+          "name": "quiz_complete",
+          "trigger": "Final question answered",
+          "parameters": "quiz_type, total_score, tier, completion_time_seconds, category_scores"
+        },
+        {
+          "name": "quiz_results_view",
+          "trigger": "Results page loads",
+          "parameters": "quiz_type, score, tier, recommended_cta"
+        },
+        {
+          "name": "quiz_results_cta_click",
+          "trigger": "User clicks CTA on results page",
+          "parameters": "quiz_type, tier, cta_type (book_call, download_guide, subscribe_content)"
+        },
+        {
+          "name": "quiz_results_share",
+          "trigger": "User shares results",
+          "parameters": "quiz_type, share_platform"
+        }
+      ],
+      "kpis": [
+        {
+          "metric": "Impression-to-start rate",
+          "practiceAssessment": "> 50%",
+          "smileAssessment": "> 60%"
+        },
+        {
+          "metric": "Start-to-complete rate",
+          "practiceAssessment": "> 35%",
+          "smileAssessment": "> 40%"
+        },
+        {
+          "metric": "Average completion time",
+          "practiceAssessment": "2-4 minutes (12 questions)",
+          "smileAssessment": "1-3 minutes (8 questions)"
+        },
+        {
+          "metric": "Results page CTA click rate",
+          "practiceAssessment": "> 40% (Strong), > 25% (Growth), > 10% (Foundation)",
+          "smileAssessment": "> 35%"
+        }
+      ]
+    },
+    "webinar": {
+      "events": [
+        {
+          "name": "webinar_page_view",
+          "trigger": "Registration page loads",
+          "parameters": "webinar_id, webinar_title, funnel_prefix, traffic_source"
+        },
+        {
+          "name": "webinar_reg_start",
+          "trigger": "User clicks into registration form",
+          "parameters": "webinar_id, traffic_source"
+        },
+        {
+          "name": "webinar_reg_complete",
+          "trigger": "Registration form submitted",
+          "parameters": "webinar_id, registrant_email, registrant_type, traffic_source"
+        },
+        {
+          "name": "webinar_join_live",
+          "trigger": "Attendee joins live session",
+          "parameters": "webinar_id, join_time_relative (on_time, 5min_late, 10min_late, 15min_plus_late)"
+        },
+        {
+          "name": "webinar_attendance_duration",
+          "trigger": "Periodic check (every 5 minutes)",
+          "parameters": "webinar_id, minutes_attended, total_duration"
+        },
+        {
+          "name": "webinar_poll_response",
+          "trigger": "Attendee responds to in-webinar poll",
+          "parameters": "webinar_id, poll_question, poll_answer"
+        },
+        {
+          "name": "webinar_question_submitted",
+          "trigger": "Attendee submits a Q&A question",
+          "parameters": "webinar_id, question_text"
+        },
+        {
+          "name": "webinar_pitch_view",
+          "trigger": "Pitch/offer segment is shown",
+          "parameters": "webinar_id, attendees_present_at_pitch"
+        },
+        {
+          "name": "webinar_pitch_cta_click",
+          "trigger": "Attendee clicks the pitch CTA",
+          "parameters": "webinar_id, cta_type, timing (during_live, post_live)"
+        },
+        {
+          "name": "webinar_exit",
+          "trigger": "Attendee leaves the live session",
+          "parameters": "webinar_id, exit_time_minutes, attended_through_pitch (yes/no)"
+        },
+        {
+          "name": "webinar_replay_view",
+          "trigger": "Replay page loads",
+          "parameters": "webinar_id, days_after_live, traffic_source"
+        },
+        {
+          "name": "webinar_replay_play",
+          "trigger": "Replay video starts",
+          "parameters": "webinar_id, viewer_type (registered_no_show, registered_attendee, new_viewer)"
+        },
+        {
+          "name": "webinar_replay_progress",
+          "trigger": "Replay reaches 25%, 50%, 75%, 100%",
+          "parameters": "webinar_id, progress_percent, viewer_type"
+        },
+        {
+          "name": "webinar_replay_pitch_cta_click",
+          "trigger": "Replay viewer clicks the pitch CTA",
+          "parameters": "webinar_id, cta_type, viewer_type"
+        }
+      ],
+      "leadScoring": [
+        { "action": "Registered", "points": 5 },
+        { "action": "Attended live", "points": 15 },
+        { "action": "Attended through pitch", "points": 25 },
+        { "action": "Asked a Q&A question", "points": 10 },
+        { "action": "Clicked pitch CTA (live)", "points": 30 },
+        { "action": "Watched replay (100%)", "points": 20 },
+        { "action": "Clicked pitch CTA (replay)", "points": 25 },
+        { "action": "No-show (registered, never watched)", "points": 0 }
+      ],
+      "kpis": [
+        { "metric": "Registration page conversion rate", "target": "> 35%" },
+        {
+          "metric": "Registration-to-attendance rate",
+          "target": "> 45% (target 48-58% post-optimization)"
+        },
+        {
+          "metric": "Avg attendance duration",
+          "target": "> 70% of total webinar length"
+        },
+        {
+          "metric": "Attendees remaining at pitch",
+          "target": "> 65% of peak attendance"
+        },
+        { "metric": "Live pitch CTA click rate", "target": "> 12%" },
+        { "metric": "Replay view rate (of no-shows)", "target": "> 25%" },
+        { "metric": "Replay pitch CTA click rate", "target": "> 8%" },
+        {
+          "metric": "Webinar-to-discovery-call conversion (within 14 days)",
+          "target": "> 8% (PA/SP), > 15% (PT)"
+        }
+      ]
+    },
+    "chatbot": {
+      "events": [
+        {
+          "name": "chatbot_widget_view",
+          "trigger": "Chatbot widget loads on page",
+          "parameters": "page_path, funnel_prefix, visitor_type (new, returning)"
+        },
+        {
+          "name": "chatbot_proactive_trigger",
+          "trigger": "Chatbot proactively initiates",
+          "parameters": "page_path, trigger_type, trigger_threshold"
+        },
+        {
+          "name": "chatbot_start",
+          "trigger": "User sends first message or clicks to open",
+          "parameters": "page_path, trigger_type, funnel_prefix"
+        },
+        {
+          "name": "chatbot_qualify_question",
+          "trigger": "Bot asks a qualification question",
+          "parameters": "conversation_id, question_type (role, practice_size, timeline, location, dental_issue)"
+        },
+        {
+          "name": "chatbot_qualify_answer",
+          "trigger": "User answers a qualification question",
+          "parameters": "conversation_id, question_type, answer_value"
+        },
+        {
+          "name": "chatbot_qualified",
+          "trigger": "Bot determines lead is qualified",
+          "parameters": "conversation_id, qualification_score, audience_type, recommended_action"
+        },
+        {
+          "name": "chatbot_handoff_offered",
+          "trigger": "Bot offers handoff to human or action",
+          "parameters": "conversation_id, handoff_type (phone, calendar, email, live_agent)"
+        },
+        {
+          "name": "chatbot_handoff_accepted",
+          "trigger": "User accepts handoff",
+          "parameters": "conversation_id, handoff_type"
+        },
+        {
+          "name": "chatbot_conversion",
+          "trigger": "User completes desired action via chatbot",
+          "parameters": "conversation_id, conversion_type, messages_to_conversion"
+        },
+        {
+          "name": "chatbot_end",
+          "trigger": "Conversation ends",
+          "parameters": "conversation_id, end_type (user_closed, timeout, handoff_complete, conversion_complete), total_messages, duration_seconds"
+        },
+        {
+          "name": "chatbot_feedback",
+          "trigger": "User rates the chatbot experience",
+          "parameters": "conversation_id, rating, feedback_text"
+        }
+      ],
+      "leadScoring": [
+        { "signal": "Started conversation", "points": 3 },
+        { "signal": "Answered 1+ qualification question", "points": 5 },
+        { "signal": "Identified as practice owner (PA)", "points": 15 },
+        { "signal": "Identified as specialist (SP)", "points": 15 },
+        {
+          "signal": "Identified as patient seeking implants (PT)",
+          "points": 10
+        },
+        { "signal": "Accepted handoff to phone/calendar", "points": 20 },
+        { "signal": "Completed conversion action via chatbot", "points": 25 },
+        { "signal": "Declined handoff", "points": -5 },
+        { "signal": "Conversation < 2 messages and closed", "points": -3 }
+      ],
+      "kpis": [
+        {
+          "metric": "Widget-to-conversation rate",
+          "target": "> 3% of page visitors"
+        },
+        {
+          "metric": "Proactive trigger engagement rate",
+          "target": "> 8% of triggered visitors"
+        },
+        {
+          "metric": "Average messages per conversation",
+          "target": "4-8 (optimal qualification range)"
+        },
+        {
+          "metric": "Qualification completion rate",
+          "target": "> 60% of started conversations"
+        },
+        {
+          "metric": "Handoff acceptance rate",
+          "target": "> 50% of offered handoffs"
+        },
+        {
+          "metric": "Chatbot-to-conversion rate",
+          "target": "> 12% of qualified conversations"
+        },
+        { "metric": "Average time to conversion", "target": "< 5 minutes" },
+        { "metric": "CSAT score", "target": "> 4.0 / 5.0" }
+      ]
+    },
+    "video": {
+      "youtubeEvents": [
+        {
+          "name": "yt_video_impression",
+          "trigger": "Video appears in search/suggested/home feed",
+          "parameters": "video_id, video_title, impression_source"
+        },
+        {
+          "name": "yt_video_click",
+          "trigger": "Thumbnail clicked to start watching",
+          "parameters": "video_id, video_title, click_source"
+        },
+        {
+          "name": "yt_video_view",
+          "trigger": "Video starts playing (30 seconds or full video)",
+          "parameters": "video_id, video_title, traffic_source, viewer_type"
+        },
+        {
+          "name": "yt_retention_25",
+          "trigger": "Viewer reaches 25% of video",
+          "parameters": "video_id, video_length_seconds"
+        },
+        {
+          "name": "yt_retention_50",
+          "trigger": "Viewer reaches 50%",
+          "parameters": "video_id, video_length_seconds"
+        },
+        {
+          "name": "yt_retention_75",
+          "trigger": "Viewer reaches 75%",
+          "parameters": "video_id, video_length_seconds"
+        },
+        {
+          "name": "yt_retention_100",
+          "trigger": "Viewer reaches 100%",
+          "parameters": "video_id, video_length_seconds"
+        },
+        {
+          "name": "yt_subscribe",
+          "trigger": "Viewer subscribes from this video",
+          "parameters": "video_id"
+        },
+        {
+          "name": "yt_description_link_click",
+          "trigger": "Viewer clicks a link in the description",
+          "parameters": "video_id, link_url, link_position"
+        }
+      ],
+      "vslEvents": [
+        {
+          "name": "vsl_page_view",
+          "trigger": "VSL page loads",
+          "parameters": "vsl_id, vsl_title, funnel_prefix, traffic_source"
+        },
+        {
+          "name": "vsl_play",
+          "trigger": "Play button clicked",
+          "parameters": "vsl_id, auto_play (true/false), traffic_source"
+        },
+        {
+          "name": "vsl_progress_25",
+          "trigger": "Video reaches 25%",
+          "parameters": "vsl_id, video_duration_seconds"
+        },
+        {
+          "name": "vsl_progress_50",
+          "trigger": "Video reaches 50%",
+          "parameters": "vsl_id, video_duration_seconds"
+        },
+        {
+          "name": "vsl_progress_75",
+          "trigger": "Video reaches 75%",
+          "parameters": "vsl_id, video_duration_seconds"
+        },
+        {
+          "name": "vsl_progress_100",
+          "trigger": "Video reaches 100%",
+          "parameters": "vsl_id, video_duration_seconds"
+        },
+        {
+          "name": "vsl_cta_reveal",
+          "trigger": "CTA button appears",
+          "parameters": "vsl_id, reveal_time_seconds, viewers_at_reveal"
+        },
+        {
+          "name": "vsl_cta_click",
+          "trigger": "User clicks the CTA",
+          "parameters": "vsl_id, cta_type, click_time_seconds, video_progress_at_click"
+        },
+        {
+          "name": "vsl_exit",
+          "trigger": "User leaves the page",
+          "parameters": "vsl_id, exit_time_seconds, video_progress_at_exit, cta_clicked (true/false)"
+        }
+      ],
+      "kpis": [
+        { "metric": "Play rate (VSL)", "target": "> 65% of page visitors" },
+        { "metric": "25% retention", "youtube": "> 70%", "vsl": "> 60%" },
+        { "metric": "50% retention", "youtube": "> 55%", "vsl": "> 45%" },
+        { "metric": "75% retention", "youtube": "> 40%", "vsl": "> 30%" },
+        { "metric": "100% retention", "youtube": "> 30%", "vsl": "> 20%" },
+        {
+          "metric": "CTA click rate",
+          "youtube": "> 2% (description links)",
+          "vsl": "> 8% of those who reach CTA reveal"
+        },
+        {
+          "metric": "Post-video conversion rate",
+          "youtube": "> 1.5% (view to assessment start)",
+          "vsl": "> 5% (view to desired action)"
+        }
+      ]
+    },
+    "abTesting": {
+      "eventTaxonomy": [
+        {
+          "name": "ab_test_impression",
+          "trigger": "User is assigned to a test variant",
+          "parameters": "test_id, test_name, variant (control, variant_a, variant_b), page_path, user_segment"
+        },
+        {
+          "name": "ab_test_conversion",
+          "trigger": "User completes the primary metric action for this test",
+          "parameters": "test_id, test_name, variant, conversion_type, conversion_value"
+        },
+        {
+          "name": "ab_test_secondary_metric",
+          "trigger": "User completes a secondary metric action",
+          "parameters": "test_id, test_name, variant, metric_name, metric_value"
+        }
+      ],
+      "testMapping": [
+        {
+          "testId": "LP-1",
+          "testName": "Headline: Empathy vs. Fear-Stat",
+          "primaryMetric": "quiz_start (assessment start rate)",
+          "secondaryMetrics": [
+            "page_scroll_50",
+            "page_scroll_75",
+            "page_time_on_page"
+          ]
+        },
+        {
+          "testId": "LP-2",
+          "testName": "CTA: Professional vs. Peer-Framed",
+          "primaryMetric": "cta_click (CTA button click rate)",
+          "secondaryMetrics": ["discovery_call_booked", "page_bounce"]
+        },
+        {
+          "testId": "LP-3",
+          "testName": "Social Proof: Plain vs. Facebook-Style",
+          "primaryMetric": "cta_click (post-social-proof CTA)",
+          "secondaryMetrics": [
+            "page_section_view (social proof)",
+            "page_scroll_75"
+          ]
+        },
+        {
+          "testId": "EM-*",
+          "testName": "Email subject line and format tests",
+          "primaryMetric": "email_opened, email_clicked",
+          "secondaryMetrics": [
+            "quiz_start",
+            "discovery_call_booked",
+            "consultation_booked"
+          ]
+        },
+        {
+          "testId": "AD-*",
+          "testName": "Ad creative and copy tests",
+          "primaryMetric": "ad_click (CTR), form_submit (CPL)",
+          "secondaryMetrics": ["quiz_start", "lead_magnet_download"]
+        },
+        {
+          "testId": "SC-*",
+          "testName": "Scorecard/quiz flow tests",
+          "primaryMetric": "quiz_complete (completion rate)",
+          "secondaryMetrics": [
+            "quiz_results_cta_click",
+            "discovery_call_booked"
+          ]
+        },
+        {
+          "testId": "WB-*",
+          "testName": "Webinar tests",
+          "primaryMetric": "webinar_reg_complete (registration rate)",
+          "secondaryMetrics": ["webinar_join_live", "webinar_pitch_cta_click"]
+        }
+      ],
+      "statisticalRigor": {
+        "minimumSampleSize": "400-500 unique visitors for landing page tests, 1,000+ emails for email tests",
+        "significanceThreshold": "95% confidence (p < 0.05)",
+        "minimumDuration": "2 full business weeks",
+        "maximumDuration": "8 weeks (inconclusive if significance not reached)",
+        "srmCheck": "Sample Ratio Mismatch check at 48 hours and weekly thereafter. Investigate if variant allocation deviates > 2%.",
+        "isolation": "Do not run overlapping tests on the same page element. Sequential, not parallel, on the same audience."
+      }
+    }
+  },
+  "toolStack": [
+    {
+      "function": "Web analytics",
+      "primary": "GA4",
+      "alternative": "Mixpanel (for product analytics on quiz/assessment)"
+    },
+    {
+      "function": "Tag management",
+      "primary": "Google Tag Manager (GTM)",
+      "alternative": "--"
+    },
+    {
+      "function": "Dashboards",
+      "primary": "Looker Studio",
+      "alternative": "Databox (for real-time TV dashboards)"
+    },
+    {
+      "function": "CRM",
+      "primary": "HubSpot Marketing Hub + Sales Hub",
+      "alternative": "Salesforce"
+    },
+    {
+      "function": "Email marketing",
+      "primary": "HubSpot (if CRM) or ActiveCampaign",
+      "alternative": "Mailchimp"
+    },
+    {
+      "function": "Call tracking",
+      "primary": "CallRail",
+      "alternative": "CallTrackingMetrics"
+    },
+    {
+      "function": "Heatmaps / session replay",
+      "primary": "Microsoft Clarity (free) or Hotjar",
+      "alternative": "--"
+    },
+    {
+      "function": "SEO tracking",
+      "primary": "Ahrefs + Google Search Console",
+      "alternative": "Semrush"
+    },
+    {
+      "function": "Ad platform connectors",
+      "primary": "Supermetrics or Funnel.io",
+      "alternative": "--"
+    },
+    {
+      "function": "A/B testing",
+      "primary": "VWO or Convert",
+      "alternative": "Unbounce (for landing page tests)"
+    },
+    {
+      "function": "Chatbot analytics",
+      "primary": "Drift or Intercom (built-in)",
+      "alternative": "--"
+    },
+    {
+      "function": "Video analytics",
+      "primary": "YouTube Studio + Wistia (for VSL)",
+      "alternative": "Vidyard"
+    }
+  ],
+  "dataLayer": {
+    "baseObject": {
+      "description": "Fires on every page load",
+      "fields": [
+        {
+          "name": "page_type",
+          "values": "landing_page, blog, assessment, careers, pricing, webinar_reg, comparison, homepage"
+        },
+        { "name": "page_funnel", "values": "pa, dr, pt, sp, brand, none" },
+        {
+          "name": "page_audience",
+          "values": "practice_owner, associate_dentist, patient_general, patient_implant, specialist, all"
+        },
+        {
+          "name": "page_practice",
+          "values": "Practice name if practice-specific page"
+        },
+        {
+          "name": "page_region",
+          "values": "Geographic region for practice pages"
+        },
+        {
+          "name": "user_id",
+          "values": "CRM contact ID if known (from cookie or login)"
+        },
+        {
+          "name": "user_type",
+          "values": "anonymous, lead, mql, sql, customer, partner"
+        },
+        {
+          "name": "user_funnel_stage",
+          "values": "awareness, consideration, decision, customer, churned"
+        },
+        { "name": "utm_source", "values": "Parsed from URL on landing" },
+        { "name": "utm_medium", "values": "Parsed from URL on landing" },
+        { "name": "utm_campaign", "values": "Parsed from URL on landing" },
+        { "name": "utm_content", "values": "Parsed from URL on landing" },
+        { "name": "utm_term", "values": "Parsed from URL on landing" },
+        { "name": "session_device", "values": "desktop, mobile, tablet" },
+        { "name": "session_new_visitor", "values": "true / false" }
+      ]
+    },
+    "gtmContainerStructure": [
+      {
+        "folder": "01 - Page Tracking",
+        "contains": "GA4 page_view tag, base data layer variables"
+      },
+      {
+        "folder": "02 - Scroll and Section Tracking",
+        "contains": "Scroll depth triggers, section visibility triggers"
+      },
+      {
+        "folder": "03 - Quiz and Assessment",
+        "contains": "Quiz start/step/complete/abandon tags"
+      },
+      { "folder": "04 - Forms", "contains": "Form start/submit/abandon tags" },
+      {
+        "folder": "05 - Video (VSL)",
+        "contains": "VSL play/progress/CTA tags"
+      },
+      { "folder": "06 - Chatbot", "contains": "Chatbot event tags" },
+      {
+        "folder": "07 - Webinar",
+        "contains": "Webinar registration/attendance/replay tags"
+      },
+      {
+        "folder": "08 - Email",
+        "contains": "Email link click decorators, UTM passthrough"
+      },
+      {
+        "folder": "09 - A/B Tests",
+        "contains": "Test impression/conversion tags"
+      },
+      {
+        "folder": "10 - Conversions",
+        "contains": "GA4 conversion events, Meta CAPI, Google Ads conversion tags"
+      },
+      {
+        "folder": "11 - Advertising",
+        "contains": "Google Ads remarketing, Meta Pixel, LinkedIn Insight Tag"
+      },
+      {
+        "folder": "12 - Third Party",
+        "contains": "Hotjar, Clarity, CallRail, Drift/Intercom"
+      }
+    ]
+  },
+  "reportingCadence": [
+    {
+      "frequency": "Daily (Automated Alerts)",
+      "audience": "Marketing manager, media buyer",
+      "delivery": "Slack channel (#sga-marketing-alerts) + email digest at 8:00 AM ET",
+      "checks": [
+        {
+          "check": "Ad spend pacing",
+          "trigger": "Spend > 120% or < 80% of daily budget",
+          "action": "Investigate campaign pacing, pause overspending ad sets"
+        },
+        {
+          "check": "CPL spike",
+          "trigger": "CPL > 150% of 7-day average for any campaign",
+          "action": "Check ad fatigue, audience saturation, landing page issues"
+        },
+        {
+          "check": "Conversion drop",
+          "trigger": "Conversions < 50% of 7-day daily average",
+          "action": "Check tracking, landing page status, ad delivery"
+        },
+        {
+          "check": "Email bounce spike",
+          "trigger": "Bounce rate > 3% on any send",
+          "action": "Investigate list hygiene, ESP authentication"
+        },
+        {
+          "check": "Website down/error",
+          "trigger": "5xx error rate > 1% or uptime alert",
+          "action": "Immediately notify dev team"
+        },
+        {
+          "check": "Lead response time",
+          "trigger": "Any lead not contacted within 5 minutes (LSA) or 1 hour (form)",
+          "action": "Alert BD team or practice front desk"
+        }
+      ]
+    },
+    {
+      "frequency": "Weekly (Monday Marketing Meeting)",
+      "audience": "CMO, marketing manager, media buyer, content strategist",
+      "delivery": "Looker Studio dashboard + 15-minute standup",
+      "sections": [
+        "Funnel summary (leads, MQLs, SQLs, conversions WoW)",
+        "Paid media (spend, CPL, CTR, conversion rate WoW)",
+        "Email performance (sends, opens, clicks, unsubscribes by sequence)",
+        "Content/SEO (organic sessions, blog posts, keyword movements)",
+        "Pipeline (discovery calls, consultations, applications)",
+        "A/B tests (status, sample progress)",
+        "Budget (WTD spend vs budget)",
+        "Action items (top 3 for coming week)"
+      ]
+    },
+    {
+      "frequency": "Monthly (First-of-Month Deep Dive)",
+      "audience": "CMO, CEO, VP Marketing, VP Business Development, marketing team",
+      "delivery": "Looker Studio + slide deck summary (5-7 slides), 45-minute review meeting",
+      "sections": [
+        "Executive summary (total spend, leads, conversions, blended CAC, pipeline)",
+        "Funnel-by-funnel performance MoM",
+        "Channel ROI analysis ranked by efficiency",
+        "Attribution analysis (first-touch vs. last-touch vs. position-based)",
+        "Email health (sequence performance, list growth, deliverability)",
+        "SEO progress (rankings, organic traffic, content pipeline)",
+        "Social media (follower growth, engagement, content performance)",
+        "A/B test results (completed tests, winners, cumulative lift)",
+        "Competitive landscape",
+        "Budget performance and reallocation recommendations"
+      ]
+    },
+    {
+      "frequency": "Quarterly (Strategic Review)",
+      "audience": "CEO, CMO, CFO, VP Marketing, VP Business Development, Thurston Group representative",
+      "delivery": "Formal slide deck (15-20 slides) + data appendix, 90-minute strategic review",
+      "sections": [
+        "Business impact summary (partnerships signed, positions filled, patient volume, revenue attributed)",
+        "Marketing-to-revenue attribution",
+        "CAC and LTV analysis",
+        "Channel portfolio review (scale, maintain, reduce, or cut)",
+        "Funnel optimization summary from A/B testing",
+        "Competitive positioning (market share, SOV)",
+        "SEO authority growth",
+        "Content performance and gaps",
+        "Technology/tool assessment",
+        "Budget recommendation for next quarter"
+      ]
+    },
+    {
+      "frequency": "Annual Review",
+      "audience": "Full leadership team",
+      "delivery": "Comprehensive annual marketing performance report",
+      "sections": [
+        "Year-over-year comparison on all KPIs",
+        "Marketing contribution to business growth",
+        "Full attribution model validation",
+        "Tool stack audit and vendor review",
+        "Budget allocation vs. actual performance",
+        "Competitive landscape evolution",
+        "Strategic plan for next year"
+      ]
+    }
+  ],
+  "privacy": {
+    "cookieConsent": "CMP (Cookiebot or OneTrust) integrated with GTM consent mode",
+    "ga4ConsentMode": "Tags fire in restricted mode until consent granted",
+    "dataRetention": "GA4 set to 14-month retention (maximum for free tier)",
+    "piiHandling": "No PII in data layer values, event parameters, or custom dimensions. Email addresses hashed (SHA-256) for cross-platform matching only.",
+    "hipaaConsideration": "Patient health information (PHI) never enters the analytics stack. Quiz answers about dental conditions are stored in HIPAA-compliant CRM only, not in GA4. Data layer quiz answer values use sanitized category labels, not free text.",
+    "rightToDeletion": "Process documented for removing user data from GA4, CRM, and ad platforms upon request",
+    "dataProcessingAgreements": "DPAs signed with Google, Meta, HubSpot, and any third-party tool that handles user data"
+  }
+}

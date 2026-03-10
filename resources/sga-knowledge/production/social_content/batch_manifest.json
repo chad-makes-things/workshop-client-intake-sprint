@@ -1,0 +1,142 @@
+[
+  {
+    "name": "linkedin_day2_cavendish_carousel",
+    "prompt": "Professional social media carousel cover slide for a dental partnership company. Deep navy blue background (#2D6FB7). Large white quote text in Roboto Slab font reading 'From Complacency to Clinical Excellence'. Subtle lime green (#C4D347) accent line. Stats: 16.5% Revenue Growth, 100% Staff Retention. Clean corporate design, dental industry professional tone. No photos of people.",
+    "tier": "standard",
+    "aspect_ratio": "1:1",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/linkedin/day02_cavendish_carousel.png"
+  },
+  {
+    "name": "linkedin_day5_recruitment_4front",
+    "prompt": "Professional dental conference networking event scene. Large modern conference room, dental professionals in business casual attire engaged in peer discussions at round tables. Warm lighting, high ceilings, projector screen showing dental clinical content in background. Professional and aspirational atmosphere. Clean corporate photography style. Colors emphasize blue tones (#2D6FB7).",
+    "tier": "standard",
+    "aspect_ratio": "3:2",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/linkedin/day05_recruitment_4front.png"
+  },
+  {
+    "name": "linkedin_day9_5questions_carousel",
+    "prompt": "Professional PDF document cover slide design. Title: '5 Questions Every Practice Owner Should Ask Before Partnering with a DSO'. Deep navy blue (#2D6FB7) background with white text. Large bold question mark graphic in lime green (#C4D347). Clean, corporate, authoritative design. Roboto typography. Professional dental industry document.",
+    "tier": "standard",
+    "aspect_ratio": "1:1",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/linkedin/day09_5questions_carousel.png"
+  },
+  {
+    "name": "linkedin_day10_partner_call",
+    "prompt": "Behind-the-scenes view of a virtual video conference call with multiple dental professionals. Laptop screen showing a grid of professional dentists on video call, with clinical imaging visible on a shared screen. Modern home office or dental office background. Warm, collaborative atmosphere. The feeling of peer mentorship and community. Professional photography.",
+    "tier": "standard",
+    "aspect_ratio": "3:2",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/linkedin/day10_partner_call.png"
+  },
+  {
+    "name": "linkedin_day14_pikos_institute",
+    "prompt": "Professional dental education carousel cover slide. Title: 'The Pikos Institute - Where Clinical Mastery Meets Community'. Background shows a state-of-the-art dental surgical training facility, stainless steel equipment, guided implant technology. Deep blue (#2D6FB7) overlay with white text. Clinical excellence, world-class education atmosphere. Clean medical/educational design.",
+    "tier": "standard",
+    "aspect_ratio": "1:1",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/linkedin/day14_pikos_institute.png"
+  },
+  {
+    "name": "linkedin_day15_retention",
+    "prompt": "Dental practice team photo in a modern clinical environment. A group of dental professionals in scrubs and lab coats standing together in a bright, modern dental office. Genuine smiles, diverse team. Modern equipment visible in background. Warm, inviting lighting. Text overlay area at bottom for '85% Staff Retention Rate'. Professional healthcare photography.",
+    "tier": "standard",
+    "aspect_ratio": "3:2",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/linkedin/day15_retention_team.png"
+  },
+  {
+    "name": "linkedin_day22_mentorship",
+    "prompt": "Associate dentist learning advanced implant techniques from a senior clinician mentor. Two dental professionals at a state-of-the-art operatory, the senior showing the younger one a 3D implant planning screen. CBCT scan visible on monitor. Modern surgical suite. Warm, educational moment. Professional clinical photography. Aspirational career development scene.",
+    "tier": "standard",
+    "aspect_ratio": "3:2",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/linkedin/day22_mentorship.png"
+  },
+  {
+    "name": "linkedin_day25_partner_quotes",
+    "prompt": "Professional social media quote compilation graphic. Deep navy blue background (#2D6FB7). Three quote blocks stacked vertically, each with large white italic text and attribution in lime (#C4D347). Title: 'What Our Partners Say'. Clean corporate design, minimal, trustworthy. Subtle dental motif. No photos of people. Roboto Slab headers.",
+    "tier": "standard",
+    "aspect_ratio": "1:1",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/linkedin/day25_partner_quotes.png"
+  },
+  {
+    "name": "linkedin_day28_three_verticals",
+    "prompt": "Professional infographic showing three business verticals connected by a central platform. Three distinct sections: Community Dentistry (map of southeastern US states), Collaborative Practice (national map), Advanced Implantology (surgical implant icon). Connected by arrows to a central 'SGA Dental Partners' hub. Deep blue (#2D6FB7) and white with lime (#C4D347) accents. Clean corporate infographic, data visualization style.",
+    "tier": "standard",
+    "aspect_ratio": "1:1",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/linkedin/day28_three_verticals.png"
+  },
+  {
+    "name": "fb_day2_implant_cost",
+    "prompt": "Dental implant cost breakdown infographic for social media. Clean layout on white background with blue (#2D6FB7) headers. Price tiers shown as horizontal bars: Single Implant $3K-$6K, Full Arch Standard $15K-$30K, Complex Cases $25K-$50K+. Financing callout in orange (#F36F21): 'Starting at ~$250/month'. Icons for each tier. Professional medical infographic style. Transparent pricing theme.",
+    "tier": "standard",
+    "aspect_ratio": "3:2",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/facebook/day02_implant_cost.png"
+  },
+  {
+    "name": "fb_day4_juan_testimonial",
+    "prompt": "Patient testimonial social media graphic. Deep blue (#2D6FB7) background with a subtle abstract dental/smile motif. Large white quote marks. Quote text in white: 'They look and feel totally natural. They gave me back my confidence.' Attribution 'Juan' in lime (#C4D347). Small SGA Dental Partners / Innovative Dental logo area at bottom. Clean, emotional, trustworthy design.",
+    "tier": "standard",
+    "aspect_ratio": "3:2",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/facebook/day04_juan_testimonial.png"
+  },
+  {
+    "name": "fb_day8_myths",
+    "prompt": "Educational social media graphic: '5 Myths About Dental Implants'. Bold red crossed-out word 'MYTHS' at top. Five numbered items listed below with LIE crossed out and TRUTH in green. Clean infographic layout on white background with blue (#2D6FB7) accents. Orange (#F36F21) for myth labels. Professional medical education design. Easy to read at mobile size.",
+    "tier": "standard",
+    "aspect_ratio": "3:2",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/facebook/day08_myths.png"
+  },
+  {
+    "name": "fb_day17_implants_vs_dentures",
+    "prompt": "Side-by-side comparison infographic: Dentures vs Dental Implants. Two columns on a clean white background. Left column (Dentures) in muted gray, right column (Implants) in vibrant blue (#2D6FB7). Pros and cons listed for each. 10-year cost comparison bar at bottom. Key differentiator: bone preservation. Clean medical infographic with icons. Professional, educational tone.",
+    "tier": "standard",
+    "aspect_ratio": "3:2",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/facebook/day17_implants_vs_dentures.png"
+  },
+  {
+    "name": "fb_day20_louis_testimonial",
+    "prompt": "Patient testimonial social media graphic. Deep blue (#2D6FB7) gradient background. Large white text: 'Permanent teeth. ONE DAY. No more pain. No more crooked smile.' Word 'ONE DAY' emphasized in lime green (#C4D347) and larger font. Attribution 'Louis' in white. Clean, emotional, bold typography. Trustworthy dental brand design.",
+    "tier": "standard",
+    "aspect_ratio": "3:2",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/facebook/day20_louis_testimonial.png"
+  },
+  {
+    "name": "fb_day22_consultation_cta",
+    "prompt": "Conversion-focused social media graphic. A confident person smiling naturally in warm outdoor light, with a blurred nature background. Text overlay: 'Free Virtual Consultation' in white bold text. Subtitle: 'No pressure. Just answers.' Orange (#F36F21) CTA button graphic reading 'Book Now'. Blue (#2D6FB7) and white color scheme. Aspirational, inviting, professional dental marketing.",
+    "tier": "standard",
+    "aspect_ratio": "3:2",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/facebook/day22_consultation_cta.png"
+  },
+  {
+    "name": "fb_day25_step_by_step",
+    "prompt": "Step-by-step dental implant process infographic. 6 steps arranged vertically on white background: 1. Virtual Consultation (video call icon), 2. Treatment Plan (clipboard icon), 3. Procedure Day (surgical icon), 4. Same-Day Teeth (smile icon), 5. Healing Period (calendar icon), 6. Permanent Restoration (crown icon). Each step in a blue (#2D6FB7) circle connected by a dotted line. Clean, reassuring, professional medical design.",
+    "tier": "standard",
+    "aspect_ratio": "3:2",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/facebook/day25_step_by_step.png"
+  },
+  {
+    "name": "ig_day2_cost_carousel",
+    "prompt": "Instagram carousel cover slide about dental implant costs. Square format. Bold headline: 'How Much Do Dental Implants REALLY Cost in 2026?' Large white text on a gradient blue (#2D6FB7) to dark navy background. Small dollar sign icons scattered. Clean, mobile-first design. Save-worthy educational content. Professional healthcare social media.",
+    "tier": "standard",
+    "aspect_ratio": "1:1",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/instagram/day02_cost_carousel.png"
+  },
+  {
+    "name": "ig_day4_juan_testimonial",
+    "prompt": "Square Instagram testimonial graphic. Deep blue (#2D6FB7) background with subtle warm gradient at bottom. Large white quotation marks. Quote: 'They look and feel totally natural and I can eat whatever I want.' Name 'Juan' in lime (#C4D347). Innovative Dental logo small at bottom. Clean, emotional typography. Trustworthy, personal.",
+    "tier": "standard",
+    "aspect_ratio": "1:1",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/instagram/day04_juan_testimonial.png"
+  },
+  {
+    "name": "ig_day8_myths_carousel",
+    "prompt": "Instagram carousel cover slide for myth-busting series. Square format. Bold title: '5 LIES About Dental Implants'. The word 'LIES' in orange-red (#F36F21) with a strike-through effect. Rest of text in white on deep blue (#2D6FB7) background. Subtitle: 'From a dentist who has placed thousands.' Clean, provocative, scroll-stopping. Mobile-first design.",
+    "tier": "standard",
+    "aspect_ratio": "1:1",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/instagram/day08_myths_carousel.png"
+  },
+  {
+    "name": "ig_day22_conversion_cta",
+    "prompt": "Square Instagram conversion graphic. A person smiling confidently with eyes closed, face tilted toward warm sunlight, natural outdoor setting. Semi-transparent blue (#2D6FB7) overlay at bottom third. White text: 'Free Virtual Consultation'. Smaller: 'No pressure. Just answers.' Orange (#F36F21) accent line. Aspirational, clean, inviting. Square format for Instagram feed.",
+    "tier": "standard",
+    "aspect_ratio": "1:1",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/instagram/day22_conversion_cta.png"
+  }
+]

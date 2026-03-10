@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice Partnership Readiness Assessment | SGA Dental Partners</title>
+  <meta name="description" content="Take the 2-minute assessment to evaluate if your dental practice is ready for a partnership conversation. Personalized results based on your practice profile.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'sga-blue': '#2D6FB7',
+            'sga-blue-dark': '#1E4F85',
+            'sga-cyan': '#009DD6',
+            'sga-lime': '#C4D347',
+            'sga-orange': '#F36F21',
+            'sga-text': '#333333',
+            'sga-gray': '#F7F8FA',
+            'sga-border': '#E2E8F0',
+          },
+          fontFamily: {
+            'sans': ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    [x-cloak] { display: none !important; }
+
+    .option-card {
+      transition: border-color 150ms ease-out, background-color 150ms ease-out, box-shadow 150ms ease-out;
+    }
+    .option-card:hover {
+      border-color: #2D6FB7;
+      background-color: rgba(45, 111, 183, 0.03);
+    }
+    .option-card.selected {
+      border-color: #2D6FB7;
+      background-color: rgba(45, 111, 183, 0.06);
+      box-shadow: 0 0 0 2px rgba(45, 111, 183, 0.15);
+    }
+
+    .progress-fill {
+      transition: width 400ms ease-out;
+    }
+
+    .fade-in {
+      animation: fadeIn 300ms ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media print {
+      html, body { margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-sga-gray font-sans text-sga-text antialiased" style="padding-top:40px;">
+<!-- Back to Showcase banner -->
+<div style="position:fixed;top:0;left:0;right:0;height:40px;background:#1e293b;display:flex;align-items:center;padding:0 16px;z-index:9999;">
+  <a href="../index.html" style="color:#93c5fd;text-decoration:none;font-size:14px;font-family:Inter,sans-serif;">&larr; Back to Showcase</a>
+  <span style="color:#64748b;margin-left:auto;font-size:12px;font-family:Inter,sans-serif;">SGA Dental Partners Marketing Showcase</span>
+</div>
+
+<div x-data="assessmentApp()" x-cloak>
+
+  <!-- ========== INTRO SCREEN ========== -->
+  <template x-if="screen === 'intro'">
+    <div class="fade-in">
+      <header class="bg-sga-blue-dark">
+        <div class="max-w-3xl mx-auto px-6 py-12 sm:py-16 text-center">
+          <img src="../images/SGA-logo.png" alt="SGA Dental Partners" class="h-9 brightness-0 invert mx-auto mb-8">
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight mb-4">Practice Partnership<br>Readiness Assessment</h1>
+          <p class="text-white/70 text-base max-w-xl mx-auto leading-relaxed mb-8">8 questions. 2 minutes. A clear picture of where your practice stands -- and whether a partnership conversation makes sense right now.</p>
+          <button @click="screen = 'questions'" class="bg-sga-orange hover:bg-orange-600 text-white font-bold px-8 py-3.5 rounded-lg text-sm transition-colors duration-150 cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-sga-blue-dark">
+            Start Assessment
+          </button>
+          <p class="text-white/40 text-xs mt-4">Confidential. No email required. Instant results.</p>
+        </div>
+      </header>
+
+      <!-- What you'll learn -->
+      <div class="max-w-3xl mx-auto px-6 py-10">
+        <h2 class="text-lg font-bold text-sga-text text-center mb-6">What You Will Learn</h2>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <div class="bg-white rounded-xl border border-sga-border p-5 text-center">
+            <div class="w-10 h-10 rounded-full bg-sga-blue/10 text-sga-blue flex items-center justify-center mx-auto mb-3">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </div>
+            <h3 class="font-bold text-sm text-sga-text mb-1">Readiness Score</h3>
+            <p class="text-xs text-gray-500">Your overall partnership readiness across 5 dimensions</p>
+          </div>
+          <div class="bg-white rounded-xl border border-sga-border p-5 text-center">
+            <div class="w-10 h-10 rounded-full bg-sga-blue/10 text-sga-blue flex items-center justify-center mx-auto mb-3">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            </div>
+            <h3 class="font-bold text-sm text-sga-text mb-1">Growth Potential</h3>
+            <p class="text-xs text-gray-500">Where a partnership could accelerate your trajectory</p>
+          </div>
+          <div class="bg-white rounded-xl border border-sga-border p-5 text-center">
+            <div class="w-10 h-10 rounded-full bg-sga-blue/10 text-sga-blue flex items-center justify-center mx-auto mb-3">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            </div>
+            <h3 class="font-bold text-sm text-sga-text mb-1">Next Steps</h3>
+            <p class="text-xs text-gray-500">Personalized recommendations based on your answers</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!-- ========== QUESTIONS SCREEN ========== -->
+  <template x-if="screen === 'questions'">
+    <div class="fade-in">
+      <!-- Progress bar -->
+      <div class="sticky bg-white border-b border-sga-border shadow-sm z-40" style="top:40px;">
+        <div class="max-w-3xl mx-auto px-6 py-3">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-semibold text-sga-text">Question <span x-text="currentQuestion + 1"></span> of <span x-text="questions.length"></span></span>
+            <span class="text-xs text-gray-500" x-text="Math.round(((currentQuestion) / questions.length) * 100) + '% complete'"></span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-1.5">
+            <div class="bg-sga-blue rounded-full h-1.5 progress-fill" :style="'width: ' + ((currentQuestion) / questions.length * 100) + '%'"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question card -->
+      <div class="max-w-3xl mx-auto px-6 py-10">
+        <div class="bg-white rounded-2xl border border-sga-border shadow-sm p-6 sm:p-8 fade-in" :key="currentQuestion">
+          <!-- Question category badge -->
+          <div class="flex items-center gap-2 mb-4">
+            <span class="bg-sga-blue/10 text-sga-blue text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider" x-text="questions[currentQuestion].category"></span>
+          </div>
+
+          <!-- Question text -->
+          <h2 class="text-xl sm:text-2xl font-bold text-sga-text leading-snug mb-6" x-text="questions[currentQuestion].question"></h2>
+
+          <!-- Options -->
+          <div class="space-y-3">
+            <template x-for="(option, idx) in questions[currentQuestion].options" :key="idx">
+              <button
+                @click="selectAnswer(idx)"
+                :class="answers[currentQuestion] === idx ? 'selected' : ''"
+                class="option-card w-full text-left bg-white border-2 border-sga-border rounded-xl p-4 cursor-pointer focus:outline-none focus:ring-2 focus:ring-sga-blue/30"
+              >
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full border-2 shrink-0 mt-0.5 flex items-center justify-center transition-colors duration-150"
+                       :class="answers[currentQuestion] === idx ? 'border-sga-blue bg-sga-blue' : 'border-gray-300'">
+                    <svg x-show="answers[currentQuestion] === idx" class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <div>
+                    <div class="text-sm font-semibold text-sga-text" x-text="option.label"></div>
+                    <div class="text-xs text-gray-500 mt-0.5" x-text="option.description" x-show="option.description"></div>
+                  </div>
+                </div>
+              </button>
+            </template>
+          </div>
+
+          <!-- Navigation -->
+          <div class="flex items-center justify-between mt-8 pt-6 border-t border-sga-border">
+            <button
+              @click="prevQuestion()"
+              x-show="currentQuestion > 0"
+              class="text-sm font-medium text-gray-500 hover:text-sga-blue cursor-pointer transition-colors duration-150 focus:outline-none"
+            >
+              <span class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                Previous
+              </span>
+            </button>
+            <div x-show="currentQuestion === 0"></div>
+
+            <button
+              @click="nextQuestion()"
+              :disabled="answers[currentQuestion] === null"
+              :class="answers[currentQuestion] !== null ? 'bg-sga-blue hover:bg-sga-blue-dark text-white' : 'bg-gray-200 text-gray-400 cursor-not-allowed'"
+              class="font-semibold px-6 py-2.5 rounded-lg text-sm transition-colors duration-150 cursor-pointer focus:outline-none focus:ring-2 focus:ring-sga-blue/30"
+            >
+              <span x-text="currentQuestion < questions.length - 1 ? 'Next' : 'See Results'"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!-- ========== RESULTS SCREEN ========== -->
+  <template x-if="screen === 'results'">
+    <div class="fade-in">
+      <!-- Results header -->
+      <header class="bg-sga-blue-dark">
+        <div class="max-w-3xl mx-auto px-6 py-10 sm:py-14 text-center">
+          <img src="../images/SGA-logo.png" alt="SGA Dental Partners" class="h-8 brightness-0 invert mx-auto mb-6">
+          <p class="text-sga-lime text-xs font-bold uppercase tracking-wider mb-2">Your Assessment Results</p>
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight mb-2">Partnership Readiness Score</h1>
+
+          <!-- Score circle -->
+          <div class="relative w-32 h-32 mx-auto my-8">
+            <svg class="w-full h-full -rotate-90" viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="8"/>
+              <circle cx="60" cy="60" r="52" fill="none" stroke="#C4D347" stroke-width="8"
+                      :stroke-dasharray="326.73"
+                      :stroke-dashoffset="326.73 - (326.73 * totalScore / 40)"
+                      stroke-linecap="round"/>
+            </svg>
+            <div class="absolute inset-0 flex flex-col items-center justify-center">
+              <span class="text-3xl font-extrabold text-white" x-text="totalScore"></span>
+              <span class="text-white/50 text-xs">/40</span>
+            </div>
+          </div>
+
+          <div class="inline-block px-4 py-2 rounded-full text-sm font-bold"
+               :class="readinessLevel.class"
+               x-text="readinessLevel.label">
+          </div>
+        </div>
+      </header>
+
+      <div class="max-w-3xl mx-auto px-6 py-10">
+
+        <!-- Dimension scores -->
+        <div class="bg-white rounded-2xl border border-sga-border p-6 mb-6">
+          <h2 class="font-bold text-base text-sga-text mb-4">Score Breakdown by Dimension</h2>
+          <div class="space-y-4">
+            <template x-for="dim in dimensionScores" :key="dim.name">
+              <div>
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-sm font-medium text-sga-text" x-text="dim.name"></span>
+                  <span class="text-sm font-bold" :class="dim.score >= 4 ? 'text-emerald-600' : dim.score >= 3 ? 'text-amber-600' : 'text-red-500'" x-text="dim.score + '/5'"></span>
+                </div>
+                <div class="w-full bg-gray-100 rounded-full h-2">
+                  <div class="rounded-full h-2 transition-all duration-500"
+                       :class="dim.score >= 4 ? 'bg-emerald-500' : dim.score >= 3 ? 'bg-amber-500' : 'bg-red-400'"
+                       :style="'width: ' + (dim.score / 5 * 100) + '%'"></div>
+                </div>
+                <p class="text-xs text-gray-500 mt-1" x-text="dim.insight"></p>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <!-- Personalized recommendation -->
+        <div class="bg-white rounded-2xl border border-sga-border p-6 mb-6">
+          <h2 class="font-bold text-base text-sga-text mb-4">Your Personalized Assessment</h2>
+          <div class="space-y-4">
+            <template x-for="rec in recommendations" :key="rec.title">
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg shrink-0 flex items-center justify-center"
+                     :class="rec.type === 'strength' ? 'bg-emerald-100 text-emerald-600' : rec.type === 'opportunity' ? 'bg-sga-blue/10 text-sga-blue' : 'bg-amber-100 text-amber-600'">
+                  <svg x-show="rec.type === 'strength'" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <svg x-show="rec.type === 'opportunity'" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                  <svg x-show="rec.type === 'consider'" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div>
+                  <h3 class="font-bold text-sm text-sga-text" x-text="rec.title"></h3>
+                  <p class="text-xs text-gray-600 mt-0.5 leading-relaxed" x-text="rec.text"></p>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <!-- SGA value props based on answers -->
+        <div class="bg-sga-blue/5 border border-sga-blue/20 rounded-2xl p-6 mb-6">
+          <h2 class="font-bold text-base text-sga-blue-dark mb-1">How SGA Dental Partners Addresses Your Needs</h2>
+          <p class="text-xs text-gray-500 mb-4">Based on your assessment responses, here is what an SGA partnership would look like for you.</p>
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="bg-white rounded-xl p-4 border border-sga-border">
+              <div class="text-xs font-bold text-sga-blue uppercase tracking-wider mb-1">Financial</div>
+              <p class="text-xs text-gray-600">60-70% upfront liquidity event at 7-9x EBITDA, plus 30-40% retained equity in the SGA platform. Your practice value grows with the network.</p>
+            </div>
+            <div class="bg-white rounded-xl p-4 border border-sga-border">
+              <div class="text-xs font-bold text-sga-blue uppercase tracking-wider mb-1">Operational</div>
+              <p class="text-xs text-gray-600">Full back-office takeover within 90 days: billing, payroll, HR, compliance, procurement, marketing, and recruiting. You focus on patients.</p>
+            </div>
+            <div class="bg-white rounded-xl p-4 border border-sga-border">
+              <div class="text-xs font-bold text-sga-blue uppercase tracking-wider mb-1">Clinical</div>
+              <p class="text-xs text-gray-600">Full clinical autonomy protected by contract. Access to Pikos Institute, 4Front Symposium, and a network of 100+ collaborating clinicians.</p>
+            </div>
+            <div class="bg-white rounded-xl p-4 border border-sga-border">
+              <div class="text-xs font-bold text-sga-blue uppercase tracking-wider mb-1">Your Identity</div>
+              <p class="text-xs text-gray-600">Your name stays on the door. Your team stays in the chairs. Your patients never know the difference -- except that everything runs better.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="bg-sga-blue-dark rounded-2xl p-6 sm:p-8 text-center text-white">
+          <h2 class="text-xl font-bold mb-2">Ready for a Confidential Conversation?</h2>
+          <p class="text-white/70 text-sm max-w-lg mx-auto mb-6">No brokers. No pressure. A direct conversation between dentists about whether SGA is the right fit for your practice and your career.</p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="#" class="bg-sga-orange hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-lg text-sm transition-colors duration-150 cursor-pointer inline-block focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-sga-blue-dark">Schedule a Confidential Call</a>
+            <button @click="resetAssessment()" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-lg text-sm transition-colors duration-150 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/30">Retake Assessment</button>
+          </div>
+          <div class="flex flex-wrap justify-center gap-x-6 gap-y-1 mt-6 text-white/40 text-xs">
+            <span>Backed by the Thurston Group</span>
+            <span>38 Years</span>
+            <span>$4B+ Returned to Partners</span>
+            <span>85% Staff Retention</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+</div>
+
+<!-- Footer -->
+<footer class="bg-white border-t border-sga-border py-6 no-print">
+  <div class="max-w-3xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-2">
+    <p class="text-xs text-gray-400">SGA Dental Partners -- Practice Partnership Assessment</p>
+    <p class="text-xs text-gray-400">sgadental.com</p>
+  </div>
+</footer>
+
+<script>
+function assessmentApp() {
+  return {
+    screen: 'intro',
+    currentQuestion: 0,
+    answers: [null, null, null, null, null, null, null, null],
+
+    questions: [
+      {
+        category: 'Financial',
+        question: 'What is your practice\'s approximate annual revenue?',
+        dimension: 'financial',
+        options: [
+          { label: 'Under $750K', description: 'Solo practice, early stage or part-time', score: 1 },
+          { label: '$750K - $1.5M', description: 'Established solo or small group practice', score: 3 },
+          { label: '$1.5M - $3M', description: 'Thriving single-location or small multi-location', score: 4 },
+          { label: 'Over $3M', description: 'Multi-doctor or multi-location group', score: 5 },
+        ]
+      },
+      {
+        category: 'Practice Profile',
+        question: 'How many operatories does your practice have?',
+        dimension: 'scale',
+        options: [
+          { label: '1-3 operatories', description: '', score: 1 },
+          { label: '4-6 operatories', description: '', score: 3 },
+          { label: '7-10 operatories', description: '', score: 4 },
+          { label: '10+ operatories or multiple locations', description: '', score: 5 },
+        ]
+      },
+      {
+        category: 'Experience',
+        question: 'How many years have you been practicing?',
+        dimension: 'readiness',
+        options: [
+          { label: 'Under 5 years', description: 'Early career, building your foundation', score: 2 },
+          { label: '5-15 years', description: 'Mid-career, practice is established and growing', score: 4 },
+          { label: '15-25 years', description: 'Experienced, thinking about the next chapter', score: 5 },
+          { label: '25+ years', description: 'Senior practitioner, succession planning is top of mind', score: 4 },
+        ]
+      },
+      {
+        category: 'Growth Goals',
+        question: 'What best describes your primary growth goal?',
+        dimension: 'alignment',
+        options: [
+          { label: 'Maintain current size', description: 'Happy with my practice, want to keep things stable', score: 2 },
+          { label: 'Grow revenue and expand services', description: 'Want to add specialties, technology, or locations', score: 5 },
+          { label: 'Reduce my workload while maintaining income', description: 'Tired of the business side, want to focus on clinical work', score: 5 },
+          { label: 'Plan my exit over the next 3-5 years', description: 'Want to transition without abandoning my team and patients', score: 4 },
+        ]
+      },
+      {
+        category: 'Challenges',
+        question: 'What is your biggest operational challenge right now?',
+        dimension: 'pain',
+        options: [
+          { label: 'Staff recruitment and retention', description: '76% of dentists find hygienist recruiting "extremely challenging"', score: 5 },
+          { label: 'Administrative burden (billing, HR, compliance)', description: 'Spending evenings and weekends on business tasks', score: 5 },
+          { label: 'Keeping up with technology and CE', description: 'Falling behind on digital workflows and clinical skills', score: 4 },
+          { label: 'Patient volume or marketing', description: 'Need more patients or better marketing systems', score: 3 },
+        ]
+      },
+      {
+        category: 'Retirement',
+        question: 'What is your approximate retirement timeline?',
+        dimension: 'timeline',
+        options: [
+          { label: 'Not thinking about it yet', description: 'Focused on growth, retirement is distant', score: 2 },
+          { label: '10+ years away', description: 'Plenty of runway, but thinking strategically', score: 3 },
+          { label: '5-10 years', description: 'Actively planning, want to maximize practice value', score: 5 },
+          { label: 'Under 5 years', description: 'Succession planning is urgent', score: 4 },
+        ]
+      },
+      {
+        category: 'Clinical',
+        question: 'How important is continuing education and clinical growth to you?',
+        dimension: 'culture',
+        options: [
+          { label: 'I do the minimum required CE hours', description: '', score: 2 },
+          { label: 'I attend a few conferences per year', description: '', score: 3 },
+          { label: 'I actively seek mentorship and advanced training', description: '', score: 5 },
+          { label: 'I teach or mentor other dentists already', description: '', score: 5 },
+        ]
+      },
+      {
+        category: 'DSO Perspective',
+        question: 'What is your current view of DSO partnerships?',
+        dimension: 'openness',
+        options: [
+          { label: 'Strongly opposed -- I have heard too many bad stories', description: '', score: 2 },
+          { label: 'Skeptical but open if the model is right', description: '', score: 4 },
+          { label: 'Actively exploring options', description: '', score: 5 },
+          { label: 'I have already spoken with DSOs but haven\'t found the right fit', description: '', score: 5 },
+        ]
+      },
+    ],
+
+    get totalScore() {
+      let score = 0;
+      this.answers.forEach((ansIdx, qIdx) => {
+        if (ansIdx !== null) {
+          score += this.questions[qIdx].options[ansIdx].score;
+        }
+      });
+      return score;
+    },
+
+    get readinessLevel() {
+      const s = this.totalScore;
+      if (s >= 33) return { label: 'Highly Ready for Partnership', class: 'bg-emerald-500/20 text-emerald-300' };
+      if (s >= 25) return { label: 'Strong Candidate', class: 'bg-sga-lime/20 text-lime-300' };
+      if (s >= 17) return { label: 'Emerging Candidate', class: 'bg-amber-500/20 text-amber-300' };
+      return { label: 'Early Stage -- Keep Building', class: 'bg-white/10 text-white/70' };
+    },
+
+    get dimensionScores() {
+      const dims = {};
+      const dimLabels = {
+        financial: 'Financial Readiness',
+        scale: 'Practice Scale',
+        readiness: 'Career Stage',
+        alignment: 'Goal Alignment',
+        pain: 'Operational Need',
+        timeline: 'Timeline Fit',
+        culture: 'Cultural Fit',
+        openness: 'Partnership Openness',
+      };
+      const dimInsights = {
+        financial: { low: 'Building revenue -- focus on growth before partnership.', mid: 'Solid foundation -- partnership could accelerate growth.', high: 'Strong financial profile -- well positioned for a meaningful valuation.' },
+        scale: { low: 'Smaller practice -- growth trajectory matters more than current size.', mid: 'Good operational scale for partnership integration.', high: 'Significant infrastructure -- strong strategic value to a platform.' },
+        readiness: { low: 'Early career -- focus on building clinical skills and patient base.', mid: 'Prime career stage for exploring partnership options.', high: 'Experienced enough to negotiate from a position of strength.' },
+        alignment: { low: 'Goals may not align with partnership model right now.', mid: 'Your goals align well with what a partnership platform offers.', high: 'Your growth goals are exactly what SGA is built to support.' },
+        pain: { low: 'Operations seem manageable -- partnership adds value in other ways.', mid: 'You are feeling the weight -- SGA\'s operational support addresses this directly.', high: 'Significant pain point -- SGA takes billing, HR, compliance, and recruiting off your plate within 90 days.' },
+        timeline: { low: 'No urgency -- but earlier partnerships compound longer.', mid: 'Good planning horizon for a thoughtful transition.', high: 'Ideal timeline to maximize both valuation and transition quality.' },
+        culture: { low: 'SGA\'s education platform may not be a strong draw.', mid: 'You value growth -- Pikos Institute and 4Front Symposium would serve you well.', high: 'SGA\'s "dentists teaching dentists" culture is built for clinicians like you.' },
+        openness: { low: 'Skepticism is healthy -- SGA invites you to call current partners for references.', mid: 'Your openness signals readiness for an honest conversation.', high: 'You are actively looking -- SGA\'s track record stands up to comparison.' },
+      };
+
+      this.questions.forEach((q, idx) => {
+        const ansIdx = this.answers[idx];
+        if (ansIdx !== null) {
+          const score = q.options[ansIdx].score;
+          dims[q.dimension] = { name: dimLabels[q.dimension], score: score };
+          const level = score >= 4 ? 'high' : score >= 3 ? 'mid' : 'low';
+          dims[q.dimension].insight = dimInsights[q.dimension][level];
+        }
+      });
+
+      return Object.values(dims);
+    },
+
+    get recommendations() {
+      const recs = [];
+      const total = this.totalScore;
+
+      // Financial
+      const finScore = this.answers[0] !== null ? this.questions[0].options[this.answers[0]].score : 0;
+      if (finScore >= 4) {
+        recs.push({ type: 'strength', title: 'Strong Financial Foundation', text: 'Your revenue profile positions you well for a meaningful valuation. SGA typically partners with practices at 7-9x EBITDA, with 60-70% upfront liquidity and 30-40% retained equity.' });
+      } else if (finScore >= 3) {
+        recs.push({ type: 'opportunity', title: 'Revenue Growth Potential', text: 'Your practice has solid fundamentals. An SGA partnership could accelerate revenue growth -- Dr. Cavendish saw 16.5% TTM growth after partnering, with 100% staff retention.' });
+      }
+
+      // Pain points
+      const painScore = this.answers[4] !== null ? this.questions[4].options[this.answers[4]].score : 0;
+      if (painScore >= 4) {
+        recs.push({ type: 'strength', title: 'SGA Directly Solves Your Top Challenge', text: 'The operational burden you described is exactly what SGA eliminates. Full back-office support (billing, payroll, HR, compliance, procurement, marketing, recruiting) is deployed within 90 days of partnership.' });
+      }
+
+      // Culture fit
+      const cultureScore = this.answers[6] !== null ? this.questions[6].options[this.answers[6]].score : 0;
+      if (cultureScore >= 4) {
+        recs.push({ type: 'strength', title: 'Education Culture Match', text: 'Your commitment to clinical growth aligns with SGA\'s core DNA. The Pikos Institute ($6,500-$12,000/year value), 4Front Symposium ($2,500/year), and Individual Growth Engine ($12,000-$24,000/year) are included in partnership.' });
+      }
+
+      // DSO openness
+      const openScore = this.answers[7] !== null ? this.questions[7].options[this.answers[7]].score : 0;
+      if (openScore <= 2) {
+        recs.push({ type: 'consider', title: 'Healthy Skepticism', text: '7 out of 10 dentists regret their DSO sale. Your caution is warranted. SGA was built by dentists who heard that statistic and refused to add to it. Call any current partner for an unscripted reference -- SGA will give you their phone numbers.' });
+      } else if (openScore >= 4) {
+        recs.push({ type: 'opportunity', title: 'Right Time to Explore', text: 'You are in active exploration mode. SGA\'s three-step process (Explore, Partner, Thrive) is designed for dentists at exactly this stage. The first conversation is confidential and zero-obligation.' });
+      }
+
+      // Timeline
+      const timeScore = this.answers[5] !== null ? this.questions[5].options[this.answers[5]].score : 0;
+      if (timeScore >= 4) {
+        recs.push({ type: 'opportunity', title: 'Timing Is Working in Your Favor', text: 'Practice valuations are strong in the current market, and consolidation demand exceeds supply. Moving while the market favors sellers maximizes both your upfront liquidity and long-term equity value.' });
+      }
+
+      if (total >= 33) {
+        recs.push({ type: 'strength', title: 'Overall: Highly Ready', text: 'Your practice profile, career stage, and goals align strongly with the SGA partnership model. A confidential conversation could reveal significant upside.' });
+      } else if (total < 17) {
+        recs.push({ type: 'consider', title: 'Overall: Keep Building', text: 'Focus on growing your practice and clinical skills. SGA also offers associate positions with equity from day one, Pikos Institute access, and a clear partnership pathway. That may be the right entry point.' });
+      }
+
+      return recs;
+    },
+
+    selectAnswer(idx) {
+      this.answers[this.currentQuestion] = idx;
+    },
+
+    nextQuestion() {
+      if (this.answers[this.currentQuestion] === null) return;
+      if (this.currentQuestion < this.questions.length - 1) {
+        this.currentQuestion++;
+      } else {
+        this.screen = 'results';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    },
+
+    prevQuestion() {
+      if (this.currentQuestion > 0) {
+        this.currentQuestion--;
+      }
+    },
+
+    resetAssessment() {
+      this.answers = [null, null, null, null, null, null, null, null];
+      this.currentQuestion = 0;
+      this.screen = 'intro';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+}
+</script>
+
+</body>
+</html>

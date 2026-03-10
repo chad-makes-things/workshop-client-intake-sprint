@@ -1,0 +1,852 @@
+{
+  "title": "Partnership Readiness Scorecard",
+  "type": "diagnostic-scorecard",
+  "description": "A 15-question diagnostic assessment that measures a dental practice owner's readiness across five critical dimensions of partnership potential. Produces a personalized analysis with priority recommendations and a tailored follow-up sequence.",
+  "targetAvatar": "Dr. Mark Hendricks",
+  "expectedCompletionRate": "75-85%",
+  "expectedOptInRate": "40-60%",
+  "categories": [
+    {
+      "id": "cat-practice-performance",
+      "name": "Practice Performance",
+      "description": "Measures the financial health and operational efficiency of the practice, including revenue trajectory, overhead management, and production metrics.",
+      "weight": 20,
+      "icon": "chart-bar"
+    },
+    {
+      "id": "cat-operational-independence",
+      "name": "Operational Independence",
+      "description": "Evaluates how dependent the practice is on the owner for day-to-day operations, including team stability, systems maturity, and delegation capacity.",
+      "weight": 20,
+      "icon": "cog"
+    },
+    {
+      "id": "cat-clinical-growth",
+      "name": "Clinical Growth Trajectory",
+      "description": "Assesses the practice's clinical development momentum, including CE investment, technology adoption, case complexity expansion, and peer learning engagement.",
+      "weight": 20,
+      "icon": "trending-up"
+    },
+    {
+      "id": "cat-market-positioning",
+      "name": "Market Positioning",
+      "description": "Measures the practice's competitive position in its local market, including reputation, referral networks, digital presence, and community integration.",
+      "weight": 20,
+      "icon": "globe"
+    },
+    {
+      "id": "cat-personal-alignment",
+      "name": "Personal Alignment",
+      "description": "Evaluates the owner's personal readiness for partnership, including lifestyle goals, risk tolerance, legacy planning, and openness to collaborative growth.",
+      "weight": 20,
+      "icon": "user"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "text": "What is your practice's average annual revenue growth over the last 3 years?",
+      "category": "cat-practice-performance",
+      "type": "single-choice",
+      "options": [
+        {
+          "text": "Declining or flat (0% or negative)",
+          "score": 1,
+          "description": "Revenue stagnation may indicate market saturation, operational inefficiency, or deferred investment."
+        },
+        {
+          "text": "Modest growth (1-3%)",
+          "score": 2,
+          "description": "Keeping pace with inflation but not outpacing it. The practice is stable but not accelerating."
+        },
+        {
+          "text": "Moderate growth (4-7%)",
+          "score": 3,
+          "description": "Healthy trajectory that exceeds industry average. Indicates active management and market demand."
+        },
+        {
+          "text": "Strong growth (8-12%)",
+          "score": 4,
+          "description": "Above-market performance suggesting strong clinical demand, effective marketing, or expanding services."
+        },
+        {
+          "text": "Exceptional growth (13%+)",
+          "score": 5,
+          "description": "Rapid expansion that may benefit from infrastructure support to sustain momentum."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "What is your practice's current overhead percentage?",
+      "category": "cat-practice-performance",
+      "type": "single-choice",
+      "options": [
+        {
+          "text": "Above 75%",
+          "score": 1,
+          "description": "Overhead at this level significantly limits profitability and may indicate structural inefficiencies."
+        },
+        {
+          "text": "68-75%",
+          "score": 2,
+          "description": "Above industry benchmarks. There is room for margin improvement through operational optimization."
+        },
+        {
+          "text": "60-67%",
+          "score": 3,
+          "description": "Within healthy range for a well-managed general practice. Room for improvement but fundamentally sound."
+        },
+        {
+          "text": "55-59%",
+          "score": 4,
+          "description": "Strong financial management. The practice runs lean without sacrificing quality."
+        },
+        {
+          "text": "Below 55%",
+          "score": 5,
+          "description": "Exceptional cost management. The practice is highly profitable with well-controlled expenses."
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "How would you describe your collections-to-production ratio?",
+      "category": "cat-practice-performance",
+      "type": "single-choice",
+      "options": [
+        {
+          "text": "Below 90% -- significant revenue leakage",
+          "score": 1,
+          "description": "Collections this low indicate billing system failures, insurance follow-up gaps, or patient payment issues."
+        },
+        {
+          "text": "90-93% -- room for improvement",
+          "score": 2,
+          "description": "Below benchmark. Targeted billing process improvements could recover meaningful revenue."
+        },
+        {
+          "text": "94-96% -- at industry benchmark",
+          "score": 3,
+          "description": "Healthy collections rate. The billing infrastructure is functional and reasonably optimized."
+        },
+        {
+          "text": "97-98% -- above average",
+          "score": 4,
+          "description": "Strong collections discipline. The team is well-trained on billing procedures and follow-up."
+        },
+        {
+          "text": "99%+ -- best in class",
+          "score": 5,
+          "description": "Exceptional collections performance. Tight billing systems with minimal revenue leakage."
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "How long has your longest-tenured team member been with the practice?",
+      "category": "cat-operational-independence",
+      "type": "single-choice",
+      "options": [
+        {
+          "text": "Less than 2 years",
+          "score": 1,
+          "description": "High turnover signals culture or compensation challenges that need to be addressed before partnership."
+        },
+        {
+          "text": "2-4 years",
+          "score": 2,
+          "description": "Building stability but the team has not yet developed deep institutional knowledge."
+        },
+        {
+          "text": "5-8 years",
+          "score": 3,
+          "description": "Solid team tenure. Key staff understand systems and patient relationships are well-established."
+        },
+        {
+          "text": "9-14 years",
+          "score": 4,
+          "description": "Strong team loyalty. The practice culture retains talent and institutional knowledge runs deep."
+        },
+        {
+          "text": "15+ years",
+          "score": 5,
+          "description": "Exceptional retention. The team IS the practice culture, and patients trust the staff as much as the doctor."
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "If you took a two-week vacation tomorrow, what would happen to the practice?",
+      "category": "cat-operational-independence",
+      "type": "single-choice",
+      "options": [
+        {
+          "text": "It would close -- nothing functions without me",
+          "score": 1,
+          "description": "Complete owner dependence is the highest-risk position for a practice and the strongest case for partnership."
+        },
+        {
+          "text": "It would struggle significantly -- major disruptions expected",
+          "score": 2,
+          "description": "The practice can survive but not thrive. Key decisions bottleneck at the owner."
+        },
+        {
+          "text": "It would manage with some hiccups -- team can handle routine operations",
+          "score": 3,
+          "description": "Functional independence for day-to-day but strategic decisions require the owner."
+        },
+        {
+          "text": "It would run smoothly -- team handles almost everything",
+          "score": 4,
+          "description": "Strong operational independence. The team has been empowered with decision-making authority."
+        },
+        {
+          "text": "It would thrive -- systems and team are fully self-sustaining",
+          "score": 5,
+          "description": "The practice operates as a business, not a job. Owner absence is barely noticeable operationally."
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "text": "How would you rate your practice management software and technology infrastructure?",
+      "category": "cat-operational-independence",
+      "type": "single-choice",
+      "options": [
+        {
+          "text": "Paper-based or severely outdated systems",
+          "score": 1,
+          "description": "Technology gaps create inefficiency and limit scalability. Partnership can accelerate modernization."
+        },
+        {
+          "text": "Basic PMS with manual workarounds for most functions",
+          "score": 2,
+          "description": "The foundation exists but significant manual processes remain. Room for automation."
+        },
+        {
+          "text": "Modern PMS with some integrated tools (imaging, scheduling)",
+          "score": 3,
+          "description": "Functional technology stack. Not cutting-edge but gets the job done without major friction."
+        },
+        {
+          "text": "Comprehensive digital workflow with most functions automated",
+          "score": 4,
+          "description": "Strong technology adoption. Digital imaging, online scheduling, automated reminders in place."
+        },
+        {
+          "text": "Fully digital practice -- CBCT, digital impressions, CAD/CAM, cloud-based everything",
+          "score": 5,
+          "description": "Technology leader. The practice has invested in best-in-class tools and workflows."
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "text": "How many hours of continuing education did you personally complete in the last 12 months?",
+      "category": "cat-clinical-growth",
+      "type": "single-choice",
+      "options": [
+        {
+          "text": "Only the minimum required for licensure",
+          "score": 1,
+          "description": "Minimal CE investment suggests clinical complacency or time/resource constraints."
+        },
+        {
+          "text": "Slightly above minimum (20-30 hours)",
+          "score": 2,
+          "description": "Meeting obligations but not actively pursuing clinical growth."
+        },
+        {
+          "text": "Moderate investment (30-50 hours)",
+          "score": 3,
+          "description": "Active learning that goes beyond requirements. Demonstrates growth mindset."
+        },
+        {
+          "text": "Significant investment (50-80 hours)",
+          "score": 4,
+          "description": "Strong commitment to clinical excellence. Likely pursuing new clinical capabilities."
+        },
+        {
+          "text": "Extensive investment (80+ hours including hands-on courses)",
+          "score": 5,
+          "description": "Clinical growth is a priority. Hands-on training signals intention to expand services and capabilities."
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "text": "Have you added any new clinical services or procedures in the last 2 years?",
+      "category": "cat-clinical-growth",
+      "type": "single-choice",
+      "options": [
+        {
+          "text": "No -- I focus on what I know",
+          "score": 1,
+          "description": "Clinical stagnation can lead to declining patient interest and reduced referral value."
+        },
+        {
+          "text": "I have considered it but have not made changes",
+          "score": 2,
+          "description": "Interest in growth exists but barriers (time, training, capital) have prevented action."
+        },
+        {
+          "text": "One minor addition (e.g., new material or technique)",
+          "score": 3,
+          "description": "Incremental progress. The practice is evolving but not transforming."
+        },
+        {
+          "text": "One significant new service (e.g., implant placement, orthodontics)",
+          "score": 4,
+          "description": "Meaningful clinical expansion that opens new revenue streams and patient segments."
+        },
+        {
+          "text": "Multiple new services -- actively expanding clinical capabilities",
+          "score": 5,
+          "description": "Aggressive clinical growth. The practice is positioning for the next generation of dentistry."
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "text": "Do you actively participate in clinical study groups, peer learning, or mentorship?",
+      "category": "cat-clinical-growth",
+      "type": "single-choice",
+      "options": [
+        {
+          "text": "No -- I practice independently",
+          "score": 1,
+          "description": "Isolation limits clinical development and exposes the practice to blind spots."
+        },
+        {
+          "text": "Occasionally attend lectures or webinars",
+          "score": 2,
+          "description": "Passive learning. Exposure without engagement or accountability."
+        },
+        {
+          "text": "Member of a study club that meets regularly",
+          "score": 3,
+          "description": "Active peer engagement. Regular cadence of learning with accountability."
+        },
+        {
+          "text": "Active participant in multiple learning communities",
+          "score": 4,
+          "description": "Strong commitment to collaborative learning. Network effects amplify clinical growth."
+        },
+        {
+          "text": "I mentor others and am recognized as a clinical leader in my community",
+          "score": 5,
+          "description": "Clinical leadership. The dentist is a force multiplier who elevates peers."
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "text": "How would you describe your practice's online reputation (Google reviews, social presence)?",
+      "category": "cat-market-positioning",
+      "type": "single-choice",
+      "options": [
+        {
+          "text": "Minimal online presence -- few reviews, no active profiles",
+          "score": 1,
+          "description": "Invisible online. In 2026, lack of digital presence is a competitive liability."
+        },
+        {
+          "text": "Some reviews but inconsistent -- mix of positive and negative",
+          "score": 2,
+          "description": "Digital footprint exists but is not managed. Reputation is left to chance."
+        },
+        {
+          "text": "Solid Google profile with 50+ reviews averaging 4.0+",
+          "score": 3,
+          "description": "Healthy online reputation. The practice is discoverable and generally well-reviewed."
+        },
+        {
+          "text": "Strong presence -- 100+ reviews, 4.5+ average, active social media",
+          "score": 4,
+          "description": "Excellent digital positioning. The practice actively manages its online reputation."
+        },
+        {
+          "text": "Dominant local presence -- 200+ reviews, 4.7+ average, content marketing",
+          "score": 5,
+          "description": "Market leader online. The practice's digital presence is a competitive moat."
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "text": "How strong is your referral network with other dental and medical providers?",
+      "category": "cat-market-positioning",
+      "type": "single-choice",
+      "options": [
+        {
+          "text": "No formal referral relationships",
+          "score": 1,
+          "description": "Isolated practice. No cross-referral pathways limit growth and case complexity."
+        },
+        {
+          "text": "A few informal referral relationships",
+          "score": 2,
+          "description": "Some connections but not systematic. Referrals happen but are not cultivated."
+        },
+        {
+          "text": "Established referral relationships with 5-10 providers",
+          "score": 3,
+          "description": "Functional referral network. The practice receives and sends referrals regularly."
+        },
+        {
+          "text": "Strong network with regular reciprocal referrals",
+          "score": 4,
+          "description": "Active referral ecosystem. Relationships are maintained and produce consistent volume."
+        },
+        {
+          "text": "Extensive network -- I am a referral hub in my market",
+          "score": 5,
+          "description": "The practice is a market anchor. Being a referral hub creates compounding patient flow."
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "text": "How much of your practice's new patient flow comes from marketing vs. word-of-mouth?",
+      "category": "cat-market-positioning",
+      "type": "single-choice",
+      "options": [
+        {
+          "text": "Almost entirely word-of-mouth -- no marketing investment",
+          "score": 1,
+          "description": "Organic growth only. While healthy, this caps growth potential and makes the practice vulnerable to demographic shifts."
+        },
+        {
+          "text": "Mostly word-of-mouth with occasional marketing efforts",
+          "score": 2,
+          "description": "Sporadic marketing. Growth relies primarily on existing patient base and reputation."
+        },
+        {
+          "text": "Balanced mix -- about 50/50 marketing and word-of-mouth",
+          "score": 3,
+          "description": "Diversified patient acquisition. Both channels contribute meaningfully to growth."
+        },
+        {
+          "text": "Strong marketing engine supplemented by word-of-mouth",
+          "score": 4,
+          "description": "Marketing-driven growth with organic amplification. The practice controls its growth trajectory."
+        },
+        {
+          "text": "Sophisticated multi-channel marketing with tracked ROI",
+          "score": 5,
+          "description": "Data-driven marketing. The practice knows its CAC, LTV, and optimizes channels accordingly."
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "text": "How many hours per week do you spend on non-clinical tasks (admin, HR, billing, compliance)?",
+      "category": "cat-personal-alignment",
+      "type": "single-choice",
+      "options": [
+        {
+          "text": "20+ hours -- I am the CEO, HR department, and dentist",
+          "score": 5,
+          "description": "Administrative overload. The owner is burning time and energy on non-clinical work that partnership eliminates."
+        },
+        {
+          "text": "15-20 hours -- significant administrative burden",
+          "score": 4,
+          "description": "Heavy non-clinical load. Partnership would reclaim 15+ hours per week for clinical work or personal time."
+        },
+        {
+          "text": "10-15 hours -- manageable but constant",
+          "score": 3,
+          "description": "Moderate administrative load. Enough to feel the weight but not enough to break."
+        },
+        {
+          "text": "5-10 hours -- I have delegated most admin tasks",
+          "score": 2,
+          "description": "Good delegation. The owner has built systems to handle most non-clinical work."
+        },
+        {
+          "text": "Under 5 hours -- my team handles virtually everything",
+          "score": 1,
+          "description": "Exceptional delegation. Administrative burden is minimal. Partnership value is elsewhere (equity, education, community)."
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "text": "How would you describe your feelings about the next 5-10 years of practice ownership?",
+      "category": "cat-personal-alignment",
+      "type": "single-choice",
+      "options": [
+        {
+          "text": "Burned out -- I am not sure how much longer I can do this alone",
+          "score": 5,
+          "description": "Burnout is the strongest signal that the current model is unsustainable. Partnership provides operational relief."
+        },
+        {
+          "text": "Tired of the business side but still love clinical work",
+          "score": 4,
+          "description": "Classic partnership candidate. Loves dentistry, hates running a business. Partnership separates the two."
+        },
+        {
+          "text": "Content but curious about what else is possible",
+          "score": 3,
+          "description": "Openness to exploration. Not in pain but aware that there might be a better model."
+        },
+        {
+          "text": "Satisfied and growing -- but wondering about liquidity or exit planning",
+          "score": 2,
+          "description": "Strategic planning mindset. Partnership is a financial and succession tool, not an escape."
+        },
+        {
+          "text": "Thriving -- I love every aspect of ownership",
+          "score": 1,
+          "description": "Full satisfaction with current model. Partnership would need to offer something beyond operational relief."
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "text": "If partnership could deliver one outcome, which would matter most to you?",
+      "category": "cat-personal-alignment",
+      "type": "single-choice",
+      "options": [
+        {
+          "text": "Financial liquidity -- I want to de-risk and diversify my net worth",
+          "score": 3,
+          "description": "Financial motivation. SGA's JV equity model delivers immediate liquidity plus ongoing equity appreciation."
+        },
+        {
+          "text": "Operational relief -- I want to stop being the CEO and just be a dentist",
+          "score": 4,
+          "description": "Lifestyle motivation. Partnership eliminates the administrative burden that is the #1 source of dentist burnout."
+        },
+        {
+          "text": "Clinical growth -- I want access to mentorship, CE, and advanced training",
+          "score": 5,
+          "description": "Growth motivation. SGA's education platform (Pikos Institute, 4Front, Individual Growth Engine) is the strongest differentiator."
+        },
+        {
+          "text": "Succession planning -- I want to protect my patients and team after I transition",
+          "score": 3,
+          "description": "Legacy motivation. Partnership ensures continuity of care and employment long after the owner retires."
+        },
+        {
+          "text": "Peer community -- I am tired of practicing in isolation",
+          "score": 4,
+          "description": "Connection motivation. The 4Front Symposium and peer collaboration culture address professional isolation directly."
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "result-foundation-builder",
+      "name": "Foundation Builder",
+      "scoreRange": { "min": 15, "max": 30 },
+      "headline": "You Are Building the Foundation",
+      "analysis": "Your scorecard indicates that your practice is in an early or rebuilding phase across several key dimensions. This is not a negative assessment -- it is a realistic one. Many of the strongest SGA partnerships have come from practices at exactly this stage, because the operational relief, technology investment, and clinical development resources that partnership provides have the most transformative impact when applied to a practice with strong fundamentals and room to grow.\n\nYour Practice Performance scores suggest opportunities to strengthen revenue trajectory and cost management. Your Operational Independence results indicate that the practice may be heavily dependent on you personally -- which is both a testament to your dedication and a risk factor for sustainability. Your Clinical Growth and Market Positioning scores point to areas where targeted investment (in CE, technology, marketing, and referral networks) could unlock significant upside.\n\nThe most important insight from your scorecard is this: the gap between where you are and where you could be is exactly the gap that partnership is designed to close. The practices that gain the most from SGA's model are not the ones that are already optimized -- they are the ones with strong patient relationships, loyal teams, and an owner who knows the current model is not sustainable.\n\nYour next step should be an honest conversation about what is holding the practice back -- and whether those barriers are ones you can solve alone or ones that require infrastructure, capital, and community.",
+      "recommendations": [
+        "Schedule a confidential discovery call to explore whether SGA's operational infrastructure could address your specific bottlenecks",
+        "Request a copy of the SGA transition timeline to understand what the first 90 days of partnership looks like operationally",
+        "Speak with a current SGA partner whose practice was at a similar stage when they joined -- we will connect you directly",
+        "Review your overhead percentage and collections ratio with an eye toward specific improvements that partnership support could accelerate",
+        "Consider whether access to the Pikos Institute and 4Front Symposium would change your clinical growth trajectory over the next 3 years"
+      ],
+      "cta": "Book a Confidential Discovery Call",
+      "ctaUrl": "#discovery-call",
+      "imageSrc": ""
+    },
+    {
+      "id": "result-growth-ready",
+      "name": "Growth Ready",
+      "scoreRange": { "min": 31, "max": 45 },
+      "headline": "You Are Ready to Grow -- the Question Is How",
+      "analysis": "Your scorecard reveals a practice that has built solid fundamentals and is now facing the classic inflection point: you have proven you can build a successful practice, and now the question is whether the next phase of growth requires the same model or a different one.\n\nYour Practice Performance scores show a practice that is financially healthy but may be approaching the ceiling of what solo ownership can deliver. Your Operational Independence results suggest that you have built some systems and team capabilities, but the practice still depends on you for key decisions and functions. Your Clinical Growth scores indicate active interest in development but potential barriers (time, capital, access to advanced training) that limit how fast you can expand your capabilities.\n\nThe defining characteristic of a Growth Ready practice is that the owner has the ambition and the clinical talent to reach the next level -- but the business model is the constraint. You are spending too many hours on non-clinical work. You want to invest in technology or training but the capital allocation competes with overhead. You know you should be marketing more aggressively but you do not have the bandwidth to manage campaigns.\n\nPartnership at this stage is not about rescue. It is about acceleration. The practices that join SGA from the Growth Ready tier consistently report the fastest clinical development and revenue growth post-partnership, because the operational relief unlocks time and energy that was previously consumed by administrative burden.\n\nYour priority recommendations focus on removing the specific constraints that your scorecard identified as the biggest barriers to your next phase of growth.",
+      "recommendations": [
+        "Identify your single biggest time drain outside of clinical work -- this is the first thing SGA's operational team would eliminate",
+        "Request a side-by-side comparison of your current overhead structure versus the SGA-supported model to see where margin improvements are possible",
+        "Explore the Individual Growth Engine program -- a 1-on-1 clinical mentorship that has driven 16.5% revenue growth for partners like Dr. Cavendish",
+        "Have a conversation with your financial advisor about the JV equity model and what a liquidity event plus retained equity would mean for your net worth diversification",
+        "Talk to a current SGA partner in a similar-sized practice about what their first year of partnership looked like operationally and clinically"
+      ],
+      "cta": "Schedule Your Growth Strategy Session",
+      "ctaUrl": "#growth-session",
+      "imageSrc": ""
+    },
+    {
+      "id": "result-partnership-primed",
+      "name": "Partnership Primed",
+      "scoreRange": { "min": 46, "max": 60 },
+      "headline": "You Have Built Something Exceptional -- Now Amplify It",
+      "analysis": "Your scorecard tells a clear story: you have built a high-performing practice with strong fundamentals across most dimensions. Your Practice Performance is above average, your team is stable and capable, and your clinical trajectory shows active investment in growth. This is not a practice that needs saving. This is a practice that is ready for multiplication.\n\nThe distinction between Growth Ready and Partnership Primed is meaningful. At this tier, the question is not whether partnership could help -- it is whether you are ready to leverage what you have built into something significantly larger. Your practice has the revenue, the team, the clinical quality, and the market positioning that make it a high-value partnership candidate. SGA's model is specifically designed for practices at this level: the operational infrastructure amplifies what is already working, the education platform accelerates clinical growth that is already underway, and the equity model provides liquidity and wealth-building that solo ownership cannot match.\n\nYour scorecard likely shows one or two categories where you scored lower than others. These are your growth edges -- the specific areas where partnership resources would have the most immediate impact. Pay attention to those categories, because they represent the difference between a good practice and an exceptional one.\n\nPractices at the Partnership Primed tier are also the ones most likely to experience what Dr. Cavendish described: 'It is fun again.' When the administrative burden lifts and the clinical community engages, dentists at this level often rediscover why they went into dentistry in the first place.",
+      "recommendations": [
+        "Request a detailed valuation range discussion -- practices at your level typically command premium multiples, and understanding the financial opportunity is the first step",
+        "Explore SGA's three-vertical architecture to understand which vertical (Community, Collaborative, or MODIS) aligns with your practice profile and clinical interests",
+        "Schedule a call with Dr. Mitch Ellingson (CCO) or Lamonte Jensen (CEO) directly -- practices at your tier warrant a principal-level conversation",
+        "Review the Pikos Institute and 4Front Symposium programming to identify specific clinical capabilities you would pursue with partnership support",
+        "Discuss the equity model with your financial advisor -- the second bite of the apple (platform equity appreciation) is the mechanism that makes SGA's model financially superior to an outright sale"
+      ],
+      "cta": "Connect Directly with SGA Leadership",
+      "ctaUrl": "#leadership-call",
+      "imageSrc": ""
+    },
+    {
+      "id": "result-strategic-acquirer",
+      "name": "Strategic Acquirer",
+      "scoreRange": { "min": 61, "max": 75 },
+      "headline": "You Are Operating at the Highest Level -- Let Us Show You What Is Next",
+      "analysis": "Your scorecard positions you in the top tier of practice owners we assess. Across Practice Performance, Operational Independence, Clinical Growth, Market Positioning, and Personal Alignment, your practice demonstrates excellence that is rare in the industry. You have built something that most practice owners aspire to but few achieve.\n\nAt this tier, partnership is not about fixing problems. It is about strategic leverage. You have the practice quality, the financial performance, and the clinical reputation that command the highest valuations in the market. The question is whether you want to capture that value through a traditional sale (which gives you cash but ends your upside) or through an equity partnership (which gives you cash AND a seat at the table of a $350M+ platform).\n\nSGA's model was designed with practices like yours in mind. The Thurston Group -- 38 years, 8 platforms, $4B+ returned to partners -- provides the patient capital and platform-building expertise that transforms a high-performing practice into a cornerstone of a national network. Your clinical excellence, combined with SGA's education platform, operational infrastructure, and growth capital, creates compounding value that solo ownership cannot replicate.\n\nPractices at the Strategic Acquirer tier often bring additional value to SGA beyond their financial metrics: clinical leadership, mentorship capacity, community reputation, and the ability to attract other high-performing practices to the network. This is partnership in the truest sense -- your contribution to the platform is as valuable as the platform's contribution to you.\n\nYour recommendations at this tier focus on strategic positioning: understanding the full financial opportunity, connecting with SGA's senior leadership, and evaluating whether the long-term equity play aligns with your wealth-building and legacy goals.",
+      "recommendations": [
+        "Schedule a principal-level meeting with Lamonte Jensen and Dr. Mitch Ellingson to discuss strategic partnership at the highest level",
+        "Request a detailed pro-forma showing base case, bull case, and bear case equity scenarios -- the second bite math at your practice's valuation level is significant",
+        "Explore leadership roles within the SGA network -- clinical advisory board, regional clinical director, or mentorship positions that leverage your expertise across the platform",
+        "Connect with the Thurston Group principals (Patrick Haynes III, Daniel Davis) directly to discuss hold period, equity provisions, and historical partner returns",
+        "Talk to partners from prior Thurston platforms (Smile Doctors, US Endodontics Partners) who have been through a full investment cycle including exit -- they can describe the equity appreciation firsthand"
+      ],
+      "cta": "Schedule a Strategic Partnership Discussion",
+      "ctaUrl": "#strategic-discussion",
+      "imageSrc": ""
+    }
+  ],
+  "followUpEmails": [
+    {
+      "result": "result-foundation-builder",
+      "day": 0,
+      "subject": "Your Partnership Readiness Score: Foundation Builder",
+      "subjectVariants": [
+        "Your Scorecard Results Are In -- Here Is Where You Stand",
+        "Dr. [Name], Your Partnership Readiness Assessment"
+      ],
+      "previewText": "Your personalized analysis and the 3 areas with the biggest upside potential.",
+      "body": "Dr. [Name],\n\nThank you for completing the SGA Partnership Readiness Scorecard. Your results are in, and I want to walk you through what they mean -- honestly, specifically, and without any spin.\n\nYour Total Score: [Score] out of 75\nYour Tier: Foundation Builder\n\nHere is what this means:\n\nYour practice has solid fundamentals and a foundation worth building on. The scorecard identified specific areas where targeted investment -- in operations, technology, clinical development, or market positioning -- could unlock significant growth.\n\nThe most important insight is this: the gap between where you are and where you could be is exactly the gap that partnership is designed to close.\n\nYour Top 3 Priority Areas:\n\n1. [Weakest Category]: This scored lowest in your assessment. It represents the single biggest constraint on your practice's growth trajectory.\n\n2. [Second Weakest Category]: Improvement here would compound with gains in your weakest area.\n\n3. [Third Area]: Targeted attention here rounds out the foundation.\n\nWhat I would suggest as a next step:\n\nA 15-minute confidential conversation about what is specifically holding your practice back -- and whether those barriers are ones you can solve alone or ones that require infrastructure, capital, and community.\n\nNo pitch. No pressure. Just an honest assessment of whether SGA's model addresses your specific situation.\n\nBook a call here: [LINK]\n\nOr simply reply to this email with a good time to connect.\n\nBest,\n[BizDev Rep Name]\nSGA Dental Partners\n[Phone Number]"
+    },
+    {
+      "result": "result-foundation-builder",
+      "day": 3,
+      "subject": "The One Area That Could Transform Your Practice",
+      "subjectVariants": [
+        "Your Weakest Category -- and What to Do About It",
+        "Dr. [Name], a Deeper Look at Your Scorecard"
+      ],
+      "previewText": "Your scorecard revealed one category that is holding back everything else. Here is what we have seen work.",
+      "body": "Dr. [Name],\n\nThree days ago you completed the Partnership Readiness Scorecard. Today I want to dig deeper into your weakest category: [Category Name].\n\nWhy this matters more than the other four:\n\nIn our experience working with 100+ practice owners, the weakest scorecard category is almost always the root constraint that limits everything else. A practice with strong clinical skills but weak operational independence hits a ceiling because the owner cannot step away to learn new procedures. A practice with great market positioning but poor financial performance cannot invest in the growth that its reputation demands.\n\n[Category Name] is your constraint. And here is the good news: it is also the area where partnership resources have the most transformative impact.\n\nWhat SGA partners in your situation have experienced:\n\n- Dr. Matt Cavendish scored similarly in clinical growth before partnering. After accessing the Individual Growth Engine mentorship program, he learned all-on-four procedures, grew revenue 16.5%, and described the change as: \"It is fun again.\"\n\n- Partners who scored low in operational independence consistently report that the first thing they notice post-partnership is the time. The hours spent on payroll, HR, compliance, and billing simply disappear. Spencer Pierce, our VP of People and Culture, describes it as: \"After onboarding is completed, there is an abundance of relief.\"\n\nOne resource that might help right now:\n\nI would like to send you a case study of a partner whose practice profile was similar to yours at the time they joined. Their story -- the before, the turning point, and the after -- might give you a framework for evaluating your own situation.\n\nWould that be useful? Just reply \"yes\" and I will send it over.\n\nBest,\n[BizDev Rep Name]\nSGA Dental Partners"
+    },
+    {
+      "result": "result-foundation-builder",
+      "day": 7,
+      "subject": "What Dr. Godat Said About Partnership -- In His Own Words",
+      "subjectVariants": [
+        "A Partner's Perspective: 'Our Partnership Allows Us to Focus on Changing Lives'",
+        "What Year 2 Looks Like Inside SGA"
+      ],
+      "previewText": "Real words from a real partner. No script. No filter.",
+      "body": "Dr. [Name],\n\nI have sent you two emails about your scorecard results. Today I want to step back from your numbers and let a current partner speak for himself.\n\nDr. Mitchel S. Godat runs Periodontal Associates of Memphis. He has been an SGA partner for years. His practice kept its name. His team stayed. His patients noticed nothing except that the office ran smoother.\n\nHis words: \"SGA supports us and manages things behind the scenes. Our partnership allows us to focus on changing lives.\"\n\nThat is 18 words. And they capture exactly what partnership looks like when it works.\n\nHere is what I want you to consider:\n\nYour scorecard placed you in the Foundation Builder tier. That means there is meaningful upside potential in your practice -- upside that partnership is specifically designed to unlock.\n\nBut the scorecard is just numbers. The real question is whether the experience Dr. Godat describes -- operational support, clinical freedom, the ability to focus on patients instead of paperwork -- is something that resonates with where you are right now.\n\nIf it does, I would like to connect you directly with a current SGA partner for a peer-to-peer conversation. Not a sales call. A dentist talking to a dentist about what the experience is actually like.\n\nWould a 20-minute peer conversation be valuable? Book one here: [LINK]\n\nOr reply to this email and I will make the introduction personally.\n\nBest,\n[BizDev Rep Name]\nSGA Dental Partners\n[Phone Number]"
+    },
+    {
+      "result": "result-growth-ready",
+      "day": 0,
+      "subject": "Your Partnership Readiness Score: Growth Ready",
+      "subjectVariants": [
+        "Your Scorecard Results -- You Are at an Inflection Point",
+        "Dr. [Name], Your Practice Is Ready for the Next Phase"
+      ],
+      "previewText": "Your practice has built solid fundamentals. The question is whether the next phase requires the same model or a different one.",
+      "body": "Dr. [Name],\n\nThank you for completing the SGA Partnership Readiness Scorecard. Here are your results.\n\nYour Total Score: [Score] out of 75\nYour Tier: Growth Ready\n\nWhat this means:\n\nYou have built a practice with solid fundamentals -- healthy finances, reasonable team stability, and active interest in clinical growth. You are past the survival phase and firmly in the growth phase.\n\nThe defining question at your tier is this: can the current model take you where you want to go in the next 5-10 years, or do the constraints you are feeling -- time, capital, administrative burden, clinical isolation -- require a different approach?\n\nYour Strongest Category: [Strongest Category]\nThis is your competitive advantage. It is what you have built that others have not, and it is the foundation that partnership amplifies.\n\nYour Growth Edge: [Weakest Category]\nThis is where the current model is constraining you most. It is also where partnership resources would have the most immediate impact.\n\nYour Priority Recommendations:\n\n1. Identify your single biggest time drain outside of clinical work. This is the first thing SGA's operational team would eliminate.\n\n2. Explore the Individual Growth Engine -- a 1-on-1 clinical mentorship program that drove 16.5% revenue growth for Dr. Cavendish.\n\n3. Have a preliminary conversation with your financial advisor about what a JV equity model (cash at close plus retained platform equity) would mean for your net worth.\n\nNext Step:\n\nA 20-minute growth strategy session to explore whether your specific constraints are ones that SGA's model addresses. Confidential. No commitment.\n\nBook here: [LINK]\n\nBest,\n[BizDev Rep Name]\nSGA Dental Partners\n[Phone Number]"
+    },
+    {
+      "result": "result-growth-ready",
+      "day": 3,
+      "subject": "The Constraint That Is Costing You the Most",
+      "subjectVariants": [
+        "Your Biggest Growth Barrier -- and How to Remove It",
+        "What Your Weakest Scorecard Category Actually Means"
+      ],
+      "previewText": "Your scorecard identified a specific constraint. Here is what practices at your level do about it.",
+      "body": "Dr. [Name],\n\nYour scorecard revealed something important: your weakest category is [Category Name], and it is likely the single biggest constraint on your practice's next phase of growth.\n\nHere is why this matters at the Growth Ready tier:\n\nYou have the talent, the patient base, and the ambition to reach the next level. But one area is acting as a ceiling -- and the harder you push against it alone, the more time and energy it consumes without producing proportional results.\n\nWhat we have seen at SGA:\n\nGrowth Ready practices that join the network consistently report that the constraint their scorecard identified was the first thing that improved post-partnership. Not because it was easy -- but because the resources to address it were immediately available.\n\nIf your constraint is Operational Independence: SGA's centralized operations team absorbs billing, payroll, HR, compliance, and procurement within 60-90 days. Partners describe the experience as going from wearing 15 hats to wearing two.\n\nIf your constraint is Clinical Growth: The Pikos Institute, 4Front Symposium, and Individual Growth Engine provide a clinical development pathway that no solo practitioner can access independently. Dr. Cavendish went from clinical complacency to learning all-on-four and growing revenue 16.5% within his first year.\n\nIf your constraint is Market Positioning: SGA's marketing infrastructure -- including dedicated support, technology investment, and cross-referral networks -- provides the patient acquisition engine that most practices cannot build or afford independently.\n\nOne question to consider:\n\nIf your weakest category improved by 2-3 points over the next 12 months, what would that mean for your practice's revenue, your clinical satisfaction, and your quality of life?\n\nThat is the math of partnership. And it is specific to you.\n\nReply to this email with your constraint, and I will send you a case study from a partner who started in the same position.\n\nBest,\n[BizDev Rep Name]\nSGA Dental Partners"
+    },
+    {
+      "result": "result-growth-ready",
+      "day": 7,
+      "subject": "'It Is Fun Again' -- What Year 2 Looks Like",
+      "subjectVariants": [
+        "The Story That Changes How You Think About Partnership",
+        "Dr. Cavendish Was Where You Are. Here Is What Happened Next."
+      ],
+      "previewText": "20 years in practice. Revenues up 16.5%. Staff retention at 100%. His word: fun.",
+      "body": "Dr. [Name],\n\nDr. Matt Cavendish has been in dentistry for 20 years. Good practice. Good numbers. By most external measures, everything was fine.\n\nBut in his own words: \"When you have been in dentistry for 20 years like I have, sometimes it is not as fun as it used to be.\"\n\nHe was not failing. He was stagnating. The clinical work that used to light him up had become routine. The administrative burden had become suffocating. The isolation of solo ownership had become the water he was swimming in -- invisible but constant.\n\nAfter partnering with SGA, here is what happened:\n\n- Paired with a clinical mentor through the Individual Growth Engine\n- Observed his first all-on-four procedure\n- Learned new lab relationships and digital workflows\n- Revenue up 16.5% trailing twelve months\n- Staff retention at 100%\n- EBITDA beating plan by 2.3 points\n\nBut here is the number Matt talks about most:\n\n\"To be able to do a complex case like this, with somebody who is also working at a very high skill level -- it is fun.\"\n\nFun. After 20 years. That word.\n\nYour scorecard placed you at Growth Ready. You are at the exact inflection point where Dr. Cavendish was when he made his decision. The practice is good. The question is whether good is enough -- or whether you want to find out what exceptional feels like.\n\nI would like to connect you with a current SGA partner for a peer conversation. Not a pitch. A dentist talking to a dentist.\n\nBook a 20-minute peer conversation: [LINK]\n\nOr reply and I will make the introduction.\n\nBest,\n[BizDev Rep Name]\nSGA Dental Partners\n[Phone Number]"
+    },
+    {
+      "result": "result-partnership-primed",
+      "day": 0,
+      "subject": "Your Partnership Readiness Score: Partnership Primed",
+      "subjectVariants": [
+        "Your Scorecard Results -- You Have Built Something Exceptional",
+        "Dr. [Name], Your Practice Scored in the Top Tier"
+      ],
+      "previewText": "Your practice is operating at a level that positions you for the highest-value partnerships in the market.",
+      "body": "Dr. [Name],\n\nYour Partnership Readiness Scorecard results are in.\n\nYour Total Score: [Score] out of 75\nYour Tier: Partnership Primed\n\nLet me be direct: this score places you in the top tier of practice owners we assess. Your practice demonstrates the financial performance, team stability, clinical momentum, and market positioning that we look for in our strongest partnerships.\n\nThis is not a practice that needs saving. This is a practice that is ready for multiplication.\n\nWhat your scorecard reveals:\n\nYour Strongest Categories: [Top 2 Categories]\nThese are the pillars of your practice's competitive advantage. Partnership amplifies these strengths by connecting them to a network of 100+ practices, the Pikos Institute education platform, and $350M in growth capital.\n\nYour Growth Edge: [Weakest Category]\nEven at your level, there is one area where targeted resources could accelerate growth. This is where partnership makes the biggest incremental impact.\n\nWhy Partnership Primed matters financially:\n\nAt your practice's performance level, the JV equity model creates the most compelling financial outcome in the market. Here is the math:\n\n- Immediate liquidity: 60-70% of your valuation in cash at closing\n- Retained equity: 30-40% rolled into the SGA platform ($350M+ combined entity)\n- Second bite: As the platform grows, your equity appreciates. The Thurston Group has returned $4B+ to partners across 8 platforms. That is historical, not projected.\n\nYour recommended next step:\n\nA principal-level conversation with Dr. Mitch Ellingson (CCO) or Lamonte Jensen (CEO). Practices at your tier warrant direct engagement with SGA's founders.\n\nBook a leadership call: [LINK]\n\nBest,\n[BizDev Rep Name]\nSGA Dental Partners\n[Phone Number]"
+    },
+    {
+      "result": "result-partnership-primed",
+      "day": 3,
+      "subject": "The Financial Model Your Advisor Should See",
+      "subjectVariants": [
+        "Three Scenarios: Base, Bull, Bear -- Which One Is Yours?",
+        "The Second Bite of the Apple, Explained"
+      ],
+      "previewText": "Most DSOs show you the bull case. We show you all three. Here is why that matters.",
+      "body": "Dr. [Name],\n\nYour scorecard placed you in the Partnership Primed tier. Today I want to go deeper on the financial model, because at your practice's level, the economics of partnership are particularly compelling.\n\nThe concept you need to understand: the Second Bite.\n\nIn a traditional sale, you receive cash and your financial relationship with the practice ends. In SGA's JV equity model, you receive two financial events:\n\nFirst bite: Cash at closing (60-70% of your valuation). Immediate liquidity. De-risk your net worth.\n\nSecond bite: When the SGA platform has its next liquidity event, your retained equity participates. Based on the Thurston Group's historical returns across 8 platforms ($4B+ returned), this second bite can exceed the first.\n\nThe three-scenario analysis:\n\nWe show every prospective partner three scenarios: base case, bull case, and bear case. We do this because any organization that only shows you the bull case is hoping you will fall in love before you see the math.\n\nI want you to see all three. And I want your financial advisor to see all three.\n\nHere is what I would suggest:\n\nLet us schedule a 30-minute financial model walkthrough. I will bring the pro-forma, customized to your practice's approximate financials. You bring your advisor. We will walk through the math -- transparently, with every assumption visible.\n\nThe worst outcome is your advisor says the numbers do not work. The best outcome is you discover a financial pathway you did not know existed.\n\nSchedule the walkthrough: [LINK]\n\nBest,\n[BizDev Rep Name]\nSGA Dental Partners"
+    },
+    {
+      "result": "result-partnership-primed",
+      "day": 7,
+      "subject": "Three Questions to Ask Any DSO -- Including Us",
+      "subjectVariants": [
+        "The Framework That Separates Real Partnership From Marketing",
+        "If They Cannot Answer These Three Questions, You Have Your Answer"
+      ],
+      "previewText": "These three questions have helped 100+ practice owners make better decisions. Use them on everyone.",
+      "body": "Dr. [Name],\n\nYou scored Partnership Primed on the SGA Scorecard. That means you are likely going to have conversations with multiple organizations. Good. You should.\n\nHere are three questions to ask every single one of them -- including us. These come from our experience sitting across the table from 100+ practice owners.\n\nQuestion 1: What happens to my clinical skills after I sign?\n\nIf their answer is \"we offer a CE stipend,\" that is a benefit. It is not a platform. SGA has the Pikos Institute (world-renowned implantology training), the 4Front Symposium (annual peer collaboration), and the Individual Growth Engine (1-on-1 mentorship). That is not a stipend. That is a career inflection point.\n\nQuestion 2: Who is behind the money, and what is their track record?\n\nThe Thurston Group: 38 years. 8 dental and healthcare platforms. $4B+ returned to partners. Founded in 1988. You can verify every number. You can call partners from prior platforms. Ask the other DSOs the same question. If their PE sponsor is undisclosed, that IS the answer.\n\nQuestion 3: What does your life look like 3 years after signing?\n\nEvery DSO sells the transaction. Nobody tells you what year 3 looks like. We can. Dr. Cavendish: revenues up 16.5%, staff retention 100%, clinical skills expanded, \"it is fun again.\" Dr. Godat: \"Our partnership allows us to focus on changing lives.\"\n\nThese are not testimonials. These are phone numbers we will give you.\n\nUse these questions on everyone. The organizations that welcome them are the ones worth your time.\n\nWhen you are ready to apply them to us, we are here: [LINK]\n\nBest,\n[BizDev Rep Name]\nSGA Dental Partners\n[Phone Number]"
+    },
+    {
+      "result": "result-strategic-acquirer",
+      "day": 0,
+      "subject": "Your Partnership Readiness Score: Strategic Acquirer",
+      "subjectVariants": [
+        "Dr. [Name], You Scored in the Highest Tier",
+        "Your Practice Is Operating at the Highest Level We Assess"
+      ],
+      "previewText": "Your scorecard positions you for the most strategic partnership conversations in the market.",
+      "body": "Dr. [Name],\n\nYour Partnership Readiness Scorecard results place you at the highest tier we assess.\n\nYour Total Score: [Score] out of 75\nYour Tier: Strategic Acquirer\n\nI am not going to give you a boilerplate response. At your level, you deserve direct engagement.\n\nWhat your score means:\n\nYour practice demonstrates excellence across Practice Performance, Operational Independence, Clinical Growth, Market Positioning, and Personal Alignment. You have built something that most practice owners aspire to but few achieve.\n\nAt this tier, partnership is not about fixing problems or filling gaps. It is about strategic leverage. The question is not whether your practice is ready -- it clearly is. The question is whether you want to capture the full value of what you have built through a traditional sale (cash, upside ends) or through a platform equity partnership (cash plus a seat at the table of a $350M+ national network).\n\nWhat I want to offer you:\n\nA principal-level conversation. Not with a business development representative. With Dr. Mitch Ellingson (CCO and co-founder) or Lamonte Jensen (CEO and co-founder) directly.\n\nPractices at your tier are the cornerstone partnerships that define the network. We invest corresponding time and attention.\n\nI also want to offer direct access to the Thurston Group principals -- Patrick Haynes III and Daniel Davis -- to discuss hold period, equity provisions, and historical partner returns at the level of detail your financial advisors will require.\n\nSchedule a principal-level conversation: [LINK]\n\nBest,\n[BizDev Rep Name]\nSGA Dental Partners\n[Phone Number]"
+    },
+    {
+      "result": "result-strategic-acquirer",
+      "day": 3,
+      "subject": "The Equity Play at Your Practice's Level",
+      "subjectVariants": [
+        "What $4 Billion Returned to Partners Actually Means for You",
+        "The Second Bite Math at Premium Valuations"
+      ],
+      "previewText": "At your valuation level, the JV equity model creates a financial outcome that outright sales cannot match.",
+      "body": "Dr. [Name],\n\nAt the Strategic Acquirer tier, the financial conversation is different. Your practice likely commands premium EBITDA multiples, and the structure of the deal matters more than the headline number.\n\nLet me be specific about why the JV equity model creates superior long-term value at your level:\n\nThe Traditional Sale:\nYou receive a premium multiple in cash. The financial relationship ends. You become an employee or consultant. Your upside is capped at the closing check.\n\nThe SGA Equity Partnership:\n60-70% in cash at closing (immediate liquidity and net worth diversification). 30-40% retained as equity in the SGA platform. As the platform grows -- through additional partnerships, organic growth, and operational improvements -- your equity appreciates.\n\nThe Thurston Group has returned $4B+ to partners across 8 dental and healthcare platforms. That historical return is the evidence that the second bite works.\n\nAt your practice's valuation level, here is what this means in practice:\n\nThe cash at closing provides the liquidity event you need to diversify, fund retirement, or invest elsewhere. The retained equity provides ongoing participation in a platform that is growing. The combination -- when executed by a PE sponsor with a 38-year track record -- has historically delivered total returns that significantly exceed the all-cash alternative.\n\nI want your financial advisor to see this math. Not the pitch deck version -- the term sheet version, with all three scenarios (base, bull, bear) fully modeled.\n\nLet us schedule a financial model session with your advisor present: [LINK]\n\nBest,\n[BizDev Rep Name]\nSGA Dental Partners"
+    },
+    {
+      "result": "result-strategic-acquirer",
+      "day": 7,
+      "subject": "The Partners Who Have Been Through a Full Cycle",
+      "subjectVariants": [
+        "Talk to Someone Who Has Been Through a Thurston Exit",
+        "Verification, Not Trust -- Here Are the Phone Numbers"
+      ],
+      "previewText": "We do not ask you to trust a claim. We ask you to verify it. Here is how.",
+      "body": "Dr. [Name],\n\nAt the Strategic Acquirer tier, trust is not built through webinars or emails. It is built through verification.\n\nHere is what I want to offer you -- something no competitor in the market can match:\n\nDirect access to partners from PRIOR Thurston Group platforms who have been through a full investment cycle, including an exit.\n\nSmile Doctors. US Endodontics Partners. US Oral Surgery Management. ARC Health.\n\nThese are not current SGA partners with an incentive to recruit. These are dentists and specialists who partnered with Thurston-backed platforms in previous cycles, experienced the partnership, went through the exit, received their equity returns, and can tell you -- with no filter and no agenda -- exactly what the experience was like.\n\nThey can answer the questions your financial advisor will ask:\n- What were the actual equity returns versus what was projected?\n- How long was the hold period?\n- What happened to clinical autonomy over the life of the partnership?\n- Would you do it again?\n\nNo DSO in the market can offer this because no DSO has a PE sponsor with 38 years and 8 platforms of verifiable history.\n\nI do not ask you to trust us. I ask you to verify us. And these conversations are the verification.\n\nReply to this email and I will provide direct contact information for partners from prior Thurston platforms.\n\nBest,\n[BizDev Rep Name]\nSGA Dental Partners\n[Phone Number]"
+    }
+  ],
+  "promotionPlan": {
+    "channels": [
+      {
+        "name": "LinkedIn Paid",
+        "strategy": "Sponsored content and Lead Gen Forms targeting practice owners and specialists. A/B test ad copy variations: pain-point lead (administrative burden), curiosity lead (7 out of 10 statistic), social proof lead (partner results). Geographic targeting: Southeast primary, national secondary. Budget: $3,000-5,000/month.",
+        "adCopy": [
+          "How ready is your practice for the next chapter? Take the 5-minute Partnership Readiness Scorecard and find out where you stand. Confidential. No commitment. Just clarity.",
+          "7 out of 10 dentists who sell to a DSO end up frustrated. Are you positioning yourself for the other 30%? Take the Partnership Readiness Scorecard.",
+          "Dr. Cavendish scored Growth Ready. 18 months later: revenue up 16.5%, staff retention 100%, and his word for the experience? Fun. Take the scorecard and see where you stand."
+        ],
+        "targeting": "Job titles: Dentist, Practice Owner, DDS, DMD. Company size: 1-50. Industry: Dental, Healthcare. Geography: United States. Age: 35-65.",
+        "estimatedCPL": "$80-120"
+      },
+      {
+        "name": "Facebook/Meta Paid",
+        "strategy": "Awareness and retargeting campaigns. Lookalike audiences built from existing partner profiles. Carousel ads showing before/after partner transformations. Video ads featuring partner testimonials. Budget: $2,000-4,000/month.",
+        "adCopy": [
+          "Still doing payroll at midnight? Still Googling HIPAA compliance? Take the 5-minute Partnership Readiness Scorecard and see if there is a better model for your practice.",
+          "QuickBooks no longer calls me to the back office. -- SGA Partner. Could that be you? Find out in 5 minutes.",
+          "What would you do with 15 extra hours a week? Take the scorecard. See what is possible."
+        ],
+        "targeting": "Interests: Dental Economics, ADA, Dentistry Today, practice management. Behaviors: Small business owners, healthcare professionals. Age: 35-65.",
+        "estimatedCPL": "$60-100"
+      },
+      {
+        "name": "Email Blast",
+        "strategy": "Send to existing warm leads, webinar registrants, and content downloaders. Segmented by avatar (practice owner vs. specialist vs. associate). Three-email sequence: announcement, reminder, last chance. Personalized subject lines by segment.",
+        "adCopy": [
+          "Subject: How Ready Is Your Practice? (5-Minute Assessment)\nDr. [Name], we have built a diagnostic scorecard based on our experience with 100+ dental partnerships. It measures 5 dimensions of partnership readiness and gives you a personalized analysis with specific recommendations. Takes 5 minutes. Results are immediate. Confidential.",
+          "Subject: Your Scorecard Is Waiting\nDr. [Name], 73 practice owners have taken the Partnership Readiness Scorecard in the last two weeks. The insights are specific -- not generic advice, but recommendations based on YOUR practice's profile.",
+          "Subject: Last Day to Take the Scorecard\nDr. [Name], the Partnership Readiness Scorecard closes for this cohort on [Date]. After that, we will compile anonymized benchmark data and the next cohort will not open for 60 days."
+        ],
+        "targeting": "Existing email list segmented by engagement level and avatar type.",
+        "estimatedCPL": "$0 (owned media)"
+      },
+      {
+        "name": "Organic Social",
+        "strategy": "LinkedIn posts from Lamonte Jensen and Dr. Mitch Ellingson promoting the scorecard. Content strategy: share anonymized scorecard insights, common patterns from assessments, partner stories that tie back to scorecard categories. 3 posts per week per account.",
+        "adCopy": [
+          "Jensen post: We have assessed 100+ practice owners across 5 dimensions of partnership readiness. The pattern that surprised us most: the highest-scoring practices are not the biggest ones. They are the ones with the strongest teams. Take the scorecard.",
+          "Ellingson post: The question I hear most from practice owners: 'How do I know if I am ready?' We built a diagnostic to answer that question honestly. 5 minutes. No pitch. Just clarity.",
+          "Ellingson post: Your weakest scorecard category is your growth edge. It is also the area where partnership resources have the most transformative impact. I have seen it 100 times."
+        ],
+        "targeting": "Organic reach through personal networks, engagement pods, and hashtag strategy (#dentistry #practicemanagement #dentalDSO).",
+        "estimatedCPL": "$0 (organic)"
+      },
+      {
+        "name": "Website Placement",
+        "strategy": "Persistent CTA on SGA website homepage, partner stories page, and resources section. Exit-intent popup on high-traffic pages. Embedded scorecard widget on landing pages. SEO-optimized standalone scorecard page targeting 'dental practice valuation' and 'DSO partnership assessment' keywords.",
+        "adCopy": [
+          "Homepage banner: How Ready Is Your Practice? Take the 5-Minute Partnership Readiness Scorecard.",
+          "Exit-intent popup: Before you go -- take 5 minutes to see where your practice stands on 5 critical dimensions of partnership readiness.",
+          "Resources page CTA: Start Your Assessment -- personalized results in 5 minutes."
+        ],
+        "targeting": "All website visitors, with exit-intent trigger and scroll-depth trigger (50% of page).",
+        "estimatedCPL": "$0 (owned media)"
+      },
+      {
+        "name": "Conferences",
+        "strategy": "Promote scorecard at dental conferences via QR codes on booth materials, handout cards, and speaking session slides. Post-conference email to badge scans with scorecard CTA. Target conferences: Hinman, ADA Annual, Greater New York Dental Meeting, Chicago Midwinter, DSO Leadership Summit.",
+        "adCopy": [
+          "Booth card: How Partnership Ready Are You? Scan to take the 5-minute assessment. [QR code]",
+          "Post-conference email: Dr. [Name], great meeting you at [Conference]. I mentioned the Partnership Readiness Scorecard during our conversation. Here is the link -- takes 5 minutes and the results are immediate.",
+          "Speaking slide: Want to apply the framework we just discussed to YOUR practice? Take the Partnership Readiness Scorecard: [URL]"
+        ],
+        "targeting": "Conference attendees who are practice owners or decision-makers.",
+        "estimatedCPL": "$20-50 (attributable to booth/travel cost)"
+      },
+      {
+        "name": "Podcasts",
+        "strategy": "Promote scorecard during podcast guest appearances. Lamonte Jensen and Dr. Ellingson mention the scorecard as a free resource during interviews on Shared Practices, Investment Grade Practices, Dental Hacks, Dentist Money Show, and other dental podcasts. Custom landing page per podcast for attribution.",
+        "adCopy": [
+          "In-episode mention: If you want to apply the framework we discussed today to your own practice, we have built a free 5-minute scorecard at [URL]. It measures five dimensions of partnership readiness and gives you a personalized analysis. No pitch. Just clarity.",
+          "Show notes CTA: Take the Partnership Readiness Scorecard mentioned in this episode: [URL]"
+        ],
+        "targeting": "Podcast listeners who are dental practice owners or specialists.",
+        "estimatedCPL": "$30-60 (attributable to travel/appearance costs)"
+      }
+    ],
+    "launchSequence": "Week 1: Soft launch to email list (segmented blast). Week 2: Organic social launch (Jensen + Ellingson LinkedIn posts). Week 3: Paid LinkedIn campaign launch. Week 4: Paid Meta campaign launch. Ongoing: Website placement, conference promotion, podcast mentions.",
+    "budgetAllocation": {
+      "total": "$8,000-12,000/month",
+      "breakdown": [
+        {
+          "channel": "LinkedIn Paid",
+          "amount": "$3,000-5,000",
+          "percentage": 38
+        },
+        {
+          "channel": "Facebook/Meta Paid",
+          "amount": "$2,000-4,000",
+          "percentage": 25
+        },
+        { "channel": "Email Blast", "amount": "$0", "percentage": 0 },
+        { "channel": "Organic Social", "amount": "$0", "percentage": 0 },
+        { "channel": "Website/SEO", "amount": "$500-1,000", "percentage": 6 },
+        {
+          "channel": "Conferences",
+          "amount": "$2,000-3,000",
+          "percentage": 25
+        },
+        { "channel": "Podcasts", "amount": "$500-1,000", "percentage": 6 }
+      ]
+    }
+  },
+  "pagePath": "./pages/quiz.html"
+}

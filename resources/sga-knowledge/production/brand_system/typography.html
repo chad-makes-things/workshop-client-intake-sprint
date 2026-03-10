@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGA Dental Partners -- Typography Specimen</title>
+
+    <!-- Adobe Typekit: LFT Etica + Etica Display -->
+    <link rel="stylesheet" href="https://use.typekit.net/xid1tyx.css">
+
+    <!-- Google Fonts: Fira Sans (nav/footer), Roboto + Roboto Slab (fallback), Roboto Mono (code) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Roboto+Slab:wght@300;400;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        etica: ['lft-etica', 'sans-serif'],
+                        'etica-display': ['etica-display', 'sans-serif'],
+                        fira: ['Fira Sans', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif'],
+                        'roboto-slab': ['Roboto Slab', 'serif'],
+                        mono: ['Roboto Mono', 'monospace'],
+                    },
+                    colors: {
+                        sga: {
+                            blue: '#2D6FB7',
+                            lime: '#C4D347',
+                            cyan: '#009DD6',
+                            green: '#61CE70',
+                            orange: '#F36F21',
+                            red: '#DE4625',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+
+        .section-reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            animation: sectionIn 0.5s ease-out forwards;
+        }
+        @keyframes sectionIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .section-reveal:nth-child(2) { animation-delay: 50ms; }
+        .section-reveal:nth-child(3) { animation-delay: 100ms; }
+
+        .nav-link.active {
+            color: #2D6FB7;
+            border-left-color: #2D6FB7;
+            font-weight: 600;
+        }
+
+        .code-block {
+            background: #0F172A;
+            color: #E2E8F0;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        .code-block code {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .copy-btn { position: relative; }
+        .copy-btn::after {
+            content: 'Copied';
+            position: absolute;
+            top: -28px;
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+            background: #333;
+            color: #fff;
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.15s, transform 0.15s;
+            font-family: 'Roboto Mono', monospace;
+        }
+        .copy-btn.copied::after {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+
+        /* Specimen-specific styles */
+        .type-row {
+            transition: background 0.15s ease;
+        }
+        .type-row:hover {
+            background: #FAFAFA;
+        }
+
+        .weight-block {
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+        .weight-block:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px -5px rgb(0 0 0 / 0.08);
+        }
+
+        /* Responsive type scale comparison columns */
+        .scale-compare {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .scale-compare { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .section-reveal { animation: none; opacity: 1; transform: none; }
+            .weight-block { transition: none; }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-etica antialiased">
+
+    <!-- Top Bar -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded bg-sga-blue flex items-center justify-center">
+                    <span class="text-white font-bold text-sm font-fira">SGA</span>
+                </div>
+                <div>
+                    <h1 class="text-sm font-bold tracking-tight leading-none">SGA Dental Partners</h1>
+                    <p class="text-[11px] text-gray-500 font-fira font-medium tracking-wide uppercase">Typography Specimen</p>
+                </div>
+            </div>
+            <nav class="flex items-center gap-4 font-fira text-sm">
+                <span class="text-sga-blue font-semibold">Typography</span>
+                <span class="text-gray-300">|</span>
+                <a href="colors.html" class="text-gray-500 hover:text-sga-blue transition-colors cursor-pointer">Colors</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-6 flex gap-8">
+
+        <!-- Sidebar Navigation -->
+        <aside class="hidden lg:block w-48 shrink-0 pt-8 sticky top-14 self-start h-[calc(100vh-3.5rem)] overflow-y-auto">
+            <nav class="space-y-1">
+                <p class="text-[10px] uppercase tracking-widest text-gray-400 font-fira font-semibold mb-3 pl-3">Sections</p>
+                <a href="#font-stack" class="nav-link block text-sm text-gray-600 hover:text-sga-blue pl-3 py-1.5 border-l-2 border-transparent transition-colors cursor-pointer font-fira">Font Stack</a>
+                <a href="#character-set" class="nav-link block text-sm text-gray-600 hover:text-sga-blue pl-3 py-1.5 border-l-2 border-transparent transition-colors cursor-pointer font-fira">Character Set</a>
+                <a href="#weights" class="nav-link block text-sm text-gray-600 hover:text-sga-blue pl-3 py-1.5 border-l-2 border-transparent transition-colors cursor-pointer font-fira">Weights</a>
+                <a href="#type-scale" class="nav-link block text-sm text-gray-600 hover:text-sga-blue pl-3 py-1.5 border-l-2 border-transparent transition-colors cursor-pointer font-fira">Type Scale</a>
+                <a href="#pairings" class="nav-link block text-sm text-gray-600 hover:text-sga-blue pl-3 py-1.5 border-l-2 border-transparent transition-colors cursor-pointer font-fira">Font Pairings</a>
+                <a href="#layouts" class="nav-link block text-sm text-gray-600 hover:text-sga-blue pl-3 py-1.5 border-l-2 border-transparent transition-colors cursor-pointer font-fira">Layout Examples</a>
+                <a href="#responsive" class="nav-link block text-sm text-gray-600 hover:text-sga-blue pl-3 py-1.5 border-l-2 border-transparent transition-colors cursor-pointer font-fira">Responsive Scale</a>
+                <a href="#css-export" class="nav-link block text-sm text-gray-600 hover:text-sga-blue pl-3 py-1.5 border-l-2 border-transparent transition-colors cursor-pointer font-fira">CSS Export</a>
+                <a href="#tailwind-export" class="nav-link block text-sm text-gray-600 hover:text-sga-blue pl-3 py-1.5 border-l-2 border-transparent transition-colors cursor-pointer font-fira">Tailwind Export</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 min-w-0 py-8 space-y-16 pb-24">
+
+            <!-- ============================================================ -->
+            <!-- Section 01: Font Stack                                        -->
+            <!-- ============================================================ -->
+            <section id="font-stack" class="section-reveal">
+                <div class="mb-8">
+                    <p class="text-[11px] uppercase tracking-widest text-sga-blue font-fira font-semibold mb-1">01</p>
+                    <h2 class="text-3xl font-bold tracking-tight font-etica-display" style="font-weight:900;">Font Stack</h2>
+                    <p class="text-gray-500 mt-2 max-w-xl leading-relaxed">SGA Dental Partners uses LFT Etica as its primary typeface, loaded via Adobe Typekit. The font stack includes role-specific families for display, body, navigation, and code contexts.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- LFT Etica -->
+                    <div class="border border-gray-200 rounded-lg p-6 weight-block">
+                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                            <div>
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="inline-block px-2 py-0.5 text-[10px] font-fira font-semibold uppercase tracking-wider bg-sga-blue text-white rounded">Primary</span>
+                                    <span class="text-[10px] font-mono text-gray-400">Adobe Typekit</span>
+                                </div>
+                                <h3 class="text-2xl font-etica font-bold tracking-tight">LFT Etica</h3>
+                                <p class="text-sm text-gray-500 mt-1 font-fira">Headings, body text, UI elements. Weights: 300, 400, 700, 900</p>
+                                <p class="text-xs font-mono text-gray-400 mt-2">font-family: 'lft-etica', sans-serif;</p>
+                            </div>
+                            <p class="text-4xl font-etica font-bold text-gray-800 tracking-tight shrink-0">Aa</p>
+                        </div>
+                    </div>
+
+                    <!-- Etica Display -->
+                    <div class="border border-gray-200 rounded-lg p-6 weight-block">
+                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                            <div>
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="inline-block px-2 py-0.5 text-[10px] font-fira font-semibold uppercase tracking-wider bg-gray-800 text-white rounded">Display</span>
+                                    <span class="text-[10px] font-mono text-gray-400">Adobe Typekit</span>
+                                </div>
+                                <h3 class="text-2xl font-etica-display tracking-tight" style="font-weight:900;">Etica Display</h3>
+                                <p class="text-sm text-gray-500 mt-1 font-fira">Hero headlines, page titles. Weights: 200, 900</p>
+                                <p class="text-xs font-mono text-gray-400 mt-2">font-family: 'etica-display', sans-serif;</p>
+                            </div>
+                            <p class="text-4xl font-etica-display text-gray-800 tracking-tight shrink-0" style="font-weight:200;">Aa</p>
+                        </div>
+                    </div>
+
+                    <!-- Fira Sans -->
+                    <div class="border border-gray-200 rounded-lg p-6 weight-block">
+                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                            <div>
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="inline-block px-2 py-0.5 text-[10px] font-fira font-semibold uppercase tracking-wider bg-gray-200 text-gray-700 rounded">Navigation</span>
+                                    <span class="text-[10px] font-mono text-gray-400">Google Fonts</span>
+                                </div>
+                                <h3 class="text-2xl font-fira font-bold tracking-tight">Fira Sans</h3>
+                                <p class="text-sm text-gray-500 mt-1 font-fira">Navigation, footers, labels, meta text. Weights: 400, 500, 600, 700</p>
+                                <p class="text-xs font-mono text-gray-400 mt-2">font-family: 'Fira Sans', sans-serif;</p>
+                            </div>
+                            <p class="text-4xl font-fira font-bold text-gray-800 tracking-tight shrink-0">Aa</p>
+                        </div>
+                    </div>
+
+                    <!-- Roboto / Roboto Slab -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="border border-gray-200 rounded-lg p-6 weight-block">
+                            <div>
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="inline-block px-2 py-0.5 text-[10px] font-fira font-semibold uppercase tracking-wider bg-amber-100 text-amber-800 rounded">Fallback</span>
+                                    <span class="text-[10px] font-mono text-gray-400">Google Fonts</span>
+                                </div>
+                                <h3 class="text-2xl font-roboto font-bold tracking-tight">Roboto</h3>
+                                <p class="text-sm text-gray-500 mt-1 font-fira">Fallback for body text if Typekit fails</p>
+                                <p class="text-xs font-mono text-gray-400 mt-2">font-family: 'Roboto', sans-serif;</p>
+                            </div>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg p-6 weight-block">
+                            <div>
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="inline-block px-2 py-0.5 text-[10px] font-fira font-semibold uppercase tracking-wider bg-amber-100 text-amber-800 rounded">Fallback</span>
+                                    <span class="text-[10px] font-mono text-gray-400">Google Fonts</span>
+                                </div>
+                                <h3 class="text-2xl font-roboto-slab font-bold tracking-tight">Roboto Slab</h3>
+                                <p class="text-sm text-gray-500 mt-1 font-fira">Fallback for display/headline contexts</p>
+                                <p class="text-xs font-mono text-gray-400 mt-2">font-family: 'Roboto Slab', serif;</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Embed code -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                        <p class="text-xs font-fira font-semibold text-gray-500 uppercase tracking-wide mb-2">Embed Code</p>
+                        <div class="font-mono text-xs text-gray-700 space-y-1 overflow-x-auto">
+                            <p>&lt;link rel="stylesheet" href="https://use.typekit.net/xid1tyx.css"&gt;</p>
+                            <p>&lt;link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&family=Roboto:wght@300;400;700;900&family=Roboto+Slab:wght@300;400;700;900&display=swap" rel="stylesheet"&gt;</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================ -->
+            <!-- Section 02: Character Set                                     -->
+            <!-- ============================================================ -->
+            <section id="character-set" class="section-reveal">
+                <div class="mb-8">
+                    <p class="text-[11px] uppercase tracking-widest text-sga-blue font-fira font-semibold mb-1">02</p>
+                    <h2 class="text-3xl font-bold tracking-tight font-etica-display" style="font-weight:900;">Character Set</h2>
+                    <p class="text-gray-500 mt-2 max-w-xl leading-relaxed">Full character display for LFT Etica at regular weight (400). Verify glyph rendering across your target browsers.</p>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <!-- Uppercase -->
+                    <div class="p-6 border-b border-gray-100">
+                        <p class="text-[10px] uppercase tracking-widest text-gray-400 font-fira font-semibold mb-3">Uppercase</p>
+                        <p class="text-4xl font-etica tracking-wide text-gray-800 leading-relaxed" style="font-weight:400;">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+                    </div>
+                    <!-- Lowercase -->
+                    <div class="p-6 border-b border-gray-100">
+                        <p class="text-[10px] uppercase tracking-widest text-gray-400 font-fira font-semibold mb-3">Lowercase</p>
+                        <p class="text-4xl font-etica tracking-wide text-gray-800 leading-relaxed" style="font-weight:400;">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+                    </div>
+                    <!-- Numerals -->
+                    <div class="p-6 border-b border-gray-100">
+                        <p class="text-[10px] uppercase tracking-widest text-gray-400 font-fira font-semibold mb-3">Numerals</p>
+                        <p class="text-4xl font-etica tracking-wide text-gray-800 leading-relaxed" style="font-weight:400;">0 1 2 3 4 5 6 7 8 9</p>
+                    </div>
+                    <!-- Punctuation & Symbols -->
+                    <div class="p-6">
+                        <p class="text-[10px] uppercase tracking-widest text-gray-400 font-fira font-semibold mb-3">Punctuation &amp; Symbols</p>
+                        <p class="text-3xl font-etica tracking-wide text-gray-800 leading-relaxed" style="font-weight:400;">. , : ; ! ? ' " " " ( ) [ ] { } / \ - -- &amp; @ # $ % ^ * + = | ~ &lt; &gt;</p>
+                    </div>
+                </div>
+
+                <!-- Etica Display character set -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden mt-4">
+                    <div class="px-6 py-3 bg-gray-50 border-b border-gray-200">
+                        <p class="text-xs font-fira font-semibold text-gray-500">Etica Display -- Black (900)</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-5xl font-etica-display tracking-tight text-gray-800 leading-snug" style="font-weight:900;">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+                        <p class="text-5xl font-etica-display tracking-tight text-gray-800 leading-snug mt-4" style="font-weight:900;">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+                        <p class="text-5xl font-etica-display tracking-tight text-gray-800 leading-snug mt-4" style="font-weight:900;">0 1 2 3 4 5 6 7 8 9</p>
+                    </div>
+                </div>
+
+                <!-- Etica Display Thin -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden mt-4">
+                    <div class="px-6 py-3 bg-gray-50 border-b border-gray-200">
+                        <p class="text-xs font-fira font-semibold text-gray-500">Etica Display -- Thin (200)</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-5xl font-etica-display tracking-tight text-gray-800 leading-snug" style="font-weight:200;">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+                        <p class="text-5xl font-etica-display tracking-tight text-gray-800 leading-snug mt-4" style="font-weight:200;">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+                        <p class="text-5xl font-etica-display tracking-tight text-gray-800 leading-snug mt-4" style="font-weight:200;">0 1 2 3 4 5 6 7 8 9</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================ -->
+            <!-- Section 03: Weights                                           -->
+            <!-- ============================================================ -->
+            <section id="weights" class="section-reveal">
+                <div class="mb-8">
+                    <p class="text-[11px] uppercase tracking-widest text-sga-blue font-fira font-semibold mb-1">03</p>
+                    <h2 class="text-3xl font-bold tracking-tight font-etica-display" style="font-weight:900;">Weight Specimens</h2>
+                    <p class="text-gray-500 mt-2 max-w-xl leading-relaxed">All available weights for LFT Etica and Etica Display. Each block shows the weight at display size with a sample sentence for readability testing.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- LFT Etica 300 -->
+                    <div class="border border-gray-200 rounded-lg p-6 weight-block">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-xs font-mono text-gray-400 w-20">300</span>
+                            <span class="text-xs font-fira text-gray-500">Light</span>
+                            <span class="ml-auto text-[10px] font-mono text-gray-300">lft-etica</span>
+                        </div>
+                        <p class="text-3xl font-etica text-gray-800 leading-snug" style="font-weight:300;">Transforming dental practices into thriving partnerships.</p>
+                        <p class="text-base font-etica text-gray-600 mt-3 max-w-2xl leading-relaxed" style="font-weight:300;">The quick brown fox jumps over the lazy dog. SGA Dental Partners delivers operational excellence and growth strategy for dental practices of every size. We believe in partnerships that create lasting value.</p>
+                    </div>
+
+                    <!-- LFT Etica 400 -->
+                    <div class="border border-gray-200 rounded-lg p-6 weight-block">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-xs font-mono text-gray-400 w-20">400</span>
+                            <span class="text-xs font-fira text-gray-500">Regular</span>
+                            <span class="ml-auto text-[10px] font-mono text-gray-300">lft-etica</span>
+                        </div>
+                        <p class="text-3xl font-etica text-gray-800 leading-snug" style="font-weight:400;">Transforming dental practices into thriving partnerships.</p>
+                        <p class="text-base font-etica text-gray-600 mt-3 max-w-2xl leading-relaxed" style="font-weight:400;">The quick brown fox jumps over the lazy dog. SGA Dental Partners delivers operational excellence and growth strategy for dental practices of every size. We believe in partnerships that create lasting value.</p>
+                    </div>
+
+                    <!-- LFT Etica 700 -->
+                    <div class="border border-gray-200 rounded-lg p-6 weight-block">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-xs font-mono text-gray-400 w-20">700</span>
+                            <span class="text-xs font-fira text-gray-500">Bold</span>
+                            <span class="ml-auto text-[10px] font-mono text-gray-300">lft-etica</span>
+                        </div>
+                        <p class="text-3xl font-etica text-gray-800 leading-snug" style="font-weight:700;">Transforming dental practices into thriving partnerships.</p>
+                        <p class="text-base font-etica text-gray-600 mt-3 max-w-2xl leading-relaxed" style="font-weight:700;">The quick brown fox jumps over the lazy dog. SGA Dental Partners delivers operational excellence and growth strategy for dental practices of every size. We believe in partnerships that create lasting value.</p>
+                    </div>
+
+                    <!-- LFT Etica 900 -->
+                    <div class="border border-gray-200 rounded-lg p-6 weight-block">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-xs font-mono text-gray-400 w-20">900</span>
+                            <span class="text-xs font-fira text-gray-500">Black</span>
+                            <span class="ml-auto text-[10px] font-mono text-gray-300">lft-etica</span>
+                        </div>
+                        <p class="text-3xl font-etica text-gray-800 leading-snug" style="font-weight:900;">Transforming dental practices into thriving partnerships.</p>
+                        <p class="text-base font-etica text-gray-600 mt-3 max-w-2xl leading-relaxed" style="font-weight:900;">The quick brown fox jumps over the lazy dog. SGA Dental Partners delivers operational excellence and growth strategy for dental practices of every size. We believe in partnerships that create lasting value.</p>
+                    </div>
+
+                    <!-- Etica Display 200 -->
+                    <div class="border border-sga-blue/20 rounded-lg p-6 weight-block bg-blue-50/30">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-xs font-mono text-gray-400 w-20">200</span>
+                            <span class="text-xs font-fira text-gray-500">Thin</span>
+                            <span class="ml-auto text-[10px] font-mono text-sga-blue/50">etica-display</span>
+                        </div>
+                        <p class="text-4xl font-etica-display text-gray-800 leading-snug" style="font-weight:200;">Building the future of dental care together.</p>
+                    </div>
+
+                    <!-- Etica Display 900 -->
+                    <div class="border border-sga-blue/20 rounded-lg p-6 weight-block bg-blue-50/30">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-xs font-mono text-gray-400 w-20">900</span>
+                            <span class="text-xs font-fira text-gray-500">Black</span>
+                            <span class="ml-auto text-[10px] font-mono text-sga-blue/50">etica-display</span>
+                        </div>
+                        <p class="text-4xl font-etica-display text-gray-800 leading-snug tracking-tight" style="font-weight:900;">Building the future of dental care together.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================ -->
+            <!-- Section 04: Type Scale                                        -->
+            <!-- ============================================================ -->
+            <section id="type-scale" class="section-reveal">
+                <div class="mb-8">
+                    <p class="text-[11px] uppercase tracking-widest text-sga-blue font-fira font-semibold mb-1">04</p>
+                    <h2 class="text-3xl font-bold tracking-tight font-etica-display" style="font-weight:900;">Type Scale</h2>
+                    <p class="text-gray-500 mt-2 max-w-xl leading-relaxed">Heading and body text hierarchy using a Major Third (1.25) modular scale. Sizes shown are desktop values; see the Responsive Scale section for mobile adjustments.</p>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg overflow-hidden divide-y divide-gray-100">
+
+                    <!-- Display / H1 -->
+                    <div class="type-row p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-28 shrink-0 pt-1">
+                                <p class="text-[10px] font-mono text-sga-blue font-medium">Display</p>
+                                <p class="text-[10px] font-mono text-gray-400 mt-0.5">49px / 3.052rem</p>
+                                <p class="text-[10px] font-mono text-gray-400">weight: 900</p>
+                                <p class="text-[10px] font-mono text-gray-400">line-height: 1.1</p>
+                                <p class="text-[10px] font-mono text-gray-400">letter-spacing: -0.02em</p>
+                            </div>
+                            <p class="font-etica-display tracking-tight text-gray-800" style="font-size:49px; font-weight:900; line-height:1.1; letter-spacing:-0.02em;">Dental Partnerships</p>
+                        </div>
+                    </div>
+
+                    <!-- H1 -->
+                    <div class="type-row p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-28 shrink-0 pt-1">
+                                <p class="text-[10px] font-mono text-sga-blue font-medium">H1</p>
+                                <p class="text-[10px] font-mono text-gray-400 mt-0.5">39px / 2.441rem</p>
+                                <p class="text-[10px] font-mono text-gray-400">weight: 900</p>
+                                <p class="text-[10px] font-mono text-gray-400">line-height: 1.15</p>
+                                <p class="text-[10px] font-mono text-gray-400">letter-spacing: -0.02em</p>
+                            </div>
+                            <p class="font-etica tracking-tight text-gray-800" style="font-size:39px; font-weight:900; line-height:1.15; letter-spacing:-0.02em;">Your Practice, Our Partnership</p>
+                        </div>
+                    </div>
+
+                    <!-- H2 -->
+                    <div class="type-row p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-28 shrink-0 pt-1">
+                                <p class="text-[10px] font-mono text-sga-blue font-medium">H2</p>
+                                <p class="text-[10px] font-mono text-gray-400 mt-0.5">31px / 1.953rem</p>
+                                <p class="text-[10px] font-mono text-gray-400">weight: 700</p>
+                                <p class="text-[10px] font-mono text-gray-400">line-height: 1.2</p>
+                                <p class="text-[10px] font-mono text-gray-400">letter-spacing: -0.015em</p>
+                            </div>
+                            <p class="font-etica text-gray-800" style="font-size:31px; font-weight:700; line-height:1.2; letter-spacing:-0.015em;">Operational Excellence Delivered</p>
+                        </div>
+                    </div>
+
+                    <!-- H3 -->
+                    <div class="type-row p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-28 shrink-0 pt-1">
+                                <p class="text-[10px] font-mono text-sga-blue font-medium">H3</p>
+                                <p class="text-[10px] font-mono text-gray-400 mt-0.5">25px / 1.563rem</p>
+                                <p class="text-[10px] font-mono text-gray-400">weight: 700</p>
+                                <p class="text-[10px] font-mono text-gray-400">line-height: 1.3</p>
+                                <p class="text-[10px] font-mono text-gray-400">letter-spacing: -0.01em</p>
+                            </div>
+                            <p class="font-etica text-gray-800" style="font-size:25px; font-weight:700; line-height:1.3; letter-spacing:-0.01em;">Growth Strategy for Every Practice</p>
+                        </div>
+                    </div>
+
+                    <!-- H4 -->
+                    <div class="type-row p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-28 shrink-0 pt-1">
+                                <p class="text-[10px] font-mono text-sga-blue font-medium">H4</p>
+                                <p class="text-[10px] font-mono text-gray-400 mt-0.5">20px / 1.25rem</p>
+                                <p class="text-[10px] font-mono text-gray-400">weight: 700</p>
+                                <p class="text-[10px] font-mono text-gray-400">line-height: 1.4</p>
+                                <p class="text-[10px] font-mono text-gray-400">letter-spacing: 0</p>
+                            </div>
+                            <p class="font-etica text-gray-800" style="font-size:20px; font-weight:700; line-height:1.4;">Clinical Support & Technology</p>
+                        </div>
+                    </div>
+
+                    <!-- H5 -->
+                    <div class="type-row p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-28 shrink-0 pt-1">
+                                <p class="text-[10px] font-mono text-sga-blue font-medium">H5</p>
+                                <p class="text-[10px] font-mono text-gray-400 mt-0.5">16px / 1rem</p>
+                                <p class="text-[10px] font-mono text-gray-400">weight: 700</p>
+                                <p class="text-[10px] font-mono text-gray-400">line-height: 1.5</p>
+                                <p class="text-[10px] font-mono text-gray-400">letter-spacing: 0</p>
+                            </div>
+                            <p class="font-etica text-gray-800" style="font-size:16px; font-weight:700; line-height:1.5;">Revenue Cycle Management</p>
+                        </div>
+                    </div>
+
+                    <!-- H6 -->
+                    <div class="type-row p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-28 shrink-0 pt-1">
+                                <p class="text-[10px] font-mono text-sga-blue font-medium">H6</p>
+                                <p class="text-[10px] font-mono text-gray-400 mt-0.5">13px / 0.8rem</p>
+                                <p class="text-[10px] font-mono text-gray-400">weight: 700</p>
+                                <p class="text-[10px] font-mono text-gray-400">line-height: 1.5</p>
+                                <p class="text-[10px] font-mono text-gray-400">letter-spacing: 0.03em</p>
+                                <p class="text-[10px] font-mono text-gray-400">text-transform: uppercase</p>
+                            </div>
+                            <p class="font-etica text-gray-800 uppercase" style="font-size:13px; font-weight:700; line-height:1.5; letter-spacing:0.03em;">Compliance & Training</p>
+                        </div>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="type-row p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-28 shrink-0 pt-1">
+                                <p class="text-[10px] font-mono text-sga-blue font-medium">Body</p>
+                                <p class="text-[10px] font-mono text-gray-400 mt-0.5">16px / 1rem</p>
+                                <p class="text-[10px] font-mono text-gray-400">weight: 400</p>
+                                <p class="text-[10px] font-mono text-gray-400">line-height: 1.6</p>
+                                <p class="text-[10px] font-mono text-gray-400">max-width: 65ch</p>
+                            </div>
+                            <p class="font-etica text-gray-700 max-w-[65ch]" style="font-size:16px; font-weight:400; line-height:1.6;">SGA Dental Partners is a dentist-founded dental partnership organization committed to helping dental practices achieve sustainable growth. We provide operational support, technology infrastructure, and business strategy while preserving clinical autonomy and the unique culture of each practice.</p>
+                        </div>
+                    </div>
+
+                    <!-- Body Small -->
+                    <div class="type-row p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-28 shrink-0 pt-1">
+                                <p class="text-[10px] font-mono text-sga-blue font-medium">Small</p>
+                                <p class="text-[10px] font-mono text-gray-400 mt-0.5">13px / 0.8rem</p>
+                                <p class="text-[10px] font-mono text-gray-400">weight: 400</p>
+                                <p class="text-[10px] font-mono text-gray-400">line-height: 1.5</p>
+                            </div>
+                            <p class="font-etica text-gray-600" style="font-size:13px; font-weight:400; line-height:1.5;">Helper text, disclaimers, and secondary information that supports the primary content without competing for attention.</p>
+                        </div>
+                    </div>
+
+                    <!-- Caption -->
+                    <div class="type-row p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-28 shrink-0 pt-1">
+                                <p class="text-[10px] font-mono text-sga-blue font-medium">Caption</p>
+                                <p class="text-[10px] font-mono text-gray-400 mt-0.5">10px / 0.625rem</p>
+                                <p class="text-[10px] font-mono text-gray-400">weight: 500</p>
+                                <p class="text-[10px] font-mono text-gray-400">line-height: 1.4</p>
+                                <p class="text-[10px] font-mono text-gray-400">letter-spacing: 0.04em</p>
+                                <p class="text-[10px] font-mono text-gray-400">text-transform: uppercase</p>
+                                <p class="text-[10px] font-mono text-gray-400">font-family: Fira Sans</p>
+                            </div>
+                            <p class="font-fira text-gray-500 uppercase" style="font-size:10px; font-weight:500; line-height:1.4; letter-spacing:0.04em;">Section label -- Last updated March 2026</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ============================================================ -->
+            <!-- Section 05: Font Pairings                                     -->
+            <!-- ============================================================ -->
+            <section id="pairings" class="section-reveal">
+                <div class="mb-8">
+                    <p class="text-[11px] uppercase tracking-widest text-sga-blue font-fira font-semibold mb-1">05</p>
+                    <h2 class="text-3xl font-bold tracking-tight font-etica-display" style="font-weight:900;">Font Pairings</h2>
+                    <p class="text-gray-500 mt-2 max-w-xl leading-relaxed">Recommended headline/body combinations showing how the type families work together in real content contexts.</p>
+                </div>
+
+                <div class="space-y-6">
+
+                    <!-- Pairing 1: Etica Display + Etica body -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden weight-block">
+                        <div class="px-5 py-3 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
+                            <p class="text-xs font-fira font-semibold text-gray-600">Etica Display Black + LFT Etica Regular</p>
+                            <span class="text-[10px] font-mono text-gray-400">Hero / Landing pages</span>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-etica-display text-gray-900 tracking-tight" style="font-size:39px; font-weight:900; line-height:1.1; letter-spacing:-0.02em;">Your Practice Deserves a Real Partner</h3>
+                            <div class="w-12 h-1 rounded-full mt-4 mb-4" style="background:#C4D347;"></div>
+                            <p class="font-etica text-gray-600 max-w-xl" style="font-size:18px; font-weight:400; line-height:1.6;">SGA Dental Partners provides the operational backbone, technology, and growth strategy your practice needs -- while you stay focused on what matters most: patient care.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pairing 2: Etica Bold heading + Roboto body -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden weight-block">
+                        <div class="px-5 py-3 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
+                            <p class="text-xs font-fira font-semibold text-gray-600">LFT Etica Bold + Roboto Regular</p>
+                            <span class="text-[10px] font-mono text-gray-400">Blog / Content pages</span>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-etica text-gray-900 tracking-tight" style="font-size:31px; font-weight:700; line-height:1.2; letter-spacing:-0.015em;">5 Ways SGA Supports Your Transition</h3>
+                            <p class="font-roboto text-gray-600 mt-4 max-w-xl" style="font-size:16px; font-weight:400; line-height:1.7;">Joining a dental partnership organization is a significant decision. We understand that every practice has its own culture, patient relationships, and clinical philosophy. That is why our approach begins with listening -- understanding what makes your practice unique before proposing any changes.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pairing 3: Fira Sans + Etica -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden weight-block">
+                        <div class="px-5 py-3 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
+                            <p class="text-xs font-fira font-semibold text-gray-600">Fira Sans Semibold + LFT Etica Regular</p>
+                            <span class="text-[10px] font-mono text-gray-400">Navigation / UI</span>
+                        </div>
+                        <div class="p-8">
+                            <nav class="flex items-center gap-6 mb-6 pb-4 border-b border-gray-200">
+                                <span class="font-fira text-sga-blue" style="font-size:14px; font-weight:600;">About Us</span>
+                                <span class="font-fira text-gray-700" style="font-size:14px; font-weight:500;">Our Practices</span>
+                                <span class="font-fira text-gray-700" style="font-size:14px; font-weight:500;">Services</span>
+                                <span class="font-fira text-gray-700" style="font-size:14px; font-weight:500;">Careers</span>
+                                <span class="font-fira text-gray-700" style="font-size:14px; font-weight:500;">Contact</span>
+                            </nav>
+                            <h4 class="font-etica text-gray-900" style="font-size:20px; font-weight:700; line-height:1.4;">Comprehensive Practice Support</h4>
+                            <p class="font-etica text-gray-600 mt-2 max-w-xl" style="font-size:16px; font-weight:400; line-height:1.6;">From revenue cycle management to HR and compliance, we handle the operational complexity so you can focus on clinical excellence.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pairing 4: Etica Display Thin + Etica -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden weight-block">
+                        <div class="px-5 py-3 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
+                            <p class="text-xs font-fira font-semibold text-gray-600">Etica Display Thin + LFT Etica Light</p>
+                            <span class="text-[10px] font-mono text-gray-400">Testimonials / Quotes</span>
+                        </div>
+                        <div class="p-8" style="background:#122D4A;">
+                            <p class="font-etica-display text-white/90" style="font-size:36px; font-weight:200; line-height:1.3; letter-spacing:-0.01em;">"SGA gave us the support structure we needed without changing who we are as a practice."</p>
+                            <div class="mt-5 flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-white/20"></div>
+                                <div>
+                                    <p class="font-etica text-white" style="font-size:14px; font-weight:400;">Dr. Sarah Mitchell</p>
+                                    <p class="font-fira text-white/50" style="font-size:12px; font-weight:400;">Mitchell Family Dentistry</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ============================================================ -->
+            <!-- Section 06: Layout Examples                                   -->
+            <!-- ============================================================ -->
+            <section id="layouts" class="section-reveal">
+                <div class="mb-8">
+                    <p class="text-[11px] uppercase tracking-widest text-sga-blue font-fira font-semibold mb-1">06</p>
+                    <h2 class="text-3xl font-bold tracking-tight font-etica-display" style="font-weight:900;">Real-World Layout Examples</h2>
+                    <p class="text-gray-500 mt-2 max-w-xl leading-relaxed">Type hierarchy in context. These demonstrate how the font stack, weights, sizes, and colors combine in actual layouts someone might build for SGA.</p>
+                </div>
+
+                <div class="space-y-8">
+
+                    <!-- Layout 1: Blog Post Excerpt -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <div class="px-5 py-3 bg-gray-50 border-b border-gray-200">
+                            <p class="text-xs font-fira font-semibold text-gray-500 uppercase tracking-wide">Blog Post Excerpt</p>
+                        </div>
+                        <div class="p-8 max-w-2xl">
+                            <p class="font-fira text-sga-blue uppercase" style="font-size:11px; font-weight:600; letter-spacing:0.08em;">Practice Growth -- March 7, 2026</p>
+                            <h3 class="font-etica text-gray-900 mt-2" style="font-size:28px; font-weight:700; line-height:1.2; letter-spacing:-0.015em;">Why Practice Owners Are Choosing Partnership Over Solo Ownership</h3>
+                            <p class="font-etica text-gray-600 mt-4" style="font-size:16px; font-weight:400; line-height:1.7;">The landscape of dental practice ownership is shifting. Rising overhead costs, staffing challenges, and the increasing complexity of insurance billing have made solo ownership more difficult than ever. Many dentists are finding that a partnership model -- where they retain clinical control while gaining operational support -- offers the best of both worlds.</p>
+                            <a href="#" class="inline-flex items-center gap-1.5 mt-4 font-fira text-sga-blue cursor-pointer hover:text-sga-blue/80 transition-colors focus-visible:ring-2 focus-visible:ring-sga-blue focus-visible:ring-offset-2 rounded" style="font-size:14px; font-weight:600;">
+                                Read full article
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Layout 2: Landing Page Hero -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <div class="px-5 py-3 bg-gray-50 border-b border-gray-200">
+                            <p class="text-xs font-fira font-semibold text-gray-500 uppercase tracking-wide">Landing Page Hero</p>
+                        </div>
+                        <div class="p-8 md:p-12" style="background: linear-gradient(135deg, #122D4A 0%, #1B436E 50%, #2D6FB7 100%);">
+                            <div class="max-w-2xl">
+                                <p class="font-fira text-white/50 uppercase" style="font-size:12px; font-weight:600; letter-spacing:0.1em;">SGA Dental Partners</p>
+                                <h2 class="font-etica-display text-white mt-3" style="font-size:clamp(32px,5vw,49px); font-weight:900; line-height:1.08; letter-spacing:-0.02em;">The Partnership Model<br>Built for Dentists,<br>by Dentists.</h2>
+                                <p class="font-etica text-white/70 mt-5 max-w-lg" style="font-size:18px; font-weight:300; line-height:1.6;">Retain your clinical autonomy and practice identity. Gain the operational, financial, and technological support to grow sustainably.</p>
+                                <div class="flex flex-wrap items-center gap-3 mt-8">
+                                    <button class="px-6 py-3 rounded-lg font-fira text-white cursor-pointer transition-colors focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-sga-blue hover:opacity-90" style="font-size:15px; font-weight:600; background:#F36F21;">Start a Conversation</button>
+                                    <button class="px-6 py-3 rounded-lg font-fira text-white/80 border border-white/30 cursor-pointer hover:bg-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-sga-blue" style="font-size:15px; font-weight:500;">Learn How It Works</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Layout 3: Email Preview -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <div class="px-5 py-3 bg-gray-50 border-b border-gray-200">
+                            <p class="text-xs font-fira font-semibold text-gray-500 uppercase tracking-wide">Email Preview (Roboto fallback stack)</p>
+                        </div>
+                        <div class="p-8 max-w-xl mx-auto" style="background:#FAFAFA;">
+                            <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                                <div class="p-6 text-center" style="background:#2D6FB7;">
+                                    <p class="font-roboto text-white" style="font-size:22px; font-weight:700; letter-spacing:-0.01em;">SGA Dental Partners</p>
+                                    <p class="font-roboto text-white/60 mt-1" style="font-size:13px; font-weight:400;">Monthly Practice Insights</p>
+                                </div>
+                                <div class="p-6">
+                                    <h4 class="font-roboto-slab text-gray-900" style="font-size:22px; font-weight:700; line-height:1.3;">Q1 2026: Your Practice Performance Summary</h4>
+                                    <p class="font-roboto text-gray-600 mt-3" style="font-size:15px; font-weight:400; line-height:1.7;">Dear Dr. Thompson, here is your quarterly performance overview. Patient volume increased 12% quarter-over-quarter, and your new patient acquisition rate has exceeded the network average.</p>
+                                    <div class="mt-5 p-4 rounded-lg" style="background:#EBF2FA;">
+                                        <p class="font-roboto text-sga-blue" style="font-size:13px; font-weight:500;">Key Metric</p>
+                                        <p class="font-roboto text-gray-900 mt-1" style="font-size:28px; font-weight:700;">+12% <span style="font-size:14px; font-weight:400; color:#7A7A7A;">patient volume YoY</span></p>
+                                    </div>
+                                    <a href="#" class="inline-block mt-5 px-5 py-2.5 rounded font-roboto text-white text-center cursor-pointer" style="font-size:14px; font-weight:500; background:#F36F21;">View Full Report</a>
+                                </div>
+                                <div class="px-6 py-4 border-t border-gray-100">
+                                    <p class="font-roboto text-gray-400 text-center" style="font-size:11px;">SGA Dental Partners -- Confidential</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ============================================================ -->
+            <!-- Section 07: Responsive Scale                                  -->
+            <!-- ============================================================ -->
+            <section id="responsive" class="section-reveal">
+                <div class="mb-8">
+                    <p class="text-[11px] uppercase tracking-widest text-sga-blue font-fira font-semibold mb-1">07</p>
+                    <h2 class="text-3xl font-bold tracking-tight font-etica-display" style="font-weight:900;">Responsive Type Scale</h2>
+                    <p class="text-gray-500 mt-2 max-w-xl leading-relaxed">Side-by-side comparison of desktop and mobile type sizes. Headings scale down more aggressively than body text. Body text never drops below 16px on mobile to prevent iOS zoom on focus.</p>
+                </div>
+
+                <div class="scale-compare">
+
+                    <!-- Desktop Column -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <div class="px-5 py-3 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
+                            <p class="text-xs font-fira font-semibold text-gray-500 uppercase tracking-wide">Desktop (1280px+)</p>
+                            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <div class="p-5 space-y-4">
+                            <div class="flex items-baseline justify-between border-b border-gray-100 pb-2">
+                                <span class="text-xs font-mono text-sga-blue">Display</span>
+                                <span class="text-xs font-mono text-gray-400">49px / 3.052rem</span>
+                            </div>
+                            <div class="flex items-baseline justify-between border-b border-gray-100 pb-2">
+                                <span class="text-xs font-mono text-sga-blue">H1</span>
+                                <span class="text-xs font-mono text-gray-400">39px / 2.441rem</span>
+                            </div>
+                            <div class="flex items-baseline justify-between border-b border-gray-100 pb-2">
+                                <span class="text-xs font-mono text-sga-blue">H2</span>
+                                <span class="text-xs font-mono text-gray-400">31px / 1.953rem</span>
+                            </div>
+                            <div class="flex items-baseline justify-between border-b border-gray-100 pb-2">
+                                <span class="text-xs font-mono text-sga-blue">H3</span>
+                                <span class="text-xs font-mono text-gray-400">25px / 1.563rem</span>
+                            </div>
+                            <div class="flex items-baseline justify-between border-b border-gray-100 pb-2">
+                                <span class="text-xs font-mono text-sga-blue">H4</span>
+                                <span class="text-xs font-mono text-gray-400">20px / 1.25rem</span>
+                            </div>
+                            <div class="flex items-baseline justify-between border-b border-gray-100 pb-2">
+                                <span class="text-xs font-mono text-sga-blue">H5</span>
+                                <span class="text-xs font-mono text-gray-400">16px / 1rem</span>
+                            </div>
+                            <div class="flex items-baseline justify-between border-b border-gray-100 pb-2">
+                                <span class="text-xs font-mono text-sga-blue">H6</span>
+                                <span class="text-xs font-mono text-gray-400">13px / 0.8rem</span>
+                            </div>
+                            <div class="flex items-baseline justify-between border-b border-gray-100 pb-2">
+                                <span class="text-xs font-mono text-gray-600">Body</span>
+                                <span class="text-xs font-mono text-gray-400">16px / 1rem</span>
+                            </div>
+                            <div class="flex items-baseline justify-between border-b border-gray-100 pb-2">
+                                <span class="text-xs font-mono text-gray-600">Small</span>
+                                <span class="text-xs font-mono text-gray-400">13px / 0.8rem</span>
+                            </div>
+                            <div class="flex items-baseline justify-between">
+                                <span class="text-xs font-mono text-gray-600">Caption</span>
+                                <span class="text-xs font-mono text-gray-400">10px / 0.625rem</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Column -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <div class="px-5 py-3 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
+                            <p class="text-xs font-fira font-semibold text-gray-500 uppercase tracking-wide">Mobile (320-640px)</p>
+                            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                        </div>
+                        <div class="p-5 space-y-4">
+                            <div class="flex items-baseline justify-between border-b border-gray-100 pb-2">
+                                <span class="text-xs font-mono text-sga-blue">Display</span>
+                                <div class="text-right">
+                                    <span class="text-xs font-mono text-gray-800">32px / 2rem</span>
+                                    <span class="text-[9px] font-mono text-sga-orange ml-1">-35%</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline justify-between border-b border-gray-100 pb-2">
+                                <span class="text-xs font-mono text-sga-blue">H1</span>
+                                <div class="text-right">
+                                    <span class="text-xs font-mono text-gray-800">28px / 1.75rem</span>
+                                    <span class="text-[9px] font-mono text-sga-orange ml-1">-28%</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline justify-between border-b border-gray-100 pb-2">
+                                <span class="text-xs font-mono text-sga-blue">H2</span>
+                                <div class="text-right">
+                                    <span class="text-xs font-mono text-gray-800">24px / 1.5rem</span>
+                                    <span class="text-[9px] font-mono text-sga-orange ml-1">-23%</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline justify-between border-b border-gray-100 pb-2">
+                                <span class="text-xs font-mono text-sga-blue">H3</span>
+                                <div class="text-right">
+                                    <span class="text-xs font-mono text-gray-800">20px / 1.25rem</span>
+                                    <span class="text-[9px] font-mono text-sga-orange ml-1">-20%</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline justify-between border-b border-gray-100 pb-2">
+                                <span class="text-xs font-mono text-sga-blue">H4</span>
+                                <div class="text-right">
+                                    <span class="text-xs font-mono text-gray-800">18px / 1.125rem</span>
+                                    <span class="text-[9px] font-mono text-sga-orange ml-1">-10%</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline justify-between border-b border-gray-100 pb-2">
+                                <span class="text-xs font-mono text-sga-blue">H5</span>
+                                <div class="text-right">
+                                    <span class="text-xs font-mono text-gray-800">16px / 1rem</span>
+                                    <span class="text-[9px] font-mono text-gray-400 ml-1">same</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline justify-between border-b border-gray-100 pb-2">
+                                <span class="text-xs font-mono text-sga-blue">H6</span>
+                                <div class="text-right">
+                                    <span class="text-xs font-mono text-gray-800">12px / 0.75rem</span>
+                                    <span class="text-[9px] font-mono text-sga-orange ml-1">-8%</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline justify-between border-b border-gray-100 pb-2">
+                                <span class="text-xs font-mono text-gray-600">Body</span>
+                                <div class="text-right">
+                                    <span class="text-xs font-mono text-gray-800">16px / 1rem</span>
+                                    <span class="text-[9px] font-mono text-gray-400 ml-1">same</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline justify-between border-b border-gray-100 pb-2">
+                                <span class="text-xs font-mono text-gray-600">Small</span>
+                                <div class="text-right">
+                                    <span class="text-xs font-mono text-gray-800">13px / 0.8rem</span>
+                                    <span class="text-[9px] font-mono text-gray-400 ml-1">same</span>
+                                </div>
+                            </div>
+                            <div class="flex items-baseline justify-between">
+                                <span class="text-xs font-mono text-gray-600">Caption</span>
+                                <div class="text-right">
+                                    <span class="text-xs font-mono text-gray-800">10px / 0.625rem</span>
+                                    <span class="text-[9px] font-mono text-gray-400 ml-1">same</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Scale note -->
+                <div class="mt-4 bg-blue-50/50 border border-sga-blue/10 rounded-lg p-4">
+                    <p class="text-xs font-fira text-gray-600"><strong class="text-gray-800">Implementation note:</strong> Use CSS <code class="font-mono text-sga-blue bg-sga-blue/5 px-1 rounded">clamp()</code> for fluid scaling between breakpoints. Example: <code class="font-mono text-sga-blue bg-sga-blue/5 px-1 rounded">font-size: clamp(2rem, 4vw + 0.5rem, 3.052rem)</code> for Display size. This eliminates jarring size jumps at breakpoints.</p>
+                </div>
+            </section>
+
+            <!-- ============================================================ -->
+            <!-- Section 08: CSS Export                                         -->
+            <!-- ============================================================ -->
+            <section id="css-export" class="section-reveal">
+                <div class="mb-8">
+                    <p class="text-[11px] uppercase tracking-widest text-sga-blue font-fira font-semibold mb-1">08</p>
+                    <h2 class="text-3xl font-bold tracking-tight font-etica-display" style="font-weight:900;">CSS Export</h2>
+                    <p class="text-gray-500 mt-2 max-w-xl leading-relaxed">Copy-paste ready CSS custom properties for typography. Includes font families, type scale, and responsive overrides.</p>
+                </div>
+
+                <div class="relative">
+                    <button onclick="copyCodeBlock('css-type-code')" class="copy-btn absolute top-3 right-3 bg-white/10 hover:bg-white/20 text-gray-400 hover:text-white text-xs font-mono px-3 py-1.5 rounded transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-sga-blue focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900" aria-label="Copy CSS to clipboard">Copy</button>
+                    <div class="code-block p-5">
+                        <pre><code id="css-type-code">/* ── SGA Dental Partners Typography ────────────────── */
+
+/* Typekit embed (add to <head>) */
+/* <link rel="stylesheet" href="https://use.typekit.net/xid1tyx.css"> */
+
+:root {
+  /* Font Families */
+  --font-primary: 'lft-etica', 'Roboto', sans-serif;
+  --font-display: 'etica-display', 'Roboto Slab', serif;
+  --font-nav: 'Fira Sans', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+
+  /* Type Scale (Desktop - Major Third 1.25) */
+  --text-display: 3.052rem;   /* 49px */
+  --text-h1: 2.441rem;        /* 39px */
+  --text-h2: 1.953rem;        /* 31px */
+  --text-h3: 1.563rem;        /* 25px */
+  --text-h4: 1.25rem;         /* 20px */
+  --text-h5: 1rem;            /* 16px */
+  --text-h6: 0.8rem;          /* 13px */
+  --text-body: 1rem;          /* 16px */
+  --text-small: 0.8rem;       /* 13px */
+  --text-caption: 0.625rem;   /* 10px */
+
+  /* Line Heights */
+  --leading-display: 1.1;
+  --leading-h1: 1.15;
+  --leading-h2: 1.2;
+  --leading-h3: 1.3;
+  --leading-h4: 1.4;
+  --leading-body: 1.6;
+  --leading-small: 1.5;
+  --leading-caption: 1.4;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.02em;
+  --tracking-snug: -0.015em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.03em;
+  --tracking-wider: 0.08em;
+}
+
+/* Responsive overrides */
+@media (max-width: 640px) {
+  :root {
+    --text-display: 2rem;      /* 32px */
+    --text-h1: 1.75rem;        /* 28px */
+    --text-h2: 1.5rem;         /* 24px */
+    --text-h3: 1.25rem;        /* 20px */
+    --text-h4: 1.125rem;       /* 18px */
+    --text-h6: 0.75rem;        /* 12px */
+  }
+}
+
+/* Fluid scaling alternative (recommended) */
+.fluid-display {
+  font-size: clamp(2rem, 4vw + 0.5rem, 3.052rem);
+}
+.fluid-h1 {
+  font-size: clamp(1.75rem, 3vw + 0.5rem, 2.441rem);
+}
+.fluid-h2 {
+  font-size: clamp(1.5rem, 2.5vw + 0.5rem, 1.953rem);
+}
+
+/* Base styles */
+body {
+  font-family: var(--font-primary);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: #333333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  color: #333333;
+}
+
+h1 {
+  font-size: var(--text-h1);
+  font-weight: 900;
+  line-height: var(--leading-h1);
+  letter-spacing: var(--tracking-tight);
+}
+
+h2 {
+  font-size: var(--text-h2);
+  font-weight: 700;
+  line-height: var(--leading-h2);
+  letter-spacing: var(--tracking-snug);
+}
+
+h3 {
+  font-size: var(--text-h3);
+  font-weight: 700;
+  line-height: var(--leading-h3);
+}
+
+h4 {
+  font-size: var(--text-h4);
+  font-weight: 700;
+  line-height: var(--leading-h4);
+}
+
+h5 {
+  font-size: var(--text-h5);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+h6 {
+  font-size: var(--text-h6);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* Display heading (hero use) */
+.display {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: 900;
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-tight);
+}
+
+p {
+  max-width: 65ch;
+}
+
+small, .text-small {
+  font-size: var(--text-small);
+  line-height: var(--leading-small);
+}
+
+.caption {
+  font-family: var(--font-nav);
+  font-size: var(--text-caption);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================ -->
+            <!-- Section 09: Tailwind Export                                    -->
+            <!-- ============================================================ -->
+            <section id="tailwind-export" class="section-reveal">
+                <div class="mb-8">
+                    <p class="text-[11px] uppercase tracking-widest text-sga-blue font-fira font-semibold mb-1">09</p>
+                    <h2 class="text-3xl font-bold tracking-tight font-etica-display" style="font-weight:900;">Tailwind Config</h2>
+                    <p class="text-gray-500 mt-2 max-w-xl leading-relaxed">Drop this into your tailwind.config.js to register the SGA font families and type scale as Tailwind utilities.</p>
+                </div>
+
+                <div class="relative">
+                    <button onclick="copyCodeBlock('tw-type-code')" class="copy-btn absolute top-3 right-3 bg-white/10 hover:bg-white/20 text-gray-400 hover:text-white text-xs font-mono px-3 py-1.5 rounded transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-sga-blue focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900" aria-label="Copy Tailwind config to clipboard">Copy</button>
+                    <div class="code-block p-5">
+                        <pre><code id="tw-type-code">// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      fontFamily: {
+        'etica': ['lft-etica', 'Roboto', 'sans-serif'],
+        'etica-display': ['etica-display', 'Roboto Slab', 'serif'],
+        'fira': ['Fira Sans', 'sans-serif'],
+        'roboto': ['Roboto', 'sans-serif'],
+        'roboto-slab': ['Roboto Slab', 'serif'],
+        'mono': ['Roboto Mono', 'monospace'],
+      },
+      fontSize: {
+        'display': ['3.052rem', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '900' }],
+        'h1':      ['2.441rem', { lineHeight: '1.15', letterSpacing: '-0.02em', fontWeight: '900' }],
+        'h2':      ['1.953rem', { lineHeight: '1.2', letterSpacing: '-0.015em', fontWeight: '700' }],
+        'h3':      ['1.563rem', { lineHeight: '1.3', letterSpacing: '-0.01em', fontWeight: '700' }],
+        'h4':      ['1.25rem',  { lineHeight: '1.4', fontWeight: '700' }],
+        'h5':      ['1rem',     { lineHeight: '1.5', fontWeight: '700' }],
+        'h6':      ['0.8rem',   { lineHeight: '1.5', letterSpacing: '0.03em', fontWeight: '700' }],
+        'body':    ['1rem',     { lineHeight: '1.6', fontWeight: '400' }],
+        'small':   ['0.8rem',   { lineHeight: '1.5', fontWeight: '400' }],
+        'caption': ['0.625rem', { lineHeight: '1.4', letterSpacing: '0.04em', fontWeight: '500' }],
+      },
+    },
+  },
+}
+
+/*
+  Usage examples:
+
+  <h1 class="font-etica text-h1">Page Title</h1>
+  <h2 class="font-etica-display text-display">Hero Headline</h2>
+  <p class="font-etica text-body max-w-prose">Body paragraph...</p>
+  <nav class="font-fira text-sm">Navigation items</nav>
+  <span class="font-fira text-caption uppercase">Section Label</span>
+*/</code></pre>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-200 mt-16">
+        <div class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+            <p class="text-xs text-gray-400 font-fira">SGA Dental Partners Brand System</p>
+            <p class="text-xs text-gray-400 font-fira">Generated March 2026</p>
+        </div>
+    </footer>
+
+    <script>
+    /* ================================================================
+       Copy Code Block
+       ================================================================ */
+    function copyCodeBlock(id) {
+        var el = document.getElementById(id);
+        navigator.clipboard.writeText(el.textContent);
+        var btn = el.closest('section').querySelector('.copy-btn');
+        btn.classList.add('copied');
+        setTimeout(function() { btn.classList.remove('copied'); }, 1500);
+    }
+
+    /* ================================================================
+       Sidebar Active State
+       ================================================================ */
+    (function() {
+        var sections = document.querySelectorAll('section[id]');
+        var navLinks = document.querySelectorAll('.nav-link');
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(function(link) { link.classList.remove('active'); });
+                    var activeLink = document.querySelector('.nav-link[href="#' + entry.target.id + '"]');
+                    if (activeLink) activeLink.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+
+        sections.forEach(function(s) { observer.observe(s); });
+    })();
+    </script>
+
+</body>
+</html>

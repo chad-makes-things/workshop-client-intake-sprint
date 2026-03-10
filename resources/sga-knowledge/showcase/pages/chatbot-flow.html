@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversational Marketing Funnel -- Chatbot Flow | SGA Dental Partners</title>
+  <meta name="description" content="Complete chatbot flow architecture for SGA Dental Partners: B2B practice owner qualification, B2C patient booking, lead scoring, handoff protocols, and integration specs.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'sga-blue': '#2D6FB7',
+            'sga-blue-dark': '#1E4F85',
+            'sga-cyan': '#009DD6',
+            'sga-lime': '#C4D347',
+            'sga-orange': '#F36F21',
+            'sga-text': '#333333',
+            'sga-gray': '#F7F8FA',
+            'sga-border': '#E2E8F0',
+            'flow-b2b': '#2D6FB7',
+            'flow-b2c': '#009DD6',
+            'flow-system': '#7C3AED',
+          },
+          fontFamily: {
+            'sans': ['Inter', 'system-ui', 'sans-serif'],
+            'mono': ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    [id] { scroll-margin-top: 100px; }
+
+    /* Accordion */
+    .accordion-chevron { transition: transform 200ms ease-out; }
+    .accordion-open .accordion-chevron { transform: rotate(180deg); }
+
+    /* Flow node connector lines */
+    .flow-node {
+      position: relative;
+    }
+    .flow-node::before {
+      content: '';
+      position: absolute;
+      left: 1.25rem;
+      top: -1rem;
+      width: 2px;
+      height: 1rem;
+      background: #E2E8F0;
+    }
+    .flow-node:first-child::before {
+      display: none;
+    }
+
+    /* Chat bubble styles */
+    .chat-bot {
+      background: #f0f7ff;
+      border: 1px solid #d0e3f5;
+      border-radius: 4px 16px 16px 16px;
+    }
+    .chat-user {
+      background: #2D6FB7;
+      color: white;
+      border-radius: 16px 4px 16px 16px;
+    }
+    .chat-system {
+      background: #faf5ff;
+      border: 1px solid #e9d5ff;
+      border-radius: 8px;
+    }
+
+    /* Button pill in chat */
+    .chat-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.375rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1.5px solid #2D6FB7;
+      color: #2D6FB7;
+      background: white;
+      cursor: pointer;
+      transition: all 150ms;
+    }
+    .chat-btn:hover {
+      background: #eef5fb;
+    }
+    .chat-btn.active {
+      background: #2D6FB7;
+      color: white;
+    }
+
+    /* Tree diagram */
+    .tree-connector {
+      border-left: 2px solid #E2E8F0;
+      margin-left: 1.25rem;
+      padding-left: 1.25rem;
+    }
+
+    /* Flow section tabs */
+    .flow-tab {
+      transition: all 150ms;
+    }
+    .flow-tab.active {
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* Metric cards */
+    .metric-card {
+      transition: transform 200ms ease-out;
+    }
+    .metric-card:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Score badge */
+    .score-hot { background: #fef2f2; color: #dc2626; border-color: #fecaca; }
+    .score-warm { background: #fffbeb; color: #d97706; border-color: #fde68a; }
+    .score-nurture { background: #ecfdf5; color: #059669; border-color: #a7f3d0; }
+
+    @media print {
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-sga-gray font-sans text-sga-text antialiased" style="padding-top:40px;">
+<!-- Back to Showcase banner -->
+<div class="no-print" style="position:fixed;top:0;left:0;right:0;height:40px;background:#1e293b;display:flex;align-items:center;padding:0 16px;z-index:9999;">
+  <a href="../index.html" style="color:#93c5fd;text-decoration:none;font-size:14px;font-family:Inter,sans-serif;">&larr; Back to Showcase</a>
+  <span style="color:#64748b;margin-left:auto;font-size:12px;font-family:Inter,sans-serif;">SGA Dental Partners Marketing Showcase</span>
+</div>
+
+<!-- Hero -->
+<header class="bg-gradient-to-br from-gray-900 via-indigo-950 to-gray-800 text-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+    <div class="max-w-3xl">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+        <span class="text-xs font-semibold uppercase tracking-widest text-green-400">Conversational Marketing</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-6" style="text-wrap:balance;">Chatbot Flow Architecture</h1>
+      <p class="text-lg text-white/80 leading-relaxed mb-6 max-w-2xl">Complete conversational funnel covering B2B practice owner qualification, specialist routing, associate career matching, and B2C patient booking. Ready for implementation across website, Messenger, and Instagram.</p>
+      <div class="flex flex-wrap gap-4 text-sm">
+        <span class="flex items-center gap-1.5 text-white/60"><span class="w-3 h-3 rounded-full bg-flow-b2b"></span> B2B Flows</span>
+        <span class="flex items-center gap-1.5 text-white/60"><span class="w-3 h-3 rounded-full bg-flow-b2c"></span> B2C Flows</span>
+        <span class="flex items-center gap-1.5 text-white/60"><span class="w-3 h-3 rounded-full bg-flow-system"></span> System Actions</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Bot Canvas Summary -->
+<section class="bg-white border-b border-sga-border">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="metric-card bg-sga-gray rounded-xl border border-sga-border p-4 text-center">
+        <p class="text-2xl font-extrabold text-sga-blue">SGA Guide</p>
+        <p class="text-xs text-gray-500 mt-1">Bot Persona: Sage archetype</p>
+      </div>
+      <div class="metric-card bg-sga-gray rounded-xl border border-sga-border p-4 text-center">
+        <p class="text-2xl font-extrabold text-sga-text">4</p>
+        <p class="text-xs text-gray-500 mt-1">Platforms: Web, Messenger, IG, WhatsApp</p>
+      </div>
+      <div class="metric-card bg-sga-gray rounded-xl border border-sga-border p-4 text-center">
+        <p class="text-2xl font-extrabold text-sga-cyan">&lt; 2 min</p>
+        <p class="text-xs text-gray-500 mt-1">Time to Right Person or Info</p>
+      </div>
+      <div class="metric-card bg-sga-gray rounded-xl border border-sga-border p-4 text-center">
+        <p class="text-2xl font-extrabold text-sga-lime">5</p>
+        <p class="text-xs text-gray-500 mt-1">Primary User Types Served</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Navigation Tabs -->
+<nav class="bg-white border-b border-sga-border sticky top-10 z-40 no-print" x-data="{ activeSection: 'tree' }">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex gap-1 overflow-x-auto py-2 -mx-1 px-1" style="-webkit-overflow-scrolling: touch;">
+      <a href="#decision-tree" @click="activeSection = 'tree'" :class="activeSection === 'tree' ? 'active bg-white text-sga-blue font-semibold' : 'text-gray-500 hover:text-gray-700'" class="flow-tab flex-shrink-0 px-4 py-2 text-sm rounded-lg cursor-pointer focus-visible:ring-2 focus-visible:ring-sga-blue">Decision Tree</a>
+      <a href="#b2b-flows" @click="activeSection = 'b2b'" :class="activeSection === 'b2b' ? 'active bg-white text-flow-b2b font-semibold' : 'text-gray-500 hover:text-gray-700'" class="flow-tab flex-shrink-0 px-4 py-2 text-sm rounded-lg cursor-pointer focus-visible:ring-2 focus-visible:ring-sga-blue">B2B Flows</a>
+      <a href="#b2c-flows" @click="activeSection = 'b2c'" :class="activeSection === 'b2c' ? 'active bg-white text-flow-b2c font-semibold' : 'text-gray-500 hover:text-gray-700'" class="flow-tab flex-shrink-0 px-4 py-2 text-sm rounded-lg cursor-pointer focus-visible:ring-2 focus-visible:ring-sga-blue">B2C Flows</a>
+      <a href="#lead-scoring" @click="activeSection = 'scoring'" :class="activeSection === 'scoring' ? 'active bg-white text-flow-system font-semibold' : 'text-gray-500 hover:text-gray-700'" class="flow-tab flex-shrink-0 px-4 py-2 text-sm rounded-lg cursor-pointer focus-visible:ring-2 focus-visible:ring-sga-blue">Lead Scoring</a>
+      <a href="#integrations" @click="activeSection = 'int'" :class="activeSection === 'int' ? 'active bg-white text-gray-800 font-semibold' : 'text-gray-500 hover:text-gray-700'" class="flow-tab flex-shrink-0 px-4 py-2 text-sm rounded-lg cursor-pointer focus-visible:ring-2 focus-visible:ring-sga-blue">Integrations</a>
+      <a href="#metrics" @click="activeSection = 'metrics'" :class="activeSection === 'metrics' ? 'active bg-white text-gray-800 font-semibold' : 'text-gray-500 hover:text-gray-700'" class="flow-tab flex-shrink-0 px-4 py-2 text-sm rounded-lg cursor-pointer focus-visible:ring-2 focus-visible:ring-sga-blue">Metrics</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Decision Tree Overview -->
+<section id="decision-tree" class="bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold text-sga-text mb-3">Complete Decision Tree</h2>
+    <p class="text-gray-500 mb-10 max-w-2xl">The first interaction determines the conversation branch. Every path ends with a clear action: booking, download, handoff, or email capture.</p>
+
+    <!-- Visual Tree -->
+    <div class="bg-sga-gray rounded-2xl border border-sga-border p-6 sm:p-8 overflow-x-auto">
+      <div class="font-mono text-xs leading-relaxed min-w-[600px]" style="color: #374151;">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="w-8 h-8 rounded-lg bg-gray-800 text-white flex items-center justify-center text-xs font-bold">E</span>
+          <span class="font-bold text-sm text-gray-800">ENTRY POINT</span>
+          <span class="text-gray-400">-- "Dental professional or patient?"</span>
+        </div>
+
+        <!-- A: Dental Professional -->
+        <div class="ml-4 border-l-2 border-flow-b2b pl-6 pb-6">
+          <div class="flex items-center gap-2 mb-3 -ml-8">
+            <span class="w-6 h-6 rounded bg-flow-b2b text-white flex items-center justify-center text-xs font-bold">A</span>
+            <span class="font-bold text-flow-b2b">Dental Professional</span>
+          </div>
+          <div class="ml-2 space-y-3">
+            <div class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded bg-blue-100 text-flow-b2b flex items-center justify-center text-xs flex-shrink-0 mt-0.5">O</span>
+              <div>
+                <span class="font-semibold text-gray-700">Practice Owner</span>
+                <span class="text-gray-400"> -- Operatory count > Challenge > Awareness > Timeline</span>
+                <div class="ml-4 mt-1 space-y-0.5 text-gray-500">
+                  <div>Ready now <span class="text-red-600 font-semibold">---> BD HANDOFF (Calendly)</span></div>
+                  <div>6-12mo + 4+ ops <span class="text-yellow-600 font-semibold">---> Partnership Guide + call option</span></div>
+                  <div>6-12mo + 1-3 ops <span class="text-green-600 font-semibold">---> Assessment + nurture</span></div>
+                  <div>Exploring <span class="text-green-600 font-semibold">---> Assessment + educational content</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded bg-blue-100 text-flow-b2b flex items-center justify-center text-xs flex-shrink-0 mt-0.5">S</span>
+              <div>
+                <span class="font-semibold text-gray-700">Specialist</span>
+                <span class="text-gray-400"> -- Specialty > Situation > Challenge > MODIS familiarity > Timeline</span>
+                <div class="ml-4 mt-1 space-y-0.5 text-gray-500">
+                  <div>Active + Owner <span class="text-red-600 font-semibold">---> Marcus Morosin HANDOFF</span></div>
+                  <div>Research <span class="text-yellow-600 font-semibold">---> Specialist's Guide + podcast</span></div>
+                  <div>Early <span class="text-green-600 font-semibold">---> Guide + educational content</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded bg-blue-100 text-flow-b2b flex items-center justify-center text-xs flex-shrink-0 mt-0.5">D</span>
+              <div>
+                <span class="font-semibold text-gray-700">Associate Dentist</span>
+                <span class="text-gray-400"> -- Role > What matters > Experience > Geography</span>
+                <div class="ml-4 mt-1 space-y-0.5 text-gray-500">
+                  <div>Match found <span class="text-yellow-600 font-semibold">---> Show positions + apply CTA</span></div>
+                  <div>No match <span class="text-green-600 font-semibold">---> Notify me + career guide</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded bg-blue-100 text-flow-b2b flex items-center justify-center text-xs flex-shrink-0 mt-0.5">M</span>
+              <div>
+                <span class="font-semibold text-gray-700">Office Manager / Staff</span>
+                <span class="text-gray-400"> -- Recently joined SGA? or Looking for a job?</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- B: Patient -->
+        <div class="ml-4 border-l-2 border-flow-b2c pl-6 pb-6">
+          <div class="flex items-center gap-2 mb-3 -ml-8">
+            <span class="w-6 h-6 rounded bg-flow-b2c text-white flex items-center justify-center text-xs font-bold">B</span>
+            <span class="font-bold text-flow-b2c">Patient</span>
+          </div>
+          <div class="ml-2 space-y-3">
+            <div class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded bg-cyan-100 text-flow-b2c flex items-center justify-center text-xs flex-shrink-0 mt-0.5">I</span>
+              <div>
+                <span class="font-semibold text-gray-700">Implants / Missing Teeth</span>
+                <span class="text-gray-400"> -- Situation > Concern > Location > Next step</span>
+                <div class="ml-4 mt-1 space-y-0.5 text-gray-500">
+                  <div>Schedule <span class="text-red-600 font-semibold">---> Booking flow</span></div>
+                  <div>Assessment <span class="text-yellow-600 font-semibold">---> Smile Assessment link</span></div>
+                  <div>Cost info <span class="text-yellow-600 font-semibold">---> Financing + consultation CTA</span></div>
+                  <div>Send info <span class="text-green-600 font-semibold">---> Email capture + nurture</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded bg-cyan-100 text-flow-b2c flex items-center justify-center text-xs flex-shrink-0 mt-0.5">G</span>
+              <span class="font-semibold text-gray-700">General Dentistry</span>
+              <span class="text-gray-400"> -- Visit type > Location > Insurance > Book</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded bg-cyan-100 text-flow-b2c flex items-center justify-center text-xs flex-shrink-0 mt-0.5">C</span>
+              <span class="font-semibold text-gray-700">Cosmetic</span>
+              <span class="text-gray-400"> -- Location match > Scheduling</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded bg-red-100 text-red-600 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">!</span>
+              <span class="font-semibold text-gray-700">Emergency</span>
+              <span class="text-gray-400"> -- Nearest practice phone number (fast path)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- C: Something Else -->
+        <div class="ml-4 border-l-2 border-gray-300 pl-6">
+          <div class="flex items-center gap-2 -ml-8">
+            <span class="w-6 h-6 rounded bg-gray-400 text-white flex items-center justify-center text-xs font-bold">C</span>
+            <span class="font-bold text-gray-500">Something Else</span>
+            <span class="text-gray-400"> -- Clarification > routes to appropriate flow above</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- B2B Flows -->
+<section id="b2b-flows" class="bg-sga-gray border-y border-sga-border">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <div class="flex items-center gap-3 mb-8">
+      <span class="w-3 h-3 rounded-full bg-flow-b2b"></span>
+      <h2 class="text-2xl sm:text-3xl font-bold text-sga-text">B2B Flows: Dental Professionals</h2>
+    </div>
+
+    <div class="space-y-6" x-data="{ openFlow: 0 }">
+      <!-- Practice Owner Flow -->
+      <div class="bg-white rounded-2xl border border-sga-border overflow-hidden">
+        <button @click="openFlow = openFlow === 0 ? null : 0" class="w-full flex items-center justify-between px-6 py-5 text-left cursor-pointer focus-visible:ring-2 focus-visible:ring-sga-blue focus-visible:ring-offset-2" :class="openFlow === 0 ? 'accordion-open' : ''">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-blue-100 text-flow-b2b flex items-center justify-center text-sm font-bold flex-shrink-0">O</span>
+            <div>
+              <span class="text-base font-bold text-sga-text">Practice Owner Flow</span>
+              <span class="block text-xs text-gray-500">Dr. Mark Hendricks path -- qualify, identify pain, deliver value, route to BD</span>
+            </div>
+          </div>
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0 accordion-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div x-show="openFlow === 0" x-collapse>
+          <div class="px-6 pb-6 space-y-4">
+            <!-- Sample conversation -->
+            <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Sample Conversation: Admin Burden + 6-12 Month Timeline</p>
+            <div class="space-y-3 max-w-lg">
+              <div class="chat-bot px-4 py-3 max-w-sm">
+                <p class="text-sm text-gray-700">Welcome to SGA Dental Partners. I'm here to help -- how can I point you in the right direction?</p>
+                <div class="flex flex-wrap gap-2 mt-3">
+                  <span class="chat-btn active">Dental Professional</span>
+                  <span class="chat-btn">Patient</span>
+                  <span class="chat-btn">Something Else</span>
+                </div>
+              </div>
+              <div class="flex justify-end"><div class="chat-user px-4 py-2.5 max-w-xs"><p class="text-sm">Dental Professional</p></div></div>
+              <div class="chat-bot px-4 py-3 max-w-sm">
+                <p class="text-sm text-gray-700">Great -- welcome. Are you a:</p>
+                <div class="flex flex-wrap gap-2 mt-3">
+                  <span class="chat-btn active">Practice Owner</span>
+                  <span class="chat-btn">Associate</span>
+                  <span class="chat-btn">Specialist</span>
+                  <span class="chat-btn">Staff</span>
+                </div>
+              </div>
+              <div class="flex justify-end"><div class="chat-user px-4 py-2.5 max-w-xs"><p class="text-sm">Practice Owner</p></div></div>
+              <div class="chat-bot px-4 py-3 max-w-sm">
+                <p class="text-sm text-gray-700">Glad to have you here. SGA is backed by the Thurston Group -- 38 years, 8 platforms, $4B+ returned to partners.</p>
+                <p class="text-sm text-gray-700 mt-2">How many operatories does your practice have?</p>
+                <div class="flex flex-wrap gap-2 mt-3">
+                  <span class="chat-btn">1-3</span>
+                  <span class="chat-btn active">4-6</span>
+                  <span class="chat-btn">7-10</span>
+                  <span class="chat-btn">10+</span>
+                </div>
+              </div>
+              <div class="flex justify-end"><div class="chat-user px-4 py-2.5 max-w-xs"><p class="text-sm">4-6</p></div></div>
+              <div class="chat-bot px-4 py-3 max-w-sm">
+                <p class="text-sm text-gray-700">What is the single biggest challenge you are dealing with right now?</p>
+                <div class="flex flex-wrap gap-2 mt-3">
+                  <span class="chat-btn active">Admin burden</span>
+                  <span class="chat-btn">Growth ceiling</span>
+                  <span class="chat-btn">Succession</span>
+                  <span class="chat-btn">Staffing</span>
+                </div>
+              </div>
+              <div class="flex justify-end"><div class="chat-user px-4 py-2.5 max-w-xs"><p class="text-sm">Admin burden</p></div></div>
+              <div class="chat-bot px-4 py-3 max-w-sm">
+                <p class="text-sm text-gray-700">That is the number one thing we hear. As one of our partners put it: <em>"SGA supports us and manages things behind the scenes. Our partnership allows us to focus on changing lives."</em></p>
+                <p class="text-sm text-gray-700 mt-2">We handle billing, payroll, HR, compliance, recruiting, and procurement -- so you can get back to the chair.</p>
+              </div>
+              <div class="chat-bot px-4 py-3 max-w-sm">
+                <p class="text-sm text-gray-700">What is your timeline for making a change?</p>
+                <div class="flex flex-wrap gap-2 mt-3">
+                  <span class="chat-btn">Just exploring</span>
+                  <span class="chat-btn active">6-12 months</span>
+                  <span class="chat-btn">Ready now</span>
+                </div>
+              </div>
+              <div class="flex justify-end"><div class="chat-user px-4 py-2.5 max-w-xs"><p class="text-sm">6-12 months</p></div></div>
+              <div class="chat-bot px-4 py-3 max-w-sm">
+                <p class="text-sm text-gray-700">Smart timing. Two things I would recommend:</p>
+                <p class="text-sm text-gray-700 mt-2">1. Download our <strong>Confidential Partnership Guide</strong></p>
+                <p class="text-sm text-gray-700">2. Book a no-pressure introductory call when ready</p>
+                <div class="flex flex-wrap gap-2 mt-3">
+                  <span class="chat-btn">Send guide to my email</span>
+                  <span class="chat-btn">Download now</span>
+                  <span class="chat-btn">Book a call</span>
+                </div>
+              </div>
+              <div class="chat-system px-4 py-3 max-w-sm">
+                <p class="text-xs text-purple-700 font-mono">SYSTEM: Tag as pa_tier_growth. Enter PA-Indoctrination email sequence. CRM record created. Lead score: 55 (warm).</p>
+              </div>
+            </div>
+
+            <!-- Questions map -->
+            <div class="mt-8 pt-6 border-t border-sga-border">
+              <p class="text-sm font-bold text-sga-blue-dark mb-3">Decision Sequence</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="inline-flex items-center gap-1.5 bg-blue-50 text-sga-blue text-xs font-semibold px-3 py-1.5 rounded-full border border-blue-100">Q1: Role</span>
+                <svg class="w-4 h-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                <span class="inline-flex items-center gap-1.5 bg-blue-50 text-sga-blue text-xs font-semibold px-3 py-1.5 rounded-full border border-blue-100">Q2: Operatory Count</span>
+                <svg class="w-4 h-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                <span class="inline-flex items-center gap-1.5 bg-blue-50 text-sga-blue text-xs font-semibold px-3 py-1.5 rounded-full border border-blue-100">Q3: Challenge</span>
+                <svg class="w-4 h-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                <span class="inline-flex items-center gap-1.5 bg-blue-50 text-sga-blue text-xs font-semibold px-3 py-1.5 rounded-full border border-blue-100">Q4: Awareness</span>
+                <svg class="w-4 h-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                <span class="inline-flex items-center gap-1.5 bg-blue-50 text-sga-blue text-xs font-semibold px-3 py-1.5 rounded-full border border-blue-100">Q5: Timeline</span>
+                <svg class="w-4 h-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                <span class="inline-flex items-center gap-1.5 bg-sga-orange/10 text-sga-orange text-xs font-semibold px-3 py-1.5 rounded-full border border-orange-200">Route to Action</span>
+              </div>
+              <div class="mt-4 grid sm:grid-cols-3 gap-3 text-xs">
+                <div class="bg-red-50 border border-red-100 rounded-lg p-3"><strong class="text-red-700">Challenge options:</strong><span class="text-gray-600 block mt-1">Admin burden, Growth ceiling, Succession planning, Staffing, Clinical development, Something else</span></div>
+                <div class="bg-yellow-50 border border-yellow-100 rounded-lg p-3"><strong class="text-yellow-700">Awareness levels:</strong><span class="text-gray-600 block mt-1">Actively looking, Looked into it casually, New to me</span></div>
+                <div class="bg-green-50 border border-green-100 rounded-lg p-3"><strong class="text-green-700">Timeline options:</strong><span class="text-gray-600 block mt-1">Just exploring, 6-12 months, Ready to have a real conversation</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Specialist Flow -->
+      <div class="bg-white rounded-2xl border border-sga-border overflow-hidden">
+        <button @click="openFlow = openFlow === 1 ? null : 1" class="w-full flex items-center justify-between px-6 py-5 text-left cursor-pointer focus-visible:ring-2 focus-visible:ring-sga-blue focus-visible:ring-offset-2" :class="openFlow === 1 ? 'accordion-open' : ''">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-blue-100 text-flow-b2b flex items-center justify-center text-sm font-bold flex-shrink-0">S</span>
+            <div>
+              <span class="text-base font-bold text-sga-text">Specialist Flow</span>
+              <span class="block text-xs text-gray-500">Dr. James Whitfield path -- qualify specialty, surface MODIS value, route to Marcus Morosin</span>
+            </div>
+          </div>
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0 accordion-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div x-show="openFlow === 1" x-collapse>
+          <div class="px-6 pb-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="inline-flex items-center gap-1.5 bg-blue-50 text-sga-blue text-xs font-semibold px-3 py-1.5 rounded-full border border-blue-100">Q1: Specialty Type</span>
+              <svg class="w-4 h-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+              <span class="inline-flex items-center gap-1.5 bg-blue-50 text-sga-blue text-xs font-semibold px-3 py-1.5 rounded-full border border-blue-100">Q2: Owner / Associate?</span>
+              <svg class="w-4 h-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+              <span class="inline-flex items-center gap-1.5 bg-blue-50 text-sga-blue text-xs font-semibold px-3 py-1.5 rounded-full border border-blue-100">Q3: Challenge</span>
+              <svg class="w-4 h-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+              <span class="inline-flex items-center gap-1.5 bg-blue-50 text-sga-blue text-xs font-semibold px-3 py-1.5 rounded-full border border-blue-100">Q4: MODIS/Pikos Familiarity</span>
+              <svg class="w-4 h-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+              <span class="inline-flex items-center gap-1.5 bg-blue-50 text-sga-blue text-xs font-semibold px-3 py-1.5 rounded-full border border-blue-100">Q5: Timeline</span>
+            </div>
+            <p class="text-sm text-gray-600">Key differentiator: mentions MODIS, Pikos Institute, and Dr. Pikos as founding partner early in the flow. Specialist challenges mapped to capital investment ($250K-$750K), marketing engine, recruiting infrastructure, and scope protection guarantee. Hot leads routed directly to Marcus Morosin (VP BD) via dedicated Calendly calendar.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Associate Flow -->
+      <div class="bg-white rounded-2xl border border-sga-border overflow-hidden">
+        <button @click="openFlow = openFlow === 2 ? null : 2" class="w-full flex items-center justify-between px-6 py-5 text-left cursor-pointer focus-visible:ring-2 focus-visible:ring-sga-blue focus-visible:ring-offset-2" :class="openFlow === 2 ? 'accordion-open' : ''">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-blue-100 text-flow-b2b flex items-center justify-center text-sm font-bold flex-shrink-0">D</span>
+            <div>
+              <span class="text-base font-bold text-sga-text">Associate Dentist Flow</span>
+              <span class="block text-xs text-gray-500">Dr. Priya Nair path -- match to open positions or career resources</span>
+            </div>
+          </div>
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0 accordion-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div x-show="openFlow === 2" x-collapse>
+          <div class="px-6 pb-6">
+            <p class="text-sm text-gray-600">Qualification sequence: Role type (dentist/hygienist/staff) > What matters most (mentorship, comp, work-life, equity path, location) > Experience level > Geography preference. Matches available openings and shows 1-3 relevant positions. No match? Offers notification when positions open + career guide download. Key selling points: Class A shareholder equity from day one, Pikos Institute CE access, Individual Growth Engine mentorship.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Staff Flow -->
+      <div class="bg-white rounded-2xl border border-sga-border overflow-hidden">
+        <button @click="openFlow = openFlow === 3 ? null : 3" class="w-full flex items-center justify-between px-6 py-5 text-left cursor-pointer focus-visible:ring-2 focus-visible:ring-sga-blue focus-visible:ring-offset-2" :class="openFlow === 3 ? 'accordion-open' : ''">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-blue-100 text-flow-b2b flex items-center justify-center text-sm font-bold flex-shrink-0">M</span>
+            <div>
+              <span class="text-base font-bold text-sga-text">Office Manager / Staff Flow</span>
+              <span class="block text-xs text-gray-500">Tamara Reeves path -- reassurance for recently joined practices, or job seeker routing</span>
+            </div>
+          </div>
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0 accordion-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div x-show="openFlow === 3" x-collapse>
+          <div class="px-6 pb-6">
+            <p class="text-sm text-gray-600">Two paths: (1) "My practice recently joined SGA" -- addresses benefits/payroll questions (iSolved, Cigna, Voya 401k), what changes vs stays the same, PeopleOps routing. (2) "Looking for a job" -- routes to career page. Key message: "Your practice keeps its name. Your team stays. Your patients will not notice a difference -- except that things run smoother behind the scenes."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- B2C Flows -->
+<section id="b2c-flows" class="bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <div class="flex items-center gap-3 mb-8">
+      <span class="w-3 h-3 rounded-full bg-flow-b2c"></span>
+      <h2 class="text-2xl sm:text-3xl font-bold text-sga-text">B2C Flows: Patients</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4">
+      <!-- Implant Flow -->
+      <div class="bg-sga-gray rounded-2xl border border-sga-border p-6">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-8 h-8 rounded-lg bg-cyan-100 text-flow-b2c flex items-center justify-center text-sm font-bold flex-shrink-0">I</span>
+          <h3 class="text-base font-bold text-sga-text">Implant Patient Flow</h3>
+        </div>
+        <p class="text-xs text-gray-500 mb-4">Linda Dawson path -- empathize, educate, reduce fear, book consultation</p>
+        <div class="space-y-2 text-sm text-gray-600">
+          <p><strong class="text-sga-text">Q1:</strong> Situation (dentures, failing teeth, doctor-referred, researching for someone)</p>
+          <p><strong class="text-sga-text">Q2:</strong> Biggest concern (cost, fear, unsure options, finding doctor, travel)</p>
+          <p><strong class="text-sga-text">Q3:</strong> Location preference (specific doctor, MODIS near me, help me find)</p>
+          <p><strong class="text-sga-text">Q4:</strong> Next step (schedule, Smile Assessment, cost info, send info)</p>
+        </div>
+        <div class="mt-4 bg-cyan-50 border border-cyan-100 rounded-lg p-3">
+          <p class="text-xs text-cyan-800"><strong>Key responses:</strong> Cost concern gets $199-349/mo financing info + Dr. Olson transparency quote. Fear concern gets Scott's "steak moment" story. Rich media: transformation videos, before/after photos, financing infographic.</p>
+        </div>
+      </div>
+
+      <!-- General Flow -->
+      <div class="bg-sga-gray rounded-2xl border border-sga-border p-6">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-8 h-8 rounded-lg bg-cyan-100 text-flow-b2c flex items-center justify-center text-sm font-bold flex-shrink-0">G</span>
+          <h3 class="text-base font-bold text-sga-text">General Dentistry Flow</h3>
+        </div>
+        <p class="text-xs text-gray-500 mb-4">Quick routing to nearest practice + appointment booking</p>
+        <div class="space-y-2 text-sm text-gray-600">
+          <p><strong class="text-sga-text">Q1:</strong> Visit type (checkup, specific issue, new patient)</p>
+          <p><strong class="text-sga-text">Q2:</strong> Location (city/zip code -- location match)</p>
+          <p><strong class="text-sga-text">Q3:</strong> Insurance status (yes/no/unsure)</p>
+          <p><strong class="text-sga-text">Q4:</strong> Book online or request callback</p>
+        </div>
+      </div>
+
+      <!-- Emergency Flow -->
+      <div class="bg-sga-gray rounded-2xl border border-sga-border p-6">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-8 h-8 rounded-lg bg-red-100 text-red-600 flex items-center justify-center text-sm font-bold flex-shrink-0">!</span>
+          <h3 class="text-base font-bold text-sga-text">Emergency Flow</h3>
+        </div>
+        <p class="text-xs text-gray-500 mb-4">Fast path: get them to call nearest practice immediately</p>
+        <p class="text-sm text-gray-600">Triage: severe pain, broken tooth, bleeding, infection signs. If yes: display nearest practice phone number immediately. If unsure: brief triage checklist, then route to emergency or regular appointment.</p>
+      </div>
+
+      <!-- Cosmetic Flow -->
+      <div class="bg-sga-gray rounded-2xl border border-sga-border p-6">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-8 h-8 rounded-lg bg-cyan-100 text-flow-b2c flex items-center justify-center text-sm font-bold flex-shrink-0">C</span>
+          <h3 class="text-base font-bold text-sga-text">Cosmetic Flow</h3>
+        </div>
+        <p class="text-xs text-gray-500 mb-4">Interest capture + location match + scheduling</p>
+        <p class="text-sm text-gray-600">Options: whitening, veneers/bonding, smile makeover. Routes to location match + scheduling flow (same as general dentistry).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lead Scoring -->
+<section id="lead-scoring" class="bg-sga-gray border-y border-sga-border">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <div class="flex items-center gap-3 mb-8">
+      <span class="w-3 h-3 rounded-full bg-flow-system"></span>
+      <h2 class="text-2xl sm:text-3xl font-bold text-sga-text">Lead Scoring Model</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- B2B Scoring -->
+      <div class="bg-white rounded-2xl border border-sga-border p-6">
+        <h3 class="text-base font-bold text-sga-text mb-4">B2B Scoring (Practice Owners and Specialists)</h3>
+        <div class="space-y-2 text-sm">
+          <div class="flex justify-between"><span class="text-gray-600">Visits /partners page + starts chat</span><span class="font-mono font-bold text-sga-blue">+30</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Identifies as practice owner</span><span class="font-mono font-bold text-sga-blue">+20</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Timeline: "Ready now"</span><span class="font-mono font-bold text-sga-blue">+25</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Completes Partnership Assessment</span><span class="font-mono font-bold text-sga-blue">+20</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">7+ operatories</span><span class="font-mono font-bold text-sga-blue">+15</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Downloads Partnership Guide</span><span class="font-mono font-bold text-sga-blue">+15</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Timeline: "6-12 months"</span><span class="font-mono font-bold text-sga-blue">+15</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Mentions a competitor by name</span><span class="font-mono font-bold text-sga-blue">+10</span></div>
+        </div>
+        <div class="mt-6 space-y-2">
+          <div class="flex items-center gap-2"><span class="score-hot text-xs font-bold px-2.5 py-1 rounded-full border">70+</span><span class="text-xs text-gray-600">Hot -- Immediate Slack notification, 24hr outreach</span></div>
+          <div class="flex items-center gap-2"><span class="score-warm text-xs font-bold px-2.5 py-1 rounded-full border">40-69</span><span class="text-xs text-gray-600">Warm -- Engagement email sequence, 72hr follow-up</span></div>
+          <div class="flex items-center gap-2"><span class="score-nurture text-xs font-bold px-2.5 py-1 rounded-full border">15-39</span><span class="text-xs text-gray-600">Nurture -- Educational content, monthly check-in</span></div>
+        </div>
+      </div>
+
+      <!-- B2C Scoring -->
+      <div class="bg-white rounded-2xl border border-sga-border p-6">
+        <h3 class="text-base font-bold text-sga-text mb-4">B2C Scoring (Implant Patients)</h3>
+        <div class="space-y-2 text-sm">
+          <div class="flex justify-between"><span class="text-gray-600">Requests consultation scheduling</span><span class="font-mono font-bold text-flow-b2c">+25</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Visits implant page + starts chat</span><span class="font-mono font-bold text-flow-b2c">+20</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Completes Smile Assessment</span><span class="font-mono font-bold text-flow-b2c">+20</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Situation: dentures or doctor-referred</span><span class="font-mono font-bold text-flow-b2c">+15</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Asks about specific doctor</span><span class="font-mono font-bold text-flow-b2c">+10</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Cost concern (engaged with financing)</span><span class="font-mono font-bold text-flow-b2c">+10</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Returns within 14 days</span><span class="font-mono font-bold text-flow-b2c">+10</span></div>
+        </div>
+        <div class="mt-6 space-y-2">
+          <div class="flex items-center gap-2"><span class="score-hot text-xs font-bold px-2.5 py-1 rounded-full border">50+</span><span class="text-xs text-gray-600">Hot -- Practice front desk outreach same day</span></div>
+          <div class="flex items-center gap-2"><span class="score-warm text-xs font-bold px-2.5 py-1 rounded-full border">25-49</span><span class="text-xs text-gray-600">Warm -- PT-Implant Nurture (6 emails, 14 days)</span></div>
+          <div class="flex items-center gap-2"><span class="score-nurture text-xs font-bold px-2.5 py-1 rounded-full border">0-24</span><span class="text-xs text-gray-600">Early -- Smile Assessment + educational content</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Integrations -->
+<section id="integrations" class="bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold text-sga-text mb-8">Integration and Handoff Specifications</h2>
+
+    <div class="grid md:grid-cols-3 gap-4 mb-8">
+      <div class="bg-sga-gray rounded-xl border border-sga-border p-5">
+        <h3 class="text-sm font-bold text-sga-blue-dark mb-3">CRM Integration</h3>
+        <p class="text-xs text-gray-600">HubSpot/Salesforce fields populated: name, email, phone, lead_source, audience_type, lead_score, conversation_transcript, chatbot_flow_path. B2B adds: practice_name, operatory_count, challenge, timeline. B2C adds: patient_situation, concern, insurance_status.</p>
+      </div>
+      <div class="bg-sga-gray rounded-xl border border-sga-border p-5">
+        <h3 class="text-sm font-bold text-sga-blue-dark mb-3">Slack Notifications</h3>
+        <p class="text-xs text-gray-600">Channels: #bd-hot-leads (B2B score 70+), #modis-bd (specialist leads), #patient-bookings (consultations), #escalations (frustration/complaints). After-hours hot leads include @mention with priority follow-up deadline.</p>
+      </div>
+      <div class="bg-sga-gray rounded-xl border border-sga-border p-5">
+        <h3 class="text-sm font-bold text-sga-blue-dark mb-3">Scheduling</h3>
+        <p class="text-xs text-gray-600">B2B owner calls: Calendly BD team round-robin (30 min). Specialist calls: Marcus Morosin's personal calendar. B2C implant: practice PMS or per-location Calendly. B2C general: direct PMS link or phone fallback.</p>
+      </div>
+    </div>
+
+    <!-- Handoff Protocol -->
+    <div class="bg-sga-gray rounded-2xl border border-sga-border p-6 sm:p-8">
+      <h3 class="text-base font-bold text-sga-text mb-4">Human Handoff Protocol</h3>
+      <div class="grid sm:grid-cols-2 gap-4 text-sm">
+        <div>
+          <h4 class="font-semibold text-sga-blue-dark mb-2">Immediate Triggers</h4>
+          <ul class="space-y-1.5 text-gray-600 text-xs">
+            <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-1.5"></span>User explicitly asks for a person</li>
+            <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-1.5"></span>B2B lead score exceeds 70</li>
+            <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-1.5"></span>Frustration or anger detected</li>
+            <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-1.5"></span>Patient complaint about care</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-sga-blue-dark mb-2">Handoff Steps</h4>
+          <ol class="space-y-1.5 text-gray-600 text-xs list-decimal list-inside">
+            <li>Prepare user (name the person/team, not "sales")</li>
+            <li>Transfer context (full transcript, score, signals, recommended next step)</li>
+            <li>Warm intro (when live transfer available)</li>
+            <li>Fallback (set specific response time if no human available)</li>
+          </ol>
+        </div>
+      </div>
+      <p class="text-xs text-gray-500 mt-4 italic">Rule: Never leave a qualified lead at a dead end. If no human is available, set a specific expectation and follow through.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Performance Metrics -->
+<section id="metrics" class="bg-sga-gray border-t border-sga-border">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold text-sga-text mb-8">Performance Metrics and KPIs</h2>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div class="metric-card bg-white rounded-xl border border-sga-border p-5 text-center">
+        <p class="text-3xl font-extrabold text-sga-blue">&gt; 5%</p>
+        <p class="text-xs text-gray-500 mt-1">Engagement Rate (web)</p>
+      </div>
+      <div class="metric-card bg-white rounded-xl border border-sga-border p-5 text-center">
+        <p class="text-3xl font-extrabold text-sga-cyan">&gt; 45%</p>
+        <p class="text-xs text-gray-500 mt-1">Completion Rate</p>
+      </div>
+      <div class="metric-card bg-white rounded-xl border border-sga-border p-5 text-center">
+        <p class="text-3xl font-extrabold text-sga-lime">&gt; 20%</p>
+        <p class="text-xs text-gray-500 mt-1">Chat-to-Lead Rate</p>
+      </div>
+      <div class="metric-card bg-white rounded-xl border border-sga-border p-5 text-center">
+        <p class="text-3xl font-extrabold text-sga-orange">&gt; 12%</p>
+        <p class="text-xs text-gray-500 mt-1">Chat-to-Action Rate</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl border border-sga-border overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-sga-gray">
+              <th class="text-left px-4 py-3 font-semibold text-sga-blue-dark border-b border-sga-border">Funnel</th>
+              <th class="text-left px-4 py-3 font-semibold text-sga-blue-dark border-b border-sga-border">Metric</th>
+              <th class="text-left px-4 py-3 font-semibold text-sga-blue-dark border-b border-sga-border">Target</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-sga-border">
+            <tr class="hover:bg-blue-50/30"><td class="px-4 py-3 font-medium">Practice Acquisition</td><td class="px-4 py-3 text-gray-600">Chat-to-BD-call rate</td><td class="px-4 py-3 font-semibold text-sga-blue">&gt; 8%</td></tr>
+            <tr class="hover:bg-blue-50/30"><td class="px-4 py-3 font-medium">Practice Acquisition</td><td class="px-4 py-3 text-gray-600">Assessment starts from chatbot</td><td class="px-4 py-3 font-semibold text-sga-blue">&gt; 30%</td></tr>
+            <tr class="hover:bg-blue-50/30"><td class="px-4 py-3 font-medium">Specialist</td><td class="px-4 py-3 text-gray-600">Chat-to-Marcus-call rate</td><td class="px-4 py-3 font-semibold text-sga-cyan">&gt; 12%</td></tr>
+            <tr class="hover:bg-blue-50/30"><td class="px-4 py-3 font-medium">Recruitment</td><td class="px-4 py-3 text-gray-600">Chat-to-application rate</td><td class="px-4 py-3 font-semibold text-sga-cyan">&gt; 15%</td></tr>
+            <tr class="hover:bg-blue-50/30"><td class="px-4 py-3 font-medium">Implant (PT)</td><td class="px-4 py-3 text-gray-600">Chat-to-consultation-booked</td><td class="px-4 py-3 font-semibold text-sga-orange">&gt; 10%</td></tr>
+            <tr class="hover:bg-blue-50/30"><td class="px-4 py-3 font-medium">Implant (PT)</td><td class="px-4 py-3 text-gray-600">Chat-to-Smile-Assessment</td><td class="px-4 py-3 font-semibold text-sga-orange">&gt; 25%</td></tr>
+            <tr class="hover:bg-blue-50/30"><td class="px-4 py-3 font-medium">General (PT)</td><td class="px-4 py-3 text-gray-600">Chat-to-appointment rate</td><td class="px-4 py-3 font-semibold text-sga-orange">&gt; 20%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mt-8 bg-white rounded-2xl border border-sga-border p-6">
+      <h3 class="text-base font-bold text-sga-text mb-4">Optimization Cadence</h3>
+      <div class="grid sm:grid-cols-3 gap-4 text-xs text-gray-600">
+        <div class="bg-sga-gray rounded-lg p-3">
+          <p class="font-bold text-sga-blue-dark mb-1">Weekly</p>
+          <p>Drop-off analysis by screen (fix &gt; 40% abandonment). Fallback trigger log (add new intent patterns). Routing accuracy QA sample.</p>
+        </div>
+        <div class="bg-sga-gray rounded-lg p-3">
+          <p class="font-bold text-sga-blue-dark mb-1">Monthly</p>
+          <p>Lead quality review with BD team. A/B test results (greeting, question order, CTA phrasing). Roll winner, test new challenger.</p>
+        </div>
+        <div class="bg-sga-gray rounded-lg p-3">
+          <p class="font-bold text-sga-blue-dark mb-1">Quarterly</p>
+          <p>Full flow audit -- walk every path end-to-end. Verify integrations. Update content. Refresh media assets.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Entry Points -->
+<section class="bg-white border-t border-sga-border">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <h2 class="text-2xl font-bold text-sga-text mb-8">Platform Entry Points</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-sga-gray rounded-xl border border-sga-border p-5">
+        <h3 class="text-sm font-bold text-sga-blue-dark mb-2">Website Widget</h3>
+        <p class="text-xs text-gray-600">Persistent bottom-right on all pages. Time-based (15s homepage), page-specific (8s on /partners), scroll-based (50% on blog), exit intent, return visitor detection.</p>
+      </div>
+      <div class="bg-sga-gray rounded-xl border border-sga-border p-5">
+        <h3 class="text-sm font-bold text-sga-blue-dark mb-2">Facebook Messenger</h3>
+        <p class="text-xs text-gray-600">Linked from Meta ads (B2B + B2C). Campaign-specific opening messages. Persistent menu. 24-hour window rule -- capture email early.</p>
+      </div>
+      <div class="bg-sga-gray rounded-xl border border-sga-border p-5">
+        <h3 class="text-sm font-bold text-sga-blue-dark mb-2">Instagram DM</h3>
+        <p class="text-xs text-gray-600">Keyword-based auto-replies. Story reply triggers. 4 Ice Breaker prompts. Quick Reply buttons (max 3-4). 24-hour window.</p>
+      </div>
+      <div class="bg-sga-gray rounded-xl border border-sga-border p-5">
+        <h3 class="text-sm font-bold text-sga-blue-dark mb-2">WhatsApp (Planned)</h3>
+        <p class="text-xs text-gray-600">Business API setup required. Max 3 buttons per message. Pre-approved template messages for outbound. 24-hour conversation window.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Fallback -->
+<section class="bg-sga-gray border-t border-sga-border">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <h2 class="text-2xl font-bold text-sga-text mb-6">Fallback and Recovery System</h2>
+    <p class="text-gray-500 mb-8 max-w-2xl">Every dead end has a recovery path. The bot never leaves a user stranded.</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="bg-white rounded-xl border border-sga-border p-5">
+        <p class="text-sm font-bold text-sga-text mb-1">Bot does not understand</p>
+        <p class="text-xs text-gray-600">Rephrase prompt + 3 button options: dental professional, patient help, talk to a real person.</p>
+      </div>
+      <div class="bg-white rounded-xl border border-sga-border p-5">
+        <p class="text-sm font-bold text-sga-text mb-1">Frustration detected</p>
+        <p class="text-xs text-gray-600">Immediate apology + human handoff. Tagged as escalation_frustration for QA review.</p>
+      </div>
+      <div class="bg-white rounded-xl border border-sga-border p-5">
+        <p class="text-sm font-bold text-sga-text mb-1">Out-of-scope question</p>
+        <p class="text-xs text-gray-600">Transparent acknowledgment + route to right person. Clinical questions redirected to consultation booking.</p>
+      </div>
+      <div class="bg-white rounded-xl border border-sga-border p-5">
+        <p class="text-sm font-bold text-sga-text mb-1">2+ min silence</p>
+        <p class="text-xs text-gray-600">"Still there?" check-in with continue, start over, or email options.</p>
+      </div>
+      <div class="bg-white rounded-xl border border-sga-border p-5">
+        <p class="text-sm font-bold text-sga-text mb-1">10+ min silence</p>
+        <p class="text-xs text-gray-600">Summary offer via email. Conversation stays open for return.</p>
+      </div>
+      <div class="bg-white rounded-xl border border-sga-border p-5">
+        <p class="text-sm font-bold text-sga-text mb-1">Abusive input</p>
+        <p class="text-xs text-gray-600">One warning + human offer. If continued: close chat with phone/email fallback.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tone Reference -->
+<section class="bg-white border-t border-sga-border">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <h2 class="text-2xl font-bold text-sga-text mb-8 text-center">Conversation Tone Reference</h2>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div>
+        <h3 class="text-sm font-bold text-sga-blue-dark mb-3">Voice Constants (All Flows)</h3>
+        <ul class="space-y-2 text-sm text-gray-600">
+          <li><strong class="text-sga-text">Evidence over claims:</strong> "Our partners can tell you" not "We are the best"</li>
+          <li><strong class="text-sga-text">Specific over generic:</strong> "85% staff retention" not "great culture"</li>
+          <li><strong class="text-sga-text">Direct over hedged:</strong> "Here is how it works" not "We believe we offer"</li>
+          <li><strong class="text-sga-text">Peer-level:</strong> "You have been doing this long enough to know" not "Let us show you a better way"</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-sm font-bold text-sga-blue-dark mb-3">B2B vs B2C Tone</h3>
+        <div class="space-y-4">
+          <div>
+            <p class="text-xs font-semibold text-flow-b2b mb-1">B2B (Practice Owners)</p>
+            <p class="text-xs text-gray-600">Respectful of expertise and fears. Mirror possessive language: "your practice," "your team." Never say "your asset" or "the opportunity." Back every claim with a name and a number.</p>
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-flow-b2c mb-1">B2C (Patients)</p>
+            <p class="text-xs text-gray-600">Warm, human, un-clinical. Lead with the before-state they live in. Use sensory language: eating, smiling, laughing. Never minimize fear or financial anxiety.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-gray-400 text-xs">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <p>Chatbot flow architecture prepared March 2026. Ready for implementation across website widget (sgadental.com), MODIS patient widget, Facebook Messenger, and Instagram DM. Platform integrations: CRM (HubSpot/Salesforce), email (ActiveCampaign/Mailchimp), scheduling (Calendly/PMS), Slack, Google Sheets.</p>
+    <p class="mt-2">Related pages: <a href="landing-page.html" class="text-sga-blue hover:underline cursor-pointer">Main Landing Page</a> | <a href="practice-assessment.html" class="text-sga-blue hover:underline cursor-pointer">Practice Assessment</a> | <a href="lead-magnet.html" class="text-sga-blue hover:underline cursor-pointer">Lead Magnet</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

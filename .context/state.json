@@ -9,6 +9,25 @@
       "problem": "Pre-workshop client material collection is manual, fragmented, and unscalable",
       "solution": "The Interview + The Head Start — Guided intake flow with web-scraping pre-population",
       "output": "resources/problem-sprints/client-onboarding-intake/"
+    },
+    "digital-storefront-at-scale": {
+      "type": "problem-sprint",
+      "status": "complete",
+      "phase": "validated",
+      "started": "2026-03-10",
+      "completed": "2026-03-10",
+      "problem": "260+ practice digital storefront setup takes months per acquisition with no system for ongoing 365-day network-wide curation",
+      "solution": "The Practice Concierge — Agent-first orchestration platform with per-practice AI concierge, data hub, template engine, channel sync, and network dashboard",
+      "output": "resources/problem-sprints/digital-storefront-at-scale/"
+    }
+  },
+    "full-funnel-visibility": {
+      "type": "problem-sprint",
+      "status": "in-progress",
+      "phase": "target-confirmation",
+      "started": "2026-03-10",
+      "problem": "75+ disconnected tech systems across 260+ practices create 30-day visibility lag into patient funnel health, preventing proactive intervention",
+      "output": "resources/problem-sprints/full-funnel-visibility/"
     }
   },
   "metadata": {

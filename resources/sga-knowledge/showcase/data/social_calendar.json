@@ -1,0 +1,1322 @@
+{
+  "month": "April 2026",
+  "weeks": [
+    {
+      "weekNumber": 1,
+      "theme": "Problem Awareness & Brand Introduction",
+      "days": [
+        {
+          "day": 1,
+          "date": "2026-04-01",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Meet Innovative Dental -- Your Smile Starts Here",
+              "description": "Facebook image post: Meet Innovative Dental -- Your Smile Starts Here. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day01_facebook_meet_innovative_dental__your_smile_start.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Meet Innovative Dental -- Your Smile Starts Here",
+              "description": "Instagram image: Meet Innovative Dental -- Your Smile Starts Here. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day01_instagram_meet_innovative_dental__your_smile_start.png"
+            },
+            {
+              "platform": "linkedin",
+              "contentType": "thought_leadership",
+              "format": "text_image",
+              "hook": "The Sunday Night Problem: Why Practice Owners Burn Out",
+              "description": "LinkedIn post: The Sunday Night Problem: Why Practice Owners Burn Out. B2B content for dental professionals considering partnership.",
+              "hashtags": [
+                "#DentalPartnership",
+                "#DSO",
+                "#DentalLeadership",
+                "#PracticeManagement"
+              ],
+              "imageSrc": "images/social/day01_linkedin_the_sunday_night_problem_why_practice_ow.png"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "date": "2026-04-02",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "What Do Dental Implants Actually Cost? (Transparent Numbers)",
+              "description": "Facebook image post: What Do Dental Implants Actually Cost? (Transparent Numbers). B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day02_implant_cost.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "carousel",
+              "hook": "What Do Dental Implants Actually Cost? (Transparent Numbers)",
+              "description": "Instagram carousel: What Do Dental Implants Actually Cost? (Transparent Numbers). Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day02_cost_carousel.png"
+            },
+            {
+              "platform": "linkedin",
+              "contentType": "social_proof",
+              "format": "carousel",
+              "hook": "Dr. Cavendish's Story: From Complacency to 16.5% Revenue Growth",
+              "description": "LinkedIn post: Dr. Cavendish's Story: From Complacency to 16.5% Revenue Growth. B2B content for dental professionals considering partnership.",
+              "hashtags": [
+                "#DentalPartnership",
+                "#DSO",
+                "#DentalLeadership",
+                "#PracticeManagement"
+              ],
+              "imageSrc": "images/social/day02_cavendish_carousel.png"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "date": "2026-04-03",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "video",
+              "hook": "Same-Day Teeth: Watch How It Works",
+              "description": "Facebook video post: Same-Day Teeth: Watch How It Works. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": ""
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "reel",
+              "hook": "Same-Day Teeth: Watch How It Works",
+              "description": "Instagram reel: Same-Day Teeth: Watch How It Works. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": ""
+            },
+            {
+              "platform": "linkedin",
+              "contentType": "educational",
+              "format": "text_image",
+              "hook": "3 Questions to Ask Any DSO Before You Sign",
+              "description": "LinkedIn post: 3 Questions to Ask Any DSO Before You Sign. B2B content for dental professionals considering partnership.",
+              "hashtags": [
+                "#DentalPartnership",
+                "#DSO",
+                "#DentalLeadership",
+                "#PracticeManagement"
+              ],
+              "imageSrc": "images/social/day03_linkedin_3_questions_to_ask_any_dso_before_you_si.png"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "date": "2026-04-04",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "social_proof",
+              "format": "image",
+              "hook": "Juan's Story: 'I smile at strangers now.'",
+              "description": "Facebook image post: Juan's Story: 'I smile at strangers now.'. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day04_juan_testimonial.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "social_proof",
+              "format": "image",
+              "hook": "Juan's Story: 'I smile at strangers now.'",
+              "description": "Instagram image: Juan's Story: 'I smile at strangers now.'. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day04_juan_testimonial.png"
+            },
+            {
+              "platform": "linkedin",
+              "contentType": "thought_leadership",
+              "format": "text_image",
+              "hook": "Why Clinical Autonomy Is Structural, Not Conversational",
+              "description": "LinkedIn post: Why Clinical Autonomy Is Structural, Not Conversational. B2B content for dental professionals considering partnership.",
+              "hashtags": [
+                "#DentalPartnership",
+                "#DSO",
+                "#DentalLeadership",
+                "#PracticeManagement"
+              ],
+              "imageSrc": "images/social/day04_linkedin_why_clinical_autonomy_is_structural_not.png"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "date": "2026-04-05",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "carousel",
+              "hook": "5 Signs Your Dentures Need Replacing",
+              "description": "Facebook carousel post: 5 Signs Your Dentures Need Replacing. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day05_facebook_5_signs_your_dentures_need_replacing.png",
+              "carouselSlides": [
+                "images/social/day05_facebook_5_signs_your_dentures_need_replacing.png",
+                "images/social/carousel_day05_facebook_slide2.png",
+                "images/social/carousel_day05_facebook_slide3.png",
+                "images/social/carousel_day05_facebook_slide4.png",
+                "images/social/carousel_day05_facebook_slide5.png"
+              ]
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "carousel",
+              "hook": "5 Signs Your Dentures Need Replacing",
+              "description": "Instagram carousel: 5 Signs Your Dentures Need Replacing. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day05_instagram_5_signs_your_dentures_need_replacing.png",
+              "carouselSlides": [
+                "images/social/day05_instagram_5_signs_your_dentures_need_replacing.png",
+                "images/social/carousel_day05_instagram_slide2.png",
+                "images/social/carousel_day05_instagram_slide3.png",
+                "images/social/carousel_day05_instagram_slide4.png",
+                "images/social/carousel_day05_instagram_slide5.png"
+              ]
+            },
+            {
+              "platform": "linkedin",
+              "contentType": "educational",
+              "format": "text_image",
+              "hook": "Recruiting at Scale: How SGA Fills Positions 3x Faster",
+              "description": "LinkedIn post: Recruiting at Scale: How SGA Fills Positions 3x Faster. B2B content for dental professionals considering partnership.",
+              "hashtags": [
+                "#DentalPartnership",
+                "#DSO",
+                "#DentalLeadership",
+                "#PracticeManagement"
+              ],
+              "imageSrc": "images/social/day05_recruitment_4front.png"
+            }
+          ]
+        },
+        {
+          "day": 6,
+          "date": "2026-04-06",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Dr. Olson Answers Your Top 3 Implant Questions",
+              "description": "Facebook image post: Dr. Olson Answers Your Top 3 Implant Questions. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day06_facebook_dr_olson_answers_your_top_3_implant_ques.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Dr. Olson Answers Your Top 3 Implant Questions",
+              "description": "Instagram image: Dr. Olson Answers Your Top 3 Implant Questions. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day06_instagram_dr_olson_answers_your_top_3_implant_ques.png"
+            }
+          ]
+        },
+        {
+          "day": 7,
+          "date": "2026-04-07",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "video",
+              "hook": "Before & After: Full Arch Transformation Reveal",
+              "description": "Facebook video post: Before & After: Full Arch Transformation Reveal. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": ""
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "reel",
+              "hook": "Before & After: Full Arch Transformation Reveal",
+              "description": "Instagram reel: Before & After: Full Arch Transformation Reveal. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "weekNumber": 2,
+      "theme": "Education & Social Proof",
+      "days": [
+        {
+          "day": 8,
+          "date": "2026-04-08",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Myth vs. Fact: 5 Dental Implant Misconceptions",
+              "description": "Facebook image post: Myth vs. Fact: 5 Dental Implant Misconceptions. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day08_myths.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "carousel",
+              "hook": "Myth vs. Fact: 5 Dental Implant Misconceptions",
+              "description": "Instagram carousel: Myth vs. Fact: 5 Dental Implant Misconceptions. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day08_myths_carousel.png"
+            },
+            {
+              "platform": "linkedin",
+              "contentType": "thought_leadership",
+              "format": "text_image",
+              "hook": "The Equity Model Explained: What 'Second Bite' Actually Means",
+              "description": "LinkedIn post: The Equity Model Explained: What 'Second Bite' Actually Means. B2B content for dental professionals considering partnership.",
+              "hashtags": [
+                "#DentalPartnership",
+                "#DSO",
+                "#DentalLeadership",
+                "#PracticeManagement"
+              ],
+              "imageSrc": "images/social/day08_linkedin_the_equity_model_explained_what_second_b.png"
+            }
+          ]
+        },
+        {
+          "day": 9,
+          "date": "2026-04-09",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Your Free Consultation: What to Expect Step by Step",
+              "description": "Facebook image post: Your Free Consultation: What to Expect Step by Step. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day09_facebook_your_free_consultation_what_to_expect_st.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Your Free Consultation: What to Expect Step by Step",
+              "description": "Instagram image: Your Free Consultation: What to Expect Step by Step. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day09_instagram_your_free_consultation_what_to_expect_st.png"
+            },
+            {
+              "platform": "linkedin",
+              "contentType": "educational",
+              "format": "carousel",
+              "hook": "5 Questions Every Practice Owner Should Ask Their CPA Before Selling",
+              "description": "LinkedIn post: 5 Questions Every Practice Owner Should Ask Their CPA Before Selling. B2B content for dental professionals considering partnership.",
+              "hashtags": [
+                "#DentalPartnership",
+                "#DSO",
+                "#DentalLeadership",
+                "#PracticeManagement"
+              ],
+              "imageSrc": "images/social/day09_5questions_carousel.png"
+            }
+          ]
+        },
+        {
+          "day": 10,
+          "date": "2026-04-10",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "social_proof",
+              "format": "image",
+              "hook": "Patient Story: Margaret's Wedding Toast Moment",
+              "description": "Facebook image post: Patient Story: Margaret's Wedding Toast Moment. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day10_facebook_patient_story_margarets_wedding_toast_mo.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "social_proof",
+              "format": "image",
+              "hook": "Patient Story: Margaret's Wedding Toast Moment",
+              "description": "Instagram image: Patient Story: Margaret's Wedding Toast Moment. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day10_instagram_patient_story_margarets_wedding_toast_mo.png"
+            },
+            {
+              "platform": "linkedin",
+              "contentType": "social_proof",
+              "format": "text_image",
+              "hook": "What to Expect in a Partner Discovery Call",
+              "description": "LinkedIn post: What to Expect in a Partner Discovery Call. B2B content for dental professionals considering partnership.",
+              "hashtags": [
+                "#DentalPartnership",
+                "#DSO",
+                "#DentalLeadership",
+                "#PracticeManagement"
+              ],
+              "imageSrc": "images/social/day10_partner_call.png"
+            }
+          ]
+        },
+        {
+          "day": 11,
+          "date": "2026-04-11",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Implant Care 101: Keep Your New Smile for Life",
+              "description": "Facebook image post: Implant Care 101: Keep Your New Smile for Life. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day11_facebook_implant_care_101_keep_your_new_smile_for.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Implant Care 101: Keep Your New Smile for Life",
+              "description": "Instagram image: Implant Care 101: Keep Your New Smile for Life. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day11_instagram_implant_care_101_keep_your_new_smile_for.png"
+            },
+            {
+              "platform": "linkedin",
+              "contentType": "educational",
+              "format": "text_image",
+              "hook": "Associate Spotlight: From Bread-and-Butter to Full-Arch Implants",
+              "description": "LinkedIn post: Associate Spotlight: From Bread-and-Butter to Full-Arch Implants. B2B content for dental professionals considering partnership.",
+              "hashtags": [
+                "#DentalPartnership",
+                "#DSO",
+                "#DentalLeadership",
+                "#PracticeManagement"
+              ],
+              "imageSrc": "images/social/day11_linkedin_associate_spotlight_from_bread-and-butte.png"
+            }
+          ]
+        },
+        {
+          "day": 12,
+          "date": "2026-04-12",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "conversion",
+              "format": "image",
+              "hook": "Financing Made Simple: Implants from $250/month",
+              "description": "Facebook image post: Financing Made Simple: Implants from $250/month. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day12_facebook_financing_made_simple_implants_from_$250.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "conversion",
+              "format": "image",
+              "hook": "Financing Made Simple: Implants from $250/month",
+              "description": "Instagram image: Financing Made Simple: Implants from $250/month. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day12_instagram_financing_made_simple_implants_from_$250.png"
+            },
+            {
+              "platform": "linkedin",
+              "contentType": "thought_leadership",
+              "format": "text_image",
+              "hook": "The Thurston Group: 38 Years of Healthcare Partnership Excellence",
+              "description": "LinkedIn post: The Thurston Group: 38 Years of Healthcare Partnership Excellence. B2B content for dental professionals considering partnership.",
+              "hashtags": [
+                "#DentalPartnership",
+                "#DSO",
+                "#DentalLeadership",
+                "#PracticeManagement"
+              ],
+              "imageSrc": "images/social/day12_linkedin_the_thurston_group_38_years_of_healthcar.png"
+            }
+          ]
+        },
+        {
+          "day": 13,
+          "date": "2026-04-13",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "video",
+              "hook": "3D Technology: See Your New Smile Before the Procedure",
+              "description": "Facebook video post: 3D Technology: See Your New Smile Before the Procedure. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": ""
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "reel",
+              "hook": "3D Technology: See Your New Smile Before the Procedure",
+              "description": "Instagram reel: 3D Technology: See Your New Smile Before the Procedure. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": ""
+            }
+          ]
+        },
+        {
+          "day": 14,
+          "date": "2026-04-14",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "social_proof",
+              "format": "image",
+              "hook": "Why Patients Drive 4+ Hours to See Dr. Olson",
+              "description": "Facebook image post: Why Patients Drive 4+ Hours to See Dr. Olson. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day14_facebook_why_patients_drive_4+_hours_to_see_dr_ol.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "social_proof",
+              "format": "image",
+              "hook": "Why Patients Drive 4+ Hours to See Dr. Olson",
+              "description": "Instagram image: Why Patients Drive 4+ Hours to See Dr. Olson. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day14_instagram_why_patients_drive_4+_hours_to_see_dr_ol.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "weekNumber": 3,
+      "theme": "Community & Trust Building",
+      "days": [
+        {
+          "day": 15,
+          "date": "2026-04-15",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "carousel",
+              "hook": "The Real Difference: Dentures vs. Dental Implants",
+              "description": "Facebook carousel post: The Real Difference: Dentures vs. Dental Implants. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day15_facebook_the_real_difference_dentures_vs_dental_i.png",
+              "carouselSlides": [
+                "images/social/day15_facebook_the_real_difference_dentures_vs_dental_i.png",
+                "images/social/carousel_day15_facebook_slide2.png",
+                "images/social/carousel_day15_facebook_slide3.png",
+                "images/social/carousel_day15_facebook_slide4.png"
+              ]
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "carousel",
+              "hook": "The Real Difference: Dentures vs. Dental Implants",
+              "description": "Instagram carousel: The Real Difference: Dentures vs. Dental Implants. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day15_instagram_the_real_difference_dentures_vs_dental_i.png",
+              "carouselSlides": [
+                "images/social/day15_instagram_the_real_difference_dentures_vs_dental_i.png",
+                "images/social/carousel_day15_instagram_slide2.png",
+                "images/social/carousel_day15_instagram_slide3.png",
+                "images/social/carousel_day15_instagram_slide4.png"
+              ]
+            },
+            {
+              "platform": "linkedin",
+              "contentType": "social_proof",
+              "format": "text_image",
+              "hook": "Staff Retention at 85%: How SGA Keeps Teams Together",
+              "description": "LinkedIn post: Staff Retention at 85%: How SGA Keeps Teams Together. B2B content for dental professionals considering partnership.",
+              "hashtags": [
+                "#DentalPartnership",
+                "#DSO",
+                "#DentalLeadership",
+                "#PracticeManagement"
+              ],
+              "imageSrc": "images/social/day15_retention_team.png"
+            }
+          ]
+        },
+        {
+          "day": 16,
+          "date": "2026-04-16",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Post-Op Recovery: What Each Day Looks Like",
+              "description": "Facebook image post: Post-Op Recovery: What Each Day Looks Like. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day16_facebook_post-op_recovery_what_each_day_looks_lik.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Post-Op Recovery: What Each Day Looks Like",
+              "description": "Instagram image: Post-Op Recovery: What Each Day Looks Like. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day16_instagram_post-op_recovery_what_each_day_looks_lik.png"
+            },
+            {
+              "platform": "linkedin",
+              "contentType": "thought_leadership",
+              "format": "text_image",
+              "hook": "DSO Consolidation Trends: The 2026 Landscape",
+              "description": "LinkedIn post: DSO Consolidation Trends: The 2026 Landscape. B2B content for dental professionals considering partnership.",
+              "hashtags": [
+                "#DentalPartnership",
+                "#DSO",
+                "#DentalLeadership",
+                "#PracticeManagement"
+              ],
+              "imageSrc": "images/social/day16_linkedin_dso_consolidation_trends_the_2026_landsc.png"
+            }
+          ]
+        },
+        {
+          "day": 17,
+          "date": "2026-04-17",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Implants vs. Dentures: The Side-by-Side Comparison",
+              "description": "Facebook image post: Implants vs. Dentures: The Side-by-Side Comparison. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day17_implants_vs_dentures.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Implants vs. Dentures: The Side-by-Side Comparison",
+              "description": "Instagram image: Implants vs. Dentures: The Side-by-Side Comparison. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day17_instagram_implants_vs_dentures_the_side-by-side_co.png"
+            },
+            {
+              "platform": "linkedin",
+              "contentType": "educational",
+              "format": "text_image",
+              "hook": "Clinical Advisory Board: How SGA Partners Shape Policy",
+              "description": "LinkedIn post: Clinical Advisory Board: How SGA Partners Shape Policy. B2B content for dental professionals considering partnership.",
+              "hashtags": [
+                "#DentalPartnership",
+                "#DSO",
+                "#DentalLeadership",
+                "#PracticeManagement"
+              ],
+              "imageSrc": "images/social/day17_linkedin_clinical_advisory_board_how_sga_partners.png"
+            }
+          ]
+        },
+        {
+          "day": 18,
+          "date": "2026-04-18",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "video",
+              "hook": "Dr. Olson YouTube Highlight Reel: 138K Subscribers",
+              "description": "Facebook video post: Dr. Olson YouTube Highlight Reel: 138K Subscribers. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": ""
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "reel",
+              "hook": "Dr. Olson YouTube Highlight Reel: 138K Subscribers",
+              "description": "Instagram reel: Dr. Olson YouTube Highlight Reel: 138K Subscribers. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": ""
+            },
+            {
+              "platform": "linkedin",
+              "contentType": "educational",
+              "format": "document",
+              "hook": "The Practice Partnership Assessment: Know Where You Stand",
+              "description": "LinkedIn post: The Practice Partnership Assessment: Know Where You Stand. B2B content for dental professionals considering partnership.",
+              "hashtags": [
+                "#DentalPartnership",
+                "#DSO",
+                "#DentalLeadership",
+                "#PracticeManagement"
+              ],
+              "imageSrc": ""
+            }
+          ]
+        },
+        {
+          "day": 19,
+          "date": "2026-04-19",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Your Questions Answered: Community Q&A Recap",
+              "description": "Facebook image post: Your Questions Answered: Community Q&A Recap. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day19_facebook_your_questions_answered_community_qanda.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Your Questions Answered: Community Q&A Recap",
+              "description": "Instagram image: Your Questions Answered: Community Q&A Recap. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day19_instagram_your_questions_answered_community_qanda.png"
+            },
+            {
+              "platform": "linkedin",
+              "contentType": "educational",
+              "format": "text_image",
+              "hook": "MODIS: A Specialty Vertical Built by Specialists",
+              "description": "LinkedIn post: MODIS: A Specialty Vertical Built by Specialists. B2B content for dental professionals considering partnership.",
+              "hashtags": [
+                "#DentalPartnership",
+                "#DSO",
+                "#DentalLeadership",
+                "#PracticeManagement"
+              ],
+              "imageSrc": "images/social/day19_linkedin_modis_a_specialty_vertical_built_by_spec.png"
+            }
+          ]
+        },
+        {
+          "day": 20,
+          "date": "2026-04-20",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "social_proof",
+              "format": "image",
+              "hook": "Louis's Story: 'I knew this was the guy.'",
+              "description": "Facebook image post: Louis's Story: 'I knew this was the guy.'. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day20_louis_testimonial.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "social_proof",
+              "format": "image",
+              "hook": "Louis's Story: 'I knew this was the guy.'",
+              "description": "Instagram image: Louis's Story: 'I knew this was the guy.'. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day20_instagram_louiss_story_i_knew_this_was_the_guy.png"
+            }
+          ]
+        },
+        {
+          "day": 21,
+          "date": "2026-04-21",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Spring Into a New Smile This Season",
+              "description": "Facebook image post: Spring Into a New Smile This Season. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day21_facebook_spring_into_a_new_smile_this_season.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Spring Into a New Smile This Season",
+              "description": "Instagram image: Spring Into a New Smile This Season. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day21_instagram_spring_into_a_new_smile_this_season.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "weekNumber": 4,
+      "theme": "Conversion & Engagement",
+      "days": [
+        {
+          "day": 22,
+          "date": "2026-04-22",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "conversion",
+              "format": "image",
+              "hook": "Ready for Your Transformation? Book Your Free Consultation",
+              "description": "Facebook image post: Ready for Your Transformation? Book Your Free Consultation. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day22_consultation_cta.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "conversion",
+              "format": "image",
+              "hook": "Ready for Your Transformation? Book Your Free Consultation",
+              "description": "Instagram image: Ready for Your Transformation? Book Your Free Consultation. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day22_conversion_cta.png"
+            },
+            {
+              "platform": "linkedin",
+              "contentType": "conversion",
+              "format": "text_image",
+              "hook": "Mentorship in Action: The Individual Growth Engine",
+              "description": "LinkedIn post: Mentorship in Action: The Individual Growth Engine. B2B content for dental professionals considering partnership.",
+              "hashtags": [
+                "#DentalPartnership",
+                "#DSO",
+                "#DentalLeadership",
+                "#PracticeManagement"
+              ],
+              "imageSrc": "images/social/day22_mentorship.png"
+            }
+          ]
+        },
+        {
+          "day": 23,
+          "date": "2026-04-23",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Behind the Scenes: Our State-of-the-Art Lab",
+              "description": "Facebook image post: Behind the Scenes: Our State-of-the-Art Lab. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day23_facebook_behind_the_scenes_our_state-of-the-art_l.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Behind the Scenes: Our State-of-the-Art Lab",
+              "description": "Instagram image: Behind the Scenes: Our State-of-the-Art Lab. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day23_instagram_behind_the_scenes_our_state-of-the-art_l.png"
+            },
+            {
+              "platform": "linkedin",
+              "contentType": "educational",
+              "format": "text_image",
+              "hook": "4Front Symposium: Peer Learning That Transforms Practice",
+              "description": "LinkedIn post: 4Front Symposium: Peer Learning That Transforms Practice. B2B content for dental professionals considering partnership.",
+              "hashtags": [
+                "#DentalPartnership",
+                "#DSO",
+                "#DentalLeadership",
+                "#PracticeManagement"
+              ],
+              "imageSrc": "images/social/day23_linkedin_4front_symposium_peer_learning_that_tran.png"
+            }
+          ]
+        },
+        {
+          "day": 24,
+          "date": "2026-04-24",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Patient Milestone: One Year with Dental Implants",
+              "description": "Facebook image post: Patient Milestone: One Year with Dental Implants. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day24_facebook_patient_milestone_one_year_with_dental_i.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Patient Milestone: One Year with Dental Implants",
+              "description": "Instagram image: Patient Milestone: One Year with Dental Implants. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day24_instagram_patient_milestone_one_year_with_dental_i.png"
+            },
+            {
+              "platform": "linkedin",
+              "contentType": "thought_leadership",
+              "format": "text_image",
+              "hook": "PE in Dental: Separating Fear from Evidence",
+              "description": "LinkedIn post: PE in Dental: Separating Fear from Evidence. B2B content for dental professionals considering partnership.",
+              "hashtags": [
+                "#DentalPartnership",
+                "#DSO",
+                "#DentalLeadership",
+                "#PracticeManagement"
+              ],
+              "imageSrc": "images/social/day24_linkedin_pe_in_dental_separating_fear_from_eviden.png"
+            }
+          ]
+        },
+        {
+          "day": 25,
+          "date": "2026-04-25",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "carousel",
+              "hook": "Your Implant Journey: Step by Step Guide",
+              "description": "Facebook carousel post: Your Implant Journey: Step by Step Guide. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day25_step_by_step.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "carousel",
+              "hook": "Your Implant Journey: Step by Step Guide",
+              "description": "Instagram carousel: Your Implant Journey: Step by Step Guide. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day25_instagram_your_implant_journey_step_by_step_guide.png",
+              "carouselSlides": [
+                "images/social/day25_instagram_your_implant_journey_step_by_step_guide.png",
+                "images/social/carousel_day25_instagram_slide2.png",
+                "images/social/carousel_day25_instagram_slide3.png",
+                "images/social/carousel_day25_instagram_slide4.png",
+                "images/social/carousel_day25_instagram_slide5.png"
+              ]
+            },
+            {
+              "platform": "linkedin",
+              "contentType": "social_proof",
+              "format": "carousel",
+              "hook": "In Their Own Words: What SGA Partners Actually Say",
+              "description": "LinkedIn post: In Their Own Words: What SGA Partners Actually Say. B2B content for dental professionals considering partnership.",
+              "hashtags": [
+                "#DentalPartnership",
+                "#DSO",
+                "#DentalLeadership",
+                "#PracticeManagement"
+              ],
+              "imageSrc": "images/social/day25_partner_quotes.png"
+            }
+          ]
+        },
+        {
+          "day": 26,
+          "date": "2026-04-26",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "video",
+              "hook": "Full Arch in 60 Seconds: Timelapse Transformation",
+              "description": "Facebook video post: Full Arch in 60 Seconds: Timelapse Transformation. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": ""
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "reel",
+              "hook": "Full Arch in 60 Seconds: Timelapse Transformation",
+              "description": "Instagram reel: Full Arch in 60 Seconds: Timelapse Transformation. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": ""
+            },
+            {
+              "platform": "linkedin",
+              "contentType": "educational",
+              "format": "text_image",
+              "hook": "The Gen4 Model: Dentists Teaching Dentists",
+              "description": "LinkedIn post: The Gen4 Model: Dentists Teaching Dentists. B2B content for dental professionals considering partnership.",
+              "hashtags": [
+                "#DentalPartnership",
+                "#DSO",
+                "#DentalLeadership",
+                "#PracticeManagement"
+              ],
+              "imageSrc": "images/social/day26_linkedin_the_gen4_model_dentists_teaching_dentist.png"
+            }
+          ]
+        },
+        {
+          "day": 27,
+          "date": "2026-04-27",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Community Spotlight: Springfield Smiles",
+              "description": "Facebook image post: Community Spotlight: Springfield Smiles. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day27_facebook_community_spotlight_springfield_smiles.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "educational",
+              "format": "image",
+              "hook": "Community Spotlight: Springfield Smiles",
+              "description": "Instagram image: Community Spotlight: Springfield Smiles. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day27_instagram_community_spotlight_springfield_smiles.png"
+            }
+          ]
+        },
+        {
+          "day": 28,
+          "date": "2026-04-28",
+          "platforms": [
+            {
+              "platform": "facebook",
+              "contentType": "social_proof",
+              "format": "image",
+              "hook": "3,390+ Reviews: What Our Patients Say",
+              "description": "Facebook image post: 3,390+ Reviews: What Our Patients Say. B2C content targeting implant patients in Springfield MO market.",
+              "hashtags": [
+                "#DentalImplants",
+                "#InnovativeDental",
+                "#SmileTransformation",
+                "#SpringfieldMO"
+              ],
+              "imageSrc": "images/social/day28_facebook_3390+_reviews_what_our_patients_say.png"
+            },
+            {
+              "platform": "instagram",
+              "contentType": "social_proof",
+              "format": "image",
+              "hook": "3,390+ Reviews: What Our Patients Say",
+              "description": "Instagram image: 3,390+ Reviews: What Our Patients Say. Visual-first B2C content.",
+              "hashtags": [
+                "#DentalImplants",
+                "#SmileMakeover",
+                "#InnovativeDental",
+                "#NewSmile",
+                "#FullArchImplants"
+              ],
+              "imageSrc": "images/social/day28_instagram_3390+_reviews_what_our_patients_say.png"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

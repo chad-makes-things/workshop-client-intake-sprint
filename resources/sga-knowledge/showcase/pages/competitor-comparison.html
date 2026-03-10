@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGA vs Corporate DSOs -- Honest Comparison | SGA Dental Partners</title>
+  <meta name="description" content="How SGA Dental Partners compares to Heartland, Aspen, PDS, MB2, and Guardian -- feature-by-feature. Honest assessment of where competitors may be better and where SGA wins.">
+  <meta name="keywords" content="DSO comparison, Heartland Dental vs alternatives, MB2 Dental reviews, best DSO for dentists, dental practice partnership options">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'sga-blue': '#2D6FB7',
+            'sga-blue-dark': '#1E4F85',
+            'sga-cyan': '#009DD6',
+            'sga-lime': '#C4D347',
+            'sga-orange': '#F36F21',
+            'sga-text': '#333333',
+            'sga-gray': '#F7F8FA',
+            'sga-border': '#E2E8F0',
+          },
+          fontFamily: {
+            'sans': ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    [id] { scroll-margin-top: 100px; }
+
+    /* Table enhancements */
+    .comp-table { border-collapse: separate; border-spacing: 0; }
+    .comp-table th:first-child { position: sticky; left: 0; z-index: 10; background: #F7F8FA; }
+    .comp-table td:first-child { position: sticky; left: 0; z-index: 5; background: white; }
+    .comp-table tr:hover td:first-child { background: #f0f7ff; }
+    .comp-table tr:hover td { background: #f0f7ff; }
+    .comp-table th { white-space: nowrap; }
+
+    /* SGA column highlight */
+    .comp-table th:nth-child(2),
+    .comp-table td:nth-child(2) {
+      background: #eef5fb !important;
+      border-left: 2px solid #2D6FB7;
+      border-right: 2px solid #2D6FB7;
+    }
+    .comp-table tr:hover td:nth-child(2) { background: #dbe9f5 !important; }
+
+    /* Accordion */
+    .accordion-chevron { transition: transform 200ms ease-out; }
+    .accordion-open .accordion-chevron { transform: rotate(180deg); }
+
+    /* Diff cards */
+    .diff-card {
+      transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+    }
+    .diff-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px -5px rgba(0,0,0,0.08);
+    }
+
+    /* Table scroll hint */
+    .table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .table-scroll::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 40px;
+      background: linear-gradient(to right, transparent, white);
+      pointer-events: none;
+    }
+
+    @media (min-width: 1280px) {
+      .table-scroll::after { display: none; }
+    }
+
+    @media print {
+      .no-print { display: none !important; }
+      html, body { margin: 0; padding: 0; }
+    }
+  </style>
+</head>
+<body class="bg-white font-sans text-sga-text antialiased" style="padding-top:40px;">
+<!-- Back to Showcase banner -->
+<div class="no-print" style="position:fixed;top:0;left:0;right:0;height:40px;background:#1e293b;display:flex;align-items:center;padding:0 16px;z-index:9999;">
+  <a href="../index.html" style="color:#93c5fd;text-decoration:none;font-size:14px;font-family:Inter,sans-serif;">&larr; Back to Showcase</a>
+  <span style="color:#64748b;margin-left:auto;font-size:12px;font-family:Inter,sans-serif;">SGA Dental Partners Marketing Showcase</span>
+</div>
+
+<!-- Hero -->
+<header class="bg-gradient-to-br from-gray-900 via-gray-800 to-sga-blue-dark text-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <div class="max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-widest text-sga-cyan mb-4">Honest Comparison</p>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-6" style="text-wrap:balance;">Not All DSOs Are the Same. Most Dentists Find That Out Too Late.</h1>
+      <p class="text-lg text-white/80 leading-relaxed mb-8 max-w-2xl">Seven out of ten dentists who sell to a DSO end up frustrated or regretful. Here is an honest, feature-by-feature comparison -- where competitors may be better, where SGA wins, and why it matters for your practice.</p>
+      <div class="flex flex-wrap gap-3">
+        <a href="#comparison-table" class="inline-flex items-center gap-2 bg-sga-orange hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-150 cursor-pointer focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900">
+          See the Comparison
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="#cta-final" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-lg border border-white/30 transition-colors duration-150 cursor-pointer focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900">
+          Schedule a Confidential Conversation
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Problem Section -->
+<section class="bg-sga-gray border-b border-sga-border">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 text-center">
+    <h2 class="text-2xl sm:text-3xl font-bold text-sga-text mb-6">"Clinical Autonomy" Has Become the Most Meaningless Phrase in Dentistry</h2>
+    <div class="text-base text-gray-600 leading-relaxed space-y-4 text-left">
+      <p>Every DSO now says the same thing: "Clinical autonomy. Local brand preservation. Operational support. We value our partners." Heartland says it. MB2 says it. Guardian says it. The claims have become wallpaper.</p>
+      <blockquote class="border-l-4 border-sga-blue pl-4 italic text-sga-blue-dark">"Seven or eight out of 10 are pretty bugged or annoyed or frustrated or regretful. It's not what they thought." -- Dentist Advisors podcast</blockquote>
+      <p>The question is not whether a DSO <em>promises</em> clinical autonomy. The question is: what structural evidence supports the claim? What mechanisms are in place? And what do the people inside the organization actually say?</p>
+      <p class="font-semibold text-sga-text">This page is our attempt at an honest answer. Not marketing language. Evidence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Feature-by-Feature Comparison Table -->
+<section id="comparison-table" class="bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold text-sga-text mb-3 text-center">SGA vs. the Five Largest Corporate DSO Models</h2>
+    <p class="text-gray-500 text-center mb-4 max-w-2xl mx-auto">Feature-by-feature comparison based on publicly available information. Scroll right on mobile to see all columns.</p>
+    <p class="text-center mb-8"><span class="inline-flex items-center gap-1 text-xs text-gray-400 bg-gray-100 px-3 py-1 rounded-full">
+      <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      Scroll horizontally on mobile
+    </span></p>
+
+    <div class="table-scroll relative rounded-xl border border-sga-border">
+      <table class="comp-table w-full text-sm min-w-[900px]">
+        <thead>
+          <tr>
+            <th class="text-left px-4 py-3 font-semibold text-gray-500 border-b border-sga-border text-xs uppercase tracking-wider w-40">Feature</th>
+            <th class="text-left px-4 py-3 font-bold text-sga-blue border-b border-sga-border text-xs uppercase tracking-wider">SGA Dental Partners</th>
+            <th class="text-left px-4 py-3 font-semibold text-gray-500 border-b border-sga-border text-xs uppercase tracking-wider">Heartland</th>
+            <th class="text-left px-4 py-3 font-semibold text-gray-500 border-b border-sga-border text-xs uppercase tracking-wider">Aspen (TAG)</th>
+            <th class="text-left px-4 py-3 font-semibold text-gray-500 border-b border-sga-border text-xs uppercase tracking-wider">PDS Health</th>
+            <th class="text-left px-4 py-3 font-semibold text-gray-500 border-b border-sga-border text-xs uppercase tracking-wider">MB2 Dental</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-sga-border">
+          <tr>
+            <td class="px-4 py-3 font-medium text-sga-text">Practice count</td>
+            <td class="px-4 py-3 font-semibold text-sga-blue">100+</td>
+            <td class="px-4 py-3 text-gray-600">1,800+</td>
+            <td class="px-4 py-3 text-gray-600">1,300+</td>
+            <td class="px-4 py-3 text-gray-600">1,000+</td>
+            <td class="px-4 py-3 text-gray-600">800+</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 font-medium text-sga-text">PE Sponsor</td>
+            <td class="px-4 py-3 text-sga-blue"><strong>Thurston Group</strong><span class="block text-xs text-gray-500">38yr, $4B+ returned, 8 platforms</span></td>
+            <td class="px-4 py-3 text-gray-600">KKR<span class="block text-xs text-gray-400">Global PE, no dental-specific record</span></td>
+            <td class="px-4 py-3 text-gray-600">Multiple PE<span class="block text-xs text-gray-400">Ownership changes over time</span></td>
+            <td class="px-4 py-3 text-gray-600">Founder-led<span class="block text-xs text-gray-400">Minority PE</span></td>
+            <td class="px-4 py-3 text-gray-600">Undisclosed<span class="block text-xs text-gray-400">Opaque ownership</span></td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 font-medium text-sga-text">Brand preserved?</td>
+            <td class="px-4 py-3 font-semibold text-green-700">Always</td>
+            <td class="px-4 py-3 text-yellow-600">Partial</td>
+            <td class="px-4 py-3 text-red-600">No</td>
+            <td class="px-4 py-3 text-green-700">Yes</td>
+            <td class="px-4 py-3 text-gray-600">Claimed</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 font-medium text-sga-text">Clinical autonomy</td>
+            <td class="px-4 py-3 text-sga-blue"><strong>Contractual guarantee</strong><span class="block text-xs text-gray-500">CCO is practicing dentist</span></td>
+            <td class="px-4 py-3 text-gray-600">Claimed<span class="block text-xs text-gray-400">Employee reviews dispute</span></td>
+            <td class="px-4 py-3 text-red-600">No<span class="block text-xs text-gray-400">Standardized protocols</span></td>
+            <td class="px-4 py-3 text-green-700">Yes<span class="block text-xs text-gray-400">Owner-operator model</span></td>
+            <td class="px-4 py-3 text-gray-600">Claimed</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 font-medium text-sga-text">Platform equity</td>
+            <td class="px-4 py-3 font-semibold text-sga-blue">JV -- combined entity</td>
+            <td class="px-4 py-3 text-red-600">No (outright acquisition)</td>
+            <td class="px-4 py-3 text-red-600">No (franchise-like)</td>
+            <td class="px-4 py-3 text-red-600">No (own practice only)</td>
+            <td class="px-4 py-3 text-yellow-600">Limited (your practice only)</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 font-medium text-sga-text">Upside after close</td>
+            <td class="px-4 py-3 text-sga-blue"><strong>Equity appreciates</strong><span class="block text-xs text-gray-500">"Second bite of the apple"</span></td>
+            <td class="px-4 py-3 text-red-600">None</td>
+            <td class="px-4 py-3 text-red-600">None (fees owed to Aspen)</td>
+            <td class="px-4 py-3 text-red-600">None (you pay PDS fees)</td>
+            <td class="px-4 py-3 text-yellow-600">Limited (tied to your practice)</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 font-medium text-sga-text">Education/CE platform</td>
+            <td class="px-4 py-3 text-sga-blue"><strong>Pikos Institute + 4Front + Individual Growth Engine</strong></td>
+            <td class="px-4 py-3 text-gray-600">Generic CE</td>
+            <td class="px-4 py-3 text-gray-600">Limited CE</td>
+            <td class="px-4 py-3 text-gray-600">Medical integration</td>
+            <td class="px-4 py-3 text-gray-600">None</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 font-medium text-sga-text">Specialty verticals</td>
+            <td class="px-4 py-3 text-sga-blue"><strong>3 verticals</strong><span class="block text-xs text-gray-500">Community, collaborative, implantology</span></td>
+            <td class="px-4 py-3 text-gray-600">General only</td>
+            <td class="px-4 py-3 text-gray-600">Multi-brand (no integration)</td>
+            <td class="px-4 py-3 text-gray-600">Dental + medical</td>
+            <td class="px-4 py-3 text-gray-600">General only</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 font-medium text-sga-text">Staff retention rate</td>
+            <td class="px-4 py-3 font-semibold text-sga-blue">85% (published)</td>
+            <td class="px-4 py-3 text-gray-400">Not disclosed</td>
+            <td class="px-4 py-3 text-gray-400">Not disclosed</td>
+            <td class="px-4 py-3 text-gray-400">Not disclosed</td>
+            <td class="px-4 py-3 text-gray-400">Not disclosed</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 font-medium text-sga-text">Content / thought leadership</td>
+            <td class="px-4 py-3 text-sga-blue"><strong>138K YouTube</strong><span class="block text-xs text-gray-500">Dr. Olson, MODIS podcast, LinkedIn</span></td>
+            <td class="px-4 py-3 text-gray-600">Minimal</td>
+            <td class="px-4 py-3 text-gray-600">Paid media (TV)</td>
+            <td class="px-4 py-3 text-gray-600">Moderate PR</td>
+            <td class="px-4 py-3 text-gray-600">Minimal</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 font-medium text-sga-text">Flagship reviews</td>
+            <td class="px-4 py-3 text-sga-blue"><strong>3,390+ five-star</strong><span class="block text-xs text-gray-500">Innovative Dental</span></td>
+            <td class="px-4 py-3 text-gray-600">Varies</td>
+            <td class="px-4 py-3 text-red-600">1.2 stars / 311 reviews<span class="block text-xs text-gray-400">Sitejabber</span></td>
+            <td class="px-4 py-3 text-gray-600">Varies</td>
+            <td class="px-4 py-3 text-gray-600">Varies</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Where Competitors May Be Better -->
+<section class="bg-amber-50/50 border-y border-amber-200/50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <div class="text-center mb-10">
+      <div class="inline-flex items-center gap-2 bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+        Honest Assessment
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-bold text-sga-text mb-3">Where We Are Honest About What Others Offer</h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">We believe in transparency. Here is where certain competitors may have advantages over SGA.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
+      <div class="diff-card bg-white rounded-xl border border-amber-200/50 p-6">
+        <h3 class="text-base font-bold text-sga-text mb-2">Scale and Geographic Reach</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">Heartland (1,800+), Aspen (1,300+), PDS (1,000+), and MB2 (800+) all have larger footprints. If being part of the biggest network is your primary criterion, SGA is not the largest. We are growing deliberately -- we would rather have 100 practices that fit our culture than 800 that dilute it.</p>
+      </div>
+      <div class="diff-card bg-white rounded-xl border border-amber-200/50 p-6">
+        <h3 class="text-base font-bold text-sga-text mb-2">National Brand Recognition</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">Aspen Dental is the most recognized consumer dental brand. If you want patients who search for a national name, Aspen provides that. SGA keeps your local brand -- patient acquisition depends on your reputation and SGA's centralized marketing. For most owners, that is a feature. But it is worth knowing.</p>
+      </div>
+      <div class="diff-card bg-white rounded-xl border border-amber-200/50 p-6">
+        <h3 class="text-base font-bold text-sga-text mb-2">Pure Practice Ownership (No Dilution)</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">PDS Health's owner-clinician model is the only major DSO where you retain 100% ownership of your practice. The tradeoff: no platform equity, no "second bite of the apple," and no upside beyond your own practice's performance. For some dentists, that tradeoff is worth it.</p>
+      </div>
+      <div class="diff-card bg-white rounded-xl border border-amber-200/50 p-6">
+        <h3 class="text-base font-bold text-sga-text mb-2">Sheer Volume of Support Staff</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">Heartland's 1,800-practice infrastructure means deeper bench strength in procurement, HR, legal, and technology. We would argue that having 100+ peers who know your name is more valuable than 1,800 practices where you are a number.</p>
+      </div>
+    </div>
+    <p class="text-center text-sm text-gray-500 mt-8 italic">We share this because trust is built on honesty. If a competitor is genuinely better for your situation, we would rather you know that now than discover it after signing.</p>
+  </div>
+</section>
+
+<!-- Where SGA Wins -->
+<section class="bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold text-sga-text mb-3 text-center">What No Other DSO Offers</h2>
+    <p class="text-gray-500 text-center mb-12 max-w-2xl mx-auto">Three differentiators no competitor can match.</p>
+
+    <div class="space-y-8 max-w-4xl mx-auto">
+      <!-- Differentiator 1: Thurston -->
+      <div class="bg-sga-gray rounded-2xl border border-sga-border p-6 sm:p-8">
+        <div class="flex items-start gap-4">
+          <span class="w-10 h-10 rounded-xl bg-sga-blue text-white flex items-center justify-center text-lg font-bold flex-shrink-0">1</span>
+          <div class="flex-1">
+            <h3 class="text-lg font-bold text-sga-text mb-3">The Thurston Group Track Record</h3>
+            <p class="text-sm text-gray-600 mb-4">Every DSO has a PE backer. Only one has a PE backer that has done this exact model 8 times and returned $4B+ over 38 years.</p>
+            <div class="overflow-x-auto rounded-lg border border-sga-border">
+              <table class="w-full text-xs">
+                <thead>
+                  <tr class="bg-white">
+                    <th class="text-left px-3 py-2 font-semibold text-sga-blue-dark border-b border-sga-border">PE Sponsor</th>
+                    <th class="text-left px-3 py-2 font-semibold text-sga-blue-dark border-b border-sga-border">DSO</th>
+                    <th class="text-left px-3 py-2 font-semibold text-sga-blue-dark border-b border-sga-border">Track Record</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-sga-border">
+                  <tr class="bg-blue-50/50">
+                    <td class="px-3 py-2 font-bold text-sga-blue">Thurston Group</td>
+                    <td class="px-3 py-2 font-bold text-sga-blue">SGA Dental Partners</td>
+                    <td class="px-3 py-2 font-bold text-sga-blue">38 years. 8+ platforms. $4B+ returned. Named principals available.</td>
+                  </tr>
+                  <tr><td class="px-3 py-2 text-gray-600">KKR</td><td class="px-3 py-2 text-gray-600">Heartland</td><td class="px-3 py-2 text-gray-500">Global PE. No dental-specific record.</td></tr>
+                  <tr><td class="px-3 py-2 text-gray-600">Mubadala</td><td class="px-3 py-2 text-gray-600">DCA</td><td class="px-3 py-2 text-gray-500">Abu Dhabi sovereign wealth. No healthcare identity.</td></tr>
+                  <tr><td class="px-3 py-2 text-gray-600">Multiple</td><td class="px-3 py-2 text-gray-600">Aspen (TAG)</td><td class="px-3 py-2 text-gray-500">Multiple ownership changes over the years.</td></tr>
+                  <tr><td class="px-3 py-2 text-gray-600">Undisclosed</td><td class="px-3 py-2 text-gray-600">MB2</td><td class="px-3 py-2 text-gray-500">PE backers not publicly disclosed.</td></tr>
+                  <tr><td class="px-3 py-2 text-gray-600">Family office</td><td class="px-3 py-2 text-gray-600">Guardian</td><td class="px-3 py-2 text-gray-500">Patient capital but limited scale.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Differentiator 2: Education -->
+      <div class="bg-sga-gray rounded-2xl border border-sga-border p-6 sm:p-8">
+        <div class="flex items-start gap-4">
+          <span class="w-10 h-10 rounded-xl bg-sga-cyan text-white flex items-center justify-center text-lg font-bold flex-shrink-0">2</span>
+          <div class="flex-1">
+            <h3 class="text-lg font-bold text-sga-text mb-3">An Integrated Education Platform</h3>
+            <p class="text-sm text-gray-600 mb-4">Dentists come to SGA to get better, not just to get bought. No competitor can make this claim because no competitor has the infrastructure.</p>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div class="bg-white rounded-lg border border-sga-border p-4">
+                <p class="text-xs font-bold text-sga-blue mb-1">SGA Dental Partners</p>
+                <p class="text-xs text-gray-600">Pikos Institute (world-renowned implantology). 4Front Symposium (annual peer learning). Individual Growth Engine (1:1 mentorship). Dr. Grant Olson's content platform (138K subscribers).</p>
+              </div>
+              <div class="bg-white rounded-lg border border-sga-border p-4">
+                <p class="text-xs font-bold text-gray-500 mb-1">Every other major DSO</p>
+                <p class="text-xs text-gray-400">Generic CE programs (Heartland). Limited CE (Aspen). Medical integration training only (PDS). No education platform (MB2, DCA, Guardian, SALT).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Differentiator 3: Three Verticals -->
+      <div class="bg-sga-gray rounded-2xl border border-sga-border p-6 sm:p-8">
+        <div class="flex items-start gap-4">
+          <span class="w-10 h-10 rounded-xl bg-sga-lime text-gray-800 flex items-center justify-center text-lg font-bold flex-shrink-0">3</span>
+          <div class="flex-1">
+            <h3 class="text-lg font-bold text-sga-text mb-3">Three Verticals With Internal Career Pathways</h3>
+            <p class="text-sm text-gray-600 mb-4">A general dentist can develop implant skills through Pikos. General practices refer complex cases to MODIS specialists. Career evolution within the platform.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="inline-flex items-center gap-1.5 bg-blue-50 text-sga-blue text-xs font-semibold px-3 py-1.5 rounded-full border border-blue-100">Community Dentistry</span>
+              <span class="inline-flex items-center gap-1.5 bg-cyan-50 text-sga-cyan text-xs font-semibold px-3 py-1.5 rounded-full border border-cyan-100">Collaborative General/Specialty</span>
+              <span class="inline-flex items-center gap-1.5 bg-lime-50 text-lime-700 text-xs font-semibold px-3 py-1.5 rounded-full border border-lime-100">Advanced Implantology (MODIS)</span>
+            </div>
+            <p class="text-xs text-gray-500 mt-3">A periodontist, a general dentist, and a pediatric practice all have a home inside SGA. No single-model DSO can say that.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Competitive Anchoring -->
+<section class="bg-sga-gray border-y border-sga-border">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <h2 class="text-2xl font-bold text-sga-text mb-10 text-center">Three Ways to Think About the Decision</h2>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="bg-white rounded-xl border border-sga-border p-6">
+        <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">vs. Heartland / DCA</p>
+        <h3 class="text-base font-bold text-sga-text mb-3">Outright Acquisition Model</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">They buy your practice. You become an employee. Cash at close, no ongoing equity. Your upside ends the day the wire hits. SGA makes you an equity partner. As the platform grows, your equity appreciates. That is the "second bite" Heartland cannot offer.</p>
+      </div>
+      <div class="bg-white rounded-xl border border-sga-border p-6">
+        <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">vs. PDS</p>
+        <h3 class="text-base font-bold text-sga-text mb-3">Management Services Model</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">PDS charges you management fees. You own your practice. No equity in a larger platform. No upside beyond your four walls. SGA makes you an equity partner in a $350M+ platform. There is a difference between paying for support and owning a piece of something.</p>
+      </div>
+      <div class="bg-white rounded-xl border border-sga-border p-6">
+        <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">vs. MB2</p>
+        <h3 class="text-base font-bold text-sga-text mb-3">Partial Equity DPO Model</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">MB2 is the closest structural comparison. Similar JV model. The differences: <strong>PE track record</strong> (Thurston 38yr vs undisclosed). <strong>Education</strong> (Pikos + 4Front vs none). <strong>Verticals</strong> (3 vs general only). <strong>Content</strong> (138K subscribers vs minimal). "DPO" is branding, not structure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="bg-white">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold text-sga-text mb-10 text-center">"How Is SGA Different?" -- The Questions You Are Already Asking</h2>
+    <div class="space-y-3" x-data="{ openFaq: null }">
+      <template x-for="(faq, i) in [
+        { q: 'Every DSO says clinical autonomy. How is SGA different?', a: 'Clinical autonomy is contractual, written into the partnership agreement. Our CCO, Dr. Mitch Ellingson, is a practicing dentist who personally experienced the private-to-group transition. SGA uses a dentists-teach-dentists model -- clinical direction comes from the clinical advisory board, not corporate managers. We encourage you to read Heartland\'s Indeed reviews alongside our partner testimonials.' },
+        { q: 'MB2 calls themselves a DPO, not a DSO. Is that real?', a: 'DPO is a marketing term, not a legal designation. Both SGA and MB2 use JV equity partnerships. The actual differences: SGA has the Pikos Institute (MB2 does not). SGA is backed by Thurston Group with a disclosed 38-year track record (MB2\'s PE backers are undisclosed). SGA offers three specialty verticals (MB2 is general only).' },
+        { q: 'Heartland has 1,800 practices. Isn\'t bigger better?', a: 'Bigger means more purchasing power and staff. But bigger also means less personal attention and more standardized processes. Heartland employee reviews on Indeed and Glassdoor cite manager override of clinical decisions and production pressure. SGA\'s 100+ practice network is large enough for scale, small enough that our CCO knows partners by name.' },
+        { q: 'PDS lets me keep 100% ownership. Why give up equity?', a: 'PDS\'s model is genuinely differentiated. The tradeoff: no equity in a larger platform. SGA gives you a liquidity event (60-70% upfront), ongoing platform equity, and the second bite as the entity grows. Thurston has returned $4B+ through this model. For dentists who want both liquidity and long-term upside, SGA is structurally superior.' },
+        { q: 'Aspen has the most brand recognition. Does that matter?', a: 'If you are starting from scratch, maybe. But you have an established practice your community knows. SGA preserves your name. Also worth noting: Aspen has 1.2 stars from 311 reviews on Sitejabber and has faced multiple state attorney general investigations. National recognition is not always positive.' },
+        { q: 'What about SALT Dental Partners for specialties?', a: 'SALT is credible for pediatric and orthodontic specialists. For periodontists, oral surgeons, and implantologists, SGA\'s MODIS vertical offers the Pikos Institute, Dr. Pikos as a founding partner, $250K-$750K capital investment, and an integrated referral network. SALT has no education platform and no implantology vertical.' },
+        { q: 'Why should I believe SGA over any other DSO?', a: 'You should not believe any DSO\'s marketing -- including ours. Instead: (1) Ask for named partner references and call them directly. (2) Research Thurston Group\'s 38-year history independently. (3) Read employee reviews on Glassdoor for every DSO you evaluate. We are confident in what you will find.' },
+        { q: 'What if SGA gets sold to a bigger DSO?', a: 'Thurston Group has been in business for 38 years. Their model is long-term compounding, not quick flips. In a Thurston exit, partners historically benefit through equity appreciation -- the $4B+ returned across 8 platforms represents real proceeds paid to real people. Thurston principals are available by phone to discuss this directly.' },
+        { q: 'What is the single most important question to ask each DSO?', a: 'Ask: Can I speak directly with three current partners who have been in the organization for at least two years -- without anyone from corporate on the call? Every DSO will say yes. The quality of those conversations will tell you everything. At SGA, we provide named references and step out of the room.' },
+      ]" :key="i">
+        <div class="bg-sga-gray rounded-xl border border-sga-border overflow-hidden">
+          <button @click="openFaq === i ? openFaq = null : openFaq = i" class="w-full flex items-center justify-between px-5 py-4 text-left cursor-pointer focus-visible:ring-2 focus-visible:ring-sga-blue focus-visible:ring-offset-2 rounded-xl" :class="openFaq === i ? 'accordion-open' : ''">
+            <span class="text-sm font-semibold text-sga-text pr-4" x-text="faq.q"></span>
+            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 accordion-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div x-show="openFaq === i" x-collapse>
+            <div class="px-5 pb-4">
+              <p class="text-sm text-gray-600 leading-relaxed" x-text="faq.a"></p>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section id="cta-final" class="bg-gradient-to-br from-gray-900 via-gray-800 to-sga-blue-dark text-white">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-4" style="text-wrap:balance;">You Are Doing the Right Thing by Comparing.</h2>
+    <p class="text-lg text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">Schedule a confidential conversation. Bring your questions. Bring your advisor. Bring your skepticism. We will introduce you to current partners who can tell you -- without a script -- what the first two years looked like.</p>
+    <div class="flex flex-wrap justify-center gap-3 mb-8">
+      <a href="#" class="inline-flex items-center gap-2 bg-sga-orange hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl transition-colors duration-150 cursor-pointer text-lg focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900">Schedule a Confidential Conversation</a>
+      <a href="#" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-4 rounded-xl border border-white/30 transition-colors duration-150 cursor-pointer focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900">Download the Partnership Assessment</a>
+    </div>
+    <p class="text-sm text-white/50">No pressure. No hard sell. Just a conversation between professionals.</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-gray-400 text-xs border-t border-gray-800">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <p>This page was prepared using publicly available information as of March 2026. Competitor data sourced from public filings, press releases, Glassdoor, Indeed, and Sitejabber. SGA Dental Partners is committed to honest representation of its model and its competitors.</p>
+    <p class="mt-2">Related pages: <a href="landing-page.html" class="text-sga-blue hover:underline cursor-pointer">Full SGA Story</a> | <a href="pricing.html" class="text-sga-blue hover:underline cursor-pointer">Partnership Tiers and Pricing</a> | <a href="sga-alternative.html" class="text-sga-blue hover:underline cursor-pointer">When SGA Is (and Isn't) Right</a> | <a href="best-dso-partnerships-2026.html" class="text-sga-blue hover:underline cursor-pointer">8 DSOs Compared</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

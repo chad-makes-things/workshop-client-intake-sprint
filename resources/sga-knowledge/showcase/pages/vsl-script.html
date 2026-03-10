@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SGA Dental Partners — VSL Script | Practice Owner Acquisition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'sga-blue': '#2D6FB7',
+            'sga-blue-dark': '#1e4e8a',
+            'sga-blue-light': '#4a8fd4',
+            'sga-lime': '#C4D347',
+            'sga-orange': '#F36F21',
+            'sga-text': '#333333',
+          },
+          fontFamily: {
+            sans: ['Roboto', 'sans-serif'],
+            slab: ['Roboto Slab', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Roboto', sans-serif; color: #333333; }
+    h1, h2, h3 { font-family: 'Roboto Slab', serif; }
+
+    .section-marker {
+      background: linear-gradient(135deg, #2D6FB7 0%, #1e4e8a 100%);
+      color: white;
+    }
+
+    .timestamp-badge {
+      background: #C4D347;
+      color: #1e1e1e;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .broll-callout {
+      border-left: 4px solid #F36F21;
+      background: #fff8f4;
+    }
+
+    .onscreen-text {
+      border-left: 4px solid #C4D347;
+      background: #f7f9e8;
+    }
+
+    .beat-marker {
+      color: #2D6FB7;
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .script-body {
+      font-size: 1.2rem;
+      line-height: 1.9;
+      font-weight: 400;
+      max-width: 72ch;
+    }
+
+    .script-body p {
+      margin-bottom: 1.1rem;
+    }
+
+    .presenter-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #2D6FB7;
+      margin-bottom: 0.4rem;
+    }
+
+    .toc-link {
+      transition: all 0.15s ease;
+    }
+
+    .toc-link:hover {
+      color: #2D6FB7;
+      padding-left: 0.5rem;
+    }
+
+    .section-number {
+      width: 2rem;
+      height: 2rem;
+      background: #2D6FB7;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .header-gradient {
+      background: linear-gradient(135deg, #2D6FB7 0%, #1e4e8a 100%);
+    }
+
+    .pillar-label {
+      background: #2D6FB7;
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+    }
+
+    .stat-card {
+      border: 2px solid #C4D347;
+      background: #f7f9e8;
+    }
+
+    /* Print styles */
+    @media print {
+      .no-print { display: none !important; }
+      body { font-size: 11pt; color: #000; background: #fff; }
+      .script-body { font-size: 13pt; line-height: 1.8; }
+      .section-marker { background: #000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .broll-callout { border-left: 4px solid #888; background: #f5f5f5; }
+      .onscreen-text { border-left: 4px solid #888; background: #f0f0f0; }
+      .timestamp-badge { background: #ddd; color: #000; }
+      h2, h3 { page-break-after: avoid; }
+      .section-block { page-break-inside: avoid; }
+      .header-gradient { background: #000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      a { text-decoration: none; color: #000; }
+    }
+
+    @page {
+      margin: 0.75in;
+    }
+  </style>
+</head>
+<body class="bg-white" x-data="{ view: 'annotated' }" style="padding-top:40px;">
+<div style="position:fixed;top:0;left:0;right:0;height:40px;background:#1e293b;display:flex;align-items:center;padding:0 16px;z-index:9999;">
+  <a href="../index.html" style="color:#93c5fd;text-decoration:none;font-size:14px;font-family:Inter,sans-serif;">&larr; Back to Showcase</a>
+  <span style="color:#64748b;margin-left:auto;font-size:12px;font-family:Inter,sans-serif;">SGA Dental Partners Marketing Showcase</span>
+</div>
+
+  <!-- HEADER -->
+  <header class="header-gradient text-white no-print">
+    <div class="max-w-5xl mx-auto px-6 py-8">
+      <div class="flex items-start justify-between flex-wrap gap-4">
+        <div>
+          <div class="text-sga-lime text-xs font-bold tracking-widest uppercase mb-1">SGA Dental Partners</div>
+          <h1 class="font-slab text-2xl md:text-3xl font-bold leading-tight mb-2">Video Sales Letter — Full Script</h1>
+          <p class="text-blue-100 text-sm max-w-lg">Practice Owner Acquisition VSL &mdash; Production-Ready Teleprompter Script with Direction Notes</p>
+        </div>
+        <div class="text-right">
+          <div class="text-sga-lime font-bold text-3xl font-slab">~16:30</div>
+          <div class="text-blue-200 text-xs uppercase tracking-widest">Total Runtime</div>
+        </div>
+      </div>
+
+      <!-- Meta strip -->
+      <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="bg-white bg-opacity-10 rounded-lg px-3 py-2">
+          <div class="text-blue-200 text-xs uppercase tracking-wide">Presenter</div>
+          <div class="text-white text-sm font-medium">Dr. Mitch Ellingson</div>
+        </div>
+        <div class="bg-white bg-opacity-10 rounded-lg px-3 py-2">
+          <div class="text-blue-200 text-xs uppercase tracking-wide">Target Avatar</div>
+          <div class="text-white text-sm font-medium">Dr. Mark Hendricks (Age 52)</div>
+        </div>
+        <div class="bg-white bg-opacity-10 rounded-lg px-3 py-2">
+          <div class="text-blue-200 text-xs uppercase tracking-wide">Formula</div>
+          <div class="text-white text-sm font-medium">PASTOR (Sage voice)</div>
+        </div>
+        <div class="bg-white bg-opacity-10 rounded-lg px-3 py-2">
+          <div class="text-blue-200 text-xs uppercase tracking-wide">Sophistication</div>
+          <div class="text-white text-sm font-medium">Schwartz Level 4</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PRINT HEADER -->
+  <div class="hidden print:block bg-black text-white p-6 mb-8">
+    <div class="flex justify-between items-start">
+      <div>
+        <div class="text-xs tracking-widest uppercase mb-1">SGA Dental Partners</div>
+        <h1 class="text-2xl font-bold font-slab">Video Sales Letter — Full Script</h1>
+        <p class="text-sm mt-1">Practice Owner Acquisition VSL | Production-Ready</p>
+      </div>
+      <div class="text-right">
+        <div class="text-2xl font-bold">~16:30</div>
+        <div class="text-xs">Total Runtime</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-4 md:px-6 py-8">
+
+    <!-- VIEW TOGGLE + TOC -->
+    <div class="no-print">
+      <!-- View toggle -->
+      <div class="flex items-center gap-3 mb-6">
+        <span class="text-sm font-medium text-gray-500">View mode:</span>
+        <button
+          @click="view = 'script'"
+          :class="view === 'script' ? 'bg-sga-blue text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'"
+          class="px-4 py-2 rounded-full text-sm font-medium transition-colors"
+        >Script Only</button>
+        <button
+          @click="view = 'annotated'"
+          :class="view === 'annotated' ? 'bg-sga-blue text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'"
+          class="px-4 py-2 rounded-full text-sm font-medium transition-colors"
+        >Annotated</button>
+        <button onclick="window.print()" class="ml-auto px-4 py-2 rounded-full text-sm font-medium bg-sga-orange text-white hover:bg-orange-600 transition-colors">
+          Print Script
+        </button>
+      </div>
+
+      <!-- Annotation legend -->
+      <div x-show="view === 'annotated'" class="flex flex-wrap gap-4 mb-6 text-xs">
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 rounded-sm bg-sga-orange opacity-70"></div>
+          <span class="text-gray-600">B-Roll Direction</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 rounded-sm" style="background:#C4D347"></div>
+          <span class="text-gray-600">On-Screen Text</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 rounded-sm bg-sga-blue"></div>
+          <span class="text-gray-600">Timing / [BEAT] Cues</span>
+        </div>
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="bg-gray-50 rounded-xl p-5 mb-8 border border-gray-200">
+        <h2 class="font-slab text-base font-bold text-sga-blue mb-4">Table of Contents</h2>
+        <div class="grid md:grid-cols-2 gap-1">
+          <a href="#sec1" class="toc-link flex items-center gap-3 py-1.5 text-sm text-gray-700 border-b border-gray-100">
+            <span class="timestamp-badge px-2 py-0.5 rounded text-xs">0:00</span>
+            <span>1. Opening Hook</span>
+            <span class="ml-auto text-gray-400 text-xs">0:30</span>
+          </a>
+          <a href="#sec2" class="toc-link flex items-center gap-3 py-1.5 text-sm text-gray-700 border-b border-gray-100">
+            <span class="timestamp-badge px-2 py-0.5 rounded text-xs">0:30</span>
+            <span>2. Problem Agitation</span>
+            <span class="ml-auto text-gray-400 text-xs">2:30</span>
+          </a>
+          <a href="#sec3" class="toc-link flex items-center gap-3 py-1.5 text-sm text-gray-700 border-b border-gray-100">
+            <span class="timestamp-badge px-2 py-0.5 rounded text-xs">3:00</span>
+            <span>3. False Solutions</span>
+            <span class="ml-auto text-gray-400 text-xs">2:00</span>
+          </a>
+          <a href="#sec4" class="toc-link flex items-center gap-3 py-1.5 text-sm text-gray-700 border-b border-gray-100">
+            <span class="timestamp-badge px-2 py-0.5 rounded text-xs">5:00</span>
+            <span>4. The Origin Story</span>
+            <span class="ml-auto text-gray-400 text-xs">2:30</span>
+          </a>
+          <a href="#sec5" class="toc-link flex items-center gap-3 py-1.5 text-sm text-gray-700 border-b border-gray-100">
+            <span class="timestamp-badge px-2 py-0.5 rounded text-xs">7:30</span>
+            <span>5. Three Pillars (Solution)</span>
+            <span class="ml-auto text-gray-400 text-xs">3:30</span>
+          </a>
+          <a href="#sec6" class="toc-link flex items-center gap-3 py-1.5 text-sm text-gray-700 border-b border-gray-100">
+            <span class="timestamp-badge px-2 py-0.5 rounded text-xs">11:00</span>
+            <span>6. Social Proof</span>
+            <span class="ml-auto text-gray-400 text-xs">2:00</span>
+          </a>
+          <a href="#sec7" class="toc-link flex items-center gap-3 py-1.5 text-sm text-gray-700 border-b border-gray-100">
+            <span class="timestamp-badge px-2 py-0.5 rounded text-xs">13:00</span>
+            <span>7. The Offer</span>
+            <span class="ml-auto text-gray-400 text-xs">2:00</span>
+          </a>
+          <a href="#sec8" class="toc-link flex items-center gap-3 py-1.5 text-sm text-gray-700 border-b border-gray-100">
+            <span class="timestamp-badge px-2 py-0.5 rounded text-xs">15:00</span>
+            <span>8. CTA &amp; Close</span>
+            <span class="ml-auto text-gray-400 text-xs">1:30</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRE-PRODUCTION NOTES -->
+    <div class="no-print mb-8 rounded-xl overflow-hidden border border-blue-200">
+      <button
+        class="w-full text-left px-5 py-4 bg-blue-50 flex items-center justify-between"
+        x-data="{ open: false }"
+        @click="open = !open"
+      >
+        <span class="font-slab font-bold text-sga-blue text-sm">Pre-Production Direction Notes</span>
+        <span x-text="open ? '▲' : '▼'" class="text-sga-blue text-xs"></span>
+      </button>
+      <div x-data="{ open: false }" x-show="open" class="px-5 py-4 bg-white text-sm text-gray-600 space-y-3" style="display:none">
+        <p><strong class="text-sga-blue">Tone:</strong> Not a pitch. A quiet, evidence-heavy conversation between a dentist who has been on both sides and a dentist considering the crossing. Charlie Rose interview energy, not QVC. Pacing is deliberate. Pauses matter.</p>
+        <p><strong class="text-sga-blue">Visual:</strong> Clean, warm, professional. No stock footage of smiling businesspeople. Real offices. Real people. Real equipment. Muted color grade — cinematic but grounded. Documentary, not commercial.</p>
+        <p><strong class="text-sga-blue">Music:</strong> Minimal. Ambient, understated piano or acoustic guitar under problem sections. Silence during key quotes and testimonials. Music should never compete with the words.</p>
+        <p><strong class="text-sga-blue">Read pace:</strong> Written at approximately 140 words per minute (conversational pace). ~2,350 words of spoken dialogue = ~16:45 read-aloud time.</p>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 1: OPENING HOOK -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section id="sec1" class="section-block mb-12">
+      <div class="section-marker rounded-xl p-5 mb-6">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <div class="section-number">1</div>
+            <div>
+              <h2 class="font-slab text-xl font-bold text-white">Opening Hook</h2>
+              <p class="text-blue-200 text-sm mt-0.5">Pattern interrupt. The stat that stops the scroll.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="timestamp-badge px-3 py-1 rounded-full">0:00 — 0:30</span>
+            <span class="text-blue-200 text-xs">Duration: 0:30</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- B-Roll block -->
+      <div x-show="view === 'annotated'" class="broll-callout rounded-lg p-4 mb-4 text-sm text-gray-700">
+        <div class="flex items-start gap-2 mb-2">
+          <span class="text-sga-orange font-bold text-xs uppercase tracking-wider">B-Roll / Visual</span>
+        </div>
+        <p>Close-up of presenter's face, direct to camera. Plain background — a real dental office or a quiet, well-lit room. No branding. No graphics. Just a person speaking.</p>
+      </div>
+
+      <!-- On-screen text -->
+      <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-4 mb-5 text-sm">
+        <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">On-Screen Text (appears at 0:03)</span>
+        <p class="italic text-gray-800">"7 out of 10 dentists regret their DSO sale." — Dentist Advisors Podcast</p>
+      </div>
+
+      <!-- Script body -->
+      <div class="presenter-label">Presenter (direct to camera)</div>
+      <div class="script-body">
+        <p>Seven out of ten.</p>
+        <p>That is how many dentists end up frustrated, annoyed, or outright regretful after selling to a DSO.</p>
+        <p>Not my number. That is what the Dentist Advisors Podcast reports after talking to hundreds of practice owners who took the deal.</p>
+        <p class="beat-marker">[BEAT — 1.5 seconds of silence]</p>
+        <p>But here is what that statistic does not tell you.</p>
+        <p>It does not tell you about the other three.</p>
+        <p>The ones who say it was the best decision they ever made.</p>
+      </div>
+
+      <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-4 my-4 text-sm">
+        <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">On-Screen Text (appears over presenter)</span>
+        <p class="italic text-gray-800">What did they do differently?</p>
+      </div>
+
+      <div class="script-body">
+        <p>What if the problem was never partnership itself?</p>
+        <p>What if the problem has always been... who you partner with?</p>
+      </div>
+
+      <div x-show="view === 'annotated'" class="broll-callout rounded-lg p-4 mt-4 text-sm text-gray-700">
+        <span class="text-sga-orange font-bold text-xs uppercase tracking-wider block mb-1">Transition Cue</span>
+        <p>Cut to wide shot. Presenter takes a breath. Shifts posture slightly — moving from setup to substance.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 2: PROBLEM AGITATION -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section id="sec2" class="section-block mb-12">
+      <div class="section-marker rounded-xl p-5 mb-6">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <div class="section-number">2</div>
+            <div>
+              <h2 class="font-slab text-xl font-bold text-white">Problem Agitation</h2>
+              <p class="text-blue-200 text-sm mt-0.5">Mirror the audience's lived experience back to them.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="timestamp-badge px-3 py-1 rounded-full">0:30 — 3:00</span>
+            <span class="text-blue-200 text-xs">Duration: 2:30</span>
+          </div>
+        </div>
+      </div>
+
+      <div x-show="view === 'annotated'" class="broll-callout rounded-lg p-4 mb-5 text-sm text-gray-700">
+        <span class="text-sga-orange font-bold text-xs uppercase tracking-wider block mb-2">B-Roll Intercut</span>
+        <ul class="list-disc list-inside space-y-1 text-gray-600">
+          <li>Empty dental office after hours, lights still on, a single computer screen glowing</li>
+          <li>Close-up of hands flipping through insurance paperwork</li>
+          <li>A dentist sitting alone at a desk, head in hands — use real partner or actor, not stock</li>
+          <li>Overhead shot of a cluttered desk: QuickBooks printout, payroll spreadsheet, OSHA binder, supply invoices</li>
+        </ul>
+        <p class="mt-2 text-gray-500 italic">On-Screen Text (rolling, minimal): Key VoC phrases appear briefly, one at a time, white text on dark overlay.</p>
+      </div>
+
+      <div class="presenter-label">Presenter</div>
+      <div class="script-body">
+        <p>I want to talk to you for a few minutes.</p>
+        <p>Not as a pitch. Not as a sales presentation.</p>
+        <p>As one dentist to another.</p>
+        <p>Because if you are watching this, I am willing to bet I know what your week looks like.</p>
+        <p class="beat-marker">[BEAT]</p>
+        <p>You are the dentist.</p>
+        <p>You are the HR department.</p>
+        <p>The IT department.</p>
+        <p>And the therapist for your entire staff.</p>
+      </div>
+
+      <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-4 my-4 text-sm">
+        <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">On-Screen Text</span>
+        <p class="italic text-gray-800">"I'm the dentist, the HR department, the IT guy, and the therapist." — Practice owner, VoC research</p>
+      </div>
+
+      <div class="script-body">
+        <p>You did not sign up for any of that.</p>
+        <p class="beat-marker">[BEAT]</p>
+        <p>You know what Sunday night feels like.</p>
+        <p>That slow-building dread.</p>
+        <p>Reviewing next week's schedule because your office manager quit three months ago and you never really replaced her.</p>
+        <p>Opening QuickBooks because nobody else understands the books.</p>
+        <p>Answering the email from the supply company. The insurance company. The staffing agency.</p>
+        <p>And somewhere around midnight, you open a browser tab you will never show anyone.</p>
+        <p>And you type: "sell dental practice."</p>
+      </div>
+
+      <div x-show="view === 'annotated'" class="broll-callout rounded-lg p-4 my-4 text-sm text-gray-700">
+        <span class="text-sga-orange font-bold text-xs uppercase tracking-wider block mb-1">B-Roll</span>
+        <p>Close-up of a search bar. The words appear: <em>sell dental practice pros and cons</em></p>
+      </div>
+
+      <div class="script-body">
+        <p class="beat-marker">[BEAT]</p>
+        <p>I know that moment.</p>
+        <p>Because I have lived it.</p>
+        <p>And so has every dentist I have ever talked to who was honest with me about what running a practice actually feels like after twenty years.</p>
+        <p>You built something real.</p>
+        <p>Two locations. Eighteen employees. Twenty-two years of your life in the chairs.</p>
+        <p>Your name is on the door.</p>
+        <p>Your patients trust you.</p>
+        <p>Your team depends on you.</p>
+        <p>And underneath all of that...</p>
+        <p>You are tired.</p>
+        <p>You have all your eggs in one basket, and your financial advisor keeps telling you to diversify, but your entire net worth is the practice.</p>
+        <p>You feel like you are falling behind — younger dentists coming out of school know digital workflows you have never touched. And you cannot afford the time or the money to retool by yourself.</p>
+      </div>
+
+      <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-4 my-4 text-sm">
+        <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">On-Screen Text</span>
+        <p class="italic text-gray-800">"I feel like I'm falling behind." — Practice owner, VoC research</p>
+      </div>
+
+      <div class="script-body">
+        <p>And the hardest part?</p>
+        <p>There is no one to call.</p>
+        <p>No peer who understands.</p>
+        <p>No one sitting across from you who has been through this and can tell you honestly what to do.</p>
+        <p>Solo practice is sold as independence.</p>
+        <p>But after twenty years, it feels a lot more like isolation.</p>
+      </div>
+
+      <div x-show="view === 'annotated'" class="broll-callout rounded-lg p-4 mt-4 text-sm text-gray-700">
+        <span class="text-sga-orange font-bold text-xs uppercase tracking-wider block mb-1">Transition Cue</span>
+        <p>Presenter's tone shifts from empathetic to direct. Slight lean forward.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 3: FALSE SOLUTIONS -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section id="sec3" class="section-block mb-12">
+      <div class="section-marker rounded-xl p-5 mb-6">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <div class="section-number">3</div>
+            <div>
+              <h2 class="font-slab text-xl font-bold text-white">False Solutions</h2>
+              <p class="text-blue-200 text-sm mt-0.5">Three paths. Two dead ends.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="timestamp-badge px-3 py-1 rounded-full">3:00 — 5:00</span>
+            <span class="text-blue-200 text-xs">Duration: 2:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-4 mb-5 text-sm">
+        <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">On-Screen Text</span>
+        <p class="italic text-gray-800">Three paths. Two dead ends.</p>
+      </div>
+
+      <div class="presenter-label">Presenter</div>
+      <div class="script-body">
+        <p>Now. You are not naive.</p>
+        <p>You have already been thinking about your options.</p>
+        <p>Let me walk through the three paths most practice owners consider — and why two of them lead to regret.</p>
+        <p class="beat-marker">[BEAT]</p>
+      </div>
+
+      <!-- Path 1 -->
+      <div class="ml-0 md:ml-4 mb-6">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="pillar-label">Path 1</span>
+          <span class="font-slab font-bold text-sga-text">You keep going alone.</span>
+        </div>
+
+        <div x-show="view === 'annotated'" class="broll-callout rounded-lg p-4 mb-3 text-sm text-gray-700">
+          <span class="text-sga-orange font-bold text-xs uppercase tracking-wider block mb-1">B-Roll</span>
+          <p>Time-lapse of a dental office day, from dark to light to dark again. The weight of repetition.</p>
+        </div>
+
+        <div class="script-body">
+          <p>You know where this road goes.</p>
+          <p>The fifty-hour weeks become fifty-five. Then sixty.</p>
+          <p>Your best hygienist gets recruited by a DSO that offers a 401(k) and PTO you cannot match.</p>
+          <p>Your equipment ages. Your technology gap widens.</p>
+          <p>And the practice you hoped to sell at sixty... becomes a fire sale at sixty-five.</p>
+          <p>Every year you wait, your valuation declines. Not because your skills decline. Because the market is moving and you are standing still.</p>
+        </div>
+
+        <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-3 my-3 text-sm">
+          <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">On-Screen Text</span>
+          <p class="italic text-gray-800">76% of practices find hygienist recruiting "extremely challenging." — ADA Workforce Report</p>
+        </div>
+      </div>
+
+      <!-- Path 2 -->
+      <div class="ml-0 md:ml-4 mb-6">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="pillar-label">Path 2</span>
+          <span class="font-slab font-bold text-sga-text">You sell to a corporate DSO.</span>
+        </div>
+
+        <div x-show="view === 'annotated'" class="broll-callout rounded-lg p-4 mb-3 text-sm text-gray-700">
+          <span class="text-sga-orange font-bold text-xs uppercase tracking-wider block mb-1">B-Roll</span>
+          <p>Generic corporate office hallway. Fluorescent lights. A row of identical dental operatories.</p>
+        </div>
+
+        <div class="script-body">
+          <p>This is the path seven out of ten dentists regret.</p>
+          <p>You know the stories. You have heard them at Hinman. You have read them on Dentaltown.</p>
+          <p>"I didn't get the support I thought. They just took control, but I'm still running it."</p>
+          <p>"The money — they had a clawback I didn't know about."</p>
+          <p>"I wish I would have never done this."</p>
+        </div>
+
+        <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-3 my-3 text-sm">
+          <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">On-Screen Text</span>
+          <p class="italic text-gray-800">"I wish I would have never done this." — Dentist with $10M in cash, Dentist Advisors Podcast</p>
+        </div>
+
+        <div class="script-body">
+          <p>That last one? That was said by a dentist who had ten million dollars in the bank.</p>
+          <p>And he still wished he had not done it.</p>
+          <p>Because the money is not the problem.</p>
+          <p>The problem is what happens after.</p>
+          <p>Your name comes off the door. Your staff gets "reorganized." Your patients start seeing a different face every six months.</p>
+          <p>And you — the person who built the thing — become an employee in your own practice.</p>
+        </div>
+      </div>
+
+      <!-- Path 3 -->
+      <div class="ml-0 md:ml-4 mb-6">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="pillar-label">Path 3</span>
+          <span class="font-slab font-bold text-sga-text">You call a practice broker.</span>
+        </div>
+
+        <div class="script-body">
+          <p>Better than the first two. Maybe.</p>
+          <p>But a broker's job is to close a transaction.</p>
+          <p>Not to protect your legacy.</p>
+          <p>Not to invest in your clinical growth.</p>
+          <p>Not to make sure your team has a career path.</p>
+          <p>A broker gets paid at closing. What happens to you in Year Two, Year Three, Year Five — that is not their problem.</p>
+          <p>So.</p>
+          <p>Three paths. Two dead ends. And one that is transactional by design.</p>
+          <p>What if there is a fourth?</p>
+        </div>
+      </div>
+
+      <div x-show="view === 'annotated'" class="broll-callout rounded-lg p-4 mt-2 text-sm text-gray-700">
+        <span class="text-sga-orange font-bold text-xs uppercase tracking-wider block mb-1">Transition Cue</span>
+        <p>Pause. Two full seconds. The question hangs.</p>
+      </div>
+
+      <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-4 mt-3 text-sm">
+        <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">On-Screen Text</span>
+        <p class="italic text-gray-800">What did the other three out of ten find?</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 4: THE ORIGIN STORY -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section id="sec4" class="section-block mb-12">
+      <div class="section-marker rounded-xl p-5 mb-6">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <div class="section-number">4</div>
+            <div>
+              <h2 class="font-slab text-xl font-bold text-white">The Origin Story</h2>
+              <p class="text-blue-200 text-sm mt-0.5">38 years. 8 platforms. $4B+ returned to partners.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="timestamp-badge px-3 py-1 rounded-full">5:00 — 7:30</span>
+            <span class="text-blue-200 text-xs">Duration: 2:30</span>
+          </div>
+        </div>
+      </div>
+
+      <div x-show="view === 'annotated'" class="broll-callout rounded-lg p-4 mb-5 text-sm text-gray-700">
+        <span class="text-sga-orange font-bold text-xs uppercase tracking-wider block mb-2">B-Roll Intercut</span>
+        <ul class="list-disc list-inside space-y-1 text-gray-600">
+          <li>Timeline graphic: "1988 — Thurston Group Founded"</li>
+          <li>Montage of healthcare practice exteriors across the years</li>
+          <li>Quick shot of practice teams (real SGA/Gen4/MODIS offices, not stock)</li>
+          <li>Names appearing on screen: Smile Doctors, US Endodontics Partners, US Oral Surgery Management</li>
+        </ul>
+      </div>
+
+      <div class="presenter-label">Presenter</div>
+      <div class="script-body">
+        <p>Let me tell you how we got here.</p>
+        <p>Not with a marketing pitch. With the truth.</p>
+        <p class="beat-marker">[BEAT]</p>
+        <p>The Thurston Group was founded in 1988.</p>
+        <p>Thirty-eight years ago.</p>
+        <p>Over that time, they built eight healthcare platforms — including dental.</p>
+      </div>
+
+      <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-4 my-4 text-sm">
+        <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">On-Screen Text</span>
+        <p class="italic text-gray-800">38 years. 8 platforms. $4B+ returned to partners.</p>
+      </div>
+
+      <div class="script-body">
+        <p>Smile Doctors. US Endodontics Partners. US Oral Surgery Management. South Georgia Dental Management.</p>
+        <p>Each one taught them something.</p>
+        <p>And the most important thing they learned?</p>
+        <p>That the standard DSO model was broken.</p>
+        <p>Not in theory. In practice. In the lives of the dentists inside it.</p>
+        <p class="beat-marker">[BEAT]</p>
+        <p>They talked to dentists who had sold to DSOs.</p>
+        <p>Dentists who had the money.</p>
+        <p>But who had lost something they could not get back.</p>
+        <p>Their name. Their team. Their voice.</p>
+        <p>The joy of actually practicing dentistry.</p>
+        <p>And Thurston decided: we are not going to build another one of those.</p>
+        <p>We are going to build something different.</p>
+        <p class="beat-marker">[BEAT]</p>
+        <p>So in 2021, they partnered with Lamonte Jensen — a Marine Corps officer, McKinsey consultant, and the former VP at Spear Education who had spent years inside the dental industry seeing what dentists actually struggled with.</p>
+        <p>And with me — a practicing dentist who had personally lived the transition from private practice to a group.</p>
+      </div>
+
+      <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-4 my-4 text-sm">
+        <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">On-Screen Text</span>
+        <p class="italic text-gray-800">"I've been through the transition from private-practice dentist to working inside a group, and it is really hard. It's way harder than anybody anticipates." — Dr. Mitch Ellingson, CCO</p>
+      </div>
+
+      <div class="script-body">
+        <p>We named the company Gen4.</p>
+        <p>Not just as a name. As a thesis.</p>
+      </div>
+
+      <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-4 my-4 text-sm">
+        <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-2">On-Screen Text (animated, sequential)</span>
+        <ul class="space-y-1 text-gray-800 text-sm">
+          <li><em>Gen 1 — Accounting machines. Efficient but soulless.</em></li>
+          <li><em>Gen 2 — Cookie-cutter standardization. Same supplies, same place, every office.</em></li>
+          <li><em>Gen 3 — Buying groups and consortiums. Better intentions, no scale.</em></li>
+          <li><em>Gen 4 — The collaborative model. Clinician-centric. Patient-obsessed. Built around peer learning.</em></li>
+        </ul>
+      </div>
+
+      <div class="script-body">
+        <p>We were so convinced this was a generational shift that we put it in the company name.</p>
+        <p>And then we built MODIS — anchored by Dr. Michael Pikos and the Pikos Institute — because the specialty and implantology side of dentistry needed the same thing: a platform built for clinicians, not just for investors.</p>
+        <p>And now we have brought it all together.</p>
+        <p>SGA Dental Partners.</p>
+        <p>Community dentistry. Collaborative general and specialty practice. Advanced implantology.</p>
+        <p>Three verticals. One platform.</p>
+      </div>
+
+      <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-4 my-4 text-sm">
+        <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">On-Screen Text</span>
+        <p class="italic text-gray-800">$350M credit facility. 100+ partner practices. 10+ states.</p>
+      </div>
+
+      <div class="script-body">
+        <p>Backed by a firm that has done this eight times over thirty-eight years and returned more than four billion dollars to the people who trusted them.</p>
+        <p>We do not ask you to trust a promise.</p>
+        <p>We ask you to verify a track record.</p>
+      </div>
+
+      <div x-show="view === 'annotated'" class="broll-callout rounded-lg p-4 mt-4 text-sm text-gray-700">
+        <span class="text-sga-orange font-bold text-xs uppercase tracking-wider block mb-1">Transition Cue</span>
+        <p>Brief pause. Shift from origin story to the mechanism — what makes SGA different in practice, not just in philosophy.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 5: THREE PILLARS -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section id="sec5" class="section-block mb-12">
+      <div class="section-marker rounded-xl p-5 mb-6">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <div class="section-number">5</div>
+            <div>
+              <h2 class="font-slab text-xl font-bold text-white">The Solution — SGA's Three Pillars</h2>
+              <p class="text-blue-200 text-sm mt-0.5">Three things no other dental partnership can offer.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="timestamp-badge px-3 py-1 rounded-full">7:30 — 11:00</span>
+            <span class="text-blue-200 text-xs">Duration: 3:30</span>
+          </div>
+        </div>
+      </div>
+
+      <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-4 mb-5 text-sm">
+        <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">Section Title Card</span>
+        <p class="italic text-gray-800">Three things that make SGA fundamentally different.</p>
+      </div>
+
+      <div class="presenter-label">Presenter</div>
+      <div class="script-body">
+        <p>I am not going to tell you SGA offers clinical autonomy.</p>
+        <p>Every DSO says that.</p>
+        <p>It is wallpaper.</p>
+        <p>Instead, I am going to show you three things no other dental partnership in this country can offer.</p>
+        <p>And then I am going to let our partners tell you whether it is real.</p>
+      </div>
+
+      <!-- Pillar 1 -->
+      <div class="mt-8 mb-8 border border-gray-200 rounded-xl overflow-hidden">
+        <div class="bg-sga-blue px-5 py-3 flex items-center gap-3">
+          <span class="pillar-label bg-white text-sga-blue">Pillar 1</span>
+          <span class="text-white font-slab font-bold">The Education Platform</span>
+        </div>
+        <div class="p-5">
+          <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-3 mb-4 text-sm">
+            <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">On-Screen Text</span>
+            <p class="italic text-gray-800">Pillar 1: The Education Platform</p>
+          </div>
+          <div class="presenter-label">Presenter</div>
+          <div class="script-body">
+            <p>The first pillar is education. Not a CE stipend. Not a catalog of online courses.</p>
+            <p>An education ecosystem.</p>
+            <p>The Pikos Institute — the most respected implantology training center in the world.</p>
+            <p>The 4Front Symposium — our annual gathering where partner clinicians teach each other. Not corporate trainers delivering slides. Dentists teaching dentists.</p>
+            <p>And the Individual Growth Engine — where we pair every partner with a clinical mentor.</p>
+          </div>
+
+          <div x-show="view === 'annotated'" class="broll-callout rounded-lg p-3 my-3 text-sm text-gray-700">
+            <span class="text-sga-orange font-bold text-xs uppercase tracking-wider block mb-1">B-Roll Cut</span>
+            <p>Dr. Matt Cavendish interview footage or reenactment with text overlay.</p>
+            <p class="mt-1 text-xs italic">Lower-third: Dr. Matt Cavendish — Gen4 Partner, Phoenix, AZ — 20 years in private practice</p>
+          </div>
+
+          <div class="script-body">
+            <p>Let me tell you about Matt Cavendish.</p>
+            <p>Matt had been in private practice for twenty years in Phoenix.</p>
+            <p>He was successful by every external measure.</p>
+            <p>But privately?</p>
+            <p>He was in what he called "a spot of complacency."</p>
+            <p>Not challenged. Not growing. Just getting through the day.</p>
+          </div>
+
+          <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-3 my-3 text-sm">
+            <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">On-Screen Text</span>
+            <p class="italic text-gray-800">"When you've been in dentistry for 20 years, sometimes it's not as fun as it used to be."</p>
+          </div>
+
+          <div class="script-body">
+            <p>When Matt joined Gen4, we paired him with a mentor.</p>
+            <p>He observed his first all-on-four procedure.</p>
+            <p>He started picking his mentor's brain on surgical technique, treatment planning, lab relationships.</p>
+            <p>Things he never would have had access to as a solo practitioner.</p>
+          </div>
+
+          <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-3 my-3 text-sm">
+            <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-2">On-Screen Text (results, appearing sequentially)</span>
+            <ul class="space-y-1 text-sm text-gray-800">
+              <li><em>Revenue TTM: up 16.5%</em></li>
+              <li><em>EBITDA: beating plan by 2.3 points</em></li>
+              <li><em>Staff retention: 100%</em></li>
+              <li><em>Cost of dental supplies: 6.4 points under plan</em></li>
+            </ul>
+          </div>
+
+          <div class="script-body">
+            <p>And here is what he said about the experience:</p>
+          </div>
+
+          <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-3 my-3 text-sm">
+            <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">On-Screen Text (full-screen quote)</span>
+            <p class="italic text-gray-800 text-base">"To be able to do a complex case with somebody who is also working at a very high skill level — it is fun." — Dr. Matt Cavendish</p>
+          </div>
+
+          <div class="script-body">
+            <p>Fun.</p>
+            <p>After twenty years.</p>
+            <p>That word matters.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillar 2 -->
+      <div class="mb-8 border border-gray-200 rounded-xl overflow-hidden">
+        <div class="bg-sga-blue px-5 py-3 flex items-center gap-3">
+          <span class="pillar-label bg-white text-sga-blue">Pillar 2</span>
+          <span class="text-white font-slab font-bold">The Track Record</span>
+        </div>
+        <div class="p-5">
+          <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-3 mb-4 text-sm">
+            <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">On-Screen Text</span>
+            <p class="italic text-gray-800">Pillar 2: The Track Record</p>
+          </div>
+          <div class="presenter-label">Presenter</div>
+          <div class="script-body">
+            <p>The second pillar is proof.</p>
+            <p>Not projections. Not pro formas. Not a pitch deck.</p>
+            <p>History.</p>
+          </div>
+
+          <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-3 my-3 text-sm">
+            <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-2">On-Screen Text (animated sequence)</span>
+            <ul class="space-y-1 text-sm text-gray-800">
+              <li><em>Thurston Group: Founded 1988</em></li>
+              <li><em>38 years in healthcare investing</em></li>
+              <li><em>8 dental and healthcare platforms built</em></li>
+              <li><em>$4B+ returned to partners</em></li>
+              <li><em>$350M credit facility secured for SGA</em></li>
+            </ul>
+          </div>
+
+          <div class="script-body">
+            <p>I know the number-one fear you carry about private equity.</p>
+            <p>"They load up on debt, squeeze margins, and flip in three years."</p>
+            <p>I hear it in every conversation.</p>
+            <p>And here is what I say:</p>
+            <p>Do not believe me.</p>
+            <p>Call our partners.</p>
+            <p>Dr. Mitchel Godat at Periodontal Associates of Memphis. Dr. Cavendish in Phoenix. Partners from Smile Doctors, US Endodontics, US Oral Surgery Management.</p>
+            <p>These are real people with real phone numbers who will tell you exactly how it worked out.</p>
+            <p>Not a marketing testimonial.</p>
+            <p>A conversation.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillar 3 -->
+      <div class="mb-6 border border-gray-200 rounded-xl overflow-hidden">
+        <div class="bg-sga-blue px-5 py-3 flex items-center gap-3">
+          <span class="pillar-label bg-white text-sga-blue">Pillar 3</span>
+          <span class="text-white font-slab font-bold">Three Verticals, One Platform</span>
+        </div>
+        <div class="p-5">
+          <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-3 mb-4 text-sm">
+            <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">On-Screen Text</span>
+            <p class="italic text-gray-800">Pillar 3: Three Verticals</p>
+          </div>
+          <div class="presenter-label">Presenter</div>
+          <div class="script-body">
+            <p>The third pillar is structure.</p>
+            <p>SGA is not a general dentistry platform with implants bolted on.</p>
+            <p>It is three purpose-built verticals inside one partnership.</p>
+          </div>
+
+          <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-3 my-3 text-sm">
+            <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-2">On-Screen Text</span>
+            <ul class="space-y-1 text-sm text-gray-800">
+              <li><em>Community dentistry — hometown practices, Southeast roots</em></li>
+              <li><em>Collaborative general &amp; specialty — national footprint, peer learning culture</em></li>
+              <li><em>Advanced implantology — Pikos Institute, Innovative Dental, full-arch expertise</em></li>
+            </ul>
+          </div>
+
+          <div class="script-body">
+            <p>Why does this matter to you?</p>
+            <p>Because it means a general dentist can develop implant skills through the Pikos Institute. A periodontist can access a marketing engine and recruiting infrastructure they could never build alone. A community practice can refer complex cases to a specialist partner inside the network.</p>
+            <p>It means wherever your career goes next — SGA has a path for you.</p>
+            <p>And that path does not end at the deal table.</p>
+            <p>It starts there.</p>
+          </div>
+        </div>
+      </div>
+
+      <div x-show="view === 'annotated'" class="broll-callout rounded-lg p-4 mt-2 text-sm text-gray-700">
+        <span class="text-sga-orange font-bold text-xs uppercase tracking-wider block mb-1">Transition Cue</span>
+        <p>Music drops out. Silence for 1.5 seconds. Shift to social proof.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 6: SOCIAL PROOF -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section id="sec6" class="section-block mb-12">
+      <div class="section-marker rounded-xl p-5 mb-6">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <div class="section-number">6</div>
+            <div>
+              <h2 class="font-slab text-xl font-bold text-white">Social Proof</h2>
+              <p class="text-blue-200 text-sm mt-0.5">Don't take my word for it. Three partner voices.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="timestamp-badge px-3 py-1 rounded-full">11:00 — 13:00</span>
+            <span class="text-blue-200 text-xs">Duration: 2:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div x-show="view === 'annotated'" class="broll-callout rounded-lg p-4 mb-5 text-sm text-gray-700">
+        <span class="text-sga-orange font-bold text-xs uppercase tracking-wider block mb-2">Visual Direction</span>
+        <p>Testimonial montage. Each partner speaks directly to camera from their own practice. Quick cuts — 15-20 seconds per partner. Real environments. Real lighting. Not staged.</p>
+      </div>
+
+      <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-4 mb-5 text-sm">
+        <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">Section Title</span>
+        <p class="italic text-gray-800">Don't take my word for it.</p>
+      </div>
+
+      <div class="presenter-label">Presenter (voiceover, as first clip begins)</div>
+      <div class="script-body">
+        <p>I told you this was not a pitch.</p>
+        <p>So let me step aside.</p>
+        <p>And let the people who actually live this every day tell you what changed.</p>
+      </div>
+
+      <!-- Testimonial blocks -->
+      <div class="space-y-6 mt-6">
+        <!-- Godat -->
+        <div class="bg-gray-50 rounded-xl p-5 border-l-4 border-sga-blue">
+          <div x-show="view === 'annotated'" class="onscreen-text rounded p-2 mb-3 text-sm">
+            <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">Lower-Third</span>
+            <p class="italic text-gray-800 text-xs">Dr. Mitchel S. Godat — Periodontal Associates of Memphis — SGA Partner</p>
+          </div>
+          <div class="presenter-label">Cut to: Dr. Mitchel Godat — Periodontal Associates of Memphis</div>
+          <div class="script-body">
+            <p>"I am more engaged with my patients than I have been in years. QuickBooks no longer calls me to the back office. SGA supports us and manages things behind the scenes. Our partnership allows us to focus on changing lives."</p>
+          </div>
+        </div>
+
+        <!-- Cavendish -->
+        <div class="bg-gray-50 rounded-xl p-5 border-l-4 border-sga-blue">
+          <div x-show="view === 'annotated'" class="onscreen-text rounded p-2 mb-3 text-sm">
+            <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">Lower-Third</span>
+            <p class="italic text-gray-800 text-xs">Dr. Matt Cavendish — Gen4 Partner, Phoenix, AZ</p>
+          </div>
+          <div class="presenter-label">Cut to: Dr. Matt Cavendish — Gen4 Partner, Phoenix</div>
+          <div class="script-body">
+            <p>"Finding these doctors who are passionate about dentistry — that might kind of rejuvenate you a bit. Make it fun again. Don't push back on the mentorship. There is no downside."</p>
+          </div>
+        </div>
+
+        <!-- Ellingson -->
+        <div class="bg-gray-50 rounded-xl p-5 border-l-4 border-sga-blue">
+          <div x-show="view === 'annotated'" class="onscreen-text rounded p-2 mb-3 text-sm">
+            <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">Lower-Third</span>
+            <p class="italic text-gray-800 text-xs">Dr. Mitch Ellingson — CCO &amp; Co-Founder</p>
+          </div>
+          <div class="presenter-label">Cut to: Dr. Mitch Ellingson — CCO &amp; Co-Founder</div>
+          <div class="script-body">
+            <p>"Typically, you are worried someone is going to start telling you what you can and cannot do. But the reality is the opposite. We are going to ask you to lead more. We are going to amplify your voice. Your ideas are going to influence everyone."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Back to presenter -->
+      <div class="mt-6">
+        <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-4 mb-4 text-sm">
+          <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">On-Screen Text</span>
+          <p class="italic text-gray-800">85% staff retention rate across the SGA network.</p>
+        </div>
+
+        <div class="presenter-label">Cut back to: Presenter</div>
+        <div class="script-body">
+          <p>Eighty-five percent staff retention across our network.</p>
+          <p>Your team stays.</p>
+          <p>Your patients stay.</p>
+          <p>Your name stays on the door.</p>
+          <p>No other DSO publishes that number.</p>
+          <p>Because no other DSO can.</p>
+        </div>
+      </div>
+
+      <div x-show="view === 'annotated'" class="broll-callout rounded-lg p-4 mt-4 text-sm text-gray-700">
+        <span class="text-sga-orange font-bold text-xs uppercase tracking-wider block mb-1">Transition Cue</span>
+        <p>Brief pause. Shift from proof to the offer.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 7: THE OFFER -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section id="sec7" class="section-block mb-12">
+      <div class="section-marker rounded-xl p-5 mb-6">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <div class="section-number">7</div>
+            <div>
+              <h2 class="font-slab text-xl font-bold text-white">The Offer</h2>
+              <p class="text-blue-200 text-sm mt-0.5">What partnership actually looks like. Plain language. No jargon.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="timestamp-badge px-3 py-1 rounded-full">13:00 — 15:00</span>
+            <span class="text-blue-200 text-xs">Duration: 2:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div x-show="view === 'annotated'" class="broll-callout rounded-lg p-4 mb-5 text-sm text-gray-700">
+        <span class="text-sga-orange font-bold text-xs uppercase tracking-wider block mb-1">Visual Direction</span>
+        <p>Presenter speaks directly to camera. Clean background. No props, no slides. Conversational and unhurried — like the final part of a good dinner conversation.</p>
+      </div>
+
+      <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-4 mb-5 text-sm">
+        <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">Section Title Card</span>
+        <p class="italic text-gray-800">What partnership actually looks like.</p>
+      </div>
+
+      <div class="presenter-label">Presenter</div>
+      <div class="script-body">
+        <p>So let me tell you what partnership with SGA actually means.</p>
+        <p>In plain language.</p>
+        <p>No jargon. No acronyms. No fine print.</p>
+        <p class="beat-marker">[BEAT]</p>
+      </div>
+
+      <!-- Value stack -->
+      <div class="space-y-4 my-6">
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <div class="font-slab font-bold text-sga-blue mb-2">Your name stays on the door.</div>
+          <div class="script-body text-base">
+            <p>Dental Partners of Southwest Georgia is still Dental Partners of Southwest Georgia. Periodontal Associates of Memphis is still Periodontal Associates of Memphis. After one year. After five years. After ten years.</p>
+          </div>
+          <div x-show="view === 'annotated'" class="onscreen-text rounded p-2 mt-2 text-sm">
+            <p class="italic text-gray-800 text-xs">Your name. Your team. Your patients. Your clinical approach.</p>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <div class="font-slab font-bold text-sga-blue mb-2">Your team stays in the chairs.</div>
+          <div class="script-body text-base">
+            <p>Every existing staff member is retained through the transition. Benefits are upgraded, not downgraded. Cigna health. Mutual of Omaha. 401(k) through Voya. PTO. CE stipends. Your people get better taken care of than they were before.</p>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <div class="font-slab font-bold text-sga-blue mb-2">You keep your clinical autonomy.</div>
+          <div class="script-body text-base">
+            <p>You choose your materials. Your lab. Your schedule. Your treatment plans.</p>
+            <p>That is in the contract. In writing.</p>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <div class="font-slab font-bold text-sga-blue mb-2">You receive a meaningful liquidity event.</div>
+          <div class="script-body text-base">
+            <p>Cash at closing. Enough to diversify. Enough to fund what matters. Enough to stop having all your eggs in one basket.</p>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <div class="font-slab font-bold text-sga-blue mb-2">And you retain equity in the combined SGA platform.</div>
+          <div x-show="view === 'annotated'" class="onscreen-text rounded p-2 mb-3 text-sm">
+            <p class="italic text-gray-800 text-xs">Joint-venture equity partnership. Your upside does not end at closing.</p>
+          </div>
+          <div class="script-body text-base">
+            <p>This is the part most dentists miss.</p>
+            <p>When you partner with SGA, you are not cashing out. You are trading one hundred percent of a solo practice — with all its risk, all its dependency on you — for an equity stake in a platform of one hundred-plus clinicians across ten-plus states, backed by a three-hundred-fifty-million-dollar credit facility.</p>
+            <p>Thurston Group has returned four billion dollars to partners across eight platforms.</p>
+            <p>Your equity in SGA is your second bite of the apple.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="script-body">
+        <p class="beat-marker">[BEAT]</p>
+        <p>And on top of all of that —</p>
+        <p>You get access to the Pikos Institute. The 4Front Symposium. A clinical mentor through the Individual Growth Engine.</p>
+        <p>You get a peer community of dentists who will challenge you to think bigger than you have thought in years.</p>
+        <p>You get to remember why you became a dentist.</p>
+        <p class="beat-marker">[BEAT]</p>
+        <p>Now.</p>
+        <p>I know you have heard versions of this before.</p>
+        <p>Every DSO will tell you they preserve autonomy.</p>
+        <p>So let me give you something they will not give you.</p>
+        <p>Names.</p>
+      </div>
+
+      <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-4 my-4 text-sm">
+        <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-2">On-Screen Text</span>
+        <ul class="text-sm space-y-1 text-gray-800">
+          <li><em>Dr. Mitchel Godat — Periodontal Associates of Memphis</em></li>
+          <li><em>Dr. Matt Cavendish — Gen4 Partner, Phoenix</em></li>
+          <li><em>Partners from Smile Doctors, US Endodontics Partners, US Oral Surgery Management</em></li>
+        </ul>
+      </div>
+
+      <div class="script-body">
+        <p>We will connect you directly with our partners. Not on a webinar. Not through a marketing team.</p>
+        <p>On the phone.</p>
+        <p>Ask them anything.</p>
+        <p>Ask them what changed. What stayed the same. Whether the equity was worth it. Whether their staff noticed. Whether their patients noticed.</p>
+        <p>We will fly you out to meet them if you want.</p>
+        <p>Because that is what partnership built on evidence looks like.</p>
+        <p>You do not have to believe a claim.</p>
+        <p>You just have to make a call.</p>
+      </div>
+
+      <div x-show="view === 'annotated'" class="broll-callout rounded-lg p-4 mt-4 text-sm text-gray-700">
+        <span class="text-sga-orange font-bold text-xs uppercase tracking-wider block mb-1">Transition Cue</span>
+        <p>Music fades fully. Silence. Shift to close.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 8: CTA & CLOSE -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section id="sec8" class="section-block mb-12">
+      <div class="section-marker rounded-xl p-5 mb-6">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <div class="section-number">8</div>
+            <div>
+              <h2 class="font-slab text-xl font-bold text-white">CTA &amp; Close</h2>
+              <p class="text-blue-200 text-sm mt-0.5">Direct. Honest. Unhurried. Quiet conviction.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="timestamp-badge px-3 py-1 rounded-full">15:00 — 16:30</span>
+            <span class="text-blue-200 text-xs">Duration: 1:30</span>
+          </div>
+        </div>
+      </div>
+
+      <div x-show="view === 'annotated'" class="broll-callout rounded-lg p-4 mb-5 text-sm text-gray-700">
+        <span class="text-sga-orange font-bold text-xs uppercase tracking-wider block mb-1">Visual Direction</span>
+        <p>Presenter, direct to camera. Close framing — head and shoulders. The most intimate composition of the entire VSL. No B-roll. No graphics. Just a person speaking to one person.</p>
+      </div>
+
+      <div class="presenter-label">Presenter</div>
+      <div class="script-body">
+        <p>Let me be direct with you.</p>
+        <p>This is not for everyone.</p>
+        <p>If you are looking for the highest possible multiple and nothing else — there are DSOs that will pay it and strip your practice to the studs.</p>
+        <p>That is not us.</p>
+        <p>If you are looking for someone to take everything off your hands so you can disappear to a beach — that is not what we built, either.</p>
+      </div>
+
+      <div x-show="view === 'annotated'" class="onscreen-text rounded-lg p-4 my-4 text-sm">
+        <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-1">On-Screen Text</span>
+        <p class="italic text-gray-800">This is for dentists who want to keep building.</p>
+      </div>
+
+      <div class="script-body">
+        <p>SGA is for the dentist who built something worth protecting.</p>
+        <p>Who wants financial freedom and operational relief — but is not ready to walk away from the work.</p>
+        <p>Who wants to be challenged again. To learn again. To practice dentistry surrounded by peers who make them better.</p>
+        <p>If that sounds like you...</p>
+        <p>Then I would like to have a conversation.</p>
+        <p class="beat-marker">[BEAT]</p>
+        <p>Not a sales call.</p>
+        <p>A confidential conversation between dentists about what partnership could look like for your specific practice.</p>
+        <p>We evaluate a small number of practices each quarter. Not because we are exclusive. Because the transition we promise requires dedicated attention, and we will not dilute that for growth.</p>
+        <p>No brokers. No pressure. No obligation.</p>
+        <p>Just two people who understand what it takes to build something real — talking honestly about what comes next.</p>
+      </div>
+
+      <!-- CTA cards -->
+      <div class="grid md:grid-cols-2 gap-4 my-8">
+        <div class="bg-sga-orange text-white rounded-xl p-5 text-center">
+          <div class="text-xs uppercase tracking-widest mb-2 text-orange-100">Primary CTA</div>
+          <div class="font-slab font-bold text-lg mb-2">Schedule a Confidential Conversation</div>
+          <div class="text-orange-100 text-sm font-mono">sgadental.com/conversation</div>
+        </div>
+        <div class="bg-gray-100 rounded-xl p-5 text-center border-2 border-gray-200">
+          <div class="text-xs uppercase tracking-widest mb-2 text-gray-500">Secondary CTA (Not-Yet-Ready)</div>
+          <div class="font-slab font-bold text-lg mb-2 text-sga-blue">Download the Practice Partnership Assessment</div>
+          <div class="text-gray-500 text-sm font-mono">sgadental.com/assessment</div>
+        </div>
+      </div>
+
+      <div class="script-body">
+        <p>That is the first step.</p>
+        <p>If you are not ready for a conversation yet — and I understand if you are not — we have built something else.</p>
+        <p>The Practice Partnership Assessment.</p>
+        <p>It is a self-evaluation tool. Not a sales document.</p>
+        <p>It helps you determine whether you are ready for a partnership conversation — with us or with anyone. And it gives you the exact questions you should ask any DSO before signing anything.</p>
+        <p>Download it. Take your time. We will be here when you are ready.</p>
+        <p class="beat-marker">[BEAT — 2 full seconds]</p>
+        <p>Seven out of ten dentists regret their DSO sale.</p>
+        <p>We built SGA because we heard that number...</p>
+        <p>And we refused to add to it.</p>
+      </div>
+
+      <!-- Final frame -->
+      <div x-show="view === 'annotated'" class="onscreen-text rounded-xl p-6 mt-6 text-center">
+        <span class="text-xs font-bold uppercase tracking-wider text-yellow-700 block mb-3">Final Frame — Hold 5 seconds — Fade to Black</span>
+        <div class="font-slab font-bold text-xl text-sga-blue mb-1">SGA Dental Partners</div>
+        <div class="text-gray-600 italic mb-1">The partnership that makes dentists better.</div>
+        <div class="text-sga-orange font-mono text-sm">sgadental.com/conversation</div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- TIMING SUMMARY TABLE -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="mb-12 no-print">
+      <h2 class="font-slab text-xl font-bold text-sga-blue mb-4">Timing Summary</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-sga-blue text-white">
+              <th class="px-4 py-3 text-left font-semibold">#</th>
+              <th class="px-4 py-3 text-left font-semibold">Section</th>
+              <th class="px-4 py-3 text-center font-semibold">Start</th>
+              <th class="px-4 py-3 text-center font-semibold">End</th>
+              <th class="px-4 py-3 text-center font-semibold">Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-100 hover:bg-gray-50">
+              <td class="px-4 py-3">1</td>
+              <td class="px-4 py-3">Opening Hook</td>
+              <td class="px-4 py-3 text-center font-mono">0:00</td>
+              <td class="px-4 py-3 text-center font-mono">0:30</td>
+              <td class="px-4 py-3 text-center font-mono text-sga-blue font-bold">0:30</td>
+            </tr>
+            <tr class="border-b border-gray-100 hover:bg-gray-50">
+              <td class="px-4 py-3">2</td>
+              <td class="px-4 py-3">Problem Agitation</td>
+              <td class="px-4 py-3 text-center font-mono">0:30</td>
+              <td class="px-4 py-3 text-center font-mono">3:00</td>
+              <td class="px-4 py-3 text-center font-mono text-sga-blue font-bold">2:30</td>
+            </tr>
+            <tr class="border-b border-gray-100 hover:bg-gray-50">
+              <td class="px-4 py-3">3</td>
+              <td class="px-4 py-3">False Solutions</td>
+              <td class="px-4 py-3 text-center font-mono">3:00</td>
+              <td class="px-4 py-3 text-center font-mono">5:00</td>
+              <td class="px-4 py-3 text-center font-mono text-sga-blue font-bold">2:00</td>
+            </tr>
+            <tr class="border-b border-gray-100 hover:bg-gray-50">
+              <td class="px-4 py-3">4</td>
+              <td class="px-4 py-3">Origin Story</td>
+              <td class="px-4 py-3 text-center font-mono">5:00</td>
+              <td class="px-4 py-3 text-center font-mono">7:30</td>
+              <td class="px-4 py-3 text-center font-mono text-sga-blue font-bold">2:30</td>
+            </tr>
+            <tr class="border-b border-gray-100 hover:bg-gray-50">
+              <td class="px-4 py-3">5</td>
+              <td class="px-4 py-3">Three Pillars (Solution)</td>
+              <td class="px-4 py-3 text-center font-mono">7:30</td>
+              <td class="px-4 py-3 text-center font-mono">11:00</td>
+              <td class="px-4 py-3 text-center font-mono text-sga-blue font-bold">3:30</td>
+            </tr>
+            <tr class="border-b border-gray-100 hover:bg-gray-50">
+              <td class="px-4 py-3">6</td>
+              <td class="px-4 py-3">Social Proof</td>
+              <td class="px-4 py-3 text-center font-mono">11:00</td>
+              <td class="px-4 py-3 text-center font-mono">13:00</td>
+              <td class="px-4 py-3 text-center font-mono text-sga-blue font-bold">2:00</td>
+            </tr>
+            <tr class="border-b border-gray-100 hover:bg-gray-50">
+              <td class="px-4 py-3">7</td>
+              <td class="px-4 py-3">The Offer</td>
+              <td class="px-4 py-3 text-center font-mono">13:00</td>
+              <td class="px-4 py-3 text-center font-mono">15:00</td>
+              <td class="px-4 py-3 text-center font-mono text-sga-blue font-bold">2:00</td>
+            </tr>
+            <tr class="border-b border-gray-100 hover:bg-gray-50">
+              <td class="px-4 py-3">8</td>
+              <td class="px-4 py-3">CTA &amp; Close</td>
+              <td class="px-4 py-3 text-center font-mono">15:00</td>
+              <td class="px-4 py-3 text-center font-mono">16:30</td>
+              <td class="px-4 py-3 text-center font-mono text-sga-blue font-bold">1:30</td>
+            </tr>
+            <tr class="bg-sga-blue text-white">
+              <td class="px-4 py-3 font-bold" colspan="2">TOTAL</td>
+              <td class="px-4 py-3"></td>
+              <td class="px-4 py-3"></td>
+              <td class="px-4 py-3 text-center font-mono font-bold text-sga-lime text-base">~16:30</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TELEPROMPTER NOTES -->
+    <section class="mb-12 no-print">
+      <div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
+        <h2 class="font-slab text-lg font-bold text-sga-blue mb-3">Teleprompter Notes for Presenter</h2>
+        <ul class="space-y-2 text-sm text-gray-700">
+          <li class="flex items-start gap-2"><span class="text-sga-orange font-bold mt-0.5">&#8226;</span> Script is written for natural speech. Short sentences. Incomplete thoughts where conversational rhythm demands them.</li>
+          <li class="flex items-start gap-2"><span class="text-sga-orange font-bold mt-0.5">&#8226;</span> Do NOT read this like a speech. Read it like explaining something important to a friend at dinner.</li>
+          <li class="flex items-start gap-2"><span class="text-sga-orange font-bold mt-0.5">&#8226;</span> [BEAT] marks = real silences, 1.5 to 2 seconds. Do not rush past them. Pauses carry as much weight as the words.</li>
+          <li class="flex items-start gap-2"><span class="text-sga-orange font-bold mt-0.5">&#8226;</span> Allow the presenter to rephrase in their own words where it feels more natural. Emotional beats matter more than word-for-word fidelity.</li>
+          <li class="flex items-start gap-2"><span class="text-sga-orange font-bold mt-0.5">&#8226;</span> If using Dr. Ellingson: naturally passionate and direct. Let him run. Pull back only if he drifts into abstractions instead of specifics.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-gray-200 pt-6 pb-10 text-center no-print">
+      <div class="text-sga-blue font-slab font-bold text-lg mb-1">SGA Dental Partners</div>
+      <div class="text-gray-400 text-xs">VSL Script — Practice Owner Acquisition | Prepared March 2026 | ~2,350 words spoken dialogue at 140 WPM</div>
+    </footer>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+[
+  {
+    "name": "Dr. Mark Hendricks",
+    "role": "Practice Owner Considering a DSO Partnership",
+    "avatar": "MH",
+    "demographics": "Age 52 | Valdosta, GA | Owner-operator of two-location general dentistry practice | DMD, MAGD | 22 years in practice | ~$2.4M combined revenue | 18 staff | Married, two kids in college",
+    "painPoints": [
+      "I'm the dentist, the HR department, the IT guy, and the therapist for my whole staff. I didn't sign up for any of that.",
+      "I've got all my eggs in one basket and my financial advisor keeps telling me to diversify, but how do you diversify when your whole net worth is tied up in the practice?",
+      "I feel like I'm falling behind. The young dentists coming out of school know digital workflows I've never touched, and I can't afford the time or the money to retool by myself."
+    ],
+    "currentSolutions": [
+      "Solo ownership -- full control but full liability, no economies of scale",
+      "Informal study club -- good for morale but no operational or financial impact",
+      "Practice management consultant -- paid $15K, implemented 30% of recommendations, momentum died",
+      "Dental broker inquiries -- numbers sounded good but models felt like 'selling your soul'"
+    ],
+    "buyingTrigger": "Long-tenured office manager gives notice, large unexpected capital expenditure hits, kids' college tuition reveals how little liquidity he has, or a respected colleague joins a DSO and says 'I wish I'd done this five years ago.'",
+    "objections": [
+      "I'll lose my autonomy. Some corporate suit is going to tell me how to practice.",
+      "My patients and staff will freak out. They chose me, not some corporation.",
+      "I don't understand the equity model. Am I getting a fair deal or am I getting taken?"
+    ],
+    "platforms": [
+      "Dentaltown forums",
+      "ADA News and state dental association newsletters",
+      "LinkedIn",
+      "Facebook groups (Dental Nachos, Dentists Who Invest)",
+      "Podcasts (Dental Hacks, Shared Practices, Dentist Money Show)",
+      "Google search for specific pain points"
+    ],
+    "awarenessLevel": "Solution-Aware"
+  },
+  {
+    "name": "Dr. Priya Nair",
+    "role": "Associate Dentist Seeking a Long-Term Home",
+    "avatar": "PN",
+    "demographics": "Age 30 | Atlanta, GA (open to relocation) | DDS, GPR residency | 3 years post-residency | $340K student loan debt | Engaged, no children",
+    "painPoints": [
+      "I feel like a tooth mechanic, not a doctor. I didn't go through four years of dental school plus residency to do nothing but Class IIs all day.",
+      "I'm making decent money but with these loans I can barely save anything. And nobody talks about a career path -- it's just 'produce more.'",
+      "I feel totally isolated. There's no one to bounce cases off of or ask for help. The owner comes in two days a week and I'm on my own the rest."
+    ],
+    "currentSolutions": [
+      "Corporate DSO associateship -- pays well ($180K base + production bonus) but no mentorship, no clinical development, high volume, no equity",
+      "Indeed/DentalPost job searches -- most postings are vague and indistinguishable",
+      "CE courses -- expensive, disconnected from daily practice, no one at her office cares what she learned"
+    ],
+    "buyingTrigger": "A demoralizing week pressured to treatment-plan unnecessary procedures, seeing a peer thrive at a DSO with mentorship and equity pathway, or recruiter outreach mentioning clinical mentorship, CE support, and partnership pathway.",
+    "objections": [
+      "How is this different from the corporate DSO I'm already at? DSO is DSO.",
+      "The locations are mostly small towns. I'm not sure I want to live in Hinesville or Hazelhurst.",
+      "What does 'pathway to partnership' actually mean? Is that real or is it a recruiting line?"
+    ],
+    "platforms": [
+      "Instagram (dental influencers, clinical case accounts)",
+      "TikTok/YouTube Shorts (clinical tips, office tours)",
+      "Reddit (r/dentistry, r/DentalSchool)",
+      "DentalPost and Indeed",
+      "Facebook groups (New Dentist Now, Women in Dentistry)",
+      "Podcasts (Shared Practices, The New Dentist Podcast)",
+      "LinkedIn (passive scrolling)"
+    ],
+    "awarenessLevel": "Problem-Aware"
+  },
+  {
+    "name": "Linda Dawson",
+    "role": "Implant Patient Considering Full-Arch Treatment",
+    "avatar": "LD",
+    "demographics": "Age 64 | Springfield, MO | Retired middle school teacher | Fixed retirement income ~$48K/year | Medicare + supplemental, no dental coverage | Widowed, two adult children, four grandkids",
+    "painPoints": [
+      "I can't eat anything I love anymore. Corn on the cob, apples, steak -- forget it. I feel like I'm just surviving, not living.",
+      "I'm so embarrassed by my smile that I've stopped doing things I love. I won't take pictures with my grandkids because I hate how I look.",
+      "Every office I call gives me a different number and I can't tell if they're being honest or just trying to sell me. I feel like a walking wallet, not a patient."
+    ],
+    "currentSolutions": [
+      "Lower denture -- slides, causes sore spots, limits diet to soft foods",
+      "Upper partial denture -- uncomfortable and looks artificial, food gets trapped",
+      "General dentist -- good for cleanings but doesn't do implants, referred to oral surgeon with $55K quote and 6-month wait",
+      "Google research -- hours reading reviews and watching videos, more confused the more she reads"
+    ],
+    "buyingTrigger": "A humiliating denture moment (slippage at family gathering, inability to eat birthday cake), discovering Dr. Olson's YouTube content and seeing a patient her age get transformed in a single day, and learning financing at ~$250/month is possible.",
+    "objections": [
+      "I can't afford this. $30K-$50K is more than I make in a year.",
+      "I'm terrified of the surgery. What if something goes wrong? I'm 64 and I've never had any kind of surgery.",
+      "Springfield is 4 hours from me. How do I manage travel and follow-up appointments?"
+    ],
+    "platforms": [
+      "Facebook (primary -- shares posts, community groups, denture support group)",
+      "YouTube (Innovative Dental videos, dental implant searches)",
+      "Google (dental implant cost, dental implant before and after)",
+      "Church and community groups (offline word-of-mouth)"
+    ],
+    "awarenessLevel": "Product-Aware"
+  },
+  {
+    "name": "Dr. James Whitfield",
+    "role": "Periodontist Considering a Specialty DSO Partnership",
+    "avatar": "JW",
+    "demographics": "Age 46 | Jacksonville, FL | Solo-practice periodontist, implantology focus | DDS, Certificate in Periodontics | 14 years in practice | ~$1.8M revenue | 10 staff | Married, three kids (8, 11, 14)",
+    "painPoints": [
+      "I know the full-arch market is exploding but I can't compete with the Innovative Dentals of the world from my little perio office. They have the marketing machine, the in-house lab, the YouTube channel. I've got a referral pad and a fax machine.",
+      "Recruiting is killing me. I've been looking for an associate periodontist for 18 months. Nobody wants to move to Jacksonville to join a solo perio practice when DSOs are offering sign-on bonuses and equity.",
+      "I'm 46 and I have no succession plan. If I get hurt tomorrow, my family gets nothing except the lease on the building and a bunch of aging equipment."
+    ],
+    "currentSolutions": [
+      "Solo practice -- full autonomy but full risk, no marketing team, no recruiting infrastructure",
+      "Pikos Institute courses -- excellent for clinical education but doesn't solve business infrastructure problems",
+      "Local dental society networking -- maintains referrals but doesn't attract direct-to-patient implant cases",
+      "Practice broker conversations -- valuations came back lower than expected for specialist practices"
+    ],
+    "buyingTrigger": "Hearing a colleague (periodontist or oral surgeon in the MODIS network) describe their partnership experience in concrete terms, or direct outreach from MODIS VP of Business Development Marcus Morosin with clear articulation of the equity model and operational support.",
+    "objections": [
+      "Private equity scares me. They load up on debt, squeeze margins, and flip the company in 3-5 years.",
+      "MODIS is implant-focused, but 60% of my revenue is still traditional perio. Are they going to push me to drop the bread-and-butter work?",
+      "I don't want to be the junior partner. I've been running my own show for 14 years."
+    ],
+    "platforms": [
+      "PubMed and clinical journals (Journal of Periodontology, JOMI)",
+      "Instagram (follows implant dentists, posts case photos)",
+      "Facebook groups (Implant Dentistry Study Group, Full Arch Implant Dentistry)",
+      "LinkedIn (more active than most dentists -- professional networking and recruiting)",
+      "Podcasts (MODIS Community Conversations, Implant Practice Management)",
+      "Conferences (Pikos Symposium, AAP Annual Meeting, AO Annual Meeting)"
+    ],
+    "awarenessLevel": "Solution-to-Product Aware"
+  },
+  {
+    "name": "Tamara Reeves",
+    "role": "Practice Manager at a Newly Acquired SGA Practice",
+    "avatar": "TR",
+    "demographics": "Age 38 | Hinesville, GA | Office manager at a two-dentist general practice | 6 years at practice (started front desk, promoted to manager 3 years ago) | Associate's degree in Business Administration | Married, two kids (6, 10)",
+    "painPoints": [
+      "I wear 15 hats and I'm drowning. I can't do HR, bookkeeping, scheduling, and patient care all at the level they deserve. Something always slips through the cracks.",
+      "I'm scared this acquisition means I'm going to lose my job or become irrelevant. If corporate handles payroll and HR, what do I even do?",
+      "The doctors are stressed about the transition and the staff are coming to me with questions I can't answer. I feel like I'm supposed to hold everyone together but nobody's holding me together."
+    ],
+    "currentSolutions": [
+      "Manual processes -- payroll by hand in QuickBooks, scheduling on paper or basic PM software, HR compliance via Google searches",
+      "Her own tenacity -- makes it work through sheer willpower and 50+ hour weeks",
+      "The practice owner's guidance -- supportive but also overwhelmed himself"
+    ],
+    "buyingTrigger": "Experiencing the first tangible benefit: iSolved payroll system eliminates biweekly payroll headache, PeopleOps team answers a benefits question, or she attends an SGA training session and realizes there is a real career development path for non-clinical staff.",
+    "objections": [
+      "You don't know our office. You don't know our patients. Some MBA from Richmond Hill is going to come in and tell me how to run my front desk?",
+      "What happens to my people? Are you going to fire anyone? Change the benefits? Cut hours?",
+      "Is this just a pit stop? Are you going to flip us in three years and then we're dealing with a new owner all over again?"
+    ],
+    "platforms": [
+      "Facebook (primary -- local community groups, dental office managers group)",
+      "DentalPost (for recruiting when positions open)",
+      "YouTube (occasional PM software tutorials)",
+      "Pinterest (office decor and patient experience ideas)",
+      "Google (dental office manager salary, staff conflict, DSO acquisition expectations)"
+    ],
+    "awarenessLevel": "Unaware-to-Problem Aware"
+  }
+]

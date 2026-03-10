@@ -1,0 +1,2616 @@
+{
+  "overview": {
+    "title": "90-Day Launch Roadmap: SGA Dental Partners",
+    "tagline": "Staged deployment with controlled ignition",
+    "coreTension": "A practice owner making a once-in-a-career $2.4M decision over 6-18 months cannot be launched at the same way as an implant patient booking a consultation in 2-8 weeks.",
+    "totalAssets": 55,
+    "assetCategories": 13,
+    "launchWindow": "90 days (12 weeks)",
+    "totalPhases": 4,
+    "governingPrinciple": "Build the engine before turning the key. Nothing goes live until the measurement infrastructure is proven.",
+    "activationOrderPrinciple": "Organic before paid. Owned before rented. High-intent before awareness.",
+    "launchPhilosophy": [
+      "Build the engine before turning the key. Weeks 1-2 install tracking, configure automation, QA all assets, and align the team.",
+      "Light one fire at a time. Launch week activates channels in a deliberate sequence -- organic before paid, owned before rented, high-intent before awareness.",
+      "Optimize before scaling. Weeks 4-12 run the A/B test program, refine based on data, and only increase paid spend on channels that prove unit economics."
+    ],
+    "funnels": 4,
+    "channels": 7,
+    "targetAvatars": 5,
+    "sourceFile": "marketing/strategy/launch_plan.md"
+  },
+  "milestones": [
+    {
+      "name": "Infrastructure complete",
+      "targetDate": "End of Week 2",
+      "successCriteria": "All tracking pixels, UTMs, email automation, and CRM integrations verified"
+    },
+    {
+      "name": "V1 launch complete",
+      "targetDate": "End of Week 3",
+      "successCriteria": "All 5 landing pages live, email sequences active, paid ads running on Google + LinkedIn + Meta, social posting cadence established"
+    },
+    {
+      "name": "First A/B test results",
+      "targetDate": "End of Week 5",
+      "successCriteria": "LP-1 (headline) and AD-1 (hook type) winners declared"
+    },
+    {
+      "name": "First discovery calls from marketing",
+      "targetDate": "End of Week 6",
+      "successCriteria": "Minimum 5 discovery calls booked through marketing-generated leads"
+    },
+    {
+      "name": "Scorecard funnel live",
+      "targetDate": "End of Week 6",
+      "successCriteria": "Partnership Readiness Scorecard deployed with follow-up email sequences"
+    },
+    {
+      "name": "First webinar hosted",
+      "targetDate": "Week 8",
+      "successCriteria": "Minimum 75 registrations, 35% attendance rate"
+    },
+    {
+      "name": "YouTube content series launched",
+      "targetDate": "Week 5",
+      "successCriteria": "First 4 videos from content calendar published"
+    },
+    {
+      "name": "Chatbot deployed",
+      "targetDate": "Week 7",
+      "successCriteria": "Live on main landing page and patient landing page"
+    },
+    {
+      "name": "90-day review complete",
+      "targetDate": "End of Week 12",
+      "successCriteria": "Full funnel performance review, A/B test cumulative lift calculated, budget reallocation based on data"
+    }
+  ],
+  "successMetrics": [
+    {
+      "metric": "Practice Partnership Assessment completions",
+      "target": "150+",
+      "measurement": "CRM + quiz tool"
+    },
+    {
+      "metric": "Discovery calls booked (PA + SP funnels)",
+      "target": "30-45",
+      "measurement": "CRM calendar integration"
+    },
+    {
+      "metric": "Associate dentist applications generated",
+      "target": "50+",
+      "measurement": "ATS tracking"
+    },
+    {
+      "metric": "Implant patient consultations booked",
+      "target": "100+ (across network)",
+      "measurement": "Practice management systems"
+    },
+    {
+      "metric": "Email list size (all audiences combined)",
+      "target": "2,000+",
+      "measurement": "Email platform"
+    },
+    {
+      "metric": "Combined social following growth",
+      "target": "+5,000 across platforms",
+      "measurement": "Platform analytics"
+    },
+    {
+      "metric": "Organic search impressions for target keywords",
+      "target": "50,000+ monthly by Week 12",
+      "measurement": "Google Search Console"
+    },
+    {
+      "metric": "Cost per qualified lead (PA funnel)",
+      "target": "Under $350",
+      "measurement": "Ad platform + CRM attribution"
+    },
+    {
+      "metric": "Cost per lead (PT implant funnel)",
+      "target": "Under $120",
+      "measurement": "Ad platform + booking system"
+    },
+    {
+      "metric": "Funnel-wide conversion lift from A/B testing",
+      "target": "25-40% aggregate improvement",
+      "measurement": "Test results documentation"
+    }
+  ],
+  "phases": [
+    {
+      "id": 1,
+      "name": "Pre-Launch Foundation",
+      "weeks": "Weeks 1-2",
+      "description": "Install tracking, configure automation, QA all assets, align the team, and warm sending domains. Nothing goes live until the measurement infrastructure is proven.",
+      "tasks": [
+        {
+          "id": "1.1.1",
+          "name": "Install Google Tag Manager container",
+          "description": "Deploy across sgadental.com and all landing page subdomains. Create a single GTM container with environment-specific configurations.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "All digital properties",
+          "deliverables": [
+            "GTM container deployed",
+            "Environment-specific configurations"
+          ],
+          "kpi": "Container firing on all pages"
+        },
+        {
+          "id": "1.1.2",
+          "name": "Configure GA4 property",
+          "description": "Set up conversion events: assessment_start, assessment_complete, discovery_call_booked, guide_download, consultation_booked, application_submitted. Enable enhanced measurement.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "Analytics",
+          "deliverables": [
+            "GA4 property configured",
+            "All conversion events set up",
+            "Enhanced measurement enabled"
+          ],
+          "kpi": "All 6 conversion events firing correctly"
+        },
+        {
+          "id": "1.1.3",
+          "name": "Set up UTM convention",
+          "description": "Standard format: utm_source / utm_medium / utm_campaign / utm_content / utm_term. Document in shared spreadsheet. All team members trained on convention before any links go live.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "All",
+          "deliverables": [
+            "UTM convention document",
+            "Shared spreadsheet",
+            "Team training completed"
+          ],
+          "kpi": "100% UTM compliance across all launched links"
+        },
+        {
+          "id": "1.1.4",
+          "name": "Install Meta Pixel",
+          "description": "Deploy across all pages. Configure standard events (Lead, CompleteRegistration, Schedule) and custom events matching GA4 conversion events. Verify with Meta Pixel Helper.",
+          "owner": "Paid Media",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "Meta",
+          "deliverables": [
+            "Meta Pixel installed",
+            "Standard + custom events configured",
+            "Pixel Helper verification green"
+          ],
+          "kpi": "Pixel Helper shows green on all pages"
+        },
+        {
+          "id": "1.1.5",
+          "name": "Install LinkedIn Insight Tag",
+          "description": "Deploy across all pages. Configure conversion tracking for Lead Gen Form completions and landing page conversions.",
+          "owner": "Paid Media",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "LinkedIn",
+          "deliverables": [
+            "LinkedIn Insight Tag deployed",
+            "Conversion tracking configured"
+          ],
+          "kpi": "Tag verified in LinkedIn Campaign Manager"
+        },
+        {
+          "id": "1.1.6",
+          "name": "Configure Google Ads conversion tracking",
+          "description": "Set up conversion actions: assessment_complete, discovery_call_booked (offline import from CRM), consultation_booked. Enable Enhanced Conversions.",
+          "owner": "Paid Media",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "Google Ads",
+          "deliverables": [
+            "Conversion actions configured",
+            "Offline import from CRM set up",
+            "Enhanced Conversions enabled"
+          ],
+          "kpi": "All conversion actions verified in Google Ads"
+        },
+        {
+          "id": "1.1.7",
+          "name": "Set up heatmapping",
+          "description": "Deploy Hotjar or Microsoft Clarity on all landing pages. Configure recording for assessment flow, pricing page, and webinar registration page.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 1,
+          "channel": "Website",
+          "deliverables": [
+            "Heatmap tool deployed",
+            "Session recording configured for key pages"
+          ],
+          "kpi": "Heatmap data collecting on all 5 landing pages"
+        },
+        {
+          "id": "1.2.1",
+          "name": "Configure email sending domain",
+          "description": "Authenticate SPF, DKIM, and DMARC for the sending domain. Warm the domain with low-volume sends for 7-10 days before full deployment.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "Email",
+          "deliverables": [
+            "SPF record configured",
+            "DKIM authentication",
+            "DMARC policy set",
+            "Domain warming plan initiated"
+          ],
+          "kpi": "Email authentication passes all checks"
+        },
+        {
+          "id": "1.2.2",
+          "name": "Build tag architecture",
+          "description": "Implement the full tag taxonomy from the Funnel Architecture document (pa_assessment_complete, pa_tier_strong, dr_guide_download, pt_assessment_complete, sp_guide_download, etc.).",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "Email",
+          "deliverables": [
+            "All funnel tags created",
+            "Tag taxonomy documented"
+          ],
+          "kpi": "17 tags from funnel architecture implemented"
+        },
+        {
+          "id": "1.2.3",
+          "name": "Build automation triggers",
+          "description": "Configure conditional logic: tag-based sequence entry, 3+ opens triggering engagement sequences, cross-funnel routing rules.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "Email",
+          "deliverables": [
+            "Automation triggers configured",
+            "Conditional logic rules set",
+            "Cross-funnel routing active"
+          ],
+          "kpi": "All 6 conditional logic rules from funnel architecture operational"
+        },
+        {
+          "id": "1.2.4",
+          "name": "Load email sequences",
+          "description": "Import all 5 email sequences: PA-Indoctrination (5 emails), PA-Engagement (8 emails), DR-Nurture (4 emails), PT-Implant Nurture (6 emails), SP-Indoctrination (4 emails). QA every link, merge tag, and conditional block.",
+          "owner": "Content + Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "Email",
+          "deliverables": [
+            "5 email sequences loaded",
+            "All links verified",
+            "Merge tags confirmed",
+            "Conditional blocks tested"
+          ],
+          "kpi": "27 emails loaded and QA'd across 5 sequences"
+        },
+        {
+          "id": "1.2.5",
+          "name": "Configure re-engagement triggers",
+          "description": "Set cold_60d and cold_90d tags to fire automatically based on email engagement data. Build re-engagement sequence (3 emails).",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 1,
+          "channel": "Email",
+          "deliverables": [
+            "cold_60d and cold_90d tags configured",
+            "Re-engagement sequence built (3 emails)"
+          ],
+          "kpi": "Tags auto-firing based on engagement inactivity"
+        },
+        {
+          "id": "1.2.6",
+          "name": "Test email deliverability",
+          "description": "Send test emails to Litmus or Email on Acid. Verify rendering across Gmail, Outlook, Apple Mail (desktop and mobile). Fix any formatting issues before launch.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "Email",
+          "deliverables": [
+            "Litmus/Email on Acid test results",
+            "Rendering verified across 3 clients (desktop + mobile)"
+          ],
+          "kpi": "Zero rendering issues in Gmail, Outlook, Apple Mail"
+        },
+        {
+          "id": "1.3.1",
+          "name": "Configure CRM lead routing",
+          "description": "Assessment completions with score > 80 route to BD team within 48 hours. Score < 40 routes to educational content track. All leads tagged by source and funnel.",
+          "owner": "Sales Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "CRM",
+          "deliverables": [
+            "Lead routing rules configured",
+            "Score-based triage active",
+            "Source/funnel tagging operational"
+          ],
+          "kpi": "Leads routed within SLA: same-day for score > 80, 48 hours for score 50-79"
+        },
+        {
+          "id": "1.3.2",
+          "name": "Build BD team dashboard",
+          "description": "Real-time view of: new assessment completions, discovery calls booked, lead score distribution, lead source attribution.",
+          "owner": "Sales Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "CRM",
+          "deliverables": ["BD dashboard with real-time metrics"],
+          "kpi": "Dashboard live with 4 core metrics visible"
+        },
+        {
+          "id": "1.3.3",
+          "name": "Brief BD team on messaging",
+          "description": "Walk through the positioning document, objection-handling language, and the messaging hierarchy. BD team must speak the same language as the marketing assets.",
+          "owner": "Marketing Lead + BD Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "Internal",
+          "deliverables": [
+            "BD team briefing completed",
+            "Messaging alignment confirmed"
+          ],
+          "kpi": "BD team can articulate positioning and handle top 5 objections"
+        },
+        {
+          "id": "1.3.4",
+          "name": "Set up call booking system",
+          "description": "Configure Calendly or HubSpot meeting links for discovery calls. Embed in email CTAs and landing page CTAs. Set up confirmation and reminder emails.",
+          "owner": "Sales Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "CRM",
+          "deliverables": [
+            "Booking system configured",
+            "Links embedded in emails and landing pages",
+            "Confirmation + reminder emails active"
+          ],
+          "kpi": "Booking flow tested end-to-end"
+        },
+        {
+          "id": "1.3.5",
+          "name": "Configure lead-to-opportunity handoff",
+          "description": "Define MQL vs SQL criteria. MQL: completed assessment + opened 3+ emails OR clicked CTA 3+ times. SQL: booked discovery call.",
+          "owner": "Marketing Lead + Sales Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "CRM",
+          "deliverables": [
+            "MQL/SQL definitions documented",
+            "Handoff criteria configured in CRM"
+          ],
+          "kpi": "MQL-to-SQL conversion tracking operational"
+        },
+        {
+          "id": "1.4.1",
+          "name": "QA main landing page",
+          "description": "Test all links, form submissions, mobile responsiveness, page load speed (<3 seconds), and CTA button tracking. Verify assessment embed loads correctly.",
+          "owner": "Marketing Ops + QA",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "Website",
+          "deliverables": ["QA checklist completed", "All issues resolved"],
+          "kpi": "Page load < 3 seconds, all forms functional, assessment embed verified"
+        },
+        {
+          "id": "1.4.2",
+          "name": "QA associate landing page",
+          "description": "Same QA protocol. Verify career guide download delivery, application links, and job listing integration.",
+          "owner": "Marketing Ops + QA",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "Website",
+          "deliverables": [
+            "QA checklist completed",
+            "Guide download verified",
+            "Application links functional"
+          ],
+          "kpi": "Full QA pass with zero blocking issues"
+        },
+        {
+          "id": "1.4.3",
+          "name": "QA patient landing page",
+          "description": "Same QA protocol. Verify Smile Assessment embed, consultation booking integration, Dr. Olson video embeds, and financing calculator if applicable.",
+          "owner": "Marketing Ops + QA",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "Website",
+          "deliverables": [
+            "QA checklist completed",
+            "Smile Assessment verified",
+            "Booking integration tested"
+          ],
+          "kpi": "Full QA pass with zero blocking issues"
+        },
+        {
+          "id": "1.4.4",
+          "name": "QA pricing page",
+          "description": "Verify tier section functionality, CTA tracking at each tier level, and value equation table rendering on mobile.",
+          "owner": "Marketing Ops + QA",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "Website",
+          "deliverables": [
+            "QA checklist completed",
+            "Tier CTAs tracked",
+            "Mobile rendering verified"
+          ],
+          "kpi": "Full QA pass with zero blocking issues"
+        },
+        {
+          "id": "1.4.5",
+          "name": "QA competitor comparison page",
+          "description": "Verify all competitor data is current and accurate. Check that no competitor claims could trigger legal issues.",
+          "owner": "Marketing Lead + Legal",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 1,
+          "channel": "Website",
+          "deliverables": [
+            "Legal review completed",
+            "All competitor data verified"
+          ],
+          "kpi": "Legal sign-off on all competitor claims"
+        },
+        {
+          "id": "1.4.6",
+          "name": "Prepare lead magnet delivery",
+          "description": "Test Practice Partnership Assessment delivery flow: completion > email capture > instant delivery email > results page. Verify scoring logic across all 3 tiers.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "Website",
+          "deliverables": [
+            "Assessment delivery flow tested",
+            "Scoring logic verified for all 3 tiers"
+          ],
+          "kpi": "End-to-end delivery working for Strong Position, Growth Opportunity, and Foundation Building tiers"
+        },
+        {
+          "id": "1.5.1",
+          "name": "Launch kickoff meeting",
+          "description": "All stakeholders (marketing, BD, practice ops, leadership) aligned on launch timeline, success metrics, and escalation paths.",
+          "owner": "Marketing Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "Internal",
+          "deliverables": [
+            "Kickoff meeting held",
+            "Timeline and metrics agreed upon"
+          ],
+          "kpi": "All stakeholders aligned and confirmed"
+        },
+        {
+          "id": "1.5.2",
+          "name": "Distribute sales enablement kit",
+          "description": "Battle cards, elevator pitches, FAQ document, and one-pager to all BD team members and practice managers.",
+          "owner": "Marketing Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "Internal",
+          "deliverables": [
+            "Battle cards distributed",
+            "Elevator pitches distributed",
+            "FAQ document distributed",
+            "One-pager distributed"
+          ],
+          "kpi": "All BD team members and practice managers confirmed receipt"
+        },
+        {
+          "id": "1.5.3",
+          "name": "Brief practice-level teams",
+          "description": "Inform office managers at all practices about the marketing launch. Provide talking points for any patient or staff questions about the SGA brand.",
+          "owner": "Practice Ops",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 1,
+          "channel": "Internal",
+          "deliverables": [
+            "Office manager briefing completed",
+            "Talking points distributed"
+          ],
+          "kpi": "All office managers briefed"
+        },
+        {
+          "id": "1.5.4",
+          "name": "Align leadership on social posting",
+          "description": "Confirm Lamonte Jensen, Dr. Ellingson, Pete Wong, and Dr. Olson are briefed on the LinkedIn thought leadership cadence and have approved their first 2 weeks of content.",
+          "owner": "Content Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 1,
+          "channel": "LinkedIn",
+          "deliverables": [
+            "4 leaders briefed on cadence",
+            "First 2 weeks of content approved"
+          ],
+          "kpi": "All 4 leaders confirmed and content approved"
+        },
+        {
+          "id": "1.6.1",
+          "name": "Begin email domain warming",
+          "description": "Send 50-100 emails per day to known contacts (existing SGA/Gen4/MODIS partner communication lists with confirmed opt-in). Gradually increase volume by 25% daily.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 2,
+          "channel": "Email",
+          "deliverables": [
+            "Domain warming initiated",
+            "Daily send volume increasing by 25%"
+          ],
+          "kpi": "Bounce rate < 2%, spam complaint rate < 0.1%"
+        },
+        {
+          "id": "1.6.2",
+          "name": "Set up ad accounts",
+          "description": "Create campaigns in draft/paused state across Google Ads, LinkedIn Campaign Manager, Meta Business Suite. Upload all creative assets. Configure audience targeting.",
+          "owner": "Paid Media",
+          "status": "not-started",
+          "priority": "high",
+          "week": 2,
+          "channel": "Google, LinkedIn, Meta",
+          "deliverables": [
+            "All campaign drafts built",
+            "Creative uploaded",
+            "Audiences configured"
+          ],
+          "kpi": "All campaigns ready to activate with one click"
+        },
+        {
+          "id": "1.6.3",
+          "name": "Build retargeting audiences",
+          "description": "Create website visitor audiences (30-day, 90-day, 180-day) on Meta and Google. Create engagement audiences from existing YouTube viewers and LinkedIn page visitors.",
+          "owner": "Paid Media",
+          "status": "not-started",
+          "priority": "high",
+          "week": 2,
+          "channel": "Meta, Google",
+          "deliverables": [
+            "Retargeting audiences created (30/90/180-day)",
+            "YouTube viewer audience",
+            "LinkedIn visitor audience"
+          ],
+          "kpi": "All retargeting audiences active and populating"
+        },
+        {
+          "id": "1.6.4",
+          "name": "Create lookalike audiences",
+          "description": "Build 1% lookalike audiences from existing SGA/Gen4/MODIS patient lists (patient funnel) and from dentist contact lists (practice acquisition funnel). Requires uploading hashed email lists to Meta and Google.",
+          "owner": "Paid Media",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 2,
+          "channel": "Meta, Google",
+          "deliverables": [
+            "Patient list lookalikes built",
+            "Dentist list lookalikes built"
+          ],
+          "kpi": "Lookalike audiences created and ready for targeting"
+        },
+        {
+          "id": "1.7.1",
+          "name": "Schedule LinkedIn posts for Weeks 3-4",
+          "description": "Queue 3-4 posts per week for each leader (Jensen, Ellingson, Olson, Wong) in a scheduling tool. Content drawn from the LinkedIn calendar asset.",
+          "owner": "Content Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 2,
+          "channel": "LinkedIn",
+          "deliverables": [
+            "LinkedIn posts scheduled for all 4 leaders, Weeks 3-4"
+          ],
+          "kpi": "12-16 posts per leader queued for 2-week window"
+        },
+        {
+          "id": "1.7.2",
+          "name": "Schedule Facebook/Instagram posts for Weeks 3-4",
+          "description": "Queue 5-7 posts per week for the central SGA brand pages. Content drawn from the Facebook/Instagram calendar asset.",
+          "owner": "Content Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 2,
+          "channel": "Meta",
+          "deliverables": [
+            "10-14 Facebook/Instagram posts scheduled for Weeks 3-4"
+          ],
+          "kpi": "Content queued and approved"
+        },
+        {
+          "id": "1.7.3",
+          "name": "Prepare YouTube video backlog",
+          "description": "If Dr. Olson has pre-recorded content, edit and queue first 4 videos per the YouTube calendar. If not, schedule recording sessions for Week 3.",
+          "owner": "Video Production",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 2,
+          "channel": "YouTube",
+          "deliverables": [
+            "First 4 videos edited and queued (or recording sessions scheduled)"
+          ],
+          "kpi": "4 videos ready for Week 5 publication"
+        },
+        {
+          "id": "1.7.4",
+          "name": "Build content kit for local practices",
+          "description": "Create the first monthly content kit with 12-15 ready-to-post assets (graphics, captions, video clips) that local office managers can customize and post on their practice pages.",
+          "owner": "Content Lead",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 2,
+          "channel": "Meta (local pages)",
+          "deliverables": [
+            "Content kit #1 with 12-15 assets",
+            "Posting instructions for office managers"
+          ],
+          "kpi": "Kit delivered to all office managers"
+        },
+        {
+          "id": "1.7.5",
+          "name": "Stage SEO pillar page and first blog posts",
+          "description": "Finalize 'How to Sell Your Dental Practice' pillar page. Internal link structure connecting to supporting blog posts. Schema markup implemented. Write and schedule first 4 blog posts targeting highest-opportunity keywords.",
+          "owner": "SEO Lead + Content Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 2,
+          "channel": "Website",
+          "deliverables": [
+            "Pillar page staged",
+            "4 blog posts written and staged",
+            "Internal link structure built",
+            "Schema markup implemented"
+          ],
+          "kpi": "All SEO content staged and ready for publication"
+        },
+        {
+          "id": "1.8.1",
+          "name": "End-to-end funnel test (PA)",
+          "description": "One team member completes the entire PA funnel: clicks ad > lands on page > starts assessment > completes assessment > receives email > opens/clicks through 3 emails > books discovery call. Verify every step fires correctly in analytics, CRM, and email platform.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 2,
+          "channel": "All",
+          "deliverables": ["PA funnel test completed", "All tracking verified"],
+          "kpi": "100% of steps fire correctly across GA4, Meta, LinkedIn, and CRM"
+        },
+        {
+          "id": "1.8.2",
+          "name": "End-to-end funnel test (PT)",
+          "description": "Same for patient funnel: clicks ad > lands on page > starts Smile Assessment > completes > receives email > booking CTA works.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 2,
+          "channel": "All",
+          "deliverables": ["PT funnel test completed", "All tracking verified"],
+          "kpi": "100% of steps fire correctly"
+        },
+        {
+          "id": "1.8.3",
+          "name": "End-to-end funnel test (DR)",
+          "description": "Same for recruitment funnel: career page > guide download > email sequence > application link.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 2,
+          "channel": "All",
+          "deliverables": ["DR funnel test completed", "All tracking verified"],
+          "kpi": "100% of steps fire correctly"
+        },
+        {
+          "id": "1.8.4",
+          "name": "Verify all conversion tracking",
+          "description": "Cross-reference GA4 events, Meta Pixel events, LinkedIn Insight Tag events, and CRM data. All systems must show the same conversion count (within 5% margin for platform attribution differences).",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 2,
+          "channel": "All",
+          "deliverables": ["Cross-platform conversion reconciliation report"],
+          "kpi": "All platforms within 5% margin of each other"
+        },
+        {
+          "id": "1.8.5",
+          "name": "Go/No-Go decision",
+          "description": "Marketing Lead confirms all systems are operational. Any unresolved issues get documented with a workaround plan. Launch proceeds only if core tracking and automation are verified.",
+          "owner": "Marketing Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 2,
+          "channel": "All",
+          "deliverables": [
+            "Go/No-Go checklist completed",
+            "Workaround plans for any unresolved issues"
+          ],
+          "kpi": "All core systems verified and approved for launch"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Launch Week",
+      "weeks": "Week 3",
+      "description": "Channels activate in a deliberate order: organic before paid, owned before rented, high-intent before awareness. Monday through Friday controlled deployment sequence.",
+      "tasks": [
+        {
+          "id": "2.1.1",
+          "name": "Publish all landing pages",
+          "description": "Monday 9:00 AM: Remove staging gate on main landing page, associate landing page, patient landing page, pricing page. Verify all tracking fires on first real pageview.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 3,
+          "channel": "Website",
+          "deliverables": [
+            "Main LP live",
+            "Associate LP live",
+            "Patient LP live",
+            "Pricing page live"
+          ],
+          "kpi": "All tracking verified on first real pageview"
+        },
+        {
+          "id": "2.1.2",
+          "name": "Publish SEO pillar page + first 2 blog posts",
+          "description": "Monday 9:00 AM: Publish pillar page and first 2 blog posts. Submit sitemap to Google Search Console. Request indexing for priority pages.",
+          "owner": "SEO Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 3,
+          "channel": "Website",
+          "deliverables": [
+            "Pillar page live",
+            "2 blog posts published",
+            "Sitemap submitted",
+            "Priority pages indexing requested"
+          ],
+          "kpi": "Pages indexed within 48 hours"
+        },
+        {
+          "id": "2.1.3",
+          "name": "Activate email sequences",
+          "description": "Monday 10:00 AM: Activate PA-Indoctrination, DR-Nurture, and PT-Implant Nurture email sequences. Confirm automation triggers are armed. Send test to internal address to verify.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 3,
+          "channel": "Email",
+          "deliverables": [
+            "3 email sequences activated",
+            "Internal test sends verified"
+          ],
+          "kpi": "Automation triggers firing correctly on first real lead"
+        },
+        {
+          "id": "2.1.4",
+          "name": "Send internal launch announcement",
+          "description": "Monday 11:00 AM: Notify all SGA partners and office managers that the marketing engine is live. Include talking points and FAQ.",
+          "owner": "Marketing Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 3,
+          "channel": "Internal",
+          "deliverables": [
+            "Internal announcement sent",
+            "Talking points and FAQ distributed"
+          ],
+          "kpi": "All partners and office managers notified"
+        },
+        {
+          "id": "2.1.5",
+          "name": "Post first LinkedIn thought leadership piece",
+          "description": "Monday 12:00 PM: Lamonte Jensen publishes the '7 out of 10 dentists regret their DSO sale' perspective piece. No paid amplification yet -- let it gain organic traction.",
+          "owner": "Content Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 3,
+          "channel": "LinkedIn",
+          "deliverables": ["Jensen's first LinkedIn post published"],
+          "kpi": "Organic engagement rate (likes, comments, shares)"
+        },
+        {
+          "id": "2.1.6",
+          "name": "Post first Facebook/Instagram content",
+          "description": "Monday 2:00 PM: Dr. Olson patient transformation content on central SGA pages. Warm the page with organic engagement.",
+          "owner": "Content Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 3,
+          "channel": "Meta",
+          "deliverables": ["First Facebook/Instagram post published"],
+          "kpi": "Organic engagement on first post"
+        },
+        {
+          "id": "2.2.1",
+          "name": "Activate Google Search campaigns",
+          "description": "Tuesday 8:00 AM: Activate Google Search campaigns for PA funnel ('sell dental practice,' 'dental practice valuation,' 'DSO partnership') and PT funnel ('dental implants cost,' 'full arch dental implants [city],' 'All-on-4 near me'). Start at 50% of planned daily budget.",
+          "owner": "Paid Media",
+          "status": "not-started",
+          "priority": "high",
+          "week": 3,
+          "channel": "Google Ads",
+          "deliverables": [
+            "PA search campaigns live at 50% budget",
+            "PT search campaigns live at 50% budget"
+          ],
+          "kpi": "CTR, CPC, conversion tracking verified"
+        },
+        {
+          "id": "2.2.2",
+          "name": "Activate Google LSAs for top 10 practices",
+          "description": "Tuesday 8:00 AM: Local Services Ads for highest-priority practice locations. Verify phone tracking numbers are routed correctly.",
+          "owner": "Paid Media",
+          "status": "not-started",
+          "priority": "high",
+          "week": 3,
+          "channel": "Google LSAs",
+          "deliverables": [
+            "LSAs live for top 10 practices",
+            "Phone tracking verified"
+          ],
+          "kpi": "Calls routing to correct practices"
+        },
+        {
+          "id": "2.2.3",
+          "name": "LinkedIn and Meta organic posts Day 2",
+          "description": "Tuesday: Dr. Ellingson publishes on clinical autonomy and the 'last great profession' theme (LinkedIn 10:00 AM). Behind-the-scenes content from an SGA practice (Facebook/Instagram 12:00 PM).",
+          "owner": "Content Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 3,
+          "channel": "LinkedIn, Meta",
+          "deliverables": [
+            "Ellingson LinkedIn post #2",
+            "Facebook/Instagram post #2"
+          ],
+          "kpi": "Organic engagement metrics"
+        },
+        {
+          "id": "2.2.4",
+          "name": "Monitor Day 1-2 analytics",
+          "description": "Tuesday 3:00 PM: Verify conversion tracking is firing. Check for any broken links, form errors, or delivery failures. Fix immediately.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 3,
+          "channel": "All",
+          "deliverables": [
+            "Day 1-2 analytics audit report",
+            "All issues identified and fixed"
+          ],
+          "kpi": "Zero broken links, zero form errors, all tracking verified"
+        },
+        {
+          "id": "2.3.1",
+          "name": "Activate LinkedIn Thought Leader Ads",
+          "description": "Wednesday 8:00 AM: Amplify Jensen's Monday post as a Thought Leader Ad. Target: practice owners, dental group executives, 10+ years experience, in target geographies. Start at 50% budget.",
+          "owner": "Paid Media",
+          "status": "not-started",
+          "priority": "high",
+          "week": 3,
+          "channel": "LinkedIn Ads",
+          "deliverables": ["LinkedIn Thought Leader Ads live at 50% budget"],
+          "kpi": "CTR, engagement rate, cost per engagement"
+        },
+        {
+          "id": "2.3.2",
+          "name": "Activate LinkedIn Sponsored Jobs",
+          "description": "Wednesday 8:00 AM: Promote highest-priority open positions with differentiated copy (mentorship, equity pathway, Pikos Institute access).",
+          "owner": "Paid Media",
+          "status": "not-started",
+          "priority": "high",
+          "week": 3,
+          "channel": "LinkedIn Ads",
+          "deliverables": ["Sponsored Jobs live"],
+          "kpi": "Applications per sponsored job"
+        },
+        {
+          "id": "2.3.3",
+          "name": "Distribute content kit to local practices",
+          "description": "Wednesday 2:00 PM: First weekly content kit goes to office managers with posting instructions.",
+          "owner": "Content Lead",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 3,
+          "channel": "Internal",
+          "deliverables": ["Content kit #1 distributed to all office managers"],
+          "kpi": "Distribution confirmed to all practices"
+        },
+        {
+          "id": "2.4.1",
+          "name": "Activate Facebook/Instagram ads",
+          "description": "Thursday 8:00 AM: Launch PA funnel ads ('Sunday Night' and 'Horror Stories' variations for Test AD-1) and PT funnel ads ('Life's Moments' and 'Steak Moment' creative). Target practice owners via interest + behavior targeting and adults 35-65 within 15-mile radius of top MODIS practices. Start at 50% budget.",
+          "owner": "Paid Media",
+          "status": "not-started",
+          "priority": "high",
+          "week": 3,
+          "channel": "Meta Ads",
+          "deliverables": [
+            "PA Facebook ads live (2 variations)",
+            "PT Facebook ads live (2 variations)"
+          ],
+          "kpi": "CTR, CPC, first conversions tracked"
+        },
+        {
+          "id": "2.4.2",
+          "name": "Review first 48 hours of Google Ads data",
+          "description": "Thursday 3:00 PM: Check CTR, CPC, conversion tracking. Pause any keywords with CPC above 2x target. Add negative keywords for irrelevant queries.",
+          "owner": "Paid Media",
+          "status": "not-started",
+          "priority": "high",
+          "week": 3,
+          "channel": "Google Ads",
+          "deliverables": [
+            "48-hour Google Ads performance report",
+            "Negative keywords added",
+            "Underperforming keywords paused"
+          ],
+          "kpi": "CPC within target range for PA and PT funnels"
+        },
+        {
+          "id": "2.5.1",
+          "name": "Increase all paid budgets to 75%",
+          "description": "Friday 8:00 AM: If Days 2-4 show acceptable CPC and no tracking issues, scale to 75% of planned budget across all paid channels.",
+          "owner": "Paid Media",
+          "status": "not-started",
+          "priority": "high",
+          "week": 3,
+          "channel": "All paid",
+          "deliverables": [
+            "Budget scaled to 75% across Google, LinkedIn, Meta"
+          ],
+          "kpi": "CPL within target after budget increase"
+        },
+        {
+          "id": "2.5.2",
+          "name": "Publish blog posts #3 and #4",
+          "description": "Friday 9:00 AM: Publish 'What Is a 4th Generation DSO' and 'DSO Dentist Salary Guide.' Promote via LinkedIn and email.",
+          "owner": "Content Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 3,
+          "channel": "Website, LinkedIn",
+          "deliverables": [
+            "Blog post #3 published",
+            "Blog post #4 published",
+            "LinkedIn promotion posted"
+          ],
+          "kpi": "Organic traffic to blog posts within first 48 hours"
+        },
+        {
+          "id": "2.5.3",
+          "name": "Launch PR/outreach wave",
+          "description": "Friday 10:00 AM: Send press release to Dental Economics, Group Dentistry Now, Becker's Dental Review. Position: SGA Dental Partners unifies Gen4 and MODIS under the 'partnership that makes dentists better' positioning.",
+          "owner": "PR Coordinator",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 3,
+          "channel": "Trade media",
+          "deliverables": ["Press release sent to 3 trade publications"],
+          "kpi": "Publication pickup rate"
+        },
+        {
+          "id": "2.5.4",
+          "name": "Distribute first weekly performance snapshot",
+          "description": "Friday 3:00 PM: Impressions, clicks, conversions, CPL by channel. Share with leadership and BD team.",
+          "owner": "Marketing Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 3,
+          "channel": "Internal",
+          "deliverables": ["Week 3 performance snapshot report"],
+          "kpi": "Report distributed to all stakeholders"
+        },
+        {
+          "id": "2.6.1",
+          "name": "Weekend monitoring and engagement",
+          "description": "Monitor ad spend and pacing, respond to all social comments within 12 hours, review email delivery metrics, analyze early engagement signals.",
+          "owner": "Community Manager + Paid Media",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 3,
+          "channel": "All",
+          "deliverables": [
+            "Weekend monitoring log",
+            "All comments responded to"
+          ],
+          "kpi": "No overspend, bounce rate < 2%, spam complaints < 0.1%"
+        },
+        {
+          "id": "2.7.1",
+          "name": "Begin A/B tests: LP-1, LP-2, AD-1, EM-1",
+          "description": "Launch week tests: LP-1 (Headline Framing: Empathy vs. Fear-Stat), LP-2 (CTA Button Copy: Professional vs. Peer-Framed), AD-1 (Hook Type: Sunday Night vs. Horror Stories), EM-1 (Subject Line: Curiosity vs. Direct).",
+          "owner": "Marketing Ops + Paid Media",
+          "status": "not-started",
+          "priority": "high",
+          "week": 3,
+          "channel": "Landing page, Ads, Email",
+          "deliverables": ["4 A/B tests configured and live"],
+          "kpi": "Tests running with traffic allocated"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Post-Launch Optimization",
+      "weeks": "Weeks 4-6",
+      "description": "First optimization cycle, YouTube and TikTok launch, scorecard funnel goes live, Phase 1 A/B test checkpoint.",
+      "tasks": [
+        {
+          "id": "3.1.1",
+          "name": "Scale to 100% budget on qualifying channels",
+          "description": "Week 4: Scale to 100% budget on channels meeting CPL targets. Pause/adjust underperformers. New creative variations rotated in.",
+          "owner": "Paid Media",
+          "status": "not-started",
+          "priority": "high",
+          "week": 4,
+          "channel": "Google, LinkedIn, Meta",
+          "deliverables": [
+            "Budget scaled to 100% on qualifying channels",
+            "Underperformers paused or adjusted"
+          ],
+          "kpi": "CPL within target at full budget"
+        },
+        {
+          "id": "3.1.2",
+          "name": "Begin Phase 1 B-wave A/B tests",
+          "description": "Week 4: Launch LP-6 (Exit Intent Popup), AD-2 (CTA Type: Direct vs. Transitional), LP-7 (Specific Numbers in Social Proof Bar).",
+          "owner": "Marketing Ops + Paid Media",
+          "status": "not-started",
+          "priority": "high",
+          "week": 4,
+          "channel": "Landing page, Ads",
+          "deliverables": ["3 additional A/B tests configured and live"],
+          "kpi": "Tests running with sufficient traffic"
+        },
+        {
+          "id": "3.1.3",
+          "name": "Publish blog posts #5-6",
+          "description": "Week 4: Continue SEO keyword map execution. Second LinkedIn content wave.",
+          "owner": "Content Lead",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 4,
+          "channel": "Website, LinkedIn",
+          "deliverables": ["Blog posts #5 and #6 published"],
+          "kpi": "Organic traffic growth week-over-week"
+        },
+        {
+          "id": "3.1.4",
+          "name": "Analyze first assessment completion data",
+          "description": "Week 4: Review Practice Partnership Assessment tier distribution and BD follow-up effectiveness.",
+          "owner": "Marketing Lead + Sales Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 4,
+          "channel": "CRM",
+          "deliverables": [
+            "Assessment tier distribution report",
+            "BD follow-up effectiveness analysis"
+          ],
+          "kpi": "Assessment completion rate, tier distribution balance, BD response time within SLA"
+        },
+        {
+          "id": "3.2.1",
+          "name": "Launch YouTube content series",
+          "description": "Week 5: First 4 videos from YouTube calendar published. Description links optimized with YourSmileDestination.com and Implant Cost Guide PDF. Pinned comments added.",
+          "owner": "Video Production",
+          "status": "not-started",
+          "priority": "high",
+          "week": 5,
+          "channel": "YouTube",
+          "deliverables": [
+            "4 YouTube videos published",
+            "Description links optimized",
+            "Pinned comments added"
+          ],
+          "kpi": "View count, watch time, description link clicks"
+        },
+        {
+          "id": "3.2.2",
+          "name": "Launch TikTok account",
+          "description": "Week 5: TikTok account created. First 10 videos posted (cross-posted from YouTube Shorts, re-exported without watermark).",
+          "owner": "Video Production",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 5,
+          "channel": "TikTok",
+          "deliverables": [
+            "TikTok account created",
+            "10 initial videos posted"
+          ],
+          "kpi": "View count, follower growth, engagement rate"
+        },
+        {
+          "id": "3.2.3",
+          "name": "Launch LinkedIn employee advocacy pilot",
+          "description": "Week 5: 10-15 partners begin sharing content through advocacy library.",
+          "owner": "Content Lead",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 5,
+          "channel": "LinkedIn",
+          "deliverables": [
+            "Advocacy pilot launched with 10-15 partners",
+            "Content shared from advocacy library"
+          ],
+          "kpi": "Partner participation rate, reshare engagement"
+        },
+        {
+          "id": "3.2.4",
+          "name": "Begin Phase 1 C-wave A/B tests",
+          "description": "Week 5: Launch AD-5 (Emotional vs. Rational Angle, PT funnel), QS-3 (Follow-Up Timing: Immediate vs. 30-min).",
+          "owner": "Marketing Ops + Paid Media",
+          "status": "not-started",
+          "priority": "high",
+          "week": 5,
+          "channel": "Ads, Scorecard",
+          "deliverables": ["2 additional A/B tests configured and live"],
+          "kpi": "Tests running with sufficient traffic"
+        },
+        {
+          "id": "3.2.5",
+          "name": "Partnership Readiness Scorecard final QA",
+          "description": "Week 5: Test all 15 questions, scoring logic across all 3 tiers (Strong Position 80-100, Growth Opportunity 50-79, Foundation Building 0-49), results page rendering, and lead capture form.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 5,
+          "channel": "Website",
+          "deliverables": [
+            "Scorecard QA completed",
+            "Scoring logic verified for all 3 tiers",
+            "Results pages rendered correctly"
+          ],
+          "kpi": "100% of scoring paths produce correct tier assignment"
+        },
+        {
+          "id": "3.3.1",
+          "name": "Scorecard funnel goes live",
+          "description": "Week 6 Monday: Partnership Readiness Scorecard published at sgadental.com/partnership-assessment. Linked from main landing page as secondary CTA. Scorecard completions feed into PA-Indoctrination sequence with tier-specific messaging. Score > 80 triggers BD priority alert.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 6,
+          "channel": "Website, Email",
+          "deliverables": [
+            "Scorecard live",
+            "Linked from main LP",
+            "Tier-specific follow-up emails active",
+            "BD priority alert for score > 80"
+          ],
+          "kpi": "Completion rate > 70%, lead capture rate > 60% of completers"
+        },
+        {
+          "id": "3.3.2",
+          "name": "Scorecard promotion plan activated",
+          "description": "Week 6 Wednesday: LinkedIn organic posts from leaders, Facebook ads with micro-commitment CTA, Google Search ads with 'dental practice valuation' keywords pointing to scorecard.",
+          "owner": "Paid Media + Content Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 6,
+          "channel": "LinkedIn, Meta, Google",
+          "deliverables": [
+            "LinkedIn promotion posts published",
+            "Facebook scorecard ads live",
+            "Google Search scorecard ads live"
+          ],
+          "kpi": "Scorecard completions per week"
+        },
+        {
+          "id": "3.3.3",
+          "name": "Activate SP-Indoctrination email sequence",
+          "description": "Week 6: Specialist funnel email sequence activated. Specialist's Guide white paper delivery tested.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 6,
+          "channel": "Email",
+          "deliverables": [
+            "SP-Indoctrination sequence active",
+            "White paper delivery verified"
+          ],
+          "kpi": "Sequence open rate > 35%"
+        },
+        {
+          "id": "3.3.4",
+          "name": "Phase 1 A/B test checkpoint",
+          "description": "Week 6: Review LP-1, LP-2, AD-1 results. Declare winners and implement. Calculate cumulative lift. Expected: 15-25% improvement in landing page conversion rate, 20-30% improvement in ad CPL.",
+          "owner": "Marketing Lead + Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 6,
+          "channel": "All",
+          "deliverables": [
+            "Phase 1 test results report",
+            "Winners implemented",
+            "Cumulative lift calculated"
+          ],
+          "kpi": "15-25% LP conversion improvement, 20-30% CPL improvement"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Scale and Sustain",
+      "weeks": "Weeks 7-12",
+      "description": "Webinar launch, chatbot deployment, competitor pages roll-out, story emails, second webinar, 90-day review. Phase 2 and Phase 3 A/B tests run concurrently.",
+      "tasks": [
+        {
+          "id": "4.1.1",
+          "name": "Build webinar registration page",
+          "description": "Week 7: Registration page with title per webinar strategy (Option A or B based on WB-1 test allocation), 7-bullet content description, speaker bios (Jensen + Ellingson), and Lead Gen Form integration.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 7,
+          "channel": "Website",
+          "deliverables": [
+            "Webinar registration page live",
+            "7-bullet content description",
+            "Speaker bios",
+            "Lead Gen Form integration"
+          ],
+          "kpi": "Registration page conversion rate"
+        },
+        {
+          "id": "4.1.2",
+          "name": "Build pre-webinar email sequence",
+          "description": "Week 7: 5-email sequence: Confirmation (Day 0), 'What to prepare' (Day -7), 'Tomorrow' reminder (Day -1), 'Starting in 1 hour' (Day 0, -60 min), Post-webinar replay (Day 0, +2 hours).",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 7,
+          "channel": "Email",
+          "deliverables": ["5 pre-webinar emails built and automated"],
+          "kpi": "Reminder email open rates > 60%"
+        },
+        {
+          "id": "4.1.3",
+          "name": "Deploy chatbot on main and patient landing pages",
+          "description": "Week 7 Monday: Bottom-right widget with 30-second delay trigger. Practice owner path leads to assessment/discovery call booking, patient path leads to nearest practice finder/consultation booking, career path leads to open positions/guide download.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 7,
+          "channel": "Website",
+          "deliverables": [
+            "Chatbot live on main LP",
+            "Chatbot live on patient LP",
+            "All routing paths tested"
+          ],
+          "kpi": "Engagement rate (% of visitors who interact), routing accuracy"
+        },
+        {
+          "id": "4.1.4",
+          "name": "Launch webinar registration ads",
+          "description": "Week 7 Thursday: LinkedIn ads targeting practice owners and specialists. Meta ads targeting warm audiences (website visitors, email subscribers). Target: 75+ registrations.",
+          "owner": "Paid Media",
+          "status": "not-started",
+          "priority": "high",
+          "week": 7,
+          "channel": "LinkedIn, Meta",
+          "deliverables": [
+            "LinkedIn webinar registration ads live",
+            "Meta webinar registration ads live"
+          ],
+          "kpi": "75+ registrations for first webinar"
+        },
+        {
+          "id": "4.1.5",
+          "name": "Publish first competitor comparison page",
+          "description": "Week 7: 'SGA vs. Heartland Dental' -- highest search volume competitor comparison. Legal review completed.",
+          "owner": "SEO Lead + Content Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 7,
+          "channel": "Website",
+          "deliverables": ["SGA vs. Heartland Dental page published"],
+          "kpi": "Organic ranking for 'heartland dental reviews' and 'heartland dental partnership'"
+        },
+        {
+          "id": "4.1.6",
+          "name": "Begin Phase 2 A/B tests",
+          "description": "Week 7: Launch LP-3 (Social Proof Format), LP-5 (Section Order), AD-3 (Creative Format: Single Image vs. Carousel), EM-2 (Send Time: 6:30 AM vs. 7:30 PM).",
+          "owner": "Marketing Ops + Paid Media",
+          "status": "not-started",
+          "priority": "high",
+          "week": 7,
+          "channel": "Landing page, Ads, Email",
+          "deliverables": ["4 Phase 2 A/B tests configured and live"],
+          "kpi": "Tests running with sufficient traffic allocation"
+        },
+        {
+          "id": "4.2.1",
+          "name": "Host first live webinar",
+          "description": "Week 8 Thursday 12 PM ET: 'The Dental Partnership Decision' -- Jensen and Ellingson present the 7-question framework. 60 minutes teaching + 15 minutes Q&A + 10 minutes pitch.",
+          "owner": "Marketing Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 8,
+          "channel": "Webinar platform",
+          "deliverables": [
+            "Webinar hosted",
+            "Recording captured",
+            "Attendee data collected"
+          ],
+          "kpi": "75+ registrations, 35%+ attendance rate"
+        },
+        {
+          "id": "4.2.2",
+          "name": "Activate post-webinar replay sequence",
+          "description": "Week 8-9: 4-email post-webinar sequence: replay link (Day 0), social proof from attendees (Day 2), urgency on discovery call slots (Day 5), final CTA (Day 7).",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 8,
+          "channel": "Email",
+          "deliverables": ["4 post-webinar emails deployed"],
+          "kpi": "Replay view rate, discovery call bookings from webinar attendees"
+        },
+        {
+          "id": "4.2.3",
+          "name": "Activate story email sequences",
+          "description": "Week 8: Soap Opera Sequence (5 emails) activated for PA leads who completed indoctrination but haven't booked discovery call. ISM Broadcast Sequence activated for active PA/SP email lists.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 8,
+          "channel": "Email",
+          "deliverables": [
+            "Soap Opera Sequence active (5 emails)",
+            "ISM Broadcast Sequence active"
+          ],
+          "kpi": "Story email engagement rates vs. standard sequence benchmarks"
+        },
+        {
+          "id": "4.2.4",
+          "name": "Begin Phase 2 B-wave A/B tests",
+          "description": "Week 8: Launch QS-1 (Question Order), QS-2 (Results Gating), PP-1 (Pricing Headline), WB-1 (Webinar Title -- first data point).",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 8,
+          "channel": "Scorecard, Pricing page, Webinar",
+          "deliverables": ["4 additional Phase 2 tests live"],
+          "kpi": "Tests running with sufficient sample size"
+        },
+        {
+          "id": "4.2.5",
+          "name": "Repurpose webinar content",
+          "description": "Week 9: Edit recording into 5-7 short clips for LinkedIn and YouTube. Best Q&A moments become standalone content pieces. Slides become downloadable PDF lead magnet.",
+          "owner": "Video Production + Content Lead",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 9,
+          "channel": "LinkedIn, YouTube",
+          "deliverables": [
+            "5-7 video clips from webinar",
+            "PDF slide deck lead magnet"
+          ],
+          "kpi": "Clip view counts, PDF download count"
+        },
+        {
+          "id": "4.3.1",
+          "name": "Publish competitor pages wave 2",
+          "description": "Week 9: 'SGA vs. MB2 Dental' and 'SGA vs. Pacific Dental Services' published. Promoted via targeted Google Search ads on competitor brand keywords.",
+          "owner": "SEO Lead + Content Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 9,
+          "channel": "Website, Google Ads",
+          "deliverables": [
+            "SGA vs. MB2 Dental page published",
+            "SGA vs. PDS page published",
+            "Google Search ads on competitor keywords live"
+          ],
+          "kpi": "Organic ranking for competitor brand keywords"
+        },
+        {
+          "id": "4.3.2",
+          "name": "Deploy new ad creative wave",
+          "description": "Week 9: Rotate in 3-4 fresh creative concepts per channel to combat creative fatigue. Include testimonial-based ads, data-led ads, and transformation story ads.",
+          "owner": "Paid Media",
+          "status": "not-started",
+          "priority": "high",
+          "week": 9,
+          "channel": "Google, LinkedIn, Meta",
+          "deliverables": ["3-4 new creative concepts per channel deployed"],
+          "kpi": "CTR improvement vs. fatigued creative"
+        },
+        {
+          "id": "4.3.3",
+          "name": "Begin Phase 2 C-wave A/B tests",
+          "description": "Week 9: Launch AD-4 (Thought Leader vs. Company Page), EM-3 (Sender Name). Phase 2 mid-point check.",
+          "owner": "Marketing Ops + Paid Media",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 9,
+          "channel": "LinkedIn Ads, Email",
+          "deliverables": [
+            "2 additional Phase 2 tests live",
+            "Phase 2 mid-point review completed"
+          ],
+          "kpi": "Tests running with sufficient traffic"
+        },
+        {
+          "id": "4.3.4",
+          "name": "Deploy chatbot on associate and pricing pages",
+          "description": "Week 7 (associate LP) and Week 9 (pricing page): Expand chatbot deployment with specialized flow for deal-structure questions on pricing page.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 9,
+          "channel": "Website",
+          "deliverables": [
+            "Chatbot live on associate LP",
+            "Chatbot live on pricing page with specialized flow"
+          ],
+          "kpi": "Chatbot engagement rate, conversion attribution from chatbot"
+        },
+        {
+          "id": "4.4.1",
+          "name": "Host second live webinar",
+          "description": "Week 10: Apply WB-1 learnings (alternate title if data supports). Expand audience targeting to include cold traffic. Target: 100+ registrations.",
+          "owner": "Marketing Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 10,
+          "channel": "Webinar platform",
+          "deliverables": [
+            "Second webinar hosted",
+            "WB-1 test learnings applied"
+          ],
+          "kpi": "100+ registrations, improved conversion rate vs. first webinar"
+        },
+        {
+          "id": "4.4.2",
+          "name": "Publish competitor pages wave 3",
+          "description": "Week 10: 'SGA vs. Aspen Dental' and 'SGA vs. SALT Dental Partners' published.",
+          "owner": "SEO Lead + Content Lead",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 10,
+          "channel": "Website",
+          "deliverables": [
+            "SGA vs. Aspen Dental page published",
+            "SGA vs. SALT Dental Partners page published"
+          ],
+          "kpi": "Organic ranking for competitor brand keywords"
+        },
+        {
+          "id": "4.4.3",
+          "name": "YouTube midpoint review",
+          "description": "Week 10: 10-12 videos published. Analyze view counts, watch time, description link clicks, and email captures from the Implant Cost Guide. Adjust content mix based on performance.",
+          "owner": "Video Production + Marketing Lead",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 10,
+          "channel": "YouTube",
+          "deliverables": [
+            "YouTube midpoint analytics report",
+            "Content mix adjustments"
+          ],
+          "kpi": "View count, watch time, description link click-through rate"
+        },
+        {
+          "id": "4.4.4",
+          "name": "Phase 2 A/B test checkpoint",
+          "description": "Week 10: Review Phase 2 results. Implement winners for LP-3, LP-5, AD-3. Expected: 15-30% additional improvement on Phase 1 gains.",
+          "owner": "Marketing Lead + Marketing Ops",
+          "status": "not-started",
+          "priority": "high",
+          "week": 10,
+          "channel": "All",
+          "deliverables": [
+            "Phase 2 test results report",
+            "Winners implemented"
+          ],
+          "kpi": "15-30% additional improvement on Phase 1 gains"
+        },
+        {
+          "id": "4.5.1",
+          "name": "Publish competitor pages wave 4",
+          "description": "Week 11: 'SGA Alternative for Dentists' (catch-all comparison) and 'Best DSO Partnerships 2026' (roundup/authority page). Full competitor page SEO suite now complete.",
+          "owner": "SEO Lead + Content Lead",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 11,
+          "channel": "Website",
+          "deliverables": [
+            "SGA Alternative page published",
+            "Best DSO Partnerships 2026 page published",
+            "7 competitor pages total complete"
+          ],
+          "kpi": "Organic traffic to competitor comparison pages"
+        },
+        {
+          "id": "4.5.2",
+          "name": "Publish first formal case studies",
+          "description": "Week 11: Dr. Cavendish story (Gen4 transformation) and a MODIS partner story. Distributed to BD team, posted on website, promoted via LinkedIn.",
+          "owner": "Content Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 11,
+          "channel": "Website, LinkedIn, Sales",
+          "deliverables": [
+            "2 case studies published",
+            "BD team distribution",
+            "LinkedIn promotion"
+          ],
+          "kpi": "Case study page views, BD team usage rate"
+        },
+        {
+          "id": "4.5.3",
+          "name": "Third ad creative rotation",
+          "description": "Week 11: Budget reallocation based on 8 weeks of data. Shift spend to highest-performing channels and creative concepts.",
+          "owner": "Paid Media",
+          "status": "not-started",
+          "priority": "high",
+          "week": 11,
+          "channel": "All paid",
+          "deliverables": [
+            "New creative deployed",
+            "Budget reallocated based on 8-week data"
+          ],
+          "kpi": "CPL improvement after reallocation"
+        },
+        {
+          "id": "4.5.4",
+          "name": "Begin Phase 3 A/B tests",
+          "description": "Week 11-12: Launch LP-8 (Video Testimonial Compilation), LP-4 (Problem Section Length), WB-2 (Registration Bullets), WB-3 (Pitch Timing), EM-4 (Social Proof Email Format), EM-5 (Sequence Length). These extend beyond 90-day window.",
+          "owner": "Marketing Ops",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 11,
+          "channel": "Landing page, Webinar, Email",
+          "deliverables": ["6 Phase 3 tests configured and live"],
+          "kpi": "Tests initiated and tracking data"
+        },
+        {
+          "id": "4.6.1",
+          "name": "Full 90-day performance review",
+          "description": "Week 12: Compile all metrics against launch targets. Calculate A/B test cumulative lift. Identify top 3 performing channels, top 3 underperformers, and root causes.",
+          "owner": "Marketing Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 12,
+          "channel": "All",
+          "deliverables": [
+            "90-day performance review deck",
+            "Channel performance rankings",
+            "A/B test cumulative lift report"
+          ],
+          "kpi": "All 10 success metrics evaluated against targets"
+        },
+        {
+          "id": "4.6.2",
+          "name": "Build Month 4-6 plan",
+          "description": "Week 12: Adjust budget allocation, content strategy, and funnel architecture based on real performance data from 90 days of operation.",
+          "owner": "Marketing Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 12,
+          "channel": "All",
+          "deliverables": [
+            "Month 4-6 strategic plan",
+            "Budget reallocation plan",
+            "Content strategy adjustments"
+          ],
+          "kpi": "Plan approved by leadership"
+        },
+        {
+          "id": "4.6.3",
+          "name": "Pipeline review with BD team",
+          "description": "Week 12: Total leads generated, MQL > SQL conversion rate, discovery calls booked, site visits, LOIs in progress. Calculate marketing-attributed pipeline value.",
+          "owner": "Marketing Lead + BD Lead",
+          "status": "not-started",
+          "priority": "high",
+          "week": 12,
+          "channel": "CRM",
+          "deliverables": [
+            "Pipeline review report",
+            "Marketing-attributed pipeline value calculated"
+          ],
+          "kpi": "30-45 discovery calls booked, pipeline value documented"
+        },
+        {
+          "id": "4.6.4",
+          "name": "Community growth assessment",
+          "description": "Week 12: Measure LinkedIn combined followers, YouTube subscribers, Facebook/Instagram followers, TikTok followers against 90-day targets.",
+          "owner": "Marketing Lead",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 12,
+          "channel": "All social",
+          "deliverables": ["Social growth report vs. targets"],
+          "kpi": "+5,000 combined social following growth"
+        },
+        {
+          "id": "4.6.5",
+          "name": "Evaluate evergreen webinar conversion",
+          "description": "Week 12: Decide whether to convert the best-performing webinar into an on-demand evergreen asset (automated webinar funnel) based on attendance-to-conversion data.",
+          "owner": "Marketing Lead",
+          "status": "not-started",
+          "priority": "medium",
+          "week": 12,
+          "channel": "Webinar",
+          "deliverables": ["Evergreen webinar decision memo"],
+          "kpi": "Conversion rate from live webinar attendees to discovery calls"
+        }
+      ]
+    }
+  ],
+  "weeklyOperatingRhythm": {
+    "monday": {
+      "activity": "Weekly planning: review previous week's metrics, prioritize this week's content and tests, address any issues",
+      "owner": "Marketing Lead"
+    },
+    "tuesday": {
+      "activity": "Content production: LinkedIn posts drafted, social content created, blog posts written or edited",
+      "owner": "Content Lead"
+    },
+    "wednesday": {
+      "activity": "Optimization: A/B test check-ins, ad creative refresh, email sequence performance review",
+      "owner": "Paid Media + Marketing Ops"
+    },
+    "thursday": {
+      "activity": "Distribution: schedule content, deploy new ad creative, activate new automation rules",
+      "owner": "Content Lead + Paid Media"
+    },
+    "friday": {
+      "activity": "Reporting: weekly performance snapshot distributed to leadership and BD team; document learnings",
+      "owner": "Marketing Lead"
+    }
+  },
+  "paidScalingRules": [
+    {
+      "rule": "Scale up",
+      "threshold": "Channel delivers CPL below target for 2 consecutive weeks with 30+ conversions",
+      "action": "Increase budget by 25%. Monitor CPL for 1 week. If CPL holds, increase another 25%."
+    },
+    {
+      "rule": "Hold",
+      "threshold": "Channel delivers CPL within 10% of target",
+      "action": "Maintain current budget. Focus on creative testing to improve efficiency."
+    },
+    {
+      "rule": "Scale down",
+      "threshold": "Channel delivers CPL above target for 2 consecutive weeks",
+      "action": "Reduce budget by 25%. Diagnose: is it creative fatigue, audience exhaustion, or landing page issues? Fix the root cause before re-scaling."
+    },
+    {
+      "rule": "Pause",
+      "threshold": "Channel delivers CPL more than 2x target for 3 consecutive weeks with no improvement trend",
+      "action": "Pause the channel. Redirect budget to top performers. Diagnose and rebuild before reactivating."
+    },
+    {
+      "rule": "Test budget",
+      "threshold": "New channel or new creative concept",
+      "action": "Allocate 10-15% of total monthly budget to testing. Minimum 2-week test duration. Evaluate against same CPL targets."
+    }
+  ],
+  "contentRhythm": [
+    {
+      "contentType": "LinkedIn thought leadership (4 leaders)",
+      "frequency": "3-4 posts per leader per week",
+      "channel": "LinkedIn",
+      "owner": "Each leader + Content Lead support"
+    },
+    {
+      "contentType": "Facebook/Instagram central page",
+      "frequency": "5-7 posts per week",
+      "channel": "Meta",
+      "owner": "Content Lead"
+    },
+    {
+      "contentType": "Local practice content kit",
+      "frequency": "Monthly kit, 12-15 assets",
+      "channel": "Meta (local pages)",
+      "owner": "Content Lead + Practice Ops"
+    },
+    {
+      "contentType": "Blog posts (SEO)",
+      "frequency": "2 posts per week",
+      "channel": "Website",
+      "owner": "Content Lead + SEO Lead"
+    },
+    {
+      "contentType": "YouTube long-form (Dr. Olson)",
+      "frequency": "2 videos per week",
+      "channel": "YouTube",
+      "owner": "Video Production"
+    },
+    {
+      "contentType": "YouTube Shorts / Reels / TikTok",
+      "frequency": "4-5 clips per week",
+      "channel": "YouTube, IG, TikTok, FB",
+      "owner": "Video Production"
+    },
+    {
+      "contentType": "Email newsletter (Partner Pulse)",
+      "frequency": "Monthly",
+      "channel": "Email",
+      "owner": "Content Lead"
+    },
+    {
+      "contentType": "Podcast appearances (Jensen, Wong)",
+      "frequency": "1-2 per month",
+      "channel": "External podcasts",
+      "owner": "Marketing Lead + PR"
+    }
+  ],
+  "abTestSchedule": {
+    "phase1": {
+      "name": "Quick Wins",
+      "weeks": "Weeks 3-6",
+      "tests": [
+        {
+          "id": "LP-1",
+          "name": "Headline Framing (Empathy vs. Fear-Stat)",
+          "start": "Week 3",
+          "expectedWinner": "Week 6",
+          "asset": "Main landing page"
+        },
+        {
+          "id": "LP-2",
+          "name": "CTA Button Copy (Professional vs. Peer-Framed)",
+          "start": "Week 3",
+          "expectedWinner": "Week 6",
+          "asset": "Main landing page (all CTA instances)"
+        },
+        {
+          "id": "AD-1",
+          "name": "Hook Type (Sunday Night vs. Horror Stories)",
+          "start": "Week 3",
+          "expectedWinner": "Week 5",
+          "asset": "Facebook ads (PA funnel)"
+        },
+        {
+          "id": "EM-1",
+          "name": "Subject Line (Curiosity vs. Direct)",
+          "start": "Week 3",
+          "expectedWinner": "Week 7-8",
+          "asset": "Welcome sequence email 1"
+        },
+        {
+          "id": "LP-6",
+          "name": "Exit Intent Popup",
+          "start": "Week 4",
+          "expectedWinner": "Week 6",
+          "asset": "Main landing page"
+        },
+        {
+          "id": "AD-2",
+          "name": "CTA Type (Direct vs. Transitional)",
+          "start": "Week 4",
+          "expectedWinner": "Week 7",
+          "asset": "Facebook + LinkedIn ads (PA funnel)"
+        },
+        {
+          "id": "LP-7",
+          "name": "Specific Numbers in Social Proof Bar",
+          "start": "Week 4",
+          "expectedWinner": "Week 7",
+          "asset": "Main landing page"
+        },
+        {
+          "id": "QS-3",
+          "name": "Follow-Up Timing (Immediate vs. 30-min)",
+          "start": "Week 5",
+          "expectedWinner": "Week 9",
+          "asset": "Scorecard follow-up automation"
+        },
+        {
+          "id": "AD-5",
+          "name": "Emotional vs. Rational Angle",
+          "start": "Week 5",
+          "expectedWinner": "Week 7",
+          "asset": "Facebook ads (PT funnel)"
+        }
+      ],
+      "checkpoint": "End of Week 6",
+      "expectedLift": "15-25% LP conversion improvement, 20-30% CPL improvement"
+    },
+    "phase2": {
+      "name": "High-Impact",
+      "weeks": "Weeks 7-10",
+      "tests": [
+        {
+          "id": "LP-3",
+          "name": "Social Proof Format (Plain vs. Facebook-Style)",
+          "start": "Week 7",
+          "expectedWinner": "Week 10",
+          "asset": "Main landing page testimonial section"
+        },
+        {
+          "id": "LP-5",
+          "name": "Section Order (Testimonials above offer)",
+          "start": "Week 7",
+          "expectedWinner": "Week 10",
+          "asset": "Main landing page layout"
+        },
+        {
+          "id": "WB-1",
+          "name": "Webinar Title (Educational vs. Curiosity)",
+          "start": "Week 8",
+          "expectedWinner": "Week 12",
+          "asset": "Webinar registration page"
+        },
+        {
+          "id": "AD-3",
+          "name": "Creative Format (Single Image vs. Carousel)",
+          "start": "Week 7",
+          "expectedWinner": "Week 9",
+          "asset": "Facebook ads (PT funnel)"
+        },
+        {
+          "id": "EM-2",
+          "name": "Send Time (6:30 AM vs. 7:30 PM)",
+          "start": "Week 7",
+          "expectedWinner": "Week 12+",
+          "asset": "All PA sequence emails"
+        },
+        {
+          "id": "QS-1",
+          "name": "Question Order",
+          "start": "Week 8",
+          "expectedWinner": "Week 12",
+          "asset": "Partnership Readiness Scorecard"
+        },
+        {
+          "id": "QS-2",
+          "name": "Results Gating",
+          "start": "Week 8",
+          "expectedWinner": "Week 12",
+          "asset": "Partnership Readiness Scorecard"
+        },
+        {
+          "id": "PP-1",
+          "name": "Pricing Headline",
+          "start": "Week 8",
+          "expectedWinner": "Week 12",
+          "asset": "Pricing page"
+        },
+        {
+          "id": "AD-4",
+          "name": "Thought Leader vs. Company Page",
+          "start": "Week 9",
+          "expectedWinner": "Week 12",
+          "asset": "LinkedIn ads (PA funnel)"
+        },
+        {
+          "id": "EM-3",
+          "name": "Sender Name",
+          "start": "Week 9",
+          "expectedWinner": "Week 12+",
+          "asset": "PA welcome sequence"
+        }
+      ],
+      "checkpoint": "End of Week 10",
+      "expectedLift": "15-30% additional improvement on Phase 1 gains"
+    },
+    "phase3": {
+      "name": "Strategic Experiments",
+      "weeks": "Weeks 11-12+",
+      "tests": [
+        {
+          "id": "LP-8",
+          "name": "Video Testimonial Compilation",
+          "start": "Week 11",
+          "expectedWinner": "Week 14+",
+          "asset": "Main landing page (below hero)"
+        },
+        {
+          "id": "LP-4",
+          "name": "Problem Section Length",
+          "start": "Week 11",
+          "expectedWinner": "Week 14",
+          "asset": "Main landing page"
+        },
+        {
+          "id": "WB-2",
+          "name": "Registration Bullets (7 vs. 3)",
+          "start": "Week 12",
+          "expectedWinner": "Week 16",
+          "asset": "Webinar registration page"
+        },
+        {
+          "id": "WB-3",
+          "name": "Pitch Timing (Trial close)",
+          "start": "Week 12",
+          "expectedWinner": "Week 20",
+          "asset": "Webinar script"
+        },
+        {
+          "id": "EM-4",
+          "name": "Social Proof Email Format",
+          "start": "Week 12",
+          "expectedWinner": "Week 16+",
+          "asset": "PA sales sequence email 3"
+        },
+        {
+          "id": "EM-5",
+          "name": "Sequence Length (7 vs. 5 emails)",
+          "start": "Week 12",
+          "expectedWinner": "Week 20+",
+          "asset": "PA welcome sequence"
+        }
+      ],
+      "checkpoint": "Extends beyond 90-day window",
+      "expectedLift": "Directional insights for long-term optimization"
+    }
+  },
+  "budget": {
+    "total": "100%",
+    "channels": [
+      {
+        "channel": "Google Ads (Search + LSAs)",
+        "percentage": 30,
+        "amount": "30%",
+        "rationale": "Highest-intent channel. Captures existing demand for 'sell dental practice,' 'dental practice valuation,' 'dental implants [city].' Fastest path to qualified leads."
+      },
+      {
+        "channel": "LinkedIn Ads (Thought Leader + Sponsored Jobs + InMail)",
+        "percentage": 25,
+        "amount": "25%",
+        "rationale": "Primary B2B channel for practice acquisition and specialist recruitment. Thought Leader Ads for awareness, Lead Gen Forms for conversion, Sponsored Jobs for recruitment."
+      },
+      {
+        "channel": "Meta Ads (Facebook + Instagram)",
+        "percentage": 20,
+        "amount": "20%",
+        "rationale": "Patient acquisition (implant vertical) and practice owner awareness. Before/after transformation content performs exceptionally on Meta. Also used for webinar registration and scorecard promotion."
+      },
+      {
+        "channel": "Content Production",
+        "percentage": 10,
+        "amount": "10%",
+        "rationale": "YouTube video production, blog writing, graphic design, social content creation. The content pyramid produces 25-35 pieces per production day -- high ROI on production investment."
+      },
+      {
+        "channel": "Email Platform + Automation",
+        "percentage": 5,
+        "amount": "5%",
+        "rationale": "Email platform subscription, deliverability tools, A/B testing tools. Small cost, massive leverage -- email sequences do the selling 24/7."
+      },
+      {
+        "channel": "SEO + Technical",
+        "percentage": 5,
+        "amount": "5%",
+        "rationale": "Technical SEO fixes, schema markup implementation, link building outreach, content optimization tools. Investment in organic compounds over time."
+      },
+      {
+        "channel": "Testing + Tools",
+        "percentage": 3,
+        "amount": "3%",
+        "rationale": "Heatmapping (Hotjar/Clarity), A/B testing platform, chatbot platform, quiz/scorecard tool, analytics tools."
+      },
+      {
+        "channel": "PR + Events",
+        "percentage": 2,
+        "amount": "2%",
+        "rationale": "Trade publication outreach, byline article placement, conference sponsorship deposits for upcoming events. Seed investment for 6-12 month authority building."
+      }
+    ],
+    "phaseAdjustments": [
+      {
+        "phase": "Weeks 1-2 (Pre-launch)",
+        "adjustment": "Spend at 25% of monthly rate",
+        "reason": "Infrastructure setup, domain warming. No paid traffic yet."
+      },
+      {
+        "phase": "Week 3 (Launch)",
+        "adjustment": "Ramp to 75% of monthly rate",
+        "reason": "Controlled ignition. Ads start at 50% budget, scale to 75% by Friday."
+      },
+      {
+        "phase": "Weeks 4-6",
+        "adjustment": "Full monthly budget",
+        "reason": "Full activation. All channels running. Testing begins."
+      },
+      {
+        "phase": "Weeks 7-9",
+        "adjustment": "Full monthly budget + 10% test reserve",
+        "reason": "Webinar promotion and scorecard launch require additional paid support. Draw from test reserve."
+      },
+      {
+        "phase": "Weeks 10-12",
+        "adjustment": "Reallocated monthly budget",
+        "reason": "Shift 10-20% from underperforming channels to top performers based on 8 weeks of data."
+      }
+    ],
+    "cplTargets": [
+      {
+        "channel": "Google Search",
+        "paFunnel": "< $350 (assessment complete)",
+        "ptFunnel": "< $75 (general lead), < $120 (implant lead)",
+        "drFunnel": "N/A"
+      },
+      {
+        "channel": "Google LSAs",
+        "paFunnel": "N/A",
+        "ptFunnel": "< $75 (booked appointment)",
+        "drFunnel": "N/A"
+      },
+      {
+        "channel": "LinkedIn",
+        "paFunnel": "< $150 (Lead Gen Form)",
+        "ptFunnel": "N/A",
+        "drFunnel": "< $80 (qualified applicant)"
+      },
+      {
+        "channel": "Meta (Facebook/Instagram)",
+        "paFunnel": "< $200 (assessment complete)",
+        "ptFunnel": "< $65 (general lead), < $90 (implant lead)",
+        "drFunnel": "< $60 (career guide download)"
+      }
+    ]
+  },
+  "v2AssetTimeline": [
+    {
+      "asset": "YouTube content calendar + scripts",
+      "deployWeek": "Week 5",
+      "dependencies": "Video production schedule confirmed, Dr. Olson availability"
+    },
+    {
+      "asset": "YouTube ad variations",
+      "deployWeek": "Week 6",
+      "dependencies": "YouTube channel optimized, first 4 videos published"
+    },
+    {
+      "asset": "Partnership Readiness Scorecard",
+      "deployWeek": "Week 6",
+      "dependencies": "Scoring logic validated, results pages built, follow-up emails loaded"
+    },
+    {
+      "asset": "Chatbot flow",
+      "deployWeek": "Week 7",
+      "dependencies": "Chatbot platform configured, routing tested"
+    },
+    {
+      "asset": "Webinar strategy + registration",
+      "deployWeek": "Week 7",
+      "dependencies": "Registration page built, email sequences loaded"
+    },
+    {
+      "asset": "Webinar pitch script",
+      "deployWeek": "Week 8",
+      "dependencies": "Webinar rehearsal completed"
+    },
+    {
+      "asset": "SGA vs. Heartland Dental",
+      "deployWeek": "Week 7",
+      "dependencies": "Legal review of competitor claims"
+    },
+    {
+      "asset": "SGA vs. MB2 Dental",
+      "deployWeek": "Week 9",
+      "dependencies": "Legal review"
+    },
+    {
+      "asset": "SGA vs. Pacific Dental Services",
+      "deployWeek": "Week 9",
+      "dependencies": "Legal review"
+    },
+    {
+      "asset": "SGA vs. Aspen Dental",
+      "deployWeek": "Week 10",
+      "dependencies": "Legal review"
+    },
+    {
+      "asset": "SGA vs. SALT Dental Partners",
+      "deployWeek": "Week 10",
+      "dependencies": "Legal review"
+    },
+    {
+      "asset": "SGA Alternative for Dentists",
+      "deployWeek": "Week 11",
+      "dependencies": "Legal review"
+    },
+    {
+      "asset": "Best DSO Partnerships 2026",
+      "deployWeek": "Week 11",
+      "dependencies": "Legal review"
+    },
+    {
+      "asset": "Soap opera email sequence",
+      "deployWeek": "Week 8",
+      "dependencies": "PA-Indoctrination running 4+ weeks, baseline performance established"
+    },
+    {
+      "asset": "ISM broadcast sequence",
+      "deployWeek": "Week 8",
+      "dependencies": "Active subscriber list of 200+ in PA/SP funnels"
+    },
+    {
+      "asset": "VSL script",
+      "deployWeek": "Week 9",
+      "dependencies": "VSL production scheduled (video recording + editing)"
+    }
+  ],
+  "riskMitigation": {
+    "technical": [
+      {
+        "risk": "Email deliverability issues (spam filtering, low inbox placement)",
+        "probability": "Medium",
+        "impact": "High",
+        "mitigation": "Domain warming protocol in Week 2. SPF/DKIM/DMARC authentication. Gradual volume increase. Clean list hygiene.",
+        "contingency": "If bounce rate exceeds 2% or spam complaints exceed 0.1%, immediately pause all sends. Investigate domain reputation. Consider switching sending subdomain."
+      },
+      {
+        "risk": "Tracking pixel failures (GTM misconfiguration, conversion events not firing)",
+        "probability": "Medium",
+        "impact": "High",
+        "mitigation": "End-to-end funnel tests in Week 2 (Day 9-10). Cross-reference GA4, Meta, LinkedIn, and CRM data before launch.",
+        "contingency": "If discovered post-launch, pause paid spend on affected channels until tracking is verified. Use manual UTM-based tracking as a fallback."
+      },
+      {
+        "risk": "Landing page downtime or slow load times",
+        "probability": "Low",
+        "impact": "High",
+        "mitigation": "Staging environment tested under load. CDN configured. Mobile performance verified (<3 second load time).",
+        "contingency": "Maintain a static backup page with core messaging and a contact form. Redirect traffic to backup if primary page goes down during critical periods."
+      },
+      {
+        "risk": "CRM integration breaks (leads not routing to BD team)",
+        "probability": "Medium",
+        "impact": "Medium",
+        "mitigation": "Integration tested in Week 1. Backup notification: email alert to BD team on every assessment completion, independent of CRM routing.",
+        "contingency": "Manual lead monitoring via email platform dashboard. Daily check of assessment completions vs. CRM entries."
+      }
+    ],
+    "market": [
+      {
+        "risk": "Competitor launches counter-campaign during SGA launch window",
+        "probability": "Medium",
+        "impact": "Medium",
+        "mitigation": "Monitor competitor activity weekly. Google Alerts for competitor brand names + 'partnership' / 'new' / 'launch.'",
+        "contingency": "If a competitor launches a major campaign, accelerate the competitor comparison page for that specific competitor. Increase ad spend on brand-defense keywords."
+      },
+      {
+        "risk": "Negative press or social media criticism about DSOs in general",
+        "probability": "Medium",
+        "impact": "Medium",
+        "mitigation": "The positioning already addresses DSO skepticism head-on ('7 out of 10 regret'). The messaging is built to withstand anti-DSO sentiment.",
+        "contingency": "If specific criticism targets SGA, respond with named partner testimonials and verifiable data points. Use the Sage archetype: 'Here are the facts. Here are the names. Call them yourself.'"
+      },
+      {
+        "risk": "Practice owner market shifts (recession fears, practice value declines)",
+        "probability": "Low",
+        "impact": "High",
+        "mitigation": "Monitor dental market publications (Dental Economics, ADA Health Policy Institute reports). Adjust messaging to emphasize stability and risk reduction.",
+        "contingency": "Shift messaging from 'growth opportunity' to 'protection and stability.' Emphasize Thurston Group's 38-year track record through multiple economic cycles."
+      }
+    ],
+    "operational": [
+      {
+        "risk": "Content production bottleneck (Dr. Olson unavailable for video, leadership too busy for LinkedIn)",
+        "probability": "High",
+        "impact": "Medium",
+        "mitigation": "Pre-record content buffer: 2 weeks of YouTube content recorded in advance. LinkedIn ghostwriting support for all 4 leaders. Pre-approved content library.",
+        "contingency": "If Dr. Olson is unavailable, pivot to repurposing existing 200+ YouTube video library. Extract new Shorts and Reels from archival content."
+      },
+      {
+        "risk": "BD team overwhelmed by lead volume (unable to follow up within 48 hours)",
+        "probability": "Medium",
+        "impact": "High",
+        "mitigation": "Set realistic lead volume expectations. Establish priority triage: Score > 80 gets same-day outreach, Score 50-79 gets 48-hour outreach, Score < 50 enters automated nurture only.",
+        "contingency": "If lead volume exceeds BD capacity, temporarily pause paid acquisition spend on PA funnel. Focus spend on PT funnel where practice-level teams handle follow-up."
+      },
+      {
+        "risk": "Brand architecture confusion (Gen4/MODIS/SGA naming creates prospect confusion)",
+        "probability": "Medium",
+        "impact": "Medium",
+        "mitigation": "All marketing assets use 'SGA Dental Partners' as primary brand. Gen4 and MODIS appear only as descriptive context.",
+        "contingency": "If confusion persists, add 'Who Is SGA?' FAQ section to every landing page. Create a short 'Our Story' video explaining the consolidation narrative."
+      },
+      {
+        "risk": "A/B test results are inconclusive due to low traffic",
+        "probability": "Medium",
+        "impact": "Low",
+        "mitigation": "Traffic volume feasibility checked against minimum sample sizes. Tests on low-traffic pages run for longer durations.",
+        "contingency": "Lower significance threshold to 90% for low-traffic tests. Consider sequential testing (4 weeks control, 4 weeks variant) instead of simultaneous split testing."
+      }
+    ],
+    "legal": [
+      {
+        "risk": "Partner testimonial usage without proper consent",
+        "probability": "Medium",
+        "impact": "High",
+        "mitigation": "Confirm written approval from Dr. Godat, Dr. Cavendish, Dr. Olson, Dr. Pikos, and all other named partners before any testimonial appears in marketing materials.",
+        "contingency": "Maintain a 'testimonial consent' tracker. Any testimonial without documented consent is removed immediately and replaced with an approved alternative."
+      },
+      {
+        "risk": "Competitor comparison pages trigger legal concerns",
+        "probability": "Low",
+        "impact": "Medium",
+        "mitigation": "All competitor claims factually sourced from public information. No subjective characterizations. Review language with legal before publication.",
+        "contingency": "If a competitor sends a cease-and-desist, immediately review the specific claim. Remove or modify any contested statement."
+      },
+      {
+        "risk": "Healthcare advertising regulations (patient testimonials, before/after images)",
+        "probability": "Medium",
+        "impact": "Medium",
+        "mitigation": "All patient testimonials include appropriate disclaimers. Before/after images comply with Meta and Google health advertising policies. HIPAA consent for any patient-identifiable content.",
+        "contingency": "If a platform rejects ad creative, immediately swap to approved backup creative. Maintain a library of 3-4 approved creative variants per ad set."
+      },
+      {
+        "risk": "Financial claims accuracy (Thurston $4B+ returned, 85% retention rate)",
+        "probability": "Low",
+        "impact": "High",
+        "mitigation": "Verify all financial and statistical claims with Thurston Group legal and SGA finance team before launch. Document sources for every number used in marketing.",
+        "contingency": "If any claim cannot be verified, replace with a softer statement until exact figures are confirmed."
+      }
+    ]
+  },
+  "team": {
+    "roles": [
+      {
+        "role": "Marketing Lead",
+        "responsibilities": "Overall launch ownership. Strategy, timeline, budget, cross-functional coordination. Weekly reporting to leadership. Go/no-go decisions.",
+        "keyDeliverables": "Weekly performance snapshots, monthly funnel reviews, budget reallocation recommendations, A/B test result documentation."
+      },
+      {
+        "role": "Content Lead",
+        "responsibilities": "Content calendar execution. Blog writing, social content creation, LinkedIn ghostwriting, content kit production. Quality control across all written and visual assets.",
+        "keyDeliverables": "2 blog posts/week, LinkedIn posts for 4 leaders, weekly content kits for local practices, social content scheduling."
+      },
+      {
+        "role": "Paid Media Manager",
+        "responsibilities": "Campaign setup, optimization, and scaling across Google, LinkedIn, and Meta. Creative testing. Budget pacing. Audience management.",
+        "keyDeliverables": "Campaign performance reports, creative rotation schedules, audience expansion recommendations, CPL tracking by channel."
+      },
+      {
+        "role": "Marketing Ops / Automation",
+        "responsibilities": "Email platform management, CRM integration, tracking infrastructure, A/B test implementation, chatbot configuration, scorecard/quiz tool management.",
+        "keyDeliverables": "Email sequence deployment, automation trigger configuration, tracking QA, test setup and monitoring, lead routing verification."
+      },
+      {
+        "role": "Video Production",
+        "responsibilities": "YouTube content production for Dr. Olson's channel. Filming, editing, Short/Reel extraction, cross-platform distribution. Thumbnail design.",
+        "keyDeliverables": "2 long-form videos/week, 4-5 Shorts/week, cross-platform exports, video testimonial compilation for landing pages."
+      },
+      {
+        "role": "SEO Lead",
+        "responsibilities": "Keyword strategy execution, on-page optimization, technical SEO, link building, competitor page SEO, search ranking monitoring.",
+        "keyDeliverables": "Blog post optimization, pillar page maintenance, competitor page publishing, schema markup, monthly ranking reports."
+      },
+      {
+        "role": "Community Manager",
+        "responsibilities": "Social media engagement across all platforms. Comment replies, DM management, review monitoring, user-generated content curation.",
+        "keyDeliverables": "Daily engagement (4-hour response time weekdays), weekly engagement reports, UGC curation for content team."
+      },
+      {
+        "role": "BD Team Lead",
+        "responsibilities": "Lead follow-up, discovery call hosting, partner relationship management. Feedback loop to marketing on lead quality.",
+        "keyDeliverables": "Lead follow-up within triage SLA, discovery call notes in CRM, monthly lead quality feedback to Marketing Lead."
+      },
+      {
+        "role": "Practice Ops Liaison",
+        "responsibilities": "Communication bridge between central marketing and local practices. Content kit distribution, office manager briefing, local page management support.",
+        "keyDeliverables": "Monthly content kit distribution, office manager training, local practice feedback collection."
+      },
+      {
+        "role": "PR / Thought Leadership Coordinator",
+        "responsibilities": "Trade publication relationships, byline article placement, podcast booking for leadership, conference planning.",
+        "keyDeliverables": "1-2 podcast appearances/month, quarterly byline articles, conference booth coordination."
+      }
+    ],
+    "raci": [
+      {
+        "activity": "Launch timeline and milestones",
+        "marketingLead": "A",
+        "contentLead": "I",
+        "paidMedia": "I",
+        "marketingOps": "I",
+        "bdTeam": "I",
+        "practiceOps": "I"
+      },
+      {
+        "activity": "Landing page copy and design",
+        "marketingLead": "A",
+        "contentLead": "R",
+        "paidMedia": "C",
+        "marketingOps": "C",
+        "bdTeam": "I",
+        "practiceOps": "I"
+      },
+      {
+        "activity": "Email sequence deployment",
+        "marketingLead": "A",
+        "contentLead": "C",
+        "paidMedia": "I",
+        "marketingOps": "R",
+        "bdTeam": "I",
+        "practiceOps": "I"
+      },
+      {
+        "activity": "Paid campaign setup and optimization",
+        "marketingLead": "A",
+        "contentLead": "C",
+        "paidMedia": "R",
+        "marketingOps": "C",
+        "bdTeam": "I",
+        "practiceOps": "I"
+      },
+      {
+        "activity": "A/B test design and analysis",
+        "marketingLead": "R",
+        "contentLead": "C",
+        "paidMedia": "C",
+        "marketingOps": "R",
+        "bdTeam": "I",
+        "practiceOps": "I"
+      },
+      {
+        "activity": "Lead follow-up and discovery calls",
+        "marketingLead": "I",
+        "contentLead": "I",
+        "paidMedia": "I",
+        "marketingOps": "C",
+        "bdTeam": "R/A",
+        "practiceOps": "I"
+      },
+      {
+        "activity": "Content calendar execution",
+        "marketingLead": "A",
+        "contentLead": "R",
+        "paidMedia": "C",
+        "marketingOps": "I",
+        "bdTeam": "I",
+        "practiceOps": "C"
+      },
+      {
+        "activity": "Local practice content kits",
+        "marketingLead": "C",
+        "contentLead": "R",
+        "paidMedia": "I",
+        "marketingOps": "I",
+        "bdTeam": "I",
+        "practiceOps": "R/A"
+      },
+      {
+        "activity": "YouTube production",
+        "marketingLead": "C",
+        "contentLead": "C",
+        "paidMedia": "I",
+        "marketingOps": "I",
+        "bdTeam": "I",
+        "practiceOps": "I"
+      },
+      {
+        "activity": "Weekly performance reporting",
+        "marketingLead": "R/A",
+        "contentLead": "C",
+        "paidMedia": "C",
+        "marketingOps": "C",
+        "bdTeam": "C",
+        "practiceOps": "I"
+      },
+      {
+        "activity": "Budget management",
+        "marketingLead": "R/A",
+        "contentLead": "I",
+        "paidMedia": "C",
+        "marketingOps": "I",
+        "bdTeam": "I",
+        "practiceOps": "I"
+      },
+      {
+        "activity": "Webinar execution",
+        "marketingLead": "A",
+        "contentLead": "C",
+        "paidMedia": "C",
+        "marketingOps": "R",
+        "bdTeam": "C",
+        "practiceOps": "I"
+      },
+      {
+        "activity": "Scorecard/quiz deployment",
+        "marketingLead": "A",
+        "contentLead": "C",
+        "paidMedia": "I",
+        "marketingOps": "R",
+        "bdTeam": "C",
+        "practiceOps": "I"
+      },
+      {
+        "activity": "Chatbot deployment and monitoring",
+        "marketingLead": "A",
+        "contentLead": "C",
+        "paidMedia": "I",
+        "marketingOps": "R",
+        "bdTeam": "C",
+        "practiceOps": "C"
+      }
+    ],
+    "meetingCadence": [
+      {
+        "meeting": "Launch standup",
+        "attendees": "All marketing roles",
+        "frequency": "Daily (Weeks 1-3), then 3x/week",
+        "duration": "15 min",
+        "purpose": "Quick status updates, blockers, priorities for the day"
+      },
+      {
+        "meeting": "Performance review",
+        "attendees": "Marketing Lead, Paid Media, Marketing Ops",
+        "frequency": "Weekly (Thursday)",
+        "duration": "30 min",
+        "purpose": "Review metrics against targets, identify issues, adjust tactics"
+      },
+      {
+        "meeting": "Content planning",
+        "attendees": "Content Lead, Video Production, SEO Lead, Marketing Lead",
+        "frequency": "Weekly (Monday)",
+        "duration": "30 min",
+        "purpose": "Plan content for the week, review previous week's performance, coordinate cross-platform publishing"
+      },
+      {
+        "meeting": "BD-Marketing sync",
+        "attendees": "Marketing Lead, BD Team Lead",
+        "frequency": "Biweekly (Tuesday)",
+        "duration": "30 min",
+        "purpose": "Lead quality feedback, pipeline review, messaging alignment, sales enablement needs"
+      },
+      {
+        "meeting": "Leadership update",
+        "attendees": "Marketing Lead, SGA leadership",
+        "frequency": "Monthly",
+        "duration": "30 min",
+        "purpose": "High-level metrics, budget review, strategic recommendations, escalations"
+      }
+    ]
+  },
+  "optimizationCadence": [
+    {
+      "cadence": "Daily",
+      "action": "Monitor ad spend pacing",
+      "detail": "Ensure no campaign overspends. Check for anomalous CPC spikes. Pause underperformers."
+    },
+    {
+      "cadence": "Daily",
+      "action": "Respond to all inbound leads",
+      "detail": "Assessment completions, guide downloads, and form submissions routed to BD within 4 hours during business hours."
+    },
+    {
+      "cadence": "Daily",
+      "action": "Social engagement",
+      "detail": "Reply to comments, DMs, and mentions within 4 hours (weekdays) / 12 hours (weekends)."
+    },
+    {
+      "cadence": "Weekly",
+      "action": "Performance snapshot",
+      "detail": "Consolidated report: spend, impressions, clicks, conversions, CPL, pipeline by channel."
+    },
+    {
+      "cadence": "Weekly",
+      "action": "Ad creative review",
+      "detail": "Identify creative fatigue (CTR decline > 20% week-over-week). Rotate in new creative from the ad asset library."
+    },
+    {
+      "cadence": "Weekly",
+      "action": "Email health check",
+      "detail": "Open rates, click rates, unsubscribe rates, bounce rates per sequence. Flag any sequence with open rate below 25% for subject line review."
+    },
+    {
+      "cadence": "Biweekly",
+      "action": "A/B test review",
+      "detail": "Evaluate running tests against minimum sample thresholds. Declare winners when statistical significance is reached. Document results."
+    },
+    {
+      "cadence": "Biweekly",
+      "action": "SEO check",
+      "detail": "Monitor keyword ranking movement, organic traffic trends, and index coverage. Publish next 2 blog posts per the keyword map."
+    },
+    {
+      "cadence": "Monthly",
+      "action": "Full funnel review",
+      "detail": "End-to-end conversion analysis: awareness > lead > MQL > SQL > discovery call > site visit > LOI. Identify the weakest stage."
+    },
+    {
+      "cadence": "Monthly",
+      "action": "Budget reallocation",
+      "detail": "Shift spend from underperforming channels to overperformers. Minimum 2 weeks of data before making reallocation decisions."
+    },
+    {
+      "cadence": "Monthly",
+      "action": "Content calendar review",
+      "detail": "Assess what content performed best. Double down on winning formats. Retire underperformers."
+    }
+  ],
+  "prelaunchChecklist": {
+    "trackingAndAnalytics": [
+      "GTM container deployed on all pages",
+      "GA4 property configured with all conversion events",
+      "Meta Pixel installed and verified (Pixel Helper green)",
+      "LinkedIn Insight Tag installed and verified",
+      "Google Ads conversion tracking configured",
+      "Heatmapping tool deployed on landing pages",
+      "UTM convention documented and shared with all team members",
+      "Cross-platform conversion data reconciled (within 5% margin)"
+    ],
+    "emailInfrastructure": [
+      "Sending domain authenticated (SPF, DKIM, DMARC)",
+      "Domain warming completed (7+ days, gradually increasing volume)",
+      "All email sequences loaded and QA'd (links, merge tags, conditional blocks)",
+      "Tag architecture implemented",
+      "Automation triggers configured and tested",
+      "Re-engagement triggers set (cold_60d, cold_90d)",
+      "Email rendering verified across Gmail, Outlook, Apple Mail (desktop + mobile)"
+    ],
+    "crmAndSales": [
+      "Lead routing rules configured",
+      "BD team dashboard built and accessible",
+      "Call booking system configured (Calendly/HubSpot meetings)",
+      "MQL/SQL definitions documented and communicated to BD team",
+      "Sales enablement kit distributed to all BD team members"
+    ],
+    "landingPages": [
+      "Main landing page QA'd (links, forms, mobile, speed)",
+      "Associate landing page QA'd",
+      "Patient landing page QA'd",
+      "Pricing page QA'd",
+      "Competitor comparison page QA'd",
+      "All pages load in under 3 seconds on mobile",
+      "Assessment/scorecard embed loads correctly",
+      "Form submissions route to correct CRM pipeline"
+    ],
+    "paidMedia": [
+      "Ad accounts created and configured",
+      "All creative uploaded in draft/paused state",
+      "Audience targeting configured (interest, behavior, lookalike, retargeting)",
+      "Conversion tracking verified at the ad platform level",
+      "Daily budget caps set to prevent overspend"
+    ],
+    "content": [
+      "LinkedIn posts scheduled for Weeks 3-4 (all 4 leaders)",
+      "Facebook/Instagram posts scheduled for Weeks 3-4",
+      "First 4 blog posts written and staged",
+      "SEO pillar page staged",
+      "Local practice content kit #1 prepared"
+    ],
+    "internalAlignment": [
+      "Leadership aligned on launch timeline and success metrics",
+      "BD team briefed on messaging and lead handling",
+      "Practice managers informed about marketing launch",
+      "Thought leadership leaders (Jensen, Ellingson, Olson, Wong) confirmed for LinkedIn posting"
+    ],
+    "funnelTests": [
+      "PA funnel: ad click > landing page > assessment > email > discovery call booking -- all steps verified",
+      "PT funnel: ad click > landing page > Smile Assessment > email > consultation booking -- all steps verified",
+      "DR funnel: career page > guide download > email sequence > application link -- all steps verified"
+    ]
+  }
+}

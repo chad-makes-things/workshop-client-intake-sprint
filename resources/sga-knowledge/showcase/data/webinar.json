@@ -1,0 +1,149 @@
+{
+  "title": "The Dental Partnership Decision: What 100+ Practice Owners Learned After Saying Yes",
+  "titleOptions": [
+    "The Dental Partnership Decision: What 100+ Practice Owners Learned After Saying Yes",
+    "7 Out of 10 Dentists Regret Selling to a DSO -- Here Is How to Be in the Other 30%",
+    "The 7-Question Framework That Predicts Whether You Will Be Happy or Miserable After Joining a DSO"
+  ],
+  "format": "live",
+  "targetAvatar": "Dr. Mark Hendricks",
+  "estimatedLength": "75 minutes (60 min presentation + 15 min Q&A)",
+  "registrationCopy": {
+    "headline": "The Dental Partnership Decision: What 100+ Practice Owners Learned After Saying Yes",
+    "subheadline": "A live masterclass on evaluating DSO partnerships -- taught by a practicing dentist who has sat across the table from over 100 practice owners making this decision.",
+    "bulletPoints": [
+      "The 3 partnership models that actually exist in dental consolidation -- and the structural differences that determine your experience",
+      "A 7-question diagnostic framework that predicts whether you will end up in the happy 30% or the miserable 70% -- works against any DSO, including ours",
+      "The economics nobody explains: EBITDA multiples, equity mechanics, second-bite math, and why the same 'multiple' can mean wildly different things",
+      "Why the PE sponsor behind a DSO matters more than the deal terms themselves -- and the one question your financial advisor should be asking",
+      "A special offer for everyone who stays until the end: a 1-on-1 peer conversation with a current partner dentist (not a sales call -- a peer conversation)"
+    ],
+    "speakerBio": "Dr. Mitch Ellingson is a practicing dentist with 20+ years of experience, CCO and co-founder of Gen4 Dental Partners (now SGA Dental Partners). He has personally sat across the table from 100+ dentists evaluating the partnership decision. Lamonte Jensen is CEO of SGA Dental Partners, a former Marine Corps infantry officer and McKinsey consultant. Together they built a dental partnership platform backed by the Thurston Group (38 years, 8 platforms, $4B+ returned to partners).",
+    "socialProof": "Join 100+ practice owners who have used this framework to make better partnership decisions"
+  },
+  "reminderEmails": [
+    {
+      "timing": "24 hours before",
+      "subject": "Tomorrow: The Partnership Decision Framework (Live with Dr. Ellingson)",
+      "body": "Dr. [Name],\n\nQuick reminder: tomorrow's live session starts at [Time] [Timezone].\n\nThe Dental Partnership Decision: What 100+ Practice Owners Learned After Saying Yes\n\nHere is what we are covering:\n\n- The 3 partnership models and why most dentists pick the wrong one\n- A 7-question framework that predicts happy vs. miserable outcomes\n- The economics nobody explains (multiples, equity, second-bite math)\n- A special offer for everyone who stays until the end\n\nYour join link: [LINK]\n\nOne thing to prepare: think about what 'Monday morning' looks like for you right now. How many hours are you spending on non-clinical work? What is the one thing about practice ownership that drains you most?\n\nDr. Ellingson is going to address those specific scenarios during the session.\n\nSee you tomorrow.\n\n[Your Name]\nSGA Dental Partners"
+    },
+    {
+      "timing": "1 hour before",
+      "subject": "Starting in 60 minutes -- your join link is inside",
+      "body": "Dr. [Name],\n\nWe go live in 60 minutes.\n\nThe Dental Partnership Decision: What 100+ Practice Owners Learned After Saying Yes\n\nJoin link: [LINK]\n\nDr. Ellingson and Lamonte Jensen are both on camera. Bring your questions -- the Q&A at the end is where the real conversations happen.\n\nSee you shortly."
+    },
+    {
+      "timing": "Starting now",
+      "subject": "We are LIVE -- join now",
+      "body": "Dr. [Name],\n\nWe are live right now.\n\nJoin here: [LINK]\n\nDr. Ellingson is starting with the number that changed everything for us: 7 out of 10.\n\nDo not miss the opening."
+    }
+  ],
+  "pitchScript": {
+    "opening": {
+      "duration": "5 min",
+      "script": "MITCH:\n\"Seven out of ten.\n\nThat is the number that changed everything for us. According to the Dentist Advisors podcast -- and if you listen to it, you know they have no reason to lie -- seven out of ten dentists who sell to a DSO end up frustrated, annoyed, or outright regretful. Do I hear 'best decision I ever made'? Their words: 'It is pretty rare.'\n\nLet me be direct with you. My name is Dr. Mitch Ellingson. I am a practicing dentist. I have owned multiple practices. I have personally lived the transition from private practice to working inside a group. And I am going to tell you something that most people on webinars will not tell you:\n\nMy agenda today is to educate you so thoroughly that if you decide to explore a partnership with our organization -- SGA Dental Partners -- it is because you made an informed decision, not because I pitched you.\n\nBut here is my other agenda: if I do NOT deliver genuine value in the next 60 minutes -- if you do not walk away with a framework you can use tomorrow, regardless of whether you ever speak to us again -- I absolutely insist you do not give us another second of your time.\n\nDoes that sound fair? If so, type 'fair' in the chat.\"\n\n[Pause for chat responses. Acknowledge: 'I see the chat lighting up. Good. Hold me to it.']\n\nMITCH:\n\"Before we dive in, let me tell you who you are spending the next hour with. I am a practicing dentist. I still see patients every week. I have owned multiple practices in Phoenix for over 20 years. I founded Spear Practice Solutions. I co-founded Gen4 Dental Partners, which grew from 5 group practices to 90 in 20 months -- now part of SGA Dental Partners.\"\n\nLAMONTE:\n\"I'm Lamonte Jensen. Before dental, I was a Marine Corps infantry officer -- multiple combat tours in Iraq. Then I earned my MBA at the University of Chicago, consulted at McKinsey, and spent years as VP at Spear Education. SGA is backed by the Thurston Group -- 38 years, 8 platforms, $4 billion returned to partners. One more name: Dr. Michael Pikos. The Pikos Institute is part of this platform.\"\n\nMITCH:\n\"Here is what we are covering: the three partnership models, a seven-question diagnostic framework, and the economics that nobody explains. For everyone who stays until the end, I am going to share something we have never offered publicly before. Type 'committed' in the chat if you are staying with us.\"",
+      "notes": "Opening establishes the 7-out-of-10 stat, sets the educational frame, and commits the audience with two chat prompts ('fair' and 'committed'). Both speakers appear on camera."
+    },
+    "teaching": [
+      {
+        "insight": "The 3 Partnership Models That Actually Exist",
+        "duration": "15 min",
+        "script": "MITCH:\n\"Everything I am going to share today comes down to one insight: The partnership model matters less than you think. The 18-month reality matters more than you know.\n\nModel 1: The Corporate Acquirer (Gen2 DSO). They buy your practice outright. You sign an employment agreement. Your name may or may not survive. Clinical decisions are increasingly influenced by corporate protocols. Your financial upside ends at closing. This is Heartland, Aspen, DCA.\n\nModel 2: The Management Company. They do not buy your practice. You pay them 15-25% of collections for operational support. No platform equity. No second bite. You are paying for a service, not joining a partnership.\n\nModel 3: The Equity Partnership (Gen4/IDSO). You sell a portion (55-70%), receive meaningful liquidity, and retain 30-45% as equity in the combined platform. Clinical autonomy is contractual. Your name stays. Your team stays.\n\nThe critical distinction: not all equity partnerships are the same. Over 1,000 organizations now call themselves IDSOs. Fewer than 100 are considered qualified.\"\n\nLAMONTE:\n\"Here is why 'clinical autonomy' is the most meaningless phrase in dental consolidation. Every DSO claims it. But there is no standard definition. The follow-up question that separates real from theater: 'Is your clinical independence clause written into the partnership agreement, and what happens if it is violated?'\n\nIf they cannot answer with specifics -- contract language, dispute resolution, real enforcement -- then what they are offering is not clinical autonomy. It is a marketing bullet point.\"\n\nMITCH:\n\"The question is not 'does this DSO SAY clinical autonomy?' The question is 'what does Monday morning LOOK like 18 months after you sign?' Write that question down. It is the most important question in this entire conversation.\"",
+        "slideNotes": "Slide 1: 'The Partnership Model Matters Less Than You Think. The 18-Month Reality Matters More.' Slide 2-4: Each model with icons. Slide 5: 'Why Clinical Autonomy Is the Most Meaningless Phrase in Dental Consolidation'"
+      },
+      {
+        "insight": "The 7 Questions That Predict Whether You'll Be in the Happy 30% or the Miserable 70%",
+        "duration": "15 min",
+        "script": "MITCH:\n\"This is the section I am most excited to share. We developed this framework internally and we have never taught it publicly. Here are the seven questions.\n\nQuestion 1: Who makes clinical decisions after the deal closes -- and is it in writing? If the clinical independence clause is not in the contract, it does not exist.\n\nQuestion 2: What does my practice name and brand look like in Year 3? Ask them to show you three practices that joined five years ago. What are their names today?\n\nQuestion 3: What is the PE sponsor's track record?\"\n\nLAMONTE:\n\"How many times has this PE firm built a dental platform? How long have they been at it? What happened to the partners in their previous platforms? Can I talk to one of them? If they have done this once, they are experimenting with your career.\"\n\nMITCH:\n\"Question 4: What does the equity model look like -- the term sheet version, not the pitch deck version? Ask for base case, bull case, and bear case.\n\nQuestion 5: What operational support arrives in the first 90 days? Walk me through week by week what changes. Who handles payroll migration? Benefits enrollment? Who is my point of contact when something breaks at 7 AM?\n\nQuestion 6: What is the staff retention rate across the network? Most DSOs do not track this or will not share it. If they cannot give you the number, that IS the answer.\n\nQuestion 7: Can I speak directly with 3+ current partners of MY choosing? Not partners they select. Partners you select. Pick three at random. Call them.\n\nType 'got it' in the chat if you are going to use this framework.\"\n\n\"Good. Now here is the harder truth. The framework tells you who to trust. It does not tell you whether partnership is right for you in the first place. That is a financial question.\"",
+        "slideNotes": "Each question gets its own slide with bold text. Final slide: all 7 questions on one page as a summary framework."
+      },
+      {
+        "insight": "The Economics Nobody Explains",
+        "duration": "10 min",
+        "script": "LAMONTE:\n\"Let me start with multiples. You will hear 5x, 7x, 10x. But how is EBITDA calculated? Trailing twelve months or adjusted with add-backs? The same practice can have EBITDA of $600K or $900K depending on methodology. A 7x deal on $600K is $4.2M. On $900K it is $6.3M. That is a $2.1 million difference.\n\nSecond: what is the actual cash at close? A 7x deal does not mean 7x in cash. 65% cash on a $5M deal is $3.25M, not $5M.\n\nThird: earnouts. 15-20% tied to revenue retention over 2-3 years. If your hygienist leaves, your revenue dips, you may not hit the threshold.\n\nNow let me explain the concept that makes equity partnerships fundamentally different: the second bite. You receive two financial events: cash at closing (first bite) and equity appreciation when the platform transacts (second bite). Industry analysts: 'In many cases, the retained minority equity position will be far more valuable in the future.'\n\nBut the second bite only works if the PE sponsor has a track record.\n\nOne question your financial advisor should ask: 'What is the PE sponsor's historical return to limited partners across prior healthcare platforms, and what was the median hold period?'\n\nWrite that question down. Send it to your advisor tonight.\"\n\nMITCH:\n\"Let me make this personal. Dr. Matt Cavendish. 20 years in practice. After partnering, he was mentored, learned all-on-four, revenue up 16.5%, staff retention 100%. But here is the number Matt talks about most: 'It is fun.' Fun. After 20 years. No spreadsheet captures that. But it is the thing that separates the happy 30% from the miserable 70%.\"",
+        "slideNotes": "EBITDA multiple ranges graphic. The Second Bite visual showing two financial events. 'What Your Financial Advisor Should Be Asking' slide."
+      }
+    ],
+    "transition": {
+      "duration": "3 min",
+      "script": "MITCH:\n\"Let me take a breath here.\n\nYou now know the three partnership models and the structural differences between them. You have a seven-question framework that works against any DSO in the country. You understand the economics at a level that 95% of practice owners never reach.\n\nThat is what we promised. And I meant what I said: if this is all you take away and you never contact us again, you are still better equipped.\n\nBut I would be doing you a disservice if I did not share what we have built. Because everything I just taught you was developed from the inside. From building SGA Dental Partners. From making mistakes and fixing them. From sitting across the table from over 100 dentists.\n\nSo let me take three minutes and show you what this looks like when someone actually builds a partnership platform around these principles.\""
+    },
+    "offer": {
+      "duration": "12 min",
+      "script": "MITCH:\n\"Rather than giving you a pitch deck, I am going to walk you through SGA using the same seven questions.\n\nQ1: Who makes clinical decisions? You do. In writing. The Clinical Independence Clause specifies treatment plans, materials, lab, schedule remain with the partner. I am the CCO -- a practicing dentist.\n\nQ2: What does my name look like in Year 3? Dental Partners of SW Georgia is still Dental Partners of SW Georgia. Periodontal Associates of Memphis is still Periodontal Associates of Memphis. We do not rebrand. Period.\"\n\nLAMONTE:\n\"Q3: PE track record? The Thurston Group. 38 years. 8 platforms. $4B+ returned. Smile Doctors, US Endodontics Partners, US Oral Surgery Management, ARC Health.\n\nQ4: Equity model? JV equity partnership. 60-70% upfront. 30-40% retained. We show base, bull, and bear. $350M credit facility for growth.\"\n\nMITCH:\n\"Q5: First 90 days? Billing, payroll, HR, compliance, procurement, marketing, recruiting transition within 60-90 days. Spencer Pierce: 'There is an abundance of relief.'\n\nQ6: Staff retention? 85% across the network. Published. No competitor publishes theirs.\n\nQ7: Can I talk to partners? All of them. Dr. Godat. Dr. Cavendish. Dr. Olson. Phone numbers, not testimonials.\n\nThree verticals: Community Dentistry, Collaborative General and Specialty, Advanced Implantology through MODIS. The Pikos Institute. The 4Front Symposium. The Individual Growth Engine. No other DSO has this.\""
+    },
+    "objectionHandling": [
+      {
+        "objection": "I'll lose my autonomy",
+        "response": "I LIVED this fear. Here is what I discovered: in the right model, you do not lose your voice. You amplify it. We do not tell partners how to practice. We ask them to lead more. And it is in the contract."
+      },
+      {
+        "objection": "My patients and staff will freak out",
+        "response": "Your name stays. Your team stays. 85% staff retention. Benefits upgrade: Cigna, 401(k), PTO. Your office manager goes from 15 hats to two."
+      },
+      {
+        "objection": "The equity model is too opaque",
+        "response": "We show base, bull, and bear. We walk your advisor through the term sheet. Thurston principals take your call. $4B returned is history, not projection."
+      },
+      {
+        "objection": "PE will flip us in 3-5 years",
+        "response": "Thurston has been in business 38 years. Not 3-5. 38. Track record across 8 platforms is verifiable. Partners from prior platforms will take your call."
+      },
+      {
+        "objection": "I'm not ready -- timing isn't right",
+        "response": "Valuations are at cyclical highs. Staffing crisis is not improving. Every Sunday night you spend doing the schedule is a Sunday night you do not get back. A conversation costs 30 minutes. You can always say no."
+      }
+    ],
+    "close": {
+      "duration": "5 min",
+      "script": "MITCH:\n\"Before Q&A, here is the offer I mentioned at the beginning.\n\nIf you are seriously evaluating your options, I would like to connect you with a current SGA partner for a 1-on-1 conversation. Not a sales call. A peer conversation with a dentist who has been where you are.\n\nThis offer is open for 48 hours -- through [Day, Date] at midnight ET.\n\nFor everyone who books within 48 hours, you also receive:\n1. The Partnership Evaluation Scorecard (printable 7-question framework with scoring rubric)\n2. 'The 5 Deal Terms That Matter Most' cheat sheet from Lamonte\n3. A confidential practice profile to match you with a partner in a comparable situation\n\nThis is not a commitment. It is a 30-minute peer conversation. The worst outcome is you learn something.\n\n[URL] -- link is in the chat.\""
+    }
+  },
+  "followUpSequence": {
+    "attendees": [
+      {
+        "day": 0,
+        "subject": "Your replay + the 7-question framework",
+        "body": "Dr. [Name],\n\nThank you for joining tonight's session. Here is everything we covered:\n\nReplay link: [LINK] (available for 7 days)\n\nThe 7-Question Framework (printable PDF): [LINK]\n\nThe key insight: the partnership model matters less than you think. The 18-month reality matters more than you know.\n\nIf you want to take the next step, book your 1-on-1 partner conversation here: [LINK]. This offer is open for 48 hours.\n\nBest,\nDr. Mitch Ellingson\nSGA Dental Partners"
+      },
+      {
+        "day": 1,
+        "subject": "The one question I wish I had asked sooner",
+        "body": "Dr. [Name],\n\nDuring last night's session, I shared the question your financial advisor should be asking:\n\n'What is the PE sponsor's historical return to limited partners across prior healthcare platforms, and what was the median hold period?'\n\nI want to add context that I did not have time to cover live.\n\nThe reason this question matters: a PE firm with a 3-year hold and 2x returns is optimizing for a quick flip. Your equity is a vehicle for their exit strategy. A firm with a 38-year track record and $4B+ returned is building compounding value. Your equity grows alongside the platform.\n\nThe Thurston Group has been doing this since 1988. Eight platforms. The partners from those prior platforms -- Smile Doctors, US Endodontics Partners, US Oral Surgery Management -- will take your call and tell you what the equity appreciation looked like.\n\nSend that question to your financial advisor today. Their answer will tell you more about the DSOs you are evaluating than any pitch deck.\n\nBook your partner conversation (36 hours remaining): [LINK]\n\nBest,\nLamonte Jensen\nSGA Dental Partners"
+      },
+      {
+        "day": 3,
+        "subject": "What Dr. Cavendish said after Year 1",
+        "body": "Dr. [Name],\n\nI shared Dr. Cavendish's story during the webinar, but I want to give you the full picture.\n\n20 years in practice. Revenue was fine. Team was stable. But in his words: 'Sometimes it is not as fun as it used to be.'\n\nAfter joining SGA:\n- Paired with a clinical mentor through the Individual Growth Engine\n- Observed his first all-on-four\n- Revenue up 16.5% trailing twelve months\n- Staff retention: 100%\n- EBITDA beating plan by 2.3 points\n\nHis word for the experience: fun.\n\nI would like to connect you with a partner in a comparable situation to yours. Not Matt specifically (unless you want to talk to him -- I can arrange that too). But someone whose practice profile and career stage match yours.\n\nReply to this email with 'connect me' and I will make the introduction.\n\nBest,\nDr. Mitch Ellingson"
+      },
+      {
+        "day": 7,
+        "subject": "The scorecard that started 40+ conversations this month",
+        "body": "Dr. [Name],\n\nSince the webinar, 40+ practice owners have taken the Partnership Readiness Scorecard. The results have been fascinating.\n\nThe most common weakest category: Operational Independence. Most practice owners score highest in Clinical Growth (they are good dentists) and lowest in Operational Independence (they are drowning in admin).\n\nThe scorecard takes 5 minutes and gives you a personalized analysis with specific recommendations. It works against any partnership model, not just SGA.\n\nTake it here: [LINK]\n\nIf your results suggest we should talk, I am available for a confidential 15-minute conversation. No pitch. Just an honest assessment of whether SGA's model addresses your specific situation.\n\nBest,\n[BizDev Rep Name]\nSGA Dental Partners"
+      },
+      {
+        "day": 14,
+        "subject": "One last resource -- then I will stop emailing",
+        "body": "Dr. [Name],\n\nThis is the last planned email in this sequence. I want to leave you with one resource that several attendees have told me was the most valuable thing from the webinar:\n\nThe 7-Question Framework (printable PDF): [LINK]\n\nPrint it. Bring it to your next DSO meeting. Apply it to everyone -- including us.\n\nIf you ever want to pick the conversation back up, reply to any of my emails. No expiration. No awkwardness.\n\nI wish you and your practice well.\n\nBest,\nDr. Mitch Ellingson\nSGA Dental Partners"
+      }
+    ],
+    "noShows": [
+      {
+        "day": 0,
+        "subject": "You missed it -- but the replay is ready",
+        "body": "Dr. [Name],\n\nI know things come up. The replay of tonight's session is ready:\n\nReplay link: [LINK] (available for 7 days)\n\nHere is what you missed in 30 seconds:\n\n- The 3 partnership models and why most dentists pick the wrong one\n- A 7-question framework that predicts happy vs. miserable outcomes (printable PDF attached)\n- The economics nobody explains: multiples, equity, second-bite math\n- A special offer: 1-on-1 peer conversation with a current partner (48 hours remaining)\n\nThe session is 60 minutes. If you only have 15, skip to the 20:00 mark -- that is where the 7-question framework starts.\n\nBook your partner conversation: [LINK]\n\nBest,\nDr. Mitch Ellingson\nSGA Dental Partners"
+      },
+      {
+        "day": 3,
+        "subject": "The 15-minute version of what you missed",
+        "body": "Dr. [Name],\n\nI know a 60-minute replay is a lot to ask. Here is the 15-minute version:\n\nThe one insight that matters most: the partnership model matters less than you think. The 18-month reality matters more than you know.\n\nThe 7 questions that predict your outcome:\n1. Who makes clinical decisions -- and is it in writing?\n2. What does my name look like in Year 3?\n3. What is the PE sponsor's track record?\n4. What does the equity look like (base, bull, bear)?\n5. What operational support in the first 90 days?\n6. Staff retention rate across the network?\n7. Can I speak with partners of MY choosing?\n\nThe financial question your advisor should ask: 'What is the PE sponsor's historical return to partners across prior platforms, and what was the median hold period?'\n\nIf you want the full framework as a printable PDF: [LINK]\n\nIf you want to apply the framework to SGA specifically, take the Partnership Readiness Scorecard: [LINK]\n\nBest,\nLamonte Jensen\nSGA Dental Partners"
+      },
+      {
+        "day": 7,
+        "subject": "Last chance for the replay (expires tonight)",
+        "body": "Dr. [Name],\n\nThe replay expires tonight at midnight ET.\n\nReplay: [LINK]\n\nIf you watch one section, make it the 7-question framework starting at the 20:00 mark. It is the most actionable content we have ever shared publicly.\n\nAfter tonight, the replay comes down. But the 7-Question Framework PDF stays available: [LINK]\n\nBest,\nDr. Mitch Ellingson"
+      }
+    ]
+  },
+  "pagePath": "./pages/webinar-registration.html"
+}

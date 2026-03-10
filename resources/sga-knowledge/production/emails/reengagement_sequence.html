@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGA Dental Partners — Re-engagement Sequence Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Roboto', sans-serif; background: #F0F2F5; color: #333333; padding: 32px 16px; }
+    .sequence-label { max-width: 640px; margin: 0 auto 24px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #2D6FB7; }
+    .email-wrapper { max-width: 640px; margin: 0 auto 0; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.10); }
+    .email-header { background: linear-gradient(135deg, #2D6FB7 0%, #1a4f8a 100%); padding: 28px 40px 24px; }
+    .logo-lockup { display: flex; align-items: center; gap: 14px; }
+    .logo-box { width: 48px; height: 48px; background: #C4D347; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; color: #1a4f8a; flex-shrink: 0; }
+    .brand-name { color: #ffffff; font-size: 20px; font-weight: 700; }
+    .brand-tagline { color: rgba(255,255,255,0.72); font-size: 12px; margin-top: 2px; }
+    .meta-bar { background: #F7F9FC; border-bottom: 1px solid #E5E9F0; padding: 10px 40px; font-size: 12px; color: #6B7A8F; display: flex; gap: 24px; flex-wrap: wrap; }
+    .meta-bar span strong { color: #333; }
+    .email-body { padding: 36px 40px; line-height: 1.7; font-size: 15px; color: #333333; }
+    .email-body p { margin-bottom: 16px; }
+    .merge-tag { display: inline-block; background: #EBF4FF; color: #2D6FB7; border: 1px solid #BDD9F5; border-radius: 4px; padding: 1px 7px; font-size: 13px; font-weight: 500; }
+    .cta-wrap { margin: 28px 0; }
+    .cta-btn { display: inline-block; background: #F36F21; color: #ffffff !important; text-decoration: none; font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: 6px; }
+    .ps-block { margin-top: 28px; padding: 18px 20px; background: #F7F9FC; border-left: 3px solid #C4D347; border-radius: 0 6px 6px 0; font-size: 14px; color: #555; line-height: 1.65; }
+    .pull-quote { margin: 24px 0; padding: 18px 24px; background: #F7F9FC; border-left: 4px solid #2D6FB7; border-radius: 0 6px 6px 0; font-size: 15px; font-style: italic; color: #444; line-height: 1.65; }
+    .survey-block { background: #F7F9FC; border-radius: 8px; padding: 24px; margin: 24px 0; border: 1px solid #E5E9F0; }
+    .survey-option { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid #E5E9F0; }
+    .survey-option:last-child { border-bottom: none; padding-bottom: 0; }
+    .survey-option .checkbox { width: 20px; height: 20px; background: #fff; border: 2px solid #2D6FB7; border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+    .survey-option .option-text { font-size: 15px; line-height: 1.6; }
+    .survey-option .option-link { display: inline-block; margin-top: 8px; background: #F36F21; color: #fff; text-decoration: none; font-size: 13px; font-weight: 700; padding: 6px 16px; border-radius: 4px; }
+    .update-card { background: #F7F9FC; border-radius: 8px; padding: 20px 24px; margin: 16px 0; }
+    .update-card .update-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #2D6FB7; margin-bottom: 8px; }
+    .update-card h4 { font-size: 15px; font-weight: 700; color: #1a4f8a; margin-bottom: 8px; }
+    .update-card .implication { margin-top: 12px; padding-top: 12px; border-top: 1px solid #E5E9F0; font-size: 14px; color: #555; }
+    .update-card .implication strong { color: #2D6FB7; }
+    .template-notice { background: #FFF8EC; border: 1px solid #FFE0A3; border-radius: 8px; padding: 18px 20px; margin: 20px 0; font-size: 14px; color: #7A5A00; }
+    .template-notice strong { color: #F36F21; }
+    .partner-template { background: #F0F7FF; border-radius: 8px; padding: 20px 24px; margin: 16px 0; border-left: 4px solid #2D6FB7; }
+    .partner-template p { margin-bottom: 10px; color: #6B7A8F; font-style: italic; font-size: 14px; }
+    .market-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+    .market-table th { background: #2D6FB7; color: #fff; padding: 10px 14px; text-align: left; font-weight: 700; }
+    .market-table td { padding: 12px 14px; border-bottom: 1px solid #E5E9F0; vertical-align: top; }
+    .market-table tr:last-child td { border-bottom: none; }
+    .market-table td.placeholder { color: #9AA4B2; font-style: italic; }
+    .final-options { margin: 24px 0; }
+    .final-option { display: flex; align-items: flex-start; gap: 14px; padding: 18px 20px; border-radius: 8px; margin-bottom: 12px; border: 1px solid #E5E9F0; }
+    .final-option.keep { background: #F0F7FF; border-color: #BDD9F5; }
+    .final-option.ready { background: #FFF8F5; border-color: #F9D4BE; }
+    .final-option.stop { background: #F7F9FC; border-color: #E5E9F0; }
+    .final-option .option-icon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; color: #fff; }
+    .final-option.keep .option-icon { background: #2D6FB7; }
+    .final-option.ready .option-icon { background: #F36F21; }
+    .final-option.stop .option-icon { background: #9AA4B2; }
+    .final-option .option-body { font-size: 15px; line-height: 1.6; }
+    .final-option .option-body strong { display: block; margin-bottom: 6px; }
+    .final-option .option-link { display: inline-block; margin-top: 8px; color: #2D6FB7; font-weight: 700; font-size: 13px; text-decoration: none; border: 1px solid #2D6FB7; padding: 5px 14px; border-radius: 4px; }
+    .email-footer { background: #F7F9FC; border-top: 1px solid #E5E9F0; padding: 24px 40px; font-size: 12px; color: #9AA4B2; line-height: 1.6; }
+    .email-footer a { color: #2D6FB7; text-decoration: none; }
+    .email-footer .footer-links { margin-bottom: 10px; }
+    .email-divider { max-width: 640px; margin: 40px auto; display: flex; align-items: center; gap: 16px; }
+    .email-divider hr { flex: 1; border: none; border-top: 2px solid #E5E9F0; }
+    .email-divider .div-label { background: #2D6FB7; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; padding: 6px 16px; border-radius: 20px; white-space: nowrap; }
+  </style>
+</head>
+<body>
+
+<div class="sequence-label">Re-engagement Sequence &mdash; 5 Emails Over 21 Days &mdash; Triggered by 60-Day Dormancy</div>
+
+<!-- EMAIL 1 -->
+<div class="email-wrapper">
+  <div class="email-header"><div class="logo-lockup"><div class="logo-box">SGA</div><div><div class="brand-name">SGA Dental Partners</div><div class="brand-tagline">Get Better. Not Just Bought.</div></div></div></div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 1 of 5</span>
+    <span><strong>Send:</strong> Day 0 — Triggered by cold_60d tag</span>
+    <span><strong>Subject:</strong> Still thinking about it? (No judgment. Just a check-in.)</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>It has been a while since we heard from you. That is completely fine.</p>
+    <p>A decision about your practice's future is not something you rush. The average partnership conversation takes 6–18 months from first interest to signed agreement, and some dentists take longer. The timeline is yours.</p>
+    <p>But I wanted to check in for a simple reason: the landscape has shifted since we last connected, and some of what has changed might matter to you.</p>
+    <p>Rather than assume what is on your mind, I have a quick question:</p>
+    <p><strong>What is the biggest priority for you right now?</strong></p>
+
+    <div class="survey-block">
+      <div class="survey-option">
+        <div class="checkbox"></div>
+        <div class="option-text">I am still evaluating partnership options — send me what is new<br><a href="#" class="option-link">Click to select this</a></div>
+      </div>
+      <div class="survey-option">
+        <div class="checkbox"></div>
+        <div class="option-text">My situation has changed — I am not exploring partnerships right now<br><a href="#" class="option-link">Click to select this</a></div>
+      </div>
+      <div class="survey-option">
+        <div class="checkbox"></div>
+        <div class="option-text">I am ready to have a conversation<br><a href="#" class="option-link">Schedule a Confidential Conversation</a></div>
+      </div>
+      <div class="survey-option">
+        <div class="checkbox"></div>
+        <div class="option-text">I would rather receive less email from SGA<br><a href="#" class="option-link">Click to select this</a></div>
+      </div>
+    </div>
+
+    <p>Click the one that fits and I will adjust accordingly. No sales pitch. No follow-up call. Just the right information at the right cadence.</p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">Click to Answer</a></div>
+    <p>Talk soon,<br>[Sender name]</p>
+    <div class="ps-block"><strong>P.S.</strong> — If you clicked "ready to have a conversation," here is the direct link to schedule: <a href="#">Schedule a Confidential Conversation</a>. If you clicked anything else, I will respect that completely.</div>
+  </div>
+  <div class="email-footer"><div class="footer-links"><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a></div>SGA Dental Partners &nbsp;·&nbsp; Backed by the Thurston Group &nbsp;·&nbsp; [Address]</div>
+</div>
+
+<div class="email-divider"><hr><div class="div-label">Email 2 of 5</div><hr></div>
+
+<!-- EMAIL 2 -->
+<div class="email-wrapper">
+  <div class="email-header"><div class="logo-lockup"><div class="logo-box">SGA</div><div><div class="brand-name">SGA Dental Partners</div><div class="brand-tagline">Get Better. Not Just Bought.</div></div></div></div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 2 of 5</span>
+    <span><strong>Send:</strong> Day 5</span>
+    <span><strong>Subject:</strong> Three things that happened at SGA since you last checked in</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>While you have been focused on your practice (as you should be), a few things have happened at SGA that are worth knowing about:</p>
+
+    <div class="update-card">
+      <div class="update-label">Update 1</div>
+      <h4>The platform grew.</h4>
+      <p>SGA now supports 100+ partner practices across multiple states. Every new practice added strengthens the network — shared purchasing power, deeper recruiting pipelines, more clinical perspectives in the peer community, and a broader equity base for every partner.</p>
+      <div class="implication"><strong>For you, this means:</strong> The platform your equity would be part of is larger and more diversified than it was when we last connected.</div>
+    </div>
+    <div class="update-card">
+      <div class="update-label">Update 2</div>
+      <h4>The education platform expanded.</h4>
+      <p>The Pikos Institute, already the gold standard in implantology education, has expanded its course offerings for SGA partners. The 4Front Symposium — our annual peer-learning event where "senior clinicians brainstorming together naturally elevated the ideas" — continues to grow. And the Individual Growth Engine has matched more partner-mentor pairs than ever.</p>
+      <div class="implication"><strong>For you, this means:</strong> The clinical development infrastructure that makes SGA different from every other DSO is getting stronger, not stagnating.</div>
+    </div>
+    <div class="update-card">
+      <div class="update-label">Update 3</div>
+      <h4>The numbers keep holding.</h4>
+      <p>85% staff retention rate across the SGA network. The Thurston Group's track record: 38 years, 8 dental and healthcare platforms, $4B+ returned to partners. Dr. Cavendish's practice continues to outperform: the 16.5% revenue growth was not a one-time spike. It was the beginning of a trajectory.</p>
+      <div class="implication"><strong>For you, this means:</strong> The proof points are not just marketing numbers. They are sustained outcomes.</div>
+    </div>
+
+    <p>If these developments change the equation for you:</p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">Schedule a Confidential Conversation</a></div>
+    <p>If not, I will continue to share updates as they happen. The door does not close.</p>
+    <p>Talk soon,<br>[Sender name]</p>
+    <div class="ps-block"><strong>P.S.</strong> — If you want to talk to one of the new partners directly — someone who made the decision recently and can tell you what the first 90 days were like — just reply and I will connect you.</div>
+  </div>
+  <div class="email-footer"><div class="footer-links"><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a></div>SGA Dental Partners &nbsp;·&nbsp; Backed by the Thurston Group &nbsp;·&nbsp; [Address]</div>
+</div>
+
+<div class="email-divider"><hr><div class="div-label">Email 3 of 5</div><hr></div>
+
+<!-- EMAIL 3 -->
+<div class="email-wrapper">
+  <div class="email-header"><div class="logo-lockup"><div class="logo-box">SGA</div><div><div class="brand-name">SGA Dental Partners</div><div class="brand-tagline">Get Better. Not Just Bought.</div></div></div></div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 3 of 5</span>
+    <span><strong>Send:</strong> Day 10</span>
+    <span><strong>Subject:</strong> "I wish I had done this three years ago." (New partner, real quote.)</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>The best evidence that a partnership works is not in the pitch deck. It is in the words of someone who made the decision recently — while the memory of the before-state is still fresh.</p>
+    <p>Here is what one of our newest partners shared about their first 90 days:</p>
+
+    <div class="template-notice">
+      <strong>Template Notice:</strong> This section should be updated quarterly with the most recent partner testimonial. The bracketed sections below are placeholders for the editorial team to fill before send.
+    </div>
+
+    <div class="partner-template">
+      <p>[Before partnering — quote about administrative burden, exhaustion, isolation, or financial concentration risk]</p>
+      <p>They had been practicing for [X] years. Revenue of $[X]. A team of [X]. By every external measure, successful. Privately, carrying the weight of everything.</p>
+      <p>[Why they chose SGA — quote about the Thurston track record, education platform, peer community, or clinical autonomy guarantee]</p>
+      <p>[90 days in — quote about the tangible changes: operational relief, first mentor meeting, team's response, the moment it felt real]</p>
+      <p>[Practice name] is still [practice name]. The team is still there. The patients still see their doctor first. What changed: [specific operational improvements and relief moments].</p>
+    </div>
+
+    <p>The reason I share this: when you were first exploring SGA, these stories may not have existed yet. The proof base has grown. The partners are newer. The relevance to your situation is sharper.</p>
+    <p>If hearing from someone who was in your position recently would help:</p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">Schedule a Confidential Conversation</a></div>
+    <p>Talk soon,<br>[Sender name]</p>
+    <div class="ps-block"><strong>P.S.</strong> — We can connect you with this partner directly if you would like to hear the unvarnished version. Just reply and ask.</div>
+  </div>
+  <div class="email-footer"><div class="footer-links"><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a></div>SGA Dental Partners &nbsp;·&nbsp; Backed by the Thurston Group &nbsp;·&nbsp; [Address]</div>
+</div>
+
+<div class="email-divider"><hr><div class="div-label">Email 4 of 5</div><hr></div>
+
+<!-- EMAIL 4 -->
+<div class="email-wrapper">
+  <div class="email-header"><div class="logo-lockup"><div class="logo-box">SGA</div><div><div class="brand-name">SGA Dental Partners</div><div class="brand-tagline">Get Better. Not Just Bought.</div></div></div></div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 4 of 5</span>
+    <span><strong>Send:</strong> Day 15</span>
+    <span><strong>Subject:</strong> Market intelligence for practice owners (Q[X] 2026 update)</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>Quick market update for practice owners who are keeping an eye on the landscape:</p>
+
+    <div class="template-notice">
+      <strong>Template Notice:</strong> Update this section quarterly with fresh market data before each send cycle.
+    </div>
+
+    <table class="market-table">
+      <tr><th>Metric</th><th>Current Data</th></tr>
+      <tr><td>Mid-market practice multiples (1–3 doctors)</td><td class="placeholder">[X–Xx EBITDA — update quarterly]</td></tr>
+      <tr><td>Group practice multiples (4+ doctors)</td><td class="placeholder">[X–Xx EBITDA — update quarterly]</td></tr>
+      <tr><td>Year-over-year trend</td><td class="placeholder">[Up/flat/down by X% — update quarterly]</td></tr>
+      <tr><td>Hygienist recruiting difficulty</td><td>76%+ of practices report "extremely challenging" (ADA data)</td></tr>
+      <tr><td>Qualified IDSO buyers in market</td><td>Fewer than 100 of 1,000+ IDSOs (Group Dentistry Now)</td></tr>
+      <tr><td>SGA staff retention rate</td><td><strong>85%</strong> — published, because we are not afraid to be measured</td></tr>
+    </table>
+
+    <p><strong>What this means for you:</strong></p>
+    <p>Your decision should be informed by current data, not by the market as it existed when you first started exploring. The landscape moves. Your assessment should move with it.</p>
+    <p>The practices getting the strongest partnership terms are the ones who come to the table from a position of strength — not desperation. Every quarter you wait is a quarter in which the gap between a strong-position conversation and a weak-position one widens.</p>
+    <p>If you want to discuss what these trends mean for your specific practice:</p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">Schedule a Confidential Conversation</a></div>
+    <p>Talk soon,<br>[Sender name]</p>
+    <div class="ps-block"><strong>P.S.</strong> — Want this data quarterly without the rest of the emails? Reply "market updates only" and I will adjust your preferences.</div>
+  </div>
+  <div class="email-footer"><div class="footer-links"><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a></div>SGA Dental Partners &nbsp;·&nbsp; Backed by the Thurston Group &nbsp;·&nbsp; [Address]</div>
+</div>
+
+<div class="email-divider"><hr><div class="div-label">Email 5 of 5</div><hr></div>
+
+<!-- EMAIL 5 -->
+<div class="email-wrapper">
+  <div class="email-header"><div class="logo-lockup"><div class="logo-box">SGA</div><div><div class="brand-name">SGA Dental Partners</div><div class="brand-tagline">Get Better. Not Just Bought.</div></div></div></div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 5 of 5</span>
+    <span><strong>Send:</strong> Day 21</span>
+    <span><strong>Subject:</strong> Should I keep writing to you? (Honest question.)</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>I respect your time. And I respect your inbox.</p>
+    <p>Over the past few weeks I have shared new developments at SGA, fresh partner stories, and market data. If none of that resonated, that tells me something — and I would rather ask directly than keep sending emails that do not serve you.</p>
+    <p>Here is what I need from you: <strong>one click. That is it.</strong></p>
+
+    <div class="final-options">
+      <div class="final-option keep">
+        <div class="option-icon">1</div>
+        <div class="option-body">
+          <strong>Keep sending.</strong>
+          I am still interested. The timing is not right yet, but I want to stay informed. (I will move you to a monthly digest — one email per month with the most important updates.)
+          <br><a href="#" class="option-link">Click here — Keep Sending</a>
+        </div>
+      </div>
+      <div class="final-option ready">
+        <div class="option-icon">2</div>
+        <div class="option-body">
+          <strong>I am ready to talk.</strong>
+          Schedule me a conversation with your partnership team. (I will send you a direct calendar link within 24 hours.)
+          <br><a href="#" class="option-link" style="color:#F36F21; border-color:#F36F21;">Click here — Schedule a Conversation</a>
+        </div>
+      </div>
+      <div class="final-option stop">
+        <div class="option-icon">3</div>
+        <div class="option-body">
+          <strong>Please stop.</strong>
+          I am not interested. Remove me from your email list. (Done immediately, no questions asked.)
+          <br><a href="#" class="option-link">Click here — Remove Me</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-wrap"><a href="#" class="cta-btn">Click to Tell Me</a></div>
+    <p>If I do not hear from you, I will make the decision for you: I will move you to a quarterly-only cadence (four emails per year) with the option to unsubscribe at any time. Your contact information stays private. Nothing changes about your relationship with SGA if and when you decide to explore a conversation in the future.</p>
+    <p>The door never closes. But I will stop knocking.</p>
+    <p>Respectfully,</p>
+    <p>[Sender name]<br>SGA Dental Partners</p>
+    <div class="ps-block"><strong>P.S.</strong> — If you know a colleague who might benefit from the information I have been sharing, feel free to forward any of these emails. Sometimes the right person is not the one on the list.</div>
+  </div>
+  <div class="email-footer"><div class="footer-links"><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a></div>SGA Dental Partners &nbsp;·&nbsp; Backed by the Thurston Group &nbsp;·&nbsp; [Address]</div>
+</div>
+
+</body>
+</html>

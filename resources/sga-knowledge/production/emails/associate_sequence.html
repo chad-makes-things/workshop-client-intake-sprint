@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGA Dental Partners — Associate Sequence Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Roboto', sans-serif; background: #F0F2F5; color: #333333; padding: 32px 16px; }
+    .sequence-label { max-width: 640px; margin: 0 auto 24px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #2D6FB7; }
+    .email-wrapper { max-width: 640px; margin: 0 auto 0; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.10); }
+    .email-header { background: linear-gradient(135deg, #2D6FB7 0%, #1a4f8a 100%); padding: 28px 40px 24px; }
+    .logo-lockup { display: flex; align-items: center; gap: 14px; }
+    .logo-box { width: 48px; height: 48px; background: #C4D347; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; color: #1a4f8a; flex-shrink: 0; }
+    .brand-name { color: #ffffff; font-size: 20px; font-weight: 700; }
+    .brand-tagline { color: rgba(255,255,255,0.72); font-size: 12px; margin-top: 2px; }
+    .meta-bar { background: #F7F9FC; border-bottom: 1px solid #E5E9F0; padding: 10px 40px; font-size: 12px; color: #6B7A8F; display: flex; gap: 24px; flex-wrap: wrap; }
+    .meta-bar span strong { color: #333; }
+    .email-body { padding: 36px 40px; line-height: 1.7; font-size: 15px; color: #333333; }
+    .email-body p { margin-bottom: 16px; }
+    .merge-tag { display: inline-block; background: #EBF4FF; color: #2D6FB7; border: 1px solid #BDD9F5; border-radius: 4px; padding: 1px 7px; font-size: 13px; font-weight: 500; }
+    .cta-wrap { margin: 28px 0; }
+    .cta-btn { display: inline-block; background: #F36F21; color: #ffffff !important; text-decoration: none; font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: 6px; }
+    .cta-btn-secondary { display: inline-block; background: transparent; color: #2D6FB7 !important; text-decoration: none; font-weight: 700; font-size: 15px; padding: 12px 24px; border-radius: 6px; border: 2px solid #2D6FB7; margin-top: 12px; }
+    .ps-block { margin-top: 28px; padding: 18px 20px; background: #F7F9FC; border-left: 3px solid #C4D347; border-radius: 0 6px 6px 0; font-size: 14px; color: #555; line-height: 1.65; }
+    .pull-quote { margin: 24px 0; padding: 18px 24px; background: #F7F9FC; border-left: 4px solid #2D6FB7; border-radius: 0 6px 6px 0; font-size: 15px; font-style: italic; color: #444; line-height: 1.65; }
+    .comparison-row { display: flex; gap: 12px; margin: 20px 0; }
+    .compare-card { flex: 1; border-radius: 8px; padding: 16px 18px; }
+    .compare-card.bad { background: #FFF8F5; border: 1px solid #F9D4BE; }
+    .compare-card.good { background: #F0F7FF; border: 1px solid #BDD9F5; }
+    .compare-card .label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+    .compare-card.bad .label { color: #F36F21; }
+    .compare-card.good .label { color: #2D6FB7; }
+    .compare-card p { font-size: 14px; line-height: 1.6; margin: 0; }
+    .program-card { background: #F7F9FC; border-radius: 8px; padding: 18px 20px; margin: 16px 0; border-left: 4px solid #2D6FB7; }
+    .program-card h4 { font-size: 15px; font-weight: 700; color: #2D6FB7; margin-bottom: 8px; }
+    .stat-bar { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+    .stat-box { flex: 1 1 120px; background: #EBF4FF; border-radius: 8px; padding: 14px 16px; text-align: center; }
+    .stat-box .num { font-size: 20px; font-weight: 700; color: #2D6FB7; }
+    .stat-box .lbl { font-size: 12px; color: #6B7A8F; margin-top: 4px; }
+    .pathway-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+    .pathway-table th { background: #2D6FB7; color: #fff; padding: 10px 14px; text-align: left; font-weight: 700; }
+    .pathway-table td { padding: 12px 14px; border-bottom: 1px solid #E5E9F0; vertical-align: top; line-height: 1.55; }
+    .pathway-table tr:last-child td { border-bottom: none; }
+    .pathway-table tr:nth-child(even) td { background: #F7F9FC; }
+    .aspirational-block { background: linear-gradient(135deg, #EBF4FF 0%, #F0F7FF 100%); border-radius: 8px; padding: 24px; margin: 20px 0; }
+    .aspirational-block .headline { font-size: 16px; font-weight: 700; color: #1a4f8a; margin-bottom: 12px; }
+    .content-list { padding-left: 0; list-style: none; margin: 16px 0; }
+    .content-list li { padding: 8px 0 8px 24px; position: relative; border-bottom: 1px solid #F0F2F5; font-size: 15px; line-height: 1.6; }
+    .content-list li:last-child { border-bottom: none; }
+    .content-list li::before { content: '→'; position: absolute; left: 0; color: #C4D347; font-weight: 700; }
+    .email-footer { background: #F7F9FC; border-top: 1px solid #E5E9F0; padding: 24px 40px; font-size: 12px; color: #9AA4B2; line-height: 1.6; }
+    .email-footer a { color: #2D6FB7; text-decoration: none; }
+    .email-footer .footer-links { margin-bottom: 10px; }
+    .email-divider { max-width: 640px; margin: 40px auto; display: flex; align-items: center; gap: 16px; }
+    .email-divider hr { flex: 1; border: none; border-top: 2px solid #E5E9F0; }
+    .email-divider .div-label { background: #2D6FB7; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; padding: 6px 16px; border-radius: 20px; white-space: nowrap; }
+  </style>
+</head>
+<body>
+
+<div class="sequence-label">Associate Dentist Sequence &mdash; 5 Emails Over 14 Days &mdash; Preview Mode</div>
+
+<!-- EMAIL 1 -->
+<div class="email-wrapper">
+  <div class="email-header"><div class="logo-lockup"><div class="logo-box">SGA</div><div><div class="brand-name">SGA Dental Partners</div><div class="brand-tagline">Your Career Is a Trajectory, Not a Production Number.</div></div></div></div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 1 of 5</span>
+    <span><strong>Send:</strong> Day 0 — Immediately</span>
+    <span><strong>Subject:</strong> Your career guide is ready (plus a question no DSO will answer)</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>Your Career Decision Guide is ready. Download it here:</p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">Download My Career Guide</a></div>
+    <p>Take 15 minutes with it. The guide covers the real comparison between solo practice, corporate DSO associateships, and partnership-track positions — with actual numbers, not "competitive compensation" filler language. It also includes the questions you should ask in any dental job interview, including the ones most organizations hope you will not think to ask.</p>
+    <p>Now, a question for you.</p>
+    <p>When you walked into dental school on day one, what kind of dentist did you picture becoming?</p>
+    <p>I am guessing it was not this: 25–30 patients a day. Fifteen minutes per patient. A schedule template that someone else designed. No time for the implant case you know you could handle if anyone gave you the chance. A production bonus that incentivizes speed, not skill.</p>
+    <p>One associate at a corporate DSO described it this way:</p>
+    <div class="pull-quote">"I feel like a tooth mechanic, not a doctor. I didn't go through four years of dental school plus residency to do nothing but Class IIs all day."</div>
+    <p>If that sounds familiar, you are not alone. And you are not stuck.</p>
+    <p>SGA Dental Partners was built on a simple premise: <strong>your career is not a production number. It is a trajectory.</strong> And the trajectory should be designed around where you want to go clinically — not just how many patients you can see before 5:30.</p>
+    <p>Over the next few emails, I am going to show you what that looks like in practice. Not with promises. With names, programs, and outcomes.</p>
+    <p>Talk soon,<br>[Sender name]<br>SGA Dental Partners</p>
+    <div class="ps-block"><strong>P.S.</strong> — If you already know what you are looking for and want to skip ahead to open positions: <a href="#">View Current Opportunities</a>. No pressure either way.</div>
+  </div>
+  <div class="email-footer"><div class="footer-links"><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a></div>SGA Dental Partners &nbsp;·&nbsp; [Address]</div>
+</div>
+
+<div class="email-divider"><hr><div class="div-label">Email 2 of 5</div><hr></div>
+
+<!-- EMAIL 2 -->
+<div class="email-wrapper">
+  <div class="email-header"><div class="logo-lockup"><div class="logo-box">SGA</div><div><div class="brand-name">SGA Dental Partners</div><div class="brand-tagline">Your Career Is a Trajectory, Not a Production Number.</div></div></div></div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 2 of 5</span>
+    <span><strong>Send:</strong> Day 3</span>
+    <span><strong>Subject:</strong> He relearned how to do implants. Now he loves his profession again.</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>Every DSO job posting says "mentorship." Most of them mean: a one-week orientation, a login to an online CE portal, and a senior dentist who is too busy with their own patients to answer your questions.</p>
+    <p>Here is what mentorship actually looks like at SGA.</p>
+
+    <div class="program-card">
+      <h4>The Individual Growth Engine</h4>
+      <p>When you join SGA as an associate, you are paired with an experienced partner clinician. Not a corporate trainer reading a script. A practicing dentist who has been where you are and can show you what they see. This is not optional. It is structural. The mentor opens their operatory, shares their lab relationships, walks you through cases together, and helps you build a custom clinical development plan based on where <em>you</em> want to go.</p>
+    </div>
+
+    <p><strong>One associate's story:</strong></p>
+    <p>He joined Gen4 (now part of SGA) as a general dentist doing the same bread-and-butter cases he had been doing for years. Through the Individual Growth Engine, he was paired with a mentor who specialized in implants and complex restorative.</p>
+    <p>The result:</p>
+    <div class="pull-quote">"He relearned how to do implants and now he loves his profession, his patients, everything."</div>
+    <p>That is not a salary increase. That is a career transformation.</p>
+    <p><strong>Dr. Matt Cavendish's parallel:</strong></p>
+    <p>Cavendish was not a new associate — he was a 20-year veteran. But the mentorship model worked the same way. His mentor, Dr. Bryan Shanahan, invited him to observe his first all-on-four and shared surgical techniques he never would have accessed alone.</p>
+    <div class="pull-quote">"Just to pick his brain on his surgical technique, treatment planning, and the way he works with his lab — that's something I would have never had an opportunity to do if I were still in a solo practice."</div>
+    <p>His advice: <strong>"Don't push back. There's no downside to having a mentor."</strong></p>
+
+    <div class="program-card">
+      <h4>The Pikos Institute Connection</h4>
+      <p>If implantology is where your growth interest lies, SGA gives you access to the Pikos Institute — Dr. Michael A. Pikos's world-renowned center for hands-on implant training. Not a webinar. Five days in a surgical suite with one of the most respected implantologists in global dentistry. A standalone Pikos course costs $6,500–$12,000. For SGA associates, it is part of the platform.</p>
+    </div>
+
+    <p><strong>The CE stipend comparison:</strong></p>
+    <div class="comparison-row">
+      <div class="compare-card bad"><div class="label">Corporate DSO</div><p>$1,500–$3,000/year for generic CE. One hotel conference. One binder of slides you never open again.</p></div>
+      <div class="compare-card good"><div class="label">SGA</div><p>Pikos Institute + 4Front Symposium + Individual Growth Engine + peer network of 100+ clinicians = $37,000–$70,000/year in clinical development value above what a corporate DSO provides.</p></div>
+    </div>
+
+    <div class="cta-wrap"><a href="#" class="cta-btn">Explore Associate Opportunities</a></div>
+    <p>Talk soon,<br>[Sender name]</p>
+    <div class="ps-block"><strong>P.S.</strong> — For the record: you will still do bread-and-butter cases at SGA. Every practice needs them. The difference is that bread-and-butter is the floor, not the ceiling.</div>
+  </div>
+  <div class="email-footer"><div class="footer-links"><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a></div>SGA Dental Partners &nbsp;·&nbsp; [Address]</div>
+</div>
+
+<div class="email-divider"><hr><div class="div-label">Email 3 of 5</div><hr></div>
+
+<!-- EMAIL 3 -->
+<div class="email-wrapper">
+  <div class="email-header"><div class="logo-lockup"><div class="logo-box">SGA</div><div><div class="brand-name">SGA Dental Partners</div><div class="brand-tagline">Your Career Is a Trajectory, Not a Production Number.</div></div></div></div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 3 of 5</span>
+    <span><strong>Send:</strong> Day 6</span>
+    <span><strong>Subject:</strong> 138,000 people watch this dentist do full-arch implants from Springfield, MO</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>Let me tell you about a dentist named Grant Olson.</p>
+    <p>He grew up in Springfield, Missouri — population 170,000, four hours from the nearest major city. He was going to be an accountant. Then he discovered dentistry.</p>
+    <p>He did not leave Springfield. He could have. His clinical credentials — one of only 300 CEREC Mentors worldwide, patented guided implant technology, case complexity that rivals university programs — would have opened doors in LA, New York, or any dental school in the country.</p>
+    <p>Instead, he built Innovative Dental in his hometown. A practice that looks like a spa, not a dental office. Then he turned on a camera.</p>
+    <div class="stat-bar">
+      <div class="stat-box"><div class="num">138K</div><div class="lbl">YouTube subscribers</div></div>
+      <div class="stat-box"><div class="num">23M</div><div class="lbl">Video views</div></div>
+      <div class="stat-box"><div class="num">3,390+</div><div class="lbl">Five-star reviews</div></div>
+    </div>
+    <div class="pull-quote">"What's up, guys? This is Dr. O from Innovative Dental."</div>
+    <p>Dr. Olson is a MODIS partner within the SGA platform. His practice retained its name, its team, its patient experience, its YouTube channel. What MODIS added: capital, recruiting support, operational infrastructure, and a network of specialist peers.</p>
+    <p><strong>Why this matters to you:</strong></p>
+    <p>Dr. Olson is where you could be in 10 years if you choose the right environment today. Not because SGA guarantees that outcome — nobody can. But because SGA provides the environment that makes it possible:</p>
+
+    <div class="aspirational-block">
+      <div class="headline">What the right environment unlocks:</div>
+      <ul class="content-list">
+        <li><strong>Complex cases from day one.</strong> SGA partner practices range from community general dentistry to advanced implantology. As an associate, you are placed where your clinical interests align.</li>
+        <li><strong>Technology access.</strong> SGA invests $150K–$500K in technology at partner practices — CEREC, guided implant systems, CBCT scanners, digital workflows you use, not just read about.</li>
+        <li><strong>Cross-practice learning.</strong> When a dentist in Michigan masters a technique, they share it with the network. The 4Front Symposium and partner calls make this real, not theoretical.</li>
+        <li><strong>Patient volume that matches your growth.</strong> SGA's centralized marketing drives new patients to partner practices — not a 25-patient-per-day treadmill with 15-minute appointments.</li>
+      </ul>
+    </div>
+
+    <p><strong>Your clinical skills are not the problem. Your environment is.</strong></p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">Explore Associate Opportunities</a></div>
+    <p>Talk soon,<br>[Sender name]</p>
+    <div class="ps-block"><strong>P.S.</strong> — Dr. Olson signs off every video the same way: "Keep smiling... it looks good on you." That is not a corporate tagline. It is the voice of a dentist who built something extraordinary in a small town. It is possible.</div>
+  </div>
+  <div class="email-footer"><div class="footer-links"><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a></div>SGA Dental Partners &nbsp;·&nbsp; [Address]</div>
+</div>
+
+<div class="email-divider"><hr><div class="div-label">Email 4 of 5</div><hr></div>
+
+<!-- EMAIL 4 -->
+<div class="email-wrapper">
+  <div class="email-header"><div class="logo-lockup"><div class="logo-box">SGA</div><div><div class="brand-name">SGA Dental Partners</div><div class="brand-tagline">Your Career Is a Trajectory, Not a Production Number.</div></div></div></div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 4 of 5</span>
+    <span><strong>Send:</strong> Day 10</span>
+    <span><strong>Subject:</strong> Class A shareholder from day one. Here is what that actually means.</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>Every dental job posting says "pathway to partnership." Almost none of them explain what that means.</p>
+    <p>Here is what it means at SGA:</p>
+    <div class="pull-quote"><strong>You can invest in the company as a Class A shareholder from your first day.</strong><br><br>Not after 3 years. Not after hitting a production target. Not "when a spot opens up." From day one.</div>
+    <p>This is real equity that appreciates as the platform grows. When SGA adds its 150th practice, your shares represent a stake in 150 practices — not just the one you work in.</p>
+    <p><strong>What the career pathway looks like:</strong></p>
+    <table class="pathway-table">
+      <tr><th>Stage</th><th>Timeline</th><th>What Happens</th><th>What You Build</th></tr>
+      <tr><td><strong>Onboarding</strong></td><td>Months 1–6</td><td>Mentor assigned, clinical systems training, peer cohort connection, 30/60/90-day check-ins</td><td>Foundation and relationships</td></tr>
+      <tr><td><strong>Clinical Development</strong></td><td>Months 6–24</td><td>Individual Growth Engine: custom training plan, Pikos Institute access, 4Front Symposium, complex case mentorship</td><td>Clinical skills that compound</td></tr>
+      <tr><td><strong>Partnership Track</strong></td><td>Year 2+</td><td>Increasing clinical autonomy, Class A share accumulation, leadership development, expanded case responsibility</td><td>Wealth and professional identity</td></tr>
+      <tr><td><strong>Full Partnership</strong></td><td>Year 5+</td><td>Equity stake in SGA platform, potential practice leadership, clinical advisory board eligibility</td><td>The career you envisioned</td></tr>
+    </table>
+    <p><strong>The math your corporate DSO will not show you:</strong></p>
+    <div class="comparison-row">
+      <div class="compare-card bad"><div class="label">Corporate DSO</div><p>Salary + production bonus. When you leave, you take nothing but a W-2. Most associates leave within 2–3 years.</p></div>
+      <div class="compare-card good"><div class="label">SGA</div><p>$160K–$240K base + 28–32% production bonus above threshold + full benefits (401(k), Cigna, PTO, CE) + equity that appreciates over time.</p></div>
+    </div>
+    <p>The associate who invests in Class A shares in Year 1 and stays through Year 7 has not just earned a salary. They have built an ownership position in a multi-state dental platform backed by the Thurston Group's 38-year track record.</p>
+    <p><strong>$340K in student debt feels different when your equity is growing alongside your loan payoff.</strong></p>
+    <div class="cta-wrap"><a href="#" class="cta-btn">Explore Associate Opportunities</a></div>
+    <p>Talk soon,<br>[Sender name]</p>
+    <div class="ps-block"><strong>P.S.</strong> — Your financial advisor will want to understand the Class A share structure in detail. We welcome that conversation. Bring them. We have nothing to hide.</div>
+  </div>
+  <div class="email-footer"><div class="footer-links"><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a></div>SGA Dental Partners &nbsp;·&nbsp; [Address]</div>
+</div>
+
+<div class="email-divider"><hr><div class="div-label">Email 5 of 5</div><hr></div>
+
+<!-- EMAIL 5 -->
+<div class="email-wrapper">
+  <div class="email-header"><div class="logo-lockup"><div class="logo-box">SGA</div><div><div class="brand-name">SGA Dental Partners</div><div class="brand-tagline">Your Career Is a Trajectory, Not a Production Number.</div></div></div></div>
+  <div class="meta-bar">
+    <span><strong>Email:</strong> 5 of 5</span>
+    <span><strong>Send:</strong> Day 14</span>
+    <span><strong>Subject:</strong> The thing you miss most about residency (and how to get it back)</span>
+  </div>
+  <div class="email-body">
+    <p>Dr. <span class="merge-tag">{{first_name}}</span>,</p>
+    <p>Can I be direct?</p>
+    <p>The loneliest job in dentistry is not the solo practice owner. It is the associate at a high-volume practice who sees 25 patients a day and has no one to talk to about any of them.</p>
+    <p>No mentor. No peer group. No one to text at lunch when a case does not look right on the X-ray. You are, functionally, alone.</p>
+    <div class="pull-quote">"I feel totally isolated. There's no one to bounce cases off of or ask for help."</div>
+    <p>That is not a weakness. It is a structural failure of most dental work environments. And it is fixable.</p>
+    <p><strong>What SGA's peer community looks like for associates:</strong></p>
+
+    <div class="program-card">
+      <h4>Regional Cohort Connection</h4>
+      <p>When you join SGA, you are introduced to a cohort of associates at similar career stages across the network. Residency-like camaraderie without residency-like hours.</p>
+    </div>
+    <div class="program-card">
+      <h4>The 4Front Symposium</h4>
+      <p>SGA's annual gathering of partner clinicians. Not a corporate conference with scripted presentations. A room full of dentists who actively teach each other. "Senior clinicians brainstorming together naturally elevated the ideas together. That's where the goose bumps come from."</p>
+    </div>
+    <div class="program-card">
+      <h4>Your Mentor</h4>
+      <p>Through the Individual Growth Engine, you have someone who is invested in your growth — not as a line item on an HR report, but as a clinical colleague who remembers what it felt like to be in your shoes.</p>
+    </div>
+    <div class="program-card">
+      <h4>Partner Calls and Case Collaboration</h4>
+      <p>Regular touchpoints across the network where real cases are discussed, techniques are shared, and the isolation of solo practice dissolves.</p>
+    </div>
+
+    <div class="pull-quote">"He relearned how to do implants and now he loves his profession, his patients, everything." — That did not come from a CE stipend. It came from belonging.</div>
+
+    <p><strong>Here is what I want to leave you with:</strong></p>
+    <p>Over these five emails I have shared what SGA offers that your current position almost certainly does not:</p>
+    <ul class="content-list">
+      <li>Clinical mentorship through the Individual Growth Engine and Pikos Institute</li>
+      <li>Complex cases and technology access that expand your skills, not shrink them</li>
+      <li>A real equity pathway with Class A shares from day one</li>
+      <li>A peer community of 100+ clinicians who challenge each other to grow</li>
+    </ul>
+    <p>Your career is not a production number. It is a trajectory. And it should be aimed at the dentist you envisioned becoming on the first day of dental school.</p>
+    <div class="cta-wrap">
+      <a href="#" class="cta-btn">Apply to SGA</a><br>
+      <a href="#" class="cta-btn-secondary">Schedule a Call with Our Recruiting Team</a>
+    </div>
+    <p>Talk soon,<br>[Sender name]<br>SGA Dental Partners</p>
+    <div class="ps-block"><strong>P.S.</strong> — Dr. Mitch Ellingson, our CCO: "We want to take each individual where they want to go so that it's not just a job; it is a career." If that sounds like what you have been looking for, you have found it.</div>
+  </div>
+  <div class="email-footer"><div class="footer-links"><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Manage Preferences</a></div>SGA Dental Partners &nbsp;·&nbsp; [Address] &nbsp;·&nbsp; You received this because you downloaded the Associate Career Decision Guide.</div>
+</div>
+
+</body>
+</html>

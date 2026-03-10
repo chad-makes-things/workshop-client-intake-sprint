@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Practice Partnership | SGA Dental Partners - Get Better, Not Just Bought</title>
+    <meta name="description" content="SGA Dental Partners: 100+ practices, Thurston Group's 38-year $4B+ track record, Pikos Institute education. Keep your name, team, and autonomy. Schedule a confidential conversation.">
+    <meta property="og:title" content="Dental Practice Partnership | SGA Dental Partners">
+    <meta property="og:description" content="You did not build your practice to watch someone in a boardroom run it. SGA Dental Partners: keep your name, team, and autonomy.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/assets/og-main.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sga: {
+                            50: '#eef5fb',
+                            100: '#d4e4f5',
+                            200: '#a9c9eb',
+                            300: '#7eafe1',
+                            400: '#5394d7',
+                            500: '#2D6FB7',
+                            600: '#245a95',
+                            700: '#1b4473',
+                            800: '#122e51',
+                            900: '#09172f',
+                        },
+                        navy: {
+                            50: '#eaeaf0',
+                            100: '#c5c6d2',
+                            200: '#9c9eb3',
+                            300: '#737694',
+                            400: '#53567d',
+                            500: '#2D3047',
+                            600: '#272940',
+                            700: '#1f2135',
+                            800: '#181a2a',
+                            900: '#10111d',
+                        },
+                        gold: {
+                            50: '#fdf6e3',
+                            100: '#faeab8',
+                            200: '#f7dc8a',
+                            300: '#f3cd5c',
+                            400: '#eebb38',
+                            500: '#E8AA14',
+                            600: '#c99210',
+                            700: '#a87a0d',
+                            800: '#87620a',
+                            900: '#5c4307',
+                        },
+                    },
+                    fontFamily: {
+                        'display': ['"Roboto Slab"', 'serif'],
+                        'body': ['Roboto', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Roboto', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Roboto Slab', serif; }
+
+        /* Staggered fade-in */
+        @media (prefers-reduced-motion: no-preference) {
+            .stagger > * {
+                opacity: 0;
+                transform: translateY(20px);
+                animation: fadeUp 0.6s ease-out forwards;
+            }
+            .stagger > *:nth-child(1) { animation-delay: 0ms; }
+            .stagger > *:nth-child(2) { animation-delay: 120ms; }
+            .stagger > *:nth-child(3) { animation-delay: 240ms; }
+            .stagger > *:nth-child(4) { animation-delay: 360ms; }
+            .stagger > *:nth-child(5) { animation-delay: 480ms; }
+            @keyframes fadeUp {
+                to { opacity: 1; transform: translateY(0); }
+            }
+        }
+
+        /* Card hover lift */
+        .card-lift {
+            transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+        }
+        .card-lift:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px -8px rgba(45, 48, 71, 0.12);
+        }
+
+        /* Smooth accordion */
+        .accordion-body {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 300ms ease-out;
+        }
+        .accordion-body.open {
+            grid-template-rows: 1fr;
+        }
+        .accordion-body > div {
+            overflow: hidden;
+        }
+
+        /* Gradient text utility */
+        .gradient-text {
+            background: linear-gradient(135deg, #2D6FB7 0%, #2D3047 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Noise texture overlay */
+        .noise-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-white text-navy-700 font-body antialiased" style="padding-top:40px;">
+<div style="position:fixed;top:0;left:0;right:0;height:40px;background:#1e293b;display:flex;align-items:center;padding:0 16px;z-index:9999;">
+  <a href="../index.html" style="color:#93c5fd;text-decoration:none;font-size:14px;font-family:Inter,sans-serif;">&larr; Back to Showcase</a>
+  <span style="color:#64748b;margin-left:auto;font-size:12px;font-family:Inter,sans-serif;">SGA Dental Partners Marketing Showcase</span>
+</div>
+
+    <!-- NAVIGATION -->
+    <nav x-data="{ open: false, scrolled: false }"
+         x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 40 })"
+         :class="scrolled ? 'bg-white/90 shadow-md backdrop-blur-lg' : 'bg-transparent'"
+         class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 cursor-pointer" aria-label="SGA Dental Partners Home">
+                    <img src="../images/SGA-logo.png" alt="SGA Dental Partners" class="h-10 sm:h-12 w-auto">
+                </a>
+
+                <!-- Desktop Nav -->
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="#partnership" class="text-sm font-medium text-navy-600 hover:text-sga-500 transition-colors cursor-pointer">Partnership</a>
+                    <a href="#pillars" class="text-sm font-medium text-navy-600 hover:text-sga-500 transition-colors cursor-pointer">Why SGA</a>
+                    <a href="#testimonials" class="text-sm font-medium text-navy-600 hover:text-sga-500 transition-colors cursor-pointer">Partners</a>
+                    <a href="#process" class="text-sm font-medium text-navy-600 hover:text-sga-500 transition-colors cursor-pointer">Process</a>
+                    <a href="#faq" class="text-sm font-medium text-navy-600 hover:text-sga-500 transition-colors cursor-pointer">FAQ</a>
+                    <a href="#cta" class="inline-flex items-center px-5 py-2.5 bg-gold-500 text-navy-800 text-sm font-bold rounded-lg hover:bg-gold-400 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2">
+                        Schedule a Conversation
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button @click="open = !open" class="lg:hidden p-2 rounded-md text-navy-600 hover:text-sga-500 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500" aria-label="Toggle menu">
+                    <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    <svg x-show="open" x-cloak class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <!-- Mobile Nav -->
+            <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0 -translate-y-2" class="lg:hidden pb-4 border-t border-gray-100 mt-2">
+                <div class="flex flex-col gap-1 pt-3">
+                    <a href="#partnership" @click="open = false" class="px-3 py-2.5 text-sm font-medium text-navy-600 hover:bg-sga-50 rounded-lg cursor-pointer">Partnership</a>
+                    <a href="#pillars" @click="open = false" class="px-3 py-2.5 text-sm font-medium text-navy-600 hover:bg-sga-50 rounded-lg cursor-pointer">Why SGA</a>
+                    <a href="#testimonials" @click="open = false" class="px-3 py-2.5 text-sm font-medium text-navy-600 hover:bg-sga-50 rounded-lg cursor-pointer">Partners</a>
+                    <a href="#process" @click="open = false" class="px-3 py-2.5 text-sm font-medium text-navy-600 hover:bg-sga-50 rounded-lg cursor-pointer">Process</a>
+                    <a href="#faq" @click="open = false" class="px-3 py-2.5 text-sm font-medium text-navy-600 hover:bg-sga-50 rounded-lg cursor-pointer">FAQ</a>
+                    <a href="#cta" @click="open = false" class="mt-2 mx-3 text-center px-5 py-2.5 bg-gold-500 text-navy-800 text-sm font-bold rounded-lg cursor-pointer">Schedule a Conversation</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="relative min-h-[90vh] flex items-center overflow-hidden noise-bg">
+        <!-- Gradient background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-navy-800 via-navy-700 to-sga-800"></div>
+        <!-- Decorative shapes -->
+        <div class="absolute top-20 right-0 w-96 h-96 bg-sga-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 left-10 w-72 h-72 bg-gold-500/8 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-40">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div class="stagger">
+                    <p class="text-sga-300 font-medium text-sm tracking-wide uppercase mb-4">SGA Dental Partners</p>
+                    <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-[3.2rem] font-bold text-white leading-[1.15] tracking-tight" style="text-wrap: balance;">
+                        You Did Not Build Your Practice to Watch Someone in a Boardroom Run It
+                    </h1>
+                    <p class="mt-6 text-lg text-gray-300 leading-relaxed max-w-xl">
+                        SGA Dental Partners is a partnership of 100+ clinicians backed by the Thurston Group's 38-year, $4B+ track record. You keep your name, your team, and your clinical autonomy -- and you get the operational relief, peer community, and equity upside you cannot build alone.
+                    </p>
+                    <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                        <a href="#cta" class="inline-flex items-center justify-center px-7 py-3.5 bg-gold-500 text-navy-800 font-bold rounded-lg hover:bg-gold-400 transition-colors cursor-pointer shadow-lg shadow-gold-500/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800">
+                            Take the Free Practice Assessment
+                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                        <a href="#cta" class="inline-flex items-center justify-center px-7 py-3.5 border border-white/25 text-white font-medium rounded-lg hover:bg-white/10 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                            Schedule a Confidential Conversation
+                        </a>
+                    </div>
+                    <p class="mt-5 text-sm text-gray-400">No brokers, no NDAs, no pressure.</p>
+                </div>
+
+                <!-- Hero placeholder image -->
+                <div class="hidden lg:flex items-center justify-center">
+                    <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-sga-600/40 to-navy-600/60 border border-white/10 shadow-2xl">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center px-8">
+                                <svg class="w-16 h-16 mx-auto mb-4 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg>
+                                <p class="text-white/50 text-sm font-medium">Hero Image: SGA Partner Practices & 4Front Symposium</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF BAR -->
+    <section class="bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 text-center">
+                <div>
+                    <p class="text-2xl sm:text-3xl font-display font-bold text-sga-500">100+</p>
+                    <p class="text-sm text-navy-400 mt-1">Partner Practices</p>
+                </div>
+                <div>
+                    <p class="text-2xl sm:text-3xl font-display font-bold text-sga-500">10+</p>
+                    <p class="text-sm text-navy-400 mt-1">States</p>
+                </div>
+                <div>
+                    <p class="text-2xl sm:text-3xl font-display font-bold text-sga-500">85%</p>
+                    <p class="text-sm text-navy-400 mt-1">Staff Retention</p>
+                </div>
+                <div>
+                    <p class="text-2xl sm:text-3xl font-display font-bold text-sga-500">$4B+</p>
+                    <p class="text-sm text-navy-400 mt-1">Returned to Partners</p>
+                </div>
+                <div class="col-span-2 sm:col-span-1">
+                    <p class="text-2xl sm:text-3xl font-display font-bold text-sga-500">38</p>
+                    <p class="text-sm text-navy-400 mt-1">Year Track Record</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section class="bg-gray-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-700 leading-tight" style="text-wrap: balance;">
+                    You Already Know the Problem. You Are Living It.
+                </h2>
+                <div class="mt-8 space-y-5 text-lg text-navy-500 leading-relaxed">
+                    <p>You did not go to dental school to chase insurance claims at midnight.</p>
+                    <p>But here you are. Reviewing accounts payable after your last patient leaves. Handling staff conflicts that have nothing to do with dentistry. Spending Sunday nights rebuilding the schedule because your office manager gave notice. Googling "sell dental practice" at 11 PM and wondering when this stopped being fun.</p>
+                    <p>You are the dentist, the HR department, the IT department, and the therapist for your entire team. You did not sign up for any of it.</p>
+                    <p>And when you look at the DSO offers in your inbox, you already know what they are selling. Cookie-cutter corporate dentistry. Suits in a boardroom deciding your production numbers. Your name replaced by a logo.</p>
+                    <p class="text-navy-700 font-medium">Seven out of ten dentists who sell to a DSO end up frustrated or regretful. That is not our number. That is what the industry itself reports.</p>
+                    <p>You deserve better than that choice: burn out alone or sell your soul to corporate.</p>
+                </div>
+                <div class="mt-8 p-6 bg-sga-500/5 border-l-4 border-sga-500 rounded-r-lg">
+                    <p class="text-xl font-display font-semibold text-navy-700">There is a third option.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- READINESS CHECK -->
+    <section class="bg-white" x-data="{ checked: 0 }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="font-display text-2xl sm:text-3xl font-bold text-navy-700">Before You Read Further -- A Quick Check</h2>
+                <p class="mt-3 text-navy-400">Answer honestly. These questions take 30 seconds.</p>
+            </div>
+            <div class="max-w-2xl mx-auto mt-10 space-y-4">
+                <label class="flex items-start gap-4 p-4 rounded-lg border border-gray-200 hover:border-sga-300 transition-colors cursor-pointer group">
+                    <input type="checkbox" @change="checked = document.querySelectorAll('.readiness-check:checked').length" class="readiness-check mt-1 w-5 h-5 rounded border-gray-300 text-sga-500 focus:ring-sga-500 cursor-pointer">
+                    <span class="text-navy-600 group-hover:text-navy-700">I spend 10+ hours per week on non-clinical work (billing, HR, compliance, payroll)</span>
+                </label>
+                <label class="flex items-start gap-4 p-4 rounded-lg border border-gray-200 hover:border-sga-300 transition-colors cursor-pointer group">
+                    <input type="checkbox" @change="checked = document.querySelectorAll('.readiness-check:checked').length" class="readiness-check mt-1 w-5 h-5 rounded border-gray-300 text-sga-500 focus:ring-sga-500 cursor-pointer">
+                    <span class="text-navy-600 group-hover:text-navy-700">I have considered selling or partnering in the last 12 months</span>
+                </label>
+                <label class="flex items-start gap-4 p-4 rounded-lg border border-gray-200 hover:border-sga-300 transition-colors cursor-pointer group">
+                    <input type="checkbox" @change="checked = document.querySelectorAll('.readiness-check:checked').length" class="readiness-check mt-1 w-5 h-5 rounded border-gray-300 text-sga-500 focus:ring-sga-500 cursor-pointer">
+                    <span class="text-navy-600 group-hover:text-navy-700">I worry that my practice's value depends entirely on me being in the chair</span>
+                </label>
+                <label class="flex items-start gap-4 p-4 rounded-lg border border-gray-200 hover:border-sga-300 transition-colors cursor-pointer group">
+                    <input type="checkbox" @change="checked = document.querySelectorAll('.readiness-check:checked').length" class="readiness-check mt-1 w-5 h-5 rounded border-gray-300 text-sga-500 focus:ring-sga-500 cursor-pointer">
+                    <span class="text-navy-600 group-hover:text-navy-700">I have heard the DSO horror stories and they have made me hesitant</span>
+                </label>
+                <label class="flex items-start gap-4 p-4 rounded-lg border border-gray-200 hover:border-sga-300 transition-colors cursor-pointer group">
+                    <input type="checkbox" @change="checked = document.querySelectorAll('.readiness-check:checked').length" class="readiness-check mt-1 w-5 h-5 rounded border-gray-300 text-sga-500 focus:ring-sga-500 cursor-pointer">
+                    <span class="text-navy-600 group-hover:text-navy-700">I want to keep practicing but not keep carrying the business side alone</span>
+                </label>
+            </div>
+            <div class="max-w-2xl mx-auto mt-8 text-center" x-show="checked >= 3" x-transition>
+                <p class="text-lg font-medium text-sga-600 mb-4">If you checked 3 or more, the next section was written for you.</p>
+                <a href="#partnership" class="inline-flex items-center px-6 py-3 bg-sga-500 text-white font-bold rounded-lg hover:bg-sga-600 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500 focus-visible:ring-offset-2">
+                    Take the Free Practice Assessment
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTION / PARTNERSHIP SECTION -->
+    <section id="partnership" class="relative bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-700 leading-tight" style="text-wrap: balance;">
+                    A Partnership That Makes Dentists Better -- Not Just Better Supported
+                </h2>
+                <p class="mt-6 text-lg text-navy-400 max-w-2xl mx-auto">
+                    SGA Dental Partners was built by dentists who heard the horror stories and refused to add to them.
+                </p>
+            </div>
+
+            <!-- Quote callout -->
+            <div class="max-w-3xl mx-auto mb-16 p-8 bg-sga-50 rounded-2xl border border-sga-100">
+                <blockquote class="text-lg text-navy-600 italic leading-relaxed">
+                    "I love being a dentist, and I want to protect my profession from becoming like medicine. In medicine, as it consolidated it became less about the doctors and patients, and more about the organization. We want it to be more about the doctors and the patients."
+                </blockquote>
+                <p class="mt-4 text-sm font-medium text-navy-500">-- Dr. Mitch Ellingson, Chief Clinical Officer & Co-Founder, Gen4 Dental Partners</p>
+            </div>
+
+            <!-- What partnership looks like -->
+            <div class="max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card-lift p-6 rounded-xl border border-gray-100 bg-white shadow-sm">
+                    <div class="w-10 h-10 rounded-lg bg-sga-50 flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-sga-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                    </div>
+                    <h3 class="font-display text-lg font-semibold text-navy-700">Your Name Stays on the Door</h3>
+                    <p class="mt-2 text-sm text-navy-400 leading-relaxed">Dental Partners of SW Georgia is still Dental Partners of SW Georgia. After 5 years. After 10 years. Your brand is your brand.</p>
+                </div>
+                <div class="card-lift p-6 rounded-xl border border-gray-100 bg-white shadow-sm">
+                    <div class="w-10 h-10 rounded-lg bg-sga-50 flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-sga-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    </div>
+                    <h3 class="font-display text-lg font-semibold text-navy-700">Your Team Stays in the Chairs</h3>
+                    <p class="mt-2 text-sm text-navy-400 leading-relaxed">85% staff retention across the network. Benefits upgraded -- Cigna health, 401(k) through Voya, PTO, and CE stipends for your entire team.</p>
+                </div>
+                <div class="card-lift p-6 rounded-xl border border-gray-100 bg-white shadow-sm">
+                    <div class="w-10 h-10 rounded-lg bg-sga-50 flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-sga-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <h3 class="font-display text-lg font-semibold text-navy-700">Clinical Decisions Stay With You</h3>
+                    <p class="mt-2 text-sm text-navy-400 leading-relaxed">You choose your materials, your lab, your schedule, your treatment plans. SGA does not dictate clinical protocols. Our CCO is a practicing dentist.</p>
+                </div>
+                <div class="card-lift p-6 rounded-xl border border-gray-100 bg-white shadow-sm">
+                    <div class="w-10 h-10 rounded-lg bg-sga-50 flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-sga-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                    </div>
+                    <h3 class="font-display text-lg font-semibold text-navy-700">The Business Side Disappears</h3>
+                    <p class="mt-2 text-sm text-navy-400 leading-relaxed">Billing, payroll, HR, compliance, procurement, marketing, recruiting -- handled by SGA within 90 days. QuickBooks will never call you to the back office again.</p>
+                </div>
+                <div class="card-lift p-6 rounded-xl border border-gray-100 bg-white shadow-sm sm:col-span-2 lg:col-span-1">
+                    <div class="w-10 h-10 rounded-lg bg-gold-50 flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                    </div>
+                    <h3 class="font-display text-lg font-semibold text-navy-700">Your Equity Grows With the Platform</h3>
+                    <p class="mt-2 text-sm text-navy-400 leading-relaxed">You retain an ownership stake in the combined SGA entity. As the platform grows, your equity appreciates. This is not a buyout. It is a joint venture.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#cta" class="inline-flex items-center px-7 py-3.5 bg-sga-500 text-white font-bold rounded-lg hover:bg-sga-600 transition-colors cursor-pointer shadow-lg shadow-sga-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500 focus-visible:ring-offset-2">
+                    Schedule a Confidential Conversation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- THREE PILLARS -->
+    <section id="pillars" class="relative bg-navy-800 noise-bg overflow-hidden">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-sga-500/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold-500/5 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <p class="text-sga-400 font-medium text-sm tracking-wide uppercase mb-3">The Three Pillars</p>
+                <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
+                    Why Dentists Choose SGA Over Every Other DSO
+                </h2>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Pillar 1 -->
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 lg:p-10">
+                    <div class="flex items-start gap-4 mb-6">
+                        <span class="flex-shrink-0 w-10 h-10 rounded-full bg-sga-500/20 text-sga-400 flex items-center justify-center font-display font-bold">1</span>
+                        <div>
+                            <h3 class="font-display text-xl sm:text-2xl font-bold text-white">The Education Platform</h3>
+                            <p class="text-sga-300 text-sm mt-1">The Only Dental Partnership With a Built-In Path From General Dentistry to Advanced Implantology</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="w-1.5 h-1.5 rounded-full bg-gold-500 mt-2.5 flex-shrink-0"></div>
+                                <p class="text-gray-300 text-sm leading-relaxed"><strong class="text-white">The Pikos Institute</strong> -- World-renowned implantology training center founded by Dr. Michael A. Pikos, a pioneer in dental implantology and a globally recognized educator.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-1.5 h-1.5 rounded-full bg-gold-500 mt-2.5 flex-shrink-0"></div>
+                                <p class="text-gray-300 text-sm leading-relaxed"><strong class="text-white">The 4Front Symposium</strong> -- SGA's annual peer-learning event where partner clinicians collaborate, challenge each other, and elevate their clinical thinking.</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="w-1.5 h-1.5 rounded-full bg-gold-500 mt-2.5 flex-shrink-0"></div>
+                                <p class="text-gray-300 text-sm leading-relaxed"><strong class="text-white">The Individual Growth Engine</strong> -- One-on-one clinical mentorship pairing experienced partners with newer clinicians. Dr. Matt Cavendish's revenues are up 16.5% TTM.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-1.5 h-1.5 rounded-full bg-gold-500 mt-2.5 flex-shrink-0"></div>
+                                <p class="text-gray-300 text-sm leading-relaxed"><strong class="text-white">Dr. Grant Olson</strong> -- 138,000 YouTube subscribers. 23 million views. 3,390+ five-star reviews. One of only 300 CEREC Mentors worldwide.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-6 text-sm text-gray-400 border-t border-white/10 pt-4">No other DSO offers this. MB2 has no education platform. Heartland offers generic CE programs. The Pikos Institute alone gives SGA a clinical education moat.</p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 lg:p-10">
+                    <div class="flex items-start gap-4 mb-6">
+                        <span class="flex-shrink-0 w-10 h-10 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center font-display font-bold">2</span>
+                        <div>
+                            <h3 class="font-display text-xl sm:text-2xl font-bold text-white">The Thurston Group Track Record</h3>
+                            <p class="text-gold-300 text-sm mt-1">38 Years. $4B+ Returned to Partners. 8 Dental & Healthcare Platforms Built.</p>
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div class="bg-white/5 rounded-lg p-4 text-center">
+                            <p class="text-2xl font-display font-bold text-gold-400">38</p>
+                            <p class="text-xs text-gray-400 mt-1">Years in Business</p>
+                        </div>
+                        <div class="bg-white/5 rounded-lg p-4 text-center">
+                            <p class="text-2xl font-display font-bold text-gold-400">$4B+</p>
+                            <p class="text-xs text-gray-400 mt-1">Returned to Partners</p>
+                        </div>
+                        <div class="bg-white/5 rounded-lg p-4 text-center">
+                            <p class="text-2xl font-display font-bold text-gold-400">8+</p>
+                            <p class="text-xs text-gray-400 mt-1">Platforms Built</p>
+                        </div>
+                        <div class="bg-white/5 rounded-lg p-4 text-center">
+                            <p class="text-2xl font-display font-bold text-gold-400">$350M</p>
+                            <p class="text-xs text-gray-400 mt-1">Credit Facility</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 leading-relaxed">The Thurston Group was founded in 1988 by Patrick J. Haynes III. They have built Smile Doctors, US Endodontics Partners, US Oral Surgery Management, ARC Health, US Orthopaedic Partners, and more. This is not a first-time fund experimenting with dental. SGA partners from prior Thurston platforms can speak directly to their experience.</p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 lg:p-10">
+                    <div class="flex items-start gap-4 mb-6">
+                        <span class="flex-shrink-0 w-10 h-10 rounded-full bg-sga-500/20 text-sga-400 flex items-center justify-center font-display font-bold">3</span>
+                        <div>
+                            <h3 class="font-display text-xl sm:text-2xl font-bold text-white">Three Verticals, One Platform</h3>
+                            <p class="text-sga-300 text-sm mt-1">Community Dentistry. Collaborative Practice. Advanced Implantology.</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white/5 rounded-xl p-5">
+                            <h4 class="font-display font-semibold text-white text-sm mb-2">Community Dentistry</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">17+ practice groups across Georgia, Mississippi, Alabama, Louisiana, and Tennessee. Hometown practices serving the communities that built them.</p>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-5">
+                            <h4 class="font-display font-semibold text-white text-sm mb-2">Collaborative Practice (Gen4)</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">A national footprint spanning Arizona, California, Nevada, Minnesota, Michigan, Texas, and beyond. Where "dentists teach dentists" was born.</p>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-5">
+                            <h4 class="font-display font-semibold text-white text-sm mb-2">Advanced Implantology (MODIS)</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">Anchored by the Pikos Institute and Innovative Dental. Purpose-built for implantologists, periodontists, and oral surgeons.</p>
+                        </div>
+                    </div>
+                    <p class="mt-6 text-sm text-gray-400">A periodontist, a general dentist, and a pediatric practice all have a home inside SGA. Your career can evolve within the platform.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-700">
+                    What SGA Partners Say
+                </h2>
+                <p class="mt-3 text-navy-400">Not what we say about ourselves.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                <div class="card-lift bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+                    <svg class="w-8 h-8 text-sga-200 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z"/></svg>
+                    <blockquote class="text-navy-600 leading-relaxed">
+                        "We realized that we needed help to get to the next level. We chose SGA because they support us and manage things behind the scenes. Our partnership allows us to focus on changing lives."
+                    </blockquote>
+                    <div class="mt-6 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-sga-100 flex items-center justify-center">
+                            <span class="text-sga-700 font-display font-bold text-sm">MG</span>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-navy-700">Dr. Mitchel S. Godat</p>
+                            <p class="text-xs text-navy-400">Periodontal Associates of Memphis</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-lift bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+                    <svg class="w-8 h-8 text-sga-200 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z"/></svg>
+                    <blockquote class="text-navy-600 leading-relaxed">
+                        "The main reason doctors come to Gen4 is because they realize they are still going to have a voice. We are going to ask you to lead more. We are going to amplify your voice."
+                    </blockquote>
+                    <div class="mt-6 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-sga-100 flex items-center justify-center">
+                            <span class="text-sga-700 font-display font-bold text-sm">ME</span>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-navy-700">Dr. Mitch Ellingson</p>
+                            <p class="text-xs text-navy-400">CCO & Co-Founder, Gen4 Dental Partners</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-lift bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+                    <svg class="w-8 h-8 text-sga-200 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z"/></svg>
+                    <blockquote class="text-navy-600 leading-relaxed">
+                        "When you've been in dentistry for 20 years like I have, sometimes it's not as fun as it used to be. So to be able to do a complex case like this, with somebody who is also working at a very high skill level -- it is fun."
+                    </blockquote>
+                    <div class="mt-6 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-sga-100 flex items-center justify-center">
+                            <span class="text-sga-700 font-display font-bold text-sm">MC</span>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-navy-700">Dr. Matt Cavendish</p>
+                            <p class="text-xs text-navy-400">Gen4 Partner (20 years in practice)</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex gap-3">
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-sga-50 text-sga-700">Revenue +16.5% TTM</span>
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-sga-50 text-sga-700">100% Staff Retention</span>
+                    </div>
+                </div>
+
+                <div class="card-lift bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+                    <svg class="w-8 h-8 text-sga-200 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z"/></svg>
+                    <blockquote class="text-navy-600 leading-relaxed">
+                        "What I would like to do is live up to our name. I would like to gather a group of very smart, very successful dentists together who like to collaborate so we can change the game a little bit."
+                    </blockquote>
+                    <div class="mt-6 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-navy-100 flex items-center justify-center">
+                            <span class="text-navy-600 font-display font-bold text-sm">LJ</span>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-navy-700">Lamonte Jensen</p>
+                            <p class="text-xs text-navy-400">CEO, Gen4 Dental Partners</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="max-w-4xl mx-auto mt-16 overflow-x-auto">
+                <h3 class="font-display text-xl font-bold text-navy-700 mb-6 text-center">SGA vs. Typical Corporate DSO</h3>
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="border-b-2 border-sga-500">
+                            <th class="text-left py-3 px-4 font-display font-semibold text-navy-700">Metric</th>
+                            <th class="text-left py-3 px-4 font-display font-semibold text-sga-600">SGA</th>
+                            <th class="text-left py-3 px-4 font-display font-semibold text-navy-400">Typical Corporate DSO</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4 text-navy-600 font-medium">Staff retention rate</td>
+                            <td class="py-3 px-4 text-sga-600 font-medium">85%</td>
+                            <td class="py-3 px-4 text-navy-400">Not disclosed (high turnover)</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4 text-navy-600 font-medium">PE track record</td>
+                            <td class="py-3 px-4 text-sga-600 font-medium">38 years, $4B+ returned</td>
+                            <td class="py-3 px-4 text-navy-400">Most funds &lt;10 years</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4 text-navy-600 font-medium">Education platform</td>
+                            <td class="py-3 px-4 text-sga-600 font-medium">Pikos Institute + 4Front</td>
+                            <td class="py-3 px-4 text-navy-400">Generic CE stipend ($1,500/yr)</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4 text-navy-600 font-medium">Local brand preserved</td>
+                            <td class="py-3 px-4 text-sga-600 font-medium">Always</td>
+                            <td class="py-3 px-4 text-navy-400">Partial or not at all</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4 text-navy-600 font-medium">Clinical autonomy</td>
+                            <td class="py-3 px-4 text-sga-600 font-medium">Contractual guarantee</td>
+                            <td class="py-3 px-4 text-navy-400">Claimed but disputed</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4 text-navy-600 font-medium">Platform equity</td>
+                            <td class="py-3 px-4 text-sga-600 font-medium">Yes (JV model)</td>
+                            <td class="py-3 px-4 text-navy-400">Rare or nonexistent</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS / HOW IT WORKS -->
+    <section id="process" class="bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-700">
+                    The SGA Partnership Path
+                </h2>
+                <p class="mt-3 text-navy-400">Three steps from conversation to transformation.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-14 h-14 rounded-full bg-sga-50 border-2 border-sga-500 flex items-center justify-center mx-auto mb-6">
+                        <span class="font-display font-bold text-sga-600 text-xl">1</span>
+                    </div>
+                    <h3 class="font-display text-lg font-semibold text-navy-700 mb-3">Explore</h3>
+                    <p class="text-sm text-navy-400 leading-relaxed">Schedule a confidential conversation. No brokers, no NDAs at this stage, no pressure. Just a direct conversation between professionals about mutual fit.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-14 h-14 rounded-full bg-sga-50 border-2 border-sga-500 flex items-center justify-center mx-auto mb-6">
+                        <span class="font-display font-bold text-sga-600 text-xl">2</span>
+                    </div>
+                    <h3 class="font-display text-lg font-semibold text-navy-700 mb-3">Partner</h3>
+                    <p class="text-sm text-navy-400 leading-relaxed">Walk through a transparent evaluation process. Receive an honest valuation. Structure a joint-venture equity partnership. Your advisors are welcome at every stage.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-14 h-14 rounded-full bg-gold-50 border-2 border-gold-500 flex items-center justify-center mx-auto mb-6">
+                        <span class="font-display font-bold text-gold-600 text-xl">3</span>
+                    </div>
+                    <h3 class="font-display text-lg font-semibold text-navy-700 mb-3">Thrive</h3>
+                    <p class="text-sm text-navy-400 leading-relaxed">Keep your name, your team, your patients. SGA handles the back office within 90 days. Get paired with a clinical mentor. Join a peer community of 100+ clinicians.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#cta" class="inline-flex items-center px-7 py-3.5 bg-sga-500 text-white font-bold rounded-lg hover:bg-sga-600 transition-colors cursor-pointer shadow-lg shadow-sga-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500 focus-visible:ring-offset-2">
+                    Schedule a Confidential Conversation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- POST-DEAL STORY -->
+    <section class="bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-700 leading-tight mb-4" style="text-wrap: balance;">
+                    Every DSO Sells the Transaction. We Sell What Happens After.
+                </h2>
+                <p class="text-navy-400 text-lg mb-10">The biggest gap in the DSO market is this: nobody tells you what Year 2 looks like. Year 3. Year 5.</p>
+
+                <div class="space-y-8">
+                    <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
+                        <h3 class="font-display font-semibold text-navy-700 text-lg mb-3">Dr. Matt Cavendish Was Bored After 20 Years</h3>
+                        <p class="text-navy-500 leading-relaxed">"Maybe I was in a spot of complacency, not being challenged, just getting through the day." Then he partnered with Gen4, was paired with a clinical mentor, observed his first all-on-four procedure, and discovered a new clinical passion.</p>
+                        <div class="mt-4 flex flex-wrap gap-3">
+                            <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-sga-50 text-sga-700">Revenue +16.5%</span>
+                            <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-sga-50 text-sga-700">100% Staff Retention</span>
+                            <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-sga-50 text-sga-700">"It is fun again."</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
+                        <h3 class="font-display font-semibold text-navy-700 text-lg mb-3">Dr. Mitchel Godat Wanted to Get to the Next Level</h3>
+                        <p class="text-navy-500 leading-relaxed">He chose SGA specifically because "they support us and manage things behind the scenes." His practice kept its name, its team, its community identity. What changed: the administrative weight lifted, and he refocused on changing lives.</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-6 bg-sga-500/5 border-l-4 border-sga-500 rounded-r-lg">
+                    <p class="text-lg font-display font-semibold text-navy-700">This is what SGA partners experience. Not just relief. Rejuvenation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-700">
+                    The Questions Every Practice Owner Asks
+                </h2>
+                <p class="mt-3 text-navy-400">And the honest answers.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-3" x-data="{ active: null }">
+                <!-- Essential FAQs (1-6) -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button @click="active = active === 1 ? null : 1" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500 focus-visible:ring-inset">
+                        <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">Will I lose control of my clinical decisions?</span>
+                        <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 1 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div :class="active === 1 ? 'open' : ''" class="accordion-body">
+                        <div>
+                            <div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                                No. Clinical autonomy is contractual, not aspirational. You choose your materials, your lab, your schedule, and your treatment plans. SGA does not dictate clinical protocols. Our CCO, Dr. Mitch Ellingson, is a practicing dentist who personally lived the private-to-group transition.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button @click="active = active === 2 ? null : 2" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500 focus-visible:ring-inset">
+                        <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">Will my practice keep its name and brand?</span>
+                        <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 2 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div :class="active === 2 ? 'open' : ''" class="accordion-body">
+                        <div>
+                            <div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                                Yes. Every SGA partner practice retains its name, signage, community identity, and marketing voice. Dental Partners of SW Georgia is still Dental Partners of SW Georgia. Periodontal Associates of Memphis is still Periodontal Associates of Memphis. SGA operates as an invisible back-office partner.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button @click="active = active === 3 ? null : 3" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500 focus-visible:ring-inset">
+                        <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">What happens to my staff?</span>
+                        <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 3 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div :class="active === 3 ? 'open' : ''" class="accordion-body">
+                        <div>
+                            <div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                                All existing staff are retained through the transition. Benefits are upgraded, not downgraded -- Cigna health insurance, Mutual of Omaha, 401(k) through Voya, PTO, and CE stipends. SGA has an 85% staff retention rate across the network. Your office manager is not losing her role. She is getting a team behind her.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button @click="active = active === 4 ? null : 4" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500 focus-visible:ring-inset">
+                        <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">Will my patients notice the difference?</span>
+                        <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 4 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div :class="active === 4 ? 'open' : ''" class="accordion-body">
+                        <div>
+                            <div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                                The only thing your patients should notice is that things run a little smoother. Same faces, same name, same care. SGA handles billing, payroll, HR, compliance, procurement, and marketing behind the scenes. Your patients chose you. We are here to make sure you can keep focusing on them.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button @click="active = active === 5 ? null : 5" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500 focus-visible:ring-inset">
+                        <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">How does the equity model work?</span>
+                        <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 5 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div :class="active === 5 ? 'open' : ''" class="accordion-body">
+                        <div>
+                            <div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                                SGA uses a joint-venture equity partnership. You receive an upfront liquidity event (typically 60-70% of the agreed valuation) and retain an ownership stake (30-40%) in the combined SGA platform. As SGA grows, your equity appreciates. This is the "second bite of the apple" -- your upside does not end at closing. Thurston Group has returned $4B+ to partners across 8 platforms.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                    <button @click="active = active === 6 ? null : 6" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500 focus-visible:ring-inset">
+                        <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">What EBITDA multiples does SGA pay?</span>
+                        <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 6 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div :class="active === 6 ? 'open' : ''" class="accordion-body">
+                        <div>
+                            <div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                                SGA operates in the 7-9x EBITDA range for standard partnerships, with willingness to go higher for strategically significant or high-performing practices. But what matters more than the multiple is the total value equation. Every DSO can write a check. With SGA, you get ongoing equity appreciation, operational savings worth $297K-$575K annually if purchased independently, world-class CE, and a peer community. The multiple is the starting point, not the finish line.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Extended FAQs (7+) -->
+                <div x-data="{ showMore: false }">
+                    <button @click="showMore = !showMore" class="w-full py-4 text-sm font-medium text-sga-600 hover:text-sga-700 cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500 rounded-lg">
+                        <span x-text="showMore ? 'Show fewer questions' : 'Show 10 more questions'"></span>
+                    </button>
+
+                    <div x-show="showMore" x-transition class="space-y-3">
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button @click="active = active === 7 ? null : 7" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500 focus-visible:ring-inset">
+                                <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">"Seven out of ten dentists regret their DSO sale." How is SGA different?</span>
+                                <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 7 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div :class="active === 7 ? 'open' : ''" class="accordion-body">
+                                <div>
+                                    <div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                                        We built SGA specifically because we heard that number. The regret clusters around three things: promised support never materialized, financial terms were worse than expected, and autonomy eroded gradually. SGA counters each directly: operational support begins within 90 days, financial terms are structured with transparent JV equity, and clinical autonomy is contractual. Our partners are named, contactable references.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button @click="active = active === 8 ? null : 8" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500 focus-visible:ring-inset">
+                                <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">Who is the Thurston Group? Why should I trust a PE firm?</span>
+                                <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 8 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div :class="active === 8 ? 'open' : ''" class="accordion-body">
+                                <div>
+                                    <div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                                        The Thurston Group was founded in 1988 by Patrick J. Haynes III. Over 38 years, they have built 8+ dental and healthcare platforms, returning $4B+ to partners. Named principals (Patrick Haynes, Daniel Davis, Dr. Dana Fender) are directly available. Thurston has secured a $350M credit facility for SGA's expansion.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button @click="active = active === 9 ? null : 9" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500 focus-visible:ring-inset">
+                                <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">What if I am 5-10 years from retirement?</span>
+                                <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 9 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div :class="active === 9 ? 'open' : ''" class="accordion-body">
+                                <div>
+                                    <div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                                        In many ways, this is the ideal timing. You get a liquidity event now while practice values are strong, you retain equity that appreciates as the platform grows, and you continue practicing with full back-office support. When you are ready to reduce hours, SGA has the recruiting infrastructure to bring in associates. Your practice does not depend solely on you anymore.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button @click="active = active === 10 ? null : 10" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500 focus-visible:ring-inset">
+                                <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">Will I be pressured to hit production quotas?</span>
+                                <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 10 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div :class="active === 10 ? 'open' : ''" class="accordion-body">
+                                <div>
+                                    <div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                                        Absolutely not. This is the corporate DSO model SGA was built to reject. SGA does not use production quotas, "crown days," or any clinical mandates driven by non-clinician managers. Our clinical advisory board -- composed of practicing partners -- guides clinical philosophy. Not suits in a boardroom.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button @click="active = active === 11 ? null : 11" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500 focus-visible:ring-inset">
+                                <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">How long does the partnership process take?</span>
+                                <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 11 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div :class="active === 11 ? 'open' : ''" class="accordion-body">
+                                <div>
+                                    <div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                                        Typically 4-8 months. The process follows three stages: Connect, Engage, and Partner. SGA does not rush the process. This is a career-defining decision and we treat it that way. Your advisors, attorneys, and accountants are welcome at every stage.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button @click="active = active === 12 ? null : 12" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500 focus-visible:ring-inset">
+                                <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">What protections do I have after the ink dries?</span>
+                                <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 12 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div :class="active === 12 ? 'open' : ''" class="accordion-body">
+                                <div>
+                                    <div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                                        Your partnership agreement includes a Clinical Independence Clause, a Brand Continuity Guarantee, and a Team Stability Commitment. SGA provides named partner references who can speak directly to their experience post-partnership. You are not trusting a contract. You are trusting verifiable outcomes.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button @click="active = active === 13 ? null : 13" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500 focus-visible:ring-inset">
+                                <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">My practice is in a small town. Does SGA operate in rural markets?</span>
+                                <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 13 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div :class="active === 13 ? 'open' : ''" class="accordion-body">
+                                <div>
+                                    <div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                                        Yes. SGA's roots are in community dentistry across Georgia, Mississippi, Alabama, Louisiana, and Tennessee -- including communities like Hinesville, Hazelhurst, Reidsville, and Valdosta. We understand that a hometown practice is a community institution. Many of our most successful partnerships are in markets that larger DSOs overlook.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button @click="active = active === 14 ? null : 14" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500 focus-visible:ring-inset">
+                                <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">Can I bring my financial advisor or attorney into the conversation early?</span>
+                                <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 14 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div :class="active === 14 ? 'open' : ''" class="accordion-body">
+                                <div>
+                                    <div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                                        Not only can you -- we encourage it. The best partnerships are built on transparency. We welcome your advisors at every stage.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button @click="active = active === 15 ? null : 15" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500 focus-visible:ring-inset">
+                                <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">Is 2026 a good time to partner?</span>
+                                <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 15 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div :class="active === 15 ? 'open' : ''" class="accordion-body">
+                                <div>
+                                    <div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                                        EBITDA multiples are at or near cyclical highs. The consolidation wave is accelerating -- MB2 alone has crossed 800 practices. The staffing crisis continues to intensify. The sellers who move now benefit from strong valuations, active buyer competition, and a market that favors well-run practices. The best time to explore is before you have to.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button @click="active = active === 16 ? null : 16" class="flex items-center justify-between w-full p-5 text-left cursor-pointer hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sga-500 focus-visible:ring-inset">
+                                <span class="font-display font-semibold text-navy-700 text-sm sm:text-base pr-4">How does SGA compare to MB2, Heartland, or other DSOs?</span>
+                                <svg class="w-5 h-5 text-navy-400 flex-shrink-0 transition-transform duration-200" :class="active === 16 && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div :class="active === 16 ? 'open' : ''" class="accordion-body">
+                                <div>
+                                    <div class="px-5 pb-5 text-sm text-navy-500 leading-relaxed">
+                                        Heartland buys your practice outright -- no ongoing equity. Aspen puts their name on your door. PDS charges management fees without offering platform equity. MB2 offers a similar JV structure but has no education platform, no specialty vertical, and undisclosed PE backing. SGA combines JV equity, the Pikos Institute, three specialty verticals, and Thurston Group's 38-year track record. No other DSO offers all four.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section id="cta" class="relative bg-navy-800 noise-bg overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-sga-500/10 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight" style="text-wrap: balance;">
+                    You Have Been Carrying This Alone Long Enough.
+                </h2>
+                <div class="mt-6 space-y-4 text-lg text-gray-300 leading-relaxed">
+                    <p>You built your practice from nothing. You poured 20 years into it. You know every patient's name and every staff member's birthday.</p>
+                    <p>You also know you cannot keep doing the business side alone for another decade.</p>
+                    <p class="text-white font-medium">Schedule a confidential conversation with SGA's partnership team. No brokers. No NDAs at this stage. No pressure.</p>
+                </div>
+
+                <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-gold-500 text-navy-800 font-bold text-lg rounded-lg hover:bg-gold-400 transition-colors cursor-pointer shadow-lg shadow-gold-500/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-800">
+                        Take the Free Practice Assessment
+                    </a>
+                    <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-white/25 text-white font-bold rounded-lg hover:bg-white/10 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                        Schedule a Conversation
+                    </a>
+                </div>
+
+                <p class="mt-6 text-sm text-gray-400">Or <a href="#" class="text-sga-400 hover:text-sga-300 underline cursor-pointer">download the Practice Partnership Assessment PDF</a> -- a diagnostic tool that scores your practice across 12 dimensions.</p>
+
+                <p class="mt-10 text-sm text-gray-500">Our partnership evaluation team works with a limited number of practices at any given time. If you are considering 2026 timing, starting the conversation early preserves your options.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-900 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <img src="../images/SGA-logo.png" alt="SGA Dental Partners" class="h-10 w-auto brightness-0 invert opacity-70">
+                    <p class="mt-4 text-sm text-gray-500 leading-relaxed">A partnership of 100+ clinicians backed by the Thurston Group's 38-year track record.</p>
+                </div>
+                <div>
+                    <h4 class="font-display text-sm font-semibold text-gray-300 mb-4">Partnership</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#partnership" class="text-sm text-gray-500 hover:text-sga-400 transition-colors cursor-pointer">How It Works</a></li>
+                        <li><a href="#pillars" class="text-sm text-gray-500 hover:text-sga-400 transition-colors cursor-pointer">Why SGA</a></li>
+                        <li><a href="#testimonials" class="text-sm text-gray-500 hover:text-sga-400 transition-colors cursor-pointer">Partner Stories</a></li>
+                        <li><a href="#faq" class="text-sm text-gray-500 hover:text-sga-400 transition-colors cursor-pointer">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-display text-sm font-semibold text-gray-300 mb-4">Network</h4>
+                    <ul class="space-y-2">
+                        <li><a href="associate.html" class="text-sm text-gray-500 hover:text-sga-400 transition-colors cursor-pointer">Associate Careers</a></li>
+                        <li><a href="patient.html" class="text-sm text-gray-500 hover:text-sga-400 transition-colors cursor-pointer">Patient Care</a></li>
+                        <li><a href="#" class="text-sm text-gray-500 hover:text-sga-400 transition-colors cursor-pointer">Pikos Institute</a></li>
+                        <li><a href="#" class="text-sm text-gray-500 hover:text-sga-400 transition-colors cursor-pointer">4Front Symposium</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-display text-sm font-semibold text-gray-300 mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#cta" class="text-sm text-gray-500 hover:text-sga-400 transition-colors cursor-pointer">Schedule a Conversation</a></li>
+                        <li><a href="#" class="text-sm text-gray-500 hover:text-sga-400 transition-colors cursor-pointer">Partnership Inquiries</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-10 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-gray-600">2026 SGA Dental Partners. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-xs text-gray-600 hover:text-gray-400 cursor-pointer">Privacy Policy</a>
+                    <a href="#" class="text-xs text-gray-600 hover:text-gray-400 cursor-pointer">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY MOBILE CTA -->
+    <div x-data="{ show: false }" x-init="window.addEventListener('scroll', () => { show = window.scrollY > 600 })" x-show="show" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-y-full" x-transition:enter-end="translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-y-0" x-transition:leave-end="translate-y-full" class="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-white/95 backdrop-blur-lg border-t border-gray-200 px-4 py-3 shadow-lg">
+        <a href="#cta" class="flex items-center justify-center w-full px-6 py-3 bg-gold-500 text-navy-800 font-bold rounded-lg cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500">
+            Take the Free Practice Assessment
+        </a>
+    </div>
+
+</body>
+</html>

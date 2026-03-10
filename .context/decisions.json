@@ -15,6 +15,31 @@
       "reasoning": "User accepted recommendation. Highest-scoring scalable solution (53/65). Structured guidance solves root cause of client non-submission. Web scraping pre-population from Head Start reduces client burden and adds 'we did our homework' delight.",
       "date": "2026-03-07",
       "decided_by": "user"
+    },
+    {
+      "sprint": "digital-storefront-at-scale",
+      "phase": "target-confirmation",
+      "decision": "Target A + C Hybrid — Network-Wide Digital Modernization Pipeline with Practice-Facing Agent Interface. Stage 2 (future sprint): Target B — 365-Day Curation Engine.",
+      "reasoning": "User confirmed all three targets matter but agreed on staged approach. A + C combined because the agent IS the onboarding interface. Critical reframe: this is not just new acquisition onboarding — the system must re-enroll all 260+ existing practices to modernize the entire network. Stage 2 (365-day curation) depends on Stage 1 establishing baseline storefronts.",
+      "date": "2026-03-10",
+      "decided_by": "user"
+    },
+    {
+      "sprint": "digital-storefront-at-scale",
+      "phase": "solution-selection",
+      "decision": "Solution 1: The Practice Concierge — Agent-First Orchestration Platform, enhanced with Assembly Line blitz-deploy for baseline practices and Practice Playbook guardrailed decisions pattern.",
+      "reasoning": "User accepted recommendation. Highest-scoring solution (30/35). The agent-first architecture is the only solution that solves setup speed AND establishes the ongoing relationship needed for Stage 2 (365-day curation). Matches SGA's vision of chat today → voice → video avatar. Enhancements: blitz-deploy defaults for bottom 20% (from Assembly Line), guardrailed decision pattern (from Practice Playbook). Evolutionary path: MVP Month 1, full integrations Month 2-3, curation layer Month 3-6, potential Network OS backend Month 6-12.",
+      "date": "2026-03-10",
+      "decided_by": "user"
+    }
+    ,
+    {
+      "sprint": "full-funnel-visibility",
+      "phase": "target-confirmation",
+      "decision": "All Three Targets Combined — Data Integration Layer (A) + Executive Visibility Dashboard (B) prioritized first, with Practice Nerve Center (C) fully architected as Stage 2. Full architecture for all three in the deliverable.",
+      "reasoning": "User wants the complete system architected so they can see how C (Practice Nerve Center) gets executed. A+B first because the data layer and executive dashboard are foundational — you can't build a practice interface without the data flowing. C is the highest-impact piece for practice staff but depends on A+B being established.",
+      "date": "2026-03-10",
+      "decided_by": "user"
     }
   ],
   "metadata": {

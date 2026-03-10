@@ -1,0 +1,606 @@
+{
+  "mediaTargets": [
+    {
+      "id": "mt-tier1-dental-economics",
+      "publication": "Dental Economics",
+      "journalist": "Editorial team (practice management desk)",
+      "beat": "Practice management, business of dentistry, CE, technology",
+      "contactMethod": "Direct editor pitch with 2-sentence concept + 3 bullet points",
+      "pitchAngle": "Practice transition advice, DSO model analysis, clinical autonomy structure. SGA's collaborative model as the counter-narrative to Gen2 DSOs.",
+      "pastCoverage": "Publishes practice transition content consumed by owners at the decision stage. Target audience matches SGA's acquisition funnel exactly."
+    },
+    {
+      "id": "mt-tier1-beckers",
+      "publication": "Becker's Dental Review",
+      "journalist": "DSO reporter (build named-source relationship)",
+      "beat": "DSO news, industry transactions, partner/executive profiles",
+      "contactMethod": "Email pitch; build relationship as named source on DSO market trends",
+      "pitchAngle": "DSO market trends, PE in dentistry, the three-vertical model, Thurston Group's 38-year track record. Position Jensen as the go-to market commentator.",
+      "pastCoverage": "Covers Thurston Group and SGA portfolio companies regularly. Has covered Gen4/MODIS deal flow."
+    },
+    {
+      "id": "mt-tier1-gdn",
+      "publication": "Group Dentistry Now",
+      "journalist": "Editorial team",
+      "beat": "DSO growth stories, partner models, industry trends",
+      "contactMethod": "Direct pitch; deepen existing relationship from SGA credit facility coverage",
+      "pitchAngle": "DSO consolidation trends, education-as-moat strategy, three-vertical architecture. Feature the SGA consolidation as the maturation of a 38-year thesis.",
+      "pastCoverage": "Covered SGA credit facilities via PR Newswire. Relationship exists -- push for feature coverage."
+    },
+    {
+      "id": "mt-tier1-drbicuspid",
+      "publication": "DrBicuspid",
+      "journalist": "Editorial team",
+      "beat": "Clinical and business news, DSO rankings, industry data",
+      "contactMethod": "Email pitch with opinion piece angle",
+      "pitchAngle": "\"The DSO model is broken. Here is what we built instead.\" Dr. Ellingson opinion pieces challenging the conventional DSO narrative with specific proof points.",
+      "pastCoverage": "Covers DSO rankings and industry data. Opinion pieces from practicing dentists perform well."
+    },
+    {
+      "id": "mt-tier1-dentistryiq",
+      "publication": "DentistryIQ",
+      "journalist": "Editorial team",
+      "beat": "Clinical news, practice management, technology",
+      "contactMethod": "Email pitch",
+      "pitchAngle": "Practice management angles -- how the collaborative model changes day-to-day operations for partner dentists. Technology adoption through the Pikos Institute.",
+      "pastCoverage": "Covers dental professionals across practice types. Good fit for operational and technology-focused stories."
+    },
+    {
+      "id": "mt-tier1-dpr",
+      "publication": "Dental Products Report",
+      "journalist": "Editorial team",
+      "beat": "Product launches, technology adoption, clinical excellence",
+      "contactMethod": "Email pitch",
+      "pitchAngle": "Clinical innovation through the MODIS vertical. Dr. Olson's patented guided implant technology and CEREC mentorship as technology adoption stories.",
+      "pastCoverage": "Focuses on clinical technology. Dr. Olson's credentials (one of 300 CEREC Mentors worldwide) give SGA a strong technology angle."
+    },
+    {
+      "id": "mt-tier1-ada-news",
+      "publication": "ADA News",
+      "journalist": "ADA editorial staff",
+      "beat": "Professional news, advocacy, public health, CE",
+      "contactMethod": "Formal pitch through ADA communications channels",
+      "pitchAngle": "The ADA president addressed a Gen4 event -- first time for a DSO. Position SGA as the model that aligns with ADA's vision for clinical autonomy in consolidation.",
+      "pastCoverage": "ADA has historically been skeptical of DSOs. The presidential endorsement is a significant news angle."
+    },
+    {
+      "id": "mt-tier1-implant-practice",
+      "publication": "Implant Practice US",
+      "journalist": "Editorial team (implant specialty)",
+      "beat": "Implant clinical innovation, education, CE",
+      "contactMethod": "Email pitch; leverage Dr. Pikos's existing reputation",
+      "pitchAngle": "The education-first implantology platform. Pikos Institute as the clinical training anchor for the MODIS vertical. Profile Dr. Pikos as pioneer building something beyond a CE brand.",
+      "pastCoverage": "Covers implant clinical innovation and CE. Dr. Pikos is known in this community -- the MODIS platform is the news."
+    },
+    {
+      "id": "mt-tier2-modern-healthcare",
+      "publication": "Modern Healthcare",
+      "journalist": "Healthcare consolidation reporter",
+      "beat": "Healthcare business, consolidation trends, PE in healthcare",
+      "contactMethod": "Email pitch; offer Jensen as exclusive first interview",
+      "pitchAngle": "PE's role in dental consolidation -- the right and wrong ways. Thurston Group's 38-year model as the counter-narrative to the typical 3-5 year PE flip cycle.",
+      "pastCoverage": "Covers healthcare PE broadly. Dental consolidation is an emerging beat as the market approaches $302B."
+    },
+    {
+      "id": "mt-tier2-healthcare-dive",
+      "publication": "Healthcare Dive",
+      "journalist": "Healthcare business reporter",
+      "beat": "Industry news, business model innovation, consolidation",
+      "contactMethod": "Email pitch with data-driven angle",
+      "pitchAngle": "DSO consolidation trend story with SGA as the contrarian model. Data-driven: $302B market, 70% regret rate, 85% staff retention as the proof point no one else publishes.",
+      "pastCoverage": "Covers healthcare business model innovation. The SGA model is a differentiation story in a consolidating market."
+    },
+    {
+      "id": "mt-tier2-pehub",
+      "publication": "PE Hub",
+      "journalist": "Healthcare PE reporter",
+      "beat": "Deal flow, fund performance, portfolio company news",
+      "contactMethod": "Email pitch",
+      "pitchAngle": "Thurston Group's thesis on patient capital in dental -- 38 years, $4B+ returned, 8 platforms. The SGA consolidation as the capstone of a multi-decade strategy.",
+      "pastCoverage": "Covers PE deal flow. Thurston's track record gives the story credibility beyond the typical DSO press release."
+    },
+    {
+      "id": "mt-tier2-pitchbook",
+      "publication": "PitchBook News",
+      "journalist": "Healthcare M&A analyst",
+      "beat": "M&A activity, market data, healthcare deals",
+      "contactMethod": "Email pitch with market data angle",
+      "pitchAngle": "SGA consolidation as a case study in how dental PE is evolving from 3-5 year flips to patient-capital platform building.",
+      "pastCoverage": "Covers M&A data and deal analysis. The $350M + $315M credit facilities are newsworthy deal-flow data points."
+    },
+    {
+      "id": "mt-tier3-inc",
+      "publication": "Inc. Magazine",
+      "journalist": "Small business/leadership editor",
+      "beat": "Business growth, entrepreneurship, leadership, company culture",
+      "contactMethod": "Query letter with credential summary, 3 proposed angles, evidence of prior published work",
+      "pitchAngle": "Lamonte Jensen's founder story: Marine Corps infantry officer to McKinsey consultant to DSO founder. Building a dental company without a dental background -- but with a thesis about how consolidation should work.",
+      "pastCoverage": "Covers founder stories and counter-intuitive business models. Jensen's military-to-McKinsey-to-dental path is unusual enough for general business press."
+    },
+    {
+      "id": "mt-tier3-entrepreneur",
+      "publication": "Entrepreneur Magazine",
+      "journalist": "Business models editor",
+      "beat": "Business models, growth strategy, founder stories",
+      "contactMethod": "Query letter with credential summary and 3 proposed angles",
+      "pitchAngle": "The counter-intuitive business model: building a company by NOT standardizing. How SGA grew 90 practices in 20 months by letting dentists keep everything they built.",
+      "pastCoverage": "Covers franchise and partnership models. SGA's JV equity model is a differentiated approach to scaling."
+    },
+    {
+      "id": "mt-tier3-forbes",
+      "publication": "Forbes Small Business",
+      "journalist": "Small business reporter",
+      "beat": "Business news, investment, leadership, company profiles",
+      "contactMethod": "Query letter through Forbes contributor network or direct pitch",
+      "pitchAngle": "The $302B dental consolidation market and the PE firm that's been building dental companies for 38 years. Thurston Group's model as a case study in patient capital vs. the typical PE playbook.",
+      "pastCoverage": "Covers investment and leadership. The Thurston Group's $4B+ returned across 8 platforms is a verifiable financial story."
+    },
+    {
+      "id": "mt-tier4-atlanta",
+      "publication": "Atlanta Business Chronicle / Savannah Morning News",
+      "journalist": "Local business reporter",
+      "beat": "Local business news, headquarters announcements, community impact",
+      "contactMethod": "Direct pitch to local business desk",
+      "pitchAngle": "SGA Dental Partners headquarters in Richmond Hill, GA. Southeast roots, community dentistry network, local economic impact.",
+      "pastCoverage": "Local press covers HQ announcements and community business stories. SGA's Richmond Hill roots are a strong local angle."
+    },
+    {
+      "id": "mt-tier4-springfield",
+      "publication": "Springfield Business Journal",
+      "journalist": "Local business reporter",
+      "beat": "Local business news, community impact",
+      "contactMethod": "Direct pitch to local business desk",
+      "pitchAngle": "Dr. Grant Olson and Innovative Dental as a Springfield success story. 138,000 YouTube subscribers, 3,390+ five-star reviews, community dentistry impact.",
+      "pastCoverage": "Local business press covers community impact stories. Innovative Dental's scale and reputation are a strong local angle."
+    },
+    {
+      "id": "mt-tier4-phoenix",
+      "publication": "Phoenix Business Journal / AZ Central",
+      "journalist": "Healthcare/business reporter",
+      "beat": "Healthcare business, local company growth",
+      "contactMethod": "Direct pitch to business desk",
+      "pitchAngle": "Gen4 founding story in Phoenix. Jensen and Ellingson's Arizona roots. Multi-state growth from a Phoenix-based founding team.",
+      "pastCoverage": "Covers healthcare business in Arizona. Gen4's founding story and Dr. Cavendish's Phoenix practice are strong local hooks."
+    }
+  ],
+  "storyPitches": [
+    {
+      "id": "pitch-70-percent-regret",
+      "angle": "Data-driven DSO satisfaction gap analysis",
+      "headline": "The 70% Regret Problem -- and the DSO That Was Built to Solve It",
+      "hook": "The Dentist Advisors podcast reports that 7-8 out of 10 dentists who sell to a DSO are frustrated, annoyed, or regretful within 18 months. The DSO market is $302 billion by 2035. Despite the scale, most participants are unhappy. SGA was built directly in response to that regret statistic.",
+      "supportingData": "70% regret rate (Dentist Advisors podcast). $302B DSO market by 2035 (Precedence Research). 8-12x EBITDA acquisition multiples for top-tier practices. Dr. Cavendish results: +16.5% revenue, 100% staff retention, EBITDA beating plan by 2.3 points. 85% staff retention network-wide.",
+      "targetPublications": [
+        "Dental Economics",
+        "Group Dentistry Now",
+        "Becker's Dental Review"
+      ]
+    },
+    {
+      "id": "pitch-consolidation-without-rebranding",
+      "angle": "Brand preservation and staff retention proof",
+      "headline": "The Consolidation That Happened Without Losing Anyone's Name",
+      "hook": "85% staff retention across the SGA network. Not one acquired practice has been rebranded. Dental Partners of SW Georgia, Periodontal Associates of Memphis, Innovative Dental of Springfield -- all still their own names. Every DSO promises local brand preservation. SGA can prove it.",
+      "supportingData": "85% staff retention (no competitor publishes this metric). Zero practice rebrandings across the entire network. Named examples: Dental Partners of SW Georgia (5+ years), Periodontal Associates of Memphis (5+ years), Innovative Dental of Springfield. JV equity model structure vs. outright acquisition comparisons.",
+      "targetPublications": [
+        "Dental Economics",
+        "Modern Healthcare",
+        "Inc. Magazine"
+      ]
+    },
+    {
+      "id": "pitch-education-dso-trend",
+      "angle": "Education platform as competitive moat in DSO consolidation",
+      "headline": "Why the Most Important DSO Trend in 2026 Isn't About Deals -- It's About Education",
+      "hook": "No major DSO competitor offers an integrated clinical education platform. MB2 has zero CE infrastructure. Heartland offers generic CE. PDS has medical integration training but not clinical excellence development. SGA is the only platform where a general dentist can develop implant capabilities through a globally recognized institution (Pikos Institute) without leaving the partnership.",
+      "supportingData": "Pikos Institute: globally recognized implantology training center. 4Front Symposium: annual peer clinical collaboration event. Individual Growth Engine: \"dentists teaching dentists\" mentorship model. Dr. Cavendish transformation: 20-year veteran reignited by mentorship, +16.5% revenue. No competitor has an integrated clinical education platform at this scale.",
+      "targetPublications": [
+        "Dental Economics",
+        "Implant Practice US",
+        "Group Dentistry Now",
+        "Modern Healthcare"
+      ]
+    },
+    {
+      "id": "pitch-ellingson-founder",
+      "angle": "Practicing dentist builds DSO to protect the profession",
+      "headline": "The Dentist Who Refused to Let His Profession Become Medicine",
+      "hook": "Dr. Mitch Ellingson spent 13 years owning dental practices in Phoenix. Then he watched what was happening to the DSO market -- production quotas, clinical protocols set by non-dentists, practices losing their names -- and decided the profession he loved was heading toward the same fate as medicine. So he co-founded Gen4 Dental Partners. Not as a DSO. As an antidote to one.",
+      "supportingData": "13 years of practice ownership in Phoenix. Co-founder of Spear Practice Solutions. Gen4 grew to 90 practices across 12 states in 20 months. ADA president addressed a Gen4 event -- first time for a DSO. Quote: \"I love being a dentist, and I want to protect my profession from becoming like medicine.\"",
+      "targetPublications": [
+        "Dental Economics",
+        "Becker's Dental Review",
+        "Dental Hacks Podcast",
+        "Group Dentistry Now",
+        "Inc. Magazine"
+      ]
+    }
+  ],
+  "thoughtLeadership": {
+    "guestPostTargets": [
+      {
+        "publication": "Dental Economics",
+        "topic": "DSO model analysis, practice transition advice, clinical autonomy structure",
+        "outline": [
+          "Practice owner perspective on DSO pitfalls",
+          "Evidence-based partner model analysis",
+          "Named partner results with specific metrics"
+        ],
+        "submissionProcess": "Pitch directly to editors with 2-sentence concept and 3 bullet points before writing full draft. Target 2 guest posts per month across all outlets combined."
+      },
+      {
+        "publication": "Group Dentistry Now",
+        "topic": "DSO consolidation trends, education-as-moat strategy, three-vertical model",
+        "outline": [
+          "Market consolidation analysis with SGA data",
+          "Education platform as competitive differentiator",
+          "Three-vertical architecture as the next structural evolution"
+        ],
+        "submissionProcess": "Thought leadership pitch to editorial team. Lamonte Jensen as primary author."
+      },
+      {
+        "publication": "Becker's Dental Review",
+        "topic": "PE in dentistry, Thurston track record, DSO market commentary",
+        "outline": [
+          "Executive Q&A format on Thurston's 38-year model",
+          "PE failure modes vs. patient capital approach",
+          "What dentists should demand from PE-backed DSOs"
+        ],
+        "submissionProcess": "Executive Q&A format preferred by Becker's. Lamonte Jensen as interviewee."
+      },
+      {
+        "publication": "Dentaltown",
+        "topic": "\"What actually happens after you sign\" -- partner stories, day-in-the-life content",
+        "outline": [
+          "Practitioner community forum format",
+          "Day-in-the-life of a Gen4 partner",
+          "Before/after stories from real partners"
+        ],
+        "submissionProcess": "Dr. Ellingson as author in peer-to-peer voice. Forum/community posting style."
+      },
+      {
+        "publication": "DrBicuspid",
+        "topic": "\"The DSO model is broken. Here is what we built instead.\"",
+        "outline": [
+          "Industry critique with specific evidence",
+          "Structural failures of Gen2 DSO model",
+          "Alternative model design with proof points"
+        ],
+        "submissionProcess": "Opinion piece format. Dr. Ellingson as author."
+      },
+      {
+        "publication": "Implant Practice US",
+        "topic": "The education-first implantology platform; Pikos Institute model",
+        "outline": [
+          "Clinical opinion on implant education landscape",
+          "Pikos Institute as community, not just curriculum",
+          "Career pathway for general dentists into implantology"
+        ],
+        "submissionProcess": "Clinical opinion piece. Dr. Michael Pikos as author."
+      },
+      {
+        "publication": "Journal of the American Dental Association",
+        "topic": "Defending clinical autonomy in consolidation; the \"last great profession\" argument",
+        "outline": [
+          "Perspective on clinical governance in DSOs",
+          "Structural protections for clinical autonomy",
+          "The case for dentist-led consolidation"
+        ],
+        "submissionProcess": "Perspective piece format. Dr. Ellingson as author."
+      },
+      {
+        "publication": "Modern Healthcare",
+        "topic": "PE's role in dental consolidation -- the right and wrong ways",
+        "outline": [
+          "Two failure modes in DSO PE",
+          "Patient capital model (38 years, $4B+)",
+          "What the next decade of dental consolidation looks like"
+        ],
+        "submissionProcess": "Leadership perspective format. Lamonte Jensen as author with McKinsey background as credibility anchor."
+      },
+      {
+        "publication": "Inc. Magazine",
+        "topic": "Building a company in an industry everyone else is ruining; Marine Corps leadership lessons",
+        "outline": [
+          "Founder journey: Marine Corps to McKinsey to DSO",
+          "Counter-intuitive growth: scaling by NOT standardizing",
+          "Leadership lessons from military to dental"
+        ],
+        "submissionProcess": "Query letter with credential summary, 3 proposed angles, and evidence of prior published work or speaking history."
+      },
+      {
+        "publication": "Harvard Business Review",
+        "topic": "The organizational model that scales without losing soul; peer collaboration as a management structure",
+        "outline": [
+          "Management analysis of collaborative vs. hierarchical scaling",
+          "Peer collaboration as retention and innovation driver",
+          "Case study: SGA's three-vertical architecture"
+        ],
+        "submissionProcess": "Management analysis format. Lamonte Jensen as author with McKinsey background and University of Chicago MBA as credibility anchors."
+      }
+    ],
+    "speakingOpportunities": [
+      {
+        "type": "Conference",
+        "name": "Thomas P. Hinman Dental Meeting (Atlanta)",
+        "audience": "30,000+ attendees, general dentists, specialists, Southeast-heavy",
+        "topicFit": "Atlanta proximity to SGA HQ. Southeast dentist audience matches acquisition funnel. Annual event, March timing.",
+        "pitchAngle": "\"Protecting the Profession\" keynote. Dr. Ellingson or Jensen on clinical autonomy in consolidation. Submit 6-9 months in advance."
+      },
+      {
+        "type": "Conference",
+        "name": "ADA Annual Meeting",
+        "audience": "20,000+ ADA members across all specialties",
+        "topicFit": "Broadest dentist audience. ADA presidential endorsement gives SGA unique credibility at this event.",
+        "pitchAngle": "\"The Education-First DSO: What the Next Generation of Consolidation Looks Like.\" Ellingson as speaker. Submit speaking proposal 6 months in advance."
+      },
+      {
+        "type": "Conference",
+        "name": "Greater New York Dental Meeting",
+        "audience": "50,000+ dentists, largest dental meeting in the US",
+        "topicFit": "Massive scale. DSO panels and implant education sessions both fit SGA's positioning.",
+        "pitchAngle": "DSO panel participation or implant education session with Dr. Pikos. \"Protecting the profession\" angle for dental society alignment."
+      },
+      {
+        "type": "Conference",
+        "name": "Chicago Dental Society Midwinter Meeting",
+        "audience": "30,000+ Midwest and national dentists",
+        "topicFit": "Midwest market penetration. Practice owner audience at the transition/evaluation stage.",
+        "pitchAngle": "Jensen/Ellingson on practice transitions and the collaborative model. Submit 8-month advance lead time."
+      },
+      {
+        "type": "Conference",
+        "name": "Academy of Osseointegration (AO)",
+        "audience": "Implant specialists, researchers, clinicians",
+        "topicFit": "MODIS vertical's primary professional community. Dr. Pikos's credibility opens every door here.",
+        "pitchAngle": "Dr. Pikos as featured speaker. MODIS platform introduction to the implant community."
+      },
+      {
+        "type": "Conference",
+        "name": "DSO Leadership Summit (Becker's)",
+        "audience": "DSO executives, investors, dental industry leaders",
+        "topicFit": "Sophisticated audience wants data and differentiation, not inspiration. Three-vertical model and Thurston track record.",
+        "pitchAngle": "Lamonte Jensen as featured executive speaker. Three-vertical architecture as the presentation core."
+      },
+      {
+        "type": "Podcast",
+        "name": "Dental A Team (Kiera Dent)",
+        "audience": "Practice managers, owners, associates",
+        "topicFit": "Audience cares about team culture and day-to-day operations -- matches SGA's \"what changes and what doesn't\" narrative.",
+        "pitchAngle": "Dr. Ellingson or Jensen on team culture preservation after DSO partnership. The 85% staff retention proof point."
+      },
+      {
+        "type": "Podcast",
+        "name": "Dental Hacks (Alan Mead)",
+        "audience": "Practicing dentists with clinical focus",
+        "topicFit": "Peer-to-peer dentist audience. Dr. Ellingson's practitioner credibility plays well here.",
+        "pitchAngle": "\"I'm a dentist who built a DSO because I was terrified of what DSOs were doing.\" Ellingson as guest."
+      },
+      {
+        "type": "Podcast",
+        "name": "The Shared Practices Podcast (Richard Low, George Hariri)",
+        "audience": "Dentists building group practices",
+        "topicFit": "Audience is actively building multi-practice groups -- exact SGA acquisition target profile.",
+        "pitchAngle": "Jensen on the three-vertical architecture and how dentists can grow inside a platform rather than just sell to one."
+      },
+      {
+        "type": "Podcast",
+        "name": "Investment Grade Practices (David Pennington)",
+        "audience": "Practice owners evaluating transitions",
+        "topicFit": "Decision-stage audience evaluating their options. Highest direct pipeline impact.",
+        "pitchAngle": "Jensen on the equity model, Thurston track record, and why SGA is different from the PE horror stories. Bring Dr. Cavendish metrics."
+      },
+      {
+        "type": "Podcast",
+        "name": "Dentist Money Show (Reese Harper, Jake Elm)",
+        "audience": "Dentists focused on personal finance",
+        "topicFit": "Financial audience evaluating DSO equity vs. solo practice wealth. Thurston's $4B+ returns are the credibility anchor.",
+        "pitchAngle": "Jensen on DSO equity vs. solo practice wealth; what $4B+ returned actually means for a dentist partner."
+      },
+      {
+        "type": "Podcast",
+        "name": "The Business of Dentistry (Dave Monahan)",
+        "audience": "Practice owners building teams and systems",
+        "topicFit": "Operational audience interested in team building and systems. SGA's peer collaboration model is the story.",
+        "pitchAngle": "Dr. Ellingson on \"dentists teaching dentists\" culture and the peer collaboration model."
+      },
+      {
+        "type": "Podcast",
+        "name": "Six Figure Dentist (Anissa Holmes)",
+        "audience": "Dentists growing practices",
+        "topicFit": "Growth-minded dentists. Dr. Cavendish's rejuvenation story is the perfect proof case.",
+        "pitchAngle": "Ellingson on the rejuvenation story. Dr. Cavendish as the proof case -- mid-career dentist reignited by mentorship and collaboration."
+      }
+    ],
+    "bylineArticles": [
+      {
+        "title": "Why 70% of Dentists Regret Selling to a DSO -- and How to Be in the Other 30%",
+        "publication": "Dental Economics (primary), Group Dentistry Now (secondary)",
+        "outline": [
+          "Opening: The 70% regret statistic from Dentist Advisors -- \"seven or eight out of ten are pretty bugged or annoyed or frustrated or regretful.\" This is a crisis, not a footnote.",
+          "Section 1 -- Why the regret happens (structural problems, not excuses): Five things DSOs get wrong -- clinical autonomy in name only, staff displacement, opaque equity provisions, disguised production pressure, losing the practice name and culture. These are design failures, not execution failures.",
+          "Section 2 -- What the 30% did differently: Asked three questions before signing (What happens to my staff? Who makes clinical decisions? What does my equity mean in 3 years?). Asked for phone numbers, not testimonials. Evaluated culture fit, not just deal multiples. Chose platforms with a track record of exits.",
+          "Section 3 -- What SGA built to solve this: Individual Growth Engine (mentorship, not management). CCO is a practicing dentist. JV equity model with real platform ownership. \"Dentists teaching dentists\" culture. Named proof: Dr. Cavendish -- revenue +16.5%, staff retention 100%, EBITDA beating plan by 2.3 points.",
+          "Closing: The question is not whether consolidation will happen. It will. The question is which platform makes you a better dentist after the deal closes. CTA: Practice Partnership Assessment."
+        ]
+      },
+      {
+        "title": "The Education-First DSO Model: What the Pikos Institute Taught Us About Building a Partnership That Lasts",
+        "publication": "Dental Economics, Implant Practice US",
+        "outline": [
+          "Opening: A 20-year veteran observed his first all-on-four with his mentor. Revenue up 16.5%. EBITDA beating plan by 2.3 points. Staff retention 100%. His most common phrase: \"It is fun again.\" This is an education result, not a business result.",
+          "Section 1 -- The education gap in DSOs: Every DSO claims CE. None make it the central operating thesis. CE as a $1,500 annual stipend vs. CE as the reason dentists choose a platform. The clinical stagnation problem: mid-career dentists in a spot of complacency.",
+          "Section 2 -- What the Pikos Institute actually is: Dr. Michael Pikos as a pioneer. Hands-on education vs. lecture-based CE. The Pikos Institute as a community, not a curriculum. Career pathway: general dentist to implant capabilities within SGA.",
+          "Section 3 -- What the 4Front Symposium produces: \"Senior clinicians brainstorming together naturally elevated the ideas. That's where the goose bumps come from.\" Peer learning vs. instructor-to-student. Network effect: referral relationships, mentorship pairings.",
+          "Section 4 -- The business case for education-first: Retention as a financial metric. Clinical growth driving revenue growth. The \"rejuvenation\" output: energized dentists become recruiters.",
+          "Closing: The next cycle of DSO consolidation will be won not by the platform with the most practices, but by the one that makes dentists better. Education is not a benefit. It is the moat."
+        ]
+      },
+      {
+        "title": "Private Equity in Dentistry: Why the Next Generation of DSOs Looks Nothing Like the Last",
+        "publication": "Modern Healthcare, Group Dentistry Now, PE Hub",
+        "outline": [
+          "Opening: The DSO industry will reach $302 billion by 2035. The money is not going away. Whether dentists inside these platforms thrive or suffer depends on how the PE backing works -- and most PE in dental does not work well for dentists.",
+          "Section 1 -- The two failure modes in DSO PE: (1) Load up debt, standardize aggressively, flip in 3-5 years. Dentists lose equity. Staff burns out. Quality drops. (2) Raise a fund with no dental expertise, apply generic healthcare playbook, make non-clinicians the decision-makers. Clinical autonomy erodes.",
+          "Section 2 -- What patient capital looks like (Thurston model): 38 years of healthcare platform building. 8 dental and healthcare platforms across multiple economic cycles. $4B+ returned to partners -- not projected, historical. PE timeline aligns with dentist career timeline, not fund return window.",
+          "Section 3 -- Three things dentists should demand from PE-backed DSOs: Transparency about exit timeline and equity provisions. Named references from dentists who have been through a Thurston exit -- not testimonials, phone numbers. A structural mechanism for clinical autonomy (SGA's CCO is a practicing dentist -- that is structural).",
+          "Section 4 -- What the next 10 years look like: Platforms, not aggregators. A platform makes everyone inside it better; an aggregator just gets bigger. Education, clinical community, and peer collaboration are retention drivers. The three-vertical architecture as the next structural evolution.",
+          "Closing: PE in dental is not inherently good or bad. It depends on who is doing it and whether they have done it before. The track record is the only honest signal. Everything else is a pitch."
+        ]
+      }
+    ]
+  },
+  "prAssets": {
+    "boilerplate": "SGA Dental Partners is a national dental partnership platform with three specialized verticals -- community dentistry, collaborative general and specialty practice, and advanced implantology -- backed by the Thurston Group's 38-year track record in healthcare platform building. SGA partners retain their name, their team, and full clinical autonomy while gaining operational support, peer collaboration, continuing education through the Pikos Institute and 4Front Symposium, and equity in a growing national platform. Headquartered in Richmond Hill, Georgia.",
+    "factSheet": {
+      "founded": "SGA (legacy) from South Georgia Dental Management; Gen4 August 2021; MODIS September 2023. Consolidated under SGA Dental Partners umbrella in 2026.",
+      "headquarters": "Richmond Hill, Georgia",
+      "keyStats": [
+        "Three-vertical architecture: community dentistry, collaborative general/specialty, implantology",
+        "PE Sponsor: Thurston Group (Chicago, IL) -- 38 years, $4B+ returned to partners across 8 dental and healthcare platforms",
+        "SGA credit facility: $350 million",
+        "Gen4 credit facility: $315 million",
+        "Staff retention rate: 85% (no competitor publishes this metric)",
+        "Gen4 grew to 90 practices across 12 states in 20 months",
+        "Partner practices: 60-125+ combined across Gen4, MODIS, SGA legacy",
+        "Dr. Matt Cavendish results: revenue +16.5%, EBITDA beating plan by 2.3 points, 100% staff retention",
+        "DSO market projected size: $302 billion by 2035 (Precedence Research)",
+        "Dentists who regret DSO sale: 7-8 out of 10 (Dentist Advisors podcast)",
+        "Innovative Dental: 3,390+ five-star reviews, 138,000 YouTube subscribers, 23M+ views",
+        "ADA president addressed a Gen4 event -- first time for a DSO"
+      ],
+      "milestones": [
+        "Thurston Group begins building dental and healthcare platforms (38+ years ago)",
+        "SGA Dental Management established in Richmond Hill, Georgia (Southeast community dentistry)",
+        "Gen4 Dental Partners founded by Lamonte Jensen and Dr. Mitch Ellingson (August 2021)",
+        "Gen4 grows to 90 practices across 12 states in 20 months",
+        "MODIS Dental Partners formed with Pikos Institute as anchor institution (September 2023)",
+        "ADA president addresses Gen4 dental event -- first ADA presidential DSO endorsement",
+        "Thurston Group secures $350M credit facility for SGA Dental Partners",
+        "Thurston Group secures $315M credit facility for Gen4 Dental Partners",
+        "Consolidation of Gen4 + MODIS + SGA legacy under unified SGA Dental Partners brand (2026)"
+      ]
+    },
+    "quoteBank": [
+      {
+        "quote": "Most DSOs are built around the synergies of the business -- standardized accounting, automated payroll, bulk purchasing. What we wanted to do was make an organization that was clinician-focused and patient-obsessed. The business serves the clinician. Not the other way around.",
+        "attribution": "Lamonte Jensen, CEO and Co-Founder, Gen4 Dental Partners",
+        "context": "Use when positioning SGA's model vs. traditional DSOs. Best for business press and DSO industry coverage."
+      },
+      {
+        "quote": "What I would like to do is live up to our name. I would like to be on the cutting edge of DSOs -- of dentistry, really. I would like to gather a group of very smart, very successful dentists together who like to collaborate so we can change the game a little bit.",
+        "attribution": "Lamonte Jensen, CEO and Co-Founder, Gen4 Dental Partners",
+        "context": "Use for vision/mission context. Best for feature profiles and leadership stories."
+      },
+      {
+        "quote": "I love being a dentist, and I want to protect my profession from becoming like medicine. In medicine, as it consolidated it became less about the doctors and patients, and more about the organization. We want it to be more about the doctors and the patients.",
+        "attribution": "Dr. Mitch Ellingson, CCO and Co-Founder, Gen4 Dental Partners",
+        "context": "Use as the foundational clinical autonomy quote. Best for any coverage discussing DSO consolidation concerns. This is the single most important quote in the bank."
+      },
+      {
+        "quote": "Typically, you're worried someone's going to start telling you what you can and can't do. But when we talk about autonomy, actually it's the opposite of that -- the reality is we're going to ask you to lead more. We're going to amplify your voice. Your ideas are going to influence everyone. And theirs are going to influence you. That's the exact opposite of going it alone.",
+        "attribution": "Dr. Mitch Ellingson, CCO and Co-Founder, Gen4 Dental Partners",
+        "context": "Use when explaining the collaborative model. Counters the 'loss of independence' objection. Best for partner recruitment content and trade press."
+      },
+      {
+        "quote": "We tell them we're not a DSO. We're not playing by their rules. We are here to change dentistry. And if you don't embody that and believe that inside of your soul, you should not join Gen4. Because we aren't saying it just to attract people. We're saying it because that's who we are.",
+        "attribution": "Dr. Mitch Ellingson, CCO and Co-Founder, Gen4 Dental Partners",
+        "context": "Use for culture-fit and mission-driven content. Best for profiles and feature stories. Strongest quote for showing conviction over marketing."
+      },
+      {
+        "quote": "The future of implantology will be driven by innovation. Advancing technology will make procedures more efficient while enhancing patient comfort and outcomes. It begins with building a community of lifelong learners who share our ambition to push boundaries.",
+        "attribution": "Dr. Michael A. Pikos, Founding Partner, MODIS Dental Partners",
+        "context": "Use for MODIS vertical and Pikos Institute coverage. Best for implantology and clinical education stories."
+      },
+      {
+        "quote": "Implant dentistry is about giving people back all of life's moments. If you have to think about your teeth, those moments aren't there. I want to dedicate my life to helping my patients and a team rally around the cause of making sure everybody lives full every one of life's moments.",
+        "attribution": "Dr. Grant Olson, Founder, Innovative Dental (MODIS Partner)",
+        "context": "Use for patient impact stories. Best for patient-facing media and community press."
+      },
+      {
+        "quote": "It's astonishing how many people suffer emotionally and physically from a poor smile. We love seeing the impact our work can make on people's lives when they put their trust in us to transform their smile.",
+        "attribution": "Dr. Grant Olson, Founder, Innovative Dental (MODIS Partner)",
+        "context": "Use for patient transformation narratives. Best for local press and patient-facing earned media."
+      },
+      {
+        "quote": "When you've been in dentistry for 20 years like I have, sometimes it's not as fun as it used to be. So to be able to do a complex case like this, with somebody who is also working at a very high skill level -- it is fun.",
+        "attribution": "Dr. Matt Cavendish, Partner Dentist, Gen4 (Phoenix, AZ)",
+        "context": "Use as the proof-of-concept partner testimonial. Best paired with Cavendish's metrics (+16.5% revenue, 100% staff retention). Strongest quote for the 'rejuvenation' narrative."
+      },
+      {
+        "quote": "Don't push back. There's no downside to having a mentor.",
+        "attribution": "Dr. Matt Cavendish, Partner Dentist, Gen4 (Phoenix, AZ)",
+        "context": "Use for mentorship and education content. Short, punchy -- works well in social media, pull quotes, and sidebar callouts."
+      },
+      {
+        "quote": "SGA supports us and manages things behind the scenes. Our partnership allows us to focus on changing lives.",
+        "attribution": "Dr. Mitchel S. Godat, Periodontal Associates of Memphis (SGA Partner)",
+        "context": "Use for the legacy SGA network and community dentistry vertical. Best for patient-care-focused coverage and Southeast regional press."
+      }
+    ],
+    "faqForMedia": [
+      {
+        "question": "Private equity in dentistry has a bad reputation. PE firms load up debt, squeeze margins, and flip practices in 3-5 years. Why should dentists trust SGA?",
+        "answer": "The reputation is earned -- by most PE firms in the dental space. Thurston Group built a different model because they have watched those failures happen to competitors' platforms. Thurston has been building dental and healthcare platforms for 38 years, returning more than $4 billion to partners across 8 platforms. That is not a projected return -- that is historical. The challenge for any dentist evaluating a DSO is to look at the track record, not the pitch. Thurston's track record is publicly verifiable: Smile Doctors, US Endodontics Partners, US Oral Surgery Management, and others. Dentists can call former partners from those exits and ask how it went. We tell them to."
+      },
+      {
+        "question": "What is Thurston Group's typical exit timeline, and what happens to partners when they exit?",
+        "answer": "Thurston structures its investments as patient capital -- the timeline is tied to the platform's maturity, not a fund's return window. Across 38 years, they have operated under a thesis that the right time to exit is when the platform has maximized value for all partners, not when the fund clock runs out. SGA's JV equity model means partners own shares in the combined platform. What happens at exit depends on the deal structure individual partners agreed to at close -- and Thurston has a track record of transparent equity provisions, which is why we encourage prospective partners to talk to people who have been through prior Thurston exits."
+      },
+      {
+        "question": "Are there legislative risks to the PE-in-dentistry model?",
+        "answer": "Yes. Several states have considered or are considering legislation limiting PE involvement in dental practices. SGA monitors these developments actively. The clinical autonomy protections structurally built into SGA's model -- a practicing dentist as CCO, peer-led clinical governance, no clinical protocols set by operations -- are specifically designed to address the concerns that drive this legislation. The regulatory environment is one reason the clinical-autonomy-first model is not just good for dentists; it is good for the business."
+      },
+      {
+        "question": "Every DSO claims clinical autonomy. What makes SGA's claim different?",
+        "answer": "Three structural elements, not marketing claims. First, the CCO is a practicing dentist -- Dr. Mitch Ellingson spent 13 years owning practices before founding Gen4. He practices dentistry. Second, no SGA partner has lost their practice name. Not one. Dental Partners of SW Georgia is still Dental Partners of SW Georgia. Periodontal Associates of Memphis is still Periodontal Associates of Memphis. Five and ten years in. Third, we publish our staff retention rate: 85%. No competitor publishes this number. Staff retention is the most reliable proxy for whether a practice's culture was preserved."
+      },
+      {
+        "question": "What does clinical autonomy look like day-to-day? Do partners ever feel pressure to treat differently?",
+        "answer": "Dr. Brian Harris's answer is the most direct: \"This organization is fully invested in us -- in us loving what we do and being successful in what we do so we can provide excellent care to our patients.\" SGA does not set treatment protocols from corporate. No \"crown days\" or \"Invisalign days.\" Partners choose their own materials, their own labs, their own schedule. What SGA provides is back-office infrastructure, peer community, and the education platform. The clinical decision stays with the doctor."
+      },
+      {
+        "question": "DSO consolidation has been criticized for prioritizing profit over patient care. How does SGA respond?",
+        "answer": "The criticism is correct when applied to Gen2-model DSOs that standardize care around cost reduction and production targets. That is why SGA was built specifically not to do that. Dr. Ellingson's founding ethos is direct: \"I love being a dentist, and I want to protect my profession from becoming like medicine.\" The proof is in the partner results: Dr. Cavendish's practice has 100% staff retention and revenues up 16.5% since joining. That does not happen if the clinical model is being degraded."
+      },
+      {
+        "question": "How does SGA prevent the same problems that have plagued other DSOs?",
+        "answer": "The structural protections are specific. Clinical decisions are made by the clinical advisory board, chaired by a practicing dentist (Dr. Ellingson). No non-dentist sets clinical protocols. Staff retention is monitored at 85% network-wide -- an early warning system for cultural disruption that we publish externally. Partner equity is tied to long-term platform health, not short-term production. And the education platform (Pikos Institute, 4Front Symposium) is designed to make dentists better at their craft, not just more productive at their throughput."
+      },
+      {
+        "question": "The ADA has historically been skeptical of DSOs. What is the ADA's stance on SGA?",
+        "answer": "The ADA president addressed a Gen4 dental event -- the first time an ADA president had addressed a DSO event. His message: \"The ADA has your back. You are the living embodiment of the ADA's vision to achieve optimum dental health for all.\" The ADA's position has evolved as it has seen DSO models that preserve clinician autonomy. The endorsement is specific to models that keep dentists in charge of clinical care -- which is what SGA is designed to do."
+      },
+      {
+        "question": "What does a partnership with SGA actually look like financially?",
+        "answer": "The SGA model is a joint-venture equity partnership. The dentist receives a liquidity event at close -- real cash based on practice valuation -- while retaining an ownership stake in the combined SGA platform. This is structurally different from outright acquisition (Heartland, DCA -- cash only, no ongoing equity), franchise-like models (Aspen -- you operate under their brand), management services (PDS -- they charge fees, you own independently), or partial equity deals (MB2 -- similar concept, but without Thurston's track record transparency). Specific deal terms depend on practice size, profitability, and geography."
+      },
+      {
+        "question": "Why should a dentist take an equity stake in SGA rather than selling and investing the proceeds?",
+        "answer": "The equity stake is the mechanism by which a dentist benefits from the compounding value of the platform -- not just their practice, but all practices in the combined SGA network. If the platform grows (and Thurston has grown platforms to meaningful scale across eight tries), the equity appreciates. The alternative -- sell outright and invest the cash -- removes the dentist from the growth trajectory. The choice depends on the individual's financial situation and timeline. We tell every prospective partner to talk to a financial advisor before signing anything."
+      },
+      {
+        "question": "How does DSO ownership affect patient care quality?",
+        "answer": "SGA's model is specifically designed so that patients notice nothing negative and often notice improvements. Practices keep their name, their team, and their clinical leadership. The back-office changes are invisible: billing handled more efficiently, recruiting supported so the team stays intact, technology investments improve the clinical experience. The patient-facing change partners most often report is that their doctors are more present -- less stressed about operations, more focused on the appointment. Dr. Godat's words: \"Our partnership allows us to focus on changing lives.\""
+      },
+      {
+        "question": "How is SGA different from MB2 Dental, which also positions as a 'DPO' with partner equity?",
+        "answer": "MB2 has built something real -- 800+ practices is meaningful scale. Three core differences: First, PE track record. Thurston has done this eight times, returned $4B+, across 38 years. MB2's financial backers are not publicly disclosed. Second, education. MB2 has no CE infrastructure. SGA has Pikos Institute, 4Front Symposium, and the Individual Growth Engine. Third, three-vertical architecture. MB2 is general dentistry only. SGA has community dentistry, collaborative general/specialty, and a dedicated implantology vertical. A periodontist, general dentist, and pediatric practice all have a specifically designed home inside SGA."
+      },
+      {
+        "question": "What gives SGA a competitive advantage over Guardian Dentistry Partners in the Southeast?",
+        "answer": "Guardian has built something in the Southeast -- 160+ practices, strong messaging, Inc. 5000 recognition. SGA's advantage is scale, capital, and depth. SGA has a $350M credit facility; Guardian is family-office backed with limited growth capital. SGA has the Pikos Institute and 4Front Symposium as clinical development infrastructure; Guardian has no education platform. And SGA's three-vertical architecture means a Southeast practice joins a platform with national reach, specialty capabilities, and implantology infrastructure -- not just a regional network."
+      },
+      {
+        "question": "What happens to the Gen4 Dental Partners and MODIS Dental Partners brands?",
+        "answer": "SGA Dental Partners is the parent platform. Gen4 and MODIS continue to operate as distinct verticals within the platform. For partner practices, nothing visible changes at the practice level -- local brand names are preserved. The consolidation is a backend organizational structure: unified leadership, shared operational infrastructure, cross-referral capabilities. Externally, the Gen4 collaborative model and MODIS implantology vertical retain their distinct positioning while benefiting from the combined platform's scale and resources."
+      }
+    ]
+  },
+  "pressRelease": {
+    "headline": "SGA Dental Partners Completes Consolidation of Gen4 Dental and MODIS Dental Under Unified Brand, Creating One of the Nation's Most Distinct Dental Partnership Platforms",
+    "subheadline": "New national platform spans community dentistry, collaborative general practice, and advanced implantology -- backed by Thurston Group's 38-year, $4B+ healthcare investment track record",
+    "body": "FOR IMMEDIATE RELEASE\n\n[RICHMOND HILL, GA] -- [DATE] -- SGA Dental Partners today announced the completion of its consolidation of Gen4 Dental Partners and MODIS Dental Partners under a single unified platform, creating a nationally scaled dental partnership organization with three purpose-built verticals and a distinctive education-first model no competitor has replicated.\n\nThe combined SGA platform brings together three entities originally built and backed by the Thurston Group -- a private equity firm with 38 years of healthcare platform building and more than $4 billion returned to partners across eight dental and healthcare companies. SGA's consolidation spans community dentistry in the Southeast through the legacy SGA network, collaborative general and specialty practice nationally through Gen4 Dental Partners, and advanced implantology through MODIS Dental Partners and its anchor institution, the globally recognized Pikos Institute.\n\n\"This consolidation is not a corporate merger,\" said Lamonte Jensen, CEO and Co-Founder of Gen4 Dental Partners and a key architect of the SGA platform. \"It is what happens when 37 years of building dental companies -- learning what works, learning what fails, learning what dentists actually need -- finally comes together in one place. We built three pieces independently because we had to understand each piece. Now we are one.\"\n\nThe combined platform includes more than [X] partner practices across [X] states, serving [X] patients annually. Distinguishing the platform from national competitors:\n\n-- An integrated education platform: the Pikos Institute, a globally recognized implantology training center co-founded by Dr. Michael A. Pikos; the annual 4Front Symposium for peer clinical collaboration; and the Individual Growth Engine, which pairs partner dentists with clinical mentors in a \"dentists teaching dentists\" model with no analog in the DSO market.\n\n-- An 85 percent staff retention rate across the network -- a metric no competitor in the DSO space publishes or matches.\n\n-- A joint-venture equity partnership model in which selling dentists receive a liquidity event while retaining an ownership stake in the combined SGA platform -- creating ongoing upside not available through outright acquisition or management-services arrangements.\n\n-- A three-vertical architecture that allows a general dentist to enter the platform through community practice and develop implant capabilities through the MODIS vertical and Pikos Institute training, with full cross-referral infrastructure across specialties.\n\n\"SGA was built because seven out of ten dentists who sell to a DSO end up frustrated or regretful,\" said Dr. Mitch Ellingson, Chief Clinical Officer of Gen4 Dental Partners and a practicing dentist. \"We built this because we heard that number and refused to add to it. Dentistry is the last great profession still run by the people who do it. We intend to keep it that way.\"\n\nThe Thurston Group secured a $350 million credit facility for SGA Dental Partners and a $315 million facility for Gen4 Dental Partners to fund the consolidation and accelerate acquisition activity across all three verticals.\n\nAbout SGA Dental Partners\nSGA Dental Partners is a national dental partnership platform with three specialized verticals -- community dentistry, collaborative general and specialty practice, and advanced implantology -- backed by the Thurston Group's 38-year track record in healthcare platform building. SGA partners retain their name, their team, and full clinical autonomy while gaining operational support, peer collaboration, continuing education through the Pikos Institute and 4Front Symposium, and equity in a growing national platform. Headquartered in Richmond Hill, Georgia.\n\nAbout the Thurston Group\nThe Thurston Group is a Chicago-based private equity firm specializing in healthcare and dental platform building. Over 38 years, Thurston has built and scaled eight dental and healthcare platforms, returning more than $4 billion to partners. Thurston portfolio companies include SGA Dental Partners, Gen4 Dental Partners, MODIS Dental Partners, Smile Doctors, US Endodontics Partners, US Oral Surgery Management, ARC Health, and US Orthopaedic Partners.",
+    "boilerplate": "SGA Dental Partners is a national dental partnership platform with three specialized verticals -- community dentistry, collaborative general and specialty practice, and advanced implantology -- backed by the Thurston Group's 38-year track record in healthcare platform building. SGA partners retain their name, their team, and full clinical autonomy while gaining operational support, peer collaboration, continuing education through the Pikos Institute and 4Front Symposium, and equity in a growing national platform. Headquartered in Richmond Hill, Georgia."
+  }
+}

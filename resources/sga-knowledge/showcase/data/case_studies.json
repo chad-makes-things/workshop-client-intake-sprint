@@ -1,0 +1,260 @@
+{
+  "caseStudies": [
+    {
+      "id": "cs-practice-owner",
+      "avatar": "Dr. Mark Hendricks",
+      "headline": "After 20 Years of Running a Practice Alone, He Finally Got Back to Being a Dentist",
+      "altHeadline": "Revenue Up 16.5%, Staff Turnover at Zero: What Happened After Partnership",
+      "practiceType": "General dentistry, two locations",
+      "challenge": "Owner-operator carrying full administrative burden while watching clinical passion erode",
+      "keyResult": "Revenue TTM up 16.5% | Staff retention 100% | EBITA beating plan by $45,266",
+      "realDataAnchors": [
+        "Dr. Matt Cavendish results",
+        "Dr. Mitchel Godat quote"
+      ],
+      "sections": [
+        "Before: The Situation",
+        "The Decision: Why SGA",
+        "The Transition",
+        "After: The Results",
+        "In Their Words"
+      ],
+      "pullQuote": "SGA supports us and manages things behind the scenes. Our partnership allows us to focus on changing lives.",
+      "pullQuoteAttribution": "Dr. Mitchel S. Godat",
+      "status": "Framework ready -- populate with named partner"
+    },
+    {
+      "id": "cs-associate",
+      "avatar": "Dr. Priya Nair",
+      "headline": "From Production Treadmill to Clinical Leader: An Associate's Path to Ownership",
+      "altHeadline": "How One Associate Went from 25 Patients/Day to Performing Implants in 18 Months",
+      "practiceType": "Associate position to equity partner",
+      "challenge": "High-volume, low-mentorship production treadmill with no equity pathway",
+      "keyResult": "Class A equity from day one | Pikos Institute certification | Complex case capability",
+      "realDataAnchors": [
+        "Individual Growth Engine program",
+        "Pikos Institute access"
+      ],
+      "sections": [
+        "Before: The Production Treadmill",
+        "Finding SGA",
+        "The Development Program",
+        "After: A Real Career",
+        "In Their Words"
+      ],
+      "pullQuote": "I became a dentist to change lives. The mentorship and equity pathway at SGA made that possible again.",
+      "pullQuoteAttribution": "[Associate Partner Name]",
+      "status": "Framework ready -- populate with named associate"
+    },
+    {
+      "id": "cs-patient",
+      "avatar": "Linda Dawson",
+      "headline": "She Hadn't Smiled in a Photo in 12 Years. Then Everything Changed.",
+      "altHeadline": "From Dentures to Fixed Implants: One Patient's Journey Back to Confidence",
+      "practiceType": "Implant patient (MODIS/Innovative Dental)",
+      "challenge": "Years of denture frustration, social withdrawal, declining quality of life",
+      "keyResult": "Full arch fixed implants | First steak in 8 years | Smiles in every photo",
+      "realDataAnchors": [
+        "Patient transformation language from Innovative Dental YouTube",
+        "Scott steak quote",
+        "Janice testimonial"
+      ],
+      "sections": [
+        "Before: Living Without Smiling",
+        "Finding Innovative Dental",
+        "The Procedure",
+        "After: Getting Her Life Back",
+        "In Their Words"
+      ],
+      "pullQuote": "If you have to think about your teeth, those moments are not there.",
+      "pullQuoteAttribution": "Dr. Grant Olson",
+      "status": "Framework ready -- populate with named patient (verify release forms)"
+    },
+    {
+      "id": "cs-specialist",
+      "avatar": "Dr. James Whitfield",
+      "headline": "A Periodontist Who Stopped Competing Alone and Started Building an Empire",
+      "altHeadline": "How One Specialist Turned a Solo Practice Into a Multi-Location Implant Center",
+      "practiceType": "Specialty practice (periodontist/oral surgeon)",
+      "challenge": "Solo specialist competing against groups with capital, marketing, and recruiting advantages",
+      "keyResult": "$250K-$750K capital investment | Dedicated recruiting | Marketing engine modeled on Innovative Dental",
+      "realDataAnchors": [
+        "MODIS platform capabilities",
+        "Dr. Michael Pikos founding partnership",
+        "Thurston Group track record"
+      ],
+      "sections": [
+        "Before: The Solo Ceiling",
+        "Discovering MODIS",
+        "The Partnership Decision",
+        "After: Infrastructure to Match the Skills",
+        "In Their Words"
+      ],
+      "pullQuote": "Your skills deserve an infrastructure to match.",
+      "pullQuoteAttribution": "MODIS Platform",
+      "status": "Framework ready -- populate with named specialist"
+    },
+    {
+      "id": "cs-office-manager",
+      "avatar": "Tamara Rodriguez",
+      "headline": "The Office Manager Who Was Terrified of Change. Here's What Actually Happened.",
+      "altHeadline": "100% Staff Retention: What a DSO Partnership Looks Like from the Inside",
+      "practiceType": "Practice staff perspective",
+      "challenge": "Fear of job loss, culture destruction, and corporate takeover during practice transition",
+      "keyResult": "100% staff retention | Benefits upgraded | Culture preserved | Administrative burden lifted",
+      "realDataAnchors": [
+        "85% staff retention rate",
+        "Spencer Pierce quote on PeopleOps",
+        "Dr. Cavendish staff retention data"
+      ],
+      "sections": [
+        "Before: The Fear",
+        "Learning About the Partnership",
+        "The Transition",
+        "After: Better Than Before",
+        "In Their Words"
+      ],
+      "pullQuote": "After onboarding is completed, there is an abundance of relief.",
+      "pullQuoteAttribution": "Spencer Pierce, SGA PeopleOps",
+      "status": "Framework ready -- populate with named staff member"
+    }
+  ],
+  "templates": {
+    "longForm": {
+      "name": "Long-Form Case Study",
+      "wordCount": "1,500-2,000 words",
+      "sections": [
+        "Headline",
+        "Snapshot Box",
+        "Before: The Situation",
+        "The Decision: Why SGA",
+        "The Transition",
+        "After: The Results",
+        "In Their Words",
+        "Key Metrics Box"
+      ],
+      "format": "Web page, PDF download, sales collateral"
+    },
+    "onePage": {
+      "name": "One-Page Case Study",
+      "wordCount": "400-500 words",
+      "sections": [
+        "Headline + Snapshot",
+        "Challenge",
+        "Solution",
+        "Results",
+        "Quote"
+      ],
+      "format": "PDF leave-behind, conference handout"
+    },
+    "videoTestimonial": {
+      "name": "Video Testimonial Script",
+      "duration": "3-5 minutes",
+      "sections": [
+        "Opening (the before)",
+        "The turning point",
+        "What changed",
+        "Specific results",
+        "Advice to peers"
+      ],
+      "format": "Filmed interview, YouTube, social clips"
+    }
+  },
+  "interviewQuestionBank": {
+    "totalQuestions": 28,
+    "categories": [
+      {
+        "section": "Before Story",
+        "questionCount": 6,
+        "sample": "Walk me through a typical day before the partnership. What did your morning look like? Your evening?"
+      },
+      {
+        "section": "Decision Process",
+        "questionCount": 5,
+        "sample": "What almost stopped you from moving forward? What was the biggest fear?"
+      },
+      {
+        "section": "Transition Experience",
+        "questionCount": 5,
+        "sample": "What was the first thing that changed after the partnership was signed?"
+      },
+      {
+        "section": "Results & Impact",
+        "questionCount": 6,
+        "sample": "If you could show a skeptic one number from the past year, what would it be?"
+      },
+      {
+        "section": "Advice & Reflection",
+        "questionCount": 6,
+        "sample": "What would you tell a dentist who is where you were two years ago?"
+      }
+    ],
+    "avatarVariants": [
+      "Practice Owner",
+      "Associate",
+      "Specialist",
+      "Patient",
+      "Office Manager"
+    ]
+  },
+  "socialProofStrategy": {
+    "existingAssets": [
+      {
+        "asset": "Dr. Mitchel S. Godat quote",
+        "status": "Confirmed, published",
+        "readiness": "Deploy immediately"
+      },
+      {
+        "asset": "Dr. Matt Cavendish financial results (16.5% growth, 100% retention)",
+        "status": "Confirmed, documented",
+        "readiness": "Deploy with permission"
+      },
+      {
+        "asset": "Dr. Mitch Ellingson quotes (multiple)",
+        "status": "Confirmed, public",
+        "readiness": "Deploy"
+      },
+      {
+        "asset": "Dr. Grant Olson content (138K YouTube, 23M+ views)",
+        "status": "Confirmed, public",
+        "readiness": "Deploy"
+      },
+      {
+        "asset": "Patient transformation stories (Josh, Scott, Janice, Juan, Louis, Maria)",
+        "status": "Confirmed",
+        "readiness": "Verify release forms"
+      },
+      {
+        "asset": "Thurston Group track record (38 years, $4B+, 8 platforms)",
+        "status": "Confirmed, public",
+        "readiness": "Deploy"
+      },
+      {
+        "asset": "SGA $350M credit facility",
+        "status": "Confirmed, press release",
+        "readiness": "Deploy"
+      }
+    ],
+    "criticalGaps": [
+      {
+        "gap": "No named patient case study with photo consent",
+        "priority": "Highest"
+      },
+      { "gap": "No associate dentist testimonial", "priority": "Highest" },
+      { "gap": "No office manager / staff testimonial", "priority": "High" },
+      {
+        "gap": "No specialist case study (beyond Dr. Olson)",
+        "priority": "High"
+      },
+      { "gap": "No post-deal Year 2-3 timeline data", "priority": "High" },
+      { "gap": "No Glassdoor/employer review content", "priority": "Medium" }
+    ],
+    "collectionTriggers": [
+      "90-Day Mark (first wins)",
+      "6-Month Mark (results visible)",
+      "12-Month Mark (full story)",
+      "Organic Praise (never let it pass)",
+      "NPS Score 9-10"
+    ]
+  }
+}

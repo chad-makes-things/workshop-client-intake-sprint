@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practice Partnership Assessment | Free Self-Evaluation for Dental Practice Owners</title>
+<meta name="description" content="Score your practice across 6 critical dimensions and get the 22-question DSO due diligence checklist. Free, instant delivery, no sales call required. Built on 38 years of dental partnership experience.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: { teal: '#1B998B', navy: '#2D3047', gold: '#E8AA14' },
+      },
+      fontFamily: {
+        heading: ['"Roboto Slab"', 'serif'],
+        body: ['Roboto', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<style>
+body { font-family: 'Roboto', sans-serif; }
+h1,h2,h3,h4,h5,h6 { font-family: 'Roboto Slab', serif; }
+html { scroll-behavior: smooth; }
+</style>
+</head>
+<body class="bg-white text-brand-navy" x-data="{ formSubmitted: false }">
+
+<!-- HERO -->
+<section class="relative overflow-hidden" style="background: linear-gradient(135deg, #2D3047 0%, #1B998B 100%);">
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-10 right-10 w-80 h-80 rounded-full border border-white/30"></div>
+    <div class="absolute bottom-20 left-20 w-56 h-56 rounded-full border border-white/20"></div>
+  </div>
+
+  <nav class="relative z-10 max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+    <img src="../../../brand-assets/SGA-logo.png" alt="SGA Dental Partners" class="h-10 brightness-0 invert">
+    <a href="#get-assessment" class="hidden sm:inline-block bg-brand-gold text-brand-navy font-bold px-6 py-2.5 rounded-lg text-sm hover:bg-yellow-400 transition">Get the Assessment</a>
+  </nav>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-6 py-16 md:py-24">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+          It's 11 PM and You're Googling "Should I Sell My Dental Practice"
+        </h1>
+        <p class="text-lg sm:text-xl text-white/80 leading-relaxed mb-8">
+          You are not the first practice owner to sit in the dark wondering if there is a better way. This free self-assessment will give you clarity -- not a sales pitch.
+        </p>
+        <a href="#get-assessment" class="inline-block bg-brand-gold text-brand-navy font-bold px-8 py-4 rounded-xl text-lg hover:bg-yellow-400 transition shadow-lg">
+          Send Me the Assessment
+        </a>
+        <p class="text-white/50 text-sm mt-3">Free. Instant delivery. No sales call required.</p>
+      </div>
+
+      <!-- Lead Magnet Mockup -->
+      <div class="hidden lg:flex justify-center">
+        <div class="relative">
+          <div class="absolute -inset-4 bg-white/10 rounded-2xl blur-xl"></div>
+          <div class="relative bg-white rounded-xl shadow-2xl overflow-hidden w-80 transform rotate-1 hover:rotate-0 transition-transform duration-300">
+            <div class="h-48 flex flex-col justify-end p-6" style="background: linear-gradient(135deg, #2D3047 0%, #1B998B 100%);">
+              <div class="w-10 h-0.5 bg-brand-gold mb-3"></div>
+              <h3 class="font-heading text-white text-lg font-bold leading-tight">The Practice<br>Partnership Assessment</h3>
+              <p class="text-white/60 text-xs mt-2">SGA Dental Partners</p>
+            </div>
+            <div class="p-6">
+              <div class="space-y-2.5">
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded bg-brand-teal/10 flex items-center justify-center text-brand-teal text-xs font-bold">1</span>
+                  <span class="text-xs text-gray-600">Practice Financial Health</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded bg-brand-teal/10 flex items-center justify-center text-brand-teal text-xs font-bold">2</span>
+                  <span class="text-xs text-gray-600">Operational Burden</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded bg-brand-teal/10 flex items-center justify-center text-brand-teal text-xs font-bold">3</span>
+                  <span class="text-xs text-gray-600">Clinical Trajectory</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded bg-brand-teal/10 flex items-center justify-center text-brand-teal text-xs font-bold">4</span>
+                  <span class="text-xs text-gray-600">Market Position</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded bg-brand-teal/10 flex items-center justify-center text-brand-teal text-xs font-bold">5</span>
+                  <span class="text-xs text-gray-600">Personal Readiness</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded bg-brand-teal/10 flex items-center justify-center text-brand-teal text-xs font-bold">6</span>
+                  <span class="text-xs text-gray-600">Partnership Fit</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-gray-100">
+                <p class="text-xs text-gray-400">+ 22-Question DSO Due Diligence Checklist</p>
+              </div>
+            </div>
+          </div>
+          <!-- Shadow card behind -->
+          <div class="absolute top-3 -left-3 w-80 h-full bg-brand-navy/20 rounded-xl -z-10 transform -rotate-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM IDENTIFICATION -->
+<section class="py-16 md:py-24 bg-gray-50">
+  <div class="max-w-3xl mx-auto px-6">
+    <p class="text-lg leading-relaxed mb-6">You built something real. Two decades of 6:30 AM arrivals, 7 PM departures, and weekends spent on the schedule because your office manager quit. You are proud of what you built. You are also exhausted by what it demands.</p>
+    <p class="leading-relaxed mb-6">And somewhere between the pride and the weight, a question started forming that you have not said out loud yet:</p>
+    <div class="border-l-4 border-brand-gold bg-white p-6 my-8 italic text-xl text-brand-navy">
+      Is there a better way to do this -- without losing everything I built?
+    </div>
+    <p class="leading-relaxed mb-6">You are not alone. According to industry research, <strong>7 out of 10 dentists who sell to a DSO report frustration or regret.</strong> Not because partnership is wrong -- because they entered the conversation without a framework for evaluating what they actually needed.</p>
+    <p class="text-lg font-semibold text-brand-teal">This assessment changes that.</p>
+  </div>
+</section>
+
+<!-- WHAT YOU'LL LEARN -->
+<section class="py-16 md:py-24">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-brand-navy mb-4">What You Will Discover</h2>
+      <p class="text-lg text-gray-600">The Practice Partnership Assessment: A Self-Evaluation Scorecard for Practice Owners</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+        <div class="w-10 h-10 rounded-lg bg-brand-teal/10 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+        </div>
+        <h3 class="font-heading font-semibold text-brand-navy mb-2">The Financial Ratio That Predicts Everything</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">The single financial ratio that predicts whether a partnership will compound or collapse -- most brokers never mention it, but it is the first thing experienced advisors check.</p>
+      </div>
+
+      <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+        <div class="w-10 h-10 rounded-lg bg-brand-teal/10 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+        </div>
+        <h3 class="font-heading font-semibold text-brand-navy mb-2">Your Readiness Score Across 12 Dimensions</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Clinical readiness, financial positioning, team stability, technology gaps, and more -- so you see the full picture, not just the number a broker gives you.</p>
+      </div>
+
+      <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+        <div class="w-10 h-10 rounded-lg bg-brand-gold/15 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+        </div>
+        <h3 class="font-heading font-semibold text-brand-navy mb-2">22 Questions to Ask ANY DSO</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">The framework built from 100+ partner conversations. The exact questions that expose clawback provisions, autonomy erosion, and equity traps before you sign anything.</p>
+      </div>
+
+      <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+        <div class="w-10 h-10 rounded-lg bg-brand-teal/10 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+        </div>
+        <h3 class="font-heading font-semibold text-brand-navy mb-2">Benchmark Against Successful Practices</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">A confidential comparison based on data from 60+ dental practices nationwide. See how your practice stacks up against those that partnered successfully.</p>
+      </div>
+
+      <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+        <div class="w-10 h-10 rounded-lg bg-brand-teal/10 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+        </div>
+        <h3 class="font-heading font-semibold text-brand-navy mb-2">Your Personalized Readiness Tier</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Specific, actionable recommendations -- not generic advice from a consulting binder that collects dust on a shelf.</p>
+      </div>
+
+      <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+        <div class="w-10 h-10 rounded-lg bg-brand-teal/10 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+        </div>
+        <h3 class="font-heading font-semibold text-brand-navy mb-2">Works Whether You Stay Solo or Not</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">This assessment is designed to be genuinely useful even if you decide to stay independent for the next ten years.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="py-16 bg-brand-navy">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <div class="grid sm:grid-cols-3 gap-8 mb-12">
+      <div>
+        <div class="font-heading text-4xl font-bold text-brand-gold mb-2">100+</div>
+        <p class="text-white/70 text-sm">Practice owners have used this framework</p>
+      </div>
+      <div>
+        <div class="font-heading text-4xl font-bold text-brand-gold mb-2">38 Years</div>
+        <p class="text-white/70 text-sm">Dental partnership experience</p>
+      </div>
+      <div>
+        <div class="font-heading text-4xl font-bold text-brand-gold mb-2">$4B+</div>
+        <p class="text-white/70 text-sm">Returned to partners</p>
+      </div>
+    </div>
+
+    <blockquote class="max-w-2xl mx-auto">
+      <p class="text-white/90 text-lg italic leading-relaxed mb-4">"I wish I had something like this before I took the first broker call. It would have saved me six months of confusion."</p>
+      <cite class="text-white/50 text-sm not-italic">-- Practice owner, Southeast US</cite>
+    </blockquote>
+
+    <p class="text-white/50 text-sm mt-8">Built on insights from 38 years of dental partnership experience across 8 platforms.</p>
+  </div>
+</section>
+
+<!-- OPT-IN FORM -->
+<section id="get-assessment" class="py-16 md:py-24 bg-gray-50">
+  <div class="max-w-lg mx-auto px-6">
+    <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10" x-show="!formSubmitted">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-brand-navy text-center mb-2">Get Your Free Assessment</h2>
+      <p class="text-gray-600 text-center mb-8">Download the Practice Partnership Assessment and see where you stand -- in 10 minutes, on your terms.</p>
+
+      <form @submit.prevent="formSubmitted = true" class="space-y-5">
+        <div>
+          <label for="firstName" class="block text-sm font-semibold text-brand-navy mb-1.5">First Name</label>
+          <input type="text" id="firstName" name="firstName" required placeholder="Your first name" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-brand-teal focus:outline-none transition text-lg">
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-semibold text-brand-navy mb-1.5">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="you@yourpractice.com" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-brand-teal focus:outline-none transition text-lg">
+        </div>
+        <button type="submit" class="w-full bg-brand-gold text-brand-navy font-bold px-8 py-4 rounded-xl text-lg hover:bg-yellow-400 transition shadow-lg">
+          Send Me the Assessment
+        </button>
+        <p class="text-center text-gray-400 text-sm">Free. Instant delivery. No sales call required. Just 2 fields.</p>
+      </form>
+    </div>
+
+    <!-- Inline success (in addition to redirect to thank-you page) -->
+    <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 text-center" x-show="formSubmitted" x-cloak>
+      <div class="w-16 h-16 rounded-full bg-brand-teal/10 flex items-center justify-center mx-auto mb-6">
+        <svg class="w-8 h-8 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+      </div>
+      <h3 class="font-heading text-2xl font-bold text-brand-navy mb-3">Your Assessment Is on Its Way</h3>
+      <p class="text-gray-600 mb-6">Check your inbox for an email from SGA Dental Partners. Your assessment is attached.</p>
+      <a href="thank-you.html" class="inline-block bg-brand-teal text-white font-bold px-8 py-3 rounded-xl hover:bg-brand-teal/90 transition">Continue to Next Steps</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST SIGNALS -->
+<section class="py-16">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="text-center md:text-left">
+        <div class="w-12 h-12 rounded-xl bg-brand-navy/5 flex items-center justify-center mx-auto md:mx-0 mb-4">
+          <svg class="w-6 h-6 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+        </div>
+        <h3 class="font-heading font-semibold text-brand-navy mb-2">Backed by the Thurston Group</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">38 years, 8 dental and healthcare platforms, $4B+ returned to partners. This is not a startup experimenting with dental.</p>
+      </div>
+
+      <div class="text-center md:text-left">
+        <div class="w-12 h-12 rounded-xl bg-brand-navy/5 flex items-center justify-center mx-auto md:mx-0 mb-4">
+          <svg class="w-6 h-6 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+        </div>
+        <h3 class="font-heading font-semibold text-brand-navy mb-2">Your Information Is Safe</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">No spam. No broker calls. No sharing your information with third parties. Unsubscribe with one click at any time.</p>
+      </div>
+
+      <div class="text-center md:text-left">
+        <div class="w-12 h-12 rounded-xl bg-brand-navy/5 flex items-center justify-center mx-auto md:mx-0 mb-4">
+          <svg class="w-6 h-6 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path></svg>
+        </div>
+        <h3 class="font-heading font-semibold text-brand-navy mb-2">You Are in Control</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">This is a diagnostic tool, not a sales funnel. Hundreds of practice owners have used it and decided to stay solo. That is a perfectly good outcome.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="py-16 md:py-20 bg-gray-50">
+  <div class="max-w-2xl mx-auto px-6 text-center">
+    <h2 class="font-heading text-2xl md:text-3xl font-bold text-brand-navy mb-6">Still Not Sure?</h2>
+    <p class="text-lg leading-relaxed text-gray-700 mb-4">Here is a simple test: if you have spent even one Sunday night working on your schedule instead of being with your family, or one late night Googling "dental practice valuation" instead of sleeping, this assessment was built for you.</p>
+    <p class="text-lg leading-relaxed text-gray-700 mb-8">It takes 10 minutes. It costs nothing. And the clarity it provides is worth more than any broker's pitch.</p>
+    <a href="#get-assessment" class="inline-block bg-brand-gold text-brand-navy font-bold px-10 py-4 rounded-xl text-lg hover:bg-yellow-400 transition shadow-lg">Send Me the Assessment</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-10 bg-brand-navy">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <img src="../../../brand-assets/SGA-logo.png" alt="SGA Dental Partners" class="h-8 mx-auto mb-4 brightness-0 invert">
+    <p class="text-white/50 text-sm mb-2">Backed by the Thurston Group | 38 Years | 8 Dental &amp; Healthcare Platforms | $4B+ Returned to Partners</p>
+    <p class="text-white/30 text-xs">Copyright 2026 SGA Dental Partners. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Mobile Sticky CTA -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200 shadow-lg sm:hidden z-50">
+  <a href="#get-assessment" class="block w-full bg-brand-gold text-brand-navy font-bold px-8 py-3.5 rounded-xl text-center hover:bg-yellow-400 transition">
+    Get the Free Assessment
+  </a>
+</div>
+
+</body>
+</html>

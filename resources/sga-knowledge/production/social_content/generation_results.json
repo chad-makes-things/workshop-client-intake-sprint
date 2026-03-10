@@ -1,0 +1,104 @@
+[
+  {
+    "name": "linkedin_day2_cavendish_carousel",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/linkedin/day02_cavendish_carousel.png",
+    "success": true
+  },
+  {
+    "name": "linkedin_day5_recruitment_4front",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/linkedin/day05_recruitment_4front.png",
+    "success": true
+  },
+  {
+    "name": "linkedin_day9_5questions_carousel",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/linkedin/day09_5questions_carousel.png",
+    "success": true
+  },
+  {
+    "name": "linkedin_day10_partner_call",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/linkedin/day10_partner_call.png",
+    "success": true
+  },
+  {
+    "name": "linkedin_day14_pikos_institute",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/linkedin/day14_pikos_institute.png",
+    "success": true
+  },
+  {
+    "name": "linkedin_day15_retention",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/linkedin/day15_retention_team.png",
+    "success": true
+  },
+  {
+    "name": "linkedin_day22_mentorship",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/linkedin/day22_mentorship.png",
+    "success": true
+  },
+  {
+    "name": "linkedin_day25_partner_quotes",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/linkedin/day25_partner_quotes.png",
+    "success": true
+  },
+  {
+    "name": "linkedin_day28_three_verticals",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/linkedin/day28_three_verticals.png",
+    "success": true
+  },
+  {
+    "name": "fb_day2_implant_cost",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/facebook/day02_implant_cost.png",
+    "success": true
+  },
+  {
+    "name": "fb_day4_juan_testimonial",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/facebook/day04_juan_testimonial.png",
+    "success": true
+  },
+  {
+    "name": "fb_day8_myths",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/facebook/day08_myths.png",
+    "success": true
+  },
+  {
+    "name": "fb_day17_implants_vs_dentures",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/facebook/day17_implants_vs_dentures.png",
+    "success": true
+  },
+  {
+    "name": "fb_day20_louis_testimonial",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/facebook/day20_louis_testimonial.png",
+    "success": true
+  },
+  {
+    "name": "fb_day22_consultation_cta",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/facebook/day22_consultation_cta.png",
+    "success": true
+  },
+  {
+    "name": "fb_day25_step_by_step",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/facebook/day25_step_by_step.png",
+    "success": true
+  },
+  {
+    "name": "ig_day2_cost_carousel",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/instagram/day02_cost_carousel.png",
+    "success": true
+  },
+  {
+    "name": "ig_day4_juan_testimonial",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/instagram/day04_juan_testimonial.png",
+    "success": false,
+    "error": "HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=120)"
+  },
+  {
+    "name": "ig_day8_myths_carousel",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/instagram/day08_myths_carousel.png",
+    "success": false,
+    "error": "HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=120)"
+  },
+  {
+    "name": "ig_day22_conversion_cta",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/social_content/instagram/day22_conversion_cta.png",
+    "success": true
+  }
+]

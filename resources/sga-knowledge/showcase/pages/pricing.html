@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partnership Tiers and Pricing | SGA Dental Partners</title>
+  <meta name="description" content="SGA partnership tiers: 7-9x EBITDA, 60-70% upfront liquidity, equity in a $350M+ platform. Community, group, and specialty practice tiers. Transparent deal economics.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'sga-blue': '#2D6FB7',
+            'sga-blue-dark': '#1E4F85',
+            'sga-cyan': '#009DD6',
+            'sga-lime': '#C4D347',
+            'sga-orange': '#F36F21',
+            'sga-text': '#333333',
+            'sga-gray': '#F7F8FA',
+            'sga-border': '#E2E8F0',
+          },
+          fontFamily: {
+            'sans': ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    [id] { scroll-margin-top: 100px; }
+
+    /* Tier card hover */
+    .tier-card {
+      transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+    }
+    .tier-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px -8px rgba(0,0,0,0.12);
+    }
+
+    /* Accordion */
+    .accordion-chevron {
+      transition: transform 200ms ease-out;
+    }
+    .accordion-open .accordion-chevron {
+      transform: rotate(180deg);
+    }
+
+    /* Tier indicator */
+    .tier-indicator {
+      position: relative;
+    }
+    .tier-indicator::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      border-radius: 8px 8px 0 0;
+    }
+    .tier-community::before { background: #2D6FB7; }
+    .tier-group::before { background: #009DD6; }
+    .tier-specialty::before { background: #C4D347; }
+
+    /* Table styling */
+    .deal-table th { background: #F7F8FA; }
+    .deal-table tr:hover { background: #fafbfc; }
+
+    /* Value bar animation */
+    @media (prefers-reduced-motion: no-preference) {
+      .value-bar {
+        animation: growBar 1s ease-out forwards;
+        transform-origin: left;
+      }
+      @keyframes growBar {
+        from { transform: scaleX(0); }
+        to { transform: scaleX(1); }
+      }
+    }
+
+    @media print {
+      .no-print { display: none !important; }
+      html, body { margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body class="bg-white font-sans text-sga-text antialiased" style="padding-top:40px;">
+<!-- Back to Showcase banner -->
+<div class="no-print" style="position:fixed;top:0;left:0;right:0;height:40px;background:#1e293b;display:flex;align-items:center;padding:0 16px;z-index:9999;">
+  <a href="../index.html" style="color:#93c5fd;text-decoration:none;font-size:14px;font-family:Inter,sans-serif;">&larr; Back to Showcase</a>
+  <span style="color:#64748b;margin-left:auto;font-size:12px;font-family:Inter,sans-serif;">SGA Dental Partners Marketing Showcase</span>
+</div>
+
+<!-- Hero Section -->
+<header class="bg-gradient-to-br from-sga-blue-dark via-sga-blue to-sga-cyan text-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <div class="max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-widest text-white/70 mb-4">Partnership Economics</p>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-6" style="text-wrap:balance;">Every DSO Can Write a Check. The Question Is What Happens After.</h1>
+      <p class="text-lg sm:text-xl text-white/90 leading-relaxed mb-8 max-w-2xl">Most practice owners spend weeks Googling deal terms and still feel lost. This page gives you every number, every structure, and every protection -- in plain language, with nothing hidden.</p>
+      <div class="flex flex-wrap gap-3">
+        <a href="#tiers" class="inline-flex items-center gap-2 bg-sga-orange hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-150 cursor-pointer focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-sga-blue">
+          View Partnership Tiers
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="#cta-final" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-lg border border-white/30 transition-colors duration-150 cursor-pointer focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-sga-blue">
+          Schedule a Confidential Conversation
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Context Section -->
+<section class="bg-sga-gray border-b border-sga-border">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold text-sga-text mb-6">The Deal Is Not the Destination. It Is the Starting Line.</h2>
+      <div class="text-base sm:text-lg text-gray-600 leading-relaxed space-y-4">
+        <p>Most DSOs sell the transaction. The check. The multiple. The signing day. Then you wake up 6 months later and discover the reality does not match the pitch.</p>
+        <blockquote class="border-l-4 border-sga-blue pl-4 italic text-sga-blue-dark text-left">"Seven or eight out of 10 are pretty bugged or annoyed or frustrated or regretful. It's not what they thought."</blockquote>
+        <p>SGA was built specifically to address the three clusters of regret: promised support that never materialized, financial terms worse than expected, and autonomy that eroded gradually.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Market Context -->
+<section class="bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold text-sga-text mb-3 text-center">2026 DSO Acquisition Market: Where Multiples Stand</h2>
+    <p class="text-gray-500 text-center mb-10 max-w-2xl mx-auto">Before discussing SGA's tiers, here is the market context. These are industry-standard ranges based on public transaction data.</p>
+    <div class="overflow-x-auto rounded-xl border border-sga-border">
+      <table class="w-full text-left text-sm">
+        <thead>
+          <tr class="bg-sga-gray">
+            <th class="px-4 py-3 font-semibold text-sga-blue-dark border-b border-sga-border">Practice Profile</th>
+            <th class="px-4 py-3 font-semibold text-sga-blue-dark border-b border-sga-border text-center">EBITDA Multiple</th>
+            <th class="px-4 py-3 font-semibold text-sga-blue-dark border-b border-sga-border text-center">Revenue Multiple</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-sga-border">
+          <tr class="hover:bg-blue-50/40 transition-colors">
+            <td class="px-4 py-3">
+              <span class="font-medium text-sga-text">Community practice</span>
+              <span class="block text-xs text-gray-400 mt-0.5">1-3 doctors, $400K-$800K EBITDA</span>
+            </td>
+            <td class="px-4 py-3 text-center font-semibold text-sga-blue">5-7x</td>
+            <td class="px-4 py-3 text-center text-gray-600">75-120%</td>
+          </tr>
+          <tr class="hover:bg-blue-50/40 transition-colors">
+            <td class="px-4 py-3">
+              <span class="font-medium text-sga-text">Group practice</span>
+              <span class="block text-xs text-gray-400 mt-0.5">4-10 doctors, $800K-$2M EBITDA</span>
+            </td>
+            <td class="px-4 py-3 text-center font-semibold text-sga-blue">7-9x</td>
+            <td class="px-4 py-3 text-center text-gray-600">120-200%</td>
+          </tr>
+          <tr class="hover:bg-blue-50/40 transition-colors">
+            <td class="px-4 py-3">
+              <span class="font-medium text-sga-text">High-performing group</span>
+              <span class="block text-xs text-gray-400 mt-0.5">$2M+ EBITDA, multi-location</span>
+            </td>
+            <td class="px-4 py-3 text-center font-semibold text-sga-blue">9-12x</td>
+            <td class="px-4 py-3 text-center text-gray-600">200-300%</td>
+          </tr>
+          <tr class="hover:bg-blue-50/40 transition-colors">
+            <td class="px-4 py-3">
+              <span class="font-medium text-sga-text">Specialty practice</span>
+              <span class="block text-xs text-gray-400 mt-0.5">Perio, oral surgery, implantology</span>
+            </td>
+            <td class="px-4 py-3 text-center font-semibold text-sga-blue">6-8x</td>
+            <td class="px-4 py-3 text-center text-gray-600">100-175%</td>
+          </tr>
+          <tr class="hover:bg-blue-50/40 transition-colors">
+            <td class="px-4 py-3">
+              <span class="font-medium text-sga-text">Strategic cluster fill</span>
+              <span class="block text-xs text-gray-400 mt-0.5">Fills a geographic gap</span>
+            </td>
+            <td class="px-4 py-3 text-center font-semibold text-sga-blue">+0.5-1.5x premium</td>
+            <td class="px-4 py-3 text-center text-gray-600">Premium</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mt-6 bg-blue-50 border border-blue-100 rounded-xl p-5 max-w-3xl mx-auto">
+      <p class="text-sm text-sga-blue-dark"><strong>The critical insight:</strong> Dentists who regret their DSO sale did not get bad multiples. They got acceptable multiples and a bad post-deal experience. SGA's competitive advantage is not paying the highest multiple. It is delivering on everything the multiple buys.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Tier Finder -->
+<section class="bg-sga-gray border-y border-sga-border" id="finder" x-data="{ doctors: '', revenue: '', result: '' }">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="text-2xl font-bold text-sga-text mb-2">Which Tier Fits Your Practice?</h2>
+      <p class="text-gray-500 mb-8">Answer two questions to find your starting point.</p>
+
+      <div class="bg-white rounded-2xl border border-sga-border p-6 sm:p-8 shadow-sm text-left space-y-6">
+        <!-- Q1 -->
+        <div>
+          <label class="block text-sm font-semibold text-sga-blue-dark mb-3">How many doctors practice at your location(s)?</label>
+          <div class="grid grid-cols-3 gap-2">
+            <button @click="doctors = '1-3'" :class="doctors === '1-3' ? 'ring-2 ring-sga-blue bg-blue-50' : 'bg-sga-gray hover:bg-gray-100'" class="px-3 py-2.5 rounded-lg text-sm font-medium cursor-pointer transition-all duration-150 focus-visible:ring-2 focus-visible:ring-sga-blue focus-visible:ring-offset-2">1-3</button>
+            <button @click="doctors = '4-10'" :class="doctors === '4-10' ? 'ring-2 ring-sga-blue bg-blue-50' : 'bg-sga-gray hover:bg-gray-100'" class="px-3 py-2.5 rounded-lg text-sm font-medium cursor-pointer transition-all duration-150 focus-visible:ring-2 focus-visible:ring-sga-blue focus-visible:ring-offset-2">4-10</button>
+            <button @click="doctors = 'specialist'" :class="doctors === 'specialist' ? 'ring-2 ring-sga-blue bg-blue-50' : 'bg-sga-gray hover:bg-gray-100'" class="px-3 py-2.5 rounded-lg text-sm font-medium cursor-pointer transition-all duration-150 focus-visible:ring-2 focus-visible:ring-sga-blue focus-visible:ring-offset-2">Specialist</button>
+          </div>
+        </div>
+        <!-- Q2 -->
+        <div>
+          <label class="block text-sm font-semibold text-sga-blue-dark mb-3">What is your approximate annual revenue?</label>
+          <div class="grid grid-cols-3 gap-2">
+            <button @click="revenue = '1-3M'" :class="revenue === '1-3M' ? 'ring-2 ring-sga-blue bg-blue-50' : 'bg-sga-gray hover:bg-gray-100'" class="px-3 py-2.5 rounded-lg text-sm font-medium cursor-pointer transition-all duration-150 focus-visible:ring-2 focus-visible:ring-sga-blue focus-visible:ring-offset-2">$1M-$3M</button>
+            <button @click="revenue = '3-10M'" :class="revenue === '3-10M' ? 'ring-2 ring-sga-blue bg-blue-50' : 'bg-sga-gray hover:bg-gray-100'" class="px-3 py-2.5 rounded-lg text-sm font-medium cursor-pointer transition-all duration-150 focus-visible:ring-2 focus-visible:ring-sga-blue focus-visible:ring-offset-2">$3M-$10M</button>
+            <button @click="revenue = '1-5M-spec'" :class="revenue === '1-5M-spec' ? 'ring-2 ring-sga-blue bg-blue-50' : 'bg-sga-gray hover:bg-gray-100'" class="px-3 py-2.5 rounded-lg text-sm font-medium cursor-pointer transition-all duration-150 focus-visible:ring-2 focus-visible:ring-sga-blue focus-visible:ring-offset-2">$1M-$5M (specialty)</button>
+          </div>
+        </div>
+        <!-- Result -->
+        <div x-show="doctors && revenue" x-transition class="pt-2">
+          <template x-if="doctors === 'specialist' || revenue === '1-5M-spec'">
+            <a href="#tier-specialty" class="flex items-center gap-3 bg-gradient-to-r from-lime-50 to-green-50 border border-lime-200 rounded-xl p-4 cursor-pointer hover:shadow-md transition-all">
+              <span class="w-10 h-10 rounded-full bg-sga-lime flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </span>
+              <div>
+                <span class="text-sm font-bold text-gray-800">Tier 3: Specialty Practice Partnership (MODIS)</span>
+                <span class="block text-xs text-gray-500 mt-0.5">Scroll down to see your tier details</span>
+              </div>
+              <svg class="w-5 h-5 text-gray-400 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </a>
+          </template>
+          <template x-if="doctors === '4-10' && revenue !== '1-5M-spec'">
+            <a href="#tier-group" class="flex items-center gap-3 bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 rounded-xl p-4 cursor-pointer hover:shadow-md transition-all">
+              <span class="w-10 h-10 rounded-full bg-sga-cyan flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              </span>
+              <div>
+                <span class="text-sm font-bold text-gray-800">Tier 2: Group Practice Partnership</span>
+                <span class="block text-xs text-gray-500 mt-0.5">Scroll down to see your tier details</span>
+              </div>
+              <svg class="w-5 h-5 text-gray-400 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </a>
+          </template>
+          <template x-if="doctors === '1-3' && revenue !== '1-5M-spec'">
+            <a href="#tier-community" class="flex items-center gap-3 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-4 cursor-pointer hover:shadow-md transition-all">
+              <span class="w-10 h-10 rounded-full bg-sga-blue flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </span>
+              <div>
+                <span class="text-sm font-bold text-gray-800">Tier 1: Community Practice Partnership</span>
+                <span class="block text-xs text-gray-500 mt-0.5">Scroll down to see your tier details</span>
+              </div>
+              <svg class="w-5 h-5 text-gray-400 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </a>
+          </template>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Partnership Tiers -->
+<section id="tiers" class="bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+    <div class="text-center mb-12">
+      <h2 class="text-2xl sm:text-3xl font-bold text-sga-text mb-3">Three Partnership Tiers. One Philosophy.</h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">Your practice gets better after the deal, not just bigger.</p>
+    </div>
+
+    <div class="space-y-16">
+
+      <!-- Tier 1: Community -->
+      <div id="tier-community" class="tier-card tier-indicator tier-community bg-white rounded-2xl border border-sga-border shadow-sm overflow-hidden" x-data="{ showDetails: false }">
+        <div class="p-6 sm:p-8 lg:p-10">
+          <!-- Header -->
+          <div class="flex flex-wrap items-start gap-4 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-sga-blue/10 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-sga-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-xs font-semibold uppercase tracking-wider text-sga-blue">Tier 1</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-bold text-sga-text mt-1">Community Practice Partnership</h3>
+              <p class="text-sm text-gray-500 mt-1">Solo practitioners and small group practices (1-3 doctors) doing $1M-$3M in revenue</p>
+            </div>
+          </div>
+
+          <p class="text-gray-600 mb-8 leading-relaxed">You built your practice from a single chair into one or two thriving locations. You have 15-25 staff members, a strong community reputation, and 20+ years of sweat equity invested. You want financial security and operational relief without losing what you built.</p>
+
+          <!-- Deal Structure Table -->
+          <h4 class="text-sm font-bold text-sga-blue-dark uppercase tracking-wider mb-4">Deal Structure</h4>
+          <div class="overflow-x-auto rounded-xl border border-sga-border mb-8">
+            <table class="deal-table w-full text-sm">
+              <thead>
+                <tr>
+                  <th class="text-left px-4 py-3 font-semibold text-sga-blue-dark border-b border-sga-border w-1/4">Component</th>
+                  <th class="text-left px-4 py-3 font-semibold text-sga-blue-dark border-b border-sga-border w-1/4">Structure</th>
+                  <th class="text-left px-4 py-3 font-semibold text-sga-blue-dark border-b border-sga-border">What It Means for You</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-sga-border">
+                <tr>
+                  <td class="px-4 py-3 font-medium">Valuation range</td>
+                  <td class="px-4 py-3 font-semibold text-sga-blue">7-9x EBITDA</td>
+                  <td class="px-4 py-3 text-gray-600">Fair market valuation using transparent methodology. Bring your financial advisor -- they are welcome at every stage.</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium">Upfront liquidity</td>
+                  <td class="px-4 py-3 font-semibold text-sga-blue">60-70% at close</td>
+                  <td class="px-4 py-3 text-gray-600">The meaningful liquidity event that triggered this conversation. Enough to diversify your portfolio and sleep at night knowing your net worth is not tied to one illiquid asset.</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium">Retained equity</td>
+                  <td class="px-4 py-3 font-semibold text-sga-blue">30-40% in SGA platform</td>
+                  <td class="px-4 py-3 text-gray-600">You become an equity owner in the combined SGA entity -- 100+ practices, three verticals, backed by the Thurston Group.</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium">Earnout</td>
+                  <td class="px-4 py-3 font-semibold text-sga-blue">10-20% over 2-3 years</td>
+                  <td class="px-4 py-3 text-gray-600">Tied to revenue retention. Achievable without heroic effort if the practice continues to perform as it has been.</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium">Clinical compensation</td>
+                  <td class="px-4 py-3 font-semibold text-sga-blue">Market-rate + bonus</td>
+                  <td class="px-4 py-3 text-gray-600">Market-rate salary plus 25-30% production bonus above threshold. Rewards clinical excellence without quota pressure.</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium">Equity appreciation</td>
+                  <td class="px-4 py-3 font-semibold text-sga-blue">Ongoing</td>
+                  <td class="px-4 py-3 text-gray-600">As SGA grows, your equity appreciates. Thurston's $4B+ returned across 8 platforms is the proof point.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Expand/Collapse Button -->
+          <button @click="showDetails = !showDetails" class="flex items-center gap-2 text-sm font-semibold text-sga-blue hover:text-sga-blue-dark transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-sga-blue focus-visible:ring-offset-2 rounded-lg px-3 py-2 -ml-3" :class="showDetails ? 'accordion-open' : ''">
+            <span x-text="showDetails ? 'Hide details' : 'Show what is included + value equation'"></span>
+            <svg class="w-4 h-4 accordion-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+
+          <!-- Expandable Details -->
+          <div x-show="showDetails" x-collapse>
+            <div class="mt-6 space-y-8">
+              <!-- What Is Included -->
+              <div class="grid sm:grid-cols-2 gap-6">
+                <div>
+                  <h5 class="text-sm font-bold text-sga-blue-dark mb-3">Operational Handoff (within 90 days)</h5>
+                  <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Billing and revenue cycle management</li>
+                    <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Payroll processing (iSolved replaces manual QuickBooks)</li>
+                    <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>HR and compliance management</li>
+                    <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Accounts payable and procurement</li>
+                    <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Recruiting and staffing support</li>
+                    <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Marketing and patient acquisition</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 class="text-sm font-bold text-sga-blue-dark mb-3">Team Benefits Upgrade</h5>
+                  <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-lime flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Cigna health insurance</li>
+                    <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-lime flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Mutual of Omaha supplemental benefits</li>
+                    <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-lime flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>401(k) through Voya with employer match</li>
+                    <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-lime flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>PTO and paid holidays</li>
+                    <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-lime flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>CE stipends for clinical team members</li>
+                  </ul>
+                  <h5 class="text-sm font-bold text-sga-blue-dark mt-6 mb-3">Brand and Culture Guarantees</h5>
+                  <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-cyan flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>Your practice name stays on the door</li>
+                    <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-cyan flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>Your team stays in the chairs</li>
+                    <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-cyan flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>Clinical Independence Clause in agreement</li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Value Equation -->
+              <div class="bg-sga-gray rounded-xl border border-sga-border p-6">
+                <h5 class="text-sm font-bold text-sga-blue-dark mb-4">Value Equation: The Cost of Going It Alone</h5>
+                <div class="space-y-3">
+                  <div>
+                    <div class="flex justify-between text-xs text-gray-500 mb-1"><span>Practice management consulting</span><span>$50K-$100K/yr</span></div>
+                    <div class="h-2 bg-gray-200 rounded-full overflow-hidden"><div class="value-bar h-full bg-sga-blue rounded-full" style="width:65%"></div></div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between text-xs text-gray-500 mb-1"><span>Full-time CFO / bookkeeper</span><span>$80K-$120K/yr</span></div>
+                    <div class="h-2 bg-gray-200 rounded-full overflow-hidden"><div class="value-bar h-full bg-sga-blue rounded-full" style="width:80%"></div></div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between text-xs text-gray-500 mb-1"><span>HR / compliance management</span><span>$40K-$60K/yr</span></div>
+                    <div class="h-2 bg-gray-200 rounded-full overflow-hidden"><div class="value-bar h-full bg-sga-blue rounded-full" style="width:40%"></div></div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between text-xs text-gray-500 mb-1"><span>Recruiting (per associate hire)</span><span>$15K-$30K each</span></div>
+                    <div class="h-2 bg-gray-200 rounded-full overflow-hidden"><div class="value-bar h-full bg-sga-cyan rounded-full" style="width:25%"></div></div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between text-xs text-gray-500 mb-1"><span>Marketing agency</span><span>$60K-$120K/yr</span></div>
+                    <div class="h-2 bg-gray-200 rounded-full overflow-hidden"><div class="value-bar h-full bg-sga-cyan rounded-full" style="width:75%"></div></div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between text-xs text-gray-500 mb-1"><span>Continuing education (Pikos-caliber)</span><span>$12K-$25K/yr</span></div>
+                    <div class="h-2 bg-gray-200 rounded-full overflow-hidden"><div class="value-bar h-full bg-sga-lime rounded-full" style="width:20%"></div></div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between text-xs text-gray-500 mb-1"><span>Technology capital (amortized)</span><span>$30K-$100K/yr</span></div>
+                    <div class="h-2 bg-gray-200 rounded-full overflow-hidden"><div class="value-bar h-full bg-sga-lime rounded-full" style="width:60%"></div></div>
+                  </div>
+                </div>
+                <div class="mt-6 pt-4 border-t border-sga-border flex items-center justify-between">
+                  <span class="text-sm font-semibold text-sga-text">Total if hired independently:</span>
+                  <span class="text-xl font-extrabold text-sga-orange">$297K-$575K / year</span>
+                </div>
+                <p class="text-xs text-gray-500 mt-2">SGA provides all of this as part of the partnership. The management fee comes out of operational savings and growth it creates -- not out of your personal pocket.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 2: Group -->
+      <div id="tier-group" class="tier-card tier-indicator tier-group bg-white rounded-2xl border border-sga-border shadow-sm overflow-hidden" x-data="{ showDetails: false }">
+        <div class="p-6 sm:p-8 lg:p-10">
+          <div class="flex flex-wrap items-start gap-4 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-sga-cyan/10 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-sga-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-xs font-semibold uppercase tracking-wider text-sga-cyan">Tier 2</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-bold text-sga-text mt-1">Group Practice Partnership</h3>
+              <p class="text-sm text-gray-500 mt-1">Multi-provider group practices (4-10 doctors) doing $3M-$10M in revenue</p>
+            </div>
+          </div>
+
+          <p class="text-gray-600 mb-8 leading-relaxed">You are the practice that has already proven the model. Multiple locations, multiple providers, established systems and management. The next phase of growth requires capital, infrastructure, and a partner who understands complex organizations.</p>
+
+          <h4 class="text-sm font-bold text-sga-blue-dark uppercase tracking-wider mb-4">Deal Structure</h4>
+          <div class="overflow-x-auto rounded-xl border border-sga-border mb-8">
+            <table class="deal-table w-full text-sm">
+              <thead>
+                <tr>
+                  <th class="text-left px-4 py-3 font-semibold text-sga-blue-dark border-b border-sga-border w-1/4">Component</th>
+                  <th class="text-left px-4 py-3 font-semibold text-sga-blue-dark border-b border-sga-border w-1/4">Structure</th>
+                  <th class="text-left px-4 py-3 font-semibold text-sga-blue-dark border-b border-sga-border">What It Means for You</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-sga-border">
+                <tr>
+                  <td class="px-4 py-3 font-medium">Valuation range</td>
+                  <td class="px-4 py-3 font-semibold text-sga-cyan">8-11x EBITDA</td>
+                  <td class="px-4 py-3 text-gray-600">Larger, lower-risk practices command premium multiples. Your scale is your leverage.</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium">Upfront liquidity</td>
+                  <td class="px-4 py-3 font-semibold text-sga-cyan">55-65% at close</td>
+                  <td class="px-4 py-3 text-gray-600">Slightly lower upfront percentage reflects the higher total deal size. The dollar amount is transformative: $3M-$6.5M+ in cash at close.</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium">Retained equity</td>
+                  <td class="px-4 py-3 font-semibold text-sga-cyan">35-45% in SGA platform</td>
+                  <td class="px-4 py-3 text-gray-600">Larger practices negotiate higher equity retention. More equity = more upside as the platform appreciates.</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium">Earnout</td>
+                  <td class="px-4 py-3 font-semibold text-sga-cyan">15-25% over 2-3 years</td>
+                  <td class="px-4 py-3 text-gray-600">Multi-doctor groups have more predictable revenue streams. Earnout thresholds are achievable without operational disruption.</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium">Leadership role</td>
+                  <td class="px-4 py-3 font-semibold text-sga-cyan">Regional director</td>
+                  <td class="px-4 py-3 text-gray-600">Regional clinical director or advisory board position. SGA provides a governance pathway for your leadership skills and vision.</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium">Technology investment</td>
+                  <td class="px-4 py-3 font-semibold text-sga-cyan">Within 12 months</td>
+                  <td class="px-4 py-3 text-gray-600">CEREC, guided implant systems, digital workflows, intraoral scanners -- the technology you have been deferring.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <button @click="showDetails = !showDetails" class="flex items-center gap-2 text-sm font-semibold text-sga-cyan hover:text-sga-blue-dark transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-sga-cyan focus-visible:ring-offset-2 rounded-lg px-3 py-2 -ml-3" :class="showDetails ? 'accordion-open' : ''">
+            <span x-text="showDetails ? 'Hide details' : 'Show additional group practice benefits'"></span>
+            <svg class="w-4 h-4 accordion-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+
+          <div x-show="showDetails" x-collapse>
+            <div class="mt-6 bg-cyan-50/50 border border-cyan-100 rounded-xl p-6">
+              <h5 class="text-sm font-bold text-sga-blue-dark mb-3">Additional Group Practice Benefits (Beyond Tier 1)</h5>
+              <p class="text-xs text-gray-500 mb-4">Everything in Tier 1, plus:</p>
+              <ul class="space-y-3 text-sm text-gray-600">
+                <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-cyan flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-sga-text">Dedicated integration manager</strong> for the first 6 months -- a single point of contact coordinating the operational transition across all your locations</span></li>
+                <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-cyan flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-sga-text">Regional leadership role</strong> with influence over clinical direction and future acquisitions in your geography</span></li>
+                <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-cyan flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-sga-text">Technology capital investment</strong> committed within 12 months -- a budgeted plan, not a vague promise</span></li>
+                <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-cyan flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-sga-text">Priority recruiting</strong> for open positions across your locations from day one</span></li>
+                <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-cyan flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-sga-text">Strategic input</strong> on SGA's growth direction through the partner advisory council</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 3: Specialty -->
+      <div id="tier-specialty" class="tier-card tier-indicator tier-specialty bg-white rounded-2xl border border-sga-border shadow-sm overflow-hidden" x-data="{ showDetails: false }">
+        <div class="p-6 sm:p-8 lg:p-10">
+          <div class="flex flex-wrap items-start gap-4 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-lime-100 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-lime-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-xs font-semibold uppercase tracking-wider text-lime-700">Tier 3 -- MODIS Vertical</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-bold text-sga-text mt-1">Specialty Practice Partnership</h3>
+              <p class="text-sm text-gray-500 mt-1">Periodontists, oral surgeons, implantologists, and specialty-focused practices doing $1M-$5M in revenue</p>
+            </div>
+          </div>
+
+          <p class="text-gray-600 mb-8 leading-relaxed">You are a specialist with 10-20 years of clinical expertise. The full-arch market is exploding and you have the skills. What you do not have is the capital for a new CT scanner, the marketing budget, the recruiting infrastructure, or the in-house lab. Building all of that alone would cost $500K+ and require debt you do not want to carry.</p>
+
+          <h4 class="text-sm font-bold text-sga-blue-dark uppercase tracking-wider mb-4">Deal Structure</h4>
+          <div class="overflow-x-auto rounded-xl border border-sga-border mb-8">
+            <table class="deal-table w-full text-sm">
+              <thead>
+                <tr>
+                  <th class="text-left px-4 py-3 font-semibold text-sga-blue-dark border-b border-sga-border w-1/4">Component</th>
+                  <th class="text-left px-4 py-3 font-semibold text-sga-blue-dark border-b border-sga-border w-1/4">Structure</th>
+                  <th class="text-left px-4 py-3 font-semibold text-sga-blue-dark border-b border-sga-border">What It Means for You</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-sga-border">
+                <tr>
+                  <td class="px-4 py-3 font-medium">Valuation range</td>
+                  <td class="px-4 py-3 font-semibold text-lime-700">6-8x EBITDA</td>
+                  <td class="px-4 py-3 text-gray-600">Specialist practices typically value below general group multiples. Practices filling key vertical gaps may command strategic premiums.</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium">Upfront liquidity</td>
+                  <td class="px-4 py-3 font-semibold text-lime-700">55-65% at close</td>
+                  <td class="px-4 py-3 text-gray-600">Financial diversification. Your net worth is no longer a single illiquid specialist practice.</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium">Retained equity</td>
+                  <td class="px-4 py-3 font-semibold text-lime-700">35-45% in SGA/MODIS</td>
+                  <td class="px-4 py-3 text-gray-600">You own equity in the broader SGA entity, not just the specialty vertical. Your upside comes from the entire platform.</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium">Capital investment</td>
+                  <td class="px-4 py-3 font-semibold text-lime-700">$250K-$750K / 18mo</td>
+                  <td class="px-4 py-3 text-gray-600">CT scanner upgrade. Surgical suite expansion. In-house lab. Marketing engine. The investment that transforms a solo practice into a center of excellence.</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium">Pikos Institute</td>
+                  <td class="px-4 py-3 font-semibold text-lime-700">Full access</td>
+                  <td class="px-4 py-3 text-gray-600">Dr. Michael A. Pikos is a founding partner of MODIS. His endorsement and clinical network are part of the partnership.</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3 font-medium">Scope protection</td>
+                  <td class="px-4 py-3 font-semibold text-lime-700">Written guarantee</td>
+                  <td class="px-4 py-3 text-gray-600">Your right to practice full-scope specialty dentistry is explicitly protected in the partnership agreement.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <button @click="showDetails = !showDetails" class="flex items-center gap-2 text-sm font-semibold text-lime-700 hover:text-sga-blue-dark transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-lime-600 focus-visible:ring-offset-2 rounded-lg px-3 py-2 -ml-3" :class="showDetails ? 'accordion-open' : ''">
+            <span x-text="showDetails ? 'Hide details' : 'Show specialty-specific benefits'"></span>
+            <svg class="w-4 h-4 accordion-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+
+          <div x-show="showDetails" x-collapse>
+            <div class="mt-6 bg-lime-50/50 border border-lime-100 rounded-xl p-6">
+              <h5 class="text-sm font-bold text-sga-blue-dark mb-3">Specialty-Specific Benefits (Beyond Tiers 1 and 2)</h5>
+              <ul class="space-y-3 text-sm text-gray-600">
+                <li class="flex items-start gap-2"><svg class="w-4 h-4 text-lime-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-sga-text">Pikos Institute founding partner network</strong> -- peer community of elite implantologists, clinical collaboration, research sharing, and referral relationships</span></li>
+                <li class="flex items-start gap-2"><svg class="w-4 h-4 text-lime-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-sga-text">MODIS Community Conversations podcast feature</strong> -- professional visibility that elevates your public profile</span></li>
+                <li class="flex items-start gap-2"><svg class="w-4 h-4 text-lime-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-sga-text">Cross-referral network</strong> -- SGA's general practices refer complex cases to MODIS specialists. Patient flow a solo specialist cannot generate alone.</span></li>
+                <li class="flex items-start gap-2"><svg class="w-4 h-4 text-lime-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-sga-text">Marketing engine modeled on Innovative Dental</strong> -- the practice with 3,390+ reviews and 138K YouTube subscribers</span></li>
+                <li class="flex items-start gap-2"><svg class="w-4 h-4 text-lime-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-sga-text">Thurston specialty track record briefing</strong> -- direct conversation with Patrick Haynes and Daniel Davis about prior specialty platforms</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Risk Reversal -->
+<section class="bg-sga-gray border-y border-sga-border">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold text-sga-text mb-3 text-center">What Protects You After the Ink Dries</h2>
+    <p class="text-gray-500 text-center mb-10 max-w-2xl mx-auto">Every fear you have about a DSO partnership maps to a structural protection in the SGA model.</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="bg-white rounded-xl border border-sga-border p-5">
+        <p class="text-sm font-semibold text-red-600 mb-2">"I will lose my autonomy."</p>
+        <p class="text-sm font-bold text-sga-blue-dark mb-1">Clinical Independence Clause</p>
+        <p class="text-xs text-gray-500">Written into the partnership agreement. You choose materials, labs, schedule, treatment plans. CCO is a practicing dentist (Dr. Ellingson).</p>
+      </div>
+      <div class="bg-white rounded-xl border border-sga-border p-5">
+        <p class="text-sm font-semibold text-red-600 mb-2">"They will change my brand."</p>
+        <p class="text-sm font-bold text-sga-blue-dark mb-1">Brand Continuity Guarantee</p>
+        <p class="text-xs text-gray-500">Practice retains name, signage, community identity, marketing voice. Dental Partners of SW Georgia is still Dental Partners of SW Georgia. After years.</p>
+      </div>
+      <div class="bg-white rounded-xl border border-sga-border p-5">
+        <p class="text-sm font-semibold text-red-600 mb-2">"My staff will leave."</p>
+        <p class="text-sm font-bold text-sga-blue-dark mb-1">Team Stability Commitment</p>
+        <p class="text-xs text-gray-500">All staff retained. Benefits upgraded. 85% staff retention rate across the SGA network. No competitor publishes this metric.</p>
+      </div>
+      <div class="bg-white rounded-xl border border-sga-border p-5">
+        <p class="text-sm font-semibold text-red-600 mb-2">"PE will flip us in 3 years."</p>
+        <p class="text-sm font-bold text-sga-blue-dark mb-1">Thurston Group Track Record</p>
+        <p class="text-xs text-gray-500">38 years in business. 8+ dental/healthcare platforms. $4B+ returned. Named references from prior platforms available by phone.</p>
+      </div>
+      <div class="bg-white rounded-xl border border-sga-border p-5">
+        <p class="text-sm font-semibold text-red-600 mb-2">"The equity won't be worth anything."</p>
+        <p class="text-sm font-bold text-sga-blue-dark mb-1">Named Partner References</p>
+        <p class="text-xs text-gray-500">Current partners (Dr. Godat, Dr. Cavendish) available to speak directly about the equity model's real-world performance.</p>
+      </div>
+      <div class="bg-white rounded-xl border border-sga-border p-5">
+        <p class="text-sm font-semibold text-red-600 mb-2">"The support will never materialize."</p>
+        <p class="text-sm font-bold text-sga-blue-dark mb-1">90-Day Operational Handoff</p>
+        <p class="text-xs text-gray-500">Billing, payroll, HR, compliance, procurement, marketing transition begins immediately post-close with a defined timeline.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Second Bite -->
+<section class="bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold text-sga-text mb-8 text-center">Why the Equity Model Matters More Than the Multiple</h2>
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <!-- Scenario A -->
+      <div class="rounded-xl border border-gray-200 p-6 bg-gray-50">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="w-8 h-8 rounded-full bg-gray-300 text-gray-700 flex items-center justify-center text-sm font-bold">A</span>
+          <h3 class="font-bold text-sga-text">Outright Sale (Heartland/DCA)</h3>
+        </div>
+        <ul class="space-y-2 text-sm text-gray-600">
+          <li class="flex items-start gap-2"><svg class="w-4 h-4 text-gray-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4"/></svg>Sell for 8x EBITDA</li>
+          <li class="flex items-start gap-2"><svg class="w-4 h-4 text-gray-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4"/></svg>100% at close</li>
+          <li class="flex items-start gap-2"><svg class="w-4 h-4 text-gray-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4"/></svg>Involvement ends that day</li>
+          <li class="flex items-start gap-2"><svg class="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>If DSO doubles in 5 years, you do not participate</li>
+        </ul>
+      </div>
+      <!-- Scenario B -->
+      <div class="rounded-xl border-2 border-sga-blue p-6 bg-blue-50/30 relative">
+        <span class="absolute -top-3 right-4 bg-sga-blue text-white text-xs font-bold px-3 py-1 rounded-full">SGA Model</span>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="w-8 h-8 rounded-full bg-sga-blue text-white flex items-center justify-center text-sm font-bold">B</span>
+          <h3 class="font-bold text-sga-text">JV Equity Partnership (SGA)</h3>
+        </div>
+        <ul class="space-y-2 text-sm text-gray-600">
+          <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Sell for 7-9x EBITDA</li>
+          <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>60-70% at close (meaningful liquidity)</li>
+          <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-blue flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>30-40% equity in combined platform</li>
+          <li class="flex items-start gap-2"><svg class="w-4 h-4 text-sga-lime flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong class="text-sga-blue-dark">The "second bite of the apple"</strong></li>
+        </ul>
+        <p class="text-xs text-sga-blue-dark mt-4 font-medium">Thurston Group has returned $4B+ to partners across 8 platforms. That includes both the first and second bite.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="bg-sga-gray border-y border-sga-border">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold text-sga-text mb-10 text-center">Partnership Economics: Your Questions Answered</h2>
+    <div class="space-y-3" x-data="{ openFaq: null }">
+      <template x-for="(faq, i) in [
+        { q: 'What EBITDA multiples does SGA typically pay?', a: 'SGA operates in the 7-9x EBITDA range for community and group practices, with higher multiples (9-11x) for strategically significant multi-location groups. Specialty practices typically fall in the 6-8x range but may command premiums for practices filling key vertical gaps. We are transparent about these ranges because we believe informed sellers make better partners. Your financial advisor is welcome at every stage.' },
+        { q: 'What percentage do I get upfront versus equity?', a: 'Community practices typically receive 60-70% at close with 30-40% retained in SGA platform equity. Group practices may negotiate 55-65% upfront with 35-45% equity. These ratios are negotiable based on practice size, performance, strategic value, and the seller\'s liquidity needs.' },
+        { q: 'How does the equity actually appreciate?', a: 'Your equity appreciates as the combined platform grows in value. Growth comes from: (1) new practice partnerships, (2) organic revenue growth, (3) operational efficiencies, and (4) the strategic value of SGA\'s three-vertical architecture. Thurston Group\'s $4B+ returned demonstrates this model at work.' },
+        { q: 'What is the second bite of the apple -- is it real?', a: 'When a future platform-level event occurs, your 30-40% equity position converts to additional cash -- often at a significantly higher valuation. Prior Thurston platform partners are available to speak about their experience. It is real, it is the core of the model.' },
+        { q: 'What does the management fee cover?', a: 'SGA charges a management fee covering billing, payroll, HR, compliance, procurement, marketing, recruiting, technology, and CE/development. The fee is a percentage of practice revenue. Compared to the $297K-$575K annual cost of these services independently, the fee represents significant value.' },
+        { q: 'What if I want to retire in 3-5 years?', a: 'One of the strongest use cases. You get a liquidity event now, retain equity that keeps appreciating, and continue practicing as long as you want. When ready to reduce hours, SGA recruits your successor and develops them. Your practice does not depend solely on you anymore.' },
+        { q: 'Can I negotiate the deal terms?', a: 'Yes. Every partnership is individually structured based on practice size, performance, market position, strategic value, and seller priorities. The ranges on this page are guidelines, not fixed offers. Bring your attorney and financial advisor. We expect and encourage it.' },
+        { q: 'How long from first conversation to close?', a: 'Typically 4-8 months across three stages: Connect (introductory conversation, 2-4 weeks), Engage (detailed evaluation with financial and operational diligence, 8-16 weeks), and Partner (valuation agreement, legal documentation, closing, 4-8 weeks).' },
+        { q: 'What do my staff get out of this?', a: 'Benefits are upgraded: Cigna health insurance, Mutual of Omaha supplemental, 401(k) through Voya with employer match, PTO, paid holidays, and CE stipends. All existing staff are retained. SGA\'s 85% staff retention rate reflects genuine commitment to your team.' },
+        { q: 'What if I am not happy after the first year?', a: 'The partnership agreement defines clear expectations for both parties. If support is not materializing as promised, the contract provides recourse. The best risk reversal is talking to current partners. Ask Dr. Godat, Dr. Cavendish, or anyone in the network.' },
+        { q: 'How is SGA different from MB2\'s partial equity model?', a: 'Both use JV equity structures. The differences: (1) SGA equity is in the combined platform, not just your practice. (2) Backed by Thurston Group with 38-year disclosed track record vs. MB2\'s undisclosed PE backers. (3) SGA offers the Pikos Institute and 4Front Symposium. MB2 has no education platform. (4) SGA provides named references.' },
+        { q: 'How does SGA handle EBITDA calculations?', a: 'SGA uses transparent, standard valuation methodology based on normalized EBITDA. We walk through every adjustment with you and your financial advisor. No hidden management fees deducted before calculating your multiple. Your advisory team reviews the math independently.' },
+        { q: 'What happens to my commercial lease?', a: 'Lease arrangements are addressed individually. Common structures: SGA assumes the lease, enters a sublease arrangement, or (for owner-occupied buildings) a separate real estate purchase or lease agreement. Your real estate situation is factored into the overall structure.' },
+      ]" :key="i">
+        <div class="bg-white rounded-xl border border-sga-border overflow-hidden">
+          <button @click="openFaq === i ? openFaq = null : openFaq = i" class="w-full flex items-center justify-between px-5 py-4 text-left cursor-pointer focus-visible:ring-2 focus-visible:ring-sga-blue focus-visible:ring-offset-2 rounded-xl" :class="openFaq === i ? 'accordion-open' : ''">
+            <span class="text-sm font-semibold text-sga-text pr-4" x-text="faq.q"></span>
+            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 accordion-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div x-show="openFaq === i" x-collapse>
+            <div class="px-5 pb-4">
+              <p class="text-sm text-gray-600 leading-relaxed" x-text="faq.a"></p>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section id="cta-final" class="bg-gradient-to-br from-sga-blue-dark via-sga-blue to-sga-cyan text-white">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-4" style="text-wrap:balance;">The Numbers Tell the Story. The Partners Confirm It.</h2>
+    <p class="text-lg text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">Schedule a confidential conversation with SGA's partnership team. We will walk through how your specific practice maps to these tiers, answer every financial question with your advisor present, and introduce you to current partners who can speak candidly.</p>
+    <div class="flex flex-wrap justify-center gap-3 mb-8">
+      <a href="#" class="inline-flex items-center gap-2 bg-sga-orange hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl transition-colors duration-150 cursor-pointer text-lg focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-sga-blue">Schedule a Confidential Conversation</a>
+      <a href="#" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-4 rounded-xl border border-white/30 transition-colors duration-150 cursor-pointer focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-sga-blue">Download the Partnership Assessment</a>
+    </div>
+    <p class="text-sm text-white/60">SGA evaluates 8-12 new partnership conversations per quarter. Current availability confirmed in your first call.</p>
+    <p class="text-xs text-white/40 mt-6">"Our partners can tell you how it worked out." -- We provide named references, not anonymous testimonials.</p>
+  </div>
+</section>
+
+<!-- Disclaimer -->
+<footer class="bg-gray-900 text-gray-400 text-xs">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <p>Ranges shown are indicative based on current market conditions and typical practice profiles. Actual valuation depends on individual practice performance, market position, and strategic fit. All terms are individually negotiated. This page does not constitute an offer or guarantee of specific deal terms. Legal and financial review recommended before any partnership decision.</p>
+    <p class="mt-2">Related pages: <a href="landing-page.html" class="text-sga-blue hover:underline cursor-pointer">Full SGA Story</a> | <a href="competitor-comparison.html" class="text-sga-blue hover:underline cursor-pointer">How SGA Compares</a> | <a href="faq.html" class="text-sga-blue hover:underline cursor-pointer">Full FAQ</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Practice Partnership Assessment | SGA Dental Partners</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: { teal: '#1B998B', navy: '#2D3047', gold: '#E8AA14' },
+      },
+      fontFamily: {
+        heading: ['"Roboto Slab"', 'serif'],
+        body: ['Roboto', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<style>
+@media print {
+  @page { size: letter; margin: 0.75in; }
+  .page-break { page-break-before: always; }
+  .no-print { display: none !important; }
+  body { font-size: 11pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .print-avoid-break { page-break-inside: avoid; }
+}
+body { font-family: 'Roboto', sans-serif; }
+h1,h2,h3,h4,h5,h6 { font-family: 'Roboto Slab', serif; }
+.score-box { width: 2.5rem; height: 2.5rem; border: 2px solid #2D3047; border-radius: 0.375rem; display: inline-flex; align-items: center; justify-content: center; margin-right: 0.25rem; }
+</style>
+</head>
+<body class="bg-white text-brand-navy leading-relaxed">
+
+<!-- COVER PAGE -->
+<div class="min-h-screen flex flex-col justify-between relative overflow-hidden" style="background: linear-gradient(135deg, #2D3047 0%, #1B998B 100%);">
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-20 right-20 w-96 h-96 rounded-full border border-white/30"></div>
+    <div class="absolute bottom-40 left-10 w-64 h-64 rounded-full border border-white/20"></div>
+    <div class="absolute top-1/2 right-1/3 w-48 h-48 rounded-full border border-white/15"></div>
+  </div>
+  <div class="relative z-10 pt-16 px-12">
+    <img src="../../../brand-assets/SGA-logo.png" alt="SGA Dental Partners" class="h-16 mb-4 brightness-0 invert">
+  </div>
+  <div class="relative z-10 px-12 flex-1 flex flex-col justify-center max-w-3xl">
+    <div class="w-20 h-1 bg-brand-gold mb-8"></div>
+    <h1 class="font-heading text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
+      The Practice<br>Partnership<br>Assessment
+    </h1>
+    <p class="text-xl md:text-2xl text-white/80 font-light leading-relaxed max-w-xl mb-8">
+      A Self-Evaluation Scorecard for Dental Practice Owners Considering Their Next Chapter
+    </p>
+    <div class="w-20 h-1 bg-brand-gold mb-8"></div>
+    <p class="text-white/60 text-sm font-body tracking-wide uppercase">
+      Published by SGA Dental Partners
+    </p>
+  </div>
+  <div class="relative z-10 px-12 pb-12">
+    <div class="border-t border-white/20 pt-6 flex flex-wrap gap-x-8 gap-y-2 text-white/50 text-sm">
+      <span>Backed by the Thurston Group</span>
+      <span>38 Years</span>
+      <span>8 Dental &amp; Healthcare Platforms</span>
+      <span>$4B+ Returned to Partners</span>
+    </div>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="page-break"></div>
+<div class="max-w-3xl mx-auto px-8 py-16">
+  <h2 class="font-heading text-3xl font-bold text-brand-navy mb-2">Table of Contents</h2>
+  <div class="w-16 h-1 bg-brand-teal mb-10"></div>
+
+  <div class="space-y-0">
+    <a href="#why" class="flex items-end justify-between py-3 border-b border-gray-200 hover:bg-gray-50 transition group">
+      <span class="font-heading text-lg text-brand-navy group-hover:text-brand-teal transition">Why This Assessment Exists</span>
+      <span class="text-sm text-gray-400 ml-4">3</span>
+    </a>
+    <a href="#how" class="flex items-end justify-between py-3 border-b border-gray-200 hover:bg-gray-50 transition group">
+      <span class="font-heading text-lg text-brand-navy group-hover:text-brand-teal transition">How to Use This Assessment</span>
+      <span class="text-sm text-gray-400 ml-4">4</span>
+    </a>
+    <a href="#cat1" class="flex items-end justify-between py-3 border-b border-gray-200 hover:bg-gray-50 transition group">
+      <span class="font-heading text-lg text-brand-navy group-hover:text-brand-teal transition">Category 1: Practice Financial Health</span>
+      <span class="text-sm text-gray-400 ml-4">5</span>
+    </a>
+    <a href="#cat2" class="flex items-end justify-between py-3 border-b border-gray-200 hover:bg-gray-50 transition group">
+      <span class="font-heading text-lg text-brand-navy group-hover:text-brand-teal transition">Category 2: Operational Burden</span>
+      <span class="text-sm text-gray-400 ml-4">8</span>
+    </a>
+    <a href="#cat3" class="flex items-end justify-between py-3 border-b border-gray-200 hover:bg-gray-50 transition group">
+      <span class="font-heading text-lg text-brand-navy group-hover:text-brand-teal transition">Category 3: Clinical Trajectory</span>
+      <span class="text-sm text-gray-400 ml-4">11</span>
+    </a>
+    <a href="#cat4" class="flex items-end justify-between py-3 border-b border-gray-200 hover:bg-gray-50 transition group">
+      <span class="font-heading text-lg text-brand-navy group-hover:text-brand-teal transition">Category 4: Market Position</span>
+      <span class="text-sm text-gray-400 ml-4">13</span>
+    </a>
+    <a href="#cat5" class="flex items-end justify-between py-3 border-b border-gray-200 hover:bg-gray-50 transition group">
+      <span class="font-heading text-lg text-brand-navy group-hover:text-brand-teal transition">Category 5: Personal Readiness</span>
+      <span class="text-sm text-gray-400 ml-4">15</span>
+    </a>
+    <a href="#cat6" class="flex items-end justify-between py-3 border-b border-gray-200 hover:bg-gray-50 transition group">
+      <span class="font-heading text-lg text-brand-navy group-hover:text-brand-teal transition">Category 6: Partnership Fit</span>
+      <span class="text-sm text-gray-400 ml-4">18</span>
+    </a>
+    <a href="#results" class="flex items-end justify-between py-3 border-b border-gray-200 hover:bg-gray-50 transition group">
+      <span class="font-heading text-lg text-brand-navy group-hover:text-brand-teal transition">Your Results</span>
+      <span class="text-sm text-gray-400 ml-4">21</span>
+    </a>
+    <a href="#checklist" class="flex items-end justify-between py-3 border-b border-gray-200 hover:bg-gray-50 transition group">
+      <span class="font-heading text-lg text-brand-navy group-hover:text-brand-teal transition">Questions to Ask Any DSO</span>
+      <span class="text-sm text-gray-400 ml-4">24</span>
+    </a>
+    <a href="#final" class="flex items-end justify-between py-3 border-b border-gray-200 hover:bg-gray-50 transition group">
+      <span class="font-heading text-lg text-brand-navy group-hover:text-brand-teal transition">A Final Note</span>
+      <span class="text-sm text-gray-400 ml-4">28</span>
+    </a>
+  </div>
+</div>
+
+<!-- WHY THIS ASSESSMENT EXISTS -->
+<div class="page-break"></div>
+<div id="why" class="max-w-3xl mx-auto px-8 py-16">
+  <h2 class="font-heading text-3xl font-bold text-brand-navy mb-2">Why This Assessment Exists</h2>
+  <div class="w-16 h-1 bg-brand-teal mb-8"></div>
+
+  <p class="text-lg leading-relaxed mb-6">You did not go to dental school to manage payroll disputes at midnight.</p>
+
+  <p class="leading-relaxed mb-6">Yet here you are -- reviewing financials on a Sunday night, fielding calls from your office manager about a staffing crisis, and wondering if you will ever feel the way you felt when you first opened your doors. Somewhere between the pride of what you built and the weight of carrying it alone, a question started forming:</p>
+
+  <div class="border-l-4 border-brand-gold bg-amber-50 p-6 my-8 italic text-lg">
+    Is there a better way to do this?
+  </div>
+
+  <p class="leading-relaxed mb-6">You are not the first practice owner to ask that question. Hundreds of dentists -- owners of thriving, community-rooted practices -- have sat exactly where you are sitting right now: proud of what they built, exhausted by what it demands, and uncertain about what comes next.</p>
+
+  <p class="leading-relaxed mb-6">This assessment is not a sales pitch. It is a diagnostic tool -- the same framework that experienced dental practice advisors use to help owners evaluate their readiness for a partnership conversation. It will help you:</p>
+
+  <ul class="space-y-3 mb-8">
+    <li class="flex items-start gap-3">
+      <span class="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></span>
+      <span><strong>See your practice clearly</strong> across six dimensions that matter in any transition</span>
+    </li>
+    <li class="flex items-start gap-3">
+      <span class="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></span>
+      <span><strong>Identify your strengths</strong> and the gaps that may be costing you value, time, or clinical fulfillment</span>
+    </li>
+    <li class="flex items-start gap-3">
+      <span class="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></span>
+      <span><strong>Understand your readiness tier</strong> -- whether you are in a building phase, an exploration phase, or ready for a serious conversation</span>
+    </li>
+    <li class="flex items-start gap-3">
+      <span class="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></span>
+      <span><strong>Ask the right questions</strong> of any DSO, partner, or advisor who approaches you</span>
+    </li>
+  </ul>
+
+  <div class="bg-brand-navy/5 border border-brand-navy/10 rounded-xl p-6 my-8">
+    <p class="text-sm font-medium text-brand-navy/70 uppercase tracking-wider mb-2">About This Tool</p>
+    <p class="leading-relaxed">The assessment takes 10-15 minutes. Your results are yours -- no one sees them but you. This tool was designed to be genuinely useful regardless of whether you ever speak to SGA or anyone else. A practice owner who completes this assessment and decides to stay solo will still walk away with a clearer picture of where they stand. That is the point.</p>
+  </div>
+</div>
+
+<!-- HOW TO USE -->
+<div class="page-break"></div>
+<div id="how" class="max-w-3xl mx-auto px-8 py-16">
+  <h2 class="font-heading text-3xl font-bold text-brand-navy mb-2">How to Use This Assessment</h2>
+  <div class="w-16 h-1 bg-brand-teal mb-8"></div>
+
+  <p class="leading-relaxed mb-6"><strong>For each question, circle or note the score (1-5) that best describes your current situation.</strong> Be honest -- this is for you, not for a buyer. Aspirational answers help no one.</p>
+
+  <div class="bg-gray-50 rounded-xl p-8 my-8">
+    <h3 class="font-heading text-xl font-semibold text-brand-navy mb-4">Scoring Scale</h3>
+    <div class="space-y-3">
+      <div class="flex items-center gap-4">
+        <span class="w-10 h-10 rounded-lg bg-red-100 text-red-700 font-bold flex items-center justify-center text-lg">1</span>
+        <span>Significant concern / major gap</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="w-10 h-10 rounded-lg bg-orange-100 text-orange-700 font-bold flex items-center justify-center text-lg">2</span>
+        <span>Below where I need to be</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="w-10 h-10 rounded-lg bg-yellow-100 text-yellow-700 font-bold flex items-center justify-center text-lg">3</span>
+        <span>Adequate but not strong</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center text-lg">4</span>
+        <span>Solid position</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="w-10 h-10 rounded-lg bg-brand-teal/20 text-brand-teal font-bold flex items-center justify-center text-lg">5</span>
+        <span>Exceptional / clear strength</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="leading-relaxed">After completing all six categories, total your score and find your tier in the Results Interpretation section.</p>
+</div>
+
+<!-- CATEGORY 1: FINANCIAL HEALTH -->
+<div class="page-break"></div>
+<div id="cat1" class="max-w-3xl mx-auto px-8 py-16">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="w-12 h-12 rounded-xl bg-brand-teal text-white font-heading font-bold text-xl flex items-center justify-center">1</span>
+    <h2 class="font-heading text-3xl font-bold text-brand-navy">Practice Financial Health</h2>
+  </div>
+  <div class="w-16 h-1 bg-brand-teal mb-4 ml-16"></div>
+  <p class="text-lg text-gray-600 italic mb-10 ml-16">How strong is the financial foundation you have built?</p>
+
+  <p class="leading-relaxed mb-6">Financial health is not just about revenue -- it is about the trajectory, the margins, and how much of your net worth is concentrated in one illiquid asset.</p>
+
+  <div class="border-l-4 border-brand-gold bg-amber-50 p-5 my-8 italic">
+    "I've got all my eggs in one basket and my financial advisor keeps telling me to diversify, but how do you diversify when your whole net worth is tied up in the practice?"
+  </div>
+
+  <!-- Q1 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">1</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Revenue Trajectory</h3>
+    </div>
+    <p class="text-gray-600 mb-4">Over the past three years, my practice revenue has:</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+        <span class="score-box font-bold text-sm">1</span>
+        <span>Declined more than 10%</span>
+      </label>
+      <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+        <span class="score-box font-bold text-sm">2</span>
+        <span>Declined slightly or been flat</span>
+      </label>
+      <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+        <span class="score-box font-bold text-sm">3</span>
+        <span>Grown 1-5% annually</span>
+      </label>
+      <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+        <span class="score-box font-bold text-sm">4</span>
+        <span>Grown 5-10% annually</span>
+      </label>
+      <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+        <span class="score-box font-bold text-sm">5</span>
+        <span>Grown more than 10% annually</span>
+      </label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> Revenue trajectory is the single strongest signal of practice vitality. A practice with consistent growth commands a premium in any partnership conversation. A practice in decline narrows your options with each passing year.</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2">
+      <span class="text-sm font-semibold text-gray-500">Your score:</span>
+      <span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">2</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">EBITDA and Profitability</h3>
+    </div>
+    <p class="text-gray-600 mb-4">My practice EBITDA as a percentage of collections is:</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+        <span class="score-box font-bold text-sm">1</span>
+        <span>Below 15% (or I am not sure)</span>
+      </label>
+      <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+        <span class="score-box font-bold text-sm">2</span>
+        <span>15-20%</span>
+      </label>
+      <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+        <span class="score-box font-bold text-sm">3</span>
+        <span>20-25%</span>
+      </label>
+      <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+        <span class="score-box font-bold text-sm">4</span>
+        <span>25-30%</span>
+      </label>
+      <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+        <span class="score-box font-bold text-sm">5</span>
+        <span>Above 30%</span>
+      </label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> EBITDA is the metric most partners and acquirers use to value a practice. A healthy general practice typically runs 20-30% EBITDA margins. If you do not know your EBITDA, that is itself a data point -- it means you may not have the financial visibility you need to evaluate any deal intelligently.</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2">
+      <span class="text-sm font-semibold text-gray-500">Your score:</span>
+      <span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">3</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Collections Efficiency</h3>
+    </div>
+    <p class="text-gray-600 mb-4">My practice collections rate (as a percentage of production) is:</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+        <span class="score-box font-bold text-sm">1</span>
+        <span>Below 90%</span>
+      </label>
+      <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+        <span class="score-box font-bold text-sm">2</span>
+        <span>90-93%</span>
+      </label>
+      <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+        <span class="score-box font-bold text-sm">3</span>
+        <span>93-96%</span>
+      </label>
+      <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+        <span class="score-box font-bold text-sm">4</span>
+        <span>96-98%</span>
+      </label>
+      <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+        <span class="score-box font-bold text-sm">5</span>
+        <span>Above 98%</span>
+      </label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> A gap between production and collections signals billing inefficiency, insurance write-off issues, or patient accounts receivable problems. These are exactly the operational gaps that centralized back-office support can close -- but they also affect how a potential partner views your practice's financial hygiene.</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2">
+      <span class="text-sm font-semibold text-gray-500">Your score:</span>
+      <span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">4</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Financial Diversification</h3>
+    </div>
+    <p class="text-gray-600 mb-4">What percentage of your personal net worth is tied up in your dental practice?</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+        <span class="score-box font-bold text-sm">1</span>
+        <span>More than 80%</span>
+      </label>
+      <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+        <span class="score-box font-bold text-sm">2</span>
+        <span>60-80%</span>
+      </label>
+      <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+        <span class="score-box font-bold text-sm">3</span>
+        <span>40-60%</span>
+      </label>
+      <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+        <span class="score-box font-bold text-sm">4</span>
+        <span>20-40%</span>
+      </label>
+      <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+        <span class="score-box font-bold text-sm">5</span>
+        <span>Less than 20%</span>
+      </label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> Concentration risk is the silent threat to practice owners. When your entire financial future depends on one asset -- one building, one team, one local economy -- you are exposed to risks you cannot control. The time to evaluate your options is before a liquidity crisis forces your hand, not during it.</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2">
+      <span class="text-sm font-semibold text-gray-500">Your score:</span>
+      <span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span>
+    </div>
+  </div>
+
+  <div class="bg-brand-navy rounded-xl p-6 text-white flex items-center justify-between">
+    <span class="font-heading text-lg font-semibold">Category 1 Total</span>
+    <div class="flex items-center gap-2">
+      <span class="w-16 h-10 border-2 border-white/40 rounded-lg inline-block bg-white/10"></span>
+      <span class="text-white/60 font-medium">/ 20</span>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY 2: OPERATIONAL BURDEN -->
+<div class="page-break"></div>
+<div id="cat2" class="max-w-3xl mx-auto px-8 py-16">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="w-12 h-12 rounded-xl bg-brand-teal text-white font-heading font-bold text-xl flex items-center justify-center">2</span>
+    <h2 class="font-heading text-3xl font-bold text-brand-navy">Operational Burden</h2>
+  </div>
+  <div class="w-16 h-1 bg-brand-teal mb-4 ml-16"></div>
+  <p class="text-lg text-gray-600 italic mb-10 ml-16">How much of your time and energy is consumed by tasks that have nothing to do with patient care?</p>
+
+  <p class="leading-relaxed mb-8">The administrative weight of practice ownership is the most commonly cited pain point among dentists considering a transition. Not the clinical work. Not the patients. The paperwork, the HR issues, the compliance burden, and the feeling of being "the dentist, the HR department, the IT guy, and the therapist for my whole staff."</p>
+
+  <!-- Q5 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">5</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Time Spent on Administration</h3>
+    </div>
+    <p class="text-gray-600 mb-4">How many hours per week do you personally spend on non-clinical administrative tasks?</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">1</span><span>More than 15 hours per week</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">2</span><span>10-15 hours per week</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">3</span><span>6-10 hours per week</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">4</span><span>3-6 hours per week</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">5</span><span>Less than 3 hours per week</span></label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> Every hour you spend on administration is an hour not spent on clinical care, continuing education, or your family. If you are spending 10+ hours a week on tasks that a centralized operations team could handle, you are subsidizing overhead with your time -- the most expensive resource you have.</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2">
+      <span class="text-sm font-semibold text-gray-500">Your score:</span>
+      <span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">6</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Staff Stability</h3>
+    </div>
+    <p class="text-gray-600 mb-4">In the past 24 months, how many key team members have you lost?</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">1</span><span>4 or more key departures</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">2</span><span>3 key departures</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">3</span><span>2 key departures</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">4</span><span>1 key departure</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">5</span><span>No key departures</span></label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> Staff turnover is the canary in the coal mine. Over 76% of practices find hygienist recruiting "extremely challenging." Practices with strong benefits, career development pathways, and organizational support retain talent at dramatically higher rates.</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2">
+      <span class="text-sm font-semibold text-gray-500">Your score:</span>
+      <span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">7</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Owner Dependency</h3>
+    </div>
+    <p class="text-gray-600 mb-4">If you took a two-week vacation tomorrow with no phone access, what would happen?</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">1</span><span>The practice would essentially shut down or face serious problems</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">2</span><span>It would survive, but with significant disruption and lost production</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">3</span><span>It would function at 60-75% capacity with some issues</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">4</span><span>It would run at 75-90% capacity with minor issues</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">5</span><span>It would run smoothly at near-full capacity</span></label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> Owner dependency is the single largest risk factor in practice valuation and the biggest source of burnout. If the practice cannot function without you, you do not own a business -- you own a job.</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2">
+      <span class="text-sm font-semibold text-gray-500">Your score:</span>
+      <span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">8</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Technology and Systems</h3>
+    </div>
+    <p class="text-gray-600 mb-4">How would you describe your practice's technology infrastructure?</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">1</span><span>Significantly outdated; still relying on paper records or legacy systems</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">2</span><span>Functional but aging; know we need upgrades but have not invested</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">3</span><span>Adequate; have basic digital systems in place</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">4</span><span>Modern; recently invested in digital workflows</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">5</span><span>Cutting-edge; fully digital with advanced tools</span></label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> Technology gaps widen every year you delay investment. The cost of catching up increases over time, while the capital investment required becomes harder to justify from a solo practice's cash flow.</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2">
+      <span class="text-sm font-semibold text-gray-500">Your score:</span>
+      <span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span>
+    </div>
+  </div>
+
+  <div class="bg-brand-navy rounded-xl p-6 text-white flex items-center justify-between">
+    <span class="font-heading text-lg font-semibold">Category 2 Total</span>
+    <div class="flex items-center gap-2">
+      <span class="w-16 h-10 border-2 border-white/40 rounded-lg inline-block bg-white/10"></span>
+      <span class="text-white/60 font-medium">/ 20</span>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY 3: CLINICAL TRAJECTORY -->
+<div class="page-break"></div>
+<div id="cat3" class="max-w-3xl mx-auto px-8 py-16">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="w-12 h-12 rounded-xl bg-brand-teal text-white font-heading font-bold text-xl flex items-center justify-center">3</span>
+    <h2 class="font-heading text-3xl font-bold text-brand-navy">Clinical Trajectory</h2>
+  </div>
+  <div class="w-16 h-1 bg-brand-teal mb-4 ml-16"></div>
+  <p class="text-lg text-gray-600 italic mb-10 ml-16">Are you growing as a clinician, or has your practice plateaued?</p>
+
+  <p class="leading-relaxed mb-8">This category is the one most practice owners skip -- because it requires honest introspection, not just spreadsheets. After 15 or 20 years, "sometimes it's not as fun as it used to be." The question is whether the right environment could reignite the spark.</p>
+
+  <!-- Q9 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">9</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Continuing Education Engagement</h3>
+    </div>
+    <p class="text-gray-600 mb-4">How many hours of meaningful CE (beyond state minimums) have you pursued in the past 12 months?</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">1</span><span>Only state-mandated minimum hours</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">2</span><span>Slightly above minimums; mostly online, low engagement</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">3</span><span>30-50 hours; mix of online and in-person</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">4</span><span>50-75 hours; actively pursuing new clinical skills</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">5</span><span>75+ hours; regularly attending advanced programs</span></label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> CE engagement is a proxy for clinical ambition. Dentists who are still investing in their growth tend to perform better clinically, maintain higher case acceptance, and report greater career satisfaction.</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2"><span class="text-sm font-semibold text-gray-500">Your score:</span><span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span></div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">10</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Case Complexity Trend</h3>
+    </div>
+    <p class="text-gray-600 mb-4">Over the past three years, is the clinical complexity of cases you take on:</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">1</span><span>Significantly declining -- referring out more</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">2</span><span>Slightly declining -- sticking to bread-and-butter procedures</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">3</span><span>Stable -- same mix as always</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">4</span><span>Increasing -- adding new procedures</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">5</span><span>Significantly expanding -- building new clinical capabilities</span></label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> Clinical growth and financial growth are linked. Practices that expand their service mix capture more revenue per patient and differentiate from competitors. Case complexity correlates with professional fulfillment.</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2"><span class="text-sm font-semibold text-gray-500">Your score:</span><span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span></div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">11</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Access to Mentorship and Peer Collaboration</h3>
+    </div>
+    <p class="text-gray-600 mb-4">How would you describe your access to clinical mentorship and peer-to-peer learning?</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">1</span><span>None -- I am completely on my own</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">2</span><span>Minimal -- occasional study club, little real collaboration</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">3</span><span>Moderate -- I have peers I can call, but no structured collaboration</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">4</span><span>Good -- regular peer collaboration with clinicians at my level or above</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">5</span><span>Excellent -- mentors, peer groups, and structured learning</span></label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> Solo practice is isolating. As one veteran dentist described: "When you've been on your own for such a long time, you almost forgot how exciting it is to be with peers who are challenging each other to think bigger."</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2"><span class="text-sm font-semibold text-gray-500">Your score:</span><span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span></div>
+  </div>
+
+  <div class="bg-brand-navy rounded-xl p-6 text-white flex items-center justify-between">
+    <span class="font-heading text-lg font-semibold">Category 3 Total</span>
+    <div class="flex items-center gap-2"><span class="w-16 h-10 border-2 border-white/40 rounded-lg inline-block bg-white/10"></span><span class="text-white/60 font-medium">/ 15</span></div>
+  </div>
+</div>
+
+<!-- CATEGORY 4: MARKET POSITION -->
+<div class="page-break"></div>
+<div id="cat4" class="max-w-3xl mx-auto px-8 py-16">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="w-12 h-12 rounded-xl bg-brand-teal text-white font-heading font-bold text-xl flex items-center justify-center">4</span>
+    <h2 class="font-heading text-3xl font-bold text-brand-navy">Market Position</h2>
+  </div>
+  <div class="w-16 h-1 bg-brand-teal mb-4 ml-16"></div>
+  <p class="text-lg text-gray-600 italic mb-10 ml-16">How competitive is your practice in your market, and what does the trajectory look like?</p>
+
+  <p class="leading-relaxed mb-8">Market dynamics are shifting faster than most solo practice owners realize. New DSO-backed offices are opening with modern technology and aggressive marketing. Patient acquisition costs are rising. And the staffing crisis means your competitive position depends as much on your ability to recruit and retain talent as it does on your clinical skills.</p>
+
+  <!-- Q12 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">12</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Competitive Pressure</h3>
+    </div>
+    <p class="text-gray-600 mb-4">How would you describe the competitive landscape in your market over the past three years?</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">1</span><span>Intense and increasing -- losing patients to DSO-backed offices</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">2</span><span>Noticeable pressure -- competitors investing in tech and marketing I cannot match</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">3</span><span>Moderate -- holding my own but aware of new entrants</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">4</span><span>Manageable -- strong patient loyalty and market position</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">5</span><span>Minimal -- dominant position with limited competition</span></label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> The DSO consolidation wave is reshaping local markets. Practices backed by larger organizations can invest in marketing, technology, and staff benefits at a level solo practices cannot match. Understanding your competitive position now gives you more options, not fewer.</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2"><span class="text-sm font-semibold text-gray-500">Your score:</span><span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span></div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">13</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Patient Acquisition and Retention</h3>
+    </div>
+    <p class="text-gray-600 mb-4">What is your current new patient flow and retention trend?</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">1</span><span>New patients declining; significant attrition</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">2</span><span>New patients flat; some attrition</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">3</span><span>Modest growth (5-15/month); stable retention</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">4</span><span>Healthy flow (15-30/month); strong retention</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">5</span><span>Robust growth (30+/month); retention above 85%</span></label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> Patient flow is the lifeblood of practice valuation and sustainability. A practice with strong patient acquisition and retention is in a position of strength -- and has more leverage in any partnership conversation.</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2"><span class="text-sm font-semibold text-gray-500">Your score:</span><span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span></div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">14</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Growth Ceiling</h3>
+    </div>
+    <p class="text-gray-600 mb-4">Do you feel your practice has reached a ceiling it cannot break through on its own?</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">1</span><span>Yes -- hard ceiling, no path forward without outside help</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">2</span><span>Likely -- growth stalled, lack capital or expertise to break through</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">3</span><span>Possibly -- opportunities exist but require uncertain investment</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">4</span><span>Unlikely -- I see a clear path with current resources</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">5</span><span>No -- significant untapped growth potential</span></label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> Every practice has a natural ceiling. Hitting that ceiling is not a failure -- it is a signal. The question is whether you try to push through alone or explore what becomes possible with a partner's capital, infrastructure, and scale.</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2"><span class="text-sm font-semibold text-gray-500">Your score:</span><span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span></div>
+  </div>
+
+  <div class="bg-brand-navy rounded-xl p-6 text-white flex items-center justify-between">
+    <span class="font-heading text-lg font-semibold">Category 4 Total</span>
+    <div class="flex items-center gap-2"><span class="w-16 h-10 border-2 border-white/40 rounded-lg inline-block bg-white/10"></span><span class="text-white/60 font-medium">/ 15</span></div>
+  </div>
+</div>
+
+<!-- CATEGORY 5: PERSONAL READINESS -->
+<div class="page-break"></div>
+<div id="cat5" class="max-w-3xl mx-auto px-8 py-16">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="w-12 h-12 rounded-xl bg-brand-teal text-white font-heading font-bold text-xl flex items-center justify-center">5</span>
+    <h2 class="font-heading text-3xl font-bold text-brand-navy">Personal Readiness</h2>
+  </div>
+  <div class="w-16 h-1 bg-brand-teal mb-4 ml-16"></div>
+  <p class="text-lg text-gray-600 italic mb-10 ml-16">Where are you in your career and your life -- and what do you actually want?</p>
+
+  <p class="leading-relaxed mb-8">This is the category that matters most and gets examined least. Financial models and practice metrics are important, but the decision to explore a partnership is ultimately a personal one. It is about what you want the next 10 years to look like.</p>
+
+  <!-- Q15 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">15</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Burnout Level</h3>
+    </div>
+    <p class="text-gray-600 mb-4">How would you honestly describe your current level of professional burnout?</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">1</span><span>Severe -- I dread going to work; Sunday-night anxiety is constant</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">2</span><span>Significant -- the business side has eroded my enjoyment</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">3</span><span>Moderate -- good days and bad days; ownership weight is noticeable</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">4</span><span>Mild -- I enjoy the work; manageable stresses</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">5</span><span>Minimal -- I am energized by my practice and my role</span></label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> Burnout is not a character flaw. It is the predictable result of carrying too many roles for too many years without adequate support. As one practice owner said: "I am more engaged with my patients. QuickBooks no longer calls me to the back office."</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2"><span class="text-sm font-semibold text-gray-500">Your score:</span><span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span></div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">16</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Succession Planning</h3>
+    </div>
+    <p class="text-gray-600 mb-4">How clear and actionable is your succession plan?</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">1</span><span>Nonexistent -- no plan and no idea who would take over</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">2</span><span>Vague -- I know I need a plan but have not taken steps</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">3</span><span>Early stages -- explored options but nothing in place</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">4</span><span>Developing -- associate or candidate being groomed</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">5</span><span>Solid -- clear plan with people, timelines, and structures</span></label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> A practice without a succession plan is a ticking clock for your family. Planning from a position of strength gives you options that planning from a crisis does not.</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2"><span class="text-sm font-semibold text-gray-500">Your score:</span><span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span></div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">17</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Financial Goals Alignment</h3>
+    </div>
+    <p class="text-gray-600 mb-4">How aligned is your current financial trajectory with your personal goals?</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">1</span><span>Significantly behind -- not on track for my goals</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">2</span><span>Behind -- I can see the gap and it concerns me</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">3</span><span>On track but tight -- no margin for error</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">4</span><span>Good position -- I have options and financial cushion</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">5</span><span>Strong position -- ahead of schedule with diversified assets</span></label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> Many practice owners discover too late that their practice has not built the wealth they assumed. A practice is an illiquid asset whose value depends on market conditions, buyer demand, and timing.</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2"><span class="text-sm font-semibold text-gray-500">Your score:</span><span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span></div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">18</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Emotional Readiness</h3>
+    </div>
+    <p class="text-gray-600 mb-4">When you imagine still leading clinically but no longer handling payroll, HR, compliance, marketing, recruiting, and accounts payable -- how does that feel?</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">1</span><span>Terrifying -- I cannot imagine letting go of any control</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">2</span><span>Uncomfortable -- I would worry about quality and oversight</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">3</span><span>Cautiously appealing -- I would need deep trust in the partner</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">4</span><span>Appealing -- I would welcome the relief</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">5</span><span>Liberating -- that is exactly what I want</span></label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> The most successful partnerships are between practice owners who are emotionally ready to share the load and partners who have earned their trust. A score of 1-2 means you need more information. A score of 4-5 means you are ready for a substantive conversation.</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2"><span class="text-sm font-semibold text-gray-500">Your score:</span><span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span></div>
+  </div>
+
+  <div class="bg-brand-navy rounded-xl p-6 text-white flex items-center justify-between">
+    <span class="font-heading text-lg font-semibold">Category 5 Total</span>
+    <div class="flex items-center gap-2"><span class="w-16 h-10 border-2 border-white/40 rounded-lg inline-block bg-white/10"></span><span class="text-white/60 font-medium">/ 20</span></div>
+  </div>
+</div>
+
+<!-- CATEGORY 6: PARTNERSHIP FIT -->
+<div class="page-break"></div>
+<div id="cat6" class="max-w-3xl mx-auto px-8 py-16">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="w-12 h-12 rounded-xl bg-brand-teal text-white font-heading font-bold text-xl flex items-center justify-center">6</span>
+    <h2 class="font-heading text-3xl font-bold text-brand-navy">Partnership Fit</h2>
+  </div>
+  <div class="w-16 h-1 bg-brand-teal mb-4 ml-16"></div>
+  <p class="text-lg text-gray-600 italic mb-10 ml-16">What kind of partner would actually work for you -- and what questions should you be asking?</p>
+
+  <p class="leading-relaxed mb-6">Not all partnerships are the same. "Seven or eight out of 10 dentists who sell to a DSO are frustrated or regretful." The problem is not partnerships -- it is bad partnerships. This section helps you think about fit.</p>
+
+  <!-- Q19 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">19</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Autonomy Requirements</h3>
+    </div>
+    <p class="text-gray-600 mb-4">How important is preserving your practice name, team, clinical protocols, and decision-making authority?</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">1</span><span>Not important -- I would accept rebranding for the right price</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">2</span><span>Somewhat important -- I would compromise on some elements</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">3</span><span>Important -- keep most identity, open to improvements</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">4</span><span>Very important -- name, team, clinical autonomy are non-negotiable</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">5</span><span>Absolute priority -- full preservation guaranteed or no deal</span></label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> If you scored 4 or 5, you need a partner whose model is built around preservation, not standardization. That eliminates the majority of large corporate DSOs.</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2"><span class="text-sm font-semibold text-gray-500">Your score:</span><span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span></div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">20</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Equity vs. Cash Preference</h3>
+    </div>
+    <p class="text-gray-600 mb-4">In a partnership transaction, which scenario is more appealing?</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">1</span><span>Maximum cash at close, minimal ongoing involvement</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">2</span><span>Mostly cash with a small equity position</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">3</span><span>Balanced -- significant cash plus meaningful equity</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">4</span><span>Moderate cash with significant equity for long-term growth</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">5</span><span>Minimum cash; maximum equity -- focused on long-term wealth</span></label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> There is no wrong answer -- but your preference shapes which deals make sense. The most common regret among dentists who sold is not that the multiple was wrong -- it is that they did not retain enough upside.</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2"><span class="text-sm font-semibold text-gray-500">Your score:</span><span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span></div>
+  </div>
+
+  <!-- Q21 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">21</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Cultural Alignment Priorities</h3>
+    </div>
+    <p class="text-gray-600 mb-4">Rank the following from most important (1) to least important (5):</p>
+    <div class="space-y-3 mb-6 pl-4">
+      <div class="flex items-center gap-3"><span class="w-8 h-8 border-2 border-brand-navy/30 rounded-lg inline-flex items-center justify-center text-sm flex-shrink-0"></span><span>Peer collaboration and continuing education investment</span></div>
+      <div class="flex items-center gap-3"><span class="w-8 h-8 border-2 border-brand-navy/30 rounded-lg inline-flex items-center justify-center text-sm flex-shrink-0"></span><span>Financial track record and stability of the backing entity</span></div>
+      <div class="flex items-center gap-3"><span class="w-8 h-8 border-2 border-brand-navy/30 rounded-lg inline-flex items-center justify-center text-sm flex-shrink-0"></span><span>Operational support quality (billing, HR, compliance, recruiting)</span></div>
+      <div class="flex items-center gap-3"><span class="w-8 h-8 border-2 border-brand-navy/30 rounded-lg inline-flex items-center justify-center text-sm flex-shrink-0"></span><span>Staff retention and team development programs</span></div>
+      <div class="flex items-center gap-3"><span class="w-8 h-8 border-2 border-brand-navy/30 rounded-lg inline-flex items-center justify-center text-sm flex-shrink-0"></span><span>Geographic proximity and market strategy alignment</span></div>
+    </div>
+    <p class="text-sm text-gray-500 mb-4"><strong>Scoring:</strong> 5 points if your top priority is clearly defined, 3 points if you have a general sense, 1 point if you have not thought about it.</p>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> Cultural alignment is the single best predictor of partnership satisfaction. Know what you value before you enter any conversation.</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2"><span class="text-sm font-semibold text-gray-500">Your score:</span><span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span></div>
+  </div>
+
+  <!-- Q22 -->
+  <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm print-avoid-break">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center">22</span>
+      <h3 class="font-heading text-xl font-semibold text-brand-navy">Timeline</h3>
+    </div>
+    <p class="text-gray-600 mb-4">What is your realistic timeline for making a decision about partnership?</p>
+    <div class="space-y-2 mb-6">
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">1</span><span>More than 5 years -- just curious</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">2</span><span>3-5 years -- exploring the landscape</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">3</span><span>1-3 years -- actively evaluating options</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">4</span><span>6-12 months -- ready for serious conversations</span></label>
+      <label class="flex items-center gap-3 p-3 rounded-lg"><span class="score-box font-bold text-sm">5</span><span>Less than 6 months -- I want to move forward</span></label>
+    </div>
+    <div class="bg-brand-teal/5 border border-brand-teal/15 rounded-lg p-4">
+      <p class="text-sm"><strong class="text-brand-teal">Why this matters:</strong> Timeline affects your urgency. A score of 1-2 means you have time to educate yourself and optimize. A score of 4-5 means you should be talking to potential partners now, from a position of strength.</p>
+    </div>
+    <div class="mt-4 flex items-center gap-2"><span class="text-sm font-semibold text-gray-500">Your score:</span><span class="w-12 h-10 border-2 border-brand-navy/30 rounded-lg inline-block"></span></div>
+  </div>
+
+  <div class="bg-brand-navy rounded-xl p-6 text-white flex items-center justify-between">
+    <span class="font-heading text-lg font-semibold">Category 6 Total</span>
+    <div class="flex items-center gap-2"><span class="w-16 h-10 border-2 border-white/40 rounded-lg inline-block bg-white/10"></span><span class="text-white/60 font-medium">/ 20</span></div>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div class="page-break"></div>
+<div id="results" class="max-w-3xl mx-auto px-8 py-16">
+  <h2 class="font-heading text-3xl font-bold text-brand-navy mb-2">Your Results</h2>
+  <div class="w-16 h-1 bg-brand-teal mb-10"></div>
+
+  <!-- Score Summary Table -->
+  <div class="bg-gray-50 rounded-xl overflow-hidden mb-12">
+    <table class="w-full">
+      <thead>
+        <tr class="bg-brand-navy text-white">
+          <th class="text-left py-4 px-6 font-heading">Category</th>
+          <th class="text-center py-4 px-6 font-heading w-32">Your Score</th>
+          <th class="text-center py-4 px-6 font-heading w-24">Max</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-gray-200">
+          <td class="py-3 px-6">1. Practice Financial Health</td>
+          <td class="text-center py-3 px-6"><span class="w-14 h-8 border-2 border-brand-navy/30 rounded inline-block"></span></td>
+          <td class="text-center py-3 px-6 text-gray-500">20</td>
+        </tr>
+        <tr class="border-b border-gray-200 bg-white">
+          <td class="py-3 px-6">2. Operational Burden</td>
+          <td class="text-center py-3 px-6"><span class="w-14 h-8 border-2 border-brand-navy/30 rounded inline-block"></span></td>
+          <td class="text-center py-3 px-6 text-gray-500">20</td>
+        </tr>
+        <tr class="border-b border-gray-200">
+          <td class="py-3 px-6">3. Clinical Trajectory</td>
+          <td class="text-center py-3 px-6"><span class="w-14 h-8 border-2 border-brand-navy/30 rounded inline-block"></span></td>
+          <td class="text-center py-3 px-6 text-gray-500">15</td>
+        </tr>
+        <tr class="border-b border-gray-200 bg-white">
+          <td class="py-3 px-6">4. Market Position</td>
+          <td class="text-center py-3 px-6"><span class="w-14 h-8 border-2 border-brand-navy/30 rounded inline-block"></span></td>
+          <td class="text-center py-3 px-6 text-gray-500">15</td>
+        </tr>
+        <tr class="border-b border-gray-200">
+          <td class="py-3 px-6">5. Personal Readiness</td>
+          <td class="text-center py-3 px-6"><span class="w-14 h-8 border-2 border-brand-navy/30 rounded inline-block"></span></td>
+          <td class="text-center py-3 px-6 text-gray-500">20</td>
+        </tr>
+        <tr class="border-b border-gray-200 bg-white">
+          <td class="py-3 px-6">6. Partnership Fit</td>
+          <td class="text-center py-3 px-6"><span class="w-14 h-8 border-2 border-brand-navy/30 rounded inline-block"></span></td>
+          <td class="text-center py-3 px-6 text-gray-500">20</td>
+        </tr>
+        <tr class="bg-brand-navy text-white font-bold">
+          <td class="py-4 px-6 font-heading text-lg">TOTAL</td>
+          <td class="text-center py-4 px-6"><span class="w-14 h-8 border-2 border-white/40 rounded inline-block bg-white/10"></span></td>
+          <td class="text-center py-4 px-6">110</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Tier 1 -->
+  <div class="mb-12 print-avoid-break">
+    <div class="flex items-center gap-4 mb-4">
+      <span class="px-4 py-2 rounded-full bg-orange-100 text-orange-700 font-bold text-sm uppercase tracking-wider">22-50 Points</span>
+      <h3 class="font-heading text-2xl font-bold text-brand-navy">Tier 1: Foundation Building</h3>
+    </div>
+    <p class="leading-relaxed mb-4">You are earlier in the journey. Your practice may have significant areas that need strengthening before a partnership conversation would serve you well -- or you may simply not be emotionally ready, and that is perfectly fine.</p>
+    <p class="leading-relaxed mb-6">This score does not mean partnership is not in your future. It means the smartest move right now is to invest in the fundamentals.</p>
+    <div class="bg-gray-50 rounded-xl p-6">
+      <h4 class="font-heading font-semibold text-brand-navy mb-4">Your Recommended Next Steps</h4>
+      <ol class="space-y-3 list-decimal list-inside">
+        <li><strong>Shore up your financials.</strong> Work with a dental-specific accountant to establish your EBITDA baseline.</li>
+        <li><strong>Reduce owner dependency.</strong> Document your systems. Cross-train your team.</li>
+        <li><strong>Address technology gaps.</strong> Prioritize technology that directly impacts patient experience and clinical capability.</li>
+        <li><strong>Build your peer network.</strong> Join a study club, attend conferences, or find a mastermind group.</li>
+        <li><strong>Subscribe to industry education.</strong> Learn about different partnership models, deal structures, and valuation methodologies.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Tier 2 -->
+  <div class="page-break"></div>
+  <div class="mb-12 print-avoid-break">
+    <div class="flex items-center gap-4 mb-4">
+      <span class="px-4 py-2 rounded-full bg-yellow-100 text-yellow-700 font-bold text-sm uppercase tracking-wider">51-79 Points</span>
+      <h3 class="font-heading text-2xl font-bold text-brand-navy">Tier 2: Exploring</h3>
+    </div>
+    <p class="leading-relaxed mb-4">You have a solid foundation with clear room for growth. You may be in the "midnight Googling" phase -- searching "sell dental practice" late at night, not yet ready to pick up the phone but increasingly aware that something needs to change.</p>
+    <p class="leading-relaxed mb-6">This is the most important phase. The decisions you make now will determine whether your eventual transition is one of the 3 in 10 that go well or one of the 7 in 10 that end in frustration.</p>
+    <div class="bg-gray-50 rounded-xl p-6">
+      <h4 class="font-heading font-semibold text-brand-navy mb-4">Your Recommended Next Steps</h4>
+      <ol class="space-y-3 list-decimal list-inside">
+        <li><strong>Get a baseline practice valuation</strong> from an independent dental practice appraiser, not a broker.</li>
+        <li><strong>Talk to dentists who have been through it.</strong> Ask about year two, not just closing day.</li>
+        <li><strong>Understand the models.</strong> Corporate DSOs, management service organizations, and joint-venture equity partnerships are fundamentally different.</li>
+        <li><strong>Identify your non-negotiables.</strong> What must be preserved in any partnership?</li>
+        <li><strong>Evaluate your personal financial picture.</strong> How much liquidity do you need? What does diversification look like for you?</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Tier 3 -->
+  <div class="mb-12 print-avoid-break">
+    <div class="flex items-center gap-4 mb-4">
+      <span class="px-4 py-2 rounded-full bg-emerald-100 text-emerald-700 font-bold text-sm uppercase tracking-wider">80-110 Points</span>
+      <h3 class="font-heading text-2xl font-bold text-brand-navy">Tier 3: Ready to Talk</h3>
+    </div>
+    <p class="leading-relaxed mb-4">Your practice is well-positioned, your financial house is in order, and you are emotionally ready. You are not looking for a rescue -- you are looking for an amplifier.</p>
+    <p class="leading-relaxed mb-6">This is a position of strength. You have options, leverage, and the luxury of choosing a partner based on fit rather than necessity.</p>
+    <div class="bg-gray-50 rounded-xl p-6">
+      <h4 class="font-heading font-semibold text-brand-navy mb-4">Your Recommended Next Steps</h4>
+      <ol class="space-y-3 list-decimal list-inside">
+        <li><strong>Have 3-5 confidential conversations</strong> with potential partners to understand the range of models, cultures, and deal structures.</li>
+        <li><strong>Bring your advisors to the table.</strong> A good partner will welcome their involvement.</li>
+        <li><strong>Ask the hard questions.</strong> Use the DSO checklist on the next page. Ask for references from partners who joined 2+ years ago.</li>
+        <li><strong>Visit a partner practice.</strong> See how it actually runs 18+ months in.</li>
+        <li><strong>Negotiate from knowledge.</strong> The right partner will respect clarity and conviction.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- DSO CHECKLIST -->
+<div class="page-break"></div>
+<div id="checklist" class="max-w-3xl mx-auto px-8 py-16">
+  <h2 class="font-heading text-3xl font-bold text-brand-navy mb-2">Questions to Ask Any DSO</h2>
+  <p class="text-lg text-gray-600 mb-2">The Due Diligence Checklist Every Practice Owner Needs</p>
+  <div class="w-16 h-1 bg-brand-teal mb-8"></div>
+
+  <p class="leading-relaxed mb-8">These questions separate the partners who have built something real from the ones who have built a pitch deck. Use them in any conversation. Their answers -- and especially their willingness to answer -- will tell you everything.</p>
+
+  <!-- Section A -->
+  <div class="mb-10 print-avoid-break">
+    <h3 class="font-heading text-xl font-bold text-brand-teal mb-4">Section A: Track Record and Stability</h3>
+    <ol class="space-y-4">
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span>How long has your backing entity been in business, and how many healthcare platforms have they built?</span></li>
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span>How much capital has your backer returned to partners across all investments?</span></li>
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span>Can I speak directly with 3-5 partners who joined 2+ years ago -- partners you did not select for me?</span></li>
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span>What is your total partner count, and what is your partner retention rate?</span></li>
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">5</span><span>What is your staff retention rate across the network?</span></li>
+    </ol>
+  </div>
+
+  <!-- Section B -->
+  <div class="mb-10 print-avoid-break">
+    <h3 class="font-heading text-xl font-bold text-brand-teal mb-4">Section B: Autonomy and Identity</h3>
+    <ol class="space-y-4" start="6">
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">6</span><span>Will my practice keep its name, branding, and community identity? Get this in writing.</span></li>
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">7</span><span>Who makes clinical decisions -- treatment plans, materials, labs, scheduling, hiring?</span></li>
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">8</span><span>Will I be required to use specific vendors, labs, or supply contracts?</span></li>
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">9</span><span>What happens if I disagree with a corporate decision that affects my practice?</span></li>
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">10</span><span>Can I see the partnership agreement template before I commit to due diligence?</span></li>
+    </ol>
+  </div>
+
+  <!-- Section C -->
+  <div class="mb-10 print-avoid-break">
+    <h3 class="font-heading text-xl font-bold text-brand-teal mb-4">Section C: Financial Structure</h3>
+    <ol class="space-y-4" start="11">
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">11</span><span>Walk me through the equity model in detail. What percentage do I retain? How is it valued? What triggers a liquidity event?</span></li>
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">12</span><span>What management fee does the platform charge, and what does it cover?</span></li>
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">13</span><span>Are there clawback provisions, earnout penalties, or non-compete implications?</span></li>
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">14</span><span>What is your expected hold period, and what happens at exit?</span></li>
+    </ol>
+  </div>
+
+  <!-- Section D -->
+  <div class="mb-10 print-avoid-break">
+    <h3 class="font-heading text-xl font-bold text-brand-teal mb-4">Section D: Operational Support</h3>
+    <ol class="space-y-4" start="15">
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">15</span><span>What specific back-office functions will you take over, and what is the timeline?</span></li>
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">16</span><span>What technology investments will you make in my practice, and over what period?</span></li>
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">17</span><span>How do you handle recruiting when I need a new associate, hygienist, or front desk team member?</span></li>
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">18</span><span>What continuing education resources are available, and are they included?</span></li>
+    </ol>
+  </div>
+
+  <!-- Section E -->
+  <div class="mb-10 print-avoid-break">
+    <h3 class="font-heading text-xl font-bold text-brand-teal mb-4">Section E: Culture and Community</h3>
+    <ol class="space-y-4" start="19">
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">19</span><span>What does the peer community look like? How often do partners interact, and in what format?</span></li>
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">20</span><span>How do you handle the transition with my existing staff?</span></li>
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">21</span><span>What career development opportunities exist for my non-clinical team?</span></li>
+      <li class="flex gap-3"><span class="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">22</span><span>What does your partner NPS or satisfaction score look like?</span></li>
+    </ol>
+  </div>
+
+  <!-- Red / Green Flags -->
+  <div class="page-break"></div>
+  <div class="grid md:grid-cols-2 gap-6 mb-10">
+    <div class="bg-red-50 border border-red-200 rounded-xl p-6 print-avoid-break">
+      <h4 class="font-heading font-bold text-red-700 mb-4">Red Flags to Watch For</h4>
+      <ul class="space-y-2 text-sm">
+        <li class="flex items-start gap-2"><span class="text-red-500 mt-1 flex-shrink-0">&times;</span>They rush the timeline</li>
+        <li class="flex items-start gap-2"><span class="text-red-500 mt-1 flex-shrink-0">&times;</span>They will not provide unscripted references</li>
+        <li class="flex items-start gap-2"><span class="text-red-500 mt-1 flex-shrink-0">&times;</span>They avoid specifics on equity terms</li>
+        <li class="flex items-start gap-2"><span class="text-red-500 mt-1 flex-shrink-0">&times;</span>They dismiss your advisors</li>
+        <li class="flex items-start gap-2"><span class="text-red-500 mt-1 flex-shrink-0">&times;</span>They promise everything will "stay the same"</li>
+        <li class="flex items-start gap-2"><span class="text-red-500 mt-1 flex-shrink-0">&times;</span>Their staff turnover is high or undisclosed</li>
+      </ul>
+    </div>
+    <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-6 print-avoid-break">
+      <h4 class="font-heading font-bold text-emerald-700 mb-4">Green Flags That Signal a Real Partner</h4>
+      <ul class="space-y-2 text-sm">
+        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-1 flex-shrink-0">&#10003;</span>They encourage you to talk to your advisors</li>
+        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-1 flex-shrink-0">&#10003;</span>They provide named, contactable references</li>
+        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-1 flex-shrink-0">&#10003;</span>They articulate what changes and what stays, in writing</li>
+        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-1 flex-shrink-0">&#10003;</span>They have a verifiable multi-platform track record</li>
+        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-1 flex-shrink-0">&#10003;</span>Partners speak with specificity, not just enthusiasm</li>
+        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-1 flex-shrink-0">&#10003;</span>They measure and share retention and outcomes</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL NOTE -->
+<div class="page-break"></div>
+<div id="final" class="max-w-3xl mx-auto px-8 py-16">
+  <h2 class="font-heading text-3xl font-bold text-brand-navy mb-2">A Final Note</h2>
+  <div class="w-16 h-1 bg-brand-teal mb-8"></div>
+
+  <p class="text-lg leading-relaxed mb-6">If you have made it this far, you are already doing something most practice owners never do: examining your situation with honesty and rigor.</p>
+
+  <p class="leading-relaxed mb-6">Whether your score says "foundation building" or "ready to talk," the act of completing this assessment means you are thinking strategically about your future rather than reacting to whatever crisis arrives next. That alone puts you ahead of the majority of your peers.</p>
+
+  <p class="leading-relaxed mb-8">Whatever you decide -- stay solo, explore options, or start conversations -- make the decision from a position of knowledge. Not at midnight. Not in a panic. Not because a broker called at the right moment.</p>
+
+  <div class="border-l-4 border-brand-gold bg-amber-50 p-6 my-10 text-xl italic font-heading">
+    You built something worth protecting. The next chapter should be written on your terms.
+  </div>
+</div>
+
+<!-- CTA PAGE -->
+<div class="page-break"></div>
+<div class="min-h-screen flex flex-col justify-center" style="background: linear-gradient(135deg, #2D3047 0%, #1B998B 100%);">
+  <div class="max-w-2xl mx-auto px-8 text-center text-white">
+    <img src="../../../brand-assets/SGA-logo.png" alt="SGA Dental Partners" class="h-14 mx-auto mb-10 brightness-0 invert">
+    <h2 class="font-heading text-4xl font-bold mb-6">Ready for a Confidential Conversation?</h2>
+    <p class="text-xl text-white/80 mb-10 leading-relaxed">No brokers. No NDAs at this stage. No pressure. Just a direct conversation between professionals about what partnership could look like for your specific practice.</p>
+    <a href="https://sgadental.com/partners" class="inline-block bg-brand-gold text-brand-navy font-bold px-10 py-4 rounded-xl text-lg hover:bg-yellow-400 transition shadow-lg mb-8">Schedule a Confidential Conversation</a>
+    <p class="text-white/60 text-sm mb-2">Or reach us directly:</p>
+    <p class="text-white/80 mb-1">partnerships@sgadental.com</p>
+    <p class="text-white/80 mb-10">sgadental.com/partners</p>
+    <div class="border-t border-white/20 pt-8">
+      <p class="italic text-white/60">"Dentists come to SGA to get better, not just to get bought."</p>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT SGA -->
+<div class="page-break"></div>
+<div class="max-w-3xl mx-auto px-8 py-16">
+  <h2 class="font-heading text-2xl font-bold text-brand-navy mb-2">About SGA Dental Partners</h2>
+  <div class="w-16 h-1 bg-brand-teal mb-6"></div>
+  <p class="leading-relaxed mb-4">SGA Dental Partners is a dental partnership platform consolidating Gen4 Dental Partners and MODIS Dental Partners under one umbrella, backed by the Thurston Group (38 years, $4B+ returned to partners, 8 dental and healthcare platforms). SGA operates across 10+ states with 100+ partner clinicians, preserving local practice identities while providing centralized operational support, an equity partnership model, and an education ecosystem anchored by the Pikos Institute and the annual 4Front Symposium.</p>
+  <p class="leading-relaxed mb-6">Our partners keep their name, their team, and their way of practicing. Their patients never know the difference -- except that everything runs better.</p>
+  <p class="leading-relaxed text-sm text-gray-500">Copyright 2026 SGA Dental Partners. This assessment may be shared freely with colleagues. We believe an informed market benefits everyone -- including us.</p>
+</div>
+
+<!-- Footer for each printed page -->
+<div class="fixed bottom-0 left-0 right-0 hidden print:block">
+  <div class="max-w-3xl mx-auto px-8 py-4 border-t border-gray-200 flex justify-between text-xs text-gray-400">
+    <span>SGA Dental Partners | The Practice Partnership Assessment</span>
+    <span>sgadental.com/partners</span>
+  </div>
+</div>
+
+</body>
+</html>

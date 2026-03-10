@@ -1,0 +1,503 @@
+{
+  "title": "SGA Guide Chatbot",
+  "type": "Conversational Marketing Funnel",
+  "status": "Ready for implementation",
+  "platforms": [
+    "Website Widget (sgadental.com)",
+    "MODIS Patient Widget",
+    "Facebook Messenger",
+    "Instagram DM"
+  ],
+  "persona": "Sage archetype: knowledgeable, direct, evidence-backed, never pushy",
+  "coreValueProp": "Get the right information or the right person in under 2 minutes -- no forms, no hold music, no runaround.",
+  "primaryUsers": [
+    "Practice owners exploring partnership",
+    "Specialist dentists evaluating MODIS",
+    "Associate dentists exploring careers",
+    "Implant patients researching treatment",
+    "General dentistry patients seeking appointments"
+  ],
+  "successMetrics": {
+    "engagementRate": "> 5%",
+    "completionRate": "> 45%",
+    "chatToLeadRate": "> 20%",
+    "chatToMeetingRate": "> 8%"
+  },
+  "entryPoints": [
+    {
+      "name": "SGA Website Widget",
+      "placement": "All pages, bottom-right",
+      "triggers": [
+        {
+          "trigger": "Time-based",
+          "page": "Homepage",
+          "delay": "15 seconds",
+          "message": "Welcome to SGA Dental Partners. Are you a dental professional or a patient?"
+        },
+        {
+          "trigger": "Page-specific",
+          "page": "/partners",
+          "delay": "8 seconds",
+          "message": "Exploring what partnership looks like?"
+        },
+        {
+          "trigger": "Page-specific",
+          "page": "/careers",
+          "delay": "8 seconds",
+          "message": "Looking for your next career move?"
+        },
+        {
+          "trigger": "Scroll-based",
+          "page": "Blog pages",
+          "delay": "50% scroll",
+          "message": "Have a question about what you're reading?"
+        },
+        {
+          "trigger": "Exit intent",
+          "page": "/partners, /careers",
+          "delay": "On exit",
+          "message": "Before you go -- Partnership Guide or open positions by email?"
+        },
+        {
+          "trigger": "Return visitor",
+          "page": "Any (cookie)",
+          "delay": "10 seconds",
+          "message": "Welcome back. Anything I can help with today?"
+        }
+      ]
+    },
+    {
+      "name": "MODIS Patient Widget",
+      "placement": "Implant & patient pages",
+      "triggers": [
+        {
+          "trigger": "Time-based",
+          "page": "Implant service page",
+          "delay": "12 seconds",
+          "message": "Thinking about dental implants? I can help you understand your options."
+        },
+        {
+          "trigger": "Page-specific",
+          "page": "Pricing/cost page",
+          "delay": "8 seconds",
+          "message": "Have questions about cost or financing?"
+        },
+        {
+          "trigger": "Exit intent",
+          "page": "Implant pages",
+          "delay": "On exit",
+          "message": "Before you go -- free Smile Assessment in 2 minutes."
+        }
+      ]
+    },
+    {
+      "name": "Facebook Messenger",
+      "placement": "Meta ads, page CTA",
+      "triggers": [
+        {
+          "trigger": "B2B ad click",
+          "page": "Partnership ad",
+          "delay": "Immediate",
+          "message": "Thanks for your interest in SGA Dental Partners."
+        },
+        {
+          "trigger": "B2C implant ad",
+          "page": "Implant ad",
+          "delay": "Immediate",
+          "message": "Interested in dental implants or scheduling a consultation?"
+        },
+        {
+          "trigger": "Recruitment ad",
+          "page": "Associate ad",
+          "delay": "Immediate",
+          "message": "Looking for open positions or want to learn more about SGA?"
+        }
+      ]
+    },
+    {
+      "name": "Instagram DM",
+      "placement": "Keyword auto-reply",
+      "triggers": [
+        {
+          "trigger": "Keyword",
+          "page": "partnership, partner, sell practice",
+          "delay": "Immediate",
+          "message": "Are you a practice owner, associate, or specialist?"
+        },
+        {
+          "trigger": "Keyword",
+          "page": "implants, teeth, smile",
+          "delay": "Immediate",
+          "message": "Looking for implant info or to schedule a consultation?"
+        },
+        {
+          "trigger": "Keyword",
+          "page": "jobs, career, associate",
+          "delay": "Immediate",
+          "message": "Dentist, hygienist, or front office role?"
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "b2b-owner",
+      "name": "Practice Owner Path",
+      "avatar": "Dr. Mark Hendricks",
+      "steps": 5,
+      "questions": [
+        "Role Confirmation",
+        "Practice Size (operatories)",
+        "Biggest Challenge",
+        "Partnership Awareness",
+        "Timeline"
+      ],
+      "challenges": [
+        "Admin burden",
+        "Growth ceiling",
+        "Succession planning",
+        "Staffing",
+        "Clinical development"
+      ],
+      "routing": [
+        {
+          "condition": "Ready now + any size",
+          "action": "Immediate BD Handoff"
+        },
+        {
+          "condition": "6-12 months + 4+ ops",
+          "action": "Partnership Guide + book a call"
+        },
+        {
+          "condition": "6-12 months + 1-3 ops",
+          "action": "Growth Resources + email nurture"
+        },
+        {
+          "condition": "Just exploring + any",
+          "action": "Partnership Assessment + email nurture"
+        }
+      ]
+    },
+    {
+      "id": "b2b-associate",
+      "name": "Associate Dentist Path",
+      "avatar": "Dr. Priya Nair",
+      "steps": 4,
+      "questions": [
+        "Career Stage",
+        "Biggest Professional Challenge",
+        "What Matters Most",
+        "Timeline"
+      ],
+      "challenges": [
+        "Limited mentorship",
+        "Production treadmill",
+        "No equity pathway",
+        "Clinical skill plateau"
+      ],
+      "routing": [
+        {
+          "condition": "Actively looking + experienced",
+          "action": "Recruiter direct connect"
+        },
+        {
+          "condition": "Exploring + any",
+          "action": "Associate opportunity guide + nurture"
+        },
+        {
+          "condition": "Early career + any",
+          "action": "Career pathway content + newsletter"
+        }
+      ]
+    },
+    {
+      "id": "b2b-specialist",
+      "name": "Specialist Path",
+      "avatar": "Dr. James Whitfield",
+      "steps": 5,
+      "questions": [
+        "Specialty Type",
+        "Practice Situation",
+        "Biggest Challenge",
+        "MODIS/Pikos Familiarity",
+        "Timeline"
+      ],
+      "challenges": [
+        "Capital for growth",
+        "Recruiting associates",
+        "Marketing",
+        "Succession planning",
+        "Competing with larger groups"
+      ],
+      "routing": [
+        {
+          "condition": "Actively evaluating + Owner",
+          "action": "Direct to Marcus Morosin (VP BD)"
+        },
+        {
+          "condition": "Starting to research",
+          "action": "Specialist's Guide + call option"
+        },
+        {
+          "condition": "Early + any",
+          "action": "Specialist's Guide + MODIS podcast"
+        }
+      ]
+    },
+    {
+      "id": "b2c-implant",
+      "name": "Implant Patient Path",
+      "avatar": "Linda Dawson",
+      "steps": 5,
+      "questions": [
+        "Specific Situation",
+        "Biggest Concern",
+        "Location",
+        "Doctor Preference",
+        "Next Step"
+      ],
+      "concerns": [
+        "Cost and affordability",
+        "Fear of surgery",
+        "Not sure which option",
+        "Finding the right doctor",
+        "Travel or logistics"
+      ],
+      "routing": [
+        {
+          "condition": "Schedule consultation",
+          "action": "Practice scheduler or Calendly"
+        },
+        {
+          "condition": "Smile Assessment",
+          "action": "Assessment link + email capture"
+        },
+        {
+          "condition": "Cost/financing",
+          "action": "Financing info + consultation CTA"
+        },
+        {
+          "condition": "Send info",
+          "action": "Email capture + PT-Implant Nurture"
+        }
+      ]
+    },
+    {
+      "id": "b2c-general",
+      "name": "General Dentistry Path",
+      "avatar": "General Patient",
+      "steps": 4,
+      "questions": [
+        "Service Type",
+        "Location (zip/city)",
+        "Insurance Status",
+        "Booking Preference"
+      ],
+      "routing": [
+        { "condition": "Book online", "action": "Practice scheduler embed" },
+        {
+          "condition": "Callback request",
+          "action": "Lead capture + front desk notification"
+        }
+      ]
+    },
+    {
+      "id": "b2c-emergency",
+      "name": "Emergency Patient Path",
+      "avatar": "Emergency Patient",
+      "steps": 2,
+      "questions": ["Confirm emergency", "Location"],
+      "routing": [
+        {
+          "condition": "Confirmed emergency",
+          "action": "Immediate practice phone number"
+        },
+        {
+          "condition": "Not urgent",
+          "action": "Route to general appointment flow"
+        }
+      ]
+    }
+  ],
+  "leadScoring": {
+    "b2b": {
+      "signals": [
+        { "signal": "Visits /partners page + starts chat", "points": 30 },
+        { "signal": "Identifies as practice owner", "points": 20 },
+        { "signal": "Identifies as specialist", "points": 20 },
+        { "signal": "7+ operatories", "points": 15 },
+        { "signal": "Challenge: succession planning", "points": 15 },
+        { "signal": "Timeline: Ready now", "points": 25 },
+        { "signal": "Timeline: 6-12 months", "points": 15 },
+        { "signal": "Completes Assessment", "points": 20 },
+        { "signal": "Downloads Partnership Guide", "points": 15 },
+        { "signal": "Mentions competitor by name", "points": 10 },
+        { "signal": "Returns within 7 days", "points": 10 }
+      ],
+      "tiers": [
+        {
+          "range": "70+",
+          "label": "Hot Lead",
+          "action": "Immediate Slack notification. BD outreach within 24 hours."
+        },
+        {
+          "range": "40-69",
+          "label": "Warm Lead",
+          "action": "Engagement email sequence. BD follow-up within 72 hours."
+        },
+        {
+          "range": "15-39",
+          "label": "Nurture Lead",
+          "action": "Educational nurture. Monthly check-in content."
+        },
+        {
+          "range": "0-14",
+          "label": "Cold/Early",
+          "action": "General newsletter. Re-evaluate on return."
+        }
+      ]
+    },
+    "b2c": {
+      "signals": [
+        { "signal": "Visits implant page + starts chat", "points": 20 },
+        { "signal": "Wears dentures, wants permanent", "points": 15 },
+        { "signal": "Told they need implants", "points": 15 },
+        { "signal": "Requests consultation scheduling", "points": 25 },
+        { "signal": "Completes Smile Assessment", "points": 20 },
+        { "signal": "Asks about specific doctor", "points": 10 },
+        { "signal": "Returns within 14 days", "points": 10 }
+      ],
+      "tiers": [
+        {
+          "range": "50+",
+          "label": "Hot Patient",
+          "action": "Notify practice front desk. Personal outreach same day."
+        },
+        {
+          "range": "25-49",
+          "label": "Warm Patient",
+          "action": "PT-Implant Nurture email sequence."
+        },
+        {
+          "range": "0-24",
+          "label": "Early Interest",
+          "action": "Smile Assessment + educational content."
+        }
+      ]
+    }
+  },
+  "handoffProtocols": [
+    {
+      "trigger": "User explicitly asks for a person",
+      "priority": "Immediate",
+      "target": "Route based on flow"
+    },
+    {
+      "trigger": "B2B lead score > 70",
+      "priority": "Immediate",
+      "target": "BD team via Slack"
+    },
+    {
+      "trigger": "B2C lead score > 50",
+      "priority": "High",
+      "target": "Practice front desk callback"
+    },
+    {
+      "trigger": "User frustration detected",
+      "priority": "Immediate",
+      "target": "Appropriate team + escalation tag"
+    },
+    {
+      "trigger": "Pricing/deal terms discussion",
+      "priority": "High",
+      "target": "BD team directly"
+    },
+    {
+      "trigger": "Patient complaint",
+      "priority": "Immediate",
+      "target": "Patient experience team"
+    }
+  ],
+  "richMedia": {
+    "b2b": [
+      {
+        "moment": "After challenge identification",
+        "type": "Infographic",
+        "asset": "What SGA Handles vs. What You Handle"
+      },
+      {
+        "moment": "After Thurston mention",
+        "type": "Stat card",
+        "asset": "38 Years. 8 Platforms. $4B+ Returned."
+      },
+      {
+        "moment": "After peer collaboration mention",
+        "type": "Video (60s)",
+        "asset": "4Front Symposium highlight reel"
+      },
+      {
+        "moment": "After clinical development",
+        "type": "Video (90s)",
+        "asset": "Dr. Cavendish transformation story"
+      },
+      {
+        "moment": "After practice preservation",
+        "type": "Carousel",
+        "asset": "Logos of preserved practice brands"
+      },
+      {
+        "moment": "Before CTA",
+        "type": "Photo",
+        "asset": "BD team member headshot + bio"
+      }
+    ],
+    "b2c": [
+      {
+        "moment": "After denture frustration",
+        "type": "Video (2-3 min)",
+        "asset": "Patient transformation matching situation"
+      },
+      {
+        "moment": "After cost concern",
+        "type": "Infographic",
+        "asset": "What $249/month Looks Like -- financing breakdown"
+      },
+      {
+        "moment": "After surgery fear",
+        "type": "Video (90s)",
+        "asset": "Scott's steak moment"
+      },
+      {
+        "moment": "After option uncertainty",
+        "type": "Interactive",
+        "asset": "Dentures vs. snap-in vs. fixed comparison"
+      },
+      {
+        "moment": "Before scheduling CTA",
+        "type": "Before/after photo",
+        "asset": "Transformation matching patient demographics"
+      },
+      {
+        "moment": "Post-booking",
+        "type": "Video (60s)",
+        "asset": "What to Expect at Your First Visit"
+      }
+    ]
+  },
+  "integrations": [
+    "HubSpot/Salesforce (CRM)",
+    "ActiveCampaign/Mailchimp (email)",
+    "Calendly (B2B scheduling)",
+    "Practice PMS (B2C scheduling)",
+    "Google Sheets (lead log backup)",
+    "Slack (team notifications)"
+  ],
+  "outOfScope": [
+    "Contract negotiation",
+    "Specific deal terms/multiples",
+    "Clinical diagnosis",
+    "Prescription advice",
+    "Insurance claims resolution",
+    "Billing disputes"
+  ]
+}

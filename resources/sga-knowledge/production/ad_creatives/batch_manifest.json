@@ -1,0 +1,146 @@
+[
+  {
+    "name": "FB V1 - Sunday Night (Primary)",
+    "prompt": "Overhead photograph of a kitchen table late at night. A laptop is open showing a spreadsheet with dental appointment data. A half-empty coffee mug sits beside it. A document with a dental practice logo is next to the laptop. A warm amber desk lamp illuminates the scene against a dark room background. The mood is quiet isolation and fatigue -- a competent professional stretched thin by administrative burden. Photorealistic, editorial photography style. Warm amber lamp light against dark shadows. In the lower third of the image, include a subtle dark navy semi-transparent bar with elegant serif text reading 'You did not go to dental school for this.' in cream white. A small teal and gold dental company logo lockup in the bottom-right corner. Color palette: warm amber (#E8AA14 gold tones), dark navy (#2D3047), and teal (#1B998B) accents.",
+    "tier": "premium",
+    "aspect_ratio": "1:1",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/facebook/variation1_sunday_night_1080x1080.png",
+    "category": "facebook_b2b"
+  },
+  {
+    "name": "FB V2 - Horror Stories Thumbnail (Primary)",
+    "prompt": "Bold typographic design on a deep navy (#2D3047) background. Large white serif text reads '7 out of 10 regret it.' centered in the frame. The text is stark, arresting, and simple against the dark background. A subtle gold (#E8AA14) horizontal line accent below the text. Clean, minimalist design with ample negative space. The feeling is authoritative and serious -- like a data-driven report cover. A small teal (#1B998B) logo mark in the bottom right corner. No photographs, no illustrations -- pure typography and color.",
+    "tier": "premium",
+    "aspect_ratio": "1:1",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/facebook/variation2_horror_stories_1080x1080.png",
+    "category": "facebook_b2b"
+  },
+  {
+    "name": "FB V3 - Peer Testimonial",
+    "prompt": "Editorial-style portrait photograph of a confident male dentist in his 50s standing in the doorway of his dental practice operatory. He has a relaxed, approachable posture with arms uncrossed. Behind him, a modern dental operatory is slightly out of focus with warm natural light. Practice signage is subtly visible in the background. He wears a white clinical coat over business casual attire. The image communicates ownership, pride, and continuity -- this is still his place. Warm natural lighting, earth tones. In the lower portion, a navy semi-transparent overlay with cream serif text reads: 'Our partnership allows us to focus on changing lives.' with small attribution text below. Teal (#1B998B) and gold (#E8AA14) brand accents.",
+    "tier": "standard",
+    "aspect_ratio": "1:1",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/facebook/variation3_peer_testimonial_1080x1080.png",
+    "category": "facebook_b2b"
+  },
+  {
+    "name": "FB V5 - Thurston Authority",
+    "prompt": "Premium infographic-style design on a dark navy (#2D3047) background. Center: a large gold (#E8AA14) numeral '38' rendered in an elegant serif typeface with 'YEARS' in smaller white text beneath it. Arranged in a clean, balanced layout around it: '8 Platforms' and '$4B+ Returned to Partners' in white serif text. Below, 'Thurston Group' in a refined logotype. The design should feel like the cover of an institutional investment report -- authoritative, data-forward, zero fluff. Gold metallic accents, clean geometric gold lines framing the data. A small teal (#1B998B) company logo at the bottom center. Purely typographic and data-driven, no photographs.",
+    "tier": "standard",
+    "aspect_ratio": "1:1",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/facebook/variation5_thurston_authority_1080x1080.png",
+    "category": "facebook_b2b"
+  },
+  {
+    "name": "FB V1 Patient - Steak Moment (Primary)",
+    "prompt": "Close-up food photography of a beautifully plated medium-rare New York strip steak dinner. Restaurant-quality presentation on a dark wood table surface. The steak is perfectly seared with grill marks, juicy, with a side of roasted vegetables. Warm amber candlelight illuminates the scene. A wine glass is slightly out of focus in the background. The image should make you hungry -- rich, appetizing, sensory. Think high-end food magazine photography. In the upper-left corner, warm white serif text reads 'His first meal with new teeth.' with a small attribution line below. The mood is warm, rich, and celebratory. Deep amber lighting, dark wood tones. A small dental brand logo in the bottom-right corner in teal (#1B998B) and gold (#E8AA14).",
+    "tier": "premium",
+    "aspect_ratio": "4:5",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/facebook/variation1_patient_steak_moment_1080x1350.png",
+    "category": "facebook_b2c"
+  },
+  {
+    "name": "FB V3 Patient - Transparent Pricing",
+    "prompt": "Clean, modern infographic design on a warm cream/off-white textured background. At the top in navy (#2D3047) serif font: 'No hidden fees. No surprises.' Center: a clear pricing breakdown styled like a premium restaurant menu -- clean typography showing 'Full-Arch Implants' with a price range of '$22,000-$30,000' and below it 'Financing from $199/mo' prominently displayed in teal (#1B998B). Below the pricing: 'All-inclusive: surgery + prosthetics + follow-ups + aftercare' in smaller navy text. Gold (#E8AA14) accent lines separate sections. The design is open, honest, and easy to read -- the opposite of fine print. A dental brand logo in bottom-right. Clean, trustworthy, transparent aesthetic.",
+    "tier": "standard",
+    "aspect_ratio": "1:1",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/facebook/variation3_patient_pricing_1080x1080.png",
+    "category": "facebook_b2c"
+  },
+  {
+    "name": "IG V1 - Tooth Mechanic (Primary)",
+    "prompt": "Photograph of a young female dentist in her late 20s to early 30s, of South Asian descent, working in a bright, modern dental operatory. She is leaning over a patient, performing a complex clinical procedure -- placing a dental implant with surgical precision. The environment is bright, clean, and equipped with modern technology including a digital display screen. She looks focused, engaged, and professionally fulfilled -- not exhausted. Bright natural light fills the room. In the bottom third, a subtle navy gradient bar with white serif text reads: 'Your career is not a production number.' A small teal (#1B998B) and gold (#E8AA14) logo in the bottom-right corner. The mood is possibility, clinical engagement, and professional energy.",
+    "tier": "premium",
+    "aspect_ratio": "1:1",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/instagram/variation1_tooth_mechanic_1080x1080.png",
+    "category": "instagram_recruitment"
+  },
+  {
+    "name": "IG V4 - Benefits Stories (Primary)",
+    "prompt": "Bold, stark Instagram Stories design. Navy (#2D3047) background. Clean list appearing with items: 'Pikos Institute access: $12K/yr value' with a gold checkmark icon, 'Clinical mentor: $24K/yr value' with a gold checkmark, 'Class A equity: day one' with a gold checkmark, '4Front Symposium: included' with a gold checkmark. Each line in clean white sans-serif text. Gold (#E8AA14) checkmark icons beside each item. At the top in smaller text: 'Here is what they cannot offer.' in white. The design is clean, data-forward, and premium -- like a career value proposition infographic. Teal (#1B998B) accent line at the bottom. Vertical format optimized for mobile stories viewing.",
+    "tier": "premium",
+    "aspect_ratio": "9:16",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/instagram/variation4_benefits_stories_1080x1920.png",
+    "category": "instagram_recruitment"
+  },
+  {
+    "name": "IG V5 - Not Just a Job",
+    "prompt": "Candid group photograph of a diverse group of young dentists (ages 25-35) at a professional symposium or team event. They are laughing and engaged in conversation, wearing a mix of clinical scrubs and casual professional clothing. The setting is collaborative -- a bright conference or learning environment with large windows and natural light. The group includes men and women of various ethnicities. The energy is camaraderie, purpose, and belonging -- like a residency community without the exhaustion. In the bottom third, warm white serif text reads: 'The partnership that makes dentists better.' A small teal (#1B998B) and gold (#E8AA14) logo in the bottom-right corner. Warm, bright, energetic mood.",
+    "tier": "standard",
+    "aspect_ratio": "1:1",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/instagram/variation5_not_just_a_job_1080x1080.png",
+    "category": "instagram_recruitment"
+  },
+  {
+    "name": "IG V1 Patient - One Day (Primary)",
+    "prompt": "Photograph of a woman in her early 60s, outdoors in warm golden hour light. Her head is tilted slightly back in a genuine, unguarded laugh. Her teeth are visible -- natural, healthy, and beautiful. She is not posing; she is living a joyful moment. She wears casual, comfortable clothing. The background is a blurred (bokeh) garden or park setting suggesting a family gathering. The feeling is pure, unself-conscious joy. In the center of the image, large warm white serif text reads 'One day.' with smaller text below: 'That is how long it takes.' A small teal (#1B998B) dental brand logo in the bottom corner. Golden hour warmth, earth tones, no clinical references. Soft, natural, joyful.",
+    "tier": "premium",
+    "aspect_ratio": "1:1",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/instagram/variation1_patient_one_day_1080x1080.png",
+    "category": "instagram_b2c"
+  },
+  {
+    "name": "IG V3 Patient - Grandkids",
+    "prompt": "Warm, candid photograph of a grandmother and young grandchild taking a selfie together. Both are smiling widely with genuine joy. The grandmother's teeth look natural and confident. The framing is slightly imperfect -- it looks like a real selfie, not a staged photo. The background is a warm family setting -- a backyard or living room with soft natural light. At the top of the image, warm white serif text reads: 'She asked you to be in the photo.' The mood is unconditional love, presence, and family warmth. Golden-hour quality light, soft focus on background. Earth tones with teal (#1B998B) and gold (#E8AA14) brand accents. A small dental brand logo in the corner.",
+    "tier": "standard",
+    "aspect_ratio": "4:5",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/instagram/variation3_patient_grandkids_1080x1350.png",
+    "category": "instagram_b2c"
+  },
+  {
+    "name": "IG V5 Patient - Financing Stories",
+    "prompt": "Instagram Stories design with a gold (#E8AA14) background and navy (#2D3047) text. Large bold text in center: '$199/mo' in a prominent serif typeface. Below it: 'Same-day implants. All-inclusive. No surprises.' in smaller navy text. A clean, aspirational design that conveys possibility and accessibility. A teal (#1B998B) button-style element at the bottom reading 'Book Free Consult' with a right-pointing arrow. The overall mood is warm, inviting, and solution-oriented. Clean negative space. Premium but approachable. Vertical format for mobile stories.",
+    "tier": "standard",
+    "aspect_ratio": "9:16",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/instagram/variation5_patient_financing_1080x1920.png",
+    "category": "instagram_b2c"
+  },
+  {
+    "name": "LI V1 - Regret Stat (Primary)",
+    "prompt": "Split composition photograph in landscape format. Left side: a dentist (male, 50s) sitting alone at a desk buried in paperwork after hours. Warm amber and sepia tones, late evening desk lamp light suggesting exhaustion and isolation. Right side: the same type of dentist in a bright, modern dental operatory, focused on treating a patient, relaxed and engaged. Natural daylight, clean whites and warm earth tones suggesting relief and purpose. A subtle dividing line separates the two halves. In the upper-left corner, navy (#2D3047) serif text reads: '7 out of 10 regret it.' A teal (#1B998B) and gold (#E8AA14) company logo lockup in the bottom-right. The contrast between the two halves tells the story of transformation.",
+    "tier": "premium",
+    "aspect_ratio": "16:9",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/linkedin/variation1_regret_stat_1200x628.png",
+    "category": "linkedin_b2b"
+  },
+  {
+    "name": "LI V2 - QuickBooks (Primary)",
+    "prompt": "Close-up photograph of a dentist's hands in a clean clinical environment. One hand is holding a dental mirror instrument with precision, the other is resting on the armrest of a dental patient chair. A stethoscope is visible draped nearby. Clean, modern dental operatory with warm overhead surgical lighting. The shot is intimate and focused on craft and care rather than business. In the lower third, a navy (#2D3047) semi-transparent overlay with cream serif text in quotation marks reads: 'QuickBooks will never call you to the back office again.' A teal (#1B998B) and gold (#E8AA14) company logo in the bottom-right corner. Warm whites with navy and gold accents. Professional but human, not sterile. Landscape format.",
+    "tier": "premium",
+    "aspect_ratio": "16:9",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/linkedin/variation2_quickbooks_1200x628.png",
+    "category": "linkedin_b2b"
+  },
+  {
+    "name": "LI V3 - PE Fear / Thurston",
+    "prompt": "Premium document-style design on a textured navy (#2D3047) background. Center element: an embossed gold (#E8AA14) numeral '38' in an elegant serif typeface, large and prominent. Surrounding it: a clean minimalist timeline showing 8 platform builds represented by subtle gold dots connected by a fine gold line, each labeled with a year range. Below the timeline: '38 years. 8 platforms. $4B+ returned.' in white serif text, centered. The aesthetic is a financial institution's annual report cover -- serious, trustworthy, premium. No clinical imagery. Gold metallic accents against navy. A teal (#1B998B) accent line and company logos in the bottom corners. Landscape format.",
+    "tier": "standard",
+    "aspect_ratio": "16:9",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/linkedin/variation3_pe_fear_1200x628.png",
+    "category": "linkedin_specialist"
+  },
+  {
+    "name": "LI V5 - Document Ad Cover",
+    "prompt": "Clean, premium document cover design. Navy (#2D3047) background with a subtle gold (#E8AA14) geometric pattern -- thin intersecting lines forming an abstract grid. Title in white serif font: 'Practice Partnership Assessment' large and centered. Subtitle below in smaller white text: '12 Questions Every Practice Owner Should Answer Before Exploring a DSO Partnership.' A gold horizontal rule separates the title from the subtitle. At the bottom center, a gold company logo. The design should feel like a McKinsey report cover -- authoritative, premium, and clean. No stock photos, purely typographic and brand-colored. Navy, gold, and white only. Landscape format.",
+    "tier": "standard",
+    "aspect_ratio": "16:9",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/linkedin/variation5_document_ad_1200x628.png",
+    "category": "linkedin_b2b"
+  },
+  {
+    "name": "YT PreRoll1 - The Number Thumbnail (Primary)",
+    "prompt": "YouTube video thumbnail design. Black background with stark white text that reads '7 out of 10 dentists regret their DSO sale.' in a bold, modern serif typeface. The text should be large, high-contrast, and immediately readable at thumbnail size. A subtle warm amber glow emanates from behind the text, suggesting urgency. In the bottom portion, a smaller visual element: the silhouette of a dentist at a desk late at night, back-lit by a warm amber lamp, very small compared to the text. A teal (#1B998B) and gold (#E8AA14) company logo lockup in the bottom-right corner. The thumbnail should create a cognitive gap -- the viewer wants to know what the other 3 did differently. High contrast, scroll-stopping. Landscape format 16:9.",
+    "tier": "premium",
+    "aspect_ratio": "16:9",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/youtube/preroll1_the_number_1280x720.png",
+    "category": "youtube_b2b"
+  },
+  {
+    "name": "YT PreRoll2 - Not a Production Number Thumbnail",
+    "prompt": "YouTube video thumbnail design. A split-screen composition in landscape format. Left half: a clinical scheduling screen showing monotonous back-to-back 15-minute appointments -- 'MOD Comp' repeated, sterile blue-white light of a computer monitor, cold and mechanical feel. Right half: a young female dentist working alongside a senior mentor on a complex dental implant case, both engaged and focused. Warm, bright clinical lighting. The contrast between production treadmill and clinical mentorship is stark. At the bottom, a dark semi-transparent bar with white text: 'Your career is not a production number.' Teal (#1B998B) and gold (#E8AA14) brand logo in corner. High contrast, thumbnail-readable. 16:9 landscape.",
+    "tier": "standard",
+    "aspect_ratio": "16:9",
+    "output": "/Users/chasebowers/Documents/AI Workflows/sgadental/marketing/production/ad_creatives/youtube/preroll2_not_production_number_1280x720.png",
+    "category": "youtube_recruitment"
+  }
+]

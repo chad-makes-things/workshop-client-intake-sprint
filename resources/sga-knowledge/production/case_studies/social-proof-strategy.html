@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SGA Dental Partners — Social Proof Strategy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sgaBlue: '#2D6FB7',
+            sgaBlueDark: '#1f5190',
+            sgaBlueLight: '#e8f1fb',
+            sgaLime: '#C4D347',
+            sgaOrange: '#F36F21',
+            sgaText: '#333333',
+          },
+          fontFamily: {
+            sans: ['Roboto', 'sans-serif'],
+            slab: ['Roboto Slab', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Roboto', sans-serif; color: #333333; }
+    .font-slab { font-family: 'Roboto Slab', serif; }
+
+    /* Funnel stages */
+    .tofu  { border-left: 4px solid #93c5fd; background: #eff6ff; }
+    .mofu  { border-left: 4px solid #2D6FB7; background: #e8f1fb; }
+    .bofu  { border-left: 4px solid #C4D347; background: #f5f9e6; }
+
+    /* Accordion */
+    .accordion-body { overflow: hidden; transition: max-height 0.3s ease; }
+
+    /* Trust map */
+    .trust-node {
+      background: white;
+      border: 2px solid #dee2e6;
+      border-radius: 10px;
+      padding: 12px 16px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all 0.2s;
+      cursor: default;
+    }
+    .trust-node:hover { border-color: #2D6FB7; background: #e8f1fb; }
+    .trust-node.primary { border-color: #2D6FB7; background: #2D6FB7; color: white; }
+    .trust-node.secondary { border-color: #C4D347; }
+
+    .connector {
+      width: 2px; background: #dee2e6; margin: 0 auto;
+    }
+    .connector-h {
+      height: 2px; background: #dee2e6; align-self: center;
+    }
+
+    /* Platform cards */
+    .platform-card { transition: transform 0.2s, box-shadow 0.2s; }
+    .platform-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+
+    /* Stat callout */
+    .stat-callout {
+      background: #2D6FB7;
+      border-radius: 12px;
+      color: white;
+      padding: 24px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .stat-callout:hover { transform: translateY(-2px); }
+
+    /* Priority badge */
+    .priority-highest { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+    .priority-high    { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+    .priority-medium  { background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
+
+    /* Checklist item */
+    .checklist-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid #f1f5f9; }
+    .checklist-item:last-child { border-bottom: none; }
+
+    /* Tab nav */
+    .section-tab.active { background: #2D6FB7; color: white; border-color: #2D6FB7; }
+    .section-tab { transition: all 0.2s; border: 1px solid #e5e7eb; }
+
+    @media print {
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-gray-50" x-data="{ section: 'audit' }">
+
+  <!-- ============================================================
+       PAGE HEADER
+  ============================================================ -->
+  <header class="bg-sgaBlue text-white">
+    <div class="max-w-7xl mx-auto px-6 py-8">
+      <div class="flex items-center gap-5 mb-4">
+        <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
+          <span class="text-sgaBlue font-bold text-xl font-slab">SGA</span>
+        </div>
+        <div>
+          <div class="text-blue-200 text-sm font-medium uppercase tracking-widest mb-1">SGA Dental Partners</div>
+          <h1 class="font-slab text-3xl font-bold leading-tight">Social Proof Strategy</h1>
+        </div>
+      </div>
+      <p class="text-blue-100 max-w-3xl text-base leading-relaxed mt-2">
+        Systematic collection, organization, and deployment of proof assets across all audiences and funnel stages. Sage archetype — let results speak. The proof makes the argument.
+      </p>
+
+      <!-- Summary Stats Row -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+        <div class="bg-white bg-opacity-15 rounded-xl p-4 text-center">
+          <div class="text-2xl font-slab font-bold text-sgaLime">5</div>
+          <div class="text-blue-200 text-xs mt-1">Audience segments</div>
+        </div>
+        <div class="bg-white bg-opacity-15 rounded-xl p-4 text-center">
+          <div class="text-2xl font-slab font-bold text-sgaLime">3</div>
+          <div class="text-blue-200 text-xs mt-1">Funnel stages mapped</div>
+        </div>
+        <div class="bg-white bg-opacity-15 rounded-xl p-4 text-center">
+          <div class="text-2xl font-slab font-bold text-sgaLime">5</div>
+          <div class="text-blue-200 text-xs mt-1">Milestone triggers</div>
+        </div>
+        <div class="bg-white bg-opacity-15 rounded-xl p-4 text-center">
+          <div class="text-2xl font-slab font-bold text-sgaLime">4</div>
+          <div class="text-blue-200 text-xs mt-1">Collection templates</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       SECTION NAV
+  ============================================================ -->
+  <div class="bg-white border-b border-gray-200 sticky top-0 z-30 no-print shadow-sm">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex gap-1 overflow-x-auto py-3">
+        <template x-for="[key, label] in [
+          ['audit',     '1. Proof Audit'],
+          ['collect',   '2. Collection System'],
+          ['platforms', '3. Review Platforms'],
+          ['placement', '4. Placement Map'],
+          ['ugc',       '5. UGC Strategy'],
+          ['calendar',  '6. Calendar'],
+          ['questions', '7. Question Bank']
+        ]">
+          <button
+            @click="section = key"
+            :class="section === key ? 'bg-sgaBlue text-white border-sgaBlue' : 'bg-white text-gray-600 hover:text-sgaBlue hover:border-sgaBlue'"
+            class="section-tab whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium flex-shrink-0"
+            x-text="label">
+          </button>
+        </template>
+      </div>
+    </div>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-6 py-8">
+
+    <!-- ============================================================
+         SECTION 1: PROOF AUDIT
+    ============================================================ -->
+    <div x-show="section === 'audit'" x-transition>
+      <h2 class="font-slab text-2xl font-bold text-gray-800 mb-2">Part 1: Proof Asset Audit</h2>
+      <p class="text-gray-600 text-sm mb-6">Before collecting new proof, inventory what already exists. This audit should be updated quarterly.</p>
+
+      <!-- Confirmed Assets -->
+      <h3 class="font-slab font-bold text-gray-800 text-lg mb-3 flex items-center gap-2">
+        <span class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold">&#10003;</span>
+        Confirmed Existing Assets — Deploy Now
+      </h3>
+      <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden mb-8">
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-gray-50 border-b border-gray-200">
+              <tr>
+                <th class="text-left px-5 py-3 font-semibold text-gray-700 w-2/5">Proof Asset</th>
+                <th class="text-left px-5 py-3 font-semibold text-gray-700">Source</th>
+                <th class="text-left px-5 py-3 font-semibold text-gray-700">Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr class="hover:bg-gray-50">
+                <td class="px-5 py-4">
+                  <div class="font-medium text-gray-800">Dr. Mitchel S. Godat quote</div>
+                  <div class="text-xs text-gray-500 mt-1 italic">"SGA supports us and manages things behind the scenes. Our partnership allows us to focus on changing lives."</div>
+                </td>
+                <td class="px-5 py-4 text-gray-600">SGA website / product brief</td>
+                <td class="px-5 py-4"><span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">Deploy immediately</span></td>
+              </tr>
+              <tr class="hover:bg-gray-50">
+                <td class="px-5 py-4">
+                  <div class="font-medium text-gray-800">Dr. Matt Cavendish financial results</div>
+                  <div class="text-xs text-gray-500 mt-1">16.5% revenue growth &middot; 100% staff retention &middot; EBITA beating plan by $45,266 &middot; Supply costs -6.4 pts</div>
+                </td>
+                <td class="px-5 py-4 text-gray-600">Gen4 case study materials</td>
+                <td class="px-5 py-4"><span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-1 rounded-full">Deploy — confirm permission</span></td>
+              </tr>
+              <tr class="hover:bg-gray-50">
+                <td class="px-5 py-4">
+                  <div class="font-medium text-gray-800">Dr. Cavendish quote #1</div>
+                  <div class="text-xs text-gray-500 mt-1 italic">"Don't push back. There's no downside to having a mentor."</div>
+                </td>
+                <td class="px-5 py-4 text-gray-600">Gen4 case study</td>
+                <td class="px-5 py-4"><span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-1 rounded-full">Deploy — confirm permission</span></td>
+              </tr>
+              <tr class="hover:bg-gray-50">
+                <td class="px-5 py-4">
+                  <div class="font-medium text-gray-800">Dr. Cavendish quote #2</div>
+                  <div class="text-xs text-gray-500 mt-1 italic">"When you've been in dentistry for 20 years like I have, sometimes it's not as fun as it used to be... it is fun."</div>
+                </td>
+                <td class="px-5 py-4 text-gray-600">Gen4 case study</td>
+                <td class="px-5 py-4"><span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-1 rounded-full">Deploy — confirm permission</span></td>
+              </tr>
+              <tr class="hover:bg-gray-50">
+                <td class="px-5 py-4">
+                  <div class="font-medium text-gray-800">Scott "steak moment" quote</div>
+                  <div class="text-xs text-gray-500 mt-1 italic">"Dr. Olsen grilled a nice New York strip steak for me... medium rare... it was so juicy and fresh off the grill."</div>
+                </td>
+                <td class="px-5 py-4 text-gray-600">Innovative Dental YouTube</td>
+                <td class="px-5 py-4"><span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-1 rounded-full">Verify permission — high value</span></td>
+              </tr>
+              <tr class="hover:bg-gray-50">
+                <td class="px-5 py-4">
+                  <div class="font-medium text-gray-800">Dr. Grant Olson content</div>
+                  <div class="text-xs text-gray-500 mt-1">138K subscribers &middot; 23M+ views &middot; 3,390+ patient reviews</div>
+                </td>
+                <td class="px-5 py-4 text-gray-600">Public record</td>
+                <td class="px-5 py-4"><span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">Deploy — public figure</span></td>
+              </tr>
+              <tr class="hover:bg-gray-50">
+                <td class="px-5 py-4">
+                  <div class="font-medium text-gray-800">Thurston Group: 38 years, $4B+ returned, 8+ dental platforms</div>
+                </td>
+                <td class="px-5 py-4 text-gray-600">Public record / product brief</td>
+                <td class="px-5 py-4"><span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">Deploy — confirm current figure</span></td>
+              </tr>
+              <tr class="hover:bg-gray-50">
+                <td class="px-5 py-4">
+                  <div class="font-medium text-gray-800">SGA $350M credit facility</div>
+                </td>
+                <td class="px-5 py-4 text-gray-600">Public press release</td>
+                <td class="px-5 py-4"><span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">Deploy immediately</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Critical Gaps -->
+      <h3 class="font-slab font-bold text-gray-800 text-lg mb-3 flex items-center gap-2">
+        <span class="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold">!</span>
+        Critical Proof Gaps — Priority Collection
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <template x-for="gap in [
+          { label: 'Highest', title: 'Named patient case study + photo consent', reason: 'Patient transformation stories are the most powerful proof for the MODIS/Innovative Dental vertical but none are structured for sales deployment yet.' },
+          { label: 'Highest', title: 'Associate dentist testimonial', reason: 'Associate recruitment is a key growth driver with no peer proof to back it. This is a structural gap in the recruiting funnel.' },
+          { label: 'High', title: 'Office manager / staff testimonial', reason: 'Tamara-type fears — job security, culture destruction — are often the silent reason acquisitions stall. No proof addresses this.' },
+          { label: 'High', title: 'Specialist (periodontist/oral surgeon) case study', reason: 'MODIS specialty vertical has no proof story beyond Dr. Olson, who is a general-to-implantologist story, not a joining-specialist story.' },
+          { label: 'High', title: 'Post-deal timeline data (Year 2, Year 3)', reason: 'The #1 market opportunity — nobody shows what happens after the deal. Competitors all stop at Year 1.' },
+          { label: 'Medium', title: 'Independent third-party validation', reason: 'Trust hierarchy puts third-party above customer testimonials. No published awards for SGA specifically identified.' }
+        ]">
+          <div class="bg-white border border-gray-200 rounded-xl p-5">
+            <div class="flex items-start gap-3 mb-2">
+              <span :class="gap.label === 'Highest' ? 'priority-highest' : gap.label === 'High' ? 'priority-high' : 'priority-medium'"
+                class="text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 mt-0.5"
+                x-text="gap.label">
+              </span>
+              <div class="font-semibold text-gray-800 text-sm" x-text="gap.title"></div>
+            </div>
+            <p class="text-sm text-gray-600 ml-12" x-text="gap.reason"></p>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SECTION 2: COLLECTION SYSTEM
+    ============================================================ -->
+    <div x-show="section === 'collect'" x-transition>
+      <h2 class="font-slab text-2xl font-bold text-gray-800 mb-2">Part 2: Testimonial Collection System</h2>
+      <p class="text-gray-600 text-sm mb-6">Timing is the single biggest driver of testimonial quality. Ask at peak emotional moments, not when it is convenient for SGA.</p>
+
+      <!-- Milestone Triggers Timeline -->
+      <h3 class="font-slab font-bold text-gray-800 text-lg mb-4">Milestone Trigger System</h3>
+      <div class="relative mb-10">
+        <!-- Vertical line -->
+        <div class="absolute left-6 top-6 bottom-6 w-0.5 bg-sgaBlue opacity-20 hidden md:block"></div>
+
+        <div class="space-y-4">
+          <template x-for="trigger in [
+            {
+              day: '90-Day',
+              color: 'bg-sgaBlue',
+              title: 'First Wins — Highest Quality Window',
+              desc: 'Initial fears resolved. First tangible operational changes happened. The emotional relief is fresh.',
+              partnerAsk: 'Written testimonial + willingness for 30-min video call',
+              patientNote: '90 days post-procedure: temporaries replaced by finals, healing complete, full emotional payoff lived daily'
+            },
+            {
+              day: '6-Month',
+              color: 'bg-sgaLime',
+              title: 'Results Are Visible',
+              desc: 'First financial results visible for practice partners. Revenue trends, staff retention, EBITA comparisons.',
+              partnerAsk: 'Documented financial results for case study + extended video testimonial',
+              patientNote: 'Associates: first complex cases with mentor support, equity investment made, career trajectory visible'
+            },
+            {
+              day: '12-Month',
+              color: 'bg-sgaOrange',
+              title: 'The Full Story — Dr. Cavendish Level',
+              desc: 'Most complete and credible proof. A year of data, a year of relationship.',
+              partnerAsk: 'Long-form case study interview (45–60 min) + permission to publish specific financial metrics',
+              patientNote: 'Offer: \'call them yourself\' — partner agrees to take calls from prospective partners'
+            },
+            {
+              day: 'Organic',
+              color: 'bg-purple-500',
+              title: 'Never Let Organic Praise Pass',
+              desc: 'Unsolicited gratitude in a meeting, on a call, in a text, on social media — this is a collection opportunity.',
+              partnerAsk: '"I am so glad to hear that. Would you be willing to say that in a more formal way so we can share it?"',
+              patientNote: 'Follow up immediately — within 24 hours'
+            },
+            {
+              day: 'NPS 9–10',
+              color: 'bg-green-500',
+              title: 'Self-Identified Promoters',
+              desc: 'Any partner, patient, or staff member who scores 9 or 10 on NPS is a self-identified promoter.',
+              partnerAsk: 'Follow up within 24 hours with a specific testimonial request',
+              patientNote: 'Do not wait — the window for high-quality proof is 24–48 hours after NPS submission'
+            }
+          ]">
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 flex flex-col items-center">
+                <div :class="trigger.color" class="w-12 h-12 rounded-full flex items-center justify-center text-white text-xs font-bold text-center leading-tight flex-shrink-0 shadow-md" x-text="trigger.day"></div>
+              </div>
+              <div class="bg-white border border-gray-200 rounded-xl p-5 flex-1">
+                <div class="font-slab font-bold text-gray-800 mb-1" x-text="trigger.title"></div>
+                <p class="text-sm text-gray-600 mb-3" x-text="trigger.desc"></p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div class="bg-sgaBlueLight rounded-lg p-3">
+                    <div class="text-xs font-bold text-sgaBlue uppercase tracking-wide mb-1">What to Ask For</div>
+                    <p class="text-xs text-gray-700" x-text="trigger.partnerAsk"></p>
+                  </div>
+                  <div class="bg-gray-50 rounded-lg p-3">
+                    <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">Additional Notes</div>
+                    <p class="text-xs text-gray-700" x-text="trigger.patientNote"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+
+      <!-- The 10 Proof-Generating Questions -->
+      <h3 class="font-slab font-bold text-gray-800 text-lg mb-4">The 10 Proof-Generating Questions</h3>
+      <p class="text-sm text-gray-600 mb-4">Regardless of format (written or video), these generate the most deployable proof content.</p>
+      <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+          <div class="divide-y divide-gray-100">
+            <template x-for="(q, i) in [
+              'What was your practice/life situation like before you made this decision?',
+              'What was the single thing you were most worried about?',
+              'What made you take the first conversation with SGA seriously?',
+              'What happened in the first 90 days that confirmed you made the right choice — or the wrong one?',
+              'Give me a specific number, outcome, or moment that captures what changed.'
+            ]">
+              <div class="flex items-start gap-3 p-4">
+                <div class="w-6 h-6 bg-sgaBlue text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5" x-text="i + 1"></div>
+                <p class="text-sm text-gray-700" x-text="q"></p>
+              </div>
+            </template>
+          </div>
+          <div class="divide-y divide-gray-100">
+            <template x-for="(q, i) in [
+              'What do you spend your time on now that you used to spend on something else?',
+              'Is there anything that went differently from what you expected — positively or negatively?',
+              'What is the thing about this partnership that nobody would guess from the outside?',
+              'Who in your life has this affected beyond just your practice? (Family, staff, patients)',
+              'If you were having coffee with a dentist/patient who is exactly where you were a year ago — what would you say?'
+            ]">
+              <div class="flex items-start gap-3 p-4">
+                <div class="w-6 h-6 bg-sgaBlue text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5" x-text="i + 6"></div>
+                <p class="text-sm text-gray-700" x-text="q"></p>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collection Templates -->
+      <h3 class="font-slab font-bold text-gray-800 text-lg mb-4">Collection Templates by Audience</h3>
+      <div x-data="{ openTpl: null }" class="space-y-3">
+        <template x-for="(tpl, idx) in [
+          {
+            label: 'Template A',
+            audience: 'Practice Partner — Written Testimonial',
+            subject: 'Quick question about your experience (2 minutes to reply)',
+            body: 'Hi [Name],\n\nIt\'s been [timeframe] since [practice name] partnered with SGA. I wanted to reach out because [specific recent positive event].\n\nWe\'re building a library of honest partner stories to help other dentists who are in the same spot you were [timeframe] ago — skeptical, curious, trying to figure out if this is real.\n\nWould you be open to sharing a few lines? Three prompts:\n1. What were you most worried about before the partnership?\n2. What specifically changed in the first six months?\n3. What would you tell a dentist who is where you were a year ago?\n\nYou can reply with two or three sentences — or I can schedule a 20-minute call and write it for you to review.\n\n[Name], [Title]'
+          },
+          {
+            label: 'Template B',
+            audience: 'Practice Partner — Video Testimonial',
+            subject: '30 minutes, a camera, and your story',
+            body: 'Hi [Name],\n\nYou mentioned [paraphrase something specific they said]. That is exactly the kind of thing that would change the conversation for another dentist sitting where you were 12 months ago.\n\nWould you be willing to do a 30-minute recorded conversation at your practice? We\'d send a videographer, ask a few questions about your experience, and produce a short video you can review before it\'s published anywhere. You keep final approval.\n\nNo script. No polish required. Just the honest version of what the partnership has meant for you.\n\n[Name]'
+          },
+          {
+            label: 'Template C',
+            audience: 'Patient — Post-Final Restoration',
+            subject: 'A quick favor from [Practice Name]',
+            body: 'Hi [First Name],\n\nIt has been [timeframe] since your [procedure description] was completed. We hope you are well and enjoying every meal.\n\nWe\'d love to share your story — with your permission — to help other patients who are going through what you went through. You know what it feels like to wonder if the procedure is worth it. Your words could be the thing that helps someone take the first step.\n\nOptions:\n- Reply with a few sentences about your experience\n- Record a short video on your phone and email it to us\n- Come in for a 20-minute filmed conversation\n\nPrompts: What were you most worried about before? What surprised you? What did you do or eat first that you hadn\'t done in a long time?\n\n[Practice name] team'
+          },
+          {
+            label: 'Template D',
+            audience: 'Practice Manager / Staff — From SGA PeopleOps (not the dentist)',
+            subject: 'Your perspective matters',
+            body: 'Hi [First Name],\n\nYou\'ve been with [Practice Name] through the transition to SGA for [timeframe]. I wanted to ask, on behalf of the SGA team, how things have gone from your perspective.\n\nWe hear a lot from the doctors. We don\'t always hear from the people who hold everything together.\n\nIf you\'d be willing to share a few sentences about what the transition has been like for you — what you were worried about, what surprised you, what you\'d say to another office manager going through the same thing — we would really appreciate it.\n\nThis is completely optional, and nothing you share will be used with your name attached without your written approval first.\n\n[Name]\nSGA People Operations'
+          }
+        ]" :key="idx">
+          <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+            <button @click="openTpl = openTpl === idx ? null : idx"
+              class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition-colors">
+              <div class="flex items-center gap-3">
+                <span class="bg-sgaBlue text-white text-xs font-bold px-2.5 py-1 rounded-full" x-text="tpl.label"></span>
+                <span class="font-semibold text-gray-800 text-sm" x-text="tpl.audience"></span>
+              </div>
+              <span class="text-gray-400 flex-shrink-0" x-text="openTpl === idx ? '&#9650;' : '&#9660;'"></span>
+            </button>
+            <div class="accordion-body" :style="openTpl === idx ? 'max-height:600px' : 'max-height:0'">
+              <div class="px-4 pb-4 border-t border-gray-100">
+                <div class="mt-3 mb-2">
+                  <span class="text-xs text-gray-500 font-semibold">Subject:</span>
+                  <span class="text-xs text-gray-700 italic ml-1" x-text="tpl.subject"></span>
+                </div>
+                <pre class="text-sm text-gray-700 bg-gray-50 rounded-lg p-4 whitespace-pre-wrap font-sans" x-text="tpl.body"></pre>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SECTION 3: REVIEW PLATFORMS
+    ============================================================ -->
+    <div x-show="section === 'platforms'" x-transition>
+      <h2 class="font-slab text-2xl font-bold text-gray-800 mb-2">Part 3: Review Platform Strategy</h2>
+      <p class="text-gray-600 text-sm mb-6">Platform priority by audience type. The right proof at the wrong platform does not convert.</p>
+
+      <!-- Practice Partner Platforms -->
+      <h3 class="font-slab font-bold text-gray-800 text-lg mb-4">Practice Partners / Professionals</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        <template x-for="p in [
+          { name: 'Google Business Profile', priority: 'Highest', color: 'bg-red-500', icon: 'G', goal: 'Local credibility for each practice in the network', action: 'Claim all SGA-affiliated practice locations; build review request process into patient checkout flow' },
+          { name: 'Glassdoor', priority: 'High', color: 'bg-green-500', icon: 'GD', goal: 'Associate recruiting; employer brand for SGA/Gen4/MODIS', action: 'Claim all profiles; build process for satisfied staff to leave honest reviews; respond to all' },
+          { name: 'Indeed', priority: 'Medium', color: 'bg-blue-600', icon: 'In', goal: 'Associate and staff recruiting', action: 'Claim profiles; monitor; encourage current staff to leave honest reviews' },
+          { name: 'Becker\'s Dental / Group Dentistry Now', priority: 'Medium', color: 'bg-orange-500', icon: 'BD', goal: 'B2B credibility; press mentions for DSO audience', action: 'Submit for \'Top DSO\' lists; contribute thought leadership articles' },
+          { name: 'LinkedIn Company Pages', priority: 'Medium', color: 'bg-blue-700', icon: 'Li', goal: 'Professional network credibility', action: 'Regular posts; encourage partners to list SGA affiliation and share experiences publicly' },
+          { name: 'Dentaltown', priority: 'High', color: 'bg-teal-500', icon: 'DT', goal: 'Credibility with the skeptical practice owner community', action: 'Do NOT astroturf. Build genuine presence through partner doctors posting authentically; monitor SGA mentions' }
+        ]">
+          <div class="platform-card bg-white border border-gray-200 rounded-xl p-5">
+            <div class="flex items-center gap-3 mb-3">
+              <div :class="p.color" class="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0" x-text="p.icon"></div>
+              <div>
+                <div class="font-semibold text-gray-800 text-sm" x-text="p.name"></div>
+                <span :class="p.priority === 'Highest' ? 'priority-highest' : p.priority === 'High' ? 'priority-high' : 'priority-medium'"
+                  class="text-xs font-semibold px-2 py-0.5 rounded-full" x-text="p.priority + ' Priority'">
+                </span>
+              </div>
+            </div>
+            <div class="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-1">Goal</div>
+            <p class="text-xs text-gray-700 mb-3" x-text="p.goal"></p>
+            <div class="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-1">Action</div>
+            <p class="text-xs text-gray-600" x-text="p.action"></p>
+          </div>
+        </template>
+      </div>
+
+      <!-- Patient Platforms -->
+      <h3 class="font-slab font-bold text-gray-800 text-lg mb-4">Patients — MODIS / Innovative Dental</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        <template x-for="p in [
+          { name: 'Google Business Profile', priority: 'Highest', color: 'bg-red-500', icon: 'G', goal: 'First thing patients see when they search the practice name', action: 'Claim all MODIS partner practice locations; post-procedure review request is standard workflow' },
+          { name: 'Healthgrades', priority: 'High', color: 'bg-blue-500', icon: 'HG', goal: 'Where patients research dentists and dental practices', action: 'Claim profiles for all MODIS partner practices; build review request workflow' },
+          { name: 'RealSelf', priority: 'High', color: 'bg-pink-500', icon: 'RS', goal: 'High-intent implant patient research platform', action: 'Claim profiles for Dr. Olson and MODIS implant partners; upload before/after cases — 25+ target' },
+          { name: 'Yelp', priority: 'Medium', color: 'bg-red-600', icon: 'Y', goal: 'Consumer-level credibility', action: 'Claim and monitor; respond to all reviews within 48 hours; never incentivize reviews' },
+          { name: 'Facebook (Practice Pages)', priority: 'Medium', color: 'bg-blue-600', icon: 'Fb', goal: 'Patient community, local search visibility', action: 'Maintain active pages; integrate review requests; amplify before/after content' }
+        ]">
+          <div class="platform-card bg-white border border-gray-200 rounded-xl p-5">
+            <div class="flex items-center gap-3 mb-3">
+              <div :class="p.color" class="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0" x-text="p.icon"></div>
+              <div>
+                <div class="font-semibold text-gray-800 text-sm" x-text="p.name"></div>
+                <span :class="p.priority === 'Highest' ? 'priority-highest' : p.priority === 'High' ? 'priority-high' : 'priority-medium'"
+                  class="text-xs font-semibold px-2 py-0.5 rounded-full" x-text="p.priority + ' Priority'">
+                </span>
+              </div>
+            </div>
+            <div class="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-1">Goal</div>
+            <p class="text-xs text-gray-700 mb-3" x-text="p.goal"></p>
+            <div class="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-1">Action</div>
+            <p class="text-xs text-gray-600" x-text="p.action"></p>
+          </div>
+        </template>
+      </div>
+
+      <!-- Review Request Process -->
+      <h3 class="font-slab font-bold text-gray-800 text-lg mb-4">Review Request Process</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-white border border-gray-200 rounded-xl p-6">
+          <div class="font-semibold text-sgaBlue mb-4 flex items-center gap-2">
+            <span class="text-lg">&#129534;</span> For Patients
+          </div>
+          <ol class="space-y-3">
+            <li class="flex gap-3 text-sm"><span class="w-6 h-6 bg-sgaBlue text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</span><span><strong>At checkout:</strong> "We're so glad your appointment went well. Would you mind sharing your experience? A quick Google review helps other patients find us." Hand printed card with QR code to review page.</span></li>
+            <li class="flex gap-3 text-sm"><span class="w-6 h-6 bg-sgaBlue text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</span><span><strong>24 hours later:</strong> Automated text or email with direct link and 3-question prompt.</span></li>
+            <li class="flex gap-3 text-sm"><span class="w-6 h-6 bg-sgaBlue text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">3</span><span><strong>7 days later:</strong> Second request once only — do not repeat after two requests.</span></li>
+          </ol>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-6">
+          <div class="font-semibold text-sgaBlue mb-4 flex items-center gap-2">
+            <span class="text-lg">&#128084;</span> For Practice Partners
+          </div>
+          <ol class="space-y-3">
+            <li class="flex gap-3 text-sm"><span class="w-6 h-6 bg-sgaBlue text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</span><span><strong>At 90-day check-in:</strong> "Your experience has been really positive. Would you be open to sharing a review on Google or Glassdoor? It helps other dentists evaluating their options."</span></li>
+            <li class="flex gap-3 text-sm"><span class="w-6 h-6 bg-sgaBlue text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</span><span><strong>Provide a direct link</strong> — make it as easy as possible. Do not ask them to search for it.</span></li>
+          </ol>
+          <div class="mt-4 bg-red-50 border border-red-200 rounded-lg p-3">
+            <div class="font-semibold text-red-700 text-xs uppercase tracking-wide mb-1">Negative Review Protocol</div>
+            <ul class="text-xs text-red-700 space-y-1">
+              <li>&#8226; Respond within 24 hours</li>
+              <li>&#8226; Acknowledge the concern directly — do not be defensive</li>
+              <li>&#8226; Offer to resolve offline with contact information</li>
+              <li>&#8226; Do not reveal patient or partner details in public response</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SECTION 4: PLACEMENT MAP
+    ============================================================ -->
+    <div x-show="section === 'placement'" x-transition>
+      <h2 class="font-slab text-2xl font-bold text-gray-800 mb-2">Part 4: Social Proof Placement Map</h2>
+      <p class="text-gray-600 text-sm mb-6">The right proof at the wrong stage of the funnel does not convert. This map specifies which proof type deploys where.</p>
+
+      <!-- Funnel Stage Cards -->
+      <div class="space-y-5 mb-10">
+
+        <!-- TOFU -->
+        <div class="tofu rounded-2xl p-6">
+          <div class="flex items-start justify-between gap-4 mb-4">
+            <div>
+              <div class="text-blue-400 text-xs font-bold uppercase tracking-widest mb-1">Top of Funnel — Awareness</div>
+              <h3 class="font-slab text-xl font-bold text-gray-800">TOFU: Establish Category Credibility</h3>
+            </div>
+            <div class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full flex-shrink-0">Numbers Only</div>
+          </div>
+          <p class="text-sm text-gray-600 mb-4">The prospect does not know SGA exists or has only heard the name. They need to quickly understand why this is worth learning more about. No stories yet — pattern interruption and credibility signaling.</p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-white bg-opacity-70 rounded-xl p-4">
+              <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Proof Types</div>
+              <ul class="text-xs text-gray-700 space-y-1">
+                <li>&#8226; Aggregate numbers: "100+ practices. 38 years. $4B+ returned."</li>
+                <li>&#8226; Third-party validation: press mentions, Becker's Dental features</li>
+                <li>&#8226; Authority signals: Thurston Group, Dr. Pikos, Dr. Olson (138K YT)</li>
+                <li>&#8226; Logo bar: recognizable SGA partner practice names</li>
+              </ul>
+            </div>
+            <div class="bg-white bg-opacity-70 rounded-xl p-4">
+              <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Where to Deploy</div>
+              <ul class="text-xs text-gray-700 space-y-1">
+                <li>&#8226; Paid social ads (Facebook/Instagram)</li>
+                <li>&#8226; YouTube pre-roll</li>
+                <li>&#8226; Dentaltown sponsored content</li>
+                <li>&#8226; Google display</li>
+                <li>&#8226; Podcast sponsorships</li>
+              </ul>
+            </div>
+            <div class="bg-blue-50 rounded-xl p-4 border border-blue-200">
+              <div class="text-xs font-bold text-sgaBlue uppercase tracking-wide mb-2">Example Copy</div>
+              <p class="text-sm font-slab font-bold text-gray-800 italic">"38 years. 8 platforms. $4B+ returned to partners."</p>
+              <p class="text-xs text-gray-500 mt-2">Full stop. No claims. No stories. Credibility through scale.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- MOFU -->
+        <div class="mofu rounded-2xl p-6">
+          <div class="flex items-start justify-between gap-4 mb-4">
+            <div>
+              <div class="text-sgaBlue text-xs font-bold uppercase tracking-widest mb-1">Middle of Funnel — Consideration</div>
+              <h3 class="font-slab text-xl font-bold text-gray-800">MOFU: Differentiate and Peer Match</h3>
+            </div>
+            <div class="bg-sgaBlueLight text-sgaBlue text-xs font-bold px-3 py-1.5 rounded-full flex-shrink-0">Specificity Required</div>
+          </div>
+          <p class="text-sm text-gray-600 mb-4">The prospect knows SGA exists and is evaluating. They are actively comparing. MOFU readers are sophisticated (Schwartz Level 4) — they will dismiss generic claims.</p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-white bg-opacity-70 rounded-xl p-4">
+              <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Proof Types</div>
+              <ul class="text-xs text-gray-700 space-y-1">
+                <li>&#8226; Named testimonials with specific outcomes (Godat, Cavendish 16.5%)</li>
+                <li>&#8226; Case study summaries — one-page format or teaser with "read full story"</li>
+                <li>&#8226; Comparison content framed through partner voices</li>
+                <li>&#8226; Avatar-matched proof: owner to owners, specialist to specialists</li>
+              </ul>
+            </div>
+            <div class="bg-white bg-opacity-70 rounded-xl p-4">
+              <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Where to Deploy</div>
+              <ul class="text-xs text-gray-700 space-y-1">
+                <li>&#8226; Email nurture sequences</li>
+                <li>&#8226; Blog / SEO content</li>
+                <li>&#8226; LinkedIn thought leadership</li>
+                <li>&#8226; Retargeting ads</li>
+                <li>&#8226; Landing pages, webinar content</li>
+              </ul>
+            </div>
+            <div class="bg-sgaBlueLight rounded-xl p-4 border border-sgaBlue border-opacity-20">
+              <div class="text-xs font-bold text-sgaBlue uppercase tracking-wide mb-2">Example Copy</div>
+              <p class="text-sm font-slab font-bold text-gray-800 italic">"QuickBooks no longer calls me to the back office."<br/><span class="font-normal text-xs text-gray-500">— Dr. Mitchel S. Godat</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOFU -->
+        <div class="bofu rounded-2xl p-6">
+          <div class="flex items-start justify-between gap-4 mb-4">
+            <div>
+              <div class="text-green-700 text-xs font-bold uppercase tracking-widest mb-1">Bottom of Funnel — Decision</div>
+              <h3 class="font-slab text-xl font-bold text-gray-800">BOFU: Confirm and Remove Barriers</h3>
+            </div>
+            <div class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1.5 rounded-full flex-shrink-0">Strongest Proof Only</div>
+          </div>
+          <p class="text-sm text-gray-600 mb-4">The prospect is ready to act. They are asking "why SGA and not someone else?" The BOFU proof does not need to persuade — it needs to confirm. Give every piece of evidence and then step back.</p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-white bg-opacity-70 rounded-xl p-4">
+              <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Proof Types</div>
+              <ul class="text-xs text-gray-700 space-y-1">
+                <li>&#8226; Full-length video testimonials (3–5 min)</li>
+                <li>&#8226; Long-form case studies (1,500–2,000 words)</li>
+                <li>&#8226; <strong>"Call them yourself"</strong> — partner phone/email offered</li>
+                <li>&#8226; ROI calculator / valuation assessment</li>
+                <li>&#8226; Live or recorded partner panel Q&amp;A</li>
+              </ul>
+            </div>
+            <div class="bg-white bg-opacity-70 rounded-xl p-4">
+              <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Where to Deploy</div>
+              <ul class="text-xs text-gray-700 space-y-1">
+                <li>&#8226; Partnership landing pages</li>
+                <li>&#8226; Sales meeting follow-up emails</li>
+                <li>&#8226; Post-webinar follow-up</li>
+                <li>&#8226; Proposal appendix</li>
+                <li>&#8226; One-on-one sales conversations</li>
+              </ul>
+            </div>
+            <div class="bg-green-50 rounded-xl p-4 border border-green-200">
+              <div class="text-xs font-bold text-green-700 uppercase tracking-wide mb-2">Most Powerful BOFU Asset</div>
+              <p class="text-sm text-gray-800 italic">"Here is Dr. Godat's email — ask him anything you want."</p>
+              <p class="text-xs text-gray-500 mt-2">The "call them yourself" offer is more persuasive than any case study. Maintain a standing list of partners who have agreed to take calls.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Asset Deployment Quick Reference -->
+      <h3 class="font-slab font-bold text-gray-800 text-lg mb-4">Asset Deployment Quick Reference</h3>
+      <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs">
+            <thead class="bg-gray-50 border-b border-gray-200">
+              <tr>
+                <th class="text-left px-4 py-3 font-semibold text-gray-700">Asset</th>
+                <th class="text-left px-4 py-3 font-semibold text-gray-700">Proof Type</th>
+                <th class="text-left px-4 py-3 font-semibold text-gray-700">Specific Proof</th>
+                <th class="text-left px-4 py-3 font-semibold text-gray-700">Placement</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <template x-for="row in [
+                { asset: 'Homepage hero', type: 'Aggregate + quote', proof: '"100+ partner practices. 38 years. $4B+ returned." + Godat quote', placement: 'Above the fold' },
+                { asset: 'Partnership landing page', type: 'Named case study + video', proof: 'Cavendish metrics + video testimonial', placement: 'Right column, below form' },
+                { asset: 'Associate recruitment page', type: 'Associate testimonial', proof: '[PLACEHOLDER: associate testimonial once collected]', placement: 'Hero section' },
+                { asset: 'MODIS/patient landing page', type: 'Patient video + review aggregate', proof: 'Innovative Dental YouTube + 3,390+ reviews', placement: 'Hero video + review count' },
+                { asset: 'Pricing / equity model page', type: 'Financial testimonials + PE track record', proof: 'Cavendish EBITA data + Thurston $4B figure', placement: 'Inline with each equity concept' },
+                { asset: 'Email sequence (practice owner)', type: 'Peer testimonial, one per email', proof: 'Godat email 1, Cavendish email 3, [3rd partner] email 5', placement: 'Opening hook of each email' },
+                { asset: 'Paid social (Facebook/Instagram)', type: 'Short quote + key metric', proof: '"16.5% revenue growth in 12 months" + avatar photo', placement: 'Image + caption' },
+                { asset: 'Conference materials / booth', type: 'Aggregate + one key quote', proof: '"$4B+ returned. 8 platforms. 38 years." + Godat quote', placement: 'Signage, leave-behind' }
+              ]">
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-3 font-medium text-gray-800" x-text="row.asset"></td>
+                  <td class="px-4 py-3 text-gray-600" x-text="row.type"></td>
+                  <td class="px-4 py-3 text-gray-600" x-text="row.proof"></td>
+                  <td class="px-4 py-3 text-gray-600" x-text="row.placement"></td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SECTION 5: UGC STRATEGY
+    ============================================================ -->
+    <div x-show="section === 'ugc'" x-transition>
+      <h2 class="font-slab text-2xl font-bold text-gray-800 mb-2">Part 5: User-Generated Content Strategy</h2>
+      <p class="text-gray-600 text-sm mb-6">Activate the partner and patient community as content creators. Reduce production burden while increasing proof depth.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+
+        <!-- Partner Spotlight -->
+        <div class="bg-white border border-gray-200 rounded-2xl p-6">
+          <div class="w-10 h-10 bg-sgaBlue rounded-xl flex items-center justify-center mb-4">
+            <span class="text-white text-lg">&#9733;</span>
+          </div>
+          <h3 class="font-slab font-bold text-gray-800 text-lg mb-2">Partner Spotlight Program</h3>
+          <p class="text-sm text-gray-600 mb-4">Monthly feature. One practice partner per month. 2–3 questions via email or 15-minute call.</p>
+          <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Question Prompts</div>
+          <ol class="text-sm text-gray-700 space-y-2 mb-4">
+            <li class="flex gap-2"><span class="text-sgaBlue font-bold">1.</span> What is one clinical case or patient outcome from the last 30 days that made you proud?</li>
+            <li class="flex gap-2"><span class="text-sgaBlue font-bold">2.</span> What are you able to focus on now that you could not before the partnership?</li>
+            <li class="flex gap-2"><span class="text-sgaBlue font-bold">3.</span> What do you wish other practice owners knew about what the partnership actually looks like day-to-day?</li>
+          </ol>
+          <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Published As</div>
+          <ul class="text-xs text-gray-700 space-y-1">
+            <li>&#8226; LinkedIn post (partner tagged)</li>
+            <li>&#8226; Instagram carousel or quote graphic</li>
+            <li>&#8226; Email newsletter inclusion</li>
+            <li>&#8226; Blog post (if detailed enough)</li>
+          </ul>
+        </div>
+
+        <!-- Patient Transformation -->
+        <div class="bg-white border border-gray-200 rounded-2xl p-6">
+          <div class="w-10 h-10 bg-sgaOrange rounded-xl flex items-center justify-center mb-4">
+            <span class="text-white text-lg">&#128247;</span>
+          </div>
+          <h3 class="font-slab font-bold text-gray-800 text-lg mb-2">Patient Transformation Story Program</h3>
+          <p class="text-sm text-gray-600 mb-4">Build a library of before/after stories for Facebook ads, YouTube, and landing pages. Dr. Olson's model — extend it systematically.</p>
+          <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Permission Requirements</div>
+          <ul class="text-xs text-gray-700 space-y-1 mb-4">
+            <li>&#8226; Written photo/video release form before use</li>
+            <li>&#8226; Explicit consent for before and after photos separately</li>
+            <li>&#8226; Offer: professional photos for patient's own use in exchange</li>
+          </ul>
+          <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Content Types</div>
+          <ul class="text-xs text-gray-700 space-y-1 mb-4">
+            <li>&#8226; Before/after photo carousel (Instagram, Facebook)</li>
+            <li>&#8226; 60-second video testimonial (phone camera — authenticity over production)</li>
+            <li>&#8226; Written story (email and website)</li>
+            <li>&#8226; <strong>"First meal" story</strong> — every All-on-X patient</li>
+          </ul>
+          <div class="bg-orange-50 border border-orange-200 rounded-lg p-3">
+            <div class="text-xs font-bold text-orange-700">Collection Trigger</div>
+            <p class="text-xs text-orange-700 mt-1">At the final restoration appointment — the emotional peak. This is the moment.</p>
+          </div>
+        </div>
+
+        <!-- #MySGAStory + Dr. Olson -->
+        <div class="space-y-4">
+          <div class="bg-white border border-gray-200 rounded-2xl p-6">
+            <div class="w-10 h-10 bg-sgaLime rounded-xl flex items-center justify-center mb-4">
+              <span class="text-gray-800 text-base font-bold">#</span>
+            </div>
+            <h3 class="font-slab font-bold text-gray-800 text-base mb-2">#MySGAStory Campaign</h3>
+            <ul class="text-xs text-gray-700 space-y-2">
+              <li>&#8226; Provide partners with "Share your story" toolkit: suggested social copy, branded frame, hashtag</li>
+              <li>&#8226; Prompt patients to tag practices in transformation posts</li>
+              <li>&#8226; Feature selected posts in newsletter and social feed</li>
+              <li>&#8226; Annual "Partner Spotlight Award" at 4Front Symposium</li>
+            </ul>
+          </div>
+
+          <div class="bg-sgaBlue text-white rounded-2xl p-5">
+            <div class="font-slab font-bold text-white text-base mb-2">Dr. Grant Olson Amplification</div>
+            <div class="text-blue-200 text-xs mb-3">138K subscribers &middot; 23M+ views — most powerful content asset in the SGA ecosystem</div>
+            <div class="text-xs font-bold text-sgaLime uppercase tracking-wide mb-2">Content to Amplify</div>
+            <ul class="text-xs text-blue-100 space-y-1">
+              <li>&#8226; Patient transformation reveal videos</li>
+              <li>&#8226; "Real cost of dental implants" transparency content</li>
+              <li>&#8226; Procedure explanation: "What happens during All-on-X"</li>
+              <li>&#8226; Debunking: "Permanent teeth in 24 hours is a lie"</li>
+            </ul>
+            <div class="text-xs font-bold text-sgaLime uppercase tracking-wide mt-3 mb-2">New Directions 2026</div>
+            <ul class="text-xs text-blue-100 space-y-1">
+              <li>&#8226; Live Q&amp;A sessions (Olson stated intent for 2026)</li>
+              <li>&#8226; Cross-practice: Olson visits another MODIS partner</li>
+              <li>&#8226; "Dentists teaching dentists" within SGA network</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SECTION 6: CALENDAR
+    ============================================================ -->
+    <div x-show="section === 'calendar'" x-transition>
+      <h2 class="font-slab text-2xl font-bold text-gray-800 mb-2">Part 6: Proof Collection Calendar</h2>
+      <p class="text-gray-600 text-sm mb-6">Systematic rhythm for collection, review, and deployment. Proof collection should run on autopilot, not on memory.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+        <!-- Monthly -->
+        <div>
+          <h3 class="font-slab font-bold text-gray-800 text-lg mb-4">Monthly Rhythm</h3>
+          <div class="space-y-3">
+            <template x-for="week in [
+              { label: 'Week 1', action: 'Review list of partners approaching 90-day, 6-month, 12-month milestones. Send testimonial collection emails using Templates A and B.' },
+              { label: 'Week 2', action: 'Schedule video testimonial recordings for willing partners. Confirm logistics (videographer, location, date).' },
+              { label: 'Week 3', action: 'Review platform mentions: Google, Glassdoor, Dentaltown, social. Respond to all. Flag any positive comments for collection opportunity.' },
+              { label: 'Week 4', action: 'Review collected testimonials. Prepare for deployment. Update proof asset library. Log to costs_log if applicable.' }
+            ]">
+              <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-4">
+                <div class="w-16 h-16 bg-sgaBlue rounded-xl flex items-center justify-center text-white text-xs font-bold text-center flex-shrink-0 leading-tight" x-text="week.label"></div>
+                <div class="flex-1">
+                  <p class="text-sm text-gray-700" x-text="week.action"></p>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <!-- Quarterly -->
+        <div>
+          <h3 class="font-slab font-bold text-gray-800 text-lg mb-4">Quarterly Rhythm</h3>
+          <div class="space-y-3">
+            <template x-for="q in [
+              { label: 'Q1', color: 'bg-blue-500', action: 'Annual proof audit: update the confirmed assets table; identify new gaps; reprioritize collection efforts.' },
+              { label: 'Q2', color: 'bg-green-500', action: '4Front Symposium proof collection: on-site video collection, partner quote gathering, live testimonial capture. This is the highest-density proof window of the year.' },
+              { label: 'Q3', color: 'bg-orange-500', action: 'Patient transformation campaign: select 3 featured patient stories for fall marketing push. Collect video and photo. Target RealSelf publication.' },
+              { label: 'Q4', color: 'bg-purple-500', action: 'Employer brand push: encourage Glassdoor and Indeed reviews before year-end. Prepare for Q1 recruiting season.' }
+            ]">
+              <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-4">
+                <div :class="q.color" class="w-14 h-14 rounded-xl flex items-center justify-center text-white font-bold text-xl flex-shrink-0" x-text="q.label"></div>
+                <div class="flex-1">
+                  <p class="text-sm text-gray-700" x-text="q.action"></p>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+
+      <!-- Measurement Table -->
+      <h3 class="font-slab font-bold text-gray-800 text-lg mb-4">Measurement Dashboard</h3>
+      <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-sgaBlue text-white">
+              <tr>
+                <th class="text-left px-5 py-3 font-semibold">Metric</th>
+                <th class="text-left px-5 py-3 font-semibold">Current</th>
+                <th class="text-left px-5 py-3 font-semibold">6-Month Target</th>
+                <th class="text-left px-5 py-3 font-semibold">How to Measure</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <template x-for="row in [
+                { metric: 'Named partner testimonials in library', current: '—', target: '10', how: 'Internal library count' },
+                { metric: 'Video testimonials', current: '—', target: '5', how: 'Internal library count' },
+                { metric: 'Patient transformation stories (with consent)', current: '—', target: '20', how: 'Internal library count' },
+                { metric: 'Average Google review rating (per practice)', current: '—', target: '4.7+', how: 'Google Business Profile' },
+                { metric: 'Healthgrades rating (MODIS practices)', current: '—', target: '4.5+', how: 'Healthgrades dashboard' },
+                { metric: 'RealSelf cases published', current: '—', target: '25+ active cases', how: 'RealSelf dashboard' },
+                { metric: 'Glassdoor rating (SGA/Gen4/MODIS)', current: '—', target: '4.0+', how: 'Glassdoor' },
+                { metric: '#MySGAStory posts per month', current: '—', target: '5/month', how: 'Social listening tool' },
+                { metric: 'Partnership conversion rate', current: '—', target: 'Track + improve QoQ', how: 'CRM data' }
+              ]">
+                <tr class="hover:bg-gray-50">
+                  <td class="px-5 py-3 font-medium text-gray-800" x-text="row.metric"></td>
+                  <td class="px-5 py-3 text-gray-400 italic" x-text="row.current"></td>
+                  <td class="px-5 py-3 font-semibold text-sgaBlue" x-text="row.target"></td>
+                  <td class="px-5 py-3 text-gray-600 text-xs" x-text="row.how"></td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SECTION 7: QUESTION BANK
+    ============================================================ -->
+    <div x-show="section === 'questions'" x-transition>
+      <h2 class="font-slab text-2xl font-bold text-gray-800 mb-2">Part 7: Interview Question Bank</h2>
+      <p class="text-gray-600 text-sm mb-2">30+ questions organized by narrative section, with avatar-specific variants and interviewer guidance.</p>
+
+      <!-- Quick Reference -->
+      <div class="bg-sgaBlueLight border border-sgaBlue border-opacity-20 rounded-xl p-4 mb-6">
+        <div class="font-semibold text-sgaBlue text-sm mb-2">Quick Reference: Questions by Time Available</div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs text-gray-700">
+          <div><span class="font-bold">10 min:</span> Q1, Q5, Q16, Q21</div>
+          <div><span class="font-bold">20 min:</span> Q1, Q2, Q5, Q8, Q9, Q15, Q16, Q17, Q21, Q24</div>
+          <div><span class="font-bold">45 min:</span> All Section 1 + Q6–Q10 + Q11–Q15 + Q16–Q20 + Q21–Q25</div>
+          <div><span class="font-bold">90 min:</span> Full bank. Film Q21 answer as video opening.</div>
+        </div>
+      </div>
+
+      <!-- Interviewer Principles -->
+      <div class="bg-white border border-gray-200 rounded-2xl p-6 mb-6">
+        <h3 class="font-slab font-bold text-gray-800 text-lg mb-4">Interviewer Principles</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <template x-for="p in [
+            { num: '1', title: 'Ask and then shut up.', desc: 'Most interviewees will fill silence by going deeper, adding the specific detail they were about to skip. Your job after asking is to listen.' },
+            { num: '2', title: 'Follow the specifics.', desc: 'When a partner says \'things got a lot better,\' the follow-up is always: \'What specifically got better? Can you give me an example?\'' },
+            { num: '3', title: 'Acknowledge, then go deeper.', desc: 'When someone shares something emotionally significant, acknowledge it before moving on. Acknowledgment earns the deeper story.' },
+            { num: '4', title: 'Be comfortable with discomfort.', desc: '\'What almost stopped you from doing this?\' is more useful than \'What made you excited?\' Do not flinch.' },
+            { num: '5', title: 'Let them tell the story in their order.', desc: 'The framework is a guide, not a script. If the interviewee starts with results and works backward, let them.' },
+            { num: '6', title: 'The best quote is the one they almost did not say.', desc: 'When they say \'I probably shouldn\'t say this, but...\' — that is your most deployable quote. Invite them to finish.' }
+          ]">
+            <div class="flex gap-3">
+              <div class="w-7 h-7 bg-sgaBlue text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5" x-text="p.num"></div>
+              <div>
+                <div class="font-semibold text-gray-800 text-sm mb-1" x-text="p.title"></div>
+                <p class="text-xs text-gray-600" x-text="p.desc"></p>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+
+      <!-- Questions by Avatar -->
+      <h3 class="font-slab font-bold text-gray-800 text-lg mb-4">Questions by Avatar Type</h3>
+      <div x-data="{ openAvatar: 0 }" class="space-y-3">
+        <template x-for="(avatar, aidx) in [
+          {
+            name: 'Practice Owner (Dr. Hendricks)',
+            color: 'bg-sgaBlue',
+            platform: 'Gen4 / SGA',
+            questions: [
+              { q: 'Q1-A', text: 'You went to dental school to be a dentist. How much of your time were you actually spending on dentistry versus running the business when things were at their most difficult?' },
+              { q: 'Q2-A', text: 'A lot of practice owners carry all their financial security in one practice. Is that something you thought about? What did your financial situation look like going into this?' },
+              { q: 'Q3-A', text: 'Your practice has your name on it — your reputation, your relationships. What were you most afraid would change if you brought in a partner?' },
+              { q: 'Q4-A', text: 'Had you spoken with any other DSOs before SGA? What happened with those conversations? What did they do that made you skeptical?' },
+              { q: 'Q6-A', text: 'The autonomy concern stops most dentists from having this conversation. What were your specific concerns about clinical and operational autonomy, and how did those get resolved?' },
+              { q: 'Q18-A', text: 'Did you do a procedure or take on a case in the last year that you would not have attempted or been equipped for before the partnership? Tell me about it.' },
+              { q: 'Q26', text: 'What does \'clinical freedom\' actually mean to you now, in your daily practice? Not the concept — the specific things you do or don\'t do because you have it.' },
+              { q: 'Q27', text: 'Your name is still on the door. What does that mean to you?' }
+            ]
+          },
+          {
+            name: 'Associate Dentist (Dr. Nair)',
+            color: 'bg-green-600',
+            platform: 'Gen4 / SGA Associate Recruitment',
+            questions: [
+              { q: 'Q1-B', text: 'Before SGA, where were you working? What was the daily reality of that position? Not the job description — the actual day.' },
+              { q: 'Q2-B', text: 'Were there types of cases or procedures you wanted to do that you were not getting to do? What was being held back?' },
+              { q: 'Q3-B', text: 'Student loans shape a lot of early-career decisions. Was that part of how you were thinking about your options? What did the math look like to you?' },
+              { q: 'Q12-B', text: 'Describe the first case you did here that you would not have been able to do — or trusted to do — at your previous position. What was it? How did it go?' },
+              { q: 'Q13-B', text: 'Tell me about a specific conversation with your mentor. What did you learn that you would not have found in a CE course?' },
+              { q: 'Q17-B', text: 'Have you made the equity investment as a Class A shareholder? What does that feel like — having a stake in something bigger than your practice?' },
+              { q: 'Q27-B', text: 'Is there a moment in the last few months where you thought: this is why I went to dental school? What was it?' }
+            ]
+          },
+          {
+            name: 'Implant Patient (Linda Dawson)',
+            color: 'bg-sgaOrange',
+            platform: 'MODIS / Innovative Dental Patient-Facing',
+            questions: [
+              { q: 'Q1-C', text: 'Before your procedure, what was a normal day like in terms of your teeth? Not the dental terms — just what it actually felt like to live with the situation.' },
+              { q: 'Q2-C', text: 'Were there things you stopped doing — activities, foods, social situations — because of your dental situation? Can you tell me about one specific time?' },
+              { q: 'Q5-C', text: 'Was there a moment where you almost talked yourself out of it? What almost stopped you?' },
+              { q: 'Q16-C', text: 'What can you eat now that you could not eat before? Give me specific foods.' },
+              { q: 'Q17-C', text: 'Before your procedure, were there things you were avoiding — social situations, photos, events? What have you done in the last few months that you would not have done before?' },
+              { q: 'Q19-C', text: 'A lot of patients remember their first meal after getting their new teeth. Do you remember yours? What did you choose, and what was it like?' },
+              { q: 'Q27-C', text: 'Dr. Olson talks about \'giving people back all of life\'s moments.\' What moment did you get back?' }
+            ]
+          },
+          {
+            name: 'Specialist (Dr. Whitfield)',
+            color: 'bg-purple-600',
+            platform: 'MODIS Dental Partners',
+            questions: [
+              { q: 'Q1-D', text: 'What was the ceiling on your practice — the thing you wanted to do that you could not do with your current setup?' },
+              { q: 'Q2-D', text: 'Had you tried to bring in another specialist? What happened with that process?' },
+              { q: 'Q3-D', text: 'You\'ve spent 14 years building this practice. What would have happened to it if you had been unable to practice tomorrow? Had you thought about that?' },
+              { q: 'Q6-D', text: 'Private equity has a reputation in healthcare that makes a lot of specialists nervous. How did you think through the PE question? What evidence changed your mind, if it did?' },
+              { q: 'Q16-D', text: 'What did the capital investment — the CT scanner, the lab, the surgical suite — make possible clinically that was not possible before?' },
+              { q: 'Q18-D', text: 'How has your financial and succession situation changed? What does the risk picture look like now compared to before?' },
+              { q: 'Q27-D', text: 'The Pikos Institute is part of MODIS\'s identity. What does that connection mean to you clinically and professionally?' }
+            ]
+          },
+          {
+            name: 'Office Manager (Tamara Reeves)',
+            color: 'bg-teal-600',
+            platform: 'SGA Internal / Staff Onboarding',
+            questions: [
+              { q: 'Q1-E', text: 'Do you remember the moment you found out your practice was joining SGA? What was your first reaction?' },
+              { q: 'Q2-E', text: 'What were you most worried about — for yourself, for your team, for the patients?' },
+              { q: 'Q3-E', text: 'Before the transition, what were the two or three things that took up most of your time and energy that had nothing to do with patients? Walk me through one of those.' },
+              { q: 'Q4-E', text: 'Your team came to you with questions when they found out. What were they asking, and what did you tell them?' },
+              { q: 'Q12-E', text: 'When staff found out about the new benefits package, what was the reaction? Can you tell me about a specific conversation?' },
+              { q: 'Q16-E', text: 'Roughly how many hours a week were you spending on tasks that are now handled by SGA\'s team? What do those hours go to now?' },
+              { q: 'Q27-E', text: 'What would you say to another office manager whose practice is about to go through this same transition and who is afraid of what it means?' }
+            ]
+          }
+        ]" :key="aidx">
+          <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden">
+            <button @click="openAvatar = openAvatar === aidx ? null : aidx"
+              class="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors">
+              <div class="flex items-center gap-3">
+                <div :class="avatar.color" class="w-9 h-9 rounded-lg flex items-center justify-center text-white text-xs font-bold flex-shrink-0" x-text="aidx + 1"></div>
+                <div>
+                  <div class="font-slab font-bold text-gray-800" x-text="avatar.name"></div>
+                  <div class="text-xs text-gray-500" x-text="avatar.platform"></div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-xs text-gray-500 hidden md:block" x-text="avatar.questions.length + ' questions'"></span>
+                <span class="text-gray-400" x-text="openAvatar === aidx ? '&#9650;' : '&#9660;'"></span>
+              </div>
+            </button>
+            <div class="accordion-body" :style="openAvatar === aidx ? 'max-height:1200px' : 'max-height:0'">
+              <div class="border-t border-gray-100">
+                <template x-for="(q, qi) in avatar.questions" :key="qi">
+                  <div class="flex items-start gap-4 px-5 py-4 border-b border-gray-50 hover:bg-gray-50">
+                    <span :class="avatar.color" class="text-white text-xs font-bold px-2 py-1 rounded flex-shrink-0 mt-0.5" x-text="q.q"></span>
+                    <p class="text-sm text-gray-700" x-text="q.text"></p>
+                  </div>
+                </template>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <!-- The Most Important Question -->
+      <div class="mt-6 bg-sgaBlue text-white rounded-2xl p-8">
+        <div class="text-sgaLime font-bold text-xs uppercase tracking-widest mb-2">The Single Most Important Question — Q21</div>
+        <p class="font-slab text-2xl font-bold mb-4">
+          "If you were having coffee with a [practice owner / associate / patient / specialist] who is exactly where you were 12–18 months ago — same situation, same fears — what would you say to them?"
+        </p>
+        <p class="text-blue-200 text-sm">Ask this every time. Never skip it. This question reliably produces the quotable, deployable sound bite that every other question has been building toward. Film the answer to this question as the opening of the video testimonial.</p>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         CRITICAL NOTES (persistent bottom section)
+    ============================================================ -->
+    <div class="mt-10 bg-gray-900 text-white rounded-2xl p-8">
+      <h2 class="font-slab text-xl font-bold mb-6 flex items-center gap-3">
+        <span class="w-8 h-8 bg-sgaOrange rounded-lg flex items-center justify-center text-white text-sm">!</span>
+        Critical Notes for the Partnership Team
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="space-y-4">
+          <div class="flex gap-3">
+            <div class="w-2 h-2 bg-red-400 rounded-full flex-shrink-0 mt-2"></div>
+            <div>
+              <div class="font-semibold text-white text-sm mb-1">Never fabricate or embellish.</div>
+              <p class="text-gray-400 text-xs">Every testimonial must be in the partner's own words, approved before publication, and attributable by name and practice. A single fabricated quote, if discovered, destroys the credibility of every real quote in the library.</p>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <div class="w-2 h-2 bg-sgaLime rounded-full flex-shrink-0 mt-2"></div>
+            <div>
+              <div class="font-semibold text-white text-sm mb-1">Specificity beats superlatives.</div>
+              <p class="text-gray-400 text-xs">"16.5% revenue growth" is more credible than "significant revenue improvement." "QuickBooks no longer calls me to the back office" is more credible than "I feel less stressed." Push for the specific detail in every collection effort.</p>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="flex gap-3">
+            <div class="w-2 h-2 bg-yellow-400 rounded-full flex-shrink-0 mt-2"></div>
+            <div>
+              <div class="font-semibold text-white text-sm mb-1">Permission documentation is non-negotiable.</div>
+              <p class="text-gray-400 text-xs">Every piece of proof using a real name, a real image, a real financial figure, or a real clinical outcome requires documented written permission. Create a simple release form and use it consistently.</p>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <div class="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0 mt-2"></div>
+            <div>
+              <div class="font-semibold text-white text-sm mb-1">The "call them yourself" offer is the most powerful BOFU proof.</div>
+              <p class="text-gray-400 text-xs">When a prospective practice owner says "I want to speak to someone who has actually done this," the ability to say "Here is Dr. Godat's email — ask him anything you want" is more persuasive than any case study. Maintain a standing list of partners willing to take calls.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="bg-gray-900 text-white border-t border-gray-800 mt-8">
+    <div class="max-w-7xl mx-auto px-6 py-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-sgaBlue rounded-lg flex items-center justify-center">
+            <span class="text-white font-bold text-sm font-slab">SGA</span>
+          </div>
+          <div>
+            <div class="font-slab font-bold">SGA Dental Partners</div>
+            <div class="text-gray-400 text-xs">Social Proof Strategy — Confidential — March 2026</div>
+          </div>
+        </div>
+        <div class="text-gray-400 text-xs text-right">
+          See also: Case Study Templates &bull; Avatar Case Study Frameworks &bull; Interview Question Bank
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
