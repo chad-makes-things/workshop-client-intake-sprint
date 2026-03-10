@@ -40,6 +40,14 @@
       "reasoning": "User wants the complete system architected so they can see how C (Practice Nerve Center) gets executed. A+B first because the data layer and executive dashboard are foundational — you can't build a practice interface without the data flowing. C is the highest-impact piece for practice staff but depends on A+B being established.",
       "date": "2026-03-10",
       "decided_by": "user"
+    },
+    {
+      "sprint": "full-funnel-visibility",
+      "phase": "solution-selection",
+      "decision": "Solution 1: The Funnel OS — Full-Stack Unified Platform with staged delivery. Stage 1 uses off-the-shelf BI tool for quick exec dashboard while platform is built. Practice Nerve Center extends Practice Concierge agent pattern from Storefront sprint.",
+      "reasoning": "User accepted recommendation. Highest-scoring solution (28/35). Only solution where all three layers (integration, dashboard, nerve center) are native to a single coherent platform. Staged delivery addresses time-to-value weakness: Month 1 BI dashboard, Month 2-3 AI analysis, Month 3-5 Practice Nerve Center, Month 5-8 full automation + network rollout. Long-term convergence with Practice Concierge from Storefront sprint.",
+      "date": "2026-03-10",
+      "decided_by": "user"
     }
   ],
   "metadata": {

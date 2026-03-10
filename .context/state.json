@@ -19,14 +19,15 @@
       "problem": "260+ practice digital storefront setup takes months per acquisition with no system for ongoing 365-day network-wide curation",
       "solution": "The Practice Concierge — Agent-first orchestration platform with per-practice AI concierge, data hub, template engine, channel sync, and network dashboard",
       "output": "resources/problem-sprints/digital-storefront-at-scale/"
-    }
-  },
+    },
     "full-funnel-visibility": {
       "type": "problem-sprint",
-      "status": "in-progress",
-      "phase": "target-confirmation",
+      "status": "complete",
+      "phase": "development-ready",
       "started": "2026-03-10",
+      "completed": "2026-03-10",
       "problem": "75+ disconnected tech systems across 260+ practices create 30-day visibility lag into patient funnel health, preventing proactive intervention",
+      "solution": "The Funnel OS — Full-stack unified patient funnel operating system with 3 layers (Data Integration, Intelligence, Experience), staged delivery from BI dashboard to full platform with Practice Nerve Center extending Practice Concierge",
       "output": "resources/problem-sprints/full-funnel-visibility/"
     }
   },

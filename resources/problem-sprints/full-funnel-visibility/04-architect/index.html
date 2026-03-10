@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Funnel OS — SGA Dental Partners</title>
+<style>
+  :root {
+    --bg-dark: #0a0e1a;
+    --bg-card: #111827;
+    --bg-card-hover: #1a2332;
+    --accent: #3b82f6;
+    --accent-light: #60a5fa;
+    --accent-glow: rgba(59, 130, 246, 0.15);
+    --green: #10b981;
+    --yellow: #f59e0b;
+    --red: #ef4444;
+    --orange: #f97316;
+    --purple: #8b5cf6;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --border: #1e293b;
+    --border-light: #334155;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Sticky Nav */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 14, 26, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  nav .logo {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--accent-light);
+    white-space: nowrap;
+  }
+  nav .links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--accent-light); }
+
+  /* Hero */
+  .hero {
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(59,130,246,0.08) 0%, transparent 100%);
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--accent-glow);
+    color: var(--accent-light);
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(59,130,246,0.2);
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero h1 span { color: var(--accent-light); }
+  .hero p {
+    color: var(--text-secondary);
+    font-size: 1.15rem;
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+  }
+
+  /* Stats row */
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  .stat {
+    text-align: center;
+  }
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent-light);
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Section */
+  section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  section h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  section .section-sub {
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+  }
+
+  /* Before/After */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  @media (max-width: 768px) { .compare-grid { grid-template-columns: 1fr; } }
+  .compare-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem;
+  }
+  .compare-card.before { border-top: 3px solid var(--red); }
+  .compare-card.after { border-top: 3px solid var(--green); }
+  .compare-card h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .compare-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .compare-card li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  .compare-card.before li::before { content: '✗'; position: absolute; left: 0; color: var(--red); font-weight: 700; }
+  .compare-card.after li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+
+  /* Funnel diagram */
+  .funnel-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+  }
+  .funnel-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .funnel-step {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .funnel-step:last-child { border-bottom: none; }
+  .funnel-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+  .funnel-bar-wrap {
+    flex: 1;
+  }
+  .funnel-label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+  .funnel-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  .funnel-bar {
+    height: 8px;
+    border-radius: 4px;
+    margin-top: 0.4rem;
+    background: var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .funnel-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 1s ease;
+  }
+  .f1 .funnel-num { background: rgba(59,130,246,0.15); color: var(--accent-light); }
+  .f1 .funnel-bar-fill { background: var(--accent); width: 100%; }
+  .f2 .funnel-num { background: rgba(139,92,246,0.15); color: var(--purple); }
+  .f2 .funnel-bar-fill { background: var(--purple); width: 75%; }
+  .f3 .funnel-num { background: rgba(245,158,11,0.15); color: var(--yellow); }
+  .f3 .funnel-bar-fill { background: var(--yellow); width: 60%; }
+  .f4 .funnel-num { background: rgba(249,115,22,0.15); color: var(--orange); }
+  .f4 .funnel-bar-fill { background: var(--orange); width: 51%; }
+  .f5 .funnel-num { background: rgba(16,185,129,0.15); color: var(--green); }
+  .f5 .funnel-bar-fill { background: var(--green); width: 43%; }
+
+  /* Architecture diagram */
+  .arch-svg-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    overflow-x: auto;
+  }
+  .arch-svg-container svg {
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Journey timeline */
+  .timeline {
+    position: relative;
+    padding-left: 2.5rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border-light);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .timeline-item:hover { border-color: var(--accent); }
+  .timeline-dot {
+    position: absolute;
+    left: -2.5rem;
+    top: 1.5rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    background: var(--bg-dark);
+    transform: translateX(9px);
+  }
+  .timeline-step {
+    font-size: 0.75rem;
+    color: var(--accent-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+  }
+  .timeline-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+  .timeline-desc {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+  }
+  .timeline-detail {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* Components grid */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.25rem;
+  }
+  .comp-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .comp-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .comp-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .comp-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .comp-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+  }
+  .comp-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .comp-tech span {
+    background: rgba(59,130,246,0.1);
+    color: var(--accent-light);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 500;
+  }
+
+  /* Roadmap */
+  .roadmap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  .roadmap-stage {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .roadmap-stage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+  }
+  .rs1::before { background: var(--accent); }
+  .rs2::before { background: var(--purple); }
+  .rs3::before { background: var(--yellow); }
+  .rs4::before { background: var(--green); }
+  .rs5::before { background: var(--orange); }
+  .roadmap-stage h4 {
+    font-size: 0.85rem;
+    margin-bottom: 0.15rem;
+  }
+  .roadmap-time {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
+  .roadmap-stage ul {
+    list-style: none;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+  .roadmap-stage li {
+    padding: 0.2rem 0;
+    padding-left: 1rem;
+    position: relative;
+  }
+  .roadmap-stage li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--text-muted);
+  }
+
+  /* ADR cards */
+  .adr-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .adr {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .adr-header {
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    transition: background 0.2s;
+  }
+  .adr-header:hover { background: var(--bg-card-hover); }
+  .adr-header h4 { font-size: 0.95rem; }
+  .adr-arrow {
+    transition: transform 0.2s;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+  .adr.open .adr-arrow { transform: rotate(90deg); }
+  .adr-body {
+    display: none;
+    padding: 0 1.25rem 1.25rem;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .adr.open .adr-body { display: block; }
+
+  /* Tech stack */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  .tech-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+  }
+  .tech-card h4 {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+  .tech-card .tech-name {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+  .tech-card .tech-why {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+
+  @media print {
+    nav { display: none; }
+    .hero { padding: 2rem; }
+    section { padding: 2rem 1rem; }
+    .timeline-item, .comp-card, .adr, .tech-card, .compare-card, .roadmap-stage {
+      break-inside: avoid;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Funnel OS</div>
+  <div class="links">
+    <a href="#overview">Overview</a>
+    <a href="#problem">Problem</a>
+    <a href="#funnel">The Funnel</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#journey">Journey</a>
+    <a href="#components">Components</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#decisions">Decisions</a>
+    <a href="#tech">Tech Stack</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="overview">
+  <div class="hero-badge">Sprint Output — Full Funnel Visibility</div>
+  <h1>The <span>Funnel OS</span></h1>
+  <p>A unified patient funnel operating system for SGA Dental Partners — real-time visibility from lead to production across 260+ practices, powered by AI that spots problems before they hit the P&L.</p>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-value">260+</div>
+      <div class="stat-label">Practices</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">5</div>
+      <div class="stat-label">Funnel Stages</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">15</div>
+      <div class="stat-label">Platforms Unified</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">30→0</div>
+      <div class="stat-label">Day Reporting Lag</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">3</div>
+      <div class="stat-label">System Layers</div>
+    </div>
+  </div>
+</section>
+
+<!-- Before / After -->
+<section id="problem">
+  <h2>The Problem</h2>
+  <p class="section-sub">75+ disconnected systems create a 30-day blind spot across the patient funnel.</p>
+  <div class="compare-grid">
+    <div class="compare-card before">
+      <h3><span style="color:var(--red)">●</span> Today</h3>
+      <ul>
+        <li>75 individual tech platforms across practices</li>
+        <li>30+ days to understand monthly business health</li>
+        <li>Practice staff juggle 10+ tools in 20 min/day</li>
+        <li>No standard CRM or lead capture layer</li>
+        <li>Phone answer rates vary 50-90% — nobody knows</li>
+        <li>No-shows are discovered after the fact</li>
+        <li>Executive visibility is anecdotal, not data-driven</li>
+        <li>Problems found retroactively, never proactively</li>
+      </ul>
+    </div>
+    <div class="compare-card after">
+      <h3><span style="color:var(--green)">●</span> With Funnel OS</h3>
+      <ul>
+        <li>15 platforms unified through one integration layer</li>
+        <li>Real-time funnel visibility — no month-end wait</li>
+        <li>One 20-minute agenda replaces 10 separate tools</li>
+        <li>Unified funnel data model from lead to production</li>
+        <li>AI monitors every call metric across every practice</li>
+        <li>At-risk appointments flagged 24h before, auto-confirmed</li>
+        <li>Executive dashboard: network → region → practice drill-down</li>
+        <li>AI spots problems and generates interventions in real-time</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Funnel -->
+<section id="funnel">
+  <h2>The Patient Funnel</h2>
+  <p class="section-sub">Five stages from lead to revenue — the P&L SGA manages at every practice.</p>
+  <div class="funnel-container">
+    <div class="funnel-steps">
+      <div class="funnel-step f1">
+        <div class="funnel-num">1</div>
+        <div class="funnel-bar-wrap">
+          <div class="funnel-label">Leads Generated</div>
+          <div class="funnel-desc">Ads, organic search, referrals, walk-ins — a patient enters the funnel</div>
+          <div class="funnel-bar"><div class="funnel-bar-fill"></div></div>
+        </div>
+      </div>
+      <div class="funnel-step f2">
+        <div class="funnel-num">2</div>
+        <div class="funnel-bar-wrap">
+          <div class="funnel-label">Leads Connected With</div>
+          <div class="funnel-desc">Phone answered (human or AI), form responded to, chat engaged — two-way contact</div>
+          <div class="funnel-bar"><div class="funnel-bar-fill"></div></div>
+        </div>
+      </div>
+      <div class="funnel-step f3">
+        <div class="funnel-num">3</div>
+        <div class="funnel-bar-wrap">
+          <div class="funnel-label">Leads Booked</div>
+          <div class="funnel-desc">Appointment scheduled in PMS — patient has a date and time</div>
+          <div class="funnel-bar"><div class="funnel-bar-fill"></div></div>
+        </div>
+      </div>
+      <div class="funnel-step f4">
+        <div class="funnel-num">4</div>
+        <div class="funnel-bar-wrap">
+          <div class="funnel-label">Patient Shows Up</div>
+          <div class="funnel-desc">Patient arrives — show rates vary 60-85% depending on service type</div>
+          <div class="funnel-bar"><div class="funnel-bar-fill"></div></div>
+        </div>
+      </div>
+      <div class="funnel-step f5">
+        <div class="funnel-num">5</div>
+        <div class="funnel-bar-wrap">
+          <div class="funnel-label">Production / In the Chair</div>
+          <div class="funnel-desc">Treatment accepted, revenue generated — the bottom line</div>
+          <div class="funnel-bar"><div class="funnel-bar-fill"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Architecture SVG -->
+<section id="architecture">
+  <h2>System Architecture</h2>
+  <p class="section-sub">Three layers — Data Integration, Intelligence, and Experience — in one coherent platform.</p>
+  <div class="arch-svg-container">
+    <svg viewBox="0 0 900 520" width="100%" xmlns="http://www.w3.org/2000/svg" style="max-width:900px;">
+      <!-- Experience Layer -->
+      <rect x="20" y="20" width="860" height="120" rx="12" fill="#111827" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="40" y="45" fill="#64748b" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="1">EXPERIENCE LAYER</text>
+      <rect x="40" y="58" width="380" height="68" rx="8" fill="#0f172a" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="60" y="82" fill="#60a5fa" font-size="13" font-weight="700">Executive Dashboard</text>
+      <text x="60" y="100" fill="#94a3b8" font-size="10">Network → Region → Practice drill-down</text>
+      <text x="60" y="115" fill="#94a3b8" font-size="10">AI alerts • Weekly summaries • Funnel view</text>
+      <rect x="440" y="58" width="420" height="68" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="460" y="82" fill="#10b981" font-size="13" font-weight="700">Practice Nerve Center</text>
+      <text x="460" y="100" fill="#94a3b8" font-size="10">20-min daily agenda • Action cards • Scorecard</text>
+      <text x="460" y="115" fill="#94a3b8" font-size="10">Extends Practice Concierge • Role-based views</text>
+
+      <!-- Arrow down -->
+      <line x1="450" y1="140" x2="450" y2="170" stroke="#334155" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <polygon points="445,168 450,178 455,168" fill="#334155"/>
+
+      <!-- Intelligence Layer -->
+      <rect x="20" y="178" width="860" height="145" rx="12" fill="#111827" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="40" y="203" fill="#64748b" font-size="11" font-weight="600" letter-spacing="1">INTELLIGENCE LAYER</text>
+      <rect x="40" y="215" width="500" height="90" rx="8" fill="#0f172a" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="60" y="240" fill="#8b5cf6" font-size="13" font-weight="700">AI Analysis Engine</text>
+      <rect x="60" y="250" width="105" height="42" rx="5" fill="rgba(139,92,246,0.08)" stroke="#8b5cf6" stroke-width="0.5" stroke-opacity="0.3"/>
+      <text x="70" y="267" fill="#c4b5fd" font-size="9" font-weight="600">Anomaly</text>
+      <text x="70" y="280" fill="#c4b5fd" font-size="9">Detection</text>
+      <rect x="175" y="250" width="105" height="42" rx="5" fill="rgba(139,92,246,0.08)" stroke="#8b5cf6" stroke-width="0.5" stroke-opacity="0.3"/>
+      <text x="185" y="267" fill="#c4b5fd" font-size="9" font-weight="600">Root Cause</text>
+      <text x="185" y="280" fill="#c4b5fd" font-size="9">Correlation</text>
+      <rect x="290" y="250" width="105" height="42" rx="5" fill="rgba(139,92,246,0.08)" stroke="#8b5cf6" stroke-width="0.5" stroke-opacity="0.3"/>
+      <text x="300" y="267" fill="#c4b5fd" font-size="9" font-weight="600">Action</text>
+      <text x="300" y="280" fill="#c4b5fd" font-size="9">Generation</text>
+      <rect x="405" y="250" width="105" height="42" rx="5" fill="rgba(139,92,246,0.08)" stroke="#8b5cf6" stroke-width="0.5" stroke-opacity="0.3"/>
+      <text x="415" y="267" fill="#c4b5fd" font-size="9" font-weight="600">Learning</text>
+      <text x="415" y="280" fill="#c4b5fd" font-size="9">Loop</text>
+
+      <rect x="560" y="215" width="300" height="90" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="580" y="240" fill="#f59e0b" font-size="13" font-weight="700">Automation Engine</text>
+      <text x="580" y="260" fill="#94a3b8" font-size="10">Confirmation sequences</text>
+      <text x="580" y="275" fill="#94a3b8" font-size="10">Missed call recovery</text>
+      <text x="580" y="290" fill="#94a3b8" font-size="10">No-show re-engagement</text>
+      <text x="730" y="260" fill="#94a3b8" font-size="10">Production</text>
+      <text x="730" y="275" fill="#94a3b8" font-size="10">gap alerts</text>
+
+      <!-- Arrow down -->
+      <line x1="450" y1="323" x2="450" y2="353" stroke="#334155" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <polygon points="445,351 450,361 455,351" fill="#334155"/>
+
+      <!-- Data Integration Layer -->
+      <rect x="20" y="360" width="860" height="140" rx="12" fill="#111827" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="40" y="385" fill="#64748b" font-size="11" font-weight="600" letter-spacing="1">DATA INTEGRATION LAYER</text>
+      <rect x="40" y="395" width="410" height="50" rx="8" fill="#0f172a" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="60" y="418" fill="#60a5fa" font-size="13" font-weight="700">Funnel Data Lake</text>
+      <text x="60" y="434" fill="#94a3b8" font-size="10">Unified schema: {practice_id, stage, timestamp, value, source}</text>
+
+      <rect x="470" y="395" width="390" height="50" rx="8" fill="#0f172a" stroke="#f97316" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="490" y="418" fill="#f97316" font-size="13" font-weight="700">Integration Middleware</text>
+      <text x="490" y="434" fill="#94a3b8" font-size="10">Airbyte + Custom connectors • API • Webhooks • File ingest</text>
+
+      <!-- Source icons -->
+      <rect x="100" y="460" width="100" height="28" rx="5" fill="rgba(59,130,246,0.08)" stroke="#3b82f6" stroke-width="0.5" stroke-opacity="0.3"/>
+      <text x="118" y="479" fill="#60a5fa" font-size="10" font-weight="600">PMS</text>
+      <rect x="220" y="460" width="100" height="28" rx="5" fill="rgba(139,92,246,0.08)" stroke="#8b5cf6" stroke-width="0.5" stroke-opacity="0.3"/>
+      <text x="238" y="479" fill="#c4b5fd" font-size="10" font-weight="600">Phone</text>
+      <rect x="340" y="460" width="100" height="28" rx="5" fill="rgba(16,185,129,0.08)" stroke="#10b981" stroke-width="0.5" stroke-opacity="0.3"/>
+      <text x="354" y="479" fill="#6ee7b7" font-size="10" font-weight="600">AI Agents</text>
+      <rect x="460" y="460" width="100" height="28" rx="5" fill="rgba(245,158,11,0.08)" stroke="#f59e0b" stroke-width="0.5" stroke-opacity="0.3"/>
+      <text x="487" y="479" fill="#fcd34d" font-size="10" font-weight="600">Ads</text>
+      <rect x="580" y="460" width="100" height="28" rx="5" fill="rgba(249,115,22,0.08)" stroke="#f97316" stroke-width="0.5" stroke-opacity="0.3"/>
+      <text x="610" y="479" fill="#fdba74" font-size="10" font-weight="600">HR</text>
+      <rect x="700" y="460" width="100" height="28" rx="5" fill="rgba(239,68,68,0.08)" stroke="#ef4444" stroke-width="0.5" stroke-opacity="0.3"/>
+      <text x="720" y="479" fill="#fca5a5" font-size="10" font-weight="600">Comms</text>
+
+      <!-- Connector lines from sources up -->
+      <line x1="150" y1="460" x2="150" y2="448" stroke="#334155" stroke-width="1"/>
+      <line x1="270" y1="460" x2="270" y2="448" stroke="#334155" stroke-width="1"/>
+      <line x1="390" y1="460" x2="390" y2="448" stroke="#334155" stroke-width="1"/>
+      <line x1="510" y1="460" x2="510" y2="448" stroke="#334155" stroke-width="1"/>
+      <line x1="630" y1="460" x2="630" y2="448" stroke="#334155" stroke-width="1"/>
+      <line x1="750" y1="460" x2="750" y2="448" stroke="#334155" stroke-width="1"/>
+    </svg>
+  </div>
+</section>
+
+<!-- Journey -->
+<section id="journey">
+  <h2>User Journey</h2>
+  <p class="section-sub">How the Funnel OS works from Monday morning through month-end.</p>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-step">Step 1 — Monday 7:15 AM</div>
+      <div class="timeline-title">CEO Opens the Funnel Dashboard</div>
+      <div class="timeline-desc">Network-wide funnel view loads — 5 stages, color-coded health, Top 5 AI alerts sidebar. Southeast phone answer rates are down 12%. One click to drill down.</div>
+      <div class="timeline-detail">Dashboard loads in &lt;3 seconds with data no more than 4 hours old. Network → region → practice in 2 clicks.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-step">Step 2 — Drill-Down</div>
+      <div class="timeline-title">From Alert to Root Cause in 2 Minutes</div>
+      <div class="timeline-desc">CEO clicks the alert → region heatmap → Towne Lake Dental highlighted red. AI annotation: "Front desk headcount dropped from 3 to 2 on March 3rd. Recommended: activate AI phone agent overflow." CEO forwards to VP Ops.</div>
+      <div class="timeline-detail">AI correlates phone data + HR data to explain WHY, not just WHAT. Actionable in 2 minutes instead of discovered 30 days later.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-step">Step 3 — 9:00 AM</div>
+      <div class="timeline-title">HQ Ops Team Morning Standup</div>
+      <div class="timeline-desc">Ops queue shows 14 practices needing attention, ranked by revenue impact. 3 phone issues, 4 show-rate drops, 2 production gaps, 5 lead dips. Each item has AI summary + recommended action + estimated revenue impact.</div>
+      <div class="timeline-detail">Queue must be opinionated — ranked, not just listed. Top 3 must be clearly the top 3. Revenue impact is the ranking function.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-step">Step 4 — Practice, 7:45 AM</div>
+      <div class="timeline-title">Office Manager's 20-Minute Agenda</div>
+      <div class="timeline-desc">Jennifer at Garner Dental opens the Nerve Center. 3 priority cards: call back 4 missed calls ($1,200 est.), confirm 3 at-risk appointments, follow up 2 unscheduled treatment plans ($8,400). She completes 2 of 3 in 12 minutes.</div>
+      <div class="timeline-detail">Zero learning curve. 3 cards, each tappable. Phone numbers pre-loaded, text templates pre-written. Execute, don't figure out.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-step">Step 5 — 11:30 AM</div>
+      <div class="timeline-title">AI Phone Agent Catches a Missed Call</div>
+      <div class="timeline-desc">Front desk is busy. Sierra answers on ring 4, checks the PMS schedule, books a whitening appointment for Tuesday 2 PM. Event flows into the funnel: Lead Generated → Connected → Booked. AI notes 35% of bookings this week are AI-assisted (baseline: 20%).</div>
+      <div class="timeline-detail">Sierra's actions flow into the SAME funnel as human actions. The system tracks who handled it to identify capacity gaps.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-step">Step 6 — Tuesday 2:00 PM</div>
+      <div class="timeline-title">Proactive Show Rate Intervention</div>
+      <div class="timeline-desc">AI detects 4 unconfirmed appointments for tomorrow at Troy Family Dental. Predicted show rate: 40%. Auto-sends confirmation texts. Flags 2 high-value appointments ($4,500 implant consult) for personal phone calls. Result: 4 of 6 show instead of predicted 3.6.</div>
+      <div class="timeline-detail">Service-type-aware: routine cleaning confirmation ≠ implant consult confirmation. Different value, different risk, different approach.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-step">Step 7 — Friday 4:00 PM</div>
+      <div class="timeline-title">Weekly Executive Review</div>
+      <div class="timeline-desc">AI-generated Week in Review: 4,200 leads, 75% connection rate, 80% booking rate, 85% show rate, $3.2M production. 3 practices flagged. 2 interventions completed with positive outcomes. 1 emerging trend flagged. 15-minute review, not a 2-hour spreadsheet argument.</div>
+      <div class="timeline-detail">Auto-generated, zero human assembly. Shows OUTCOMES of interventions — builds confidence the system works.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-step">Step 8 — Practice, 5:30 PM</div>
+      <div class="timeline-title">End-of-Day Scorecard</div>
+      <div class="timeline-desc">Jennifer checks her scorecard: 92% answer rate, 4 new patients booked, 1 no-show managed, $18,400 production (102% of target). 2 of 3 priorities completed. The unscheduled treatment plans roll to tomorrow's agenda.</div>
+      <div class="timeline-detail">The scorecard is the feedback loop. Jennifer sees the impact of her 20-minute session: "You called 4 patients → 2 booked → $1,200 in pipeline."</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-step">Step 9 — Sunday Night</div>
+      <div class="timeline-title">AI Learning Loop</div>
+      <div class="timeline-desc">The system reviews all interventions. Which were executed? Which improved metrics? Models update: phone calls improve high-value show rates by 18%, texts by 8%. Next week's recommendations will be more accurate.</div>
+      <div class="timeline-detail">Transparent learning: HQ can ask "why this recommendation?" and get a data-grounded answer. Explainable AI builds trust.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-step">Step 10 — March 31st</div>
+      <div class="timeline-title">Month-End: The Old World vs. The New World</div>
+      <div class="timeline-desc">No scramble. No 30-day wait. The monthly view has been building in real-time. $42.8M production. Funnel conversion rates. Practice rankings. All live, all accurate. The CEO shares it on the investor call — real-time data, not 30-day-old approximations.</div>
+      <div class="timeline-detail">The real test: if the Funnel OS makes month-end reconciliation obsolete — real-time data within 2% of financial close — the system has proven its value.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Components -->
+<section id="components">
+  <h2>System Components</h2>
+  <p class="section-sub">Six components across three layers, designed to work as one coherent platform.</p>
+  <div class="comp-grid">
+    <div class="comp-card">
+      <div class="comp-icon">🔌</div>
+      <h3>Integration Middleware</h3>
+      <p>Pluggable connector framework connecting 15 core platforms. API connectors, webhook receivers, file-based ingest. Priority: PMS, Phone, AI Agents, Ads.</p>
+      <div class="comp-tech">
+        <span>Airbyte</span>
+        <span>Python</span>
+        <span>Kafka</span>
+        <span>REST/Webhooks</span>
+      </div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-icon">🗄️</div>
+      <h3>Funnel Data Lake</h3>
+      <p>Unified event schema for all funnel data. Hot tier (30d, sub-second), warm tier (12mo), cold tier (full history). Practice snapshots, network aggregates, trend views.</p>
+      <div class="comp-tech">
+        <span>ClickHouse</span>
+        <span>PostgreSQL</span>
+        <span>S3/Parquet</span>
+        <span>dbt</span>
+      </div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-icon">🧠</div>
+      <h3>AI Analysis Engine</h3>
+      <p>Per-practice baselines, anomaly detection, cross-source root cause correlation, prioritized action generation with revenue impact estimates. Weekly learning loop.</p>
+      <div class="comp-tech">
+        <span>Python ML</span>
+        <span>Claude API</span>
+        <span>Redis</span>
+        <span>Temporal</span>
+      </div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-icon">⚡</div>
+      <h3>Automation Engine</h3>
+      <p>Service-type-aware confirmation sequences, missed call recovery, no-show re-engagement, production gap alerts. All actions logged for the learning loop.</p>
+      <div class="comp-tech">
+        <span>Temporal</span>
+        <span>Twilio</span>
+        <span>Sierra API</span>
+        <span>Agnes API</span>
+      </div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-icon">📊</div>
+      <h3>Executive Dashboard</h3>
+      <p>Network → Region → Practice → Stage drill-down. AI-generated daily/weekly/monthly summaries. Stage 1: Metabase. Stage 3: custom React dashboard with real-time WebSocket updates.</p>
+      <div class="comp-tech">
+        <span>Metabase (S1)</span>
+        <span>React (S3)</span>
+        <span>D3/Recharts</span>
+        <span>WebSocket</span>
+      </div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-icon">📱</div>
+      <h3>Practice Nerve Center</h3>
+      <p>20-minute daily agenda with 3-5 prioritized action cards. End-of-day scorecard. Role-based views. Extends Practice Concierge — one tool, not two.</p>
+      <div class="comp-tech">
+        <span>React Native/PWA</span>
+        <span>Offline-capable</span>
+        <span>Push notifs</span>
+        <span>Shared design system</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Roadmap -->
+<section id="roadmap">
+  <h2>Staged Delivery Roadmap</h2>
+  <p class="section-sub">From pilot dashboard to full network automation in 5 stages.</p>
+  <div class="roadmap">
+    <div class="roadmap-stage rs1">
+      <h4>Stage 1: Foundation</h4>
+      <div class="roadmap-time">Month 1</div>
+      <ul>
+        <li>3 connectors (PMS, Phone, Leads)</li>
+        <li>Funnel Data Lake schema</li>
+        <li>Executive dashboard (BI tool)</li>
+        <li>10 pilot practices</li>
+      </ul>
+    </div>
+    <div class="roadmap-stage rs2">
+      <h4>Stage 2: Intelligence</h4>
+      <div class="roadmap-time">Month 2-3</div>
+      <ul>
+        <li>AI anomaly detection</li>
+        <li>Alert generation + ops queue</li>
+        <li>Additional data sources</li>
+        <li>30 pilot practices</li>
+      </ul>
+    </div>
+    <div class="roadmap-stage rs3">
+      <h4>Stage 3: Nerve Center</h4>
+      <div class="roadmap-time">Month 3-5</div>
+      <ul>
+        <li>Practice Nerve Center MVP</li>
+        <li>Daily agenda + action cards</li>
+        <li>Custom exec dashboard</li>
+        <li>50 pilot practices</li>
+      </ul>
+    </div>
+    <div class="roadmap-stage rs4">
+      <h4>Stage 4: Automation</h4>
+      <div class="roadmap-time">Month 5-8</div>
+      <ul>
+        <li>Full automation engine</li>
+        <li>Nerve Center + Concierge merge</li>
+        <li>Network-wide rollout</li>
+        <li>260+ practices live</li>
+      </ul>
+    </div>
+    <div class="roadmap-stage rs5">
+      <h4>Stage 5: Optimization</h4>
+      <div class="roadmap-time">Month 8-12</div>
+      <ul>
+        <li>Learning loop refinement</li>
+        <li>Predictive analytics</li>
+        <li>Advanced automation</li>
+        <li>Full convergence w/ Concierge</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ADRs -->
+<section id="decisions">
+  <h2>Architecture Decisions</h2>
+  <p class="section-sub">Key decisions and their rationale — the "why" behind the architecture.</p>
+  <div class="adr-list">
+    <div class="adr">
+      <div class="adr-header" onclick="this.parentElement.classList.toggle('open')">
+        <h4>ADR 1: Unified Platform vs. Best-of-Breed Assembly</h4>
+        <span class="adr-arrow">▶</span>
+      </div>
+      <div class="adr-body">
+        <strong>Decision:</strong> Build a unified platform rather than assembling BI tool + data warehouse + AI service + practice app as separate systems.<br><br>
+        <strong>Rationale:</strong> At 260+ practices, system fragmentation is the current problem. Building a fragmented solution perpetuates the problem at a different level. The unified platform costs more upfront but reduces long-term maintenance, ensures data consistency, and enables AI to operate across all layers natively.<br><br>
+        <strong>Tradeoff:</strong> Slower time to first value — mitigated by using an off-the-shelf BI tool as the Stage 1 dashboard while the platform is being built.
+      </div>
+    </div>
+    <div class="adr">
+      <div class="adr-header" onclick="this.parentElement.classList.toggle('open')">
+        <h4>ADR 2: BI Tool as Stage 1 Dashboard (Buy Then Replace)</h4>
+        <span class="adr-arrow">▶</span>
+      </div>
+      <div class="adr-body">
+        <strong>Decision:</strong> Use Metabase or Superset as the Stage 1 executive dashboard, then replace with a custom dashboard in Stage 3.<br><br>
+        <strong>Rationale:</strong> Executives need to see data in 30 days. Building a custom dashboard takes 3-5 months. The BI tool validates the data model and executive needs before investing in custom UI. It's disposable infrastructure — it served its purpose once the custom dashboard is built.<br><br>
+        <strong>Tradeoff:</strong> Stage 1 looks "generic." But executives see real data, in real-time, from day 30. That's the priority.
+      </div>
+    </div>
+    <div class="adr">
+      <div class="adr-header" onclick="this.parentElement.classList.toggle('open')">
+        <h4>ADR 3: Per-Practice Baselines (Not Network Averages)</h4>
+        <span class="adr-arrow">▶</span>
+      </div>
+      <div class="adr-body">
+        <strong>Decision:</strong> Calculate anomaly baselines per-practice from rolling 90-day history, not from network averages.<br><br>
+        <strong>Rationale:</strong> A 2-chair rural practice and a 12-chair metro practice have completely different "normal." Network averages create false positives (flagging healthy small practices) and false negatives (missing problems at large practices). Per-practice baselines ensure alerts are meaningful.<br><br>
+        <strong>Tradeoff:</strong> Requires 90 days of data before baselines are reliable. Mitigation: use cohort-based baselines as initial priors until practice-specific data accumulates.
+      </div>
+    </div>
+    <div class="adr">
+      <div class="adr-header" onclick="this.parentElement.classList.toggle('open')">
+        <h4>ADR 4: Practice Nerve Center Extends Practice Concierge</h4>
+        <span class="adr-arrow">▶</span>
+      </div>
+      <div class="adr-body">
+        <strong>Decision:</strong> Build the Practice Nerve Center as an extension of the Practice Concierge (from the Digital Storefront sprint), not as a separate application.<br><br>
+        <strong>Rationale:</strong> Both share the same users, interaction model, data infrastructure, and adoption challenge. Merging them creates one tool, one interface, one relationship. Staff don't need to learn two things.<br><br>
+        <strong>Tradeoff:</strong> More complex application. Mitigation: Concierge and Nerve Center are separate modules within the same app — different screens, shared navigation and AI. Think Gmail tabs.
+      </div>
+    </div>
+    <div class="adr">
+      <div class="adr-header" onclick="this.parentElement.classList.toggle('open')">
+        <h4>ADR 5: Service-Type-Aware Automation</h4>
+        <span class="adr-arrow">▶</span>
+      </div>
+      <div class="adr-body">
+        <strong>Decision:</strong> All automation is parameterized by service type — cleaning ≠ implant consult ≠ full-arch procedure.<br><br>
+        <strong>Rationale:</strong> SGA spans general dentistry, periodontics, oral surgery, implantology, and cosmetic. Patient psychology, no-show risk, revenue per visit, and appropriate communication tone vary dramatically. Generic automation erodes patient trust. Contextual automation builds it.<br><br>
+        <strong>Tradeoff:</strong> More complex automation rules and templates. But the revenue difference between a $150 cleaning no-show and a $30,000 implant no-show justifies the investment.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tech Stack -->
+<section id="tech">
+  <h2>Technology Stack</h2>
+  <p class="section-sub">Purpose-selected technologies for each layer of the Funnel OS.</p>
+  <div class="tech-grid">
+    <div class="tech-card">
+      <h4>Integration</h4>
+      <div class="tech-name">Airbyte + Custom Python</div>
+      <div class="tech-why">Open-source, pre-built connectors for common platforms, extensible for dental-specific PMS APIs</div>
+    </div>
+    <div class="tech-card">
+      <h4>Event Streaming</h4>
+      <div class="tech-name">Apache Kafka</div>
+      <div class="tech-why">Decouples connectors from consumers, enables real-time data flow</div>
+    </div>
+    <div class="tech-card">
+      <h4>Analytics Store</h4>
+      <div class="tech-name">ClickHouse</div>
+      <div class="tech-why">Purpose-built for real-time analytics on event data — fast aggregations at scale</div>
+    </div>
+    <div class="tech-card">
+      <h4>Operational DB</h4>
+      <div class="tech-name">PostgreSQL</div>
+      <div class="tech-why">Practice configs, user accounts, alert history, action logs</div>
+    </div>
+    <div class="tech-card">
+      <h4>Transformations</h4>
+      <div class="tech-name">dbt</div>
+      <div class="tech-why">SQL-based, version-controlled transformations from raw events to derived views</div>
+    </div>
+    <div class="tech-card">
+      <h4>AI / ML</h4>
+      <div class="tech-name">Python + Claude API</div>
+      <div class="tech-why">Statistical anomaly detection + LLM for natural-language action generation and scripts</div>
+    </div>
+    <div class="tech-card">
+      <h4>Workflows</h4>
+      <div class="tech-name">Temporal</div>
+      <div class="tech-why">Long-running automation workflows, retry logic, sequence orchestration</div>
+    </div>
+    <div class="tech-card">
+      <h4>Stage 1 Dashboard</h4>
+      <div class="tech-name">Metabase</div>
+      <div class="tech-why">Fast, open-source BI connected to ClickHouse — disposable, replaced in Stage 3</div>
+    </div>
+    <div class="tech-card">
+      <h4>Custom Dashboard</h4>
+      <div class="tech-name">React + D3/Recharts</div>
+      <div class="tech-why">Custom experience layer with real-time WebSocket updates</div>
+    </div>
+    <div class="tech-card">
+      <h4>Practice App</h4>
+      <div class="tech-name">React Native / PWA</div>
+      <div class="tech-why">Cross-platform (iPad + phone), offline-capable, shared design system with Practice Concierge</div>
+    </div>
+    <div class="tech-card">
+      <h4>Communication</h4>
+      <div class="tech-name">Twilio</div>
+      <div class="tech-why">SMS, voice for patient outreach — reliable, well-documented APIs</div>
+    </div>
+    <div class="tech-card">
+      <h4>Infrastructure</h4>
+      <div class="tech-name">AWS (ECS, RDS, S3)</div>
+      <div class="tech-why">Scalable managed services, cost-effective at 260+ practice scale</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Sprint: Full Funnel Visibility — SGA Dental Partners &bull; March 2026</p>
+  <p style="margin-top:0.5rem;">Solution: The Funnel OS — unified patient funnel operating system</p>
+</footer>
+
+</body>
+</html>

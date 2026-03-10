@@ -1,237 +1,318 @@
-# Design Specifications: The Practice Concierge
+# UX Design Specification — The Practice Concierge
 
-**Document**: UX Design Spec
-**Sprint**: Digital Storefront at Scale
-**Created**: 2026-03-10
-**Status**: Draft
-
----
-
-## Design Philosophy
-
-The Practice Concierge serves three distinct audiences through three interfaces, unified by a single design system. The core principle: **reduce cognitive load for people who have 5 minutes between patients.** Every screen must answer "what do I do right now?" within 3 seconds of loading.
-
-The brand personality — Sage (knowledgeable, evidence-based) + Caregiver (warm, protective) — manifests in the UI through opinionated recommendations with visible reasoning, progressive disclosure that never overwhelms, and a tone that feels like a trusted colleague rather than enterprise software.
+> AI Concierge Platform for SGA Dental Partners (260+ practices)
+> Digital Storefront at Scale — Sprint Development Package
 
 ---
 
 ## Screen Inventory
 
-### Interface 1: Practice Chat (Concierge)
+### 1. Practice Concierge (Chat Interface)
 
-The primary practice-facing interface. A conversational UI that handles enrollment, verification, approvals, change reporting, and ongoing communication.
+| Screen | Description |
+|--------|-------------|
+| Welcome / Onboarding | First-contact greeting with practice context already loaded |
+| Data Verification | Harvested practice data presented for confirm/correct |
+| Template Selection | 2-3 recommended website templates with previews |
+| Content Review | AI-generated copy presented section by section for approval |
+| Photo / Asset Upload | Guided upload flow for team photos, office images |
+| Final Preview | Full rendered site preview with device switcher |
+| Go-Live Confirmation | Summary checklist and single-tap publish approval |
+| Post-Launch Check-in | 48-hour follow-up with performance snapshot |
+| Ongoing Support | Persistent chat for edits, questions, requests |
 
-| Screen | Purpose | Phase |
-|--------|---------|-------|
-| PC-01: Welcome / Landing | Entry point from invitation link. Practice name, concierge intro, "Start" CTA | 1 |
-| PC-02: Chat Interface | Core conversation view. Message thread + quick-reply buttons + file upload | 1 |
-| PC-03: Data Verification Cards | Inline cards showing harvested data (team, services, hours) with confirm/edit actions | 1 |
-| PC-04: Template Picker | Side panel or inline carousel showing 2-3 template previews with practice data populated | 1 |
-| PC-05: Site Preview | Full-screen preview of generated site (mobile toggle, desktop toggle, page navigation) | 1 |
-| PC-06: Approval Summary | Complete storefront package review (website + GMB + social + lead capture) | 1 |
-| PC-07: Go-Live Confirmation | Deployment confirmation with links to all live assets | 1 |
-| PC-08: Performance Summary | Weekly/monthly stats card (visitors, leads, reviews, health score) | 2 |
-| PC-09: Change Report Flow | Guided flow for reporting staff changes, hours updates, service changes | 2 |
-| PC-10: Content Approval | Inline preview of scheduled social posts with approve/reject/edit actions | 3 |
+### 2. HQ Admin Dashboard
 
-### Interface 2: HQ Admin Dashboard
+| Screen | Description |
+|--------|-------------|
+| Network Overview | High-level enrollment progress across all 260+ practices |
+| Enrollment Pipeline | Kanban-style view of practices by stage |
+| QC Review Queue | Sites pending quality review with inline preview |
+| Practice List | Searchable, filterable table of all practices |
+| Practice Detail | Deep dive into a single practice's enrollment and site status |
+| Batch Operations | Multi-select interface for bulk actions |
+| Template Manager | Template library with usage stats and versioning |
+| Content Standards | Brand guidelines and content rules configuration |
+| Alert Center | Flagged issues, stale enrollments, QC failures |
 
-The marketing team's operational hub. Practice management, QC workflows, batch operations, and content pipeline.
+### 3. Executive Dashboard
 
-| Screen | Purpose | Phase |
-|--------|---------|-------|
-| HQ-01: Network Overview | Enrollment progress, health score distribution, alert feed, content pipeline status | 1 |
-| HQ-02: Practice List | Filterable/sortable table of all 260+ practices with status, score, last activity | 1 |
-| HQ-03: Practice Detail | Per-practice deep dive: profile data, health scorecard, interaction history, assets | 1 |
-| HQ-04: QC Queue | Items awaiting creative review: new sites, flagged content, change requests | 2 |
-| HQ-05: QC Review View | Side-by-side preview (before/after or site + checklist) with approve/reject/notes | 2 |
-| HQ-06: Batch Operations | Template update interface with network-wide preview and selective deployment | 2 |
-| HQ-07: Content Pipeline | Scheduled content across all practices, editorial calendar view, bulk actions | 3 |
-| HQ-08: Enrollment Campaign Manager | Create/manage invitation batches, track open/click/enroll rates | 1 |
-| HQ-09: Template Manager | Edit/preview templates, manage SGA-approved color palettes and components | 2 |
-| HQ-10: Harvest Monitor | Batch harvest progress, failure log, data quality summary | 1 |
-
-### Interface 3: Executive Dashboard
-
-Leadership visibility into network-wide digital health. Read-only, data-dense, designed for Monday morning and board meetings.
-
-| Screen | Purpose | Phase |
-|--------|---------|-------|
-| EX-01: Network Health Overview | Single-screen: health score gauge, tier distribution, trend sparklines, top alerts | 1 |
-| EX-02: Enrollment Progress | Funnel visualization: invited > engaged > enrolled > live > optimized | 1 |
-| EX-03: Health Score Breakdown | Drill into the 5 score components across the network (website, GMB, social, reviews, leads) | 2 |
-| EX-04: Practice Comparison | Rank practices by health score, identify bottom 10%, compare tiers | 2 |
-| EX-05: ROI Summary | Cost per practice setup, lead generation totals, patient acquisition attribution | 3 |
-| EX-06: Export / Report Builder | Generate PDF/PPT summaries for leadership meetings | 2 |
+| Screen | Description |
+|--------|-------------|
+| Network Health | Single-screen KPI overview with health score |
+| Tier Breakdown | Practices segmented by engagement tier |
+| Enrollment Velocity | Time-series enrollment progress with projections |
+| Performance Leaderboard | Top/bottom performing practice sites |
+| Alert Summary | Critical issues requiring executive attention |
+| ROI Report | Cost-per-site, time savings, conversion metrics |
 
 ---
 
-## Wireframe Descriptions
+## Key Screen Wireframe Descriptions
 
-### WF-01: Chat Enrollment Flow (PC-02 through PC-07)
+### Chat Enrollment Flow
 
-The enrollment conversation is a linear flow within the chat interface. The concierge drives the conversation; the practice responds with taps, typed corrections, and file uploads.
+**Welcome Screen**
 
-**Layout**: Full-screen mobile-first chat. Message thread occupies 75% of the viewport. Bottom 25% is the input area: text field, quick-reply buttons, and attachment icon.
+The chat opens with a branded header showing the SGA Dental Partners logo and the concierge's name. The first message is a warm, context-aware greeting:
 
-**Message Types**:
-- **Agent message**: Left-aligned bubble, dark background (charcoal), white text. Avatar icon (small concierge mark) at top-left of first message in a sequence.
-- **User message**: Right-aligned bubble, accent color background (SGA green), white text.
-- **Data verification card**: Full-width inline card within the chat thread. Light card surface against the dark chat background. Contains structured data (e.g., team member list) with action buttons at the bottom ("Looks right" / "Edit").
-- **Template preview card**: Full-width inline card with a preview thumbnail, template name, and the concierge's recommendation reasoning below. Tap to expand to full preview (PC-05).
-- **Approval card**: Full-width card with checklist of all storefront components, each with a green checkmark or orange flag. Single "Approve All" button at the bottom.
+```
+"Hi Dr. Martinez — I'm your Practice Concierge. I've already
+pulled together what I know about Bright Smile Dental in
+Scottsdale. Let's get your new website up in about 15 minutes.
+Ready to start?"
+```
 
-**Quick Reply Buttons**: Appear above the text input when the concierge offers choices. Horizontal scrollable row. Each button is a pill shape with concise label. Tapping sends the selection as a user message.
+Two action buttons sit below: **"Let's Go"** and **"Tell Me More"**. The background is dark (#0a0a0f) with the message bubble in surface color (#12121a) and a subtle blue left-border accent on the concierge's messages.
 
-**Flow Sequence**:
-1. Welcome message + "Let's get started" button
-2. Team verification card (list of names with confirm/edit per person)
-3. Services verification card
-4. Hours and contact verification card
-5. Template recommendation with preview cards
-6. Full storefront preview (expand to PC-05)
-7. Approval summary card
-8. Go-live confirmation with links
+**Data Verification Screen**
 
-**Key Interaction**: At each verification step, "Looks right" advances to the next step. "Edit" expands an inline edit form within the card — the practice never leaves the chat context. Edits are saved immediately and the card updates in place.
+The concierge presents harvested data in structured action cards — not plain text. Each card covers one data category:
 
-**Progress Indicator**: A subtle step indicator at the top of the chat (dots or a thin progress bar) showing where the practice is in the enrollment flow. Not intrusive — practices should not feel like they are filling out a form.
+- **Practice Info** — Name, address, phone, hours
+- **Provider Details** — Doctor names, specialties, credentials
+- **Services Offered** — Detected services with confidence indicators (high/medium/low shown as filled dots)
 
-### WF-02: Template Picker (PC-04)
+Each card has three response options: **"Looks Good"** (green), **"Small Fix"** (amber, opens inline edit), **"Wrong"** (red, opens replacement field). A progress bar at the top shows 5 steps, with Step 2 highlighted.
 
-**Trigger**: The concierge sends a message like "Based on your specialty, I recommend Template A. Here are your options:" followed by template preview cards.
+**Template Selection Screen**
 
-**Layout**: Each template appears as an inline card in the chat thread. The card contains:
-- Template name and specialty label (e.g., "Perio Pro — Referral Optimized")
-- Preview thumbnail showing the homepage with the practice's real data (name, team photo, colors)
-- Mobile and desktop toggle icons in the thumbnail corner
-- The concierge's recommendation badge on the recommended template ("Recommended" pill in accent color)
-- A one-line reasoning statement below the thumbnail ("Referral-optimized layouts convert 23% better for periodontists")
-- "Select This Template" button
+Three template preview cards arranged vertically (mobile) or in a row (tablet+). Each card contains:
 
-**Expanded Preview (PC-05)**: Tapping the thumbnail opens a full-screen preview overlay. The preview shows the actual generated site in an iframe-like view. Navigation tabs at the top cycle through pages (Home, About, Services, Team, Contact). A toggle switches between mobile and desktop viewport. A floating "Select This Template" button persists at the bottom. "Back to chat" closes the overlay.
+- A 16:9 thumbnail preview of the template rendered with the practice's actual data
+- Template name and one-line description
+- A tag row showing template traits (e.g., "Modern", "Photo-Forward", "Family-Friendly")
+- A **"Recommended"** badge (accent blue with star icon) on the AI-selected best fit
+- A reasoning line in muted text: *"Selected because your practice emphasizes cosmetic dentistry and has strong photography"*
 
-**Customization**: After selecting a template, the concierge asks "Want to adjust anything?" Quick replies offer: "Change colors" / "Change hero image" / "Looks perfect." Each customization opens a picker within the chat: color swatches (SGA-approved palette only), hero image options (from the practice's harvested photos + SGA stock library).
+A **"Why these three?"** expandable section at the bottom explains the matching logic. The primary CTA is **"Choose This One"** on each card.
 
-### WF-03: HQ Network Dashboard (HQ-01)
+**Approval Screen**
 
-**Layout**: Dark theme. Left sidebar navigation (collapsed to icons on mobile). Main content area with a 3-column grid on desktop, single column on mobile.
+A section-by-section content walkthrough. Each section (Hero, About, Services, Team, Contact) is presented as a collapsible card with:
 
-**Top Bar**: SGA logo mark, current user name, notification bell with unread count, settings gear.
+- The generated headline and body copy
+- An inline preview showing how it renders on the template
+- **"Approve"** / **"Edit"** / **"Regenerate"** action buttons
 
-**Sidebar Navigation**:
-- Dashboard (home icon) — HQ-01
-- Practices (building icon) — HQ-02
-- QC Queue (checkmark icon) — HQ-04, with badge count for pending items
-- Content (calendar icon) — HQ-07
-- Campaigns (mail icon) — HQ-08
-- Templates (layers icon) — HQ-09
-- Harvest (download icon) — HQ-10
-- Settings (gear icon)
+Approved sections get a green checkmark. The concierge tracks progress: *"3 of 5 sections approved — almost there."*
 
-**Main Content — Network Overview (HQ-01)**:
+**Go-Live Screen**
 
-Row 1 — Key Metrics (4 cards, horizontal on desktop, 2x2 on tablet, stacked on mobile):
-- Enrollment Progress: "187 / 260 Enrolled" with circular progress ring and trend arrow
-- Network Health: "72 / 100" score with color-coded gauge (red < 50, yellow 50-74, green 75+)
-- Content Pipeline: "1,847 posts scheduled this week" with "12 need QC" link to queue
-- Active Alerts: "6 alerts" with severity breakdown (2 critical, 4 warning)
+A full-page preview with a device switcher toolbar (phone / tablet / desktop icons). Below the preview, a checklist summarizes:
 
-Row 2 — Tier Distribution + Alert Feed (2-column on desktop):
-- Left: Horizontal stacked bar showing Optimized (green) / Baseline (blue) / Auto-deployed (yellow) / Pending (gray) with counts
-- Right: Scrolling alert feed showing most recent alerts with timestamp, practice name, alert type, and action link
+- All data verified
+- Template selected
+- Content approved
+- Contact info confirmed
+- SSL certificate ready
 
-Row 3 — Enrollment Funnel (full width):
-- Horizontal funnel: Invited (260) > Opened (220) > Engaged (190) > Enrolled (175) > Live (165) > Optimized (45)
-- Each stage is clickable to filter the practice list (HQ-02)
+A large green **"Publish My Site"** button anchored at the bottom. Tapping it triggers a brief celebration animation and a confirmation message with the live URL.
 
-Row 4 — Recent Activity (full width):
-- Timeline of recent system events: enrollments completed, sites deployed, changes propagated, QC items resolved
+---
 
-### WF-04: Executive Dashboard (EX-01)
+### Template Picker (Detail View)
 
-**Layout**: Dark theme, designed for projection on a large screen as well as laptop viewing. No sidebar — full-screen data display. Minimal navigation (tabs across the top: Overview / Enrollment / Health / ROI).
+Each template preview card is structured as follows:
 
-**Overview Tab**:
+```
++-------------------------------------+
+|  +-------------------------------+  |
+|  |                               |  |
+|  |    [Template Preview Image]   |  |
+|  |    Rendered with practice     |  |
+|  |    data, not lorem ipsum      |  |
+|  |                               |  |
+|  +-------------------------------+  |
+|                                     |
+|  * Recommended                      |
+|  Modern Cosmetic                    |
+|  Clean lines, prominent before/     |
+|  after gallery, bold CTAs           |
+|                                     |
+|  Modern - Photo-Forward - Premium   |
+|                                     |
+|  "Best match for your cosmetic      |
+|   focus and high-quality photos"    |
+|                                     |
+|  [ Choose This Template ]           |
+|  [ Preview Full Site ]              |
++-------------------------------------+
+```
 
-Top Section — The Big Number:
-- Centered, large: "Network Digital Health: 72/100" with a semicircular gauge
-- Below: "Up from 34/100 at program launch" with a sparkline showing the 90-day trend
+The recommended card has a subtle blue glow border (`box-shadow: 0 0 20px rgba(79, 143, 255, 0.15)`). Non-recommended cards have the standard surface border. The recommendation badge and reasoning are only present on the top-ranked card.
 
-Middle Section — Four Quadrant Grid:
-- Top-left: Enrollment funnel (simplified: % coverage with breakdown)
-- Top-right: Health tier distribution (donut chart with counts)
-- Bottom-left: Top 5 alerts requiring attention (card list)
-- Bottom-right: This Week's Wins (practices enrolled, sites launched, reviews responded to)
+---
 
-Bottom Section — Practice Map (optional):
-- Geographic distribution of practices, color-coded by health score tier
-- Hover/tap for practice name and score
+### HQ Dashboard
+
+**Layout:** Fixed left sidebar navigation (collapsed to icons on smaller screens), top bar with search and alerts, main content area.
+
+**Enrollment Progress Section**
+
+A horizontal progress bar segmented by stage, with counts:
+
+```
+Not Started (142) > In Progress (67) > QC Review (28) > Live (23) > Monitoring (4)
+```
+
+Each segment is color-coded (gray, blue, amber, green, teal). Clicking a segment filters the practice list below.
+
+**QC Queue**
+
+A card-based queue, each card showing:
+
+- Practice name and location
+- Thumbnail of the site
+- Auto-QC score (pass/warning/fail as a colored badge)
+- Flagged issues count
+- **"Review"** / **"Approve"** / **"Return to Practice"** action buttons
+- Time in queue indicator
+
+**Practice List**
+
+A dense, filterable table:
+
+| Practice | Location | Stage | Template | QC Score | Last Activity | Actions |
+|----------|----------|-------|----------|----------|---------------|---------|
+
+Filters across the top: Stage, Region, Template, QC Status. Bulk select checkboxes on the left. Batch action bar appears when items are selected.
+
+**Batch Operations Panel**
+
+When practices are selected, a sticky bottom bar appears:
+
+```
++------------------------------------------------------+
+|  12 practices selected                               |
+|  [ Send Reminder ] [ Assign Template ] [ Export ]    |
+|  [ Clear Selection ]                                 |
++------------------------------------------------------+
+```
+
+Each batch action opens a confirmation modal with a preview of affected practices.
+
+---
+
+### Executive Dashboard
+
+**Network Health Score**
+
+A large circular gauge (0-100) centered at the top, color-shifting from red through amber to green. The score synthesizes: enrollment velocity, site quality, uptime, and engagement. Surrounding the gauge, four satellite metrics:
+
+- Enrollment Rate (% of 264 practices live)
+- Avg QC Score
+- Avg Time to Launch
+- Practice Satisfaction Score
+
+**Tier Breakdown**
+
+A horizontal stacked bar or donut chart showing practices by tier:
+
+- **Tier 1 — Flagship** (custom design, priority support)
+- **Tier 2 — Standard** (template with customization)
+- **Tier 3 — Essential** (template, minimal customization)
+- **Not Started** (gray)
+
+Each tier is clickable, drilling into a filtered practice list.
+
+**Alert Cards**
+
+A vertical stack of alert cards, severity-coded:
+
+- **Critical** (red left border): "12 practices stalled in enrollment for 7+ days"
+- **Warning** (amber left border): "QC queue backlog exceeding 48-hour SLA"
+- **Info** (blue left border): "New template version available for review"
+
+Each card has a **"View Details"** action and a **"Dismiss"** option.
+
+**KPI Row**
+
+Four KPI cards in a horizontal row:
+
+| Metric | Value | Trend |
+|--------|-------|-------|
+| Sites Live | 23 / 264 | +8 this week |
+| Avg Launch Time | 4.2 days | -1.1 days vs last month |
+| Cost per Site | $127 | -34% vs manual |
+| Enrollment NPS | 72 | +12 vs baseline |
+
+Each card shows the value prominently, a sparkline trend, and a comparison to baseline or target.
+
+---
+
+### Practice Detail Drill-Down
+
+**Header:** Practice name, address, tier badge, current stage pill, assigned concierge.
+
+**Tabs:**
+
+1. **Enrollment Timeline** — Vertical timeline showing every step completed, pending, or skipped. Each node shows timestamp, action taken, and who acted (AI or human).
+2. **Site Preview** — Embedded iframe or screenshot of current site state with device switcher.
+3. **Data & Content** — All harvested and approved data in editable card format.
+4. **QC Results** — Auto-QC checklist with pass/fail per criterion (brand compliance, mobile rendering, load time, accessibility, content accuracy).
+5. **Activity Log** — Full chat transcript and admin actions.
 
 ---
 
 ## Interaction Patterns
 
-### IP-01: Chat Message Flow
+### Chat Message Flow
 
-The concierge controls the conversation pace. Each message from the concierge includes an expected response type that determines what input controls appear.
+**Message Types:**
 
-| Response Type | Input Control | Example |
-|--------------|--------------|---------|
-| Free text | Text input field (default) | "Tell me about any changes to your services" |
-| Single choice | Quick reply buttons (1 selected, others disappear) | "Which template do you prefer?" |
-| Confirmation | Binary quick replies ("Yes" / "No" or "Looks right" / "Edit") | "Is this your current team?" |
-| Multi-select | Checkbox-style quick replies (select multiple, then "Done") | "Which services do you offer?" |
-| File upload | Attachment button highlighted + drag-drop zone | "Upload a photo of your new team member" |
-| Date | Date picker or quick replies with common options | "When is Dr. Johnson's last day?" |
-| Rating | Star selector or emoji scale | "How was the enrollment process?" |
+| Type | Appearance | Behavior |
+|------|------------|----------|
+| Concierge text | Dark surface bubble (#12121a), left-aligned, blue left accent border | Standard chat message |
+| User text | Accent blue bubble (#4f8fff at 20% opacity), right-aligned | Standard chat reply |
+| Action card | Full-width card with structured content and buttons | Replaces free-text input with guided options |
+| Inline preview | Embedded thumbnail with "expand" affordance | Tap to view full-screen preview |
+| Progress indicator | Thin horizontal bar below header | Updates as enrollment advances |
+| System message | Centered, muted text, no bubble | Timestamps, stage transitions |
 
-**Typing Indicator**: When the concierge is processing (generating a site, fetching data), show a "thinking" animation in the chat — three animated dots in an agent message bubble. For long operations (site generation, 30-60 seconds), replace with a progress message: "Generating your website preview... this takes about 30 seconds."
+**Typing Indicator:** Three pulsing dots in a concierge-style bubble. Appears during AI processing. For longer operations (site generation), replaced with a progress message: *"Building your preview... this takes about 30 seconds."*
 
-**Session Persistence**: Conversations persist across sessions. If a practice closes the browser and returns hours later, the chat picks up exactly where it left off. The concierge acknowledges the gap: "Welcome back! We were in the middle of reviewing your team. Ready to continue?"
+**Message Sequencing:** The concierge never sends more than two messages before waiting for user input. Action cards always appear as the final message in a sequence, ensuring the user's next step is always clear.
 
-**5-Minute Window Design**: Every interaction segment is designed to be completable in under 5 minutes. If a flow has multiple segments (verification takes 3 segments), the concierge explicitly offers save points: "That's your team verified! We can do services next, or you can come back later — I'll pick up right where we left off."
+### Approval Workflows
 
-### IP-02: Approval Workflow
+**Single-Item Approval (Chat):**
 
-Two-stage approval: practice approval followed by HQ QC.
+Each approvable item presents three options as tappable buttons:
 
-**Practice Approval**:
-1. Concierge presents the approval summary card in chat
-2. Practice taps "Approve All" or flags individual items
-3. Flagged items open an inline edit flow
-4. Re-approval after changes
-5. On approval, status changes to "Pending QC"
+- **Approve** (green, checkmark icon) — confirms and advances
+- **Edit** (amber, pencil icon) — opens inline editing
+- **Flag** (red, flag icon) — marks for HQ review with optional note
 
-**HQ QC**:
-1. Item appears in QC queue (HQ-04) with "NEW" badge
-2. Reviewer opens the review view (HQ-05): site preview on the left, checklist on the right
-3. Checklist items: Brand compliance, content accuracy, layout integrity, SEO basics, mobile responsiveness
-4. Approve: item moves to deployment queue
-5. Reject: reviewer adds notes; concierge notifies the practice with the feedback
-6. Auto-approve: if no action after 48 hours and no critical flags, item auto-approves
+Tapping any option provides immediate visual feedback (button fills with color, brief haptic on mobile) and the concierge acknowledges the choice before moving on.
 
-**Status Indicators**:
-- Draft (gray) > Practice Review (blue) > Pending QC (yellow) > Approved (green) > Live (green with checkmark) > Flagged (orange)
+**QC Approval (HQ Dashboard):**
 
-### IP-03: Batch Operations
+Reviewer sees the site preview alongside the QC checklist. Each checklist item can be toggled pass/fail. At the bottom:
 
-**Initiation**: Admin selects "New Batch Operation" from the batch operations screen (HQ-06).
+- **Approve** — publishes the site
+- **Approve with Notes** — publishes with follow-up items logged
+- **Return** — sends back to practice concierge with specific feedback
 
-**Operation Types**:
-- Template update (change to a template that affects all sites using it)
-- Brand update (logo, tagline, color change across network)
-- Compliance update (legal text, privacy policy, accessibility fix)
-- Content campaign (deploy a seasonal message or promotion across selected practices)
+### Batch Operations
 
-**Flow**:
-1. Select operation type
-2. Select scope (all practices / specific template / specific tier / manual selection)
-3. Preview: system generates before/after views for a sample of affected sites
-4. Review affected practice count and any flagged conflicts
-5. Confirm: operation enters the deployment queue
-6. Monitor: real-time progress bar showing deployed / total, with failure list
-7. Complete: summary report with success count, failure count, and notification log
+1. **Select** — Checkbox per row, or "Select All" (with filter awareness: "Select all 28 in QC Review")
+2. **Action Bar** — Sticky bottom bar shows count and available actions
+3. **Preview** — Before execution, a modal lists all affected practices with the pending action
+4. **Confirm** — Single confirmation button with count: "Send Reminder to 28 Practices"
+5. **Progress** — After confirmation, a progress indicator shows completion: "Sent 24 of 28..."
+6. **Result** — Summary of successes and failures with retry option for failures
+
+### Template Preview
+
+**Device Switcher:** Three icons (phone, tablet, desktop) in a toolbar above the preview. Active device is highlighted in accent blue. The preview container resizes with a smooth transition animation.
+
+**Interaction within Preview:**
+
+- Scroll to navigate the full page
+- Tap sections to highlight corresponding content card in the approval flow
+- Pinch-to-zoom on mobile
+- "Open in New Tab" link for full-browser preview
 
 ---
 
@@ -239,310 +320,343 @@ Two-stage approval: practice approval followed by HQ QC.
 
 ### Colors
 
-The platform uses a **dark theme as the primary interface**. Dark backgrounds reduce eye strain for the HQ team working in the dashboard all day and provide a premium feel for the practice chat.
-
-**Core Palette**:
+**Base Palette:**
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| `--bg-primary` | `#0F1117` | Main background (dashboard, chat) |
-| `--bg-secondary` | `#1A1D27` | Card surfaces, sidebar, elevated elements |
-| `--bg-tertiary` | `#252836` | Hover states, input fields, nested cards |
-| `--text-primary` | `#F0F0F5` | Headlines, primary content |
-| `--text-secondary` | `#9BA1B0` | Descriptions, metadata, timestamps |
-| `--text-tertiary` | `#5A6070` | Placeholders, disabled text |
-| `--accent-primary` | `#4ADE80` | SGA green — CTAs, success states, health indicators, links |
-| `--accent-primary-hover` | `#22C55E` | Hover state for primary accent |
-| `--accent-secondary` | `#3B82F6` | Informational states, secondary actions, progress indicators |
-| `--accent-warning` | `#F59E0B` | Warning states, pending items, moderate health scores |
-| `--accent-danger` | `#EF4444` | Error states, critical alerts, low health scores |
-| `--accent-muted` | `#6366F1` | Tags, badges, decorative accents |
-| `--border-default` | `#2A2D3A` | Card borders, dividers |
-| `--border-focus` | `#4ADE80` | Focus rings for accessibility |
+| `--bg-primary` | `#0a0a0f` | Page background |
+| `--bg-surface` | `#12121a` | Cards, panels, chat bubbles |
+| `--bg-surface-hover` | `#1a1a2e` | Interactive surface hover state |
+| `--bg-elevated` | `#1e1e30` | Modals, popovers, dropdown menus |
+| `--border-default` | `#2a2a3d` | Card borders, dividers |
+| `--border-focus` | `#4f8fff` | Focus rings, active borders |
 
-**Agent Message Bubble**: `--bg-secondary` background with `--text-primary` text
-**User Message Bubble**: `--accent-primary` background with `#0F1117` text (dark on green)
-**Data Verification Cards**: `--bg-tertiary` background with `--border-default` border
+**Accent Colors:**
 
-**Health Score Colors**:
-- 85-100 (Optimized): `--accent-primary` (green)
-- 60-84 (Baseline): `--accent-secondary` (blue)
-- 40-59 (Auto-deployed): `--accent-warning` (amber)
-- 0-39 (Critical): `--accent-danger` (red)
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `--accent-blue` | `#4f8fff` | Primary actions, links, active states |
+| `--accent-blue-muted` | `rgba(79, 143, 255, 0.15)` | Blue backgrounds, selected states |
+| `--accent-green` | `#34d399` | Success, approval, live status |
+| `--accent-green-muted` | `rgba(52, 211, 153, 0.15)` | Success backgrounds |
+| `--accent-amber` | `#fbbf24` | Warnings, in-progress, edits |
+| `--accent-amber-muted` | `rgba(251, 191, 36, 0.15)` | Warning backgrounds |
+| `--accent-red` | `#f87171` | Errors, critical alerts, flags |
+| `--accent-red-muted` | `rgba(248, 113, 113, 0.15)` | Error backgrounds |
+| `--accent-teal` | `#2dd4bf` | Monitoring, secondary positive |
+
+**Text Colors:**
+
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `--text-primary` | `#f0f0f5` | Headings, primary content |
+| `--text-secondary` | `#a0a0b8` | Body text, descriptions |
+| `--text-muted` | `#6b6b80` | Timestamps, helper text, placeholders |
+| `--text-inverse` | `#0a0a0f` | Text on light/colored backgrounds |
 
 ### Typography
 
-| Token | Font | Size | Weight | Line Height | Usage |
-|-------|------|------|--------|-------------|-------|
-| `--type-display` | Inter | 32px / 2rem | 700 | 1.2 | Dashboard big numbers, health scores |
-| `--type-h1` | Inter | 24px / 1.5rem | 600 | 1.3 | Page titles, section headers |
-| `--type-h2` | Inter | 20px / 1.25rem | 600 | 1.3 | Card titles, sub-sections |
-| `--type-h3` | Inter | 16px / 1rem | 600 | 1.4 | List headers, form labels |
-| `--type-body` | Inter | 14px / 0.875rem | 400 | 1.5 | Default text, chat messages, descriptions |
-| `--type-body-sm` | Inter | 13px / 0.8125rem | 400 | 1.5 | Metadata, timestamps, help text |
-| `--type-caption` | Inter | 12px / 0.75rem | 500 | 1.4 | Badges, labels, status indicators |
-| `--type-mono` | JetBrains Mono | 13px / 0.8125rem | 400 | 1.5 | Code, URLs, technical values |
+**Font Stack:**
 
-**Font Loading**: Inter is loaded via Google Fonts with `font-display: swap`. JetBrains Mono is loaded only on admin pages where technical values appear.
+```css
+--font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+             Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans',
+             'Helvetica Neue', sans-serif;
 
-### Spacing Scale
+--font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono',
+             Consolas, 'Courier New', monospace;
+```
 
-Based on a 4px grid with a primary increment of 8px.
+**Type Scale:**
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--space-1` | 4px | Tight spacing: between icon and label, inline elements |
-| `--space-2` | 8px | Default spacing: between related elements, padding-sm |
-| `--space-3` | 12px | Chat message padding, input padding |
-| `--space-4` | 16px | Card padding, section gaps on mobile |
-| `--space-5` | 20px | Card padding (desktop), list item spacing |
-| `--space-6` | 24px | Section separation, card margins |
-| `--space-8` | 32px | Major section gaps, page padding |
-| `--space-10` | 40px | Dashboard section separation |
-| `--space-12` | 48px | Page-level vertical rhythm |
+| Token | Size | Weight | Line Height | Usage |
+|-------|------|--------|-------------|-------|
+| `--text-xs` | 11px | 400 | 1.4 | Badges, fine print |
+| `--text-sm` | 13px | 400 | 1.5 | Helper text, timestamps |
+| `--text-base` | 15px | 400 | 1.6 | Body text, chat messages |
+| `--text-md` | 17px | 500 | 1.5 | Card titles, labels |
+| `--text-lg` | 20px | 600 | 1.4 | Section headings |
+| `--text-xl` | 24px | 700 | 1.3 | Page titles |
+| `--text-2xl` | 32px | 700 | 1.2 | Dashboard hero metrics |
+| `--text-3xl` | 48px | 800 | 1.1 | Health score number |
 
-### Border Radius
+### Spacing
+
+**Base Unit:** 4px
 
 | Token | Value | Usage |
 |-------|-------|-------|
-| `--radius-sm` | 4px | Badges, small elements |
-| `--radius-md` | 8px | Buttons, inputs, cards |
-| `--radius-lg` | 12px | Chat bubbles, large cards |
-| `--radius-xl` | 16px | Modal windows, overlay panels |
-| `--radius-full` | 9999px | Pills, quick-reply buttons, avatars |
+| `--space-1` | 4px | Inline spacing, icon gaps |
+| `--space-2` | 8px | Tight padding, small gaps |
+| `--space-3` | 12px | Default padding inside components |
+| `--space-4` | 16px | Standard content padding |
+| `--space-5` | 20px | Card padding |
+| `--space-6` | 24px | Section gaps |
+| `--space-8` | 32px | Section padding |
+| `--space-10` | 40px | Large section gaps |
+| `--space-12` | 48px | Page section separation |
+| `--space-16` | 64px | Major layout gaps |
+
+**Border Radius:**
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--radius-sm` | 4px | Badges, pills, small elements |
+| `--radius-md` | 8px | Buttons, inputs |
+| `--radius-lg` | 12px | Cards, panels |
+| `--radius-xl` | 16px | Chat bubbles, modals |
+| `--radius-full` | 9999px | Avatars, circular indicators |
 
 ### Component Library
 
-#### Buttons
+**Chat Bubble**
 
-| Variant | Background | Text | Border | Usage |
-|---------|-----------|------|--------|-------|
-| Primary | `--accent-primary` | `--bg-primary` | none | Main CTAs: "Approve All", "Select Template", "Deploy" |
-| Secondary | transparent | `--accent-primary` | `--accent-primary` 1px | Secondary actions: "Edit", "View Details", "Export" |
-| Ghost | transparent | `--text-secondary` | none | Tertiary actions: "Cancel", "Back", "Skip" |
-| Danger | `--accent-danger` | `--text-primary` | none | Destructive: "Reject", "Remove", "Delete" |
+```
+Properties: variant (concierge | user | system), content, timestamp
+Concierge: bg --bg-surface, left-aligned, 2px left border --accent-blue, radius-xl
+User: bg --accent-blue-muted, right-aligned, radius-xl
+System: no background, centered, --text-muted, --text-sm
+Max width: 85% of container
+Padding: --space-4 horizontal, --space-3 vertical
+```
 
-All buttons: `--radius-md`, 40px height (default), 32px height (compact). Min-width 80px. Hover darkens 10%. Active depresses 1px. Disabled at 40% opacity.
+**Action Card**
 
-#### Cards
+```
+Properties: title, description, actions[], variant (default | highlight)
+Background: --bg-surface
+Border: 1px solid --border-default (highlight variant: --accent-blue)
+Radius: --radius-lg
+Padding: --space-5
+Actions: row of buttons, right-aligned, --space-2 gap
+Shadow: highlight variant gets subtle blue glow
+```
 
-- **Surface**: `--bg-secondary` background, `--border-default` 1px border, `--radius-lg`
-- **Elevated**: Same as surface with `box-shadow: 0 4px 12px rgba(0,0,0,0.3)`
-- **Interactive**: Surface card with hover state (border shifts to `--accent-primary` at 40% opacity)
-- **Padding**: `--space-5` on desktop, `--space-4` on mobile
+**Health Score Badge**
 
-#### Chat Bubbles
+```
+Properties: score (0-100), size (sm | md | lg)
+Shape: circular gauge with score centered
+Colors: 0-39 --accent-red, 40-69 --accent-amber, 70-100 --accent-green
+Background: --bg-surface with colored ring (stroke-width scales with size)
+Font: --text-2xl (lg), --text-lg (md), --text-base (sm), weight 700
+```
 
-- **Agent**: `--bg-secondary`, `--text-primary`, `--radius-lg` with bottom-left squared (`border-bottom-left-radius: --radius-sm`). Max-width 85% of container.
-- **User**: `--accent-primary`, `--bg-primary` text, `--radius-lg` with bottom-right squared. Max-width 75% of container.
-- **System**: Centered text, `--text-tertiary`, no bubble. Used for timestamps and status updates ("Session resumed").
+**Alert Card**
 
-#### Quick Reply Buttons
+```
+Properties: severity (critical | warning | info), title, description, actions[]
+Background: --bg-surface
+Left border: 3px solid (critical: --accent-red, warning: --accent-amber, info: --accent-blue)
+Radius: --radius-lg
+Padding: --space-4
+Icon: severity-specific icon in matching color, top-left
+```
 
-- Pill shape: `--radius-full`, `--bg-tertiary` background, `--text-primary` text, `--border-default` border
-- Hover: border shifts to `--accent-primary`
-- Selected: `--accent-primary` background, `--bg-primary` text
-- Horizontal scrollable row, 8px gap between pills
-- Tap target minimum 44x44px (accessibility)
+**Practice Card**
 
-#### Data Verification Cards (Chat Inline)
+```
+Properties: name, location, stage, tier, qcScore, lastActivity
+Background: --bg-surface
+Border: 1px solid --border-default
+Radius: --radius-lg
+Layout: name and tier badge on first line, location second line,
+        stage pill and QC score on third line, last activity muted at bottom
+Hover: bg --bg-surface-hover, border --border-focus
+Padding: --space-5
+```
 
-- Full-width within chat, `--bg-tertiary` background, `--border-default` border, `--radius-lg`
-- Header: icon + title (e.g., "Your Team") in `--type-h3`
-- Body: list of items with edit icons per row
-- Footer: action buttons ("Looks Right" primary, "Edit" secondary)
-- Editable state: items become inline text inputs, footer changes to "Save Changes" / "Cancel"
+**Template Preview Card**
 
-#### Health Score Gauge
+```
+Properties: name, description, tags[], thumbnail, isRecommended, reasoning
+Background: --bg-surface
+Border: 1px solid (recommended: --accent-blue, default: --border-default)
+Shadow: recommended: 0 0 24px rgba(79, 143, 255, 0.12)
+Radius: --radius-lg
+Thumbnail: 16:9 ratio, radius-md on top corners, overflow hidden
+Badge: "Recommended" positioned top-right of thumbnail, bg --accent-blue, --text-xs
+Tags: row of pills below description
+Padding: --space-5
+```
 
-- Semicircular arc gauge (0-100)
-- Arc color segments: red (0-39), amber (40-59), blue (60-84), green (85-100)
-- Center: large number in `--type-display`, label below in `--type-caption`
-- Available in three sizes: large (dashboard hero), medium (practice detail), small (list item)
+**Status Pill**
 
-#### Alert Badge
+```
+Properties: label, variant (not-started | in-progress | review | live | monitoring)
+Shape: pill (radius-full)
+Height: 24px
+Padding: --space-1 vertical, --space-3 horizontal
+Font: --text-xs, weight 600, uppercase
+Colors by variant:
+  not-started: bg transparent, border --border-default, text --text-muted
+  in-progress: bg --accent-blue-muted, text --accent-blue
+  review: bg --accent-amber-muted, text --accent-amber
+  live: bg --accent-green-muted, text --accent-green
+  monitoring: bg rgba(45, 212, 191, 0.15), text --accent-teal
+```
 
-- Pill shape: severity color background at 15% opacity, severity color text, `--radius-sm`
-- Critical: `--accent-danger` treatment
-- Warning: `--accent-warning` treatment
-- Info: `--accent-secondary` treatment
-- Count badge: solid severity color, white text, `--radius-full`, 20x20px minimum
+**Confidence Indicator**
 
-#### Status Indicator
-
-- Small dot (8px) with label: Draft (gray), In Review (blue), Pending QC (amber), Approved (green), Live (green + checkmark), Flagged (orange)
-- Used in practice list rows, QC queue items, content pipeline
-
-#### Table (Practice List)
-
-- Striped rows: alternating `--bg-primary` and `--bg-secondary`
-- Sticky header row with sort controls
-- Row hover: `--bg-tertiary`
-- Row click navigates to practice detail
-- Columns: Practice Name, Platform (SGA/Gen4/MODIS), Specialty, Status, Health Score (with mini gauge), Last Activity, Actions
-- Filterable by: status, platform, specialty, health tier, enrollment method
-- Searchable by practice name
+```
+Properties: level (high | medium | low)
+Shape: three dots in a row, 6px diameter, --space-1 gap
+High: all three filled --accent-green
+Medium: two filled --accent-amber, one --border-default
+Low: one filled --accent-red, two --border-default
+Tooltip: "Data confidence: {level} -- sourced from {source}"
+```
 
 ---
 
 ## Brand Personality in UI
 
-### Sage + Caregiver Manifested
+### Sage + Caregiver Archetype
 
-The concierge is not a generic chatbot. Its personality comes through in every interaction:
+The Practice Concierge embodies a **Sage** (knowledgeable, analytical, trustworthy) paired with a **Caregiver** (supportive, reassuring, proactive) personality. This manifests in every interaction:
 
-**Opinionated Recommendations with Reasoning**:
-Every recommendation includes a "because" statement. The UI supports this with a distinct visual pattern:
-- Recommendation text in `--type-body` weight 600
-- Reasoning text immediately below in `--type-body` weight 400, `--text-secondary` color
-- Example: **"I recommend the Perio Pro template"** / "Periodontist sites with referral-optimized layouts see 23% higher conversion from referring GPs."
+**Voice Principles:**
 
-**Never Bureaucratic**:
-- No form-style inputs in the chat flow. Data collection happens conversationally.
-- No "Step 3 of 7" progress bars. Use subtle dot indicators only.
-- No corporate language in system messages. "Your site is ready for review" not "Storefront package pending approval."
+- **Knowledgeable but not condescending** — "Based on practices similar to yours in the Phoenix metro area, a photo-forward template drives 23% more appointment requests."
+- **Warm but professional** — "Great choice, Dr. Martinez. I'll have your preview ready in about 30 seconds."
+- **Confident but transparent** — "I'm 92% confident this is your correct address based on your Google Business listing. Can you confirm?"
 
-**Warm but Efficient**:
-- Greetings are short and personalized: "Hey, Riverside Dental team" not "Welcome to the SGA Digital Storefront Enrollment Platform."
-- Confirmations are celebratory but brief: "You're live!" with a small animation, not a 4-paragraph email.
-- Error handling is empathetic and solution-oriented: "That photo didn't upload — it might be too large. Try one under 10MB, or I can work with what we have for now."
+### Opinionated Recommendations with Reasoning
 
-**Proactive, Not Passive**:
-- The concierge initiates conversations, not just responds. UI supports push notifications / unread indicators.
-- Dashboard alerts are written as recommendations, not just data: "Riverside Dental's review score dropped 0.6 stars in 14 days — 3 recent negative reviews mention wait times. Suggest flagging for the concierge to check in."
+Every recommendation the concierge makes is accompanied by visible reasoning. This is a core design principle, not an optional feature.
 
-### Concierge Avatar
+**Pattern:**
 
-- A simple, custom icon mark — not a human face, not a generic robot. Think: a stylized dental-shield mark or an abstract "care" symbol that reads as helpful and knowledgeable.
-- Appears at 32x32px in chat, 24x24px in notifications, 48x48px in the welcome screen.
-- Color: `--accent-primary` (SGA green) on `--bg-secondary`.
+```
+[Recommendation]
+"I recommend the Modern Cosmetic template."
+
+[Reasoning -- always visible, not hidden behind a toggle]
+"Your practice emphasizes cosmetic dentistry (4 of 6 highlighted
+services), and you have professional photography that this template
+showcases prominently. Practices with similar profiles see 31% higher
+engagement with this layout."
+```
+
+The reasoning text uses `--text-secondary` color and `--text-sm` size, sitting directly below the recommendation. Never require a tap to reveal reasoning.
+
+### Proactive Suggestions over Passive Menus
+
+The concierge does not present neutral menus. It leads with a recommendation and provides alternatives as secondary options.
+
+**Do this:**
+> "I'd suggest keeping your Monday-Thursday 8am-5pm hours on the site. Want to add your Friday 8am-1pm half-day too?"
+> [ Add Friday Hours ] [ Keep Mon-Thu Only ] [ Edit All Hours ]
+
+**Not this:**
+> "What hours would you like to display?"
+> [ Enter hours manually ]
+
+### Confidence Indicators on Harvested Data
+
+All pre-populated data shows its confidence level and source. This builds trust and saves correction time.
+
+- **High confidence** (three green dots): Verified from multiple sources (e.g., Google Business Profile + state licensing board)
+- **Medium confidence** (two amber dots): Single source or partially matched (e.g., only Google listing)
+- **Low confidence** (one red dot): Inferred or outdated (e.g., data older than 12 months)
+
+Users can tap any confidence indicator to see the source: *"From Google Business Profile, last updated January 2026."*
 
 ---
 
-## Accessibility Requirements (WCAG 2.1 AA)
+## Mobile-First Requirements
 
-### Color Contrast
+### Design for the 5-Minute Window
 
-- All text meets 4.5:1 contrast ratio against its background (AA for normal text)
-- Large text (18px+ or 14px+ bold) meets 3:1 minimum
-- The dark theme palette has been designed with these ratios:
-  - `--text-primary` (#F0F0F5) on `--bg-primary` (#0F1117): 15.2:1
-  - `--text-secondary` (#9BA1B0) on `--bg-primary` (#0F1117): 7.1:1
-  - `--text-primary` on `--bg-secondary` (#1A1D27): 12.8:1
-  - `--accent-primary` (#4ADE80) on `--bg-primary`: 9.4:1
-- Interactive elements with color-only indicators also include an icon or text label
+Dental practice staff interact with the concierge in short bursts between patients. Every design decision serves this constraint.
 
-### Keyboard Navigation
+**Core Principles:**
 
-- All interactive elements are reachable via Tab key
-- Focus rings use `--border-focus` (#4ADE80), 2px solid, 2px offset
-- Chat quick-reply buttons navigable via arrow keys within the group
-- Escape closes modals, overlays, and expanded previews
-- Enter/Space activates buttons and toggles
-- Skip-to-content link on all dashboard pages
-
-### Screen Reader Support
-
-- All images have descriptive `alt` text (team photos, site screenshots, charts)
-- Chat messages include `role="log"` and `aria-live="polite"` for new message announcements
-- Health score gauges include `aria-label` with the numeric value and tier name
-- Status indicators include `aria-label` (not just color dots)
-- Charts include a tabular data alternative accessible via screen reader
-- Form inputs have associated labels (even visually hidden ones in the chat context)
-
-### Motion & Interaction
-
-- Typing indicators and loading animations respect `prefers-reduced-motion`
-- No auto-playing video or audio
-- Toast notifications persist for 8 seconds minimum (dismissible by user)
-- Animations are under 300ms duration, ease-out timing
+1. **Resumability** — The chat always opens to exactly where the user left off, with a brief recap message: *"Welcome back! You approved 3 of 5 sections last time. Ready to review Services?"*
+2. **Minimal input** — Every interaction defaults to tap-based responses. Free-text input is never required (always optional alongside structured options).
+3. **Progress persistence** — Every approval and edit is saved immediately. No "submit form" patterns. No lost work.
+4. **Time estimates** — Each step shows estimated time: *"This section usually takes about 2 minutes."*
 
 ### Touch Targets
 
-- All interactive elements meet 44x44px minimum touch target (WCAG 2.5.5)
-- Quick-reply buttons have 8px minimum gap between them
-- Chat input submit button is 48x48px
-- Navigation sidebar items have 48px row height
+- **Minimum touch target:** 44px x 44px (per Apple HIG and WCAG 2.5.5)
+- **Recommended touch target:** 48px x 48px for primary actions
+- **Spacing between targets:** minimum 8px to prevent mis-taps
+- **Action buttons in chat:** full-width on mobile, minimum height 48px
+
+### Input Positioning
+
+- **Chat input bar:** fixed to bottom of viewport, above the device safe area
+- **Quick-action buttons:** positioned above the input bar when contextually relevant
+- **Action card buttons:** bottom of card, full-width stacked on mobile (side-by-side on tablet+)
+- **Navigation:** bottom tab bar on mobile (Chat, Progress, Help), sidebar on tablet+
+
+### Performance Targets
+
+- **First meaningful paint:** < 1.5 seconds on 4G
+- **Chat message response rendering:** < 200ms after receipt
+- **Template preview load:** < 3 seconds (lazy-load with skeleton placeholder)
+- **Offline resilience:** chat history cached locally, queued actions sync when reconnected
 
 ---
 
-## Mobile-First Design Requirements
+## Accessibility
 
-### Rationale
+### WCAG 2.1 AA Compliance
 
-Practice staff — office managers, front desk, and dentists — interact with the concierge on their phones between patients. The 5-minute window between appointments is the primary usage context. Desktop is secondary (used when the practice intentionally sits down to review their storefront).
+This platform serves a diverse user base across 260+ practices. Full AA compliance is a baseline requirement, not a stretch goal.
 
-HQ staff use desktop primarily but need mobile access for QC approvals when away from their desk.
+### Color Contrast
 
-### Breakpoints
+All text and interactive elements meet minimum contrast ratios against their backgrounds:
 
-| Breakpoint | Width | Target Device |
-|------------|-------|--------------|
-| Mobile (default) | 0 - 639px | Phones (practice staff primary device) |
-| Tablet | 640 - 1023px | iPad, landscape phones |
-| Desktop | 1024 - 1439px | Laptop (HQ team primary device) |
-| Large Desktop | 1440px+ | External monitors, presentation displays |
+| Element | Foreground | Background | Ratio | Requirement |
+|---------|-----------|------------|-------|-------------|
+| Primary text | #f0f0f5 | #0a0a0f | 18.4:1 | 4.5:1 (AA) |
+| Secondary text | #a0a0b8 | #0a0a0f | 8.2:1 | 4.5:1 (AA) |
+| Muted text | #6b6b80 | #0a0a0f | 4.6:1 | 4.5:1 (AA) |
+| Accent blue on surface | #4f8fff | #12121a | 5.1:1 | 4.5:1 (AA) |
+| Green on surface | #34d399 | #12121a | 8.7:1 | 4.5:1 (AA) |
+| Amber on surface | #fbbf24 | #12121a | 9.8:1 | 4.5:1 (AA) |
+| Red on surface | #f87171 | #12121a | 5.8:1 | 4.5:1 (AA) |
 
-### Mobile-Specific Patterns
+**Non-color indicators:** All status information conveyed by color also uses a secondary indicator (icon, label, or pattern). Status pills include text labels. Confidence indicators include tooltips. Alert cards include severity icons.
 
-**Practice Chat (Mobile Primary)**:
-- Chat interface is full-viewport height with virtual keyboard awareness
-- Input area pins to bottom, above the virtual keyboard
-- Quick-reply buttons scroll horizontally (no wrapping, no second row)
-- Template preview cards stack vertically, one per viewport
-- Site preview uses mobile viewport by default (toggle to desktop is available but secondary)
-- File upload supports camera capture directly (photo from phone camera)
-- Session state persists if the browser is backgrounded and reopened
+### Focus Management in Chat Flow
 
-**HQ Dashboard (Desktop Primary, Mobile Capable)**:
-- Navigation collapses to bottom tab bar on mobile (5 key items)
-- Dashboard cards stack vertically on mobile
-- Practice list becomes a card list (not a table) on mobile
-- QC review uses swipe gestures: swipe right to approve, swipe left to reject
-- Batch operations are desktop-only (too complex for mobile)
+- **Focus follows content:** When the concierge sends a new message with action buttons, focus moves to the first actionable element.
+- **Skip link:** "Skip to latest message" link at the top of the chat for keyboard users.
+- **Focus trapping:** Modals and overlays trap focus until dismissed.
+- **Focus ring:** 2px solid `--border-focus` with 2px offset, visible on all interactive elements during keyboard navigation. Hidden during pointer interaction.
+- **Chat input focus:** Pressing Enter in the input sends the message. Tab moves to action buttons. Shift+Tab returns to input.
 
-**Executive Dashboard (Desktop Primary)**:
-- Mobile view shows the big number (health score) and alert list only
-- Full quadrant view is desktop/tablet only
-- "Share" button exports a screenshot or PDF for mobile viewing
+### Screen Reader Support
 
-### Performance Targets (Mobile)
+- **Chat messages:** Each message has `role="log"` on the container and `aria-live="polite"` for new messages. Concierge messages are announced as "Concierge says: {message}". User messages are announced as "You said: {message}".
+- **Action cards:** Structured with `role="group"` and `aria-label` describing the card purpose. Buttons within have descriptive labels: "Approve practice address" not just "Approve".
+- **Status changes:** Stage transitions announced via `aria-live="assertive"`: "Enrollment stage updated to Content Review."
+- **Progress indicators:** `role="progressbar"` with `aria-valuenow`, `aria-valuemin`, `aria-valuemax`, and `aria-valuetext` ("3 of 5 sections approved").
+- **Charts and gauges:** Health score gauge includes `aria-label="Network health score: 74 out of 100, status good"`. Complex charts provide a data table alternative accessible via a toggle.
 
-- First Contentful Paint: < 1.5 seconds on 4G
-- Time to Interactive: < 3 seconds on 4G
-- Chat message send-to-response: < 2 seconds perceived (show typing indicator immediately)
-- Template preview load: < 3 seconds per preview image
-- Total page weight: < 500KB initial load (chat), < 1MB (dashboard)
+### Keyboard Navigation
+
+| Context | Key | Action |
+|---------|-----|--------|
+| Chat | Enter | Send message |
+| Chat | Tab | Move to next action button |
+| Chat | Escape | Close any expanded preview |
+| Action card | Enter/Space | Activate focused button |
+| Dashboard table | Arrow keys | Navigate between rows |
+| Dashboard table | Enter | Open practice detail |
+| Modal | Escape | Close modal |
+| Template preview | 1/2/3 | Switch device view (phone/tablet/desktop) |
+
+### Motion and Animation
+
+- **Respect `prefers-reduced-motion`:** All transitions and animations are disabled when the user's OS-level setting requests reduced motion.
+- **No auto-playing animations:** The go-live celebration animation only plays on explicit user action and respects the reduced motion preference.
+- **Transition durations:** Default 200ms for micro-interactions, 300ms for layout shifts. Reduced to 0ms when reduced motion is active.
 
 ---
 
-## 5-Minute Window Design
-
-The concierge chat is purpose-built for interrupted, 5-minute usage sessions. Every design decision supports this constraint.
-
-### Principles
-
-1. **Instant Context Restoration**: When a user returns, the chat shows the last 3 messages and the current step indicator. No "where was I?" confusion. The concierge explicitly welcomes them back with context: "Welcome back! We were picking your template."
-
-2. **Micro-Completions**: Each verification step (team, services, hours, template, approval) is designed to complete in 2-4 minutes. The concierge offers explicit save points between steps: "Team is verified! Want to do services now, or come back later?"
-
-3. **Minimal Typing**: Quick-reply buttons handle 80%+ of enrollment responses. Corrections use inline editing on pre-populated data (tap to fix), not blank text fields. Photo upload uses the phone camera directly — one tap.
-
-4. **Progressive Loading**: Template previews load as thumbnail cards first (instant), with full-resolution previews loading on demand (tap to expand). No waiting for assets that may not be viewed.
-
-5. **Offline Resilience**: If connectivity drops mid-conversation, typed messages queue locally and send when reconnected. A subtle "Reconnecting..." banner appears, but no data is lost. The chat never shows a blank error screen.
-
-6. **Notification Re-engagement**: When the concierge needs the practice (QC complete, weekly report, detected change), a push notification or SMS brings them back to the exact context. The notification includes a one-line summary: "Your new site is approved and ready to launch — tap to go live."
-
-### Enrollment Timing Budget
-
-| Step | Target Duration | Interaction Type |
-|------|----------------|-----------------|
-| Welcome + team verification | 3-4 min | Confirm/edit pre-populated list |
-| Services + hours verification | 2-3 min | Confirm/edit pre-populated data |
-| Template selection | 2-3 min | View 2-3 previews, select one |
-| Customization (optional) | 1-2 min | Color/image tweaks |
-| Final review + approval | 2-3 min | Review checklist, tap approve |
-| **Total** | **10-15 min** | **Across 2-3 sessions** |
-
-The concierge explicitly sets this expectation in the welcome message: "This takes about 15 minutes total — we can do it all now or spread it across a few visits. Whatever works for you."
+*This design specification is the source of truth for all UI implementation. Deviations require review and approval through the QC workflow.*
