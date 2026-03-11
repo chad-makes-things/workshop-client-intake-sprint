@@ -36,8 +36,8 @@ nav .logo{font-weight:800;font-size:0.95rem;color:var(--accent-light);white-spac
 nav .links{display:flex;gap:1.25rem;flex-wrap:wrap;}
 nav a{color:var(--text-muted);text-decoration:none;font-size:0.8rem;transition:color 0.2s;font-weight:500;}
 nav a:hover{color:var(--accent-light);}
-nav .back{color:var(--text-sec);margin-right:auto;font-size:0.8rem;text-decoration:none;}
-nav .back:hover{color:var(--accent-light);}
+nav .nav-back{color:var(--text-sec);margin-left:auto;font-size:0.8rem;text-decoration:none;white-space:nowrap;}
+nav .nav-back:hover{color:var(--accent-light);}
 
 /* Sections */
 .section{padding:4.5rem 2rem;max-width:1100px;margin:0 auto;}
@@ -164,7 +164,6 @@ footer a{color:var(--accent-light);text-decoration:none;}
 <body>
 
 <nav>
-  <a href="index.html" class="back">← Sprints</a>
   <div class="logo">Funnel OS</div>
   <div class="links">
     <a href="#problem">Problem</a>
@@ -177,6 +176,7 @@ footer a{color:var(--accent-light);text-decoration:none;}
     <a href="#decisions">Decisions</a>
     <a href="#tech">Tech</a>
   </div>
+  <a href="index.html" class="nav-back">← All Sprints</a>
 </nav>
 
 <!-- ==================== HERO ==================== -->
