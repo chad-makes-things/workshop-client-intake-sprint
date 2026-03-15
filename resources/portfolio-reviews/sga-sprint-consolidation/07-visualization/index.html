@@ -1,0 +1,3877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SGA Dental Partners — Sprint Portfolio Consolidation</title>
+<style>
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Colors */
+  --color-white: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --color-bg-light: #f1f3f5;
+  --color-border: #e2e8f0;
+  --color-border-light: #edf2f7;
+  --color-text-primary: #1a1a2e;
+  --color-text-secondary: #4a5568;
+  --color-text-muted: #718096;
+  --color-text-light: #718096;
+
+  /* Accent — Primary */
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-primary-light: #dbeafe;
+  --color-primary-bg: #eff6ff;
+
+  /* Workstream Colors */
+  --ws1-color: #2563eb;
+  --ws1-light: #dbeafe;
+  --ws1-bg: #eff6ff;
+
+  --ws2-color: #059669;
+  --ws2-light: #d1fae5;
+  --ws2-bg: #ecfdf5;
+
+  --ws3-color: #d97706;
+  --ws3-light: #fef3c7;
+  --ws3-bg: #fffbeb;
+
+  /* Shared infra */
+  --infra-color: #7c3aed;
+  --infra-light: #ede9fe;
+  --infra-bg: #f5f3ff;
+
+  /* Scores */
+  --score-positive: #059669;
+  --score-neutral: #6b7280;
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.08), 0 8px 10px -6px rgba(0,0,0,0.04);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+}
+
+/* Skip to content link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  z-index: 200;
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background: var(--color-white);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+  padding: 0 var(--space-6);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.nav-brand {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.nav-brand span {
+  color: var(--color-primary);
+}
+
+.nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+  margin-right: var(--space-4);
+  transition: color 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+
+.nav-back:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-bg);
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-1);
+  list-style: none;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.nav-links::-webkit-scrollbar { display: none; }
+
+.nav-links a {
+  display: block;
+  position: relative;
+  padding: var(--space-2) var(--space-3);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  transition: color 0.15s, background 0.15s;
+}
+
+.nav-links a:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-bg);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: var(--space-2);
+  cursor: pointer;
+  color: var(--color-text-primary);
+}
+
+/* ============================================
+   LAYOUT HELPERS
+   ============================================ */
+.section {
+  padding: var(--space-20) var(--space-6);
+}
+
+.section--alt {
+  background: var(--color-bg-alt);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+
+.card--elevated {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-border-light);
+}
+
+/* ============================================
+   1. HERO / EXECUTIVE SUMMARY
+   ============================================ */
+.hero {
+  padding: var(--space-20) var(--space-6);
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 40%, #f5f0ff 70%, #fff8f0 100%);
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  left: -150px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(5, 150, 105, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero .container {
+  position: relative;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-8);
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-eyebrow .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--score-positive);
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-6);
+  max-width: 800px;
+}
+
+.hero h1 .gradient-text {
+  background: linear-gradient(135deg, var(--ws1-color) 0%, var(--infra-color) 50%, var(--ws2-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-description {
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  max-width: 680px;
+  margin-bottom: var(--space-12);
+}
+
+.metric-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+}
+
+.metric-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.4s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.metric-card .metric-value {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+
+.metric-card .metric-label {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.metric-card .metric-detail {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+}
+
+.metric-card--blue .metric-value { color: var(--ws1-color); }
+.metric-card--green .metric-value { color: var(--ws2-color); }
+.metric-card--amber .metric-value { color: var(--ws3-color); }
+.metric-card--purple .metric-value { color: var(--infra-color); }
+
+/* ============================================
+   2. SPRINT-TO-WORKSTREAM MAPPING
+   ============================================ */
+.mapping-flow {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-8);
+  margin-top: var(--space-12);
+}
+
+.mapping-column {
+  flex: 1;
+}
+
+.mapping-column-header {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.sprint-card {
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-3);
+  border: 1px solid;
+  font-size: 14px;
+}
+
+.sprint-card .sprint-num {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-1);
+}
+
+.sprint-card .sprint-name {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: var(--space-1);
+}
+
+.sprint-card .sprint-focus {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.sprint-card--blue {
+  background: var(--ws1-bg);
+  border-color: var(--ws1-light);
+  color: var(--ws1-color);
+}
+
+.sprint-card--green {
+  background: var(--ws2-bg);
+  border-color: var(--ws2-light);
+  color: var(--ws2-color);
+}
+
+.sprint-card--amber {
+  background: var(--ws3-bg);
+  border-color: var(--ws3-light);
+  color: var(--ws3-color);
+}
+
+.mapping-arrow-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  flex-shrink: 0;
+}
+
+.arrow-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--space-8);
+}
+
+.arrow-line {
+  width: 60px;
+  height: 2px;
+  position: relative;
+}
+
+.arrow-line::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: -4px;
+  border: 5px solid transparent;
+}
+
+.arrow-line--blue { background: var(--ws1-color); }
+.arrow-line--blue::after { border-left-color: var(--ws1-color); }
+.arrow-line--green { background: var(--ws2-color); }
+.arrow-line--green::after { border-left-color: var(--ws2-color); }
+.arrow-line--amber { background: var(--ws3-color); }
+.arrow-line--amber::after { border-left-color: var(--ws3-color); }
+
+.workstream-card {
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-5);
+  border-left: 4px solid;
+  background: var(--color-white);
+  box-shadow: var(--shadow-md);
+}
+
+.workstream-card--blue { border-left-color: var(--ws1-color); }
+.workstream-card--green { border-left-color: var(--ws2-color); }
+.workstream-card--amber { border-left-color: var(--ws3-color); }
+
+.workstream-card .ws-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-2);
+}
+
+.workstream-card--blue .ws-label { color: var(--ws1-color); }
+.workstream-card--green .ws-label { color: var(--ws2-color); }
+.workstream-card--amber .ws-label { color: var(--ws3-color); }
+
+.workstream-card .ws-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+
+.workstream-card .ws-scope {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.workstream-card .ws-features {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  padding: var(--space-1) var(--space-3);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.workstream-card--blue .ws-features { background: var(--ws1-light); color: var(--ws1-color); }
+.workstream-card--green .ws-features { background: var(--ws2-light); color: var(--ws2-color); }
+.workstream-card--amber .ws-features { background: var(--ws3-light); color: var(--ws3-color); }
+
+/* Simpler mapping for mobile */
+.mapping-simple {
+  display: none;
+}
+
+.mapping-group {
+  margin-bottom: var(--space-8);
+}
+
+.mapping-group-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.mapping-group-arrow {
+  text-align: center;
+  font-size: 20px;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+
+/* Dedup banner */
+.dedup-banner {
+  margin-top: var(--space-10);
+  padding: var(--space-6);
+  background: var(--infra-bg);
+  border: 1px solid var(--infra-light);
+  border-radius: var(--radius-lg);
+}
+
+.dedup-banner-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--infra-color);
+  margin-bottom: var(--space-2);
+}
+
+.dedup-stats {
+  display: flex;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.dedup-stat {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.dedup-stat .stat-num {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--infra-color);
+}
+
+.dedup-stat .stat-label {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+/* ============================================
+   3. WORKSTREAM DEEP DIVES
+   ============================================ */
+.ws-deep-dive {
+  margin-bottom: var(--space-12);
+}
+
+.ws-deep-dive:last-child {
+  margin-bottom: 0;
+}
+
+.ws-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.ws-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.ws-icon--blue { background: var(--ws1-light); }
+.ws-icon--green { background: var(--ws2-light); }
+.ws-icon--amber { background: var(--ws3-light); }
+
+.ws-header-text .ws-tag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-1);
+}
+
+.ws-header-text .ws-tag--blue { color: var(--ws1-color); }
+.ws-header-text .ws-tag--green { color: var(--ws2-color); }
+.ws-header-text .ws-tag--amber { color: var(--ws3-color); }
+
+.ws-header-text h3 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-2);
+}
+
+.ws-header-text .ws-vision {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  max-width: 640px;
+}
+
+.ws-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-6);
+}
+
+.ws-features-list h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-4);
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.feature-item:last-child {
+  border-bottom: none;
+}
+
+.feature-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.feature-dot--blue { background: var(--ws1-color); }
+.feature-dot--green { background: var(--ws2-color); }
+.feature-dot--amber { background: var(--ws3-color); }
+
+.feature-item .feature-name {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.feature-item .feature-desc {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.ws-sidebar .sidebar-card {
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  margin-bottom: var(--space-4);
+}
+
+.sidebar-card h5 {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.sidebar-card .sidebar-value {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.sidebar-card ul {
+  list-style: none;
+  font-size: 14px;
+}
+
+.sidebar-card li {
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border-light);
+  color: var(--color-text-secondary);
+}
+
+.sidebar-card li:last-child {
+  border-bottom: none;
+}
+
+/* WS1 Split Visual */
+.ws1-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.ws1-split-card {
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+}
+
+.ws1-split-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+  color: var(--ws1-color);
+}
+
+.ws1-split-card .split-users {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.ws1-split-card .split-count {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.ws1-shared-layer {
+  margin-top: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background: var(--ws1-bg);
+  border: 1px dashed var(--ws1-color);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.ws1-shared-layer .shared-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ws1-color);
+  margin-bottom: var(--space-1);
+}
+
+.ws1-shared-layer .shared-desc {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+/* Integration Points */
+.integration-points {
+  margin-top: var(--space-6);
+}
+
+.integration-points h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-4);
+}
+
+.integration-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-2);
+  font-size: 13px;
+}
+
+.integration-arrow {
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.integration-badge {
+  display: inline-block;
+  padding: 2px var(--space-2);
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.integration-badge--blue { background: var(--ws1-light); color: var(--ws1-color); }
+.integration-badge--green { background: var(--ws2-light); color: var(--ws2-color); }
+.integration-badge--amber { background: var(--ws3-light); color: var(--ws3-color); }
+
+/* ============================================
+   4. SHARED INFRASTRUCTURE
+   ============================================ */
+.infra-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+}
+
+.infra-intro-text {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.infra-intro-text p {
+  margin-bottom: var(--space-4);
+}
+
+.tech-decisions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.tech-decision {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.tech-decision .td-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: var(--infra-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.tech-decision .td-name {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.tech-decision .td-role {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.service-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.service-card .service-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--infra-color);
+  margin-bottom: var(--space-2);
+}
+
+.service-card .service-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.service-card .service-tech {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+/* Platform connectivity visual */
+.platform-visual {
+  background: var(--infra-bg);
+  border: 1px solid var(--infra-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  text-align: center;
+}
+
+.platform-visual-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--infra-color);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-6);
+}
+
+.platform-connectors {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-8);
+  margin-bottom: var(--space-6);
+}
+
+.platform-ws-badge {
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-white);
+}
+
+.platform-ws-badge--blue { background: var(--ws1-color); }
+.platform-ws-badge--green { background: var(--ws2-color); }
+.platform-ws-badge--amber { background: var(--ws3-color); }
+
+.platform-arrows {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-16);
+  margin-bottom: var(--space-6);
+  color: var(--infra-color);
+  font-size: 20px;
+}
+
+.platform-services-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.platform-service-chip {
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-white);
+  border: 1px solid var(--infra-light);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--infra-color);
+}
+
+/* ============================================
+   5. EVALUATION SCORECARD
+   ============================================ */
+.scorecard-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
+}
+
+.scorecard-total {
+  background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
+}
+
+.scorecard-total .total-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.scorecard-total .total-values {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.scorecard-total .total-before {
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--color-text-muted);
+}
+
+.scorecard-total .total-arrow {
+  font-size: 24px;
+  color: var(--score-positive);
+}
+
+.scorecard-total .total-after {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.scorecard-total .total-max {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.scorecard-total .total-delta {
+  margin-top: var(--space-4);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--score-positive);
+}
+
+.scorecard-context {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.scorecard-context-card {
+  flex: 1;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  transition: box-shadow 0.2s ease;
+}
+
+.scorecard-context-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.scorecard-context-card h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.scorecard-context-card p {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* Score rows */
+.score-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.score-table th {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.score-table td {
+  padding: var(--space-5) var(--space-4);
+  border-bottom: 1px solid var(--color-border-light);
+  vertical-align: top;
+  transition: background 0.15s ease;
+}
+
+.score-table tbody tr:hover td {
+  background: var(--color-bg-alt);
+}
+
+.score-table tr:last-child td {
+  border-bottom: none;
+}
+
+.score-dimension {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.score-rationale {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-top: var(--space-1);
+  line-height: 1.5;
+}
+
+.score-num {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.score-num--before {
+  color: var(--color-text-muted);
+}
+
+.score-num--after {
+  color: var(--color-primary);
+}
+
+.score-delta {
+  text-align: center;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--score-positive);
+}
+
+.score-bar-cell {
+  width: 200px;
+}
+
+.score-bar-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.score-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--color-bg-light);
+  overflow: hidden;
+}
+
+.score-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.score-bar-fill--before {
+  background: var(--color-text-light);
+}
+
+.score-bar-fill--after {
+  background: var(--color-primary);
+}
+
+.score-bar-label {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   6. ROADMAP
+   ============================================ */
+.timeline {
+  position: relative;
+  margin-top: var(--space-10);
+}
+
+.timeline-track {
+  position: relative;
+  padding-left: 60px;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-border);
+}
+
+.milestone {
+  position: relative;
+  margin-bottom: var(--space-8);
+}
+
+.milestone:last-child {
+  margin-bottom: 0;
+}
+
+.milestone-dot {
+  position: absolute;
+  left: -44px;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 3px solid var(--color-primary);
+  background: var(--color-white);
+  z-index: 1;
+}
+
+.milestone--highlight .milestone-dot {
+  background: var(--score-positive);
+  border-color: var(--score-positive);
+}
+
+.milestone-header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.milestone-id {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+}
+
+.milestone--highlight .milestone-id {
+  background: #d1fae5;
+  color: var(--score-positive);
+}
+
+.milestone-name {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.milestone-weeks {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.milestone-body {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+}
+
+.milestone--highlight .milestone-body {
+  border-color: #a7f3d0;
+  background: #f0fdf4;
+}
+
+.milestone-desc {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-3);
+  line-height: 1.5;
+}
+
+.milestone-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.milestone-tag {
+  padding: 2px var(--space-3);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.milestone-tag--blue { background: var(--ws1-light); color: var(--ws1-color); }
+.milestone-tag--green { background: var(--ws2-light); color: var(--ws2-color); }
+.milestone-tag--amber { background: var(--ws3-light); color: var(--ws3-color); }
+.milestone-tag--purple { background: var(--infra-light); color: var(--infra-color); }
+.milestone-tag--gray { background: var(--color-bg-light); color: var(--color-text-secondary); }
+
+.milestone-gate {
+  margin-top: var(--space-3);
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.gate-type {
+  padding: 2px var(--space-2);
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.gate-type--hard {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.gate-type--soft {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+/* Roadmap summary stats */
+.roadmap-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+  margin-bottom: var(--space-10);
+}
+
+.roadmap-stat {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  text-align: center;
+}
+
+.roadmap-stat .rs-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+}
+
+.roadmap-stat .rs-label {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-top: var(--space-1);
+}
+
+/* ============================================
+   7. TEAM STRUCTURE
+   ============================================ */
+.team-overview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-10);
+}
+
+.team-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.team-card-header {
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--color-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.team-card-header h4 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.team-size {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.team-size .people-dots {
+  display: flex;
+  gap: 2px;
+}
+
+.team-size .people-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.team-card-body {
+  padding: var(--space-5) var(--space-6);
+}
+
+.team-card-body .team-role {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-3);
+}
+
+.team-card-body .team-tracks {
+  font-size: 13px;
+}
+
+.team-card-body .team-tracks span {
+  display: inline-block;
+  padding: 2px var(--space-2);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-right: var(--space-2);
+  margin-bottom: var(--space-1);
+}
+
+.team-card--platform .team-card-header { border-left: 4px solid var(--infra-color); }
+.team-card--platform .people-dot { background: var(--infra-color); }
+.team-card--ws1a .team-card-header { border-left: 4px solid var(--ws1-color); }
+.team-card--ws1a .people-dot { background: var(--ws1-color); }
+.team-card--ws1b .team-card-header { border-left: 4px solid #3b82f6; }
+.team-card--ws1b .people-dot { background: #3b82f6; }
+.team-card--ws2 .team-card-header { border-left: 4px solid var(--ws2-color); }
+.team-card--ws2 .people-dot { background: var(--ws2-color); }
+.team-card--ws3 .team-card-header { border-left: 4px solid var(--ws3-color); }
+.team-card--ws3 .people-dot { background: var(--ws3-color); }
+.team-card--qa .team-card-header { border-left: 4px solid #6b7280; }
+.team-card--qa .people-dot { background: #6b7280; }
+
+.team-total {
+  margin-top: var(--space-8);
+  text-align: center;
+  padding: var(--space-6);
+  background: var(--color-white);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+}
+
+.team-total .total-num {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.team-total .total-label {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  padding: var(--space-10) var(--space-6);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.footer p {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.footer .footer-brand {
+  font-weight: 700;
+  color: var(--color-text-secondary);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .metric-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .infra-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .scorecard-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .score-bar-cell {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 32px; }
+  .hero-description { font-size: 16px; }
+
+  .hero { padding: var(--space-12) var(--space-4); padding-top: var(--space-12); padding-bottom: var(--space-12); }
+  .section { padding: var(--space-12) var(--space-4); }
+  .section-title { font-size: 24px; }
+
+  .nav-back { display: none; }
+
+  /* Ensure touch targets meet 44x44px minimum */
+  .nav-links a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .ws-toggle, .ws1-tab, .feature-list-toggle {
+    min-height: 44px;
+  }
+  .milestone-header {
+    min-height: 44px;
+    padding: var(--space-2) 0;
+  }
+
+  .nav-links { display: none; }
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-lg);
+  }
+  .nav-toggle { display: block; }
+
+  .metric-cards { grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+  .metric-card { padding: var(--space-4); }
+  .metric-card .metric-value { font-size: 28px; }
+
+  .mapping-flow { display: none; }
+  .mapping-simple { display: block; }
+
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .ws-content { grid-template-columns: 1fr; }
+  .ws1-split { grid-template-columns: 1fr; }
+
+  .team-overview { grid-template-columns: 1fr; }
+
+  .roadmap-stats { grid-template-columns: repeat(2, 1fr); }
+
+  .platform-connectors { flex-direction: column; align-items: center; gap: var(--space-3); }
+
+  .dedup-stats { flex-direction: column; gap: var(--space-4); }
+}
+
+@media (max-width: 480px) {
+  .metric-cards { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .roadmap-stats { grid-template-columns: 1fr; }
+
+  /* Ensure score table is scrollable on small screens */
+  .score-table { min-width: 500px; }
+  .card--elevated { -webkit-overflow-scrolling: touch; overflow-x: auto; }
+
+  .tech-decisions { grid-template-columns: 1fr; }
+
+  .hero h1 { font-size: 26px; }
+  .hero-eyebrow { font-size: 12px; }
+  .metric-card .metric-value { font-size: 24px; }
+
+  .section-title { font-size: 20px; }
+  .section-subtitle { font-size: 15px; }
+
+  .timeline-track { padding-left: 44px; }
+  .milestone-dot { left: -28px; width: 12px; height: 12px; }
+  .timeline-line { left: 16px; }
+  .milestone-name { font-size: 16px; }
+  .milestone-weeks { font-size: 12px; }
+
+  .mapping-group-sources { flex-direction: column; }
+  .sprint-card { font-size: 13px; }
+
+  .scorecard-total .total-before { font-size: 24px; }
+  .scorecard-total .total-after { font-size: 36px; }
+
+  .team-total .total-num { font-size: 36px; }
+
+  .integration-item { flex-wrap: wrap; gap: var(--space-2); }
+}
+
+@media (max-width: 320px) {
+  .hero h1 { font-size: 22px; }
+  .section { padding: var(--space-8) var(--space-3); }
+  .hero { padding: var(--space-8) var(--space-3); }
+  .nav { padding: 0 var(--space-3); }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  .nav { display: none !important; }
+  .skip-link { display: none !important; }
+  .hero { background: none !important; }
+  .hero::before, .hero::after { display: none; }
+  .section { padding: 24px 0; page-break-inside: avoid; }
+  .card, .metric-card, .workstream-card, .milestone-body, .team-card, .service-card {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+  body { font-size: 12px; }
+  body::before {
+    content: 'SGA Dental Partners \2014  Sprint Portfolio Consolidation';
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 600;
+    color: #718096;
+    padding: 8px 0 16px;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 16px;
+    letter-spacing: 0.04em;
+  }
+  .hero h1 { font-size: 28px; }
+  .section-title { font-size: 22px; }
+  .gradient-text {
+    -webkit-text-fill-color: var(--color-primary) !important;
+  }
+  .mapping-flow { display: none; }
+  .mapping-simple { display: block; }
+  .footer { page-break-before: auto; }
+}
+
+/* ============================================
+   INTERACTIVE STYLES
+   ============================================ */
+
+/* --- Focus styles for keyboard navigation --- */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.milestone-header:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* --- Nav active indicator --- */
+.nav-links a.active {
+  color: var(--color-primary);
+  background: var(--color-primary-bg);
+  position: relative;
+}
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: var(--space-3);
+  right: var(--space-3);
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 2px 2px 0 0;
+}
+
+/* --- Workstream collapse/expand --- */
+.ws-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-3);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.ws-toggle:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.ws-toggle .toggle-icon {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+.ws-toggle.collapsed .toggle-icon {
+  transform: rotate(-90deg);
+}
+.ws-collapsible {
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+  opacity: 1;
+}
+.ws-collapsible.collapsed {
+  max-height: 0 !important;
+  opacity: 0;
+}
+
+/* --- Mapping hover interactions --- */
+.sprint-card,
+.workstream-card {
+  transition: opacity 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+.mapping-flow.has-highlight .sprint-card:not(.highlighted),
+.mapping-flow.has-highlight .workstream-card:not(.highlighted) {
+  opacity: 0.25;
+}
+.mapping-flow.has-highlight .sprint-card.highlighted,
+.mapping-flow.has-highlight .workstream-card.highlighted {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+.mapping-flow.has-highlight .arrow-line {
+  opacity: 0.15;
+  transition: opacity 0.25s ease;
+}
+.mapping-flow.has-highlight .arrow-line.highlighted {
+  opacity: 1;
+}
+
+/* --- Milestone expandable details --- */
+.milestone-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.25s ease, margin 0.25s ease;
+  opacity: 0;
+  margin-top: 0;
+}
+.milestone-details.open {
+  opacity: 1;
+  margin-top: var(--space-3);
+}
+.milestone-details-inner {
+  padding: var(--space-4);
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+.milestone-details-inner h5 {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+  margin-top: var(--space-3);
+}
+.milestone-details-inner h5:first-child {
+  margin-top: 0;
+}
+.milestone-details-inner ul {
+  list-style: none;
+  padding: 0;
+}
+.milestone-details-inner li {
+  padding: var(--space-1) 0;
+  padding-left: var(--space-4);
+  position: relative;
+}
+.milestone-details-inner li::before {
+  content: '';
+  position: absolute;
+  left: var(--space-1);
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+.milestone-header {
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+.milestone-header:hover .milestone-name {
+  color: var(--color-primary);
+}
+.milestone-header:hover .milestone-expand-hint {
+  color: var(--color-primary);
+}
+.milestone-expand-hint {
+  font-size: 11px;
+  color: var(--color-text-light);
+  font-weight: 400;
+  margin-left: var(--space-2);
+}
+
+/* --- Score animations --- */
+.score-bar-fill {
+  transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.score-bar-fill.animate-ready {
+  width: 0 !important;
+}
+.score-num {
+  transition: opacity 0.3s;
+}
+
+/* --- Milestone scroll animation --- */
+.milestone {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.milestone.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Roadmap stat scroll animation --- */
+.roadmap-stat {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.roadmap-stat.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Show more / less --- */
+.feature-list-toggle {
+  display: none;
+  align-items: center;
+  gap: var(--space-2);
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-4);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  margin-top: var(--space-3);
+  transition: color 0.15s, border-color 0.15s;
+}
+.feature-list-toggle:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.feature-list-toggle.active {
+  display: inline-flex;
+}
+
+/* --- WS1 Tabs --- */
+.ws1-tabs {
+  display: flex;
+  gap: var(--space-1);
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-4);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 0;
+}
+.ws1-tab {
+  padding: var(--space-3) var(--space-5);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  border: none;
+  background: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.ws1-tab:hover {
+  color: var(--ws1-color);
+}
+.ws1-tab.active {
+  color: var(--ws1-color);
+  border-bottom-color: var(--ws1-color);
+}
+.ws1-tab-panel {
+  display: none;
+}
+.ws1-tab-panel.active {
+  display: block;
+}
+
+/* --- Metric card scroll animation --- */
+.metric-card {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.metric-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Reduced motion preference --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+  .milestone,
+  .roadmap-stat,
+  .metric-card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* --- Print: disable animations, expand all, logical breaks --- */
+@media print {
+  .milestone,
+  .roadmap-stat,
+  .metric-card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .ws-collapsible.collapsed {
+    max-height: none !important;
+    opacity: 1 !important;
+  }
+  .ws-toggle,
+  .feature-list-toggle,
+  .milestone-expand-hint,
+  .nav-toggle,
+  .skip-link,
+  .nav-back {
+    display: none !important;
+  }
+  .milestone-details {
+    max-height: none !important;
+    opacity: 1 !important;
+    margin-top: var(--space-3) !important;
+  }
+  /* Show hidden feature items in print */
+  .feature-item[data-extra-feature] {
+    display: flex !important;
+  }
+  /* Page breaks at logical section boundaries */
+  .section,
+  .hero {
+    page-break-before: auto;
+    page-break-inside: avoid;
+  }
+  #mapping { page-break-before: always; }
+  #workstreams { page-break-before: always; }
+  #infrastructure { page-break-before: always; }
+  #scorecard { page-break-before: always; }
+  #roadmap { page-break-before: always; }
+  #team { page-break-before: always; }
+  .ws-deep-dive { page-break-inside: avoid; }
+  .milestone { page-break-inside: avoid; }
+  /* Simplify backgrounds for print */
+  .section--alt { background: #fafafa !important; }
+  .infra-bg, .platform-visual { background: #f5f5f5 !important; }
+  .scorecard-total { background: #f8faff !important; box-shadow: none !important; }
+  /* Ensure all tab panels visible in print */
+  .ws1-tabs { border-bottom-color: #ccc !important; }
+  .ws1-tab-panel { display: block !important; margin-bottom: var(--space-4); }
+  /* Hide interactive elements */
+  .hero-eyebrow .dot { background: #059669 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .platform-ws-badge { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .milestone-tag { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .gate-type { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .feature-dot { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#summary">Skip to main content</a>
+
+<!-- ========================================
+     NAVIGATION
+     ======================================== -->
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="../../index.html" class="nav-back" aria-label="Back to Sprint Hub">&larr; Sprint Hub</a>
+    <div class="nav-brand">SGA Dental Partners <span>| Portfolio Review</span></div>
+    <button class="nav-toggle" onclick="var nl=document.querySelector('.nav-links');nl.classList.toggle('active');this.setAttribute('aria-expanded',nl.classList.contains('active'))" aria-label="Toggle navigation" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+    <ul class="nav-links" role="list">
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#mapping">Mapping</a></li>
+      <li><a href="#workstreams">Workstreams</a></li>
+      <li><a href="#infrastructure">Infrastructure</a></li>
+      <li><a href="#scorecard">Scorecard</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#team">Team</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ========================================
+     1. EXECUTIVE SUMMARY / HERO
+     ======================================== -->
+<main>
+<section id="summary" class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">
+      <span class="dot"></span>
+      Sprint Portfolio Review Complete — 5 QC Gates Passed
+    </div>
+    <h1>6 Sprints. <span class="gradient-text">3 Workstreams.</span><br>One Unified Platform.</h1>
+    <p class="hero-description">
+      Six independent problem sprints designed for SGA's 260+ dental practices converge into three integrated workstreams with shared infrastructure. Every original capability is preserved. 31 duplicated stories are eliminated. The result is a coherent platform that users experience as a single system, not six disconnected tools.
+    </p>
+    <div class="metric-cards">
+      <div class="metric-card metric-card--blue">
+        <div class="metric-value">22/25</div>
+        <div class="metric-label">Product-Market Fit Score</div>
+        <div class="metric-detail">Up from 16/25 original</div>
+      </div>
+      <div class="metric-card metric-card--green">
+        <div class="metric-value">+14</div>
+        <div class="metric-label">Evaluation Improvement</div>
+        <div class="metric-detail">26/50 to 40/50 across 5 dimensions</div>
+      </div>
+      <div class="metric-card metric-card--amber">
+        <div class="metric-value">22%</div>
+        <div class="metric-label">Fewer Stories to Build</div>
+        <div class="metric-detail">141 original to 110 deduplicated</div>
+      </div>
+      <div class="metric-card metric-card--purple">
+        <div class="metric-value">75%</div>
+        <div class="metric-label">Fewer PMS Connectors</div>
+        <div class="metric-detail">4 integrations reduced to 1 shared service</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     2. SPRINT-TO-WORKSTREAM MAPPING
+     ======================================== -->
+<section id="mapping" class="section section--alt">
+  <div class="container">
+    <div class="section-label">Consolidation</div>
+    <h2 class="section-title">Sprint-to-Workstream Mapping</h2>
+    <p class="section-subtitle">Each of the 6 original problem sprints maps into one of 3 unified workstreams, preserving 100% of product capabilities while eliminating duplicative infrastructure.</p>
+
+    <!-- Desktop flow -->
+    <div class="mapping-flow">
+      <div class="mapping-column">
+        <div class="mapping-column-header">6 Original Sprints</div>
+        <div class="sprint-card sprint-card--blue" data-ws="ws1">
+          <div class="sprint-num">Sprint 3</div>
+          <div class="sprint-name">Practice Concierge</div>
+          <div class="sprint-focus">Digital storefront, enrollment, data harvesting</div>
+        </div>
+        <div class="sprint-card sprint-card--blue" data-ws="ws1">
+          <div class="sprint-num">Sprint 4</div>
+          <div class="sprint-name">Funnel OS</div>
+          <div class="sprint-focus">15-platform integration, funnel analytics, AI anomaly detection</div>
+        </div>
+        <div class="sprint-card sprint-card--blue" data-ws="ws1">
+          <div class="sprint-num">Sprint 5</div>
+          <div class="sprint-name">Comms Engine</div>
+          <div class="sprint-focus">4-stage patient automation, graduated autonomy, voice AI</div>
+        </div>
+        <div style="height: var(--space-4)"></div>
+        <div class="sprint-card sprint-card--green" data-ws="ws2">
+          <div class="sprint-num">Sprint 1</div>
+          <div class="sprint-name">Studio Automation</div>
+          <div class="sprint-focus">Email intake, Canva generation, CD approval, print fulfillment</div>
+        </div>
+        <div class="sprint-card sprint-card--green" data-ws="ws2">
+          <div class="sprint-num">Sprint 6</div>
+          <div class="sprint-name">Content Concierge</div>
+          <div class="sprint-focus">SMS capture, AI photo/video processing, 6-platform distribution</div>
+        </div>
+        <div style="height: var(--space-4)"></div>
+        <div class="sprint-card sprint-card--amber" data-ws="ws3">
+          <div class="sprint-num">Sprint 2</div>
+          <div class="sprint-name">Hospitality Playbook</div>
+          <div class="sprint-focus">Morning Huddle, CCA Academy, H-Score, Champion Network</div>
+        </div>
+      </div>
+
+      <div class="mapping-arrow-col">
+        <div style="height: 70px"></div>
+        <div class="arrow-group">
+          <div class="arrow-line arrow-line--blue" data-ws="ws1"></div>
+        </div>
+        <div style="height: 110px"></div>
+        <div class="arrow-group">
+          <div class="arrow-line arrow-line--green" data-ws="ws2"></div>
+        </div>
+        <div style="height: 60px"></div>
+        <div class="arrow-group">
+          <div class="arrow-line arrow-line--amber" data-ws="ws3"></div>
+        </div>
+      </div>
+
+      <div class="mapping-column">
+        <div class="mapping-column-header">3 Consolidated Workstreams</div>
+        <div class="workstream-card workstream-card--blue" data-ws="ws1">
+          <div class="ws-label">Workstream 1</div>
+          <div class="ws-name">The Practice Platform</div>
+          <div class="ws-scope">AI-powered operating system: one agent per practice handling enrollment, storefronts, funnel visibility, patient communications, and automation. Split into Practice Operations (practice staff) and Network Intelligence (executives).</div>
+          <div class="ws-features">32 features</div>
+        </div>
+        <div style="height: var(--space-4)"></div>
+        <div class="workstream-card workstream-card--green" data-ws="ws2">
+          <div class="ws-label">Workstream 2</div>
+          <div class="ws-name">The Content Engine</div>
+          <div class="ws-scope">Unified content production system: creative asset generation via Canva, SMS-triggered photo/video capture, AI processing pipeline, brand asset management, multi-channel distribution, and content analytics.</div>
+          <div class="ws-features">27 features</div>
+        </div>
+        <div style="height: var(--space-4)"></div>
+        <div class="workstream-card workstream-card--amber" data-ws="ws3">
+          <div class="ws-label">Workstream 3</div>
+          <div class="ws-name">The Culture OS</div>
+          <div class="ws-scope">Hospitality culture system: Morning Huddle OS, CCA certification (Bronze/Silver/Gold), H-Score engine, Trust Transfer verification, Champion Network, and recognition rewards.</div>
+          <div class="ws-features">13 features + 4 integration points</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile-friendly mapping -->
+    <div class="mapping-simple">
+      <div class="mapping-group">
+        <div class="mapping-group-sources">
+          <div class="sprint-card sprint-card--blue" style="flex:1; min-width: 140px;">
+            <div class="sprint-num">Sprint 3</div>
+            <div class="sprint-name">Practice Concierge</div>
+          </div>
+          <div class="sprint-card sprint-card--blue" style="flex:1; min-width: 140px;">
+            <div class="sprint-num">Sprint 4</div>
+            <div class="sprint-name">Funnel OS</div>
+          </div>
+          <div class="sprint-card sprint-card--blue" style="flex:1; min-width: 140px;">
+            <div class="sprint-num">Sprint 5</div>
+            <div class="sprint-name">Comms Engine</div>
+          </div>
+        </div>
+        <div class="mapping-group-arrow">&#8595;</div>
+        <div class="workstream-card workstream-card--blue">
+          <div class="ws-label">Workstream 1</div>
+          <div class="ws-name">The Practice Platform</div>
+          <div class="ws-scope">32 features across Practice Operations and Network Intelligence</div>
+        </div>
+      </div>
+      <div class="mapping-group">
+        <div class="mapping-group-sources">
+          <div class="sprint-card sprint-card--green" style="flex:1; min-width: 140px;">
+            <div class="sprint-num">Sprint 1</div>
+            <div class="sprint-name">Studio Automation</div>
+          </div>
+          <div class="sprint-card sprint-card--green" style="flex:1; min-width: 140px;">
+            <div class="sprint-num">Sprint 6</div>
+            <div class="sprint-name">Content Concierge</div>
+          </div>
+        </div>
+        <div class="mapping-group-arrow">&#8595;</div>
+        <div class="workstream-card workstream-card--green">
+          <div class="ws-label">Workstream 2</div>
+          <div class="ws-name">The Content Engine</div>
+          <div class="ws-scope">27 features for creative asset production and distribution</div>
+        </div>
+      </div>
+      <div class="mapping-group">
+        <div class="mapping-group-sources">
+          <div class="sprint-card sprint-card--amber" style="flex:1;">
+            <div class="sprint-num">Sprint 2</div>
+            <div class="sprint-name">Hospitality Playbook</div>
+          </div>
+        </div>
+        <div class="mapping-group-arrow">&#8595;</div>
+        <div class="workstream-card workstream-card--amber">
+          <div class="ws-label">Workstream 3</div>
+          <div class="ws-name">The Culture OS</div>
+          <div class="ws-scope">13 features + 4 integration points</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Deduplication Banner -->
+    <div class="dedup-banner">
+      <div class="dedup-banner-title">Build Once, Serve Many</div>
+      <div class="dedup-stats">
+        <div class="dedup-stat">
+          <span class="stat-num">31</span>
+          <span class="stat-label">stories eliminated via deduplication</span>
+        </div>
+        <div class="dedup-stat">
+          <span class="stat-num">4 &rarr; 1</span>
+          <span class="stat-label">PMS integrations consolidated</span>
+        </div>
+        <div class="dedup-stat">
+          <span class="stat-num">5 &rarr; 1</span>
+          <span class="stat-label">executive dashboards unified</span>
+        </div>
+        <div class="dedup-stat">
+          <span class="stat-num">3 &rarr; 1</span>
+          <span class="stat-label">agent architectures merged</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     3. WORKSTREAM DEEP DIVES
+     ======================================== -->
+<section id="workstreams" class="section">
+  <div class="container">
+    <div class="section-label">Deep Dives</div>
+    <h2 class="section-title">Three Workstreams, One Platform</h2>
+    <p class="section-subtitle" style="margin-bottom: var(--space-12)">Each workstream serves a distinct domain with clear ownership, while sharing infrastructure and presenting as a single product to users.</p>
+
+    <!-- WS1: The Practice Platform -->
+    <div class="ws-deep-dive" data-ws-dive="ws1">
+      <div class="ws-header">
+        <div class="ws-icon ws-icon--blue">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="ws-header-text">
+          <div class="ws-tag ws-tag--blue">Workstream 1</div>
+          <h3>The Practice Platform</h3>
+          <p class="ws-vision">An AI-powered operating system that gives every practice a dedicated digital concierge, real-time funnel visibility, and autonomous guest communications. 260+ practices run on a single platform that replaces 75+ disconnected tools.</p>
+        </div>
+        <button class="ws-toggle" onclick="toggleWorkstream(this)" aria-label="Collapse section" aria-expanded="true"><span class="toggle-icon">&#9660;</span> Collapse</button>
+      </div>
+
+      <div class="ws-collapsible">
+      <div class="ws-content">
+        <div class="ws-features-list">
+          <h4>Key Capabilities</h4>
+          <div class="feature-item">
+            <div class="feature-dot feature-dot--blue"></div>
+            <div>
+              <div class="feature-name">Practice Data Hub</div>
+              <div class="feature-desc">Single source of truth per practice. Unified data model for all three workstreams.</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot feature-dot--blue"></div>
+            <div>
+              <div class="feature-name">Practice Nerve Center</div>
+              <div class="feature-desc">Daily AI-prioritized agenda with 3-5 action cards. PWA mobile-first for office managers.</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot feature-dot--blue"></div>
+            <div>
+              <div class="feature-name">AI Concierge Agent</div>
+              <div class="feature-desc">One agent per practice handling missed call text-back (&lt;90s), form fill auto-response (&lt;30s), and brand-voice conversations.</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot feature-dot--blue"></div>
+            <div>
+              <div class="feature-name">Patient Communications Automation</div>
+              <div class="feature-desc">4-stage automation: lead response, treatment follow-up, rebooking, reactivation. Graduated autonomy from human-approved to fully autonomous.</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot feature-dot--blue"></div>
+            <div>
+              <div class="feature-name">Executive Dashboard</div>
+              <div class="feature-desc">Network-wide funnel visibility with region and practice drill-down. Real-time anomaly detection with AI-generated insights.</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot feature-dot--blue"></div>
+            <div>
+              <div class="feature-name">Storefront Generation</div>
+              <div class="feature-desc">5 specialty templates with CDN deployment. Practice preview and approval flow.</div>
+            </div>
+          </div>
+
+          <!-- WS1 Tabs: Practice Operations / Network Intelligence -->
+          <div class="ws1-tabs" role="tablist" aria-label="Workstream 1 sub-surfaces">
+            <button class="ws1-tab active" data-tab="practice-ops" onclick="switchWs1Tab(this)" role="tab" aria-selected="true" aria-controls="panel-practice-ops" id="tab-practice-ops">Practice Operations</button>
+            <button class="ws1-tab" data-tab="network-intel" onclick="switchWs1Tab(this)" role="tab" aria-selected="false" aria-controls="panel-network-intel" id="tab-network-intel">Network Intelligence</button>
+          </div>
+
+          <div class="ws1-tab-panel active" data-tab-panel="practice-ops" role="tabpanel" id="panel-practice-ops" aria-labelledby="tab-practice-ops">
+            <div class="ws1-split-card" style="border-radius: var(--radius-md); padding: var(--space-5); border: 1px solid var(--color-border); background: var(--color-white);">
+              <h4 style="font-size: 15px; font-weight: 700; margin-bottom: var(--space-1); color: var(--ws1-color);">Practice Operations</h4>
+              <div class="split-users" style="font-size: 13px; color: var(--color-text-muted); margin-bottom: var(--space-3);">Office Managers, Front Desk, Clinical Staff</div>
+              <div class="split-count" style="font-size: 13px; font-weight: 600; color: var(--color-text-secondary);">9 interfaces</div>
+              <p style="font-size: 13px; color: var(--color-text-secondary); margin-top: var(--space-2);">Nerve Center, Concierge, Patient Outreach, Storefront, Automation, Enrollment</p>
+            </div>
+          </div>
+
+          <div class="ws1-tab-panel" data-tab-panel="network-intel" role="tabpanel" id="panel-network-intel" aria-labelledby="tab-network-intel">
+            <div class="ws1-split-card" style="border-radius: var(--radius-md); padding: var(--space-5); border: 1px solid var(--color-border); background: var(--color-white);">
+              <h4 style="font-size: 15px; font-weight: 700; margin-bottom: var(--space-1); color: var(--ws1-color);">Network Intelligence</h4>
+              <div class="split-users" style="font-size: 13px; color: var(--color-text-muted); margin-bottom: var(--space-3);">Executives, Regional Directors, Ops Team</div>
+              <div class="split-count" style="font-size: 13px; font-weight: 600; color: var(--color-text-secondary);">10 interfaces</div>
+              <p style="font-size: 13px; color: var(--color-text-secondary); margin-top: var(--space-2);">Funnel Data Lake, Executive Dashboard, AI Analysis, Anomaly Alerts, Reports</p>
+            </div>
+          </div>
+
+          <div class="ws1-shared-layer">
+            <div class="shared-title">Shared Practice Data Hub</div>
+            <div class="shared-desc">Unified data layer spanning both surfaces, connected by Kafka event bus</div>
+          </div>
+        </div>
+
+        <div class="ws-sidebar">
+          <div class="sidebar-card">
+            <h5>Feature Count</h5>
+            <div class="sidebar-value" style="color: var(--ws1-color);">32</div>
+            <p style="font-size: 12px; color: var(--color-text-muted); margin-top: var(--space-2);">Across Practice Operations &amp; Network Intelligence</p>
+          </div>
+          <div class="sidebar-card">
+            <h5>Target Users</h5>
+            <ul>
+              <li>Office Managers</li>
+              <li>Front Desk Staff</li>
+              <li>Treatment Coordinators</li>
+              <li>Regional Directors</li>
+              <li>VP of Operations</li>
+              <li>CEO / C-Suite</li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h5>Original Sprints</h5>
+            <ul>
+              <li>Practice Concierge (Sprint 3)</li>
+              <li>Funnel OS (Sprint 4)</li>
+              <li>Comms Engine (Sprint 5)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div><!-- end ws-collapsible -->
+    </div>
+
+    <hr style="border: none; border-top: 1px solid var(--color-border); margin: var(--space-12) 0;">
+
+    <!-- WS2: The Content Engine -->
+    <div class="ws-deep-dive" data-ws-dive="ws2">
+      <div class="ws-header">
+        <div class="ws-icon ws-icon--green">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <div class="ws-header-text">
+          <div class="ws-tag ws-tag--green">Workstream 2</div>
+          <h3>The Content Engine</h3>
+          <p class="ws-vision">A unified content production system that transforms every SGA practice into a content-producing unit. From creative asset requests through Canva generation and SMS-triggered photo/video capture to AI processing and automated multi-channel distribution.</p>
+        </div>
+        <button class="ws-toggle" onclick="toggleWorkstream(this)" aria-label="Collapse section" aria-expanded="true"><span class="toggle-icon">&#9660;</span> Collapse</button>
+      </div>
+
+      <div class="ws-collapsible">
+      <div class="ws-content">
+        <div class="ws-features-list">
+          <h4>Key Capabilities</h4>
+          <div class="feature-item">
+            <div class="feature-dot feature-dot--green"></div>
+            <div>
+              <div class="feature-name">Studio Agent</div>
+              <div class="feature-desc">Conversational email intake at studio@sgadental.com. Practice identification, brief extraction, max 3 clarifying questions.</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot feature-dot--green"></div>
+            <div>
+              <div class="feature-name">Content Capture Bot</div>
+              <div class="feature-desc">Daily SMS prompts via Communications Service. MMS capture with streak tracking. Procedure-matched content briefs.</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot feature-dot--green"></div>
+            <div>
+              <div class="feature-name">AI Processing Pipeline</div>
+              <div class="feature-desc">Photo enhancement, background removal, brand overlay. Video processing with Whisper transcription. Platform-specific caption generation.</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot feature-dot--green"></div>
+            <div>
+              <div class="feature-name">Canva Template Generation</div>
+              <div class="feature-desc">Brand kit integration. Template-based asset creation. Medium challenge (print to digital).</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot feature-dot--green"></div>
+            <div>
+              <div class="feature-name">Approval Workflow</div>
+              <div class="feature-desc">HQ QC queue. Creative Director mobile review via Teams Adaptive Cards. Caption editing and brand compliance scoring.</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot feature-dot--green"></div>
+            <div>
+              <div class="feature-name">Multi-Channel Distribution</div>
+              <div class="feature-desc">Instagram, Facebook, LinkedIn, Google Business, email campaigns, TV slides, print fulfillment (Gelato).</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ws-sidebar">
+          <div class="sidebar-card">
+            <h5>Feature Count</h5>
+            <div class="sidebar-value" style="color: var(--ws2-color);">27</div>
+          </div>
+          <div class="sidebar-card">
+            <h5>Target Users</h5>
+            <ul>
+              <li>Content Champions (practice staff)</li>
+              <li>Creative Director</li>
+              <li>HQ Content Team</li>
+              <li>Marketing Coordinators</li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h5>Original Sprints</h5>
+            <ul>
+              <li>Studio Automation (Sprint 1)</li>
+              <li>Content Concierge (Sprint 6)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div><!-- end ws-collapsible -->
+    </div>
+
+    <hr style="border: none; border-top: 1px solid var(--color-border); margin: var(--space-12) 0;">
+
+    <!-- WS3: The Culture OS -->
+    <div class="ws-deep-dive" data-ws-dive="ws3">
+      <div class="ws-header">
+        <div class="ws-icon ws-icon--amber">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="ws-header-text">
+          <div class="ws-tag ws-tag--amber">Workstream 3</div>
+          <h3>The Culture OS</h3>
+          <p class="ws-vision">A hospitality culture system that transforms SGA's 5,000+ team members into consistently exceptional patient experience providers. Daily rituals, portable credentials, measurable hospitality scores, and a peer champion network.</p>
+        </div>
+        <button class="ws-toggle" onclick="toggleWorkstream(this)" aria-label="Collapse section" aria-expanded="true"><span class="toggle-icon">&#9660;</span> Collapse</button>
+      </div>
+
+      <div class="ws-collapsible">
+      <div class="ws-content">
+        <div class="ws-features-list">
+          <h4>Key Capabilities</h4>
+          <div class="feature-item">
+            <div class="feature-dot feature-dot--amber"></div>
+            <div>
+              <div class="feature-name">Morning Huddle OS</div>
+              <div class="feature-desc">Daily 5-minute ritual via Dental Intel. Auto-loading content packages with 12 weeks of curated material. Completion tracking and streak indicators.</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot feature-dot--amber"></div>
+            <div>
+              <div class="feature-name">CCA Academy</div>
+              <div class="feature-desc">Bronze, Silver, Gold certification tiers with portable Credly credentials. 10 mobile modules per tier with scenario-based assessments.</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot feature-dot--amber"></div>
+            <div>
+              <div class="feature-name">H-Score Engine</div>
+              <div class="feature-desc">Composite hospitality score: Cinnamon 35% + Swell reviews 45% + Dental Intel operational 20%. Daily updates per practice.</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot feature-dot--amber"></div>
+            <div>
+              <div class="feature-name">Trust Transfer Verification</div>
+              <div class="feature-desc">NLP analysis of Swell reviews for trust transfer language. Behavioral tracking via huddle commitments.</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot feature-dot--amber"></div>
+            <div>
+              <div class="feature-name">Champion Network</div>
+              <div class="feature-desc">260 champions across the network. Peer community with regional cohorts. Champion designation and performance tracking.</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot feature-dot--amber"></div>
+            <div>
+              <div class="feature-name">Recognition &amp; Rewards Engine</div>
+              <div class="feature-desc">Leaderboards, bonus pool integration, wow story distribution, and brand-compliant recognition templates.</div>
+            </div>
+          </div>
+
+          <!-- Integration Points -->
+          <div class="integration-points">
+            <h4>Cross-Workstream Integration Points</h4>
+            <div class="integration-item">
+              <span class="integration-badge integration-badge--amber">H-Score</span>
+              <span class="integration-arrow">&rarr;</span>
+              <span class="integration-badge integration-badge--blue">Practice Platform</span>
+              <span style="color: var(--color-text-muted); font-size: 12px;">Storefront badge display</span>
+            </div>
+            <div class="integration-item">
+              <span class="integration-badge integration-badge--amber">Swell Reviews</span>
+              <span class="integration-arrow">&rarr;</span>
+              <span class="integration-badge integration-badge--blue">Practice Platform</span>
+              <span style="color: var(--color-text-muted); font-size: 12px;">Reputation layer in funnel</span>
+            </div>
+            <div class="integration-item">
+              <span class="integration-badge integration-badge--amber">Trust Signals</span>
+              <span class="integration-arrow">&rarr;</span>
+              <span class="integration-badge integration-badge--blue">Practice Platform</span>
+              <span style="color: var(--color-text-muted); font-size: 12px;">Trigger referral campaigns</span>
+            </div>
+            <div class="integration-item">
+              <span class="integration-badge integration-badge--amber">Champion Stories</span>
+              <span class="integration-arrow">&rarr;</span>
+              <span class="integration-badge integration-badge--green">Content Engine</span>
+              <span style="color: var(--color-text-muted); font-size: 12px;">Feed testimonial pipeline</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ws-sidebar">
+          <div class="sidebar-card">
+            <h5>Feature Count</h5>
+            <div class="sidebar-value" style="color: var(--ws3-color);">13</div>
+            <p style="font-size: 12px; color: var(--color-text-muted); margin-top: var(--space-2);">+ 4 integration points to other workstreams</p>
+          </div>
+          <div class="sidebar-card">
+            <h5>Target Users</h5>
+            <ul>
+              <li>All Practice Staff (5,000+)</li>
+              <li>Culture Champions</li>
+              <li>Practice Managers</li>
+              <li>Regional Directors</li>
+              <li>VP of Operations</li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h5>Original Sprint</h5>
+            <ul>
+              <li>Hospitality Playbook (Sprint 2)</li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h5>H-Score Formula</h5>
+            <ul>
+              <li>Swell Reviews: 45%</li>
+              <li>Cinnamon Data: 35%</li>
+              <li>Dental Intel Ops: 20%</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div><!-- end ws-collapsible -->
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     4. SHARED INFRASTRUCTURE
+     ======================================== -->
+<section id="infrastructure" class="section section--alt">
+  <div class="container">
+    <div class="section-label">Foundation</div>
+    <h2 class="section-title">Shared Infrastructure Layer</h2>
+    <p class="section-subtitle" style="margin-bottom: var(--space-10)">10 shared services built once by Platform Engineering, consumed by all three workstreams via well-defined APIs. This is the architectural foundation that makes consolidation possible.</p>
+
+    <div class="infra-intro">
+      <div class="infra-intro-text">
+        <p>The original 6 sprints independently designed 4 PMS integrations, 3 cloud providers, 3 queue systems, and 3 competing agent architectures. Consolidation collapses these into a single, coherent infrastructure layer.</p>
+        <p>All services run on AWS with HIPAA-compliant configurations. Data flows through Kafka with schema-enforced event contracts. Every API call passes through the Compliance Middleware for PHI filtering and audit logging.</p>
+        <p>The infrastructure is built in Weeks 3-6 (Milestone M1), then validated under real load when WS3 deploys H-Score and Morning Huddle to 20 pilot practices at Milestone M1.5.</p>
+      </div>
+      <div class="tech-decisions">
+        <div class="tech-decision">
+          <div class="td-icon">&#9729;</div>
+          <div>
+            <div class="td-name">AWS</div>
+            <div class="td-role">Cloud Provider</div>
+          </div>
+        </div>
+        <div class="tech-decision">
+          <div class="td-icon">&#128451;</div>
+          <div>
+            <div class="td-name">PostgreSQL + ClickHouse</div>
+            <div class="td-role">Operational + Analytics DB</div>
+          </div>
+        </div>
+        <div class="tech-decision">
+          <div class="td-icon">&#8644;</div>
+          <div>
+            <div class="td-name">Kafka (MSK)</div>
+            <div class="td-role">Event Bus + Schema Registry</div>
+          </div>
+        </div>
+        <div class="tech-decision">
+          <div class="td-icon">&#9881;</div>
+          <div>
+            <div class="td-name">Temporal</div>
+            <div class="td-role">Workflow Orchestration</div>
+          </div>
+        </div>
+        <div class="tech-decision">
+          <div class="td-icon">&#129302;</div>
+          <div>
+            <div class="td-name">Claude API</div>
+            <div class="td-role">AI / LLM Provider</div>
+          </div>
+        </div>
+        <div class="tech-decision">
+          <div class="td-icon">&#128172;</div>
+          <div>
+            <div class="td-name">Twilio + AWS SES</div>
+            <div class="td-role">SMS / Voice / Email</div>
+          </div>
+        </div>
+        <div class="tech-decision">
+          <div class="td-icon">&#128137;</div>
+          <div>
+            <div class="td-name">NexHealth + Sikka ONE</div>
+            <div class="td-role">PMS Integration</div>
+          </div>
+        </div>
+        <div class="tech-decision">
+          <div class="td-icon">&#128274;</div>
+          <div>
+            <div class="td-name">AWS Cognito</div>
+            <div class="td-role">Auth + RBAC (8 roles)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10 Shared Services -->
+    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: var(--space-6);">10 Shared Services</h3>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-name">Practice Data Hub</div>
+        <div class="service-tech">PostgreSQL (RDS Multi-AZ)</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-name">PMS Integration</div>
+        <div class="service-tech">NexHealth + Sikka ONE</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-name">Communications</div>
+        <div class="service-tech">Twilio SMS/Voice + SES</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <div class="service-name">AI Service</div>
+        <div class="service-tech">Claude API + Whisper</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <div class="service-name">Asset Registry</div>
+        <div class="service-tech">S3 + CloudFront</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <div class="service-name">Event Bus</div>
+        <div class="service-tech">Kafka MSK + Schema Registry</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">07</div>
+        <div class="service-name">Auth &amp; Identity</div>
+        <div class="service-tech">Cognito + RBAC</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">08</div>
+        <div class="service-name">Compliance Middleware</div>
+        <div class="service-tech">Fastify Plugin + Audit Log</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">09</div>
+        <div class="service-name">Workflow Engine</div>
+        <div class="service-tech">Temporal Cloud</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">10</div>
+        <div class="service-name">Design Tool Abstraction</div>
+        <div class="service-tech">Canva Adapter (pluggable)</div>
+      </div>
+    </div>
+
+    <!-- Platform connectivity visual -->
+    <div class="platform-visual">
+      <div class="platform-visual-title">Platform Connectivity</div>
+      <div class="platform-connectors">
+        <div class="platform-ws-badge platform-ws-badge--blue">Practice Platform</div>
+        <div class="platform-ws-badge platform-ws-badge--green">Content Engine</div>
+        <div class="platform-ws-badge platform-ws-badge--amber">Culture OS</div>
+      </div>
+      <div class="platform-arrows">
+        <span>&#8595;</span>
+        <span>&#8595;</span>
+        <span>&#8595;</span>
+      </div>
+      <p style="font-size: 13px; color: var(--infra-color); font-weight: 600; margin-bottom: var(--space-4);">10 Kafka Event Contracts + Shared APIs</p>
+      <div class="platform-services-bar">
+        <span class="platform-service-chip">Practice Data Hub</span>
+        <span class="platform-service-chip">PMS Integration</span>
+        <span class="platform-service-chip">Communications</span>
+        <span class="platform-service-chip">AI Service</span>
+        <span class="platform-service-chip">Asset Registry</span>
+        <span class="platform-service-chip">Event Bus</span>
+        <span class="platform-service-chip">Auth</span>
+        <span class="platform-service-chip">Compliance</span>
+        <span class="platform-service-chip">Workflow Engine</span>
+        <span class="platform-service-chip">Design Tools</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     5. EVALUATION SCORECARD
+     ======================================== -->
+<section id="scorecard" class="section">
+  <div class="container">
+    <div class="section-label">Validation</div>
+    <h2 class="section-title">Evaluation Scorecard</h2>
+    <p class="section-subtitle" style="margin-bottom: var(--space-10)">Five dimensions scored on a 1-10 scale, comparing the original 6-sprint portfolio against the consolidated 3-workstream model. Every score improved or held steady.</p>
+
+    <div class="scorecard-summary">
+      <div class="scorecard-total">
+        <div class="total-label">Overall Score</div>
+        <div class="total-values">
+          <span class="total-before">26</span>
+          <span class="total-arrow">&rarr;</span>
+          <span class="total-after">40</span>
+          <span class="total-max">/50</span>
+        </div>
+        <div class="total-delta">+14 Point Improvement</div>
+      </div>
+      <div class="scorecard-context">
+        <div class="scorecard-context-card">
+          <h4>Strongest Gain</h4>
+          <p>Technical Coherence jumped from 3/10 to 8/10 (+5). Four incompatible PMS integrations, five competing dashboards, and three cloud providers collapsed into one coherent architecture.</p>
+        </div>
+        <div class="scorecard-context-card">
+          <h4>Key Tradeoff</h4>
+          <p>Risk Profile gained modestly (+1) because the nature of risk shifts: from distributed-and-hidden to concentrated-and-visible. Concentrated risk is preferable because it can be monitored and mitigated.</p>
+        </div>
+      </div>
+      <div class="scorecard-context">
+        <div class="scorecard-context-card">
+          <h4>Zero Capability Loss</h4>
+          <p>141 original stories mapped to 110 consolidated stories plus 38 shared infrastructure items. Every feature from every sprint has a home. Voice AI honestly deferred to v2.</p>
+        </div>
+        <div class="scorecard-context-card">
+          <h4>PMF Preserved</h4>
+          <p>Product-Market Fit score improved from 16/25 to 22/25. The architecture structurally enforces the PMF improvement through unified surfaces and shared infrastructure.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card--elevated" style="overflow-x: auto;">
+      <table class="score-table" aria-label="Evaluation scorecard comparing original and consolidated scores across 5 dimensions">
+        <thead>
+          <tr>
+            <th style="width: 35%;">Dimension</th>
+            <th style="width: 10%; text-align: center;">Original</th>
+            <th style="width: 10%; text-align: center;">Consolidated</th>
+            <th style="width: 8%; text-align: center;">Delta</th>
+            <th class="score-bar-cell">Visual</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="score-dimension">Capability Coverage</div>
+              <div class="score-rationale">100% coverage preserved, 31 stories deduplicated, cross-cutting capabilities added</div>
+            </td>
+            <td class="score-num score-num--before">8</td>
+            <td class="score-num score-num--after">9</td>
+            <td class="score-delta">+1</td>
+            <td class="score-bar-cell">
+              <div class="score-bar-container">
+                <div><span class="score-bar-label">Before</span><div class="score-bar"><div class="score-bar-fill score-bar-fill--before" style="width: 80%"></div></div></div>
+                <div><span class="score-bar-label">After</span><div class="score-bar"><div class="score-bar-fill score-bar-fill--after" style="width: 90%"></div></div></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="score-dimension">Technical Coherence</div>
+              <div class="score-rationale">4 PMS integrations to 1, 5 dashboards to 1, 3 cloud providers to 1, unified data model</div>
+            </td>
+            <td class="score-num score-num--before">3</td>
+            <td class="score-num score-num--after">8</td>
+            <td class="score-delta">+5</td>
+            <td class="score-bar-cell">
+              <div class="score-bar-container">
+                <div><span class="score-bar-label">Before</span><div class="score-bar"><div class="score-bar-fill score-bar-fill--before" style="width: 30%"></div></div></div>
+                <div><span class="score-bar-label">After</span><div class="score-bar"><div class="score-bar-fill score-bar-fill--after" style="width: 80%"></div></div></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="score-dimension">User Experience Quality</div>
+              <div class="score-rationale">One surface per role, invisible workstream boundaries, shared design system</div>
+            </td>
+            <td class="score-num score-num--before">5</td>
+            <td class="score-num score-num--after">8</td>
+            <td class="score-delta">+3</td>
+            <td class="score-bar-cell">
+              <div class="score-bar-container">
+                <div><span class="score-bar-label">Before</span><div class="score-bar"><div class="score-bar-fill score-bar-fill--before" style="width: 50%"></div></div></div>
+                <div><span class="score-bar-label">After</span><div class="score-bar"><div class="score-bar-fill score-bar-fill--after" style="width: 80%"></div></div></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="score-dimension">Build Efficiency</div>
+              <div class="score-rationale">31 stories eliminated, shared infrastructure built once, phased team allocation</div>
+            </td>
+            <td class="score-num score-num--before">4</td>
+            <td class="score-num score-num--after">8</td>
+            <td class="score-delta">+4</td>
+            <td class="score-bar-cell">
+              <div class="score-bar-container">
+                <div><span class="score-bar-label">Before</span><div class="score-bar"><div class="score-bar-fill score-bar-fill--before" style="width: 40%"></div></div></div>
+                <div><span class="score-bar-label">After</span><div class="score-bar"><div class="score-bar-fill score-bar-fill--after" style="width: 80%"></div></div></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="score-dimension">Risk Profile</div>
+              <div class="score-rationale">Hidden integration/consistency/compliance risks eliminated; shared-infrastructure SPOF introduced but mitigated</div>
+            </td>
+            <td class="score-num score-num--before">6</td>
+            <td class="score-num score-num--after">7</td>
+            <td class="score-delta">+1</td>
+            <td class="score-bar-cell">
+              <div class="score-bar-container">
+                <div><span class="score-bar-label">Before</span><div class="score-bar"><div class="score-bar-fill score-bar-fill--before" style="width: 60%"></div></div></div>
+                <div><span class="score-bar-label">After</span><div class="score-bar"><div class="score-bar-fill score-bar-fill--after" style="width: 70%"></div></div></div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     6. DEVELOPMENT ROADMAP
+     ======================================== -->
+<section id="roadmap" class="section section--alt">
+  <div class="container">
+    <div class="section-label">Delivery</div>
+    <h2 class="section-title">Development Roadmap</h2>
+    <p class="section-subtitle" style="margin-bottom: var(--space-10)">9 milestones across 36 weeks. Infrastructure first, early value at Week 6-7, parallel workstream development, then scale to all 260+ practices.</p>
+
+    <div class="roadmap-stats">
+      <div class="roadmap-stat">
+        <div class="rs-value">36</div>
+        <div class="rs-label">Weeks Total</div>
+      </div>
+      <div class="roadmap-stat">
+        <div class="rs-value">18</div>
+        <div class="rs-label">Week Critical Path</div>
+      </div>
+      <div class="roadmap-stat">
+        <div class="rs-value">10</div>
+        <div class="rs-label">Parallel Build Tracks</div>
+      </div>
+      <div class="roadmap-stat">
+        <div class="rs-value">9</div>
+        <div class="rs-label">Milestones (incl. M1.5)</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-track">
+        <div class="timeline-line"></div>
+
+        <!-- M0 -->
+        <div class="milestone">
+          <div class="milestone-dot"></div>
+          <div class="milestone-header" onclick="toggleMilestone(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleMilestone(this);}">
+            <span class="milestone-id">M0</span>
+            <span class="milestone-name">Pre-Build Complete</span>
+            <span class="milestone-weeks">Weeks 1-2</span>
+            <span class="milestone-expand-hint">Click for details</span>
+          </div>
+          <div class="milestone-body">
+            <div class="milestone-desc">Team staffed (20 engineers), vendor BAAs signed (AWS, Twilio, NexHealth, Sikka ONE, Anthropic, OpenAI), environments provisioned, CI/CD pipeline operational.</div>
+            <div class="milestone-tags">
+              <span class="milestone-tag milestone-tag--gray">All Teams</span>
+            </div>
+            <div class="milestone-gate">
+              <span class="gate-type gate-type--hard">Hard Gate</span>
+              All BAAs signed, 12+ engineers available, dev environment operational
+            </div>
+            <div class="milestone-details">
+              <div class="milestone-details-inner">
+                <h5>Deliverables</h5>
+                <ul>
+                  <li>20 engineers recruited and onboarded</li>
+                  <li>BAAs executed with all 6 vendors</li>
+                  <li>AWS environments (dev/staging/prod) provisioned</li>
+                  <li>CI/CD pipeline with automated testing</li>
+                </ul>
+                <h5>Success Criteria</h5>
+                <ul>
+                  <li>All BAAs signed and countersigned</li>
+                  <li>12+ engineers available for Week 3 start</li>
+                  <li>Dev environment fully operational</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- M1 -->
+        <div class="milestone">
+          <div class="milestone-dot"></div>
+          <div class="milestone-header" onclick="toggleMilestone(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleMilestone(this);}">
+            <span class="milestone-id">M1</span>
+            <span class="milestone-name">Shared Infrastructure Live</span>
+            <span class="milestone-weeks">Weeks 3-6</span>
+            <span class="milestone-expand-hint">Click for details</span>
+          </div>
+          <div class="milestone-body">
+            <div class="milestone-desc">All 10 shared services operational with integration tests passing. Practice Data Hub seeded with 260 practices. Kafka event bus with Schema Registry. PMS Integration Service receiving real NexHealth webhooks. Communications Service sending SMS with consent checks.</div>
+            <div class="milestone-tags">
+              <span class="milestone-tag milestone-tag--purple">Platform Engineering</span>
+            </div>
+            <div class="milestone-gate">
+              <span class="gate-type gate-type--hard">Hard Gate</span>
+              End-to-end integration test: auth, data hub, Kafka, consumer verified
+            </div>
+            <div class="milestone-details">
+              <div class="milestone-details-inner">
+                <h5>Deliverables</h5>
+                <ul>
+                  <li>10 shared services deployed and tested</li>
+                  <li>Practice Data Hub seeded with 260 practice records</li>
+                  <li>Kafka event bus with Schema Registry operational</li>
+                  <li>PMS Integration receiving real NexHealth webhooks</li>
+                  <li>Communications Service with SMS consent checks</li>
+                </ul>
+                <h5>Dependencies</h5>
+                <ul>
+                  <li>M0 complete (all BAAs signed, environments ready)</li>
+                  <li>NexHealth sandbox access provisioned</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- M1.5 -->
+        <div class="milestone milestone--highlight">
+          <div class="milestone-dot"></div>
+          <div class="milestone-header" onclick="toggleMilestone(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleMilestone(this);}">
+            <span class="milestone-id">M1.5</span>
+            <span class="milestone-name">Early Value Delivery</span>
+            <span class="milestone-weeks">Weeks 6-7</span>
+            <span class="milestone-expand-hint">Click for details</span>
+          </div>
+          <div class="milestone-body">
+            <div class="milestone-desc">H-Score Engine and Morning Huddle OS live in 20 pilot practices. First cross-workstream Kafka event (ws3.hscore-calculated) flowing in production. Proves architecture works end-to-end and gives leadership tangible results while WS1 and WS2 continue building.</div>
+            <div class="milestone-tags">
+              <span class="milestone-tag milestone-tag--amber">Culture OS</span>
+              <span class="milestone-tag milestone-tag--purple">Platform Eng</span>
+            </div>
+            <div class="milestone-gate">
+              <span class="gate-type gate-type--soft">Soft Gate</span>
+              H-Score calculating daily for 15+ pilot practices, huddle content auto-loading
+            </div>
+            <div class="milestone-details">
+              <div class="milestone-details-inner">
+                <h5>Deliverables</h5>
+                <ul>
+                  <li>H-Score Engine computing daily scores for 20 practices</li>
+                  <li>Morning Huddle OS auto-loading content packages</li>
+                  <li>First cross-workstream Kafka event in production</li>
+                  <li>Leadership demo with tangible results</li>
+                </ul>
+                <h5>Success Criteria</h5>
+                <ul>
+                  <li>H-Score calculating daily for 15+ pilot practices</li>
+                  <li>Huddle content auto-loading without manual intervention</li>
+                  <li>Architecture proven end-to-end under real load</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- M2 -->
+        <div class="milestone">
+          <div class="milestone-dot"></div>
+          <div class="milestone-header" onclick="toggleMilestone(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleMilestone(this);}">
+            <span class="milestone-id">M2</span>
+            <span class="milestone-name">Event Contracts Hardened + WS3 MVP</span>
+            <span class="milestone-weeks">Weeks 7-10</span>
+            <span class="milestone-expand-hint">Click for details</span>
+          </div>
+          <div class="milestone-body">
+            <div class="milestone-desc">All 10 event contracts pass consumer contract tests (Pact). Kafka load test at 260-practice simulation. CCA Academy Bronze track live with Credly integration. Champion Network v1 operational. PMS coverage extended to 85%+ via Sikka ONE.</div>
+            <div class="milestone-tags">
+              <span class="milestone-tag milestone-tag--purple">Platform Eng</span>
+              <span class="milestone-tag milestone-tag--amber">Culture OS</span>
+            </div>
+            <div class="milestone-gate">
+              <span class="gate-type gate-type--hard">Hard Gate</span>
+              10/10 contracts pass Pact tests, Kafka lag &lt; 30s under 260-practice load
+            </div>
+            <div class="milestone-details">
+              <div class="milestone-details-inner">
+                <h5>Deliverables</h5>
+                <ul>
+                  <li>All 10 event contracts pass Pact consumer tests</li>
+                  <li>Kafka load test validated at 260-practice simulation</li>
+                  <li>CCA Academy Bronze track with Credly badges</li>
+                  <li>Champion Network v1 with peer community</li>
+                  <li>PMS coverage extended to 85%+ via Sikka ONE</li>
+                </ul>
+                <h5>Dependencies</h5>
+                <ul>
+                  <li>M1 shared infrastructure operational</li>
+                  <li>Credly API integration approved</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- M3 -->
+        <div class="milestone">
+          <div class="milestone-dot"></div>
+          <div class="milestone-header" onclick="toggleMilestone(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleMilestone(this);}">
+            <span class="milestone-id">M3</span>
+            <span class="milestone-name">WS1 + WS2 Tier 1 Features</span>
+            <span class="milestone-weeks">Weeks 11-14</span>
+            <span class="milestone-expand-hint">Click for details</span>
+          </div>
+          <div class="milestone-body">
+            <div class="milestone-desc">Practice Nerve Center serving daily agendas to 20+ practices. Concierge Agent responding to missed calls within 90 seconds. Executive Dashboard with live ClickHouse data. Content Capture Bot active at 10+ practices. Storefront generation for GP + 1 specialty. 5 of 10 cross-workstream event flows verified.</div>
+            <div class="milestone-tags">
+              <span class="milestone-tag milestone-tag--blue">Practice Platform</span>
+              <span class="milestone-tag milestone-tag--green">Content Engine</span>
+              <span class="milestone-tag milestone-tag--amber">Culture OS</span>
+            </div>
+            <div class="milestone-gate">
+              <span class="gate-type gate-type--hard">Hard Gate</span>
+              20+ practices on Nerve Center, Concierge &lt; 90s missed call response, zero HIPAA violations
+            </div>
+            <div class="milestone-details">
+              <div class="milestone-details-inner">
+                <h5>Deliverables</h5>
+                <ul>
+                  <li>Practice Nerve Center with daily AI-prioritized agendas</li>
+                  <li>AI Concierge Agent with &lt;90s missed call response</li>
+                  <li>Executive Dashboard with live ClickHouse analytics</li>
+                  <li>Content Capture Bot active at 10+ practices</li>
+                  <li>Storefront generation for GP + 1 specialty</li>
+                  <li>5 of 10 cross-workstream event flows verified</li>
+                </ul>
+                <h5>Dependencies</h5>
+                <ul>
+                  <li>M2 event contracts hardened</li>
+                  <li>ClickHouse analytics cluster provisioned</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- M4 -->
+        <div class="milestone">
+          <div class="milestone-dot"></div>
+          <div class="milestone-header" onclick="toggleMilestone(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleMilestone(this);}">
+            <span class="milestone-id">M4</span>
+            <span class="milestone-name">Integrated Platform Launch</span>
+            <span class="milestone-weeks">Weeks 15-18</span>
+            <span class="milestone-expand-hint">Click for details</span>
+          </div>
+          <div class="milestone-body">
+            <div class="milestone-desc">50+ practices active on all 3 workstreams. All 10 cross-workstream event flows live. Executive Dashboard unified view showing funnel metrics, H-Score, and content health. External HIPAA compliance audit passed. System handles 260-practice concurrent load.</div>
+            <div class="milestone-tags">
+              <span class="milestone-tag milestone-tag--blue">Practice Platform</span>
+              <span class="milestone-tag milestone-tag--green">Content Engine</span>
+              <span class="milestone-tag milestone-tag--amber">Culture OS</span>
+            </div>
+            <div class="milestone-gate">
+              <span class="gate-type gate-type--hard">Hard Gate</span>
+              50+ practices on 2+ workstreams, HIPAA audit passed, all events flowing
+            </div>
+            <div class="milestone-details">
+              <div class="milestone-details-inner">
+                <h5>Deliverables</h5>
+                <ul>
+                  <li>50+ practices active on all 3 workstreams</li>
+                  <li>All 10 cross-workstream event flows live</li>
+                  <li>Unified Executive Dashboard (funnel + H-Score + content)</li>
+                  <li>External HIPAA compliance audit passed</li>
+                  <li>260-practice concurrent load validated</li>
+                </ul>
+                <h5>Success Criteria</h5>
+                <ul>
+                  <li>50+ practices on 2+ workstreams simultaneously</li>
+                  <li>HIPAA audit passed with zero critical findings</li>
+                  <li>All 10 event contracts flowing in production</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- M5 -->
+        <div class="milestone">
+          <div class="milestone-dot"></div>
+          <div class="milestone-header" onclick="toggleMilestone(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleMilestone(this);}">
+            <span class="milestone-id">M5</span>
+            <span class="milestone-name">Tier 2 Expansion</span>
+            <span class="milestone-weeks">Weeks 19-24</span>
+            <span class="milestone-expand-hint">Click for details</span>
+          </div>
+          <div class="milestone-body">
+            <div class="milestone-desc">150+ practices active. No-show re-engagement, rebooking, reactivation automation live. Mobile content capture app with guided overlays. Video processing pipeline. WhatsApp capture channel. H-Score anomaly alerts. 4+ automation playbooks operational.</div>
+            <div class="milestone-tags">
+              <span class="milestone-tag milestone-tag--blue">Practice Platform</span>
+              <span class="milestone-tag milestone-tag--green">Content Engine</span>
+              <span class="milestone-tag milestone-tag--amber">Culture OS</span>
+            </div>
+            <div class="milestone-gate">
+              <span class="gate-type gate-type--soft">Soft Gate</span>
+              100+ practices active, 3+ automation playbooks live
+            </div>
+            <div class="milestone-details">
+              <div class="milestone-details-inner">
+                <h5>Deliverables</h5>
+                <ul>
+                  <li>No-show re-engagement and rebooking automation</li>
+                  <li>Mobile content capture with guided overlays</li>
+                  <li>Video processing pipeline (Whisper transcription)</li>
+                  <li>WhatsApp capture channel</li>
+                  <li>H-Score anomaly alerts</li>
+                  <li>4+ automation playbooks operational</li>
+                </ul>
+                <h5>Dependencies</h5>
+                <ul>
+                  <li>M4 integrated platform stable</li>
+                  <li>WhatsApp Business API approved</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- M6 -->
+        <div class="milestone">
+          <div class="milestone-dot"></div>
+          <div class="milestone-header" onclick="toggleMilestone(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleMilestone(this);}">
+            <span class="milestone-id">M6</span>
+            <span class="milestone-name">Full Network Rollout</span>
+            <span class="milestone-weeks">Weeks 25-30</span>
+            <span class="milestone-expand-hint">Click for details</span>
+          </div>
+          <div class="milestone-body">
+            <div class="milestone-desc">260+ practices active across all workstreams. Self-service onboarding for new acquisitions (&lt;2 hours HQ effort). Operational handoff to SGA IT team. Platform uptime 99.5%+. Complete operational documentation.</div>
+            <div class="milestone-tags">
+              <span class="milestone-tag milestone-tag--blue">Practice Platform</span>
+              <span class="milestone-tag milestone-tag--green">Content Engine</span>
+              <span class="milestone-tag milestone-tag--amber">Culture OS</span>
+              <span class="milestone-tag milestone-tag--gray">SGA Ops</span>
+            </div>
+            <div class="milestone-gate">
+              <span class="gate-type gate-type--hard">Hard Gate</span>
+              250+ practices active, new practice onboarding &lt; 2 weeks, 99.5% uptime
+            </div>
+            <div class="milestone-details">
+              <div class="milestone-details-inner">
+                <h5>Deliverables</h5>
+                <ul>
+                  <li>260+ practices active across all workstreams</li>
+                  <li>Self-service onboarding (&lt;2 hours HQ effort)</li>
+                  <li>Operational handoff to SGA IT team</li>
+                  <li>Complete operational documentation</li>
+                </ul>
+                <h5>Success Criteria</h5>
+                <ul>
+                  <li>250+ practices active</li>
+                  <li>New practice onboarding under 2 weeks</li>
+                  <li>Platform uptime 99.5%+</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- M7 -->
+        <div class="milestone">
+          <div class="milestone-dot"></div>
+          <div class="milestone-header" onclick="toggleMilestone(this)" tabindex="0" role="button" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleMilestone(this);}">
+            <span class="milestone-id">M7</span>
+            <span class="milestone-name">Tier 3 + Optimization</span>
+            <span class="milestone-weeks">Weeks 31-36</span>
+            <span class="milestone-expand-hint">Click for details</span>
+          </div>
+          <div class="milestone-body">
+            <div class="milestone-desc">A/B testing framework for playbook optimization. Content-to-consultation attribution ML. Predictive analytics. Voice AI feasibility study. Auto-approval for high-confidence content. Patient self-record kiosks. CCA renewal flow. Network-wide learning loops.</div>
+            <div class="milestone-tags">
+              <span class="milestone-tag milestone-tag--blue">Practice Platform</span>
+              <span class="milestone-tag milestone-tag--green">Content Engine</span>
+              <span class="milestone-tag milestone-tag--amber">Culture OS</span>
+            </div>
+            <div class="milestone-gate">
+              <span class="gate-type gate-type--soft">Soft Gate</span>
+              Core platform stable at 260+, 2+ Tier 3 features per workstream delivered
+            </div>
+            <div class="milestone-details">
+              <div class="milestone-details-inner">
+                <h5>Deliverables</h5>
+                <ul>
+                  <li>A/B testing framework for playbook optimization</li>
+                  <li>Content-to-consultation attribution ML model</li>
+                  <li>Predictive analytics for practice performance</li>
+                  <li>Voice AI feasibility study completed</li>
+                  <li>Auto-approval for high-confidence content</li>
+                  <li>CCA renewal flow (Silver/Gold tracks)</li>
+                </ul>
+                <h5>Dependencies</h5>
+                <ul>
+                  <li>M6 full network rollout complete</li>
+                  <li>Sufficient data volume for ML training</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     7. TEAM STRUCTURE
+     ======================================== -->
+<section id="team" class="section">
+  <div class="container">
+    <div class="section-label">Organization</div>
+    <h2 class="section-title">Team Structure</h2>
+    <p class="section-subtitle" style="margin-bottom: var(--space-6)">20-person engineering organization across 6 teams. Platform Engineering builds shared infrastructure first (Weeks 1-10), then supports workstream teams as they build features in parallel (Weeks 11-36).</p>
+
+    <div class="team-overview">
+      <!-- Platform Engineering -->
+      <div class="team-card team-card--platform">
+        <div class="team-card-header">
+          <h4>Platform Engineering</h4>
+          <div class="team-size">
+            <div class="people-dots">
+              <span class="people-dot"></span><span class="people-dot"></span><span class="people-dot"></span><span class="people-dot"></span><span class="people-dot"></span>
+            </div>
+            5
+          </div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-role">4 engineers + 1 lead</div>
+          <div class="team-tracks">
+            <span style="background: var(--infra-light); color: var(--infra-color);">Weeks 1-6: Build all shared services</span>
+            <span style="background: var(--infra-light); color: var(--infra-color);">Weeks 7-10: Contract hardening</span>
+            <span style="background: var(--color-bg-light); color: var(--color-text-secondary);">Weeks 11+: Support + ops</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- WS1-A: Practice Operations -->
+      <div class="team-card team-card--ws1a">
+        <div class="team-card-header">
+          <h4>WS1: Practice Operations</h4>
+          <div class="team-size">
+            <div class="people-dots">
+              <span class="people-dot"></span><span class="people-dot"></span><span class="people-dot"></span><span class="people-dot"></span>
+            </div>
+            4
+          </div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-role">3 engineers + 1 lead</div>
+          <div class="team-tracks">
+            <span style="background: var(--ws1-light); color: var(--ws1-color);">Nerve Center, Concierge, Storefront</span>
+            <span style="background: var(--ws1-light); color: var(--ws1-color);">Automation Engine, Enrollment</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- WS1-B: Network Intelligence -->
+      <div class="team-card team-card--ws1b">
+        <div class="team-card-header">
+          <h4>WS1: Network Intelligence</h4>
+          <div class="team-size">
+            <div class="people-dots">
+              <span class="people-dot"></span><span class="people-dot"></span><span class="people-dot"></span>
+            </div>
+            3
+          </div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-role">2 engineers + 1 lead</div>
+          <div class="team-tracks">
+            <span style="background: #dbeafe; color: #2563eb;">Funnel Data Lake, Executive Dashboard</span>
+            <span style="background: #dbeafe; color: #2563eb;">AI Analysis Engine, Data Connectors</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- WS2: Content Engine -->
+      <div class="team-card team-card--ws2">
+        <div class="team-card-header">
+          <h4>WS2: Content Engine</h4>
+          <div class="team-size">
+            <div class="people-dots">
+              <span class="people-dot"></span><span class="people-dot"></span><span class="people-dot"></span><span class="people-dot"></span>
+            </div>
+            4
+          </div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-role">3 engineers + 1 lead</div>
+          <div class="team-tracks">
+            <span style="background: var(--ws2-light); color: var(--ws2-color);">Capture Bot, Studio Agent, Pipeline</span>
+            <span style="background: var(--ws2-light); color: var(--ws2-color);">Approval Workflow, Distribution</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- WS3: Culture OS -->
+      <div class="team-card team-card--ws3">
+        <div class="team-card-header">
+          <h4>WS3: Culture OS</h4>
+          <div class="team-size">
+            <div class="people-dots">
+              <span class="people-dot"></span><span class="people-dot"></span><span class="people-dot"></span>
+            </div>
+            3
+          </div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-role">2 engineers + 1 lead</div>
+          <div class="team-tracks">
+            <span style="background: var(--ws3-light); color: var(--ws3-color);">H-Score, Huddle OS, CCA Academy</span>
+            <span style="background: var(--ws3-light); color: var(--ws3-color);">Champions, Recognition, Trust Transfer</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- QA / DevOps -->
+      <div class="team-card team-card--qa">
+        <div class="team-card-header">
+          <h4>QA / DevOps</h4>
+          <div class="team-size">
+            <div class="people-dots">
+              <span class="people-dot"></span><span class="people-dot"></span>
+            </div>
+            2
+          </div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-role">2 engineers (cross-cutting)</div>
+          <div class="team-tracks">
+            <span style="background: var(--color-bg-light); color: var(--color-text-secondary);">Contract tests, load tests</span>
+            <span style="background: var(--color-bg-light); color: var(--color-text-secondary);">Integration, E2E, security, perf</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-total">
+      <div class="total-num">20</div>
+      <div class="total-label">Total team members across 6 specialized teams</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ========================================
+     FOOTER
+     ======================================== -->
+<footer class="footer">
+  <div class="container">
+    <p class="footer-brand">SGA Dental Partners</p>
+    <p>Sprint Portfolio Consolidation Review | 6 Sprints &rarr; 3 Workstreams</p>
+    <p>Prepared March 2026 | 5 QC Gates Passed | Approved for Build</p>
+    <p style="margin-top: var(--space-4); font-size: 12px; color: var(--color-text-light);">Prepared by Citizen &amp; Partners</p>
+  </div>
+</footer>
+
+<script>
+/* ============================================
+   INTERACTIVE FEATURES — Vanilla JS
+   ============================================ */
+(function() {
+  'use strict';
+
+  /* ------------------------------------------
+     1. SMOOTH SCROLL NAV — Active Section
+     ------------------------------------------ */
+  var navLinks = document.querySelectorAll('.nav-links a');
+  var sections = [];
+  navLinks.forEach(function(a) {
+    var id = a.getAttribute('href');
+    if (id && id.startsWith('#')) {
+      var el = document.querySelector(id);
+      if (el) sections.push({ el: el, link: a });
+    }
+  });
+
+  function updateActiveNav() {
+    var scrollY = window.scrollY + 100;
+    var current = null;
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i].el.offsetTop <= scrollY) {
+        current = sections[i];
+      }
+    }
+    navLinks.forEach(function(a) { a.classList.remove('active'); });
+    if (current) current.link.classList.add('active');
+  }
+
+  var navTicking = false;
+  window.addEventListener('scroll', function() {
+    if (!navTicking) {
+      requestAnimationFrame(function() {
+        updateActiveNav();
+        navTicking = false;
+      });
+      navTicking = true;
+    }
+  });
+  updateActiveNav();
+
+  /* ------------------------------------------
+     2. MAPPING HOVER INTERACTIONS
+     ------------------------------------------ */
+  var mappingFlow = document.querySelector('.mapping-flow');
+  if (mappingFlow) {
+    var allMappingCards = mappingFlow.querySelectorAll('[data-ws]');
+
+    function highlightWs(wsId) {
+      mappingFlow.classList.add('has-highlight');
+      allMappingCards.forEach(function(card) {
+        if (card.dataset.ws === wsId) {
+          card.classList.add('highlighted');
+        } else {
+          card.classList.remove('highlighted');
+        }
+      });
+    }
+
+    function clearHighlight() {
+      mappingFlow.classList.remove('has-highlight');
+      allMappingCards.forEach(function(card) {
+        card.classList.remove('highlighted');
+      });
+    }
+
+    allMappingCards.forEach(function(card) {
+      card.addEventListener('mouseenter', function() {
+        highlightWs(card.dataset.ws);
+      });
+      card.addEventListener('mouseleave', function() {
+        clearHighlight();
+      });
+      // Touch support
+      card.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        if (card.classList.contains('highlighted')) {
+          clearHighlight();
+        } else {
+          highlightWs(card.dataset.ws);
+        }
+      }, { passive: false });
+    });
+
+    // Clear on touch outside
+    document.addEventListener('touchstart', function(e) {
+      if (!mappingFlow.contains(e.target)) {
+        clearHighlight();
+      }
+    });
+  }
+
+  /* ------------------------------------------
+     3. WORKSTREAM COLLAPSE/EXPAND
+     ------------------------------------------ */
+  window.toggleWorkstream = function(btn) {
+    var dive = btn.closest('.ws-deep-dive');
+    var content = dive.querySelector('.ws-collapsible');
+    if (!content) return;
+
+    if (content.classList.contains('collapsed')) {
+      // Expand
+      content.style.maxHeight = content.scrollHeight + 'px';
+      content.classList.remove('collapsed');
+      btn.classList.remove('collapsed');
+      btn.innerHTML = '<span class="toggle-icon">&#9660;</span> Collapse';
+      btn.setAttribute('aria-expanded', 'true');
+      // After transition, remove maxHeight so content can reflow
+      setTimeout(function() {
+        if (!content.classList.contains('collapsed')) {
+          content.style.maxHeight = 'none';
+        }
+      }, 400);
+    } else {
+      // Collapse
+      content.style.maxHeight = content.scrollHeight + 'px';
+      // Force reflow
+      content.offsetHeight;
+      content.style.maxHeight = '0';
+      content.classList.add('collapsed');
+      btn.classList.add('collapsed');
+      btn.innerHTML = '<span class="toggle-icon">&#9660;</span> Expand';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  };
+
+  // On mobile, start workstreams collapsed
+  function checkMobileCollapse() {
+    if (window.innerWidth <= 768) {
+      document.querySelectorAll('.ws-collapsible').forEach(function(el) {
+        if (!el.classList.contains('collapsed') && !el.dataset.initDone) {
+          el.classList.add('collapsed');
+          el.style.maxHeight = '0';
+          el.dataset.initDone = 'true';
+          var btn = el.closest('.ws-deep-dive').querySelector('.ws-toggle');
+          if (btn) {
+            btn.classList.add('collapsed');
+            btn.innerHTML = '<span class="toggle-icon">&#9660;</span> Expand';
+            btn.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+    }
+  }
+  checkMobileCollapse();
+
+  /* ------------------------------------------
+     4. MILESTONE EXPAND/COLLAPSE
+     ------------------------------------------ */
+  window.toggleMilestone = function(header) {
+    var body = header.nextElementSibling;
+    if (!body) return;
+    var details = body.querySelector('.milestone-details');
+    if (!details) return;
+
+    var hint = header.querySelector('.milestone-expand-hint');
+
+    if (details.classList.contains('open')) {
+      details.style.maxHeight = '0';
+      details.classList.remove('open');
+      header.setAttribute('aria-expanded', 'false');
+      if (hint) hint.textContent = 'Click for details';
+    } else {
+      details.style.maxHeight = details.scrollHeight + 'px';
+      details.classList.add('open');
+      header.setAttribute('aria-expanded', 'true');
+      if (hint) hint.textContent = 'Click to close';
+    }
+  };
+
+  /* ------------------------------------------
+     5. SCORE ANIMATIONS (IntersectionObserver)
+     ------------------------------------------ */
+  var scoreSection = document.getElementById('scorecard');
+  if (scoreSection) {
+    var scoreBars = scoreSection.querySelectorAll('.score-bar-fill');
+    var scoreNums = scoreSection.querySelectorAll('.score-num');
+    var scoreAnimated = false;
+
+    // Store original widths
+    var originalWidths = [];
+    scoreBars.forEach(function(bar) {
+      originalWidths.push(bar.style.width);
+      bar.classList.add('animate-ready');
+    });
+
+    var scoreObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !scoreAnimated) {
+          scoreAnimated = true;
+          // Animate bars
+          setTimeout(function() {
+            scoreBars.forEach(function(bar, i) {
+              bar.classList.remove('animate-ready');
+              bar.style.width = originalWidths[i];
+            });
+          }, 150);
+
+          // Animate score numbers (count up)
+          scoreNums.forEach(function(numEl) {
+            var target = parseInt(numEl.textContent, 10);
+            if (isNaN(target)) return;
+            var start = 0;
+            var duration = 800;
+            var startTime = null;
+            function animate(ts) {
+              if (!startTime) startTime = ts;
+              var progress = Math.min((ts - startTime) / duration, 1);
+              var eased = 1 - Math.pow(1 - progress, 3);
+              numEl.textContent = Math.round(start + (target - start) * eased);
+              if (progress < 1) requestAnimationFrame(animate);
+            }
+            requestAnimationFrame(animate);
+          });
+        }
+      });
+    }, { threshold: 0.2 });
+
+    scoreObserver.observe(scoreSection);
+  }
+
+  /* ------------------------------------------
+     6. MILESTONE SCROLL-IN ANIMATION
+     ------------------------------------------ */
+  var milestones = document.querySelectorAll('.milestone');
+  if (milestones.length > 0) {
+    var msObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          msObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    milestones.forEach(function(m) { msObserver.observe(m); });
+  }
+
+  /* ------------------------------------------
+     7. ROADMAP STAT SCROLL-IN ANIMATION
+     ------------------------------------------ */
+  var roadmapStats = document.querySelectorAll('.roadmap-stat');
+  if (roadmapStats.length > 0) {
+    var rsObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          // Stagger animation
+          var siblings = Array.from(entry.target.parentElement.children);
+          var idx = siblings.indexOf(entry.target);
+          setTimeout(function() {
+            entry.target.classList.add('visible');
+          }, idx * 100);
+          rsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    roadmapStats.forEach(function(s) { rsObserver.observe(s); });
+  }
+
+  /* ------------------------------------------
+     8. METRIC CARD SCROLL-IN ANIMATION
+     ------------------------------------------ */
+  var metricCards = document.querySelectorAll('.metric-card');
+  if (metricCards.length > 0) {
+    var mcObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var siblings = Array.from(entry.target.parentElement.children);
+          var idx = siblings.indexOf(entry.target);
+          setTimeout(function() {
+            entry.target.classList.add('visible');
+          }, idx * 100);
+          mcObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    metricCards.forEach(function(c) { mcObserver.observe(c); });
+  }
+
+  /* ------------------------------------------
+     9. WS1 TAB SWITCHING
+     ------------------------------------------ */
+  window.switchWs1Tab = function(btn) {
+    var tabId = btn.dataset.tab;
+    var container = btn.closest('.ws-features-list');
+    if (!container) return;
+
+    // Deactivate all tabs
+    container.querySelectorAll('.ws1-tab').forEach(function(t) {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    // Deactivate all panels
+    container.querySelectorAll('.ws1-tab-panel').forEach(function(p) {
+      p.classList.remove('active');
+    });
+
+    // Activate selected
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+    var panel = container.querySelector('[data-tab-panel="' + tabId + '"]');
+    if (panel) panel.classList.add('active');
+  };
+
+  /* ------------------------------------------
+     10. FEATURE LIST SHOW MORE/LESS
+     ------------------------------------------ */
+  var MAX_VISIBLE_FEATURES = 4;
+  document.querySelectorAll('.ws-features-list').forEach(function(list) {
+    var items = list.querySelectorAll(':scope > .feature-item');
+    if (items.length <= MAX_VISIBLE_FEATURES) return;
+
+    // Hide extras
+    for (var i = MAX_VISIBLE_FEATURES; i < items.length; i++) {
+      items[i].style.display = 'none';
+      items[i].dataset.extraFeature = 'true';
+    }
+
+    // Create toggle button
+    var toggle = document.createElement('button');
+    toggle.className = 'feature-list-toggle active';
+    toggle.innerHTML = 'Show ' + (items.length - MAX_VISIBLE_FEATURES) + ' more &#9660;';
+    toggle.dataset.expanded = 'false';
+
+    toggle.addEventListener('click', function() {
+      var extras = list.querySelectorAll('[data-extra-feature]');
+      if (toggle.dataset.expanded === 'false') {
+        extras.forEach(function(el) { el.style.display = ''; });
+        toggle.innerHTML = 'Show less &#9650;';
+        toggle.dataset.expanded = 'true';
+      } else {
+        extras.forEach(function(el) { el.style.display = 'none'; });
+        toggle.innerHTML = 'Show ' + extras.length + ' more &#9660;';
+        toggle.dataset.expanded = 'false';
+      }
+    });
+
+    // Insert after the last feature-item, before any non-feature-item content
+    var h4 = list.querySelector('h4');
+    var lastFeatureItem = items[items.length - 1];
+    lastFeatureItem.parentNode.insertBefore(toggle, lastFeatureItem.nextSibling);
+  });
+
+  /* ------------------------------------------
+     11. HERO METRIC COUNT-UP ANIMATION
+     ------------------------------------------ */
+  var heroMetrics = document.querySelectorAll('.hero .metric-value');
+  if (heroMetrics.length > 0) {
+    var heroAnimated = false;
+    var heroObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !heroAnimated) {
+          heroAnimated = true;
+          heroMetrics.forEach(function(el) {
+            var text = el.textContent.trim();
+            // Parse numeric patterns like "22/25", "+14", "22%", "75%"
+            var match;
+            if ((match = text.match(/^(\d+)\/(\d+)$/))) {
+              animateCountUp(el, 0, parseInt(match[1]), function(v) { return v + '/' + match[2]; });
+            } else if ((match = text.match(/^\+(\d+)$/))) {
+              animateCountUp(el, 0, parseInt(match[1]), function(v) { return '+' + v; });
+            } else if ((match = text.match(/^(\d+)%$/))) {
+              animateCountUp(el, 0, parseInt(match[1]), function(v) { return v + '%'; });
+            }
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+
+    heroObserver.observe(document.querySelector('.hero'));
+  }
+
+  function animateCountUp(el, start, end, formatter) {
+    var duration = 1000;
+    var startTime = null;
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.round(start + (end - start) * eased);
+      el.textContent = formatter(current);
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* ------------------------------------------
+     12. CLOSE MOBILE NAV ON LINK CLICK
+     ------------------------------------------ */
+  navLinks.forEach(function(a) {
+    a.addEventListener('click', function() {
+      var navList = document.querySelector('.nav-links');
+      if (navList.classList.contains('active')) {
+        navList.classList.remove('active');
+        var toggleBtn = document.querySelector('.nav-toggle');
+        if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

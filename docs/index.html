@@ -35,6 +35,10 @@
   .tag-green { background: rgba(52,211,153,0.15); color: var(--green); }
   .tag-purple { background: rgba(167,139,250,0.15); color: var(--purple); }
   .tag-orange { background: rgba(251,146,60,0.15); color: var(--orange); }
+  .featured { border: 1px solid var(--accent); background: linear-gradient(135deg, rgba(79,143,255,0.08), rgba(167,139,250,0.08)); position: relative; }
+  .featured::before { content: 'FEATURED'; position: absolute; top: -0.5rem; left: 1.5rem; background: var(--accent); color: #fff; font-size: 0.55rem; font-weight: 700; letter-spacing: 1.5px; padding: 0.15rem 0.6rem; border-radius: 4px; }
+  .featured:hover { border-color: var(--purple); }
+  .section-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); font-weight: 600; margin: 2.5rem 0 1rem; }
   footer { margin-top: 3rem; text-align: center; font-size: 0.75rem; color: var(--text-muted); }
 </style>
 </head>
@@ -43,6 +47,20 @@
   <div class="logo">SGA Sprint Workspace</div>
   <h1>Problem Sprints</h1>
   <p class="desc">Structured design sprints — from problem framing through solution architecture.</p>
+
+  <a href="sga-portfolio-consolidation.html" class="sprint-card featured">
+    <div class="date">March 14, 2026</div>
+    <h2>Sprint Portfolio Consolidation</h2>
+    <p>6 sprints → 3 unified workstreams. The Practice Platform, Content Engine, and Culture OS — consolidated architecture with 22% fewer stories, 75% fewer PMS integrations, and PMF improved from 16/25 to 22/25. Interactive roadmap with 9 milestones across 36 weeks.</p>
+    <div class="tags">
+      <span class="tag tag-blue">3 Workstreams · 72 Features</span>
+      <span class="tag tag-green">PMF 22/25</span>
+      <span class="tag tag-orange">36-Week Roadmap</span>
+      <span class="tag tag-purple">260+ Practices</span>
+    </div>
+  </a>
+
+  <div class="section-label">Individual Sprints</div>
 
   <a href="studio-automation.html" class="sprint-card">
     <div class="date">March 10, 2026</div>
