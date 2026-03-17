@@ -3,562 +3,910 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SGA Platform — Cost Model Comparison</title>
+<title>SGA Dental Partners — Cost & Integration Analysis</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
-  :root {
-    --bg: #0a0e17;
-    --surface: #111827;
-    --surface-2: #1a2332;
-    --border: #1e2d3d;
-    --text: #e2e8f0;
-    --text-muted: #8896a8;
-    --accent: #3b82f6;
-    --accent-2: #8b5cf6;
-    --accent-3: #10b981;
-    --danger: #ef4444;
-    --warning: #f59e0b;
-    --success: #10b981;
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Colors */
+  --color-white: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --color-bg-light: #f1f3f5;
+  --color-border: #e2e8f0;
+  --color-border-light: #edf2f7;
+  --color-text-primary: #1a1a2e;
+  --color-text-secondary: #4a5568;
+  --color-text-muted: #718096;
+
+  /* Accent — Primary */
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-primary-light: #dbeafe;
+  --color-primary-bg: #eff6ff;
+
+  /* Model Colors */
+  --color-traditional: #dc2626;
+  --color-model-a: #2563eb;
+  --color-model-b: #059669;
+
+  /* Workstream Colors */
+  --ws1-color: #2563eb;
+  --ws2-color: #059669;
+  --ws3-color: #d97706;
+  --infra-color: #7c3aed;
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+}
+
+/* Skip to content link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 200;
+  padding: 12px 20px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 16px; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background: var(--color-white);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+a { color: var(--color-primary); }
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+  padding: 0 24px;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.nav-brand {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.nav-brand span {
+  color: var(--color-primary);
+}
+
+.nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  margin-right: 16px;
+  transition: color 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+
+.nav-back:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-bg);
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.nav-links::-webkit-scrollbar { display: none; }
+
+.nav-links a {
+  display: block;
+  position: relative;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  transition: color 0.15s, background 0.15s;
+}
+
+.nav-links a:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-bg);
+}
+
+.nav-links a.active {
+  color: var(--color-primary);
+  background: var(--color-primary-bg);
+}
+
+.nav-links a.nav-cta {
+  color: var(--color-primary);
+  border-left: 1px solid var(--color-border);
+  padding-left: 16px;
+  margin-left: 4px;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: var(--color-text-primary);
+  font-size: 20px;
+}
+
+/* ============================================
+   LAYOUT HELPERS
+   ============================================ */
+.section {
+  padding: 80px 24px;
+}
+
+.section--alt {
+  background: var(--color-bg-alt);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  padding: 100px 24px;
+  background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 40%, #f5f0ff 70%, #fff8f0 100%);
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  left: -150px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(5, 150, 105, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero .container {
+  position: relative;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-eyebrow .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-model-b);
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+  margin-bottom: 24px;
+  max-width: 800px;
+}
+
+.hero-description {
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  max-width: 680px;
+}
+
+.hero-description a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ============================================
+   SUMMARY CARDS
+   ============================================ */
+.summary-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.summary-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.summary-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.summary-card.traditional::before { background: var(--color-traditional); }
+.summary-card.model-a::before { background: var(--color-model-a); }
+.summary-card.model-b::before { background: var(--color-model-b); }
+
+.summary-card .model-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.summary-card.traditional .model-label { color: var(--color-traditional); }
+.summary-card.model-a .model-label { color: var(--color-model-a); }
+.summary-card.model-b .model-label { color: var(--color-model-b); }
+
+.summary-card .model-name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--color-text-secondary);
+}
+
+.summary-card .big-number {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin-bottom: 4px;
+}
+
+.summary-card.traditional .big-number { color: var(--color-traditional); }
+.summary-card.model-a .big-number { color: var(--color-model-a); }
+.summary-card.model-b .big-number { color: var(--color-model-b); }
+
+.summary-card .big-label {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+}
+
+.summary-card .stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 20px;
+}
+
+.summary-card .stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.summary-card .stat-label {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ============================================
+   SAVINGS BANNER
+   ============================================ */
+.savings-banner {
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.06), rgba(37, 99, 235, 0.06));
+  border: 1px solid rgba(5, 150, 105, 0.2);
+  border-radius: var(--radius-xl);
+  padding: 32px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.savings-banner .savings-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.savings-banner .savings-text span {
+  color: var(--color-model-b);
+}
+
+.savings-items {
+  display: flex;
+  gap: 32px;
+}
+
+.savings-item {
+  text-align: center;
+}
+
+.savings-item .pct {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--color-model-b);
+}
+
+.savings-item .pct-label {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ============================================
+   CHART SECTIONS
+   ============================================ */
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.chart-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.chart-card.full-width {
+  grid-column: 1 / -1;
+}
+
+.chart-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--color-text-primary);
+}
+
+.chart-card .chart-desc {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+}
+
+.chart-wrap {
+  position: relative;
+  height: 320px;
+}
+
+.chart-wrap.tall {
+  height: 400px;
+}
+
+/* ============================================
+   TABLES
+   ============================================ */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.comparison-table th {
+  font-weight: 600;
+  color: var(--color-text-muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: var(--color-bg-alt);
+}
+
+.comparison-table td:first-child {
+  font-weight: 500;
+}
+
+.comparison-table .traditional-col { color: #dc2626; }
+.comparison-table .model-a-col { color: #2563eb; }
+.comparison-table .model-b-col { color: #059669; font-weight: 600; }
+
+.comparison-table tbody tr:hover {
+  background: var(--color-bg-alt);
+}
+
+/* ============================================
+   RISK BADGES
+   ============================================ */
+.risk-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.risk-badge.high {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.risk-badge.medium {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.risk-badge.low {
+  background: #d1fae5;
+  color: #059669;
+}
+
+.risk-badge.neutral {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+/* ============================================
+   DECISIONS
+   ============================================ */
+.decisions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.decision-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.decision-card h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-primary);
+}
+
+.decision-card p {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.decision-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.decision-icon.alert { background: #fef3c7; }
+.decision-icon.check { background: #d1fae5; }
+.decision-icon.info { background: #dbeafe; }
+
+/* ============================================
+   KEY TERMS PILLS
+   ============================================ */
+.key-terms {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.key-term {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  padding: 8px 20px;
+  font-size: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.key-term .term-label {
+  font-weight: 700;
+}
+
+.key-term .term-desc {
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   DESIGN PRINCIPLE BANNER
+   ============================================ */
+.principle-banner {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.06), rgba(37, 99, 235, 0.06));
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  border-radius: var(--radius-xl);
+  padding: 32px 40px;
+  margin-bottom: 48px;
+}
+
+.principle-banner .banner-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--infra-color);
+  margin-bottom: 12px;
+}
+
+.principle-banner .banner-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--color-text-primary);
+}
+
+.principle-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.principle-card {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+
+.principle-card .principle-name {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.principle-card .principle-desc {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   ARCHITECTURE INTEGRITY
+   ============================================ */
+.integrity-banner {
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.04), rgba(37, 99, 235, 0.04));
+  border: 1px solid rgba(5, 150, 105, 0.15);
+  border-radius: var(--radius-xl);
+  padding: 32px 40px;
+  margin-top: 48px;
+}
+
+.integrity-banner .banner-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-model-b);
+  margin-bottom: 12px;
+}
+
+.integrity-banner .banner-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--color-text-primary);
+}
+
+.integrity-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.integrity-item {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.integrity-footer {
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--color-text-primary);
+}
+
+/* ============================================
+   GLOSSARY TOOLTIP
+   ============================================ */
+.glossary-term {
+  border-bottom: 1px dashed var(--color-text-muted);
+  cursor: help;
+  position: relative;
+}
+
+.glossary-term:hover::after {
+  content: attr(data-definition);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--color-text-primary);
+  white-space: normal;
+  max-width: 300px;
+  z-index: 50;
+  box-shadow: var(--shadow-lg);
+  pointer-events: none;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  text-align: center;
+  padding: 40px 24px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 13px;
+  background: var(--color-white);
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.footer-links a:hover { color: var(--color-model-b); }
+
+.footer-brand {
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .summary-row { grid-template-columns: repeat(2, 1fr); }
+  .summary-row--4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .summary-row { grid-template-columns: 1fr; }
+  .summary-row--4 { grid-template-columns: 1fr; }
+  .chart-grid { grid-template-columns: 1fr; }
+  .decisions-grid { grid-template-columns: 1fr; }
+  .principle-grid { grid-template-columns: 1fr; }
+  .integrity-grid { grid-template-columns: 1fr; }
+  .savings-banner { flex-direction: column; text-align: center; }
+  .hero h1 { font-size: 32px; }
+  .hero { padding: 60px 24px; }
+  .section { padding: 48px 24px; }
+  .section-title { font-size: 24px; }
+  .section-subtitle { font-size: 16px; }
+  .chart-wrap { height: 280px !important; }
+  .chart-wrap.tall { height: 320px !important; }
+  .comparison-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .nav-links {
+    display: none;
   }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-  }
-
-  .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 40px 24px;
-  }
-
-  /* Header */
-  .header {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-
-  .header .label {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--accent);
-    background: rgba(59, 130, 246, 0.1);
-    padding: 6px 16px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-  }
-
-  .header h1 {
-    font-size: 42px;
-    font-weight: 800;
-    letter-spacing: -1px;
-    margin-bottom: 12px;
-    background: linear-gradient(135deg, #e2e8f0, #94a3b8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .header p {
-    font-size: 18px;
-    color: var(--text-muted);
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  /* Summary Cards */
-  .summary-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-bottom: 48px;
-  }
-
-  .summary-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 32px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .summary-card::before {
-    content: '';
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
     position: absolute;
-    top: 0;
+    top: 60px;
     left: 0;
     right: 0;
-    height: 3px;
-  }
-
-  .summary-card.traditional::before { background: var(--danger); }
-  .summary-card.model-a::before { background: var(--accent); }
-  .summary-card.model-b::before { background: var(--accent-3); }
-
-  .summary-card .model-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-
-  .summary-card.traditional .model-label { color: var(--danger); }
-  .summary-card.model-a .model-label { color: var(--accent); }
-  .summary-card.model-b .model-label { color: var(--accent-3); }
-
-  .summary-card .model-name {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: var(--text-muted);
-  }
-
-  .summary-card .big-number {
-    font-size: 48px;
-    font-weight: 800;
-    letter-spacing: -2px;
-    margin-bottom: 4px;
-  }
-
-  .summary-card.traditional .big-number { color: var(--danger); }
-  .summary-card.model-a .big-number { color: var(--accent); }
-  .summary-card.model-b .big-number { color: var(--accent-3); }
-
-  .summary-card .big-label {
-    font-size: 14px;
-    color: var(--text-muted);
-    margin-bottom: 20px;
-  }
-
-  .summary-card .stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    border-top: 1px solid var(--border);
-    padding-top: 20px;
-  }
-
-  .summary-card .stat-value {
-    font-size: 20px;
-    font-weight: 700;
-  }
-
-  .summary-card .stat-label {
-    font-size: 11px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  /* Savings Banner */
-  .savings-banner {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
-    border: 1px solid rgba(16, 185, 129, 0.3);
-    border-radius: 16px;
-    padding: 32px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 48px;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .savings-banner .savings-text {
-    font-size: 22px;
-    font-weight: 700;
-  }
-
-  .savings-banner .savings-text span {
-    color: var(--accent-3);
-  }
-
-  .savings-items {
-    display: flex;
-    gap: 32px;
-  }
-
-  .savings-item {
-    text-align: center;
-  }
-
-  .savings-item .pct {
-    font-size: 36px;
-    font-weight: 800;
-    color: var(--accent-3);
-  }
-
-  .savings-item .pct-label {
-    font-size: 12px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  /* Chart Sections */
-  .section {
-    margin-bottom: 48px;
-  }
-
-  .section-title {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-
-  .section-subtitle {
-    font-size: 14px;
-    color: var(--text-muted);
-    margin-bottom: 24px;
-  }
-
-  .chart-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-
-  .chart-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px;
-  }
-
-  .chart-card.full-width {
-    grid-column: 1 / -1;
-  }
-
-  .chart-card h3 {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-
-  .chart-card .chart-desc {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 20px;
-  }
-
-  .chart-wrap {
-    position: relative;
-    height: 320px;
-  }
-
-  .chart-wrap.tall {
-    height: 400px;
-  }
-
-  /* Comparison Table */
-  .comparison-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 12px;
-  }
-
-  .comparison-table th,
-  .comparison-table td {
-    padding: 14px 16px;
-    text-align: left;
-    font-size: 14px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .comparison-table th {
-    font-weight: 600;
-    color: var(--text-muted);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  .comparison-table td:first-child {
-    font-weight: 500;
-  }
-
-  .comparison-table .traditional-col { color: #f87171; }
-  .comparison-table .model-a-col { color: #60a5fa; }
-  .comparison-table .model-b-col { color: #34d399; font-weight: 600; }
-
-  .comparison-table tr:hover {
-    background: rgba(255,255,255,0.02);
-  }
-
-  /* Vendor Table */
-  .vendor-section {
-    margin-top: 48px;
-  }
-
-  .risk-badge {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .risk-badge.high {
-    background: rgba(239, 68, 68, 0.15);
-    color: #f87171;
-  }
-
-  .risk-badge.medium {
-    background: rgba(245, 158, 11, 0.15);
-    color: #fbbf24;
-  }
-
-  .risk-badge.low {
-    background: rgba(16, 185, 129, 0.15);
-    color: #34d399;
-  }
-
-  /* Key Decisions */
-  .decisions {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-top: 48px;
-  }
-
-  .decision-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px;
-  }
-
-  .decision-card h4 {
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .decision-card p {
-    font-size: 13px;
-    color: var(--text-muted);
-    line-height: 1.7;
-  }
-
-  .decision-icon {
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    flex-shrink: 0;
-  }
-
-  .decision-icon.alert { background: rgba(245, 158, 11, 0.15); }
-  .decision-icon.check { background: rgba(16, 185, 129, 0.15); }
-
-  /* Footer */
-  .footer {
-    text-align: center;
-    padding: 40px 0 20px;
-    border-top: 1px solid var(--border);
-    margin-top: 60px;
-    color: var(--text-muted);
-    font-size: 13px;
-  }
-
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-  }
-
-  .footer-links a {
-    color: var(--accent);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    transition: color 0.15s;
-  }
-
-  .footer-links a:hover { color: var(--accent-3); }
-
-  /* Sticky Navigation */
-  .sticky-nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(10, 14, 23, 0.92);
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 24px;
-  }
-
-  .nav-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 52px;
-  }
-
-  .nav-left {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .nav-back {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-muted);
-    text-decoration: none;
-    padding: 4px 10px;
-    border-radius: 6px;
-    transition: color 0.15s, background 0.15s;
-    white-space: nowrap;
-  }
-
-  .nav-back:hover {
-    color: var(--accent);
-    background: rgba(59, 130, 246, 0.1);
-  }
-
-  .nav-brand {
-    font-weight: 700;
-    font-size: 14px;
-    color: var(--text);
-    white-space: nowrap;
-  }
-
-  .nav-brand span { color: var(--accent); }
-
-  .nav-links {
-    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    padding: 12px;
     gap: 4px;
-    list-style: none;
-    overflow-x: auto;
-    scrollbar-width: none;
+    z-index: 99;
+    box-shadow: var(--shadow-lg);
   }
+  .nav-toggle { display: block; }
+}
 
-  .nav-links::-webkit-scrollbar { display: none; }
-
-  .nav-links a {
-    display: block;
-    padding: 6px 12px;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--text-muted);
-    text-decoration: none;
-    border-radius: 6px;
-    white-space: nowrap;
-    transition: color 0.15s, background 0.15s;
-  }
-
-  .nav-links a:hover,
-  .nav-links a.active {
-    color: var(--accent-3);
-    background: rgba(16, 185, 129, 0.1);
-  }
-
-  .nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    padding: 8px;
-    cursor: pointer;
-    color: var(--text);
-    font-size: 20px;
-  }
-
-  /* Glossary tooltip */
-  .glossary-term {
-    border-bottom: 1px dashed var(--text-muted);
-    cursor: help;
-    position: relative;
-  }
-
-  .glossary-term:hover::after {
-    content: attr(data-definition);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 8px 12px;
-    font-size: 12px;
-    color: var(--text);
-    white-space: nowrap;
-    max-width: 300px;
-    white-space: normal;
-    z-index: 50;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    pointer-events: none;
-  }
-
-  @media (max-width: 1100px) {
-    .summary-row { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (max-width: 900px) {
-    .summary-row { grid-template-columns: 1fr; }
-    .chart-grid { grid-template-columns: 1fr; }
-    .decisions { grid-template-columns: 1fr; }
-    .savings-banner { flex-direction: column; text-align: center; }
-    .header h1 { font-size: 28px; }
-    .nav-links { display: none; }
-    .nav-links.active { display: flex; flex-direction: column; position: absolute; top: 52px; left: 0; right: 0; background: rgba(10, 14, 23, 0.98); border-bottom: 1px solid var(--border); padding: 12px; gap: 4px; z-index: 99; }
-    .nav-toggle { display: block; }
-    .chart-wrap { height: 280px !important; }
-    .chart-wrap.tall { height: 320px !important; }
-  }
-
-  @media (max-width: 768px) {
-    .principle-grid { grid-template-columns: 1fr !important; }
-    .summary-row[style*="repeat(4"] { grid-template-columns: repeat(2, 1fr) !important; }
-    .comparison-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  }
-
-  @media (max-width: 600px) {
-    .header h1 { font-size: 22px; }
-    .header p { font-size: 14px; }
-    .comparison-table { font-size: 12px; }
-    .comparison-table th, .comparison-table td { padding: 10px 8px; }
-    .container { padding: 24px 16px; }
-    .summary-row[style*="repeat(4"] { grid-template-columns: 1fr !important; }
-    .nav-brand { font-size: 12px; }
-  }
+@media (max-width: 480px) {
+  .hero h1 { font-size: 26px; }
+  .hero-description { font-size: 16px; }
+  .summary-card .big-number { font-size: 36px; }
+  .section-title { font-size: 22px; }
+  .container { padding: 24px 16px; }
+  .comparison-table th, .comparison-table td { padding: 10px 8px; font-size: 12px; }
+  .nav-brand { font-size: 12px; }
+  .savings-items { gap: 20px; }
+  .savings-item .pct { font-size: 28px; }
+}
 </style>
 </head>
 <body>
 
-<!-- Sticky Navigation -->
-<nav class="sticky-nav">
+<a class="skip-link" href="#cost-models">Skip to content</a>
+
+<!-- ============================================
+     NAVIGATION
+     ============================================ -->
+<nav class="nav" aria-label="Main navigation">
   <div class="nav-inner">
-    <div class="nav-left">
-      <a href="index.html" class="nav-back">&larr; All Sprints</a>
-      <span class="nav-brand">SGA Dental Partners | <span>Cost &amp; Integration</span></span>
-    </div>
+    <a href="index.html" class="nav-back">&larr; Sprint Hub</a>
+    <div class="nav-brand">SGA Dental Partners <span>| Cost & Integration</span></div>
+    <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')" aria-label="Toggle navigation">&#9776;</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#cost-models">Cost Models</a></li>
       <li><a href="#monthly-burn">Monthly Burn</a></li>
@@ -567,84 +915,101 @@
       <li><a href="#vendors">Vendors</a></li>
       <li><a href="#tech-stack">Tech Stack</a></li>
       <li><a href="#decisions">Decisions</a></li>
-      <li><a href="sga-portfolio-consolidation.html" style="color: var(--accent); border-left: 1px solid var(--border); padding-left: 16px; margin-left: 4px;">View Full Plan &rarr;</a></li>
+      <li><a href="sga-portfolio-consolidation.html" class="nav-cta">View Full Plan &rarr;</a></li>
     </ul>
-    <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')" aria-label="Toggle navigation">&#9776;</button>
   </div>
 </nav>
 
-<div class="container">
-
-  <!-- Header -->
-  <div id="cost-models" class="header">
-    <div class="label">Financial Planning Report</div>
+<!-- ============================================
+     HERO
+     ============================================ -->
+<section class="hero" id="cost-models">
+  <div class="container">
+    <div class="hero-eyebrow">
+      <span class="dot"></span>
+      Financial Planning Report
+    </div>
     <h1>SGA Platform Cost Comparison</h1>
-    <p>Three build models compared: Traditional 20-person team, AI-First team (5-6 people), and Super Architects + AI Workforce (2-3 people). For the full architecture and roadmap, see the <a href="sga-portfolio-consolidation.html" style="color: var(--accent); text-decoration: underline;">Sprint Portfolio Consolidation</a>.</p>
+    <p class="hero-description">Three build models compared: Traditional 20-person team, AI-First team (5-6 people), and Super Architects + AI Workforce (2-3 people). For the full architecture and roadmap, see the <a href="sga-portfolio-consolidation.html">Sprint Portfolio Consolidation</a>.</p>
   </div>
+</section>
 
-  <!-- Summary Cards -->
-  <div class="summary-row">
-    <div class="summary-card traditional">
-      <div class="model-label">Baseline</div>
-      <div class="model-name">Traditional Team (20 engineers)</div>
-      <div class="big-number">$7.0M</div>
-      <div class="big-label">2-Year Total Cost</div>
-      <div class="stats">
-        <div><div class="stat-value">$4.3M</div><div class="stat-label">Year 1</div></div>
-        <div><div class="stat-value">$2.7M</div><div class="stat-label">Year 2</div></div>
-        <div><div class="stat-value">20+</div><div class="stat-label">People</div></div>
-        <div><div class="stat-value">$27K</div><div class="stat-label">Per Practice</div></div>
+<!-- ============================================
+     SUMMARY CARDS + SAVINGS
+     ============================================ -->
+<section class="section" style="background: var(--color-white);">
+  <div class="container">
+
+    <!-- Summary Cards -->
+    <div class="summary-row">
+      <div class="summary-card traditional">
+        <div class="model-label">Baseline</div>
+        <div class="model-name">Traditional Team (20 engineers)</div>
+        <div class="big-number">$7.0M</div>
+        <div class="big-label">2-Year Total Cost</div>
+        <div class="stats">
+          <div><div class="stat-value">$4.3M</div><div class="stat-label">Year 1</div></div>
+          <div><div class="stat-value">$2.7M</div><div class="stat-label">Year 2</div></div>
+          <div><div class="stat-value">20+</div><div class="stat-label">People</div></div>
+          <div><div class="stat-value">$27K</div><div class="stat-label">Per Practice</div></div>
+        </div>
+      </div>
+      <div class="summary-card model-a">
+        <div class="model-label">Model A</div>
+        <div class="model-name">AI-First Team (5-6 people)</div>
+        <div class="big-number">$2.3M</div>
+        <div class="big-label">2-Year Total Cost</div>
+        <div class="stats">
+          <div><div class="stat-value">$1.5M</div><div class="stat-label">Year 1</div></div>
+          <div><div class="stat-value">$900K</div><div class="stat-label">Year 2</div></div>
+          <div><div class="stat-value">5-6</div><div class="stat-label">People</div></div>
+          <div><div class="stat-value">$8.7K</div><div class="stat-label">Per Practice</div></div>
+        </div>
+      </div>
+      <div class="summary-card model-b">
+        <div class="model-label">Model B &mdash; Recommended</div>
+        <div class="model-name">Super Architects + AI Workforce (2-3 people)</div>
+        <div class="big-number">$1.7M</div>
+        <div class="big-label">2-Year Total Cost</div>
+        <div class="stats">
+          <div><div class="stat-value">$1.05M</div><div class="stat-label">Year 1</div></div>
+          <div><div class="stat-value">$640K</div><div class="stat-label">Year 2</div></div>
+          <div><div class="stat-value">2-3</div><div class="stat-label">People</div></div>
+          <div><div class="stat-value">$6.5K</div><div class="stat-label">Per Practice</div></div>
+        </div>
       </div>
     </div>
-    <div class="summary-card model-a">
-      <div class="model-label">Model A</div>
-      <div class="model-name">AI-First Team (5-6 people)</div>
-      <div class="big-number">$2.3M</div>
-      <div class="big-label">2-Year Total Cost</div>
-      <div class="stats">
-        <div><div class="stat-value">$1.5M</div><div class="stat-label">Year 1</div></div>
-        <div><div class="stat-value">$900K</div><div class="stat-label">Year 2</div></div>
-        <div><div class="stat-value">5-6</div><div class="stat-label">People</div></div>
-        <div><div class="stat-value">$8.7K</div><div class="stat-label">Per Practice</div></div>
+
+    <!-- Savings Banner -->
+    <div class="savings-banner">
+      <div class="savings-text">
+        Model B saves <span>$5.3M over 2 years</span> vs. traditional build
+      </div>
+      <div class="savings-items">
+        <div class="savings-item">
+          <div class="pct">75%</div>
+          <div class="pct-label">Cost Reduction</div>
+        </div>
+        <div class="savings-item">
+          <div class="pct">90%</div>
+          <div class="pct-label">Fewer People</div>
+        </div>
+        <div class="savings-item">
+          <div class="pct">24/7</div>
+          <div class="pct-label">Agent Ops</div>
+        </div>
       </div>
     </div>
-    <div class="summary-card model-b">
-      <div class="model-label">Model B — Recommended</div>
-      <div class="model-name">Super Architects + AI Workforce (2-3 people)</div>
-      <div class="big-number">$1.7M</div>
-      <div class="big-label">2-Year Total Cost</div>
-      <div class="stats">
-        <div><div class="stat-value">$1.05M</div><div class="stat-label">Year 1</div></div>
-        <div><div class="stat-value">$640K</div><div class="stat-label">Year 2</div></div>
-        <div><div class="stat-value">2-3</div><div class="stat-label">People</div></div>
-        <div><div class="stat-value">$6.5K</div><div class="stat-label">Per Practice</div></div>
-      </div>
-    </div>
+
   </div>
+</section>
 
-  <!-- Savings Banner -->
-  <div class="savings-banner">
-    <div class="savings-text">
-      Model B saves <span>$5.3M over 2 years</span> vs. traditional build
-    </div>
-    <div class="savings-items">
-      <div class="savings-item">
-        <div class="pct">75%</div>
-        <div class="pct-label">Cost Reduction</div>
-      </div>
-      <div class="savings-item">
-        <div class="pct">90%</div>
-        <div class="pct-label">Fewer People</div>
-      </div>
-      <div class="savings-item">
-        <div class="pct">24/7</div>
-        <div class="pct-label">Agent Ops</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Chart Section 1: 2-Year Cost Comparison -->
-  <div class="section">
+<!-- ============================================
+     CHART SECTION 1: Total Cost
+     ============================================ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-label">Cost Models</div>
     <div class="section-title">Total Cost by Model</div>
     <div class="section-subtitle">Year 1 (build + 3mo ops) and Year 2 (full operations) stacked</div>
     <div class="chart-grid">
@@ -664,14 +1029,19 @@
       </div>
     </div>
   </div>
+</section>
 
-  <!-- Chart Section 2: Monthly Burn -->
-  <div id="monthly-burn" class="section">
+<!-- ============================================
+     CHART SECTION 2: Monthly Burn
+     ============================================ -->
+<section id="monthly-burn" class="section" style="background: var(--color-white);">
+  <div class="container">
+    <div class="section-label">Cash Flow</div>
     <div class="section-title">Monthly Burn Rate Over Time</div>
     <div class="section-subtitle">How cash flows month-by-month across the 12-month Year 1 period</div>
     <div class="chart-grid">
       <div class="chart-card full-width">
-        <h3>Monthly Spend — Model A vs Model B vs Traditional</h3>
+        <h3>Monthly Spend &mdash; Model A vs Model B vs Traditional</h3>
         <div class="chart-desc">Includes team costs, vendor/SaaS, AI tooling, and infrastructure</div>
         <div class="chart-wrap tall">
           <canvas id="chart-monthly-burn"></canvas>
@@ -679,21 +1049,26 @@
       </div>
     </div>
   </div>
+</section>
 
-  <!-- Chart Section 3: Cost Breakdown -->
-  <div class="section">
-    <div id="cost-breakdown" class="section-title">Where the Money Goes</div>
+<!-- ============================================
+     CHART SECTION 3: Cost Breakdown
+     ============================================ -->
+<section id="cost-breakdown" class="section section--alt">
+  <div class="container">
+    <div class="section-label">Cost Composition</div>
+    <div class="section-title">Where the Money Goes</div>
     <div class="section-subtitle">Cost composition by category for each model</div>
     <div class="chart-grid">
       <div class="chart-card">
-        <h3>Model A — Cost Breakdown</h3>
+        <h3>Model A &mdash; Cost Breakdown</h3>
         <div class="chart-desc">AI-First Team (Year 1)</div>
         <div class="chart-wrap">
           <canvas id="chart-breakdown-a"></canvas>
         </div>
       </div>
       <div class="chart-card">
-        <h3>Model B — Cost Breakdown</h3>
+        <h3>Model B &mdash; Cost Breakdown</h3>
         <div class="chart-desc">Super Architects + AI Workforce (Year 1)</div>
         <div class="chart-wrap">
           <canvas id="chart-breakdown-b"></canvas>
@@ -701,9 +1076,14 @@
       </div>
     </div>
   </div>
+</section>
 
-  <!-- Chart Section 4: Human Team vs AI -->
-  <div class="section">
+<!-- ============================================
+     CHART SECTION 4: Human vs AI
+     ============================================ -->
+<section class="section" style="background: var(--color-white);">
+  <div class="container">
+    <div class="section-label">Structural Shift</div>
     <div class="section-title">Human Cost vs. AI + Vendor Cost</div>
     <div class="section-subtitle">The structural shift from labor-heavy to infrastructure-heavy</div>
     <div class="chart-grid">
@@ -716,9 +1096,14 @@
       </div>
     </div>
   </div>
+</section>
 
-  <!-- Chart Section 5: Ops Cost -->
-  <div id="operations" class="section">
+<!-- ============================================
+     CHART SECTION 5: Operations
+     ============================================ -->
+<section id="operations" class="section section--alt">
+  <div class="container">
+    <div class="section-label">Operations</div>
     <div class="section-title">Ongoing Operations Cost</div>
     <div class="section-subtitle">Monthly steady-state cost once the platform is live (Month 10+)</div>
     <div class="chart-grid">
@@ -730,7 +1115,7 @@
         </div>
       </div>
       <div class="chart-card">
-        <h3>Ops Model — Agent Coverage</h3>
+        <h3>Ops Model &mdash; Agent Coverage</h3>
         <div class="chart-desc">Model B: 90% of incidents handled by AI agents autonomously</div>
         <div class="chart-wrap">
           <canvas id="chart-agent-coverage"></canvas>
@@ -738,12 +1123,17 @@
       </div>
     </div>
   </div>
+</section>
 
-  <!-- Vendor Cost Table -->
-  <div id="vendors" class="section vendor-section">
+<!-- ============================================
+     VENDOR COST TABLE
+     ============================================ -->
+<section id="vendors" class="section" style="background: var(--color-white);">
+  <div class="container">
+    <div class="section-label">Vendor Analysis</div>
     <div class="section-title">Top Vendor Costs at Scale</div>
     <div class="section-subtitle">Monthly recurring costs at 260 practices (same across all models)</div>
-    <div class="chart-card full-width">
+    <div class="chart-card full-width" style="margin-top: 24px; overflow: hidden;">
       <table class="comparison-table">
         <thead>
           <tr>
@@ -767,12 +1157,17 @@
       </table>
     </div>
   </div>
+</section>
 
-  <!-- Comparison Table -->
-  <div class="section">
+<!-- ============================================
+     FULL MODEL COMPARISON TABLE
+     ============================================ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-label">Side-by-Side</div>
     <div class="section-title">Full Model Comparison</div>
     <div class="section-subtitle">Side-by-side across all dimensions</div>
-    <div class="chart-card full-width">
+    <div class="chart-card full-width" style="margin-top: 24px; overflow: hidden;">
       <table class="comparison-table">
         <thead>
           <tr>
@@ -799,399 +1194,446 @@
       </table>
     </div>
   </div>
+</section>
 
-  <!-- ============================================================ -->
-  <!-- TECH STACK INTEGRATION STRATEGY SECTION                      -->
-  <!-- ============================================================ -->
-
-  <div id="tech-stack" style="margin-top: 80px; margin-bottom: 60px; border-top: 2px solid var(--border); padding-top: 60px;">
-    <div class="header" style="margin-bottom: 48px;">
-      <div class="label" style="background: rgba(139, 92, 246, 0.1); color: #a78bfa;">Tech Stack Integration</div>
-      <h1 style="font-size: 36px;">Leveraging SGA's Existing Systems</h1>
-      <p>SGA already operates 17 production systems across 260 practices. Rather than replace everything, we evaluated each tool against our architecture to find where existing systems accelerate the launch — and where building native is critical for the patient experience. The architecture and roadmap remain unchanged; these are adapter-level integration decisions.</p>
-    </div>
+<!-- ============================================
+     TECH STACK INTEGRATION STRATEGY
+     ============================================ -->
+<section id="tech-stack" class="section" style="background: var(--color-white); border-top: 3px solid var(--infra-color);">
+  <div class="container">
+    <div class="section-label" style="color: var(--infra-color);">Tech Stack Integration</div>
+    <div class="section-title">Leveraging SGA's Existing Systems</div>
+    <div class="section-subtitle" style="max-width: 900px;">SGA already operates 17 production systems across 260 practices. Rather than replace everything, we evaluated each tool against our architecture to find where existing systems accelerate the launch &mdash; and where building native is critical for the patient experience. The architecture and roadmap remain unchanged; these are adapter-level integration decisions.</div>
 
     <!-- Key Terms -->
-    <div style="display: flex; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; justify-content: center;">
-      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: 8px 20px; font-size: 12px;">
-        <span style="color: #f59e0b; font-weight: 700;">Bridge Tool</span>
-        <span style="color: var(--text-muted);"> = Existing vendor system we use temporarily at launch</span>
+    <div class="key-terms" style="margin-top: 32px;">
+      <div class="key-term">
+        <span class="term-label" style="color: var(--ws3-color);">Bridge Tool</span>
+        <span class="term-desc"> = Existing vendor system we use temporarily at launch</span>
       </div>
-      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: 8px 20px; font-size: 12px;">
-        <span style="color: #34d399; font-weight: 700;">Native</span>
-        <span style="color: var(--text-muted);"> = Our custom-built system designed for the long term</span>
+      <div class="key-term">
+        <span class="term-label" style="color: var(--color-model-b);">Native</span>
+        <span class="term-desc"> = Our custom-built system designed for the long term</span>
       </div>
-      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: 8px 20px; font-size: 12px;">
-        <span style="color: #60a5fa; font-weight: 700;">Integrate</span>
-        <span style="color: var(--text-muted);"> = Keep permanently — we own the data layer, they render it</span>
+      <div class="key-term">
+        <span class="term-label" style="color: var(--color-model-a);">Integrate</span>
+        <span class="term-desc"> = Keep permanently &mdash; we own the data layer, they render it</span>
       </div>
     </div>
 
     <!-- Design Principle Banner -->
-    <div style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1)); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 16px; padding: 32px 40px; margin-bottom: 48px;">
-      <div style="font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #a78bfa; margin-bottom: 12px;">Design Principle</div>
-      <div style="font-size: 20px; font-weight: 700; margin-bottom: 16px;">Build native where patients see it. Integrate where operators benefit.</div>
-      <div class="principle-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 20px;">
-        <div style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 20px;">
-          <div style="font-size: 13px; font-weight: 600; color: #34d399; margin-bottom: 6px;">Patient-Facing Touchpoints</div>
-          <div style="font-size: 13px; color: var(--text-muted);">Build native. Our UX, our voice, our intelligence. Existing tools are transitional bridges with hard migration dates.</div>
+    <div class="principle-banner">
+      <div class="banner-label">Design Principle</div>
+      <div class="banner-title">Build native where patients see it. Integrate where operators benefit.</div>
+      <div class="principle-grid">
+        <div class="principle-card">
+          <div class="principle-name" style="color: var(--color-model-b);">Patient-Facing Touchpoints</div>
+          <div class="principle-desc">Build native. Our UX, our voice, our intelligence. Existing tools are transitional bridges with hard migration dates.</div>
         </div>
-        <div style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 20px;">
-          <div style="font-size: 13px; font-weight: 600; color: #60a5fa; margin-bottom: 6px;">Internal / HQ Tools</div>
-          <div style="font-size: 13px; color: var(--text-muted);">Integrate where adoption is high. Power BI at 96% adoption means zero training friction for executives.</div>
+        <div class="principle-card">
+          <div class="principle-name" style="color: var(--color-model-a);">Internal / HQ Tools</div>
+          <div class="principle-desc">Integrate where adoption is high. Power BI at 96% adoption means zero training friction for executives.</div>
         </div>
-        <div style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 20px;">
-          <div style="font-size: 13px; font-weight: 600; color: #f59e0b; margin-bottom: 6px;">Data Sources</div>
-          <div style="font-size: 13px; color: var(--text-muted);">Integrate whatever gives the best signal. Our data layer means we can swap a vendor later without disrupting anything.</div>
+        <div class="principle-card">
+          <div class="principle-name" style="color: var(--ws3-color);">Data Sources</div>
+          <div class="principle-desc">Integrate whatever gives the best signal. Our data layer means we can swap a vendor later without disrupting anything.</div>
         </div>
       </div>
     </div>
 
     <!-- Impact Summary Cards -->
-    <div class="summary-row" style="grid-template-columns: repeat(4, 1fr);">
-      <div class="summary-card" style="border-top: 3px solid #a78bfa;">
-        <div class="model-label" style="color: #a78bfa;">Launch Acceleration</div>
-        <div class="big-number" style="color: #a78bfa; font-size: 40px;">6-9 wks</div>
+    <div class="summary-row summary-row--4" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="summary-card" style="border-top: 3px solid var(--infra-color);">
+        <div class="model-label" style="color: var(--infra-color);">Launch Acceleration</div>
+        <div class="big-number" style="color: var(--infra-color); font-size: 40px;">6-9 wks</div>
         <div class="big-label">Faster by Using Bridges</div>
       </div>
-      <div class="summary-card" style="border-top: 3px solid var(--accent-3);">
-        <div class="model-label" style="color: var(--accent-3);">Vendor Cost Reduction</div>
-        <div class="big-number" style="color: var(--accent-3); font-size: 40px;">-$11K</div>
+      <div class="summary-card" style="border-top: 3px solid var(--color-model-b);">
+        <div class="model-label" style="color: var(--color-model-b);">Vendor Cost Reduction</div>
+        <div class="big-number" style="color: var(--color-model-b); font-size: 40px;">-$11K</div>
         <div class="big-label">Monthly at Scale</div>
       </div>
-      <div class="summary-card" style="border-top: 3px solid var(--accent);">
-        <div class="model-label" style="color: var(--accent);">Practices Protected</div>
-        <div class="big-number" style="color: var(--accent); font-size: 40px;">200+</div>
+      <div class="summary-card" style="border-top: 3px solid var(--color-model-a);">
+        <div class="model-label" style="color: var(--color-model-a);">Practices Protected</div>
+        <div class="big-number" style="color: var(--color-model-a); font-size: 40px;">200+</div>
         <div class="big-label">No Retraining at Launch</div>
       </div>
-      <div class="summary-card" style="border-top: 3px solid var(--warning);">
-        <div class="model-label" style="color: var(--warning);">Architecture Changes</div>
-        <div class="big-number" style="color: var(--warning); font-size: 40px;">Zero</div>
+      <div class="summary-card" style="border-top: 3px solid var(--ws3-color);">
+        <div class="model-label" style="color: var(--ws3-color);">Architecture Changes</div>
+        <div class="big-number" style="color: var(--ws3-color); font-size: 40px;">Zero</div>
         <div class="big-label">Structural Modifications</div>
       </div>
     </div>
 
-    <!-- Current Stack Adoption Chart -->
-    <div class="section">
-      <div class="section-title">SGA's Current Technology Footprint</div>
-      <div class="section-subtitle">Adoption rates across 260 practices — high adoption tools represent integration opportunities, not replacement targets</div>
-      <div class="chart-grid">
-        <div class="chart-card full-width">
-          <h3>Current Tool Adoption by Practice Penetration</h3>
-          <div class="chart-desc">Color indicates our integration strategy: green = integrate, blue = bridge then migrate, gray = no overlap</div>
-          <div class="chart-wrap tall">
-            <canvas id="chart-stack-adoption"></canvas>
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
+</section>
 
-    <!-- Integration Strategy Matrix -->
-    <div class="section">
-      <div class="section-title">Integration Strategy by Tool</div>
-      <div class="section-subtitle">How each existing tool maps to our architecture — and what happens to it over time</div>
+<!-- ============================================
+     STACK ADOPTION CHART
+     ============================================ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-label" style="color: var(--infra-color);">Current Footprint</div>
+    <div class="section-title">SGA's Current Technology Footprint</div>
+    <div class="section-subtitle">Adoption rates across 260 practices &mdash; high adoption tools represent integration opportunities, not replacement targets</div>
+    <div class="chart-grid">
       <div class="chart-card full-width">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th>Existing Tool</th>
-              <th>Adoption</th>
-              <th>Our Component</th>
-              <th>Strategy</th>
-              <th>Rationale</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Microsoft Power BI</strong></td>
-              <td>96%</td>
-              <td>Executive Dashboard</td>
-              <td><span class="risk-badge low">Integrate</span></td>
-              <td style="color: var(--text-muted);">Leadership already lives in Power BI. ClickHouse feeds it — we own the data, they keep their tool.</td>
-            </tr>
-            <tr>
-              <td><strong>Modento</strong></td>
-              <td>79%</td>
-              <td>Communications Service</td>
-              <td><span class="risk-badge medium">Bridge → Migrate</span></td>
-              <td style="color: var(--text-muted);">Use for confirmations at launch to avoid retraining 205 practices. Build native. Migrate by Tier 2.</td>
-            </tr>
-            <tr>
-              <td><strong>TrueLark</strong></td>
-              <td>61%</td>
-              <td>Concierge Agent</td>
-              <td><span class="risk-badge medium">Bridge → Replace</span></td>
-              <td style="color: var(--text-muted);">Our Concierge deploys to non-TrueLark practices first. Replace at contract renewal — can't have two voices.</td>
-            </tr>
-            <tr>
-              <td><strong>Patient Prism</strong></td>
-              <td>85%</td>
-              <td>H-Score Phone Component</td>
-              <td><span class="risk-badge low">Evaluate vs. Cinnamon</span></td>
-              <td style="color: var(--text-muted);">Backend data source — choose on data quality, not adoption convenience. 85% coverage is a bonus, not the reason.</td>
-            </tr>
-            <tr>
-              <td><strong>Peer Logic</strong></td>
-              <td>78%</td>
-              <td>Phone System Integration</td>
-              <td><span class="risk-badge low">Integrate (Priority 1)</span></td>
-              <td style="color: var(--text-muted);">Our architecture listed RingCentral/8x8 — but SGA actually uses Peer Logic. Build this connector first.</td>
-            </tr>
-            <tr>
-              <td><strong>Dental Intel</strong></td>
-              <td>95%</td>
-              <td>Morning Huddle OS</td>
-              <td><span class="risk-badge low">Integrate</span></td>
-              <td style="color: var(--text-muted);">Already planned. 95% adoption confirms it's the right call.</td>
-            </tr>
-            <tr>
-              <td><strong>CallRail / Invoca</strong></td>
-              <td>TBD</td>
-              <td>Funnel Data Lake</td>
-              <td><span class="risk-badge low">Integrate</span></td>
-              <td style="color: var(--text-muted);">Call attribution data feeds our funnel analytics. Connector in Tier 2.</td>
-            </tr>
-            <tr>
-              <td><strong>OursPrivacy / Freshpaint</strong></td>
-              <td>TBD</td>
-              <td>Compliance & Audit Layer</td>
-              <td><span class="risk-badge low">Integrate</span></td>
-              <td style="color: var(--text-muted);">Purpose-built PHI detection beats custom regex. Reduces HIPAA audit risk.</td>
-            </tr>
-            <tr>
-              <td><strong>Dentrix / Eaglesoft / OpenDental</strong></td>
-              <td>96%</td>
-              <td>PMS Integration (NexHealth)</td>
-              <td><span style="display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:10px;background:rgba(107,114,128,0.15);color:#9ca3af;">Already Planned</span></td>
-              <td style="color: var(--text-muted);">NexHealth wraps all three PMS systems. No change needed.</td>
-            </tr>
-            <tr>
-              <td><strong>GoHighLevel / HubSpot / Salesforce</strong></td>
-              <td>TBD</td>
-              <td>Automation Engine</td>
-              <td><span style="display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:10px;background:rgba(107,114,128,0.15);color:#9ca3af;">Sprint 0 Discovery</span></td>
-              <td style="color: var(--text-muted);">If SGA has deployed a CRM, integrate it rather than build standalone lead tracking.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Bridge → Build Timeline -->
-    <div class="section">
-      <div class="section-title">Patient Experience Migration Timeline</div>
-      <div class="section-subtitle">Patient-facing tools transition from "bridge" to "native" — ensuring UX quality improves, never degrades</div>
-      <div class="chart-grid">
-        <div class="chart-card full-width">
-          <h3>Bridge → Native Migration Path</h3>
-          <div class="chart-desc">Existing tools (Modento, TrueLark) serve as launch bridges while we build and validate the native experience. Migration happens when our tool is proven better.</div>
-          <div class="chart-wrap tall">
-            <canvas id="chart-migration-timeline"></canvas>
-          </div>
+        <h3>Current Tool Adoption by Practice Penetration</h3>
+        <div class="chart-desc">Color indicates our integration strategy: green = integrate, blue = bridge then migrate, gray = no overlap</div>
+        <div class="chart-wrap tall">
+          <canvas id="chart-stack-adoption"></canvas>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Why This Matters Cards -->
-    <div class="section">
-      <div class="section-title">Why "Bridge Then Build" — Not "Integrate Forever"</div>
-      <div class="section-subtitle">The UX case for building native patient-facing systems, even when existing tools technically work</div>
+<!-- ============================================
+     INTEGRATION STRATEGY MATRIX
+     ============================================ -->
+<section class="section" style="background: var(--color-white);">
+  <div class="container">
+    <div class="section-label" style="color: var(--infra-color);">Integration Strategy</div>
+    <div class="section-title">Integration Strategy by Tool</div>
+    <div class="section-subtitle">How each existing tool maps to our architecture &mdash; and what happens to it over time</div>
+    <div class="chart-card full-width" style="margin-top: 24px; overflow: hidden;">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Existing Tool</th>
+            <th>Adoption</th>
+            <th>Our Component</th>
+            <th>Strategy</th>
+            <th>Rationale</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Microsoft Power BI</strong></td>
+            <td>96%</td>
+            <td>Executive Dashboard</td>
+            <td><span class="risk-badge low">Integrate</span></td>
+            <td style="color: var(--color-text-muted);">Leadership already lives in Power BI. ClickHouse feeds it &mdash; we own the data, they keep their tool.</td>
+          </tr>
+          <tr>
+            <td><strong>Modento</strong></td>
+            <td>79%</td>
+            <td>Communications Service</td>
+            <td><span class="risk-badge medium">Bridge &rarr; Migrate</span></td>
+            <td style="color: var(--color-text-muted);">Use for confirmations at launch to avoid retraining 205 practices. Build native. Migrate by Tier 2.</td>
+          </tr>
+          <tr>
+            <td><strong>TrueLark</strong></td>
+            <td>61%</td>
+            <td>Concierge Agent</td>
+            <td><span class="risk-badge medium">Bridge &rarr; Replace</span></td>
+            <td style="color: var(--color-text-muted);">Our Concierge deploys to non-TrueLark practices first. Replace at contract renewal &mdash; can't have two voices.</td>
+          </tr>
+          <tr>
+            <td><strong>Patient Prism</strong></td>
+            <td>85%</td>
+            <td>H-Score Phone Component</td>
+            <td><span class="risk-badge low">Evaluate vs. Cinnamon</span></td>
+            <td style="color: var(--color-text-muted);">Backend data source &mdash; choose on data quality, not adoption convenience. 85% coverage is a bonus, not the reason.</td>
+          </tr>
+          <tr>
+            <td><strong>Peer Logic</strong></td>
+            <td>78%</td>
+            <td>Phone System Integration</td>
+            <td><span class="risk-badge low">Integrate (Priority 1)</span></td>
+            <td style="color: var(--color-text-muted);">Our architecture listed RingCentral/8x8 &mdash; but SGA actually uses Peer Logic. Build this connector first.</td>
+          </tr>
+          <tr>
+            <td><strong>Dental Intel</strong></td>
+            <td>95%</td>
+            <td>Morning Huddle OS</td>
+            <td><span class="risk-badge low">Integrate</span></td>
+            <td style="color: var(--color-text-muted);">Already planned. 95% adoption confirms it's the right call.</td>
+          </tr>
+          <tr>
+            <td><strong>CallRail / Invoca</strong></td>
+            <td>TBD</td>
+            <td>Funnel Data Lake</td>
+            <td><span class="risk-badge low">Integrate</span></td>
+            <td style="color: var(--color-text-muted);">Call attribution data feeds our funnel analytics. Connector in Tier 2.</td>
+          </tr>
+          <tr>
+            <td><strong>OursPrivacy / Freshpaint</strong></td>
+            <td>TBD</td>
+            <td>Compliance & Audit Layer</td>
+            <td><span class="risk-badge low">Integrate</span></td>
+            <td style="color: var(--color-text-muted);">Purpose-built PHI detection beats custom regex. Reduces HIPAA audit risk.</td>
+          </tr>
+          <tr>
+            <td><strong>Dentrix / Eaglesoft / OpenDental</strong></td>
+            <td>96%</td>
+            <td>PMS Integration (NexHealth)</td>
+            <td><span class="risk-badge neutral">Already Planned</span></td>
+            <td style="color: var(--color-text-muted);">NexHealth wraps all three PMS systems. No change needed.</td>
+          </tr>
+          <tr>
+            <td><strong>GoHighLevel / HubSpot / Salesforce</strong></td>
+            <td>TBD</td>
+            <td>Automation Engine</td>
+            <td><span class="risk-badge neutral">Sprint 0 Discovery</span></td>
+            <td style="color: var(--color-text-muted);">If SGA has deployed a CRM, integrate it rather than build standalone lead tracking.</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="decisions">
-      <div class="decision-card" style="border-top: 3px solid #ef4444;">
-        <h4><span class="decision-icon alert">⚠</span> Brand Voice Fragmentation</h4>
+  </div>
+</section>
+
+<!-- ============================================
+     MIGRATION TIMELINE
+     ============================================ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-label" style="color: var(--infra-color);">Migration Path</div>
+    <div class="section-title">Patient Experience Migration Timeline</div>
+    <div class="section-subtitle">Patient-facing tools transition from "bridge" to "native" &mdash; ensuring UX quality improves, never degrades</div>
+    <div class="chart-grid">
+      <div class="chart-card full-width">
+        <h3>Bridge &rarr; Native Migration Path</h3>
+        <div class="chart-desc">Existing tools (Modento, TrueLark) serve as launch bridges while we build and validate the native experience. Migration happens when our tool is proven better.</div>
+        <div class="chart-wrap tall">
+          <canvas id="chart-migration-timeline"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     WHY BRIDGE THEN BUILD
+     ============================================ -->
+<section class="section" style="background: var(--color-white);">
+  <div class="container">
+    <div class="section-label" style="color: var(--infra-color);">Strategic Rationale</div>
+    <div class="section-title">Why "Bridge Then Build" &mdash; Not "Integrate Forever"</div>
+    <div class="section-subtitle">The UX case for building native patient-facing systems, even when existing tools technically work</div>
+
+    <div class="decisions-grid">
+      <div class="decision-card" style="border-top: 3px solid #dc2626;">
+        <h4><span class="decision-icon alert">&#9888;</span> Brand Voice Fragmentation</h4>
         <p>If 160 practices use TrueLark (generic chatbot) and 100 use our Concierge (brand-aware AI), patients get two completely different experiences. For a DSO building a unified brand, that's a problem. TrueLark must be a bridge, not permanent.</p>
       </div>
-      <div class="decision-card" style="border-top: 3px solid #ef4444;">
-        <h4><span class="decision-icon alert">⚠</span> UX Ceiling Risk</h4>
+      <div class="decision-card" style="border-top: 3px solid #dc2626;">
+        <h4><span class="decision-icon alert">&#9888;</span> UX Ceiling Risk</h4>
         <p>Modento's confirmation sequences can't access a patient's funnel stage, H-Score, or content history. Our native Communications Service can. Delegating to Modento permanently means the patient experience hits a ceiling we don't control.</p>
       </div>
-      <div class="decision-card" style="border-top: 3px solid #10b981;">
-        <h4><span class="decision-icon check">✓</span> Deployment Risk Reduction</h4>
+      <div class="decision-card" style="border-top: 3px solid var(--color-model-b);">
+        <h4><span class="decision-icon check">&#10003;</span> Deployment Risk Reduction</h4>
         <p>The bridge strategy lets us launch without retraining 200+ practices on Day 1. Practices keep their current confirmation and chat workflows while we validate our native tools on a smaller cohort. Proven beats promised.</p>
       </div>
-      <div class="decision-card" style="border-top: 3px solid #10b981;">
-        <h4><span class="decision-icon check">✓</span> Data Advantage Retained</h4>
-        <p>Even during the bridge phase, all Modento/TrueLark events flow into our Event Bus. We capture the data for funnel analytics and AI training from Day 1 — the migration to native tools gets smarter over time.</p>
+      <div class="decision-card" style="border-top: 3px solid var(--color-model-b);">
+        <h4><span class="decision-icon check">&#10003;</span> Data Advantage Retained</h4>
+        <p>Even during the bridge phase, all Modento/TrueLark events flow into our Event Bus. We capture the data for funnel analytics and AI training from Day 1 &mdash; the migration to native tools gets smarter over time.</p>
       </div>
-      <div class="decision-card" style="border-top: 3px solid #60a5fa;">
-        <h4><span class="decision-icon check">✓</span> Power BI — The Exception</h4>
+      <div class="decision-card" style="border-top: 3px solid var(--color-model-a);">
+        <h4><span class="decision-icon info">&#10003;</span> Power BI &mdash; The Exception</h4>
         <p>Unlike patient-facing tools, Power BI is an internal analytics tool for HQ executives. We own the data layer (ClickHouse), Power BI is just the rendering choice. If SGA ever wants to switch, the data model doesn't change. This is permanent integration done right.</p>
       </div>
-      <div class="decision-card" style="border-top: 3px solid #60a5fa;">
-        <h4><span class="decision-icon check">✓</span> Contract-Aligned Migration</h4>
-        <p>TrueLark has an enterprise agreement with a renewal date. Our migration timeline should align with contract expiry — avoiding early termination fees while ensuring we're ready to replace it when the window opens.</p>
+      <div class="decision-card" style="border-top: 3px solid var(--color-model-a);">
+        <h4><span class="decision-icon info">&#10003;</span> Contract-Aligned Migration</h4>
+        <p>TrueLark has an enterprise agreement with a renewal date. Our migration timeline should align with contract expiry &mdash; avoiding early termination fees while ensuring we're ready to replace it when the window opens.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Financial Impact -->
-    <div class="section" style="margin-top: 48px;">
-      <div class="section-title">Financial Impact of Stack Integration</div>
-      <div class="section-subtitle">Net cost savings from leveraging existing tools during bridge phase + permanent Power BI integration</div>
-      <div class="chart-grid">
-        <div class="chart-card">
-          <h3>Monthly Vendor Savings at Scale</h3>
-          <div class="chart-desc">Savings from reduced Twilio volume, Cinnamon elimination (if Patient Prism chosen), and ClickHouse downsizing</div>
-          <div class="chart-wrap">
-            <canvas id="chart-vendor-savings"></canvas>
-          </div>
+<!-- ============================================
+     FINANCIAL IMPACT OF STACK INTEGRATION
+     ============================================ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-label" style="color: var(--infra-color);">Financial Impact</div>
+    <div class="section-title">Financial Impact of Stack Integration</div>
+    <div class="section-subtitle">Net cost savings from leveraging existing tools during bridge phase + permanent Power BI integration</div>
+    <div class="chart-grid">
+      <div class="chart-card">
+        <h3>Monthly Vendor Savings at Scale</h3>
+        <div class="chart-desc">Savings from reduced Twilio volume, Cinnamon elimination (if Patient Prism chosen), and ClickHouse downsizing</div>
+        <div class="chart-wrap">
+          <canvas id="chart-vendor-savings"></canvas>
         </div>
-        <div class="chart-card">
-          <h3>Build Time Reallocation</h3>
-          <div class="chart-desc">Weeks saved by using bridge tools, reallocated to differentiated features</div>
-          <div class="chart-wrap">
-            <canvas id="chart-time-saved"></canvas>
-          </div>
+      </div>
+      <div class="chart-card">
+        <h3>Build Time Reallocation</h3>
+        <div class="chart-desc">Weeks saved by using bridge tools, reallocated to differentiated features</div>
+        <div class="chart-wrap">
+          <canvas id="chart-time-saved"></canvas>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Sprint 0 Validation -->
-    <div class="section">
-      <div class="section-title">Sprint 0 Validation Requirements</div>
-      <div class="section-subtitle">Three items must be validated before build begins — these are hard blockers</div>
-      <div class="chart-card full-width">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Validation</th>
-              <th>Owner</th>
-              <th>Status</th>
-              <th>If It Fails</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td><strong>Power BI DirectQuery → ClickHouse</strong><br><span style="color: var(--text-muted); font-size: 12px;">Test ODBC connector, confirm latency &lt; 5s for executive queries</span></td>
-              <td>Platform Architect</td>
-              <td><span class="risk-badge high">Blocker</span></td>
-              <td style="color: var(--text-muted);">Revert to custom React dashboards (add 3-4 weeks to WS1-B)</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td><strong>Modento API Coverage</strong><br><span style="color: var(--text-muted); font-size: 12px;">Confirm webhook availability, confirmation status events, intake form data access</span></td>
-              <td>Integration Architect</td>
-              <td><span class="risk-badge high">Blocker</span></td>
-              <td style="color: var(--text-muted);">Build Twilio-native confirmations from Day 1 (add 2-3 weeks to WS1-A)</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td><strong>SGA Power BI Environment</strong><br><span style="color: var(--text-muted); font-size: 12px;">Confirm licensing tier, gateway infrastructure, data refresh capacity for real-time</span></td>
-              <td>Platform Architect</td>
-              <td><span class="risk-badge high">Blocker</span></td>
-              <td style="color: var(--text-muted);">May need Power BI Premium or Fabric — adds $5K/month or forces custom dashboards</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td><strong>Patient Prism vs. Cinnamon API Comparison</strong><br><span style="color: var(--text-muted); font-size: 12px;">Compare data granularity, call scoring depth, real-time availability</span></td>
-              <td>Integration Architect</td>
-              <td><span class="risk-badge medium">Important</span></td>
-              <td style="color: var(--text-muted);">Default to Cinnamon as originally planned. Patient Prism is upside, not requirement.</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td><strong>TrueLark Contract Renewal Date</strong><br><span style="color: var(--text-muted); font-size: 12px;">Identify enterprise agreement expiry to align Concierge migration timeline</span></td>
-              <td>Product Manager</td>
-              <td><span class="risk-badge medium">Important</span></td>
-              <td style="color: var(--text-muted);">Concierge deploys to non-TrueLark practices regardless. Migration timeline may shift.</td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td><strong>Peer Logic API Capabilities</strong><br><span style="color: var(--text-muted); font-size: 12px;">Confirm call records, missed call events, recording access via API</span></td>
-              <td>Integration Architect</td>
-              <td><span class="risk-badge low">Nice to Have</span></td>
-              <td style="color: var(--text-muted);">Fall back to other phone system connectors (RingCentral/8x8/Weave).</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+<!-- ============================================
+     SPRINT 0 VALIDATION
+     ============================================ -->
+<section class="section" style="background: var(--color-white);">
+  <div class="container">
+    <div class="section-label" style="color: var(--infra-color);">Validation</div>
+    <div class="section-title">Sprint 0 Validation Requirements</div>
+    <div class="section-subtitle">Three items must be validated before build begins &mdash; these are hard blockers</div>
+    <div class="chart-card full-width" style="margin-top: 24px; overflow: hidden;">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Validation</th>
+            <th>Owner</th>
+            <th>Status</th>
+            <th>If It Fails</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><strong>Power BI DirectQuery &rarr; ClickHouse</strong><br><span style="color: var(--color-text-muted); font-size: 12px;">Test ODBC connector, confirm latency &lt; 5s for executive queries</span></td>
+            <td>Platform Architect</td>
+            <td><span class="risk-badge high">Blocker</span></td>
+            <td style="color: var(--color-text-muted);">Revert to custom React dashboards (add 3-4 weeks to WS1-B)</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><strong>Modento API Coverage</strong><br><span style="color: var(--color-text-muted); font-size: 12px;">Confirm webhook availability, confirmation status events, intake form data access</span></td>
+            <td>Integration Architect</td>
+            <td><span class="risk-badge high">Blocker</span></td>
+            <td style="color: var(--color-text-muted);">Build Twilio-native confirmations from Day 1 (add 2-3 weeks to WS1-A)</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><strong>SGA Power BI Environment</strong><br><span style="color: var(--color-text-muted); font-size: 12px;">Confirm licensing tier, gateway infrastructure, data refresh capacity for real-time</span></td>
+            <td>Platform Architect</td>
+            <td><span class="risk-badge high">Blocker</span></td>
+            <td style="color: var(--color-text-muted);">May need Power BI Premium or Fabric &mdash; adds $5K/month or forces custom dashboards</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><strong>Patient Prism vs. Cinnamon API Comparison</strong><br><span style="color: var(--color-text-muted); font-size: 12px;">Compare data granularity, call scoring depth, real-time availability</span></td>
+            <td>Integration Architect</td>
+            <td><span class="risk-badge medium">Important</span></td>
+            <td style="color: var(--color-text-muted);">Default to Cinnamon as originally planned. Patient Prism is upside, not requirement.</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><strong>TrueLark Contract Renewal Date</strong><br><span style="color: var(--color-text-muted); font-size: 12px;">Identify enterprise agreement expiry to align Concierge migration timeline</span></td>
+            <td>Product Manager</td>
+            <td><span class="risk-badge medium">Important</span></td>
+            <td style="color: var(--color-text-muted);">Concierge deploys to non-TrueLark practices regardless. Migration timeline may shift.</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td><strong>Peer Logic API Capabilities</strong><br><span style="color: var(--color-text-muted); font-size: 12px;">Confirm call records, missed call events, recording access via API</span></td>
+            <td>Integration Architect</td>
+            <td><span class="risk-badge low">Nice to Have</span></td>
+            <td style="color: var(--color-text-muted);">Fall back to other phone system connectors (RingCentral/8x8/Weave).</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <!-- Architecture Integrity Statement -->
-    <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(59, 130, 246, 0.08)); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 16px; padding: 32px 40px; margin-top: 48px;">
-      <div style="font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-3); margin-bottom: 12px;">Architecture Integrity</div>
-      <div style="font-size: 18px; font-weight: 700; margin-bottom: 16px;">What does NOT change</div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-        <div style="font-size: 13px; color: var(--text-muted); padding: 8px 0; border-bottom: 1px solid var(--border);">3-workstream structure (Practice Platform, Content Engine, Culture OS)</div>
-        <div style="font-size: 13px; color: var(--text-muted); padding: 8px 0; border-bottom: 1px solid var(--border);">12-layer shared infrastructure design</div>
-        <div style="font-size: 13px; color: var(--text-muted); padding: 8px 0; border-bottom: 1px solid var(--border);">Event-driven architecture (Kafka)</div>
-        <div style="font-size: 13px; color: var(--text-muted); padding: 8px 0; border-bottom: 1px solid var(--border);">ClickHouse analytical backend</div>
-        <div style="font-size: 13px; color: var(--text-muted); padding: 8px 0; border-bottom: 1px solid var(--border);">Custom React for practice-level interfaces</div>
-        <div style="font-size: 13px; color: var(--text-muted); padding: 8px 0; border-bottom: 1px solid var(--border);">Staffing model and cost recommendations</div>
-        <div style="font-size: 13px; color: var(--text-muted); padding: 8px 0; border-bottom: 1px solid var(--border);">Milestone sequence and tier structure</div>
-        <div style="font-size: 13px; color: var(--text-muted); padding: 8px 0; border-bottom: 1px solid var(--border);">36-week build timeline (potentially accelerated)</div>
+    <div class="integrity-banner">
+      <div class="banner-label">Architecture Integrity</div>
+      <div class="banner-title">What does NOT change</div>
+      <div class="integrity-grid">
+        <div class="integrity-item">3-workstream structure (Practice Platform, Content Engine, Culture OS)</div>
+        <div class="integrity-item">12-layer shared infrastructure design</div>
+        <div class="integrity-item">Event-driven architecture (Kafka)</div>
+        <div class="integrity-item">ClickHouse analytical backend</div>
+        <div class="integrity-item">Custom React for practice-level interfaces</div>
+        <div class="integrity-item">Staffing model and cost recommendations</div>
+        <div class="integrity-item">Milestone sequence and tier structure</div>
+        <div class="integrity-item">36-week build timeline (potentially accelerated)</div>
       </div>
-      <div style="margin-top: 20px; font-size: 14px; color: var(--text);"><strong>Bottom line:</strong> All integration recommendations are adapter-level additions within existing services. The platform is designed for the future — existing tools accelerate the launch, they don't constrain the architecture.</div>
+      <div class="integrity-footer"><strong>Bottom line:</strong> All integration recommendations are adapter-level additions within existing services. The platform is designed for the future &mdash; existing tools accelerate the launch, they don't constrain the architecture.</div>
     </div>
-
   </div>
+</section>
 
-  <!-- ============================================================ -->
-  <!-- ORIGINAL KEY DECISIONS SECTION                               -->
-  <!-- ============================================================ -->
-
-  <!-- Key Decisions -->
-  <div id="decisions" class="section">
+<!-- ============================================
+     KEY DECISIONS
+     ============================================ -->
+<section id="decisions" class="section section--alt">
+  <div class="container">
+    <div class="section-label">Action Items</div>
     <div class="section-title">Key Decisions & Next Steps</div>
     <div class="section-subtitle">Items requiring action before budget finalization</div>
-  </div>
-  <div class="decisions">
-    <div class="decision-card">
-      <h4><span class="decision-icon alert">⚠</span> NexHealth Pricing</h4>
-      <p>Largest vendor uncertainty. Enterprise DSO pricing for 260+ practices could range $5K-$15K/month. Get a formal quote immediately — this swings Year 1 by $60-120K.</p>
-    </div>
-    <div class="decision-card">
-      <h4><span class="decision-icon alert">⚠</span> Existing SGA Contracts</h4>
-      <p>Swell, Cinnamon, Dental Intel, iSolved are likely already contracted by SGA. Auditing existing contracts could eliminate $30-60K/year in vendor costs.</p>
-    </div>
-    <div class="decision-card">
-      <h4><span class="decision-icon alert">⚠</span> Dental Intel API</h4>
-      <p>No public API exists. Integration feasibility and pricing need direct vendor confirmation. May require a partnership agreement.</p>
-    </div>
-    <div class="decision-card">
-      <h4><span class="decision-icon check">✓</span> 2-Week Spike Test</h4>
-      <p>Before committing to Model B, run a 2-week proof-of-concept: one architect + AI agents build 1-2 services to validate velocity assumptions.</p>
-    </div>
-    <div class="decision-card">
-      <h4><span class="decision-icon check">✓</span> Architect Selection</h4>
-      <p>Model B lives or dies on 2-3 exceptional architects. Identify candidates with HIPAA, Kafka, AWS, and AI agent orchestration experience.</p>
-    </div>
-    <div class="decision-card">
-      <h4><span class="decision-icon alert">⚠</span> Datadog vs CloudWatch</h4>
-      <p>$15-18K/year decision. Datadog provides better observability but adds cost and requires its own BAA. CloudWatch is included with AWS.</p>
-    </div>
-  </div>
 
-  <!-- Footer -->
-  <div class="footer">
+    <div class="decisions-grid">
+      <div class="decision-card">
+        <h4><span class="decision-icon alert">&#9888;</span> NexHealth Pricing</h4>
+        <p>Largest vendor uncertainty. Enterprise DSO pricing for 260+ practices could range $5K-$15K/month. Get a formal quote immediately &mdash; this swings Year 1 by $60-120K.</p>
+      </div>
+      <div class="decision-card">
+        <h4><span class="decision-icon alert">&#9888;</span> Existing SGA Contracts</h4>
+        <p>Swell, Cinnamon, Dental Intel, iSolved are likely already contracted by SGA. Auditing existing contracts could eliminate $30-60K/year in vendor costs.</p>
+      </div>
+      <div class="decision-card">
+        <h4><span class="decision-icon alert">&#9888;</span> Dental Intel API</h4>
+        <p>No public API exists. Integration feasibility and pricing need direct vendor confirmation. May require a partnership agreement.</p>
+      </div>
+      <div class="decision-card">
+        <h4><span class="decision-icon check">&#10003;</span> 2-Week Spike Test</h4>
+        <p>Before committing to Model B, run a 2-week proof-of-concept: one architect + AI agents build 1-2 services to validate velocity assumptions.</p>
+      </div>
+      <div class="decision-card">
+        <h4><span class="decision-icon check">&#10003;</span> Architect Selection</h4>
+        <p>Model B lives or dies on 2-3 exceptional architects. Identify candidates with HIPAA, Kafka, AWS, and AI agent orchestration experience.</p>
+      </div>
+      <div class="decision-card">
+        <h4><span class="decision-icon alert">&#9888;</span> Datadog vs CloudWatch</h4>
+        <p>$15-18K/year decision. Datadog provides better observability but adds cost and requires its own BAA. CloudWatch is included with AWS.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="footer">
+  <div class="container">
     <div class="footer-links">
       <a href="sga-portfolio-consolidation.html">Full Architecture & Roadmap</a>
       <a href="index.html">&larr; All Sprints</a>
     </div>
-    <p>Prepared by Finance, Development, and Product Design Agents — Citizen & Partners | bilt.studio</p>
-    <p style="margin-top: 8px; font-size: 11px;">All pricing based on published rates and market research as of March 2026. Formal vendor quotes should replace estimates before budget finalization.</p>
+    <p class="footer-brand">SGA Dental Partners</p>
+    <p>Cost & Integration Analysis | Prepared March 2026</p>
+    <p style="margin-top: 8px; font-size: 12px;">Prepared by Finance, Development, and Product Design Agents &mdash; Citizen & Partners | bilt.studio</p>
+    <p style="font-size: 11px; margin-top: 4px;">All pricing based on published rates and market research as of March 2026.</p>
   </div>
+</footer>
 
-</div>
-
+<!-- ============================================
+     CHART.JS SCRIPTS
+     ============================================ -->
 <script>
-  Chart.defaults.color = '#8896a8';
-  Chart.defaults.borderColor = '#1e2d3d';
-  Chart.defaults.font.family = "'Inter', -apple-system, sans-serif";
+  // ============================================
+  // CHART DEFAULTS (Light Mode)
+  // ============================================
+  Chart.defaults.color = '#718096';
+  Chart.defaults.borderColor = '#e2e8f0';
+  Chart.defaults.font.family = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
 
-  const RED = '#f87171';
-  const BLUE = '#60a5fa';
-  const GREEN = '#34d399';
-  const RED_BG = 'rgba(248, 113, 113, 0.8)';
-  const BLUE_BG = 'rgba(96, 165, 250, 0.8)';
-  const GREEN_BG = 'rgba(52, 211, 153, 0.8)';
-  const RED_LIGHT = 'rgba(248, 113, 113, 0.5)';
-  const BLUE_LIGHT = 'rgba(96, 165, 250, 0.5)';
-  const GREEN_LIGHT = 'rgba(52, 211, 153, 0.5)';
+  const RED = '#dc2626';
+  const BLUE = '#2563eb';
+  const GREEN = '#059669';
+  const RED_BG = 'rgba(220, 38, 38, 0.8)';
+  const BLUE_BG = 'rgba(37, 99, 235, 0.8)';
+  const GREEN_BG = 'rgba(5, 150, 105, 0.8)';
+  const RED_LIGHT = 'rgba(220, 38, 38, 0.4)';
+  const BLUE_LIGHT = 'rgba(37, 99, 235, 0.4)';
+  const GREEN_LIGHT = 'rgba(5, 150, 105, 0.4)';
 
-  // Chart 1: 2-Year Total Cost
+  const GRID_COLOR = '#e2e8f0';
+
+  // ============================================
+  // Chart 1: 2-Year Total Cost (Stacked Bar)
+  // ============================================
   new Chart(document.getElementById('chart-total-cost'), {
     type: 'bar',
     data: {
@@ -1206,12 +1648,14 @@
       plugins: { legend: { position: 'top' }, tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': $' + ctx.raw + 'K' }}},
       scales: {
         x: { stacked: true, grid: { display: false } },
-        y: { stacked: true, ticks: { callback: v => '$' + v + 'K' }, grid: { color: '#1e2d3d' }}
+        y: { stacked: true, ticks: { callback: v => '$' + v + 'K' }, grid: { color: GRID_COLOR }}
       }
     }
   });
 
-  // Chart 2: Cost Per Practice
+  // ============================================
+  // Chart 2: Cost Per Practice (Horizontal Bar)
+  // ============================================
   new Chart(document.getElementById('chart-per-practice'), {
     type: 'bar',
     data: {
@@ -1228,13 +1672,15 @@
       indexAxis: 'y',
       plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => '$' + ctx.raw.toLocaleString() }}},
       scales: {
-        x: { ticks: { callback: v => '$' + (v/1000) + 'K' }, grid: { color: '#1e2d3d' }},
+        x: { ticks: { callback: v => '$' + (v/1000) + 'K' }, grid: { color: GRID_COLOR }},
         y: { grid: { display: false }}
       }
     }
   });
 
-  // Chart 3: Monthly Burn Rate
+  // ============================================
+  // Chart 3: Monthly Burn Rate (Line)
+  // ============================================
   new Chart(document.getElementById('chart-monthly-burn'), {
     type: 'line',
     data: {
@@ -1243,19 +1689,19 @@
         {
           label: 'Traditional',
           data: [287, 275, 278, 463, 463, 478, 488, 498, 465, 208, 208, 208],
-          borderColor: RED, backgroundColor: 'rgba(248,113,113,0.1)',
+          borderColor: RED, backgroundColor: 'rgba(220,38,38,0.06)',
           fill: true, tension: 0.3, borderWidth: 2, pointRadius: 4
         },
         {
           label: 'Model A',
           data: [84, 123, 128, 151, 160, 149, 149, 149, 133, 114, 114, 114],
-          borderColor: BLUE, backgroundColor: 'rgba(96,165,250,0.1)',
+          borderColor: BLUE, backgroundColor: 'rgba(37,99,235,0.06)',
           fill: true, tension: 0.3, borderWidth: 2, pointRadius: 4
         },
         {
           label: 'Model B',
           data: [72, 94, 100, 120, 129, 108, 108, 108, 96, 50, 50, 50],
-          borderColor: GREEN, backgroundColor: 'rgba(52,211,153,0.1)',
+          borderColor: GREEN, backgroundColor: 'rgba(5,150,105,0.06)',
           fill: true, tension: 0.3, borderWidth: 2, pointRadius: 4
         }
       ]
@@ -1268,20 +1714,23 @@
       },
       scales: {
         x: { grid: { display: false } },
-        y: { ticks: { callback: v => '$' + v + 'K' }, grid: { color: '#1e2d3d' }}
+        y: { ticks: { callback: v => '$' + v + 'K' }, grid: { color: GRID_COLOR }}
       }
     }
   });
 
-  // Chart 4: Model A Breakdown
+  // ============================================
+  // Chart 4: Model A Breakdown (Doughnut)
+  // ============================================
   new Chart(document.getElementById('chart-breakdown-a'), {
     type: 'doughnut',
     data: {
       labels: ['Human Team', 'Vendors & SaaS', 'AI Dev Tooling', 'One-Time + Contingency'],
       datasets: [{
         data: [1014, 480, 44, 262],
-        backgroundColor: ['#60a5fa', '#f59e0b', '#a78bfa', '#6b7280'],
-        borderWidth: 0
+        backgroundColor: ['#2563eb', '#d97706', '#7c3aed', '#6b7280'],
+        borderWidth: 2,
+        borderColor: '#ffffff'
       }]
     },
     options: {
@@ -1294,15 +1743,18 @@
     }
   });
 
-  // Chart 5: Model B Breakdown
+  // ============================================
+  // Chart 5: Model B Breakdown (Doughnut)
+  // ============================================
   new Chart(document.getElementById('chart-breakdown-b'), {
     type: 'doughnut',
     data: {
       labels: ['Architects + Specialists', 'Vendors & SaaS', 'AI Workforce', 'One-Time + Contingency'],
       datasets: [{
         data: [664, 480, 62, 194],
-        backgroundColor: ['#34d399', '#f59e0b', '#a78bfa', '#6b7280'],
-        borderWidth: 0
+        backgroundColor: ['#059669', '#d97706', '#7c3aed', '#6b7280'],
+        borderWidth: 2,
+        borderColor: '#ffffff'
       }]
     },
     options: {
@@ -1315,16 +1767,18 @@
     }
   });
 
-  // Chart 6: Human vs AI cost structure
+  // ============================================
+  // Chart 6: Human vs AI (100% Stacked Bar)
+  // ============================================
   new Chart(document.getElementById('chart-human-vs-ai'), {
     type: 'bar',
     data: {
       labels: ['Traditional', 'Model A', 'Model B'],
       datasets: [
-        { label: 'Human Labor', data: [75, 51, 35], backgroundColor: ['rgba(248,113,113,0.8)', 'rgba(96,165,250,0.8)', 'rgba(52,211,153,0.8)'] },
-        { label: 'Vendors + Infrastructure', data: [15, 32, 40], backgroundColor: ['rgba(245,158,11,0.6)', 'rgba(245,158,11,0.6)', 'rgba(245,158,11,0.6)'] },
-        { label: 'AI Tooling + Ops', data: [0, 3, 5], backgroundColor: ['rgba(167,139,250,0.6)', 'rgba(167,139,250,0.6)', 'rgba(167,139,250,0.6)'] },
-        { label: 'Other', data: [10, 14, 20], backgroundColor: ['rgba(107,114,128,0.5)', 'rgba(107,114,128,0.5)', 'rgba(107,114,128,0.5)'] }
+        { label: 'Human Labor', data: [75, 51, 35], backgroundColor: ['rgba(220,38,38,0.8)', 'rgba(37,99,235,0.8)', 'rgba(5,150,105,0.8)'] },
+        { label: 'Vendors + Infrastructure', data: [15, 32, 40], backgroundColor: ['rgba(217,119,6,0.6)', 'rgba(217,119,6,0.6)', 'rgba(217,119,6,0.6)'] },
+        { label: 'AI Tooling + Ops', data: [0, 3, 5], backgroundColor: ['rgba(124,58,237,0.6)', 'rgba(124,58,237,0.6)', 'rgba(124,58,237,0.6)'] },
+        { label: 'Other', data: [10, 14, 20], backgroundColor: ['rgba(107,114,128,0.4)', 'rgba(107,114,128,0.4)', 'rgba(107,114,128,0.4)'] }
       ]
     },
     options: {
@@ -1335,12 +1789,14 @@
       },
       scales: {
         x: { stacked: true, grid: { display: false } },
-        y: { stacked: true, max: 100, ticks: { callback: v => v + '%' }, grid: { color: '#1e2d3d' }}
+        y: { stacked: true, max: 100, ticks: { callback: v => v + '%' }, grid: { color: GRID_COLOR }}
       }
     }
   });
 
-  // Chart 7: Ops Cost
+  // ============================================
+  // Chart 7: Ops Cost (Bar)
+  // ============================================
   new Chart(document.getElementById('chart-ops-cost'), {
     type: 'bar',
     data: {
@@ -1360,20 +1816,23 @@
       },
       scales: {
         x: { grid: { display: false } },
-        y: { ticks: { callback: v => '$' + v + 'K' }, grid: { color: '#1e2d3d' }}
+        y: { ticks: { callback: v => '$' + v + 'K' }, grid: { color: GRID_COLOR }}
       }
     }
   });
 
-  // Chart 8: Agent Coverage
+  // ============================================
+  // Chart 8: Agent Coverage (Doughnut)
+  // ============================================
   new Chart(document.getElementById('chart-agent-coverage'), {
     type: 'doughnut',
     data: {
       labels: ['Auto-resolved by Agents', 'Agent + Slack notify', 'Human escalation (SGA IT)', 'External engineer'],
       datasets: [{
         data: [70, 20, 8, 2],
-        backgroundColor: ['#34d399', '#60a5fa', '#f59e0b', '#f87171'],
-        borderWidth: 0
+        backgroundColor: ['#059669', '#2563eb', '#d97706', '#dc2626'],
+        borderWidth: 2,
+        borderColor: '#ffffff'
       }]
     },
     options: {
@@ -1386,14 +1845,9 @@
     }
   });
 
-  // ============================================================
-  // TECH STACK INTEGRATION CHARTS
-  // ============================================================
-
-  const PURPLE = '#a78bfa';
-  const PURPLE_BG = 'rgba(167, 139, 250, 0.8)';
-
-  // Chart 9: Stack Adoption
+  // ============================================
+  // Chart 9: Stack Adoption (Horizontal Bar)
+  // ============================================
   new Chart(document.getElementById('chart-stack-adoption'), {
     type: 'bar',
     data: {
@@ -1412,15 +1866,15 @@
         label: 'Practice Adoption %',
         data: [100, 96, 96, 95, 85, 84, 79, 78, 61],
         backgroundColor: [
-          'rgba(107,114,128,0.6)',  // Method - no overlap (gray)
-          'rgba(107,114,128,0.6)',  // PMS - already planned (gray)
-          GREEN_BG,                  // Power BI - integrate
-          GREEN_BG,                  // Dental Intel - integrate
-          GREEN_BG,                  // Patient Prism - integrate
-          'rgba(107,114,128,0.6)',  // Pearly - no overlap (gray)
-          'rgba(245,158,11,0.8)',   // Modento - bridge (amber)
-          GREEN_BG,                  // Peer Logic - integrate
-          'rgba(245,158,11,0.8)'   // TrueLark - bridge (amber)
+          'rgba(107,114,128,0.5)',   // Method - no overlap (gray)
+          'rgba(107,114,128,0.5)',   // PMS - already planned (gray)
+          GREEN_BG,                   // Power BI - integrate
+          GREEN_BG,                   // Dental Intel - integrate
+          GREEN_BG,                   // Patient Prism - integrate
+          'rgba(107,114,128,0.5)',   // Pearly - no overlap (gray)
+          'rgba(217,119,6,0.7)',     // Modento - bridge (amber)
+          GREEN_BG,                   // Peer Logic - integrate
+          'rgba(217,119,6,0.7)'      // TrueLark - bridge (amber)
         ],
         borderRadius: 6
       }]
@@ -1433,13 +1887,15 @@
         tooltip: { callbacks: { label: ctx => ctx.raw + '% of practices' }}
       },
       scales: {
-        x: { max: 100, ticks: { callback: v => v + '%' }, grid: { color: '#1e2d3d' }},
+        x: { max: 100, ticks: { callback: v => v + '%' }, grid: { color: GRID_COLOR }},
         y: { grid: { display: false } }
       }
     }
   });
 
-  // Chart 10: Migration Timeline (Gantt-style horizontal bar)
+  // ============================================
+  // Chart 10: Migration Timeline (Gantt)
+  // ============================================
   new Chart(document.getElementById('chart-migration-timeline'), {
     type: 'bar',
     data: {
@@ -1468,7 +1924,7 @@
             null,       // Native Concierge
             null        // Native Comms
           ],
-          backgroundColor: 'rgba(245, 158, 11, 0.6)',
+          backgroundColor: 'rgba(217, 119, 6, 0.5)',
           borderRadius: 4
         },
         {
@@ -1484,7 +1940,7 @@
             [7, 36],    // Concierge builds from Week 7
             [7, 36]     // Comms builds from Week 7
           ],
-          backgroundColor: 'rgba(52, 211, 153, 0.7)',
+          backgroundColor: 'rgba(5, 150, 105, 0.6)',
           borderRadius: 4
         }
       ]
@@ -1498,7 +1954,7 @@
           callbacks: {
             label: function(ctx) {
               if (!ctx.raw) return '';
-              return ctx.dataset.label + ': Week ' + ctx.raw[0] + ' – ' + ctx.raw[1];
+              return ctx.dataset.label + ': Week ' + ctx.raw[0] + ' \u2013 ' + ctx.raw[1];
             }
           }
         }
@@ -1520,20 +1976,22 @@
             autoSkip: false,
             maxRotation: 0
           },
-          grid: { color: '#1e2d3d' }
+          grid: { color: GRID_COLOR }
         },
         y: { grid: { display: false } }
       }
     }
   });
 
-  // Chart 11: Vendor Savings
+  // ============================================
+  // Chart 11: Vendor Savings (Bar)
+  // ============================================
   new Chart(document.getElementById('chart-vendor-savings'), {
     type: 'bar',
     data: {
       labels: [
         'Twilio Volume\nReduction',
-        'Cinnamon →\nPatient Prism',
+        'Cinnamon \u2192\nPatient Prism',
         'ClickHouse\nDownsizing',
         'Power BI\nGateway Cost'
       ],
@@ -1541,10 +1999,10 @@
         label: 'Monthly Impact',
         data: [-4.5, -4.0, -0.3, 0.1],
         backgroundColor: [
-          'rgba(52, 211, 153, 0.8)',
-          'rgba(52, 211, 153, 0.8)',
-          'rgba(52, 211, 153, 0.8)',
-          'rgba(248, 113, 113, 0.8)'
+          'rgba(5, 150, 105, 0.7)',
+          'rgba(5, 150, 105, 0.7)',
+          'rgba(5, 150, 105, 0.7)',
+          'rgba(220, 38, 38, 0.7)'
         ],
         borderRadius: 6
       }]
@@ -1559,26 +2017,29 @@
         x: { grid: { display: false } },
         y: {
           ticks: { callback: v => (v > 0 ? '+' : '') + '$' + v + 'K' },
-          grid: { color: '#1e2d3d' }
+          grid: { color: GRID_COLOR }
         }
       }
     }
   });
 
-  // Chart 12: Build Time Reallocation
+  // ============================================
+  // Chart 12: Build Time Reallocation (Doughnut)
+  // ============================================
   new Chart(document.getElementById('chart-time-saved'), {
     type: 'doughnut',
     data: {
       labels: [
-        'Executive Dashboard → Power BI (3-4 wks)',
-        'Confirmations → Modento Bridge (2-3 wks)',
-        'PHI Detection → OursPrivacy (1-2 wks)',
+        'Executive Dashboard \u2192 Power BI (3-4 wks)',
+        'Confirmations \u2192 Modento Bridge (2-3 wks)',
+        'PHI Detection \u2192 OursPrivacy (1-2 wks)',
         'Remaining Build Scope'
       ],
       datasets: [{
         data: [3.5, 2.5, 1.5, 28.5],
-        backgroundColor: ['#34d399', '#f59e0b', '#a78bfa', 'rgba(107,114,128,0.3)'],
-        borderWidth: 0
+        backgroundColor: ['#059669', '#d97706', '#7c3aed', 'rgba(107,114,128,0.2)'],
+        borderWidth: 2,
+        borderColor: '#ffffff'
       }]
     },
     options: {
@@ -1591,9 +2052,9 @@
     }
   });
 
-  // ============================================================
-  // NAVIGATION — Active section highlighting + mobile close
-  // ============================================================
+  // ============================================
+  // NAVIGATION: Active section highlighting + mobile close
+  // ============================================
   (function() {
     const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
     const sections = [];
