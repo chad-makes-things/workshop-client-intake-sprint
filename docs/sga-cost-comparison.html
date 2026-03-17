@@ -378,6 +378,144 @@
     font-size: 13px;
   }
 
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: var(--accent-3); }
+
+  /* Sticky Navigation */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 14, 23, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+  }
+
+  .nav-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+  }
+
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .nav-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 4px 10px;
+    border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
+    white-space: nowrap;
+  }
+
+  .nav-back:hover {
+    color: var(--accent);
+    background: rgba(59, 130, 246, 0.1);
+  }
+
+  .nav-brand {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text);
+    white-space: nowrap;
+  }
+
+  .nav-brand span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 4px;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-links::-webkit-scrollbar { display: none; }
+
+  .nav-links a {
+    display: block;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: color 0.15s, background 0.15s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--accent-3);
+    background: rgba(16, 185, 129, 0.1);
+  }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: var(--text);
+    font-size: 20px;
+  }
+
+  /* Glossary tooltip */
+  .glossary-term {
+    border-bottom: 1px dashed var(--text-muted);
+    cursor: help;
+    position: relative;
+  }
+
+  .glossary-term:hover::after {
+    content: attr(data-definition);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 12px;
+    color: var(--text);
+    white-space: nowrap;
+    max-width: 300px;
+    white-space: normal;
+    z-index: 50;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    pointer-events: none;
+  }
+
   @media (max-width: 1100px) {
     .summary-row { grid-template-columns: repeat(2, 1fr); }
   }
@@ -388,18 +526,60 @@
     .decisions { grid-template-columns: 1fr; }
     .savings-banner { flex-direction: column; text-align: center; }
     .header h1 { font-size: 28px; }
+    .nav-links { display: none; }
+    .nav-links.active { display: flex; flex-direction: column; position: absolute; top: 52px; left: 0; right: 0; background: rgba(10, 14, 23, 0.98); border-bottom: 1px solid var(--border); padding: 12px; gap: 4px; z-index: 99; }
+    .nav-toggle { display: block; }
+    .chart-wrap { height: 280px !important; }
+    .chart-wrap.tall { height: 320px !important; }
+  }
+
+  @media (max-width: 768px) {
+    .principle-grid { grid-template-columns: 1fr !important; }
+    .summary-row[style*="repeat(4"] { grid-template-columns: repeat(2, 1fr) !important; }
+    .comparison-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  }
+
+  @media (max-width: 600px) {
+    .header h1 { font-size: 22px; }
+    .header p { font-size: 14px; }
+    .comparison-table { font-size: 12px; }
+    .comparison-table th, .comparison-table td { padding: 10px 8px; }
+    .container { padding: 24px 16px; }
+    .summary-row[style*="repeat(4"] { grid-template-columns: 1fr !important; }
+    .nav-brand { font-size: 12px; }
   }
 </style>
 </head>
 <body>
 
+<!-- Sticky Navigation -->
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="index.html" class="nav-back">&larr; All Sprints</a>
+      <span class="nav-brand">SGA Dental Partners | <span>Cost &amp; Integration</span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#cost-models">Cost Models</a></li>
+      <li><a href="#monthly-burn">Monthly Burn</a></li>
+      <li><a href="#cost-breakdown">Breakdown</a></li>
+      <li><a href="#operations">Operations</a></li>
+      <li><a href="#vendors">Vendors</a></li>
+      <li><a href="#tech-stack">Tech Stack</a></li>
+      <li><a href="#decisions">Decisions</a></li>
+      <li><a href="sga-portfolio-consolidation.html" style="color: var(--accent); border-left: 1px solid var(--border); padding-left: 16px; margin-left: 4px;">View Full Plan &rarr;</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')" aria-label="Toggle navigation">&#9776;</button>
+  </div>
+</nav>
+
 <div class="container">
 
   <!-- Header -->
-  <div class="header">
+  <div id="cost-models" class="header">
     <div class="label">Financial Planning Report</div>
     <h1>SGA Platform Cost Comparison</h1>
-    <p>Three build models compared: Traditional 20-person team, AI-First team (5-6 people), and Super Architects + AI Workforce (2-3 people)</p>
+    <p>Three build models compared: Traditional 20-person team, AI-First team (5-6 people), and Super Architects + AI Workforce (2-3 people). For the full architecture and roadmap, see the <a href="sga-portfolio-consolidation.html" style="color: var(--accent); text-decoration: underline;">Sprint Portfolio Consolidation</a>.</p>
   </div>
 
   <!-- Summary Cards -->
@@ -486,7 +666,7 @@
   </div>
 
   <!-- Chart Section 2: Monthly Burn -->
-  <div class="section">
+  <div id="monthly-burn" class="section">
     <div class="section-title">Monthly Burn Rate Over Time</div>
     <div class="section-subtitle">How cash flows month-by-month across the 12-month Year 1 period</div>
     <div class="chart-grid">
@@ -502,7 +682,7 @@
 
   <!-- Chart Section 3: Cost Breakdown -->
   <div class="section">
-    <div class="section-title">Where the Money Goes</div>
+    <div id="cost-breakdown" class="section-title">Where the Money Goes</div>
     <div class="section-subtitle">Cost composition by category for each model</div>
     <div class="chart-grid">
       <div class="chart-card">
@@ -538,7 +718,7 @@
   </div>
 
   <!-- Chart Section 5: Ops Cost -->
-  <div class="section">
+  <div id="operations" class="section">
     <div class="section-title">Ongoing Operations Cost</div>
     <div class="section-subtitle">Monthly steady-state cost once the platform is live (Month 10+)</div>
     <div class="chart-grid">
@@ -560,7 +740,7 @@
   </div>
 
   <!-- Vendor Cost Table -->
-  <div class="section vendor-section">
+  <div id="vendors" class="section vendor-section">
     <div class="section-title">Top Vendor Costs at Scale</div>
     <div class="section-subtitle">Monthly recurring costs at 260 practices (same across all models)</div>
     <div class="chart-card full-width">
@@ -624,18 +804,34 @@
   <!-- TECH STACK INTEGRATION STRATEGY SECTION                      -->
   <!-- ============================================================ -->
 
-  <div style="margin-top: 80px; margin-bottom: 60px; border-top: 2px solid var(--border); padding-top: 60px;">
+  <div id="tech-stack" style="margin-top: 80px; margin-bottom: 60px; border-top: 2px solid var(--border); padding-top: 60px;">
     <div class="header" style="margin-bottom: 48px;">
-      <div class="label" style="background: rgba(139, 92, 246, 0.1); color: #a78bfa;">Tech Stack Evaluation</div>
-      <h1 style="font-size: 36px;">Existing Stack Integration Strategy</h1>
-      <p>SGA operates 17 production systems across 260 practices. Our architecture leverages what works, replaces what limits, and builds for the future.</p>
+      <div class="label" style="background: rgba(139, 92, 246, 0.1); color: #a78bfa;">Tech Stack Integration</div>
+      <h1 style="font-size: 36px;">Leveraging SGA's Existing Systems</h1>
+      <p>SGA already operates 17 production systems across 260 practices. Rather than replace everything, we evaluated each tool against our architecture to find where existing systems accelerate the launch — and where building native is critical for the patient experience. The architecture and roadmap remain unchanged; these are adapter-level integration decisions.</p>
+    </div>
+
+    <!-- Key Terms -->
+    <div style="display: flex; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; justify-content: center;">
+      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: 8px 20px; font-size: 12px;">
+        <span style="color: #f59e0b; font-weight: 700;">Bridge Tool</span>
+        <span style="color: var(--text-muted);"> = Existing vendor system we use temporarily at launch</span>
+      </div>
+      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: 8px 20px; font-size: 12px;">
+        <span style="color: #34d399; font-weight: 700;">Native</span>
+        <span style="color: var(--text-muted);"> = Our custom-built system designed for the long term</span>
+      </div>
+      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: 8px 20px; font-size: 12px;">
+        <span style="color: #60a5fa; font-weight: 700;">Integrate</span>
+        <span style="color: var(--text-muted);"> = Keep permanently — we own the data layer, they render it</span>
+      </div>
     </div>
 
     <!-- Design Principle Banner -->
     <div style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1)); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 16px; padding: 32px 40px; margin-bottom: 48px;">
       <div style="font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #a78bfa; margin-bottom: 12px;">Design Principle</div>
-      <div style="font-size: 20px; font-weight: 700; margin-bottom: 16px;">Build native where patients see it. Integrate where operators benefit. Abstract everything else.</div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 20px;">
+      <div style="font-size: 20px; font-weight: 700; margin-bottom: 16px;">Build native where patients see it. Integrate where operators benefit.</div>
+      <div class="principle-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 20px;">
         <div style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 20px;">
           <div style="font-size: 13px; font-weight: 600; color: #34d399; margin-bottom: 6px;">Patient-Facing Touchpoints</div>
           <div style="font-size: 13px; color: var(--text-muted);">Build native. Our UX, our voice, our intelligence. Existing tools are transitional bridges with hard migration dates.</div>
@@ -646,7 +842,7 @@
         </div>
         <div style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 20px;">
           <div style="font-size: 13px; font-weight: 600; color: #f59e0b; margin-bottom: 6px;">Data Sources</div>
-          <div style="font-size: 13px; color: var(--text-muted);">Integrate whatever gives the best signal. Abstraction layer means we swap providers without UX impact.</div>
+          <div style="font-size: 13px; color: var(--text-muted);">Integrate whatever gives the best signal. Our data layer means we can swap a vendor later without disrupting anything.</div>
         </div>
       </div>
     </div>
@@ -654,9 +850,9 @@
     <!-- Impact Summary Cards -->
     <div class="summary-row" style="grid-template-columns: repeat(4, 1fr);">
       <div class="summary-card" style="border-top: 3px solid #a78bfa;">
-        <div class="model-label" style="color: #a78bfa;">Build Acceleration</div>
+        <div class="model-label" style="color: #a78bfa;">Launch Acceleration</div>
         <div class="big-number" style="color: #a78bfa; font-size: 40px;">6-9 wks</div>
-        <div class="big-label">Saved & Reallocated</div>
+        <div class="big-label">Faster by Using Bridges</div>
       </div>
       <div class="summary-card" style="border-top: 3px solid var(--accent-3);">
         <div class="model-label" style="color: var(--accent-3);">Vendor Cost Reduction</div>
@@ -937,7 +1133,7 @@
   <!-- ============================================================ -->
 
   <!-- Key Decisions -->
-  <div class="section">
+  <div id="decisions" class="section">
     <div class="section-title">Key Decisions & Next Steps</div>
     <div class="section-subtitle">Items requiring action before budget finalization</div>
   </div>
@@ -970,6 +1166,10 @@
 
   <!-- Footer -->
   <div class="footer">
+    <div class="footer-links">
+      <a href="sga-portfolio-consolidation.html">Full Architecture & Roadmap</a>
+      <a href="index.html">&larr; All Sprints</a>
+    </div>
     <p>Prepared by Finance, Development, and Product Design Agents — Citizen & Partners | bilt.studio</p>
     <p style="margin-top: 8px; font-size: 11px;">All pricing based on published rates and market research as of March 2026. Formal vendor quotes should replace estimates before budget finalization.</p>
   </div>
@@ -1390,6 +1590,43 @@
       }
     }
   });
+
+  // ============================================================
+  // NAVIGATION — Active section highlighting + mobile close
+  // ============================================================
+  (function() {
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    const sections = [];
+    navLinks.forEach(link => {
+      const id = link.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) sections.push({ el, link });
+    });
+
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        requestAnimationFrame(function() {
+          const scrollY = window.scrollY + 100;
+          let active = sections[0];
+          sections.forEach(s => {
+            if (s.el.offsetTop <= scrollY) active = s;
+          });
+          navLinks.forEach(l => l.classList.remove('active'));
+          if (active) active.link.classList.add('active');
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Close mobile nav on link click
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        document.getElementById('navLinks').classList.remove('active');
+      });
+    });
+  })();
 </script>
 
 </body>
