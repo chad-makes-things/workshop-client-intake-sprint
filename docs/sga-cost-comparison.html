@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SGA Platform — Cost Model Comparison</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #0a0e17;
+    --surface: #111827;
+    --surface-2: #1a2332;
+    --border: #1e2d3d;
+    --text: #e2e8f0;
+    --text-muted: #8896a8;
+    --accent: #3b82f6;
+    --accent-2: #8b5cf6;
+    --accent-3: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --success: #10b981;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .header .label {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(59, 130, 246, 0.1);
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  .header h1 {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #e2e8f0, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .header p {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Summary Cards */
+  .summary-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+
+  .summary-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .summary-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+  }
+
+  .summary-card.traditional::before { background: var(--danger); }
+  .summary-card.model-a::before { background: var(--accent); }
+  .summary-card.model-b::before { background: var(--accent-3); }
+
+  .summary-card .model-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .summary-card.traditional .model-label { color: var(--danger); }
+  .summary-card.model-a .model-label { color: var(--accent); }
+  .summary-card.model-b .model-label { color: var(--accent-3); }
+
+  .summary-card .model-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-muted);
+  }
+
+  .summary-card .big-number {
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 4px;
+  }
+
+  .summary-card.traditional .big-number { color: var(--danger); }
+  .summary-card.model-a .big-number { color: var(--accent); }
+  .summary-card.model-b .big-number { color: var(--accent-3); }
+
+  .summary-card .big-label {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  .summary-card .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+  }
+
+  .summary-card .stat-value {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .summary-card .stat-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Savings Banner */
+  .savings-banner {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 16px;
+    padding: 32px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .savings-banner .savings-text {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .savings-banner .savings-text span {
+    color: var(--accent-3);
+  }
+
+  .savings-items {
+    display: flex;
+    gap: 32px;
+  }
+
+  .savings-item {
+    text-align: center;
+  }
+
+  .savings-item .pct {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--accent-3);
+  }
+
+  .savings-item .pct-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Chart Sections */
+  .section {
+    margin-bottom: 48px;
+  }
+
+  .section-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .section-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .chart-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .chart-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+  }
+
+  .chart-card.full-width {
+    grid-column: 1 / -1;
+  }
+
+  .chart-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .chart-card .chart-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  .chart-wrap {
+    position: relative;
+    height: 320px;
+  }
+
+  .chart-wrap.tall {
+    height: 400px;
+  }
+
+  /* Comparison Table */
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .comparison-table th {
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .comparison-table td:first-child {
+    font-weight: 500;
+  }
+
+  .comparison-table .traditional-col { color: #f87171; }
+  .comparison-table .model-a-col { color: #60a5fa; }
+  .comparison-table .model-b-col { color: #34d399; font-weight: 600; }
+
+  .comparison-table tr:hover {
+    background: rgba(255,255,255,0.02);
+  }
+
+  /* Vendor Table */
+  .vendor-section {
+    margin-top: 48px;
+  }
+
+  .risk-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .risk-badge.high {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+  }
+
+  .risk-badge.medium {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+  }
+
+  .risk-badge.low {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+  }
+
+  /* Key Decisions */
+  .decisions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 48px;
+  }
+
+  .decision-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+  }
+
+  .decision-card h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .decision-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .decision-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .decision-icon.alert { background: rgba(245, 158, 11, 0.15); }
+  .decision-icon.check { background: rgba(16, 185, 129, 0.15); }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 40px 0 20px;
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  @media (max-width: 900px) {
+    .summary-row { grid-template-columns: 1fr; }
+    .chart-grid { grid-template-columns: 1fr; }
+    .decisions { grid-template-columns: 1fr; }
+    .savings-banner { flex-direction: column; text-align: center; }
+    .header h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="label">Financial Planning Report</div>
+    <h1>SGA Platform Cost Comparison</h1>
+    <p>Three build models compared: Traditional 20-person team, AI-First team (5-6 people), and Super Architects + AI Workforce (2-3 people)</p>
+  </div>
+
+  <!-- Summary Cards -->
+  <div class="summary-row">
+    <div class="summary-card traditional">
+      <div class="model-label">Baseline</div>
+      <div class="model-name">Traditional Team (20 engineers)</div>
+      <div class="big-number">$7.0M</div>
+      <div class="big-label">2-Year Total Cost</div>
+      <div class="stats">
+        <div><div class="stat-value">$4.3M</div><div class="stat-label">Year 1</div></div>
+        <div><div class="stat-value">$2.7M</div><div class="stat-label">Year 2</div></div>
+        <div><div class="stat-value">20+</div><div class="stat-label">People</div></div>
+        <div><div class="stat-value">$27K</div><div class="stat-label">Per Practice</div></div>
+      </div>
+    </div>
+    <div class="summary-card model-a">
+      <div class="model-label">Model A</div>
+      <div class="model-name">AI-First Team (5-6 people)</div>
+      <div class="big-number">$2.3M</div>
+      <div class="big-label">2-Year Total Cost</div>
+      <div class="stats">
+        <div><div class="stat-value">$1.5M</div><div class="stat-label">Year 1</div></div>
+        <div><div class="stat-value">$900K</div><div class="stat-label">Year 2</div></div>
+        <div><div class="stat-value">5-6</div><div class="stat-label">People</div></div>
+        <div><div class="stat-value">$8.7K</div><div class="stat-label">Per Practice</div></div>
+      </div>
+    </div>
+    <div class="summary-card model-b">
+      <div class="model-label">Model B — Recommended</div>
+      <div class="model-name">Super Architects + AI Workforce (2-3 people)</div>
+      <div class="big-number">$1.7M</div>
+      <div class="big-label">2-Year Total Cost</div>
+      <div class="stats">
+        <div><div class="stat-value">$1.05M</div><div class="stat-label">Year 1</div></div>
+        <div><div class="stat-value">$640K</div><div class="stat-label">Year 2</div></div>
+        <div><div class="stat-value">2-3</div><div class="stat-label">People</div></div>
+        <div><div class="stat-value">$6.5K</div><div class="stat-label">Per Practice</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Savings Banner -->
+  <div class="savings-banner">
+    <div class="savings-text">
+      Model B saves <span>$5.3M over 2 years</span> vs. traditional build
+    </div>
+    <div class="savings-items">
+      <div class="savings-item">
+        <div class="pct">75%</div>
+        <div class="pct-label">Cost Reduction</div>
+      </div>
+      <div class="savings-item">
+        <div class="pct">90%</div>
+        <div class="pct-label">Fewer People</div>
+      </div>
+      <div class="savings-item">
+        <div class="pct">24/7</div>
+        <div class="pct-label">Agent Ops</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart Section 1: 2-Year Cost Comparison -->
+  <div class="section">
+    <div class="section-title">Total Cost by Model</div>
+    <div class="section-subtitle">Year 1 (build + 3mo ops) and Year 2 (full operations) stacked</div>
+    <div class="chart-grid">
+      <div class="chart-card">
+        <h3>2-Year Total Cost</h3>
+        <div class="chart-desc">All-in cost including team, vendors, infrastructure, one-time</div>
+        <div class="chart-wrap">
+          <canvas id="chart-total-cost"></canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Cost Per Practice (2-Year)</h3>
+        <div class="chart-desc">Total investment divided by 260 practices</div>
+        <div class="chart-wrap">
+          <canvas id="chart-per-practice"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart Section 2: Monthly Burn -->
+  <div class="section">
+    <div class="section-title">Monthly Burn Rate Over Time</div>
+    <div class="section-subtitle">How cash flows month-by-month across the 12-month Year 1 period</div>
+    <div class="chart-grid">
+      <div class="chart-card full-width">
+        <h3>Monthly Spend — Model A vs Model B vs Traditional</h3>
+        <div class="chart-desc">Includes team costs, vendor/SaaS, AI tooling, and infrastructure</div>
+        <div class="chart-wrap tall">
+          <canvas id="chart-monthly-burn"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart Section 3: Cost Breakdown -->
+  <div class="section">
+    <div class="section-title">Where the Money Goes</div>
+    <div class="section-subtitle">Cost composition by category for each model</div>
+    <div class="chart-grid">
+      <div class="chart-card">
+        <h3>Model A — Cost Breakdown</h3>
+        <div class="chart-desc">AI-First Team (Year 1)</div>
+        <div class="chart-wrap">
+          <canvas id="chart-breakdown-a"></canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Model B — Cost Breakdown</h3>
+        <div class="chart-desc">Super Architects + AI Workforce (Year 1)</div>
+        <div class="chart-wrap">
+          <canvas id="chart-breakdown-b"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart Section 4: Human Team vs AI -->
+  <div class="section">
+    <div class="section-title">Human Cost vs. AI + Vendor Cost</div>
+    <div class="section-subtitle">The structural shift from labor-heavy to infrastructure-heavy</div>
+    <div class="chart-grid">
+      <div class="chart-card full-width">
+        <h3>Cost Structure Comparison</h3>
+        <div class="chart-desc">Human labor as a percentage of total cost drops from 75% (traditional) to 35% (Model B)</div>
+        <div class="chart-wrap">
+          <canvas id="chart-human-vs-ai"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart Section 5: Ops Cost -->
+  <div class="section">
+    <div class="section-title">Ongoing Operations Cost</div>
+    <div class="section-subtitle">Monthly steady-state cost once the platform is live (Month 10+)</div>
+    <div class="chart-grid">
+      <div class="chart-card">
+        <h3>Monthly Ops Cost Comparison</h3>
+        <div class="chart-desc">What it costs to keep the lights on each month</div>
+        <div class="chart-wrap">
+          <canvas id="chart-ops-cost"></canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Ops Model — Agent Coverage</h3>
+        <div class="chart-desc">Model B: 90% of incidents handled by AI agents autonomously</div>
+        <div class="chart-wrap">
+          <canvas id="chart-agent-coverage"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vendor Cost Table -->
+  <div class="section vendor-section">
+    <div class="section-title">Top Vendor Costs at Scale</div>
+    <div class="section-subtitle">Monthly recurring costs at 260 practices (same across all models)</div>
+    <div class="chart-card full-width">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Vendor</th>
+            <th>Monthly (Scale)</th>
+            <th>Year 1 Total</th>
+            <th>% of Vendor Spend</th>
+            <th>Risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>AWS Infrastructure</td><td>$9,340</td><td>$98,000</td><td>23%</td><td><span class="risk-badge medium">Medium</span></td></tr>
+          <tr><td>NexHealth</td><td>$7,700</td><td>$85,500</td><td>20%</td><td><span class="risk-badge high">High</span></td></tr>
+          <tr><td>Twilio HIPAA</td><td>$7,360</td><td>$73,400</td><td>17%</td><td><span class="risk-badge medium">Medium</span></td></tr>
+          <tr><td>Swell + Cinnamon</td><td>$5,200</td><td>$45,400</td><td>11%</td><td><span class="risk-badge high">High</span></td></tr>
+          <tr><td>Anthropic Claude API</td><td>$3,750</td><td>$31,200</td><td>7%</td><td><span class="risk-badge medium">Medium</span></td></tr>
+          <tr><td>Dental Intel</td><td>$2,000</td><td>$18,000</td><td>4%</td><td><span class="risk-badge high">High</span></td></tr>
+          <tr><td>Datadog HIPAA</td><td>$1,800</td><td>$17,200</td><td>4%</td><td><span class="risk-badge medium">Medium</span></td></tr>
+          <tr><td>All Other Vendors</td><td>$6,700</td><td>$59,300</td><td>14%</td><td><span class="risk-badge low">Low</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Comparison Table -->
+  <div class="section">
+    <div class="section-title">Full Model Comparison</div>
+    <div class="section-subtitle">Side-by-side across all dimensions</div>
+    <div class="chart-card full-width">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Traditional</th>
+            <th>Model A</th>
+            <th>Model B</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Year 1 Cost</td><td class="traditional-col">$4.3M</td><td class="model-a-col">$1.5M</td><td class="model-b-col">$1.05M</td></tr>
+          <tr><td>Year 2 Cost</td><td class="traditional-col">$2.7M</td><td class="model-a-col">$900K</td><td class="model-b-col">$640K</td></tr>
+          <tr><td>2-Year Total</td><td class="traditional-col">$7.0M</td><td class="model-a-col">$2.3M</td><td class="model-b-col">$1.7M</td></tr>
+          <tr><td>Human Team (Build)</td><td class="traditional-col">20+ people</td><td class="model-a-col">5-6 people</td><td class="model-b-col">2-3 architects</td></tr>
+          <tr><td>Human Team (Ops)</td><td class="traditional-col">7 FTE</td><td class="model-a-col">3.5 FTE</td><td class="model-b-col">1 retainer + SGA IT</td></tr>
+          <tr><td>Peak Monthly Burn</td><td class="traditional-col">$463K</td><td class="model-a-col">$160K</td><td class="model-b-col">$129K</td></tr>
+          <tr><td>Steady-State Ops/Mo</td><td class="traditional-col">$213K</td><td class="model-a-col">$88K</td><td class="model-b-col">$50K</td></tr>
+          <tr><td>Cost Per Practice</td><td class="traditional-col">$27,000</td><td class="model-a-col">$8,750</td><td class="model-b-col">$6,500</td></tr>
+          <tr><td>Ops Coverage</td><td class="traditional-col">Business hrs + on-call</td><td class="model-a-col">Business hrs + on-call</td><td class="model-b-col">24/7 AI agent ops</td></tr>
+          <tr><td>SGA Internal Training</td><td class="traditional-col">Not included</td><td class="model-a-col">Not included</td><td class="model-b-col">Built into engagement</td></tr>
+          <tr><td>Key Person Risk</td><td class="traditional-col">Low</td><td class="model-a-col">Moderate</td><td class="model-b-col">Higher (mitigated)</td></tr>
+          <tr><td>Knowledge Retention</td><td class="traditional-col">In people's heads</td><td class="model-a-col">In people + docs</td><td class="model-b-col">In agent skill library</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Key Decisions -->
+  <div class="section">
+    <div class="section-title">Key Decisions & Next Steps</div>
+    <div class="section-subtitle">Items requiring action before budget finalization</div>
+  </div>
+  <div class="decisions">
+    <div class="decision-card">
+      <h4><span class="decision-icon alert">⚠</span> NexHealth Pricing</h4>
+      <p>Largest vendor uncertainty. Enterprise DSO pricing for 260+ practices could range $5K-$15K/month. Get a formal quote immediately — this swings Year 1 by $60-120K.</p>
+    </div>
+    <div class="decision-card">
+      <h4><span class="decision-icon alert">⚠</span> Existing SGA Contracts</h4>
+      <p>Swell, Cinnamon, Dental Intel, iSolved are likely already contracted by SGA. Auditing existing contracts could eliminate $30-60K/year in vendor costs.</p>
+    </div>
+    <div class="decision-card">
+      <h4><span class="decision-icon alert">⚠</span> Dental Intel API</h4>
+      <p>No public API exists. Integration feasibility and pricing need direct vendor confirmation. May require a partnership agreement.</p>
+    </div>
+    <div class="decision-card">
+      <h4><span class="decision-icon check">✓</span> 2-Week Spike Test</h4>
+      <p>Before committing to Model B, run a 2-week proof-of-concept: one architect + AI agents build 1-2 services to validate velocity assumptions.</p>
+    </div>
+    <div class="decision-card">
+      <h4><span class="decision-icon check">✓</span> Architect Selection</h4>
+      <p>Model B lives or dies on 2-3 exceptional architects. Identify candidates with HIPAA, Kafka, AWS, and AI agent orchestration experience.</p>
+    </div>
+    <div class="decision-card">
+      <h4><span class="decision-icon alert">⚠</span> Datadog vs CloudWatch</h4>
+      <p>$15-18K/year decision. Datadog provides better observability but adds cost and requires its own BAA. CloudWatch is included with AWS.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>Prepared by Finance, Development, and Product Design Agents — Citizen & Partners | bilt.studio</p>
+    <p style="margin-top: 8px; font-size: 11px;">All pricing based on published rates and market research as of March 2026. Formal vendor quotes should replace estimates before budget finalization.</p>
+  </div>
+
+</div>
+
+<script>
+  Chart.defaults.color = '#8896a8';
+  Chart.defaults.borderColor = '#1e2d3d';
+  Chart.defaults.font.family = "'Inter', -apple-system, sans-serif";
+
+  const RED = '#f87171';
+  const BLUE = '#60a5fa';
+  const GREEN = '#34d399';
+  const RED_BG = 'rgba(248, 113, 113, 0.8)';
+  const BLUE_BG = 'rgba(96, 165, 250, 0.8)';
+  const GREEN_BG = 'rgba(52, 211, 153, 0.8)';
+  const RED_LIGHT = 'rgba(248, 113, 113, 0.5)';
+  const BLUE_LIGHT = 'rgba(96, 165, 250, 0.5)';
+  const GREEN_LIGHT = 'rgba(52, 211, 153, 0.5)';
+
+  // Chart 1: 2-Year Total Cost
+  new Chart(document.getElementById('chart-total-cost'), {
+    type: 'bar',
+    data: {
+      labels: ['Traditional', 'Model A', 'Model B'],
+      datasets: [
+        { label: 'Year 1', data: [4300, 1500, 1050], backgroundColor: [RED_BG, BLUE_BG, GREEN_BG] },
+        { label: 'Year 2', data: [2700, 900, 640], backgroundColor: [RED_LIGHT, BLUE_LIGHT, GREEN_LIGHT] }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'top' }, tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': $' + ctx.raw + 'K' }}},
+      scales: {
+        x: { stacked: true, grid: { display: false } },
+        y: { stacked: true, ticks: { callback: v => '$' + v + 'K' }, grid: { color: '#1e2d3d' }}
+      }
+    }
+  });
+
+  // Chart 2: Cost Per Practice
+  new Chart(document.getElementById('chart-per-practice'), {
+    type: 'bar',
+    data: {
+      labels: ['Traditional', 'Model A', 'Model B'],
+      datasets: [{
+        label: '2-Year Cost Per Practice',
+        data: [27000, 8750, 6500],
+        backgroundColor: [RED_BG, BLUE_BG, GREEN_BG],
+        borderRadius: 8
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      indexAxis: 'y',
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => '$' + ctx.raw.toLocaleString() }}},
+      scales: {
+        x: { ticks: { callback: v => '$' + (v/1000) + 'K' }, grid: { color: '#1e2d3d' }},
+        y: { grid: { display: false }}
+      }
+    }
+  });
+
+  // Chart 3: Monthly Burn Rate
+  new Chart(document.getElementById('chart-monthly-burn'), {
+    type: 'line',
+    data: {
+      labels: ['Mo 1', 'Mo 2', 'Mo 3', 'Mo 4', 'Mo 5', 'Mo 6', 'Mo 7', 'Mo 8', 'Mo 9', 'Mo 10', 'Mo 11', 'Mo 12'],
+      datasets: [
+        {
+          label: 'Traditional',
+          data: [287, 275, 278, 463, 463, 478, 488, 498, 465, 208, 208, 208],
+          borderColor: RED, backgroundColor: 'rgba(248,113,113,0.1)',
+          fill: true, tension: 0.3, borderWidth: 2, pointRadius: 4
+        },
+        {
+          label: 'Model A',
+          data: [84, 123, 128, 151, 160, 149, 149, 149, 133, 114, 114, 114],
+          borderColor: BLUE, backgroundColor: 'rgba(96,165,250,0.1)',
+          fill: true, tension: 0.3, borderWidth: 2, pointRadius: 4
+        },
+        {
+          label: 'Model B',
+          data: [72, 94, 100, 120, 129, 108, 108, 108, 96, 50, 50, 50],
+          borderColor: GREEN, backgroundColor: 'rgba(52,211,153,0.1)',
+          fill: true, tension: 0.3, borderWidth: 2, pointRadius: 4
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'top' },
+        tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': $' + ctx.raw + 'K/mo' }}
+      },
+      scales: {
+        x: { grid: { display: false } },
+        y: { ticks: { callback: v => '$' + v + 'K' }, grid: { color: '#1e2d3d' }}
+      }
+    }
+  });
+
+  // Chart 4: Model A Breakdown
+  new Chart(document.getElementById('chart-breakdown-a'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Human Team', 'Vendors & SaaS', 'AI Dev Tooling', 'One-Time + Contingency'],
+      datasets: [{
+        data: [1014, 480, 44, 262],
+        backgroundColor: ['#60a5fa', '#f59e0b', '#a78bfa', '#6b7280'],
+        borderWidth: 0
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      cutout: '55%',
+      plugins: {
+        legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, pointStyle: 'circle' }},
+        tooltip: { callbacks: { label: ctx => ctx.label + ': $' + ctx.raw + 'K' }}
+      }
+    }
+  });
+
+  // Chart 5: Model B Breakdown
+  new Chart(document.getElementById('chart-breakdown-b'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Architects + Specialists', 'Vendors & SaaS', 'AI Workforce', 'One-Time + Contingency'],
+      datasets: [{
+        data: [664, 480, 62, 194],
+        backgroundColor: ['#34d399', '#f59e0b', '#a78bfa', '#6b7280'],
+        borderWidth: 0
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      cutout: '55%',
+      plugins: {
+        legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, pointStyle: 'circle' }},
+        tooltip: { callbacks: { label: ctx => ctx.label + ': $' + ctx.raw + 'K' }}
+      }
+    }
+  });
+
+  // Chart 6: Human vs AI cost structure
+  new Chart(document.getElementById('chart-human-vs-ai'), {
+    type: 'bar',
+    data: {
+      labels: ['Traditional', 'Model A', 'Model B'],
+      datasets: [
+        { label: 'Human Labor', data: [75, 51, 35], backgroundColor: ['rgba(248,113,113,0.8)', 'rgba(96,165,250,0.8)', 'rgba(52,211,153,0.8)'] },
+        { label: 'Vendors + Infrastructure', data: [15, 32, 40], backgroundColor: ['rgba(245,158,11,0.6)', 'rgba(245,158,11,0.6)', 'rgba(245,158,11,0.6)'] },
+        { label: 'AI Tooling + Ops', data: [0, 3, 5], backgroundColor: ['rgba(167,139,250,0.6)', 'rgba(167,139,250,0.6)', 'rgba(167,139,250,0.6)'] },
+        { label: 'Other', data: [10, 14, 20], backgroundColor: ['rgba(107,114,128,0.5)', 'rgba(107,114,128,0.5)', 'rgba(107,114,128,0.5)'] }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'top' },
+        tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.raw + '%' }}
+      },
+      scales: {
+        x: { stacked: true, grid: { display: false } },
+        y: { stacked: true, max: 100, ticks: { callback: v => v + '%' }, grid: { color: '#1e2d3d' }}
+      }
+    }
+  });
+
+  // Chart 7: Ops Cost
+  new Chart(document.getElementById('chart-ops-cost'), {
+    type: 'bar',
+    data: {
+      labels: ['Traditional', 'Model A', 'Model B'],
+      datasets: [{
+        label: 'Monthly Ops Cost',
+        data: [213, 88, 50],
+        backgroundColor: [RED_BG, BLUE_BG, GREEN_BG],
+        borderRadius: 8
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => '$' + ctx.raw + 'K/month' }}
+      },
+      scales: {
+        x: { grid: { display: false } },
+        y: { ticks: { callback: v => '$' + v + 'K' }, grid: { color: '#1e2d3d' }}
+      }
+    }
+  });
+
+  // Chart 8: Agent Coverage
+  new Chart(document.getElementById('chart-agent-coverage'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Auto-resolved by Agents', 'Agent + Slack notify', 'Human escalation (SGA IT)', 'External engineer'],
+      datasets: [{
+        data: [70, 20, 8, 2],
+        backgroundColor: ['#34d399', '#60a5fa', '#f59e0b', '#f87171'],
+        borderWidth: 0
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      cutout: '55%',
+      plugins: {
+        legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, pointStyle: 'circle' }},
+        tooltip: { callbacks: { label: ctx => ctx.label + ': ' + ctx.raw + '%' }}
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
