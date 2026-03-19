@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PHI Data Flow Analysis — SGA Dental Partners Platform</title>
+<style>
+  :root {
+    --navy: #0f172a;
+    --navy-light: #1e293b;
+    --navy-mid: #334155;
+    --slate: #475569;
+    --slate-light: #94a3b8;
+    --white: #f8fafc;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --accent: #3b82f6;
+    --accent-light: #60a5fa;
+    --risk-high: #ef4444;
+    --risk-high-bg: rgba(239,68,68,0.12);
+    --risk-medium: #f59e0b;
+    --risk-medium-bg: rgba(245,158,11,0.12);
+    --risk-low: #22c55e;
+    --risk-low-bg: rgba(34,197,94,0.12);
+    --baa-yes: #22c55e;
+    --baa-no: #ef4444;
+    --border: #334155;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--navy);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 32px 24px;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .header .subtitle {
+    font-size: 14px;
+    color: var(--accent-light);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+  }
+  .header .date {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .header .classification {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 4px 16px;
+    background: rgba(239,68,68,0.15);
+    border: 1px solid rgba(239,68,68,0.3);
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--risk-high);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Legend */
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+    padding: 16px 24px;
+    background: var(--navy-light);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .legend-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .legend-section-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text);
+  }
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .legend-dot.high { background: var(--risk-high); }
+  .legend-dot.medium { background: var(--risk-medium); }
+  .legend-dot.low { background: var(--risk-low); }
+  .legend-icon {
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  /* Three-column layout */
+  .diagram-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr 280px;
+    gap: 16px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .column-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Cards */
+  .phi-card {
+    background: var(--navy-light);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    position: relative;
+    transition: all 0.2s ease;
+    cursor: default;
+  }
+  .phi-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent), 0 4px 16px rgba(0,0,0,0.3);
+    transform: translateY(-1px);
+  }
+  .phi-card:hover .phi-card-detail {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+  .phi-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .phi-card-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.3;
+  }
+  .phi-card-sub {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .phi-card-detail {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    border-top: 1px solid var(--border);
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .risk-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .risk-badge.high {
+    background: var(--risk-high-bg);
+    color: var(--risk-high);
+    border: 1px solid rgba(239,68,68,0.25);
+  }
+  .risk-badge.medium {
+    background: var(--risk-medium-bg);
+    color: var(--risk-medium);
+    border: 1px solid rgba(245,158,11,0.25);
+  }
+  .risk-badge.low {
+    background: var(--risk-low-bg);
+    color: var(--risk-low);
+    border: 1px solid rgba(34,197,94,0.25);
+  }
+  .baa-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-top: 4px;
+    white-space: nowrap;
+  }
+  .baa-badge.yes {
+    background: rgba(34,197,94,0.1);
+    color: var(--baa-yes);
+    border: 1px solid rgba(34,197,94,0.2);
+  }
+  .baa-badge.no {
+    background: rgba(239,68,68,0.1);
+    color: var(--baa-no);
+    border: 1px solid rgba(239,68,68,0.2);
+  }
+  .baa-badge.pending {
+    background: rgba(245,158,11,0.1);
+    color: var(--risk-medium);
+    border: 1px solid rgba(245,158,11,0.2);
+  }
+
+  /* Center column — processing layer */
+  .center-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .processing-group {
+    background: var(--navy-light);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .processing-group-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .processing-nodes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .processing-node {
+    background: var(--navy);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 12px;
+    color: var(--text);
+    position: relative;
+    transition: all 0.2s ease;
+    cursor: default;
+  }
+  .processing-node:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent);
+  }
+  .processing-node:hover .node-detail {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 8px;
+  }
+  .node-detail {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    font-size: 10px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .processing-node .node-title {
+    font-weight: 600;
+    color: var(--white);
+    font-size: 12px;
+  }
+  .processing-node .node-tech {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .processing-node.critical-control {
+    border: 2px solid var(--risk-high);
+    background: rgba(239,68,68,0.06);
+  }
+  .processing-node.critical-control .node-title::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--risk-high);
+    border-radius: 50%;
+    margin-right: 6px;
+    animation: pulse-dot 2s infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .processing-node.full-width {
+    grid-column: 1 / -1;
+  }
+
+  /* Flow arrows (CSS-based) */
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    color: var(--text-muted);
+    margin: 4px 0;
+    padding: 2px 0;
+  }
+  .flow-arrow .arrow-line {
+    flex-grow: 1;
+    height: 1px;
+    position: relative;
+  }
+  .flow-arrow .arrow-line.high { background: var(--risk-high); }
+  .flow-arrow .arrow-line.medium { background: var(--risk-medium); }
+  .flow-arrow .arrow-line.low { background: var(--risk-low); }
+  .flow-arrow .arrow-line::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -3px;
+    border-left: 6px solid currentColor;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+  }
+  .flow-arrow .arrow-line.high::after { color: var(--risk-high); }
+  .flow-arrow .arrow-line.medium::after { color: var(--risk-medium); }
+  .flow-arrow .arrow-line.low::after { color: var(--risk-low); }
+
+  /* Concerns box */
+  .concerns-section {
+    margin-top: 40px;
+  }
+  .concerns-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .concern-card {
+    background: var(--navy-light);
+    border-left: 3px solid var(--risk-high);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+  }
+  .concern-card.medium-border {
+    border-left-color: var(--risk-medium);
+  }
+  .concern-number {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--risk-high);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .concern-card.medium-border .concern-number {
+    color: var(--risk-medium);
+  }
+  .concern-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .concern-text {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* Section headers */
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .section-subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  /* BAA Summary Table */
+  .baa-table-section {
+    margin-top: 40px;
+  }
+  .baa-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    font-size: 13px;
+  }
+  .baa-table th {
+    text-align: left;
+    padding: 10px 16px;
+    background: var(--navy-light);
+    color: var(--text-muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border);
+  }
+  .baa-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+  .baa-table tr:hover td {
+    background: rgba(59,130,246,0.04);
+  }
+  .baa-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .baa-status.has-baa { color: var(--baa-yes); }
+  .baa-status.no-baa { color: var(--baa-no); }
+  .baa-status.needs-verify { color: var(--risk-medium); }
+
+  /* Footer */
+  .footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 11px;
+    color: var(--slate-light);
+  }
+
+  /* SVG Flow Diagram */
+  .svg-flow-container {
+    margin: 32px 0;
+    overflow-x: auto;
+  }
+  .svg-flow-container svg {
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Print styles */
+  @media print {
+    body { background: white; color: #1e293b; }
+    .container { padding: 16px; }
+    .phi-card, .processing-group, .processing-node, .concern-card, .legend {
+      background: #f8fafc;
+      border-color: #e2e8f0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .phi-card-detail, .node-detail {
+      max-height: none !important;
+      opacity: 1 !important;
+      margin-top: 8px !important;
+      padding-top: 8px !important;
+    }
+    .header h1 { color: #0f172a; }
+    .phi-card-title, .node-title, .section-title, .concern-title { color: #0f172a; }
+    .phi-card-sub, .node-tech, .text-muted, .phi-card-detail, .node-detail, .concern-text { color: #475569; }
+    .column-label, .processing-group-title, .legend-section-title { color: #475569; }
+  }
+
+  @media (max-width: 1024px) {
+    .diagram-grid {
+      grid-template-columns: 1fr;
+    }
+    .concerns-grid {
+      grid-template-columns: 1fr;
+    }
+    .processing-nodes {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Data flow indicator tags */
+  .phi-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 6px;
+  }
+  .phi-type-tag {
+    font-size: 9px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    background: rgba(59,130,246,0.1);
+    color: var(--accent-light);
+    border: 1px solid rgba(59,130,246,0.2);
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="subtitle">Prepared for CIO Review</div>
+    <h1>PHI Data Flow Analysis — SGA Dental Partners Platform</h1>
+    <div class="date">March 2026 | Citizen &amp; Partners | bilt.studio</div>
+    <div class="classification">Contains HIPAA Compliance Assessment</div>
+  </header>
+
+  <!-- Legend -->
+  <div class="legend">
+    <div class="legend-section">
+      <span class="legend-section-title">Risk Level</span>
+      <span class="legend-item"><span class="legend-dot high"></span> High Risk</span>
+      <span class="legend-item"><span class="legend-dot medium"></span> Medium Risk</span>
+      <span class="legend-item"><span class="legend-dot low"></span> Low Risk</span>
+    </div>
+    <div class="legend-section">
+      <span class="legend-section-title">BAA Status</span>
+      <span class="legend-item"><span class="legend-icon">&#10003;</span> BAA in Place</span>
+      <span class="legend-item"><span class="legend-icon">&#9888;</span> No BAA / Needs Verification</span>
+    </div>
+    <div class="legend-section">
+      <span class="legend-section-title">Interaction</span>
+      <span class="legend-item">Hover cards for detail</span>
+    </div>
+  </div>
+
+  <!-- Main SVG Data Flow Diagram -->
+  <div class="svg-flow-container">
+    <svg viewBox="0 0 1400 820" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:1400px;height:auto;">
+      <defs>
+        <marker id="arrow-red" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#ef4444"/>
+        </marker>
+        <marker id="arrow-orange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#f59e0b"/>
+        </marker>
+        <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#22c55e"/>
+        </marker>
+        <filter id="glow-red"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/></filter>
+      </defs>
+
+      <!-- Background -->
+      <rect width="1400" height="820" fill="#0f172a" rx="12"/>
+
+      <!-- Column labels -->
+      <text x="160" y="36" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="600" letter-spacing="1.5" font-family="-apple-system,BlinkMacSystemFont,sans-serif">PHI DATA SOURCES</text>
+      <text x="700" y="36" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="600" letter-spacing="1.5" font-family="-apple-system,BlinkMacSystemFont,sans-serif">PLATFORM PROCESSING</text>
+      <text x="1240" y="36" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="600" letter-spacing="1.5" font-family="-apple-system,BlinkMacSystemFont,sans-serif">PHI DESTINATIONS / OUTPUTS</text>
+      <line x1="320" y1="20" x2="320" y2="800" stroke="#334155" stroke-width="1" stroke-dasharray="4,4"/>
+      <line x1="1080" y1="20" x2="1080" y2="800" stroke="#334155" stroke-width="1" stroke-dasharray="4,4"/>
+
+      <!-- ==================== LEFT COLUMN: PHI SOURCES ==================== -->
+
+      <!-- Source 1: PMS Systems -->
+      <g filter="url(#shadow)">
+        <rect x="20" y="60" width="280" height="100" rx="8" fill="#1e293b" stroke="#334155"/>
+        <rect x="20" y="60" width="4" height="100" rx="2" fill="#ef4444"/>
+        <text x="40" y="82" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">PMS Systems</text>
+        <text x="40" y="98" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">via NexHealth + Sikka ONE</text>
+        <text x="40" y="118" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Patient records, appointments,</text>
+        <text x="40" y="132" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">procedures, provider schedules</text>
+        <rect x="210" y="68" width="80" height="18" rx="4" fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.25)"/>
+        <text x="250" y="80" text-anchor="middle" fill="#ef4444" font-size="9" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">HIGH RISK</text>
+        <text x="40" y="150" fill="#94a3b8" font-size="9" font-family="-apple-system,BlinkMacSystemFont,sans-serif">260 practices | Dentrix, Eaglesoft, OpenDental</text>
+      </g>
+
+      <!-- Source 2: Phone Systems -->
+      <g filter="url(#shadow)">
+        <rect x="20" y="175" width="280" height="100" rx="8" fill="#1e293b" stroke="#334155"/>
+        <rect x="20" y="175" width="4" height="100" rx="2" fill="#ef4444"/>
+        <text x="40" y="197" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Phone Systems</text>
+        <text x="40" y="213" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Peer Logic, RingCentral, 8x8, Weave</text>
+        <text x="40" y="233" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Call recordings, call metadata,</text>
+        <text x="40" y="247" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">voicemails, caller ID</text>
+        <rect x="210" y="183" width="80" height="18" rx="4" fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.25)"/>
+        <text x="250" y="195" text-anchor="middle" fill="#ef4444" font-size="9" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">HIGH RISK</text>
+        <text x="40" y="265" fill="#94a3b8" font-size="9" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Audio contains verbal PHI disclosures</text>
+      </g>
+
+      <!-- Source 3: Patient Communications -->
+      <g filter="url(#shadow)">
+        <rect x="20" y="290" width="280" height="90" rx="8" fill="#1e293b" stroke="#334155"/>
+        <rect x="20" y="290" width="4" height="90" rx="2" fill="#f59e0b"/>
+        <text x="40" y="312" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Patient Communications</text>
+        <text x="40" y="328" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Inbound SMS, calls, form submissions</text>
+        <text x="40" y="348" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Name, phone, appointment details,</text>
+        <text x="40" y="362" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">treatment inquiries</text>
+        <rect x="210" y="298" width="80" height="18" rx="4" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.25)"/>
+        <text x="250" y="310" text-anchor="middle" fill="#f59e0b" font-size="9" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">MEDIUM</text>
+      </g>
+
+      <!-- Source 4: Review Platforms -->
+      <g filter="url(#shadow)">
+        <rect x="20" y="395" width="280" height="90" rx="8" fill="#1e293b" stroke="#334155"/>
+        <rect x="20" y="395" width="4" height="90" rx="2" fill="#f59e0b"/>
+        <text x="40" y="417" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Review Platforms</text>
+        <text x="40" y="433" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Swell — patient reviews</text>
+        <text x="40" y="453" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Reviews may contain health details,</text>
+        <text x="40" y="467" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">provider names, treatment descriptions</text>
+        <rect x="210" y="403" width="80" height="18" rx="4" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.25)"/>
+        <text x="250" y="415" text-anchor="middle" fill="#f59e0b" font-size="9" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">MEDIUM</text>
+      </g>
+
+      <!-- Source 5: Content Capture -->
+      <g filter="url(#shadow)">
+        <rect x="20" y="500" width="280" height="90" rx="8" fill="#1e293b" stroke="#334155"/>
+        <rect x="20" y="500" width="4" height="90" rx="2" fill="#ef4444"/>
+        <text x="40" y="522" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Practice Staff Content Capture</text>
+        <text x="40" y="538" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Before/after dental photos, video</text>
+        <text x="40" y="558" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Patient facial images, dental work,</text>
+        <text x="40" y="572" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">identifiable clinical photography</text>
+        <rect x="210" y="508" width="80" height="18" rx="4" fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.25)"/>
+        <text x="250" y="520" text-anchor="middle" fill="#ef4444" font-size="9" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">HIGH RISK</text>
+      </g>
+
+      <!-- Source 6: Phone Analytics -->
+      <g filter="url(#shadow)">
+        <rect x="20" y="605" width="280" height="80" rx="8" fill="#1e293b" stroke="#334155"/>
+        <rect x="20" y="605" width="4" height="80" rx="2" fill="#f59e0b"/>
+        <text x="40" y="627" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Phone Analytics</text>
+        <text x="40" y="643" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Cinnamon, Patient Prism, Dental Intel</text>
+        <text x="40" y="663" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Call scores, conversion metrics,</text>
+        <text x="40" y="677" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">phone skill assessments</text>
+        <rect x="210" y="613" width="80" height="18" rx="4" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.25)"/>
+        <text x="250" y="625" text-anchor="middle" fill="#f59e0b" font-size="9" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">MEDIUM</text>
+      </g>
+
+      <!-- ==================== CENTER COLUMN: PROCESSING ==================== -->
+
+      <!-- Practice Data Hub -->
+      <g filter="url(#shadow)">
+        <rect x="360" y="60" width="300" height="70" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+        <text x="510" y="85" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Practice Data Hub</text>
+        <text x="510" y="102" text-anchor="middle" fill="#60a5fa" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">PostgreSQL Multi-AZ | Central Patient Store</text>
+        <text x="510" y="118" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="-apple-system,BlinkMacSystemFont,sans-serif">AES-256 encryption | Row-level security | PHI at rest</text>
+      </g>
+
+      <!-- Communications Service -->
+      <g filter="url(#shadow)">
+        <rect x="360" y="145" width="300" height="70" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+        <text x="510" y="170" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Communications Service</text>
+        <text x="510" y="187" text-anchor="middle" fill="#60a5fa" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Twilio HIPAA Tier | Consent Engine</text>
+        <text x="510" y="203" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Message body hashed (SHA-256) | Opt-in/out registry</text>
+      </g>
+
+      <!-- AI Service + PHI Filter (CRITICAL) -->
+      <g filter="url(#shadow)">
+        <rect x="360" y="230" width="300" height="90" rx="8" fill="rgba(239,68,68,0.06)" stroke="#ef4444" stroke-width="2"/>
+        <text x="510" y="252" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">AI Service + PHI Filter</text>
+        <text x="510" y="269" text-anchor="middle" fill="#ef4444" font-size="10" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">CRITICAL CONTROL POINT</text>
+        <text x="510" y="286" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Strips PHI before LLM calls | Placeholder substitution</text>
+        <text x="510" y="300" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Redis mapping (5-min TTL) | Re-injection post-response</text>
+        <!-- Pulsing indicator -->
+        <circle cx="375" cy="248" r="5" fill="#ef4444">
+          <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+      </g>
+
+      <!-- Voice AI -->
+      <g filter="url(#shadow)">
+        <rect x="680" y="60" width="300" height="70" rx="8" fill="#1e293b" stroke="#334155"/>
+        <text x="830" y="85" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Voice AI Service</text>
+        <text x="830" y="102" text-anchor="middle" fill="#60a5fa" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Real-time call handling | Whisper transcription</text>
+        <text x="830" y="118" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Audio streams contain verbal PHI disclosures</text>
+      </g>
+
+      <!-- Content Engine -->
+      <g filter="url(#shadow)">
+        <rect x="680" y="145" width="300" height="70" rx="8" fill="#1e293b" stroke="#334155"/>
+        <text x="830" y="170" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Content Engine</text>
+        <text x="830" y="187" text-anchor="middle" fill="#60a5fa" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Photo processing | De-identification pipeline</text>
+        <text x="830" y="203" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Patient photos stripped of metadata before Cloudinary</text>
+      </g>
+
+      <!-- H-Score Engine -->
+      <g filter="url(#shadow)">
+        <rect x="680" y="230" width="300" height="70" rx="8" fill="#1e293b" stroke="#334155"/>
+        <text x="830" y="255" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">H-Score Engine</text>
+        <text x="830" y="272" text-anchor="middle" fill="#60a5fa" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Review + Call analytics composite scoring</text>
+        <text x="830" y="288" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Aggregates PHI-derived metrics into de-identified scores</text>
+      </g>
+
+      <!-- Event Bus -->
+      <g filter="url(#shadow)">
+        <rect x="360" y="340" width="620" height="55" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+        <text x="670" y="363" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Event Bus (Apache Kafka — AWS MSK)</text>
+        <text x="670" y="380" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Cross-workstream PHI events | practice_id partitioning | 7-30 day retention | Schema registry enforced</text>
+        <rect x="900" y="345" width="70" height="18" rx="4" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.25)"/>
+        <text x="935" y="357" text-anchor="middle" fill="#f59e0b" font-size="9" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">MEDIUM</text>
+      </g>
+
+      <!-- Compliance & Audit Layer -->
+      <g filter="url(#shadow)">
+        <rect x="360" y="410" width="620" height="55" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="1.5"/>
+        <text x="670" y="433" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Compliance &amp; Audit Layer (Cross-Cutting Middleware)</text>
+        <text x="670" y="450" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="-apple-system,BlinkMacSystemFont,sans-serif">PHI detection | Consent verification | Encryption enforcement | Access logging | Breach detection</text>
+        <rect x="900" y="415" width="70" height="18" rx="4" fill="rgba(34,197,94,0.12)" stroke="rgba(34,197,94,0.25)"/>
+        <text x="935" y="427" text-anchor="middle" fill="#22c55e" font-size="9" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">CONTROL</text>
+      </g>
+
+      <!-- ==================== RIGHT COLUMN: DESTINATIONS ==================== -->
+
+      <!-- Dest 1: External AI APIs -->
+      <g filter="url(#shadow)">
+        <rect x="1100" y="60" width="280" height="100" rx="8" fill="#1e293b" stroke="#334155"/>
+        <rect x="1376" y="60" width="4" height="100" rx="2" fill="#ef4444"/>
+        <text x="1120" y="82" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">External AI APIs</text>
+        <text x="1120" y="98" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Anthropic Claude | OpenAI Whisper</text>
+        <text x="1120" y="118" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Filtered prompts (PHI stripped)</text>
+        <text x="1120" y="132" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Audio transcription (contains verbal PHI)</text>
+        <rect x="1290" y="68" width="80" height="18" rx="4" fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.25)"/>
+        <text x="1330" y="80" text-anchor="middle" fill="#ef4444" font-size="9" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">HIGH RISK</text>
+        <text x="1120" y="150" fill="#22c55e" font-size="9" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">&#10003; BAA Required (both vendors)</text>
+      </g>
+
+      <!-- Dest 2: Cloudinary -->
+      <g filter="url(#shadow)">
+        <rect x="1100" y="175" width="280" height="80" rx="8" fill="#1e293b" stroke="#ef4444" stroke-dasharray="4,4"/>
+        <rect x="1376" y="175" width="4" height="80" rx="2" fill="#ef4444"/>
+        <text x="1120" y="197" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Cloudinary</text>
+        <text x="1120" y="213" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Image/video transformation</text>
+        <text x="1120" y="233" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">De-identified photos only (no patient</text>
+        <text x="1120" y="245" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">names in filename or metadata)</text>
+        <text x="1120" y="248" fill="#ef4444" font-size="9" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif"></text>
+        <rect x="1290" y="183" width="80" height="18" rx="4" fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.25)"/>
+        <text x="1330" y="195" text-anchor="middle" fill="#ef4444" font-size="9" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">NO BAA</text>
+      </g>
+
+      <!-- Dest 3: Patient-Facing Messages -->
+      <g filter="url(#shadow)">
+        <rect x="1100" y="270" width="280" height="80" rx="8" fill="#1e293b" stroke="#334155"/>
+        <rect x="1376" y="270" width="4" height="80" rx="2" fill="#f59e0b"/>
+        <text x="1120" y="292" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Patient-Facing Messages</text>
+        <text x="1120" y="308" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">SMS, Email (SES), WhatsApp</text>
+        <text x="1120" y="328" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Appointment confirmations, follow-ups,</text>
+        <text x="1120" y="342" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">treatment reminders (contains PHI)</text>
+        <rect x="1290" y="278" width="80" height="18" rx="4" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.25)"/>
+        <text x="1330" y="290" text-anchor="middle" fill="#f59e0b" font-size="9" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">MEDIUM</text>
+      </g>
+
+      <!-- Dest 4: Executive Dashboards -->
+      <g filter="url(#shadow)">
+        <rect x="1100" y="365" width="280" height="70" rx="8" fill="#1e293b" stroke="#334155"/>
+        <rect x="1376" y="365" width="4" height="70" rx="2" fill="#22c55e"/>
+        <text x="1120" y="387" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Executive Dashboards</text>
+        <text x="1120" y="403" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Power BI | React Nerve Center</text>
+        <text x="1120" y="423" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Aggregated metrics sourced from PHI</text>
+        <rect x="1290" y="373" width="80" height="18" rx="4" fill="rgba(34,197,94,0.12)" stroke="rgba(34,197,94,0.25)"/>
+        <text x="1330" y="385" text-anchor="middle" fill="#22c55e" font-size="9" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">LOW RISK</text>
+      </g>
+
+      <!-- Dest 5: Audit Logs -->
+      <g filter="url(#shadow)">
+        <rect x="1100" y="450" width="280" height="70" rx="8" fill="#1e293b" stroke="#334155"/>
+        <rect x="1376" y="450" width="4" height="70" rx="2" fill="#22c55e"/>
+        <text x="1120" y="472" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Audit Logs</text>
+        <text x="1120" y="488" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">S3 + Glacier | 7-year retention</text>
+        <text x="1120" y="508" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">PHI access records (who, when, what)</text>
+        <rect x="1290" y="458" width="80" height="18" rx="4" fill="rgba(34,197,94,0.12)" stroke="rgba(34,197,94,0.25)"/>
+        <text x="1330" y="470" text-anchor="middle" fill="#22c55e" font-size="9" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">LOW RISK</text>
+      </g>
+
+      <!-- Dest 6: Analytics -->
+      <g filter="url(#shadow)">
+        <rect x="1100" y="535" width="280" height="70" rx="8" fill="#1e293b" stroke="#334155"/>
+        <rect x="1376" y="535" width="4" height="70" rx="2" fill="#22c55e"/>
+        <text x="1120" y="557" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Analytics Data Lake</text>
+        <text x="1120" y="573" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">ClickHouse | Derived metrics only</text>
+        <text x="1120" y="593" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Aggregated, de-identified analytics</text>
+        <rect x="1290" y="543" width="80" height="18" rx="4" fill="rgba(34,197,94,0.12)" stroke="rgba(34,197,94,0.25)"/>
+        <text x="1330" y="555" text-anchor="middle" fill="#22c55e" font-size="9" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">LOW RISK</text>
+      </g>
+
+      <!-- Dest 7: Vendors without BAA -->
+      <g filter="url(#shadow)">
+        <rect x="1100" y="620" width="280" height="90" rx="8" fill="#1e293b" stroke="#ef4444" stroke-dasharray="4,4"/>
+        <rect x="1376" y="620" width="4" height="90" rx="2" fill="#ef4444"/>
+        <text x="1120" y="642" fill="#f8fafc" font-size="13" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Vendors Without BAAs</text>
+        <text x="1120" y="658" fill="#ef4444" font-size="10" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">&#9888; Swell, Cinnamon, Dental Intel</text>
+        <text x="1120" y="678" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Receive or process data derived from</text>
+        <text x="1120" y="692" fill="#94a3b8" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">PHI. BAA status needs verification.</text>
+        <rect x="1290" y="628" width="80" height="18" rx="4" fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.25)"/>
+        <text x="1330" y="640" text-anchor="middle" fill="#ef4444" font-size="9" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">GAP</text>
+      </g>
+
+      <!-- ==================== FLOW ARROWS ==================== -->
+
+      <!-- PMS -> Practice Data Hub (High) -->
+      <line x1="300" y1="110" x2="358" y2="95" stroke="#ef4444" stroke-width="2" marker-end="url(#arrow-red)"/>
+
+      <!-- Phone Systems -> Voice AI (High) -->
+      <line x1="300" y1="215" x2="358" y2="265" stroke="#ef4444" stroke-width="2" marker-end="url(#arrow-red)"/>
+      <line x1="300" y1="225" x2="678" y2="95" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrow-red)"/>
+
+      <!-- Patient Comms -> Communications Service (Medium) -->
+      <line x1="300" y1="335" x2="358" y2="180" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arrow-orange)"/>
+
+      <!-- Reviews -> H-Score (Medium) -->
+      <line x1="300" y1="440" x2="678" y2="265" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arrow-orange)"/>
+
+      <!-- Content Capture -> Content Engine (High) -->
+      <line x1="300" y1="545" x2="678" y2="180" stroke="#ef4444" stroke-width="2" marker-end="url(#arrow-red)"/>
+
+      <!-- Phone Analytics -> H-Score (Medium) -->
+      <line x1="300" y1="645" x2="678" y2="280" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arrow-orange)"/>
+
+      <!-- AI Service -> External AI APIs (High) -->
+      <line x1="660" y1="270" x2="678" y2="95" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,2"/>
+      <path d="M 660 260 Q 900 220 1098 110" stroke="#ef4444" stroke-width="2" fill="none" marker-end="url(#arrow-red)"/>
+      <text x="880" y="208" fill="#ef4444" font-size="9" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif" text-anchor="middle">PHI-FILTERED</text>
+
+      <!-- Voice AI -> External AI (Whisper) -->
+      <path d="M 980 90 Q 1040 80 1098 90" stroke="#ef4444" stroke-width="2" fill="none" marker-end="url(#arrow-red)"/>
+      <text x="1040" y="75" fill="#ef4444" font-size="8" font-family="-apple-system,BlinkMacSystemFont,sans-serif" text-anchor="middle">AUDIO (VERBAL PHI)</text>
+
+      <!-- Content Engine -> Cloudinary (High) -->
+      <path d="M 980 180 Q 1040 195 1098 215" stroke="#ef4444" stroke-width="2" fill="none" marker-end="url(#arrow-red)"/>
+      <text x="1040" y="210" fill="#ef4444" font-size="8" font-family="-apple-system,BlinkMacSystemFont,sans-serif" text-anchor="middle">DE-IDENTIFIED</text>
+
+      <!-- Communications -> Patient Messages (Medium) -->
+      <path d="M 660 180 Q 890 260 1098 310" stroke="#f59e0b" stroke-width="1.5" fill="none" marker-end="url(#arrow-orange)"/>
+
+      <!-- Practice Data Hub -> Dashboards (Low) -->
+      <path d="M 660 95 Q 880 340 1098 400" stroke="#22c55e" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+
+      <!-- Compliance Layer -> Audit Logs (Low) -->
+      <path d="M 980 437 Q 1040 460 1098 485" stroke="#22c55e" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+
+      <!-- Event Bus -> Analytics (Low) -->
+      <path d="M 980 367 Q 1050 500 1098 570" stroke="#22c55e" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+
+      <!-- H-Score -> Vendors without BAA (Medium) -->
+      <path d="M 980 265 Q 1060 440 1098 665" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6,3" fill="none" marker-end="url(#arrow-orange)"/>
+      <text x="1060" y="460" fill="#f59e0b" font-size="8" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif" transform="rotate(70,1060,460)">BAA GAP</text>
+
+      <!-- ==================== SUMMARY STATS BAR ==================== -->
+      <rect x="20" y="730" width="1360" height="75" rx="8" fill="#1e293b" stroke="#334155"/>
+      <text x="40" y="754" fill="#f8fafc" font-size="12" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,sans-serif">PHI Surface Area Summary</text>
+
+      <text x="40" y="778" fill="#94a3b8" font-size="11" font-family="-apple-system,BlinkMacSystemFont,sans-serif">PHI Sources:</text>
+      <text x="120" y="778" fill="#f8fafc" font-size="11" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">6 categories</text>
+
+      <text x="230" y="778" fill="#94a3b8" font-size="11" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Processing Services:</text>
+      <text x="370" y="778" fill="#f8fafc" font-size="11" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">8 components</text>
+
+      <text x="480" y="778" fill="#94a3b8" font-size="11" font-family="-apple-system,BlinkMacSystemFont,sans-serif">External Destinations:</text>
+      <text x="630" y="778" fill="#f8fafc" font-size="11" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">7 endpoints</text>
+
+      <text x="750" y="778" fill="#94a3b8" font-size="11" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Vendors Requiring BAA:</text>
+      <text x="910" y="778" fill="#22c55e" font-size="11" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">6 confirmed</text>
+
+      <text x="1010" y="778" fill="#94a3b8" font-size="11" font-family="-apple-system,BlinkMacSystemFont,sans-serif">BAA Gaps:</text>
+      <text x="1085" y="778" fill="#ef4444" font-size="11" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,sans-serif">4 vendors (Cloudinary, Swell, Cinnamon, Dental Intel)</text>
+
+      <text x="40" y="795" fill="#64748b" font-size="9" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Total PHI data flows mapped: 21 | High-risk flows: 7 | Medium-risk flows: 8 | Low-risk flows: 6</text>
+    </svg>
+  </div>
+
+  <!-- Key CIO Concerns -->
+  <div class="concerns-section">
+    <div class="section-title">Key Concerns for CIO Review</div>
+    <div class="section-subtitle">Four areas requiring executive attention before platform build begins</div>
+
+    <div class="concerns-grid">
+      <div class="concern-card">
+        <div class="concern-number">Concern 1 — High Risk</div>
+        <div class="concern-title">Call Recordings Through External AI</div>
+        <div class="concern-text">
+          Audio call recordings from Peer Logic, RingCentral, 8x8, and Weave are sent to OpenAI Whisper for transcription. These recordings contain verbal PHI disclosures (patient names, treatment discussions, insurance details). Unlike text-based PHI which passes through the PHI filter, audio cannot be pre-filtered — the raw audio stream reaches the external API. A BAA with OpenAI is required and must cover audio data specifically. Transcriptions then flow to Claude for analysis, passing through the PHI filter, but the initial Whisper call is unfiltered.
+        </div>
+      </div>
+
+      <div class="concern-card">
+        <div class="concern-number">Concern 2 — High Risk</div>
+        <div class="concern-title">Four Vendors Without BAAs</div>
+        <div class="concern-text">
+          <strong>Cloudinary</strong> processes before/after dental photos (patient facial images = PHI). De-identification is architected but relies on metadata stripping — faces remain identifiable. <strong>Swell</strong> aggregates patient reviews that may contain health information. <strong>Cinnamon</strong> processes call analytics data. <strong>Dental Intel</strong> (95% adoption) handles practice analytics derived from PMS data. All four need BAA verification or architectural mitigation before PHI flows through them.
+        </div>
+      </div>
+
+      <div class="concern-card medium-border">
+        <div class="concern-number">Concern 3 — Medium Risk</div>
+        <div class="concern-title">PHI Surface Area Breadth</div>
+        <div class="concern-text">
+          The platform touches PHI across 6 source categories, processes it through 8 internal services, and outputs to 7 external destinations. Each touchpoint is a potential breach vector. At 260 practices generating ~13,000 messages/day, ~65,000 call-minutes/day, and continuous PMS sync events, the volume of PHI in motion is substantial. The Compliance & Audit Layer is designed as cross-cutting middleware, but its effectiveness depends on consistent implementation across all 8 processing services with zero gaps.
+        </div>
+      </div>
+
+      <div class="concern-card medium-border">
+        <div class="concern-number">Concern 4 — Medium Risk</div>
+        <div class="concern-title">PHI Filter as Single Point of Trust</div>
+        <div class="concern-text">
+          The AI Service's PHI filter is the sole mechanism preventing PHI from reaching external LLM APIs (Anthropic Claude). It uses pattern matching (regex + NER) to detect and substitute PHI with placeholders. This is a <strong>single point of failure</strong>: if the filter misses a PHI token (novel format, encoding edge case, multi-language input), that PHI reaches the external API. The architecture recommends evaluating OursPrivacy/Freshpaint as purpose-built PHI detection, but this is not yet implemented. Defense-in-depth is needed.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BAA Status Summary Table -->
+  <div class="baa-table-section">
+    <div class="section-title">BAA Status by Vendor</div>
+    <div class="section-subtitle">Business Associate Agreement status for all vendors that process, store, or transmit PHI</div>
+
+    <table class="baa-table">
+      <thead>
+        <tr>
+          <th>Vendor</th>
+          <th>PHI Exposure</th>
+          <th>BAA Status</th>
+          <th>Risk Level</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>AWS</strong></td>
+          <td>Full PHI storage + processing (RDS, S3, MSK, ECS)</td>
+          <td><span class="baa-status has-baa">&#10003; Available</span></td>
+          <td><span class="risk-badge low">Low</span></td>
+          <td>Standard AWS BAA. Well-established for HIPAA workloads.</td>
+        </tr>
+        <tr>
+          <td><strong>Twilio</strong></td>
+          <td>Patient messaging (SMS, voice, WhatsApp)</td>
+          <td><span class="baa-status has-baa">&#10003; Available</span></td>
+          <td><span class="risk-badge low">Low</span></td>
+          <td>Twilio HIPAA product tier. $500/mo fee. Message body hashed in logs.</td>
+        </tr>
+        <tr>
+          <td><strong>Anthropic (Claude)</strong></td>
+          <td>Text prompts (filtered) for AI generation</td>
+          <td><span class="baa-status needs-verify">&#9888; Required — Verify</span></td>
+          <td><span class="risk-badge medium">Medium</span></td>
+          <td>PHI filter reduces but does not eliminate exposure. Enterprise BAA needed.</td>
+        </tr>
+        <tr>
+          <td><strong>OpenAI (Whisper)</strong></td>
+          <td>Audio transcription (unfiltered verbal PHI)</td>
+          <td><span class="baa-status needs-verify">&#9888; Required — Verify</span></td>
+          <td><span class="risk-badge high">High</span></td>
+          <td>Audio cannot be pre-filtered. BAA must explicitly cover audio data.</td>
+        </tr>
+        <tr>
+          <td><strong>NexHealth</strong></td>
+          <td>PMS read/write (patient records, appointments)</td>
+          <td><span class="baa-status needs-verify">&#9888; Required — Verify</span></td>
+          <td><span class="risk-badge medium">Medium</span></td>
+          <td>PMS connector. Full PHI transit. Verify BAA before contract.</td>
+        </tr>
+        <tr>
+          <td><strong>Sikka ONE</strong></td>
+          <td>PMS batch sync (patient records, read-only)</td>
+          <td><span class="baa-status needs-verify">&#9888; Required — Verify</span></td>
+          <td><span class="risk-badge medium">Medium</span></td>
+          <td>Batch PMS data. Verify BAA before contract.</td>
+        </tr>
+        <tr>
+          <td><strong>Datadog</strong></td>
+          <td>Logs may contain PHI references</td>
+          <td><span class="baa-status has-baa">&#10003; Available</span></td>
+          <td><span class="risk-badge low">Low</span></td>
+          <td>Enterprise HIPAA tier. PHI should not appear in logs (hashed), but defense-in-depth.</td>
+        </tr>
+        <tr style="background: rgba(239,68,68,0.04);">
+          <td><strong>Cloudinary</strong></td>
+          <td>Patient photos (facial images = PHI)</td>
+          <td><span class="baa-status no-baa">&#9888; No BAA</span></td>
+          <td><span class="risk-badge high">High</span></td>
+          <td>De-identification required before upload. No patient names in metadata. Faces remain identifiable.</td>
+        </tr>
+        <tr style="background: rgba(239,68,68,0.04);">
+          <td><strong>Swell</strong></td>
+          <td>Patient reviews containing health details</td>
+          <td><span class="baa-status no-baa">&#9888; No BAA — Verify</span></td>
+          <td><span class="risk-badge high">High</span></td>
+          <td>Reviews are patient-authored but may include treatment details. BAA status unknown.</td>
+        </tr>
+        <tr style="background: rgba(239,68,68,0.04);">
+          <td><strong>Cinnamon</strong></td>
+          <td>Phone analytics (call scoring, patient interactions)</td>
+          <td><span class="baa-status no-baa">&#9888; No BAA — Verify</span></td>
+          <td><span class="risk-badge high">High</span></td>
+          <td>Niche dental vendor. No public BAA information. Requires vendor contact.</td>
+        </tr>
+        <tr style="background: rgba(239,68,68,0.04);">
+          <td><strong>Dental Intel</strong></td>
+          <td>Practice analytics derived from PMS data</td>
+          <td><span class="baa-status no-baa">&#9888; No BAA — Verify</span></td>
+          <td><span class="risk-badge medium">Medium</span></td>
+          <td>95% adoption. Analytics data may be de-identified. Verify BAA and data handling.</td>
+        </tr>
+        <tr>
+          <td><strong>Canva</strong></td>
+          <td>Design templates (no PHI)</td>
+          <td><span class="baa-status has-baa">N/A — No PHI</span></td>
+          <td><span class="risk-badge low">Low</span></td>
+          <td>No PHI enters Canva. Brand assets only.</td>
+        </tr>
+        <tr>
+          <td><strong>ClickHouse Cloud</strong></td>
+          <td>Analytics aggregations (derived, de-identified)</td>
+          <td><span class="baa-status needs-verify">&#9888; Evaluate</span></td>
+          <td><span class="risk-badge low">Low</span></td>
+          <td>Should contain only aggregated metrics. If any PHI-adjacent fields, BAA needed.</td>
+        </tr>
+        <tr>
+          <td><strong>Temporal Cloud</strong></td>
+          <td>Workflow state (may contain PHI references)</td>
+          <td><span class="baa-status needs-verify">&#9888; Evaluate</span></td>
+          <td><span class="risk-badge low">Low</span></td>
+          <td>Workflow payloads should not contain PHI directly. Verify data serialization approach.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>PHI Data Flow Analysis — SGA Dental Partners Platform | March 2026</p>
+    <p>Prepared by Citizen &amp; Partners | bilt.studio | For CIO Review — Not for Distribution</p>
+    <p style="margin-top: 8px;">Companion document: <a href="phi-data-flow-analysis.md" style="color: var(--accent-light); text-decoration: none;">phi-data-flow-analysis.md</a></p>
+  </footer>
+
+</div>
+
+</body>
+</html>
