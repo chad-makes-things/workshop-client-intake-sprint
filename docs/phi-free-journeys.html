@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SGA Dental Partners — PHI-Free User Journey Redesign</title>
+<style>
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-white: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --color-bg-light: #f1f3f5;
+  --color-border: #e2e8f0;
+  --color-border-light: #edf2f7;
+  --color-text-primary: #1a1a2e;
+  --color-text-secondary: #4a5568;
+  --color-text-muted: #718096;
+
+  --color-primary: #2563EB;
+  --color-primary-dark: #1d4ed8;
+  --color-primary-light: #dbeafe;
+  --color-primary-bg: #eff6ff;
+
+  --ws1-color: #2563EB;
+  --ws1-light: #dbeafe;
+  --ws1-bg: #eff6ff;
+
+  --ws2-color: #059669;
+  --ws2-light: #d1fae5;
+  --ws2-bg: #ecfdf5;
+
+  --ws3-color: #D97706;
+  --ws3-light: #fef3c7;
+  --ws3-bg: #fffbeb;
+
+  --phase-a: #059669;
+  --phase-a-light: #d1fae5;
+  --phase-a-bg: #ecfdf5;
+
+  --phase-b: #D97706;
+  --phase-b-light: #fef3c7;
+  --phase-b-bg: #fffbeb;
+
+  --red: #DC2626;
+  --red-light: #fef2f2;
+
+  --infra-color: #7C3AED;
+  --infra-light: #ede9fe;
+  --infra-bg: #f5f3ff;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 200;
+  padding: 12px 20px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 16px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background: var(--color-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: 64px 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+section:last-of-type {
+  border-bottom: none;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--color-text-primary);
+}
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.section-subtitle {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  margin-bottom: 32px;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.page-header {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2563EB 100%);
+  color: white;
+  padding: 56px 0 48px;
+  position: relative;
+  overflow: hidden;
+}
+.page-header::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.header-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.page-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.page-header .subtitle {
+  font-size: 17px;
+  opacity: 0.85;
+  max-width: 650px;
+  line-height: 1.5;
+}
+
+/* ============================================
+   STICKY NAV
+   ============================================ */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+.sticky-nav .container {
+  display: flex;
+  align-items: center;
+  height: 52px;
+  gap: 0;
+}
+.nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  margin-right: 12px;
+  transition: color 0.15s, background 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.nav-back:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-bg);
+}
+.nav-links {
+  display: flex;
+  gap: 2px;
+  list-style: none;
+  white-space: nowrap;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-links a {
+  display: block;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: color 0.15s, background 0.15s;
+}
+.nav-links a:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-bg);
+}
+.nav-links a.active {
+  color: var(--color-primary);
+  background: var(--color-primary-bg);
+}
+
+/* ============================================
+   STAT CARDS
+   ============================================ */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.stat-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .stat-card:hover { transform: none; }
+}
+.stat-card .stat-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-card .stat-label {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.3;
+}
+.stat-card.green .stat-value { color: var(--phase-a); }
+.stat-card.amber .stat-value { color: var(--phase-b); }
+.stat-card .stat-detail {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 20px;
+}
+
+/* Dependency Map */
+.dep-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.dep-card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.dep-card-header {
+  padding: 16px 20px;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dep-card-header .dep-pct {
+  font-size: 24px;
+  font-weight: 700;
+}
+.dep-card-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 200px;
+}
+.dep-col {
+  padding: 16px;
+}
+.dep-col-a {
+  background: var(--phase-a-bg);
+  border-right: 1px solid var(--color-border-light);
+}
+.dep-col-b {
+  background: var(--phase-b-bg);
+}
+.dep-col h4 {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+.dep-col-a h4 { color: var(--phase-a); }
+.dep-col-b h4 { color: var(--phase-b); }
+.dep-item {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  padding: 4px 0;
+  line-height: 1.4;
+}
+.dep-note {
+  padding: 12px 20px;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  background: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border-light);
+  font-style: italic;
+}
+
+/* ============================================
+   TABS
+   ============================================ */
+.tab-bar {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--color-border);
+  margin-bottom: 28px;
+}
+.tab-btn {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.tab-btn:hover { color: var(--color-text-primary); }
+.tab-btn[aria-selected="true"] {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+.tab-btn.ws2[aria-selected="true"] {
+  color: var(--ws2-color);
+  border-bottom-color: var(--ws2-color);
+}
+.tab-btn.ws3[aria-selected="true"] {
+  color: var(--ws3-color);
+  border-bottom-color: var(--ws3-color);
+}
+.tab-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+  border-radius: 4px 4px 0 0;
+}
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* Journey steps */
+.journey-step {
+  margin-bottom: 32px;
+  position: relative;
+  padding-left: 48px;
+}
+.journey-step::before {
+  content: attr(data-step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.journey-step.ws2::before { background: var(--ws2-color); }
+.journey-step.ws3::before { background: var(--ws3-color); }
+.step-actor {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.step-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.step-desc {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.callout {
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+.callout-screen {
+  background: var(--color-primary-bg);
+  border-left: 3px solid var(--color-primary);
+  color: var(--color-text-secondary);
+}
+.callout-phi {
+  background: var(--phase-a-bg);
+  border-left: 3px solid var(--phase-a);
+  color: #065f46;
+}
+.callout-b {
+  background: var(--phase-b-bg);
+  border-left: 3px solid var(--phase-b);
+  color: #92400e;
+}
+.callout strong {
+  font-weight: 600;
+}
+
+/* ============================================
+   PHASE PLAN CARDS
+   ============================================ */
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.phase-card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.phase-card-header {
+  padding: 16px 20px;
+  font-weight: 600;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.phase-card-header.a { background: var(--phase-a-bg); color: #065f46; border-bottom: 1px solid #a7f3d0; }
+.phase-card-header.b { background: var(--phase-b-bg); color: #92400e; border-bottom: 1px solid #fde68a; }
+.phase-card-body {
+  padding: 16px 20px;
+  background: var(--color-white);
+}
+.phase-card-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+}
+.phase-card-body li {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  padding: 3px 0;
+  padding-left: 16px;
+  position: relative;
+}
+.phase-card-body li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-text-muted);
+}
+.phase-meta {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  padding-top: 8px;
+  border-top: 1px solid var(--color-border-light);
+}
+.phase-meta strong { color: var(--color-text-secondary); }
+
+/* ============================================
+   QC GATES PIPELINE
+   ============================================ */
+.gate-pipeline {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  align-items: stretch;
+}
+.gate-card {
+  flex: 1;
+  min-width: 140px;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  text-align: center;
+  font-size: 13px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+.gate-card + .gate-card::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid var(--color-border);
+}
+.gate-card.gate-a {
+  background: var(--color-primary-bg);
+  border: 1px solid var(--color-primary-light);
+}
+.gate-card.gate-b {
+  background: var(--phase-b-bg);
+  border: 1px solid #fde68a;
+}
+.gate-card.gate-final {
+  background: var(--red-light);
+  border: 1px solid #fecaca;
+}
+.gate-name {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.gate-card.gate-a .gate-name { color: var(--color-primary); }
+.gate-card.gate-b .gate-name { color: var(--phase-b); }
+.gate-card.gate-final .gate-name { color: var(--red); }
+.gate-week {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+.gate-question {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+.gate-type {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+.gate-a .gate-type { background: var(--color-primary-light); color: var(--color-primary-dark); }
+.gate-b .gate-type { background: #fde68a; color: #92400e; }
+.gate-final .gate-type { background: #fecaca; color: var(--red); }
+
+.gate-callout {
+  margin-top: 20px;
+  background: var(--red-light);
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  font-size: 14px;
+  color: #991b1b;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* ============================================
+   GANTT CHART
+   ============================================ */
+.gantt-container {
+  overflow-x: auto;
+}
+.gantt {
+  min-width: 800px;
+}
+.gantt-header {
+  display: grid;
+  grid-template-columns: 180px repeat(24, 1fr);
+  font-size: 11px;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+}
+.gantt-header span:first-child {
+  text-align: left;
+}
+.gantt-header span {
+  text-align: center;
+}
+.gantt-row {
+  display: grid;
+  grid-template-columns: 180px repeat(24, 1fr);
+  align-items: center;
+  height: 36px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+.gantt-row:nth-child(even) {
+  background: var(--color-bg-alt);
+}
+.gantt-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 8px;
+}
+.gantt-bar {
+  height: 20px;
+  border-radius: 4px;
+  position: relative;
+}
+.gantt-bar.a { background: var(--phase-a); opacity: 0.85; }
+.gantt-bar.b { background: var(--phase-b); opacity: 0.85; }
+.gantt-bar.infra { background: var(--infra-color); opacity: 0.85; }
+.gantt-bar.parallel { background: #94a3b8; opacity: 0.5; background-image: repeating-linear-gradient(135deg, transparent, transparent 4px, rgba(255,255,255,0.2) 4px, rgba(255,255,255,0.2) 8px); }
+.gantt-marker {
+  position: absolute;
+  top: -6px;
+  width: 2px;
+  height: 44px;
+  background: var(--red);
+  z-index: 5;
+}
+.gantt-marker::after {
+  content: attr(data-label);
+  position: absolute;
+  top: -16px;
+  left: 4px;
+  font-size: 9px;
+  color: var(--red);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ============================================
+   COMPARISON TABLE
+   ============================================ */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.comparison-table th,
+.comparison-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border-light);
+}
+.comparison-table thead th {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  border-bottom: 2px solid var(--color-border);
+}
+.comparison-table .dimension {
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+.comparison-table .original {
+  color: var(--color-text-muted);
+}
+.comparison-table .improved {
+  color: #047857;
+  font-weight: 600;
+}
+.comparison-table tbody tr:nth-child(even) {
+  background: var(--color-bg-alt);
+}
+.comparison-table tbody tr:hover {
+  background: var(--color-primary-bg);
+}
+
+/* ============================================
+   QC VERDICTS
+   ============================================ */
+.verdict-card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 16px;
+}
+.verdict-header {
+  padding: 16px 20px;
+  background: var(--phase-a-bg);
+  border-bottom: 1px solid #a7f3d0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.verdict-pass {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: var(--phase-a);
+  font-size: 14px;
+}
+.verdict-body {
+  padding: 16px 20px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* ============================================
+   ARCHITECTURE
+   ============================================ */
+.arch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.arch-card {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+.arch-card h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.arch-card p, .arch-card li {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+.arch-card ul {
+  list-style: none;
+  padding: 0;
+}
+.arch-card li {
+  padding: 3px 0;
+  padding-left: 14px;
+  position: relative;
+}
+.arch-card li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--infra-color);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.page-footer {
+  padding: 40px 0;
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+.page-footer .footer-line {
+  margin-bottom: 4px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 900px) {
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .dep-grid { grid-template-columns: 1fr; }
+  .phase-grid { grid-template-columns: 1fr; }
+  .arch-grid { grid-template-columns: 1fr; }
+  .gate-pipeline { flex-wrap: wrap; }
+  .gate-card { min-width: 45%; flex: 1 1 45%; }
+  h2 { font-size: 24px; }
+  .page-header h1 { font-size: 26px; }
+}
+@media (max-width: 600px) {
+  .stat-grid { grid-template-columns: 1fr; }
+  .dep-card-body { grid-template-columns: 1fr; }
+  .dep-col-a { border-right: none; border-bottom: 1px solid var(--color-border-light); }
+  section { padding: 40px 0; }
+  .container { padding: 0 16px; }
+  .tab-btn { padding: 10px 14px; font-size: 13px; }
+  .journey-step { padding-left: 40px; }
+  .gate-card { min-width: 100%; flex: 1 1 100%; }
+  .comparison-table { font-size: 13px; }
+  .comparison-table th, .comparison-table td { padding: 8px 10px; }
+  .phase-card { grid-column: span 1 !important; }
+  .nav-back { display: none; }
+}
+
+/* ============================================
+   PRINT
+   ============================================ */
+@media print {
+  .sticky-nav { display: none; }
+  .skip-link { display: none; }
+  section { padding: 24px 0; break-inside: avoid; }
+  .page-header { background: #1e3a5f !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .tab-panel { display: block !important; }
+  .tab-bar { display: none; }
+  .stat-card, .dep-card, .phase-card, .gate-card, .arch-card, .verdict-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  body { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<script>(function(){var a=sessionStorage.getItem('sga_auth');if(!a){window.location.replace('index.html?redirect='+encodeURIComponent(location.pathname.split('/').pop()));}})();</script>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- ============================================
+     HEADER
+     ============================================ -->
+<header class="page-header">
+  <div class="container">
+    <div class="header-badge">Portfolio Review</div>
+    <h1>SGA Dental Partners — PHI-Free User Journey Redesign</h1>
+    <p class="subtitle">Accelerating Development by Deferring Patient Health Information Dependencies</p>
+  </div>
+</header>
+
+<!-- ============================================
+     STICKY NAV
+     ============================================ -->
+<nav class="sticky-nav" aria-label="Page navigation">
+  <div class="container">
+    <a href="index.html" class="nav-back" aria-label="Back to Sprint Hub">&larr; Sprint Hub</a>
+    <ul class="nav-links" role="list">
+      <li><a href="#executive-summary">Summary</a></li>
+      <li><a href="#phi-map">PHI Map</a></li>
+      <li><a href="#journeys">Journeys</a></li>
+      <li><a href="#phase-plan">Phase Plan</a></li>
+      <li><a href="#qc-gates">QC Gates</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#what-changes">What Changes</a></li>
+      <li><a href="#verdicts">QC Verdicts</a></li>
+      <li><a href="#architecture">Architecture</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================
+     MAIN CONTENT
+     ============================================ -->
+<main id="main">
+
+<!-- EXECUTIVE SUMMARY -->
+<section id="executive-summary">
+  <div class="container">
+    <h2>Executive Summary</h2>
+    <p class="section-subtitle">Build what you control first. BAAs run in parallel. Phase A is a product, not a prototype.</p>
+
+    <div class="stat-grid">
+      <div class="stat-card green">
+        <div class="stat-value">30</div>
+        <div class="stat-label">Interfaces ship in Phase A<br><span class="stat-detail">of 42 total</span></div>
+      </div>
+      <div class="stat-card amber">
+        <div class="stat-value">12</div>
+        <div class="stat-label">Deferred to Phase B<br><span class="stat-detail">patient-facing workflows</span></div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-value">8/10</div>
+        <div class="stat-label">Cross-workstream events<br><span class="stat-detail">flow without PHI</span></div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-value">~8 wk</div>
+        <div class="stat-label">Faster to working software<br><span class="stat-detail">Week 10 vs. Week 18</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <p style="font-size:15px;color:var(--color-text-secondary);line-height:1.7;">
+        The PHI-Free-First approach restructures SGA's platform build around a single principle: <strong>no individual patient data enters the system until HIPAA compliance infrastructure is verified</strong>. Of the platform's 42 interfaces, 30 are fully functional without patient health information — covering practice culture management, brand content pipeline, executive dashboards, enrollment, and storefront generation. Development starts immediately on these interfaces while BAA procurement runs as a parallel background process. Phase A delivers a complete operational product to 260+ practices by Week 14. Phase B adds patient-facing features (Nerve Center, Concierge, Automation, Voice AI, funnel analytics) after the compliance gate passes. Nothing built in Phase A is removed — Phase B is purely additive. The architecture is designed for addition, not subtraction.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PHI DEPENDENCY MAP -->
+<section id="phi-map">
+  <div class="container">
+    <h2>PHI Dependency Map</h2>
+    <p class="section-subtitle">What ships in Phase A vs. what waits for Phase B, by workstream.</p>
+
+    <div class="dep-grid">
+      <!-- WS1 -->
+      <div class="dep-card">
+        <div class="dep-card-header" style="background:var(--ws1-color);">
+          <span>WS1: Practice Platform</span>
+          <span class="dep-pct">14/25</span>
+        </div>
+        <div class="dep-card-body">
+          <div class="dep-col dep-col-a">
+            <h4>Phase A (14 interfaces)</h4>
+            <div class="dep-item">Enrollment Pipeline &amp; Invitation System</div>
+            <div class="dep-item">Storefront Manager &amp; Generation</div>
+            <div class="dep-item">Executive Dashboard (5 KPIs)</div>
+            <div class="dep-item">Portfolio Heatmap (5 layers)</div>
+            <div class="dep-item">Intervention Queue (culture-risk)</div>
+            <div class="dep-item">Practice Deep Dive (4 tabs)</div>
+            <div class="dep-item">HQ Standup Board</div>
+            <div class="dep-item">Practice Daily Agenda (modified)</div>
+            <div class="dep-item">Playbook Viewer &amp; Manager</div>
+            <div class="dep-item">Compliance Readiness Dashboard</div>
+            <div class="dep-item">Practice Website (basic)</div>
+          </div>
+          <div class="dep-col dep-col-b">
+            <h4>Phase B (11 interfaces)</h4>
+            <div class="dep-item">Nerve Center (patient cards)</div>
+            <div class="dep-item">Concierge Agent (chat/SMS)</div>
+            <div class="dep-item">Patient Outreach Queue</div>
+            <div class="dep-item">Automation Engine</div>
+            <div class="dep-item">Call Dashboard</div>
+            <div class="dep-item">Voice AI</div>
+            <div class="dep-item">Funnel Data Lake</div>
+            <div class="dep-item">Funnel Analytics Explorer</div>
+            <div class="dep-item">SMS Conversations</div>
+            <div class="dep-item">Email Communications</div>
+            <div class="dep-item">Digital Forms</div>
+          </div>
+        </div>
+        <div class="dep-note">HQ-facing tools (enrollment, dashboards, heatmap) ship fully. Practice-level patient workflows are deferred.</div>
+      </div>
+
+      <!-- WS2 -->
+      <div class="dep-card">
+        <div class="dep-card-header" style="background:var(--ws2-color);">
+          <span>WS2: Content Engine</span>
+          <span class="dep-pct">8/9</span>
+        </div>
+        <div class="dep-card-body">
+          <div class="dep-col dep-col-a">
+            <h4>Phase A (8 interfaces)</h4>
+            <div class="dep-item">Capture Bot (brand briefs, PWA + SMS)</div>
+            <div class="dep-item">Capture App (team/office photos)</div>
+            <div class="dep-item">Editorial Queue</div>
+            <div class="dep-item">Studio Request Portal</div>
+            <div class="dep-item">Brand Review (58-sec approve)</div>
+            <div class="dep-item">Asset Registry</div>
+            <div class="dep-item">Dashboard (1 panel deferred)</div>
+            <div class="dep-item">Distribution Monitor (IG, FB, GMB)</div>
+          </div>
+          <div class="dep-col dep-col-b">
+            <h4>Phase B (1 interface)</h4>
+            <div class="dep-item">Event Mode Console (CE-9)</div>
+            <div class="dep-item" style="margin-top:12px;font-style:italic;font-size:12px;">+ Before/after photo mode<br>+ Procedure-driven missions<br>+ Attribution analytics panel</div>
+          </div>
+        </div>
+        <div class="dep-note">Strongest Phase A story: 8 of 9 interfaces ship. The content pipeline is content-type-agnostic by design.</div>
+      </div>
+
+      <!-- WS3 -->
+      <div class="dep-card">
+        <div class="dep-card-header" style="background:var(--ws3-color);">
+          <span>WS3: Culture OS</span>
+          <span class="dep-pct">8/8</span>
+        </div>
+        <div class="dep-card-body">
+          <div class="dep-col dep-col-a">
+            <h4>Phase A (8 interfaces)</h4>
+            <div class="dep-item">Morning Huddle Display (TV + PWA)</div>
+            <div class="dep-item">Champion Hub &amp; Scorecard</div>
+            <div class="dep-item">CCA Academy (Bronze-Gold)</div>
+            <div class="dep-item">Recognition &amp; Rewards Feed</div>
+            <div class="dep-item">H-Score Dashboard</div>
+            <div class="dep-item">Trust Transfer Tracker (aggregate)</div>
+            <div class="dep-item">Playbook Library</div>
+            <div class="dep-item">Culture Admin Console</div>
+          </div>
+          <div class="dep-col dep-col-b">
+            <h4>Phase B (0 interfaces)</h4>
+            <div class="dep-item" style="font-style:italic;font-size:12px;">Only addition: individual call drill-down in Trust Transfer Tracker + funnel-metric impact stories in Morning Huddle.</div>
+          </div>
+        </div>
+        <div class="dep-note">Cleanest workstream: ALL 8 interfaces ship. Culture OS was designed around aggregate vendor scores, not patient data.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USER JOURNEYS -->
+<section id="journeys">
+  <div class="container">
+    <h2>User Journeys</h2>
+    <p class="section-subtitle">End-to-end flows showing what users experience in Phase A.</p>
+
+    <div class="tab-bar" role="tablist" aria-label="Workstream journeys">
+      <button class="tab-btn" role="tab" id="tab-ws1" aria-selected="true" aria-controls="panel-ws1">WS1: Practice Platform</button>
+      <button class="tab-btn ws2" role="tab" id="tab-ws2" aria-selected="false" aria-controls="panel-ws2">WS2: Content Engine</button>
+      <button class="tab-btn ws3" role="tab" id="tab-ws3" aria-selected="false" aria-controls="panel-ws3">WS3: Culture OS</button>
+    </div>
+
+    <!-- WS1 PANEL -->
+    <div class="tab-panel active" role="tabpanel" id="panel-ws1" aria-labelledby="tab-ws1">
+      <h3 style="margin-bottom:24px;color:var(--ws1-color);">Practice Enrollment to Executive Visibility</h3>
+
+      <div class="journey-step" data-step="1">
+        <div class="step-actor">Angela Rivera &mdash; HQ Operations Specialist</div>
+        <div class="step-title">New Practice Enrollment Pipeline</div>
+        <div class="step-desc">Angela opens Network Intelligence on her desktop and navigates to the Enrollment Pipeline. She sees all practices in onboarding organized as a horizontal Kanban board with four stages: Harvesting, Integrating, Testing, and Live. She drags "Dental Arts Decatur" from Harvesting to Integrating after confirming profile data is complete.</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> Kanban pipeline with practice cards showing data completeness scores, integration status indicators, and days-in-stage counters. Batch action toolbar for cohort invitations.</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> Enrollment uses practice profile data (name, address, staff roster, practice type) — zero patient information.</div>
+        <div class="callout callout-b"><strong>Phase B addition:</strong> Pipeline gains PMS connectivity status column. Practices show NexHealth webhook health once PMS Integration activates.</div>
+      </div>
+
+      <div class="journey-step" data-step="2">
+        <div class="step-actor">Automated &mdash; Storefront Generation Engine</div>
+        <div class="step-title">Storefront Generation &amp; Deployment</div>
+        <div class="step-desc">Once a practice reaches the Integrating stage, the Storefront Generation engine creates a template-based website using the practice's profile data and Gen4 brand assets. Angela previews the generated site, confirms accuracy, and deploys it to a CDN-backed custom domain. The site includes provider bios, office photos, and a booking link to the NexHealth-hosted scheduling page.</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> Site preview with desktop/mobile toggle, practice branding applied, auto-generated provider bio cards, embedded Google Map, and "Book Now" button linking to NexHealth hosted page.</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> Websites use practice data and brand assets. No patient reviews, testimonials, or before/after galleries in Phase A.</div>
+        <div class="callout callout-b"><strong>Phase B addition:</strong> Patient review widget (from Swell), before/after photo gallery (with consent), and live appointment availability from PMS.</div>
+      </div>
+
+      <div class="journey-step" data-step="3">
+        <div class="step-actor">Dr. Sarah Chen &mdash; CEO / Executive</div>
+        <div class="step-title">Executive Dashboard (Aggregate KPIs)</div>
+        <div class="step-desc">Dr. Chen opens the Executive Dashboard and sees five KPI cards at the top: Active Practices (247), Network H-Score (72, trending up), Average Brand Health (68), Enrollment Pipeline (13 in progress), and Content Captures MTD (342). Below, an AI Alerts panel flags two practices with declining H-Scores and one with a brand health violation. She clicks a practice to investigate.</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> 5-card KPI bar with sparkline trends, AI Alerts panel with severity indicators, Portfolio Heatmap with color-coded practices, and drill-down navigation to Practice Deep Dive.</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> All KPIs derive from aggregate vendor scores (Cinnamon, Swell, Dental Intel), platform-native data (enrollment, captures), and brand health crawls. No patient data.</div>
+        <div class="callout callout-b"><strong>Phase B addition:</strong> KPI bar expands to 8 cards: adds Total Production, New Patients, Show Rate. AI alerts incorporate revenue-impact signals.</div>
+      </div>
+
+      <div class="journey-step" data-step="4">
+        <div class="step-actor">Dr. Sarah Chen &mdash; CEO / Executive</div>
+        <div class="step-title">Practice Deep Dive (4 Tabs in Phase A)</div>
+        <div class="step-desc">Dr. Chen drills into "Smile Center Buckhead." The Practice Deep Dive opens with four tabs: Profile, Culture, Content &amp; Brand, and History. The Culture tab shows the H-Score breakdown (Cinnamon 58, Swell 71, Dental Intel 74), huddle completion calendar, CCA certification roster, and champion scorecard. The Content &amp; Brand tab shows brand health score, asset gallery, and social engagement metrics.</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> 4-tab interface — Profile (practice data, staff roster), Culture (H-Score, huddle, CCA), Content &amp; Brand (brand health, social, assets), History (enrollment timeline, key events).</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> All four Phase A tabs use aggregate/staff/brand data. No patient-level information anywhere.</div>
+        <div class="callout callout-b"><strong>Phase B addition:</strong> Two new tabs inject at positions 1 and 2 — Performance (5-stage funnel, conversion rates, revenue) and Communications (message volumes, response rates). Existing tabs shift right.</div>
+      </div>
+
+      <div class="journey-step" data-step="5">
+        <div class="step-actor">Marcus Williams &mdash; VP Operations</div>
+        <div class="step-title">Intervention Queue (Culture-Risk Ranked)</div>
+        <div class="step-desc">Marcus opens the Intervention Queue to see practices ranked by Culture Risk Score — an AI-generated composite of H-Score drops, brand health degradation, champion inactivity, and CCA certification gaps. He identifies a practice with a 14-point H-Score drop, clicks to view the root cause analysis (low phone scores, missed huddles), and assigns an intervention to the regional team.</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> AI-ranked list with risk scores, root cause breakdown, assign/dismiss/view actions, and practice context sidebar.</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> Ranking uses culture and brand signals exclusively. Not revenue-based — culture-risk-based.</div>
+        <div class="callout callout-b"><strong>Phase B addition:</strong> Ranking algorithm incorporates revenue impact. Practices with both culture decline and revenue decline surface higher.</div>
+      </div>
+
+      <div class="journey-step" data-step="6">
+        <div class="step-actor">Lisa Torres &mdash; Office Manager</div>
+        <div class="step-title">Office Manager PWA (Limited Phase A View)</div>
+        <div class="step-desc">Lisa opens the Practice Operations PWA on her phone. Her bottom nav shows Today, Capture, Huddle, and Hub (if designated as champion). The Today screen displays a Practice Briefing with the H-Score trend, content capture brief, and practice action cards for storefront health, playbook updates, and culture focus. Patient appointments, phone queues, and outreach tasks are not present — those arrive in Phase B.</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> Practice Briefing card, H-Score widget, content capture prompt, 3-4 practice-focused action cards (storefront health, content, playbook, culture).</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> All action cards are practice-operational. No patient data, appointment schedules, or phone queues.</div>
+        <div class="callout callout-b"><strong>Phase B addition:</strong> Nerve Center activates with patient action cards (callbacks, confirmations, outreach). Nav expands. Today screen shows patient agenda alongside practice briefing.</div>
+      </div>
+    </div>
+
+    <!-- WS2 PANEL -->
+    <div class="tab-panel" role="tabpanel" id="panel-ws2" aria-labelledby="tab-ws2">
+      <h3 style="margin-bottom:24px;color:var(--ws2-color);">Brand Content to Multi-Channel Distribution</h3>
+
+      <div class="journey-step ws2" data-step="1">
+        <div class="step-actor">Maria Santos &mdash; Champion / Hygienist</div>
+        <div class="step-title">Content Mission via Champion Hub</div>
+        <div class="step-desc">Maria opens the PWA at 7:30 AM and taps Hub. Her Champion Hub shows a unified scorecard (Culture 92, Content 88), streak indicators, and this week's missions. A content mission reads: "Team photo day — capture the team before morning huddle." The mission was delivered via PWA push notification at 7:00 AM, generated by the Content Engine's nightly mission scheduler based on the brand content calendar.</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> Champion scorecard with culture + content scores, weekly missions list (content + culture), cohort leaderboard position, streak indicators, and "Open Camera" action button.</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> Missions are brand/culture-driven ("team photo," "office tour," "provider portrait") — never procedure-driven ("capture implant before/after").</div>
+        <div class="callout callout-b"><strong>Phase B addition:</strong> Procedure-driven missions from PMS appointment data. SMS/WhatsApp delivery via Communications Service supplements PWA push.</div>
+      </div>
+
+      <div class="journey-step ws2" data-step="2">
+        <div class="step-actor">Maria Santos &mdash; Champion / Hygienist</div>
+        <div class="step-title">Content Capture (Brand Content)</div>
+        <div class="step-desc">Maria taps "Open Camera." The full-screen camera overlay shows a composition guide for group photos. She selects "Team Photography" from the content type selector (other options: Office Environment, Provider Portrait, Video). She captures the photo, reviews the preview with practice and content metadata, and taps "Upload." The photo saves to IndexedDB for offline safety and uploads to S3 when connected.</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> Camera viewfinder with composition guide overlay, content type selector (4 brand options), practice tag, capture button, preview with retake/upload actions.</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> Before/after photo pairing mode hidden via feature flag. Procedure-type tags absent. Only brand content types available.</div>
+        <div class="callout callout-b"><strong>Phase B addition:</strong> "Before/After" content type appears with clinical alignment guides, patient consent capture step, and procedure-type tagging from PMS.</div>
+      </div>
+
+      <div class="journey-step ws2" data-step="3">
+        <div class="step-actor">Automated &mdash; Content Engine AI Pipeline</div>
+        <div class="step-title">AI Processing (~45 seconds)</div>
+        <div class="step-desc">Within 45 seconds, the Content Engine processes Maria's photo autonomously: color correction and exposure normalization, smart cropping into three platform variants (1:1 for Instagram, 16:9 for Facebook, 4:3 for Google Business), Gen4 brand watermark overlay, and AI-generated captions for each platform via Claude Haiku. The asset moves to "Ready for Review."</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> Background process — asset appears in Editorial Queue with "AI Processing Complete" badge showing all variants and generated captions.</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> AI pipeline is content-type-agnostic. Captions reference team and practice, never individual patients.</div>
+        <div class="callout callout-b"><strong>Phase B addition:</strong> Procedure-aware captions and patient-consent metadata for clinical content.</div>
+      </div>
+
+      <div class="journey-step ws2" data-step="4">
+        <div class="step-actor">HQ Content Team &mdash; Editorial Reviewers</div>
+        <div class="step-title">Editorial Queue Review &amp; Approval</div>
+        <div class="step-desc">At 11:00 AM, an HQ reviewer opens the Editorial Queue and sees 12 assets ready for review. Each shows a thumbnail, AI-generated captions per platform, brand compliance status, and content metadata. The reviewer edits the Instagram caption to add team member names, confirms Facebook and GMB captions, and clicks "Approve." The asset moves to distribution-ready status.</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> Kanban queue (Ready / In Review / Approved / Rejected), asset detail with full-size preview, editable captions per platform, brand compliance auto-check.</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> Editorial workflow is content-type-agnostic. This interface is completely unchanged from the original design.</div>
+      </div>
+
+      <div class="journey-step ws2" data-step="5">
+        <div class="step-actor">Creative Director &mdash; Brand Approval</div>
+        <div class="step-title">58-Second Tap-Approve Flow</div>
+        <div class="step-desc">The Creative Director receives a Microsoft Teams notification: "3 assets ready for brand review." They open the review queue showing full-size previews with Gen4 brand compliance badges. Two assets pass auto-check; one shows a font weight warning. The Creative Director approves all three with a single "Approve All" tap in under 58 seconds.</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> Card grid with full-size previews, brand universe badge, auto-compliance results, individual approve/reject buttons, batch "Approve All" action.</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> Brand review examines visual compliance (logo, colors, fonts, quality), not content subject matter. Completely unchanged.</div>
+      </div>
+
+      <div class="journey-step ws2" data-step="6">
+        <div class="step-actor">HQ Content Team &mdash; Distribution</div>
+        <div class="step-title">Multi-Channel Distribution (IG, FB, GMB)</div>
+        <div class="step-desc">After approval, the content team opens the Distribution Monitor to schedule publication. They select channels (Instagram, Facebook, Google Business), choose "Publish Now" or schedule for optimal time. The Distribution Engine authenticates with platform APIs, selects the correct image variant per channel, and posts with approved captions. Engagement tracking begins immediately.</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> Distribution queue with channel toggles, schedule picker, per-platform caption previews, recently published list with engagement stats, 7-day calendar view.</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> Distribution publishes to social channels regardless of content type. Completely unchanged.</div>
+      </div>
+
+      <div class="journey-step ws2" data-step="7">
+        <div class="step-actor">VP Marketing &mdash; Content Analytics</div>
+        <div class="step-title">Content Engine Dashboard</div>
+        <div class="step-desc">The VP Marketing reviews the Content Engine Dashboard. Five KPIs: captures (287), processed (234), approved (198), published (156), and average brand health (78). Below: pipeline flow visualization, champion leaderboard (Maria Santos #1 in Southeast), engagement analytics (45.2K total reach, 4.8% engagement rate), and brand health heatmap by practice. One panel — Attribution Analysis — shows a purposeful empty state.</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> 5 KPI cards, pipeline funnel, champion leaderboard, engagement charts, brand health grid. Attribution Analysis panel: "Content attribution analysis requires PMS integration. Available in Phase B."</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> Pipeline metrics, engagement, champion data, and brand health all work without patient data. One panel shows intentional empty state.</div>
+        <div class="callout callout-b"><strong>Phase B addition:</strong> Attribution panel populates with content-to-booking correlation, estimated booking value, and content ROI calculations.</div>
+      </div>
+
+      <div class="journey-step ws2" data-step="8">
+        <div class="step-actor">VP Marketing &mdash; Content Analytics</div>
+        <div class="step-title">Engagement Analytics &amp; Reporting</div>
+        <div class="step-desc">Drilling deeper, the VP Marketing sees that Instagram drives 62% of total reach, team photos generate the highest engagement rates, and the Southeast region leads in content quality scores. They export a monthly brand content report for the executive team.</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> Platform breakdown charts, content-type engagement comparison, regional performance heatmap, exportable monthly report.</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> All engagement data from social platform APIs. Zero patient data involved.</div>
+      </div>
+    </div>
+
+    <!-- WS3 PANEL -->
+    <div class="tab-panel" role="tabpanel" id="panel-ws3" aria-labelledby="tab-ws3">
+      <h3 style="margin-bottom:24px;color:var(--ws3-color);">Hospitality Culture Through Daily Rituals</h3>
+
+      <div class="journey-step ws3" data-step="1">
+        <div class="step-actor">All Practice Staff &mdash; Break Room, 7:50 AM</div>
+        <div class="step-title">Morning Huddle (TV Display + PWA)</div>
+        <div class="step-desc">The break room TV auto-cycles through four panels every 30 seconds. Panel 1: H-Score (64, down 14) with sub-scores (Phone 58, Reviews 71, DI 74), today's focus behavior (Warm Handoffs), and recognition for Maria's 12-week huddle streak. Panel 2: Yesterday's practice wins (huddle completion, content captures, new reviews). Panel 3: Playbook spotlight with the warm handoff script. Panel 4: Content capture reminder from the Content Engine. Staff can also view huddle content on the PWA Huddle tab and tap "Mark Huddle Complete."</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> Full-screen TV display with 4 auto-advancing panels: H-Score + focus + recognition, yesterday's wins + CCA progress, playbook spotlight, content mission. PWA mirrors content in vertical scroll with "Mark Huddle Complete" button.</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> H-Score uses aggregate vendor scores (Cinnamon 35% / Swell 45% / Dental Intel 20%). Impact stories reference review counts and H-Score trends, never patient identifiers.</div>
+        <div class="callout callout-b"><strong>Phase B addition:</strong> Impact stories gain funnel metrics ("Show rate improved 5% since confirmation texts started").</div>
+      </div>
+
+      <div class="journey-step ws3" data-step="2">
+        <div class="step-actor">Maria Santos &mdash; Champion / Hygienist</div>
+        <div class="step-title">Champion Hub Daily Use (Scorecard + Leaderboard)</div>
+        <div class="step-desc">After the huddle, Maria checks her Champion Scorecard. She sees her overall rank (#1, Southeast Region, 186 points), culture score (92: huddles led 4/5, behavior modeling 4.2, recognition 3 given), and content score (88: captures 6, streak 8 weeks, quality 4.0). Points break down across six categories: huddles led (48), captures submitted (36), assets published (24), behaviors modeled (21), recognition given (9), streaks maintained (48). She taps "View Leaderboard" to check her cohort standings.</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> Unified scorecard with culture + content sections, 6-category points breakdown, regional leaderboard with progress bars, streak badges.</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> Culture scores from WS3 natively; content scores arrive via Kafka from WS2. Workstream boundaries are invisible to the user.</div>
+      </div>
+
+      <div class="journey-step ws3" data-step="3">
+        <div class="step-actor">Jamie Lee &mdash; Front Desk Staff</div>
+        <div class="step-title">CCA Academy (Bronze Modules + Credly Badges)</div>
+        <div class="step-desc">Jamie opens the CCA Academy on her phone. She's working through Bronze Module 3: "The Trust Transfer." The module includes a 4-minute Mux-hosted video, a scenario-based assessment ("A patient arrives anxious — what do you say?"), and a practice exercise for her next shift. Upon completing all 10 Bronze modules and passing assessments, she receives a Credly digital badge and a generated certificate.</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> Module list with progress indicators, video player, scenario assessment with multiple-choice, practice exercise checklist, certification progress bar (7/10 complete).</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> Training content, assessments, and certifications are entirely staff-focused. Employee development data is not PHI under HIPAA.</div>
+      </div>
+
+      <div class="journey-step ws3" data-step="4">
+        <div class="step-actor">All Practice Staff &mdash; Throughout the Day</div>
+        <div class="step-title">Recognition &amp; Rewards</div>
+        <div class="step-desc">During the day, Maria gives a recognition to Jamie: "Great job with the nervous patient in room 3 — your warm handoff was perfect." Jamie receives a PWA notification and sees the recognition in the Recognition Feed, displayed on a Gen4-branded celebration card. The feed shows peer celebrations from the practice, with weekly and monthly leaderboards tracking recognition given and received.</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> Recognition feed with branded celebration cards, give-recognition form, leaderboard (givers and receivers), streak indicators.</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> Recognition references staff behavior and skills, not patient identity. Completely unchanged in Phase B.</div>
+      </div>
+
+      <div class="journey-step ws3" data-step="5">
+        <div class="step-actor">Lisa Torres &mdash; Office Manager</div>
+        <div class="step-title">H-Score Dashboard (3-Vendor Composite)</div>
+        <div class="step-desc">Lisa checks the H-Score Dashboard. The composite score (64) breaks into: Cinnamon phone quality (58, weighted 35%), Swell review performance (71, weighted 45%), and Dental Intel operational compliance (74, weighted 20%). A 12-behavior breakdown shows strengths (greeting warmth: 82) and weaknesses (treatment presentation: 48). A 90-day trend chart shows recovery, and a network comparison positions the practice against regional and network averages.</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> Composite H-Score with 3-vendor breakdown, 12-behavior radar chart, 90-day trend line, network comparison (practice vs. regional vs. network average).</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> All data from aggregate vendor APIs. No individual patient data — scores report at practice and staff level.</div>
+      </div>
+
+      <div class="journey-step ws3" data-step="6">
+        <div class="step-actor">Lisa Torres &mdash; Office Manager</div>
+        <div class="step-title">Trust Transfer Tracker (Aggregate Scores)</div>
+        <div class="step-desc">Lisa views the Trust Transfer Tracker showing aggregate scores per staff member — a 30-day rolling score based on Swell review NLP analysis and huddle commitment tracking. She sees Dr. Kim's score improved 8 points this week. When she tries to drill into an individual call recording, the detail view shows: "Individual call recordings require Cinnamon call recording access. Available in Phase B."</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> Staff roster with trust transfer scores, 30-day trend sparklines, improvement indicators. Individual call drill-down shows Phase B empty state.</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> Aggregate scores from Swell NLP and huddle data. No individual patient or call data displayed.</div>
+        <div class="callout callout-b"><strong>Phase B addition:</strong> "Listen to Call" action activates. Individual call transcripts, playback, and coaching recommendations become available.</div>
+      </div>
+
+      <div class="journey-step ws3" data-step="7">
+        <div class="step-actor">HQ Culture Team &mdash; Administrators</div>
+        <div class="step-title">Culture Admin Console</div>
+        <div class="step-desc">The HQ Culture Team manages the entire culture program from the Admin Console: CCA Academy curriculum (add modules, set assessment criteria), playbook deployment to practice groups (by region, type, or tier), huddle content rotation configuration, champion network management (designate, promote, reassign champions), and reward budget controls per region. They deploy Playbook v2.4 with updated warm handoff scripts to all Southeast practices.</div>
+        <div class="callout callout-screen"><strong>On screen:</strong> Multi-section admin: CCA management, playbook deployment with filtering, huddle configuration, champion network, reward budgets.</div>
+        <div class="callout callout-phi"><strong>PHI-free:</strong> Culture administration is entirely staff and program-focused. This interface requires zero changes in Phase B.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE PLAN -->
+<section id="phase-plan">
+  <div class="container">
+    <h2>Comprehensive Phase Plan</h2>
+    <p class="section-subtitle">7 sub-phases from pre-build through network rollout.</p>
+
+    <h3 style="color:var(--phase-a);margin-bottom:16px;">Phase A: PHI-Free Foundation</h3>
+    <div class="phase-grid" style="margin-bottom:32px;">
+      <div class="phase-card">
+        <div class="phase-card-header a">
+          <span>A0: Pre-Build</span>
+          <span style="font-size:13px;font-weight:400;">Weeks 1-2</span>
+        </div>
+        <div class="phase-card-body">
+          <ul>
+            <li>AWS environment provisioning (HIPAA-eligible from Day 1)</li>
+            <li>Team staffing &amp; onboarding (15-20 engineers)</li>
+            <li>Data model design with PHI hooks (empty tables, RLS configured)</li>
+            <li>Feature flag framework deployed (LaunchDarkly)</li>
+            <li>BAA procurement initiated (parallel background track)</li>
+          </ul>
+          <div class="phase-meta"><strong>Team:</strong> Platform Eng (5) + all teams onboarding &nbsp;|&nbsp; <strong>Exit:</strong> CI/CD deploys to ECS, all leads reviewed architecture, flags operational</div>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-card-header a">
+          <span>A1: Shared Infrastructure</span>
+          <span style="font-size:13px;font-weight:400;">Weeks 3-6</span>
+        </div>
+        <div class="phase-card-body">
+          <ul>
+            <li>Practice Data Hub — 260 practices seeded, CRUD API live</li>
+            <li>Auth &amp; Identity — Cognito, JWT middleware, 8-role RBAC</li>
+            <li>Event Bus — MSK + Schema Registry, 10 event schemas</li>
+            <li>Asset Registry — S3 + CloudFront CDN + metadata catalog</li>
+            <li>Workflow Engine — Temporal for enrollment &amp; H-Score workflows</li>
+            <li>Design Tool Abstraction — Canva adapter for storefronts</li>
+          </ul>
+          <div class="phase-meta"><strong>Team:</strong> Platform Eng (5) at 100% &nbsp;|&nbsp; <strong>Exit:</strong> All 6 services healthy, integration test passes, 260 practices seeded</div>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-card-header a">
+          <span>A2: WS3 + WS2 Core</span>
+          <span style="font-size:13px;font-weight:400;">Weeks 5-10</span>
+        </div>
+        <div class="phase-card-body">
+          <ul>
+            <li>Full Culture OS: H-Score, Huddle, CCA Academy, Trust Transfer, Champions, Recognition, Playbooks, Admin Console</li>
+            <li>Content Engine core: Capture Bot, Studio Agent, AI pipeline, Editorial Queue, Distribution (IG + FB), Asset integration</li>
+            <li>WS3 starts Week 5 (needs only PDH + Auth + Kafka)</li>
+          </ul>
+          <div class="phase-meta"><strong>Team:</strong> WS3 (3) + WS2 (4) + Platform support &nbsp;|&nbsp; <strong>Exit:</strong> 20 pilot practices with live H-Scores, content pipeline E2E verified</div>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-card-header a">
+          <span>A3: WS1 Foundation</span>
+          <span style="font-size:13px;font-weight:400;">Weeks 8-14</span>
+        </div>
+        <div class="phase-card-body">
+          <ul>
+            <li>Data Harvesting &amp; Enrollment Invitation System</li>
+            <li>Storefront Generation (2 templates, CDN deployment)</li>
+            <li>Executive Dashboard (5 KPIs + AI Alerts)</li>
+            <li>Portfolio Heatmap, Intervention Queue, HQ Standup Board</li>
+            <li>Practice Deep Dive (4 tabs), Compliance Readiness Dashboard</li>
+          </ul>
+          <div class="phase-meta"><strong>Team:</strong> WS1-A (4) + WS1-B (3) + QA (2) &nbsp;|&nbsp; <strong>Exit:</strong> 30 interfaces operational, 50+ practices active, dashboards &lt;3s load</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="color:var(--phase-b);margin-bottom:16px;">Phase B: PHI Layer</h3>
+    <div class="phase-grid">
+      <div class="phase-card">
+        <div class="phase-card-header b">
+          <span>B0: PHI Infrastructure</span>
+          <span style="font-size:13px;font-weight:400;">Weeks 12-15</span>
+        </div>
+        <div class="phase-card-body">
+          <ul>
+            <li>BAA execution verification (all 6 vendors)</li>
+            <li>Compliance Middleware (PHI detection, encryption, audit log)</li>
+            <li>PHI Filter for AI Service (tokenize/detokenize pipeline)</li>
+            <li>PMS Integration Service (NexHealth + Sikka ONE adapters)</li>
+            <li>Communications Service (Twilio HIPAA, consent registry, 10DLC)</li>
+          </ul>
+          <div class="phase-meta"><strong>Team:</strong> Platform Eng (5) + QA (2) + Security &nbsp;|&nbsp; <strong>Exit:</strong> PHI red-team passes, zero leakage paths, all BAAs signed</div>
+        </div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-card-header b">
+          <span>B1: Patient Features</span>
+          <span style="font-size:13px;font-weight:400;">Weeks 15-20</span>
+        </div>
+        <div class="phase-card-body">
+          <ul>
+            <li>Nerve Center with patient action cards</li>
+            <li>Concierge Agent (chat, missed-call text-back &lt;90s)</li>
+            <li>Patient Outreach Queue &amp; Automation Engine</li>
+            <li>Funnel Data Lake + Executive Dashboard expansion (8 KPIs)</li>
+            <li>Patient photo capture with consent workflow</li>
+          </ul>
+          <div class="phase-meta"><strong>Team:</strong> WS1-A (4) + WS1-B (3) + WS2 (4) &nbsp;|&nbsp; <strong>Exit:</strong> 30+ practices on Nerve Center, zero HIPAA violations</div>
+        </div>
+      </div>
+
+      <div class="phase-card" style="grid-column: span 2;">
+        <div class="phase-card-header b">
+          <span>B2: Advanced PHI + Network Rollout</span>
+          <span style="font-size:13px;font-weight:400;">Weeks 20-24</span>
+        </div>
+        <div class="phase-card-body">
+          <ul>
+            <li>Voice AI inbound (Twilio Voice + Media Streams, real-time PMS booking)</li>
+            <li>Call Dashboard (patient context, transcript viewer, quality monitoring)</li>
+            <li>Content-to-consultation attribution model</li>
+            <li>Trust Transfer individual call analysis (Cinnamon recordings)</li>
+            <li>Network rollout to 260+ practices (50/week rolling activation with per-practice BAA + PMS verification)</li>
+          </ul>
+          <div class="phase-meta"><strong>Team:</strong> All teams &nbsp;|&nbsp; <strong>Exit:</strong> Voice AI for 20+ practices, 260+ on Phase A, 100+ on Phase B, 99.5% uptime</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QC GATES -->
+<section id="qc-gates">
+  <div class="container">
+    <h2>QC Gates</h2>
+    <p class="section-subtitle">7 quality gates governing the build. No phase proceeds until its gate passes.</p>
+
+    <div class="gate-pipeline">
+      <div class="gate-card gate-a">
+        <div class="gate-name">Gate A0</div>
+        <div class="gate-week">Week 2</div>
+        <div class="gate-question">Environment ready?</div>
+        <div style="font-size:11px;color:var(--color-text-muted);margin-bottom:6px;">Platform Architect, Eng Manager</div>
+        <div class="gate-type">Hard Gate</div>
+      </div>
+      <div class="gate-card gate-a">
+        <div class="gate-name">Gate A1</div>
+        <div class="gate-week">Week 6</div>
+        <div class="gate-question">Infrastructure stable and PHI-free?</div>
+        <div style="font-size:11px;color:var(--color-text-muted);margin-bottom:6px;">Platform Architect, QA, PO</div>
+        <div class="gate-type">Hard Gate</div>
+      </div>
+      <div class="gate-card gate-a">
+        <div class="gate-name">Gate A2</div>
+        <div class="gate-week">Week 10</div>
+        <div class="gate-question">Culture OS &amp; Content Engine delivering value?</div>
+        <div style="font-size:11px;color:var(--color-text-muted);margin-bottom:6px;">PO, Design Director, QA</div>
+        <div class="gate-type">Hard Gate</div>
+      </div>
+      <div class="gate-card gate-a" style="border: 2px solid var(--color-primary);">
+        <div class="gate-name">Gate A3</div>
+        <div class="gate-week">Week 14</div>
+        <div class="gate-question">PHI-free platform ready to ship?</div>
+        <div style="font-size:11px;color:var(--color-text-muted);margin-bottom:6px;">PO, Strategist, Architect, QA, Security</div>
+        <div class="gate-type">Hard Gate &mdash; Ship It</div>
+      </div>
+      <div class="gate-card gate-b" style="border: 2px solid var(--phase-b);">
+        <div class="gate-name">Gate B0</div>
+        <div class="gate-week">Week 15</div>
+        <div class="gate-question">PHI infrastructure HIPAA-compliant?</div>
+        <div style="font-size:11px;color:var(--color-text-muted);margin-bottom:6px;">HIPAA Counsel, Security, Architect, QA</div>
+        <div class="gate-type">Hard &mdash; Non-Negotiable</div>
+      </div>
+      <div class="gate-card gate-b">
+        <div class="gate-name">Gate B1</div>
+        <div class="gate-week">Week 20</div>
+        <div class="gate-question">Patient features secure and usable?</div>
+        <div style="font-size:11px;color:var(--color-text-muted);margin-bottom:6px;">PO, Design Director, HIPAA Counsel, QA</div>
+        <div class="gate-type">Hard Gate</div>
+      </div>
+      <div class="gate-card gate-final">
+        <div class="gate-name">Gate B2</div>
+        <div class="gate-week">Week 24</div>
+        <div class="gate-question">Full platform ready for 260+ practices?</div>
+        <div style="font-size:11px;color:var(--color-text-muted);margin-bottom:6px;">All reviewers + external HIPAA review</div>
+        <div class="gate-type">Hard &mdash; External Review</div>
+      </div>
+    </div>
+
+    <div class="gate-callout">
+      <strong>Gate B0 — The HIPAA Checkpoint:</strong> No patient data flows through ANY system until this gate passes. All 6 BAAs must be signed. PHI red-team test must show zero leakage paths. Compliance Middleware must have 100% PHI detection recall. HIPAA Compliance Counsel has veto authority. A failure here delays Phase B only — Phase A continues serving practices independently.
+    </div>
+  </div>
+</section>
+
+<!-- GANTT TIMELINE -->
+<section id="timeline">
+  <div class="container">
+    <h2>Build Timeline</h2>
+    <p class="section-subtitle">24-week Gantt view across all sub-phases, BAA procurement, and QC gate markers.</p>
+
+    <div class="gantt-container">
+      <div class="gantt">
+        <div class="gantt-header">
+          <span></span>
+          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+          <span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+          <span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span>
+          <span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span>
+        </div>
+
+        <!-- A0 -->
+        <div class="gantt-row">
+          <div class="gantt-label">A0: Pre-Build</div>
+          <div class="gantt-bar a" style="grid-column: 2 / 4;"></div>
+        </div>
+
+        <!-- A1 -->
+        <div class="gantt-row">
+          <div class="gantt-label">A1: Shared Infra (6 services)</div>
+          <div class="gantt-bar infra" style="grid-column: 4 / 8;"></div>
+        </div>
+
+        <!-- A2 -->
+        <div class="gantt-row">
+          <div class="gantt-label">A2: WS3 + WS2 Core</div>
+          <div class="gantt-bar a" style="grid-column: 6 / 12;"></div>
+        </div>
+
+        <!-- A3 -->
+        <div class="gantt-row">
+          <div class="gantt-label">A3: WS1 Foundation</div>
+          <div class="gantt-bar a" style="grid-column: 9 / 16;"></div>
+        </div>
+
+        <!-- BAA parallel -->
+        <div class="gantt-row">
+          <div class="gantt-label" style="color:var(--color-text-muted);font-style:italic;">BAA Procurement (parallel)</div>
+          <div class="gantt-bar parallel" style="grid-column: 2 / 14;"></div>
+        </div>
+
+        <!-- B0 -->
+        <div class="gantt-row">
+          <div class="gantt-label">B0: PHI Infrastructure</div>
+          <div class="gantt-bar b" style="grid-column: 13 / 17;"></div>
+        </div>
+
+        <!-- B1 -->
+        <div class="gantt-row">
+          <div class="gantt-label">B1: Patient Features</div>
+          <div class="gantt-bar b" style="grid-column: 16 / 22;"></div>
+        </div>
+
+        <!-- B2 -->
+        <div class="gantt-row">
+          <div class="gantt-label">B2: Advanced + Rollout</div>
+          <div class="gantt-bar b" style="grid-column: 21 / 26;"></div>
+        </div>
+
+        <!-- Gate markers row -->
+        <div class="gantt-row" style="height:40px;margin-top:8px;">
+          <div class="gantt-label" style="font-size:11px;color:var(--color-text-muted);">QC Gates</div>
+          <div style="grid-column:3/4;position:relative;"><div class="gantt-marker" data-label="A0"></div></div>
+          <div style="grid-column:7/8;position:relative;"><div class="gantt-marker" data-label="A1"></div></div>
+          <div style="grid-column:11/12;position:relative;"><div class="gantt-marker" data-label="A2"></div></div>
+          <div style="grid-column:15/16;position:relative;"><div class="gantt-marker" style="background:var(--color-primary);" data-label="A3 Ship"></div></div>
+          <div style="grid-column:16/17;position:relative;"><div class="gantt-marker" style="background:var(--phase-b);" data-label="B0"></div></div>
+          <div style="grid-column:21/22;position:relative;"><div class="gantt-marker" style="background:var(--phase-b);" data-label="B1"></div></div>
+          <div style="grid-column:25/26;position:relative;"><div class="gantt-marker" data-label="B2"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT THIS CHANGES -->
+<section id="what-changes">
+  <div class="container">
+    <h2>What This Changes</h2>
+    <p class="section-subtitle">Original plan vs. PHI-Free-First approach — side by side.</p>
+
+    <div class="card" style="overflow-x:auto;">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Original Plan</th>
+            <th>PHI-Free First</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="dimension">Time to first working software</td>
+            <td class="original">Week 18</td>
+            <td class="improved">Week 10</td>
+          </tr>
+          <tr>
+            <td class="dimension">BAA blocking development</td>
+            <td class="original">Yes — on critical path from Day 1</td>
+            <td class="improved">No — parallel background process</td>
+          </tr>
+          <tr>
+            <td class="dimension">Features in first release</td>
+            <td class="original">16 Tier 1 interfaces</td>
+            <td class="improved">~30 Phase A interfaces</td>
+          </tr>
+          <tr>
+            <td class="dimension">HIPAA risk during build</td>
+            <td class="original">High — PHI flowing from Week 6</td>
+            <td class="improved">None — zero PHI in Phase A</td>
+          </tr>
+          <tr>
+            <td class="dimension">Infrastructure at start</td>
+            <td class="original">10 shared services (all at once)</td>
+            <td class="improved">6 services (40% less scope)</td>
+          </tr>
+          <tr>
+            <td class="dimension">WS3 scope change</td>
+            <td class="original">N/A</td>
+            <td class="improved">None — 8/8 interfaces unchanged</td>
+          </tr>
+          <tr>
+            <td class="dimension">WS2 scope change</td>
+            <td class="original">N/A</td>
+            <td class="improved">Minor — defer patient photos, attribution</td>
+          </tr>
+          <tr>
+            <td class="dimension">WS1 scope change</td>
+            <td class="original">N/A</td>
+            <td class="improved">Significant — patient workflows deferred</td>
+          </tr>
+          <tr>
+            <td class="dimension">Dev team start</td>
+            <td class="original">After BAAs complete</td>
+            <td class="improved">Immediately</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- QC VERDICTS -->
+<section id="verdicts">
+  <div class="container">
+    <h2>QC Verdicts</h2>
+    <p class="section-subtitle">Both quality gates passed. The PHI-free redesign is ready for development.</p>
+
+    <div class="verdict-card">
+      <div class="verdict-header">
+        <div>
+          <strong style="font-size:15px;">QC1: Product Design Director Review</strong>
+        </div>
+        <div class="verdict-pass">PASS</div>
+      </div>
+      <div class="verdict-body">
+        <p style="margin-bottom:12px;">
+          <strong>Scores:</strong> WS1 4/5 &nbsp;|&nbsp; WS2 5/5 &nbsp;|&nbsp; WS3 5/5
+        </p>
+        <p style="margin-bottom:12px;">
+          <strong>Critical issues:</strong> 0 &nbsp;&nbsp;|&nbsp;&nbsp; <strong>Major issues:</strong> 2 &nbsp;&nbsp;|&nbsp;&nbsp; <strong>Minor issues:</strong> 5
+        </p>
+        <p style="margin-bottom:8px;">
+          <strong>Major items flagged:</strong>
+        </p>
+        <ul style="margin-left:20px;margin-bottom:12px;">
+          <li style="margin-bottom:4px;"><strong>M1:</strong> CE-1 Capture Bot SMS contradiction — WS2 journey says "no SMS" but build plan specifies SMS via non-HIPAA gateway. Build plan is authoritative; journey document needs update.</li>
+          <li><strong>M2:</strong> Front Desk adoption risk — ~40% functionality in Phase A, highest-risk persona. Recommended adding "Known Adoption Risks" section and measuring engagement by CCA Academy participation, not login frequency.</li>
+        </ul>
+        <p><strong>Verdict:</strong> Phase A is a coherent, shippable product. The PHI-free redesign preserves core design principles while delivering genuine operational value. Fix the 2 Major items before Gate A2.</p>
+      </div>
+    </div>
+
+    <div class="verdict-card">
+      <div class="verdict-header">
+        <div>
+          <strong style="font-size:15px;">QC2: QA Engineer + Product Owner Review</strong>
+        </div>
+        <div class="verdict-pass">PASS / COMPLETE</div>
+      </div>
+      <div class="verdict-body">
+        <p style="margin-bottom:12px;">
+          <strong>Critical defects:</strong> 0 &nbsp;&nbsp;|&nbsp;&nbsp; <strong>Major defects:</strong> 4 &nbsp;&nbsp;|&nbsp;&nbsp; <strong>Minor defects:</strong> 7
+        </p>
+        <p style="margin-bottom:8px;">
+          <strong>4 Major documentation fixes required:</strong>
+        </p>
+        <ul style="margin-left:20px;margin-bottom:12px;">
+          <li style="margin-bottom:4px;"><strong>D-1:</strong> Reconcile scope analysis classifications with experience architecture (7 interface discrepancies — exp arch is authoritative)</li>
+          <li style="margin-bottom:4px;"><strong>D-2:</strong> Update WS2 journey to reflect SMS availability in Phase A (30-minute documentation fix)</li>
+          <li style="margin-bottom:4px;"><strong>D-3:</strong> Add AI Service core to A1 build plan (needed for caption generation, AI alerts, learning reports)</li>
+          <li><strong>D-4:</strong> Add "Known Adoption Risks" section to experience architecture (Front Desk persona)</li>
+        </ul>
+        <p style="margin-bottom:8px;"><strong>Key findings:</strong></p>
+        <ul style="margin-left:20px;">
+          <li style="margin-bottom:4px;">Cross-document consistency strong — experience architecture is canonical source</li>
+          <li style="margin-bottom:4px;">Backlog complete — every original story preserved, modified, or explicitly deferred with rationale</li>
+          <li style="margin-bottom:4px;">Phase A delivers standalone ROI: culture transformation, brand pipeline, executive visibility</li>
+          <li style="margin-bottom:4px;">No Phase A features secretly require PHI — boundary is clean and auditable</li>
+          <li>Shelfware risk: LOW-MEDIUM, concentrated in Front Desk persona</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE HIGHLIGHTS -->
+<section id="architecture">
+  <div class="container">
+    <h2>Architecture Highlights</h2>
+    <p class="section-subtitle">From the Tech Lead review: technically sound, no blockers.</p>
+
+    <div class="arch-grid" style="margin-bottom:24px;">
+      <div class="arch-card">
+        <h4>Separate PHI Schema</h4>
+        <p style="margin-bottom:8px;">PHI tables live in a dedicated <code style="background:#f1f3f5;padding:2px 6px;border-radius:4px;font-size:12px;">phi</code> PostgreSQL schema — not nullable columns on shared tables.</p>
+        <ul>
+          <li>Clean separation and audit trail</li>
+          <li>Schema-level GRANT policies</li>
+          <li>Phase A services have no access to phi schema</li>
+          <li>Tables created in A0 with RLS, zero rows until B0</li>
+        </ul>
+      </div>
+      <div class="arch-card">
+        <h4>Additive Kafka Evolution</h4>
+        <p style="margin-bottom:8px;">Forward-compatible schema rules: Phase B adds optional fields without breaking Phase A consumers.</p>
+        <ul>
+          <li>8 of 10 cross-workstream events active in Phase A</li>
+          <li>2 PHI events registered, no producers until B0</li>
+          <li>Schema versioning: 1.0 (Phase A) to 1.1 (Phase B)</li>
+          <li>No consumer redeployment required</li>
+        </ul>
+      </div>
+      <div class="arch-card">
+        <h4>3-Level Feature Flags</h4>
+        <p style="margin-bottom:8px;">Hierarchical runtime flags: global phase, per-practice PHI enabled, per-feature activation.</p>
+        <ul>
+          <li>Emergency kill switch: <code style="background:#f1f3f5;padding:2px 6px;border-radius:4px;font-size:12px;">phase_a_only</code></li>
+          <li>Per-practice BAA verification gate</li>
+          <li>Rolling activation: 50 practices/week</li>
+          <li>Single codebase, runtime evaluated</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4 style="margin-bottom:12px;">3 Recommended Optimizations (from Tech Review)</h4>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+        <div>
+          <div style="font-size:13px;font-weight:600;color:var(--infra-color);margin-bottom:4px;">1. Partial AI Service in A1</div>
+          <div style="font-size:13px;color:var(--color-text-secondary);line-height:1.5;">Build core AI Service (prompt registry, cost-tier routing, Claude API) in A1. Phase A needs caption generation, AI alerts, and learning reports. PHI filter and Whisper deferred to B0.</div>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:600;color:var(--infra-color);margin-bottom:4px;">2. Comms Service Limited Scope in A1</div>
+          <div style="font-size:13px;color:var(--color-text-secondary);line-height:1.5;">Deploy SMS send API and number management for content capture briefs. Omit consent registry and HIPAA encryption. Avoids migration from non-HIPAA gateway in B0.</div>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:600;color:var(--infra-color);margin-bottom:4px;">3. Compliance Middleware Monitoring Mode</div>
+          <div style="font-size:13px;color:var(--color-text-secondary);line-height:1.5;">Deploy Compliance Middleware in monitoring (not enforcement) mode during Phase A. Verify no PHI appears in any data flow. Transitions to enforcement mode when B0 activates.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px;background:var(--infra-bg);border-color:var(--infra-light);">
+      <h4 style="color:var(--infra-color);margin-bottom:8px;">Phase B Transition Principle</h4>
+      <p style="font-size:15px;color:var(--color-text-secondary);line-height:1.6;">
+        <strong>"Architecture for addition, not subtraction."</strong> Nothing built in Phase A is removed or restructured when Phase B activates. Tabs inject into existing containers. Dashboard KPI slots expand. Feature flags reveal hidden components. Kafka consumers receive new events from new producers. The same codebase, the same deployment, the same user sessions — just more features visible. Phase B is an expansion, not a migration.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="page-footer">
+  <div class="container">
+    <div class="footer-line"><strong>Citizen &amp; Partners</strong> &nbsp;|&nbsp; bilt.studio &nbsp;|&nbsp; March 2026</div>
+    <div class="footer-line" style="font-size:13px;">Sprint artifacts: 9 documents &nbsp;|&nbsp; 7 agent phases &nbsp;|&nbsp; 2 QC gates &nbsp;|&nbsp; ~350KB of analysis</div>
+  </div>
+</footer>
+
+<!-- ============================================
+     JAVASCRIPT
+     ============================================ -->
+<script>
+(function() {
+  'use strict';
+
+  // --- Tab switching ---
+  var tabBar = document.querySelector('.tab-bar');
+  var tabBtns = tabBar ? tabBar.querySelectorAll('.tab-btn') : [];
+  var tabPanels = document.querySelectorAll('.tab-panel');
+
+  function activateTab(btn) {
+    tabBtns.forEach(function(b) {
+      b.setAttribute('aria-selected', 'false');
+    });
+    tabPanels.forEach(function(p) {
+      p.classList.remove('active');
+    });
+    btn.setAttribute('aria-selected', 'true');
+    var panel = document.getElementById(btn.getAttribute('aria-controls'));
+    if (panel) panel.classList.add('active');
+  }
+
+  tabBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() { activateTab(btn); });
+  });
+
+  // Keyboard navigation for tabs (arrow keys)
+  if (tabBar) {
+    tabBar.addEventListener('keydown', function(e) {
+      var btns = Array.from(tabBtns);
+      var idx = btns.indexOf(document.activeElement);
+      if (idx === -1) return;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        var next = btns[(idx + 1) % btns.length];
+        next.focus();
+        activateTab(next);
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        var prev = btns[(idx - 1 + btns.length) % btns.length];
+        prev.focus();
+        activateTab(prev);
+      }
+    });
+  }
+
+  // --- Smooth scroll for navigation ---
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        var navHeight = document.querySelector('.sticky-nav') ? document.querySelector('.sticky-nav').offsetHeight : 0;
+        var top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 8;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // --- Active nav link highlighting with IntersectionObserver ---
+  var navLinks = document.querySelectorAll('.nav-links a');
+  var sections = [];
+  navLinks.forEach(function(link) {
+    var id = link.getAttribute('href').replace('#', '');
+    var section = document.getElementById(id);
+    if (section) sections.push({ id: id, el: section, link: link });
+  });
+
+  if ('IntersectionObserver' in window && sections.length > 0) {
+    var navH = document.querySelector('.sticky-nav') ? document.querySelector('.sticky-nav').offsetHeight + 20 : 60;
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          navLinks.forEach(function(l) { l.classList.remove('active'); });
+          sections.forEach(function(s) {
+            if (s.id === entry.target.id) {
+              s.link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, {
+      rootMargin: '-' + navH + 'px 0px -60% 0px',
+      threshold: 0
+    });
+    sections.forEach(function(s) { observer.observe(s.el); });
+  }
+})();
+</script>
+
+</body>
+</html>
